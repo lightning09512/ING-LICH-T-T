@@ -3,9 +3,78 @@
 class SoundEngine {
   private ctx: AudioContext | null = null;
   private soundEnabled: boolean = true;
+  private currentAudio: HTMLAudioElement | null = null;
+  private femaleVoice: SpeechSynthesisVoice | null = null;
 
   constructor() {
-    // Lazy init on first user interaction
+    this.initVoices();
+  }
+
+  // Pre-load and lock strictly to a pleasant, natural female English voice
+  private initVoices() {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+
+    const selectFemaleVoice = () => {
+      const voices = window.speechSynthesis.getVoices();
+      if (!voices || voices.length === 0) return;
+
+      const MALE_NAMES = [
+        'david', 'mark', 'george', 'guy', 'stefan', 'richard', 'christopher', 
+        'paul', 'tom', 'alex', 'fred', 'daniel', 'james', 'brian', 'charles', 
+        'male', 'man', 'boy'
+      ];
+
+      const isMale = (name: string) => {
+        const lower = name.toLowerCase();
+        return MALE_NAMES.some(m => lower.includes(m));
+      };
+
+      const PREFERRED_FEMALE = [
+        'google us english',
+        'microsoft jenny',
+        'microsoft aria',
+        'microsoft zira',
+        'samantha',
+        'victoria',
+        'karen',
+        'moira',
+        'tessa',
+        'fiona',
+        'female'
+      ];
+
+      // 1. Try to find standard high-quality natural female voices
+      let chosen = voices.find(v => {
+        if (!v.lang.startsWith('en')) return false;
+        if (isMale(v.name)) return false;
+        const lower = v.name.toLowerCase();
+        return PREFERRED_FEMALE.some(f => lower.includes(f));
+      });
+
+      // 2. Try any English voice with 'female' or 'natural' in the name that is not male
+      if (!chosen) {
+        chosen = voices.find(v => {
+          if (!v.lang.startsWith('en')) return false;
+          if (isMale(v.name)) return false;
+          const lower = v.name.toLowerCase();
+          return lower.includes('female') || lower.includes('natural');
+        });
+      }
+
+      // 3. Fallback to any English voice that is strictly NOT in the male list
+      if (!chosen) {
+        chosen = voices.find(v => v.lang.startsWith('en') && !isMale(v.name));
+      }
+
+      if (chosen) {
+        this.femaleVoice = chosen;
+      }
+    };
+
+    selectFemaleVoice();
+    if (window.speechSynthesis.onvoiceschanged !== undefined) {
+      window.speechSynthesis.onvoiceschanged = selectFemaleVoice;
+    }
   }
 
   private getContext(): AudioContext | null {
@@ -126,10 +195,8 @@ class SoundEngine {
     });
   }
 
-  // High-fidelity native studio pronunciation with natural Web Speech fallback
-  private currentAudio: HTMLAudioElement | null = null;
-
-  public speakEnglish(text: string, rate: number = 0.95): Promise<void> {
+  // Standardized high-fidelity natural female English pronunciation
+  public speakEnglish(text: string, rate: number = 0.92): Promise<void> {
     return new Promise((resolve) => {
       if (!this.soundEnabled) {
         resolve();
@@ -145,32 +212,38 @@ class SoundEngine {
       // Stop any currently playing audio or speech
       this.stopSpeaking();
 
-      // Primary: High-fidelity American native studio recording (warm, crystal clear human audio)
-      try {
-        const audioUrl = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(cleanText)}&type=2`;
-        const audio = new Audio(audioUrl);
-        this.currentAudio = audio;
+      // Primary: High-fidelity natural female native voice via Google TTS (consistent, warm, crystal-clear American female)
+      if (cleanText.length <= 200) {
+        try {
+          const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en-US&client=tw-ob&q=${encodeURIComponent(cleanText)}`;
+          const audio = new Audio(audioUrl);
+          this.currentAudio = audio;
 
-        audio.onended = () => {
-          this.currentAudio = null;
-          resolve();
-        };
+          audio.onended = () => {
+            this.currentAudio = null;
+            resolve();
+          };
 
-        audio.onerror = () => {
-          this.currentAudio = null;
-          this.speakWithSpeechSynthesis(cleanText, rate, resolve);
-        };
-
-        const playPromise = audio.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(() => {
+          audio.onerror = () => {
             this.currentAudio = null;
             this.speakWithSpeechSynthesis(cleanText, rate, resolve);
-          });
+          };
+
+          const playPromise = audio.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(() => {
+              this.currentAudio = null;
+              this.speakWithSpeechSynthesis(cleanText, rate, resolve);
+            });
+          }
+          return;
+        } catch {
+          // Fall through to female SpeechSynthesis fallback
         }
-      } catch (err) {
-        this.speakWithSpeechSynthesis(cleanText, rate, resolve);
       }
+
+      // Secondary / Fallback: Strictly female Web SpeechSynthesis
+      this.speakWithSpeechSynthesis(cleanText, rate, resolve);
     });
   }
 
@@ -184,24 +257,17 @@ class SoundEngine {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'en-US';
     utterance.rate = rate;
-    utterance.pitch = 1.05;
+    utterance.pitch = 1.08; // Friendly, warm female pitch
 
     utterance.onend = () => resolve();
     utterance.onerror = () => resolve();
 
-    // Select the best natural human voice (avoid creepy robotic SAPI David)
-    const voices = window.speechSynthesis.getVoices();
-    const naturalVoice = voices.find(v => 
-      v.lang.startsWith('en') && 
-      (v.name.toLowerCase().includes('natural') || 
-       v.name.toLowerCase().includes('google') ||
-       v.name.toLowerCase().includes('jenny') || 
-       v.name.toLowerCase().includes('aria') || 
-       v.name.toLowerCase().includes('samantha'))
-    ) || voices.find(v => v.lang.startsWith('en') && !v.name.toLowerCase().includes('david')) || voices[0];
+    if (!this.femaleVoice) {
+      this.initVoices();
+    }
 
-    if (naturalVoice) {
-      utterance.voice = naturalVoice;
+    if (this.femaleVoice) {
+      utterance.voice = this.femaleVoice;
     }
 
     window.speechSynthesis.speak(utterance);
