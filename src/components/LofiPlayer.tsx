@@ -317,8 +317,8 @@ export const LofiPlayer: React.FC<LofiPlayerProps> = ({
       <div
         className={`fixed bottom-4 right-4 z-50 w-[320px] sm:w-[360px] bg-white border-4 border-black rounded-2xl shadow-neo-lg flex flex-col overflow-hidden transition-all duration-200 ${
           isOpen
-            ? 'opacity-100 scale-100 pointer-events-auto translate-y-0'
-            : 'opacity-0 scale-95 pointer-events-none translate-y-8'
+            ? 'opacity-100 scale-100 pointer-events-auto translate-y-0 visible'
+            : 'opacity-0 scale-95 pointer-events-none translate-y-8 invisible'
         }`}
       >
         {/* Header Bar */}
