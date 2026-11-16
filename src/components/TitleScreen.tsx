@@ -45,7 +45,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
           </div>
 
           <h1 className="text-3xl sm:text-6xl md:text-7xl font-black uppercase tracking-wider font-heading text-black break-words">
-            ing lich tét
+            ing lịch tét
           </h1>
           <p className="text-xs sm:text-sm md:text-base font-bold text-gray-600 mt-2 font-comic">
             (giải cứu bạn gái khỏi nỗi sợ TOEIC)
@@ -80,7 +80,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
         <div className="w-full max-w-sm px-2">
           {user ? (
             <div className="w-full bg-white border-2 border-black p-2.5 sm:p-3 shadow-neo-sm flex items-center justify-between gap-2">
-              <div 
+              <div
                 onClick={onOpenAccount}
                 className="flex items-center gap-2 truncate cursor-pointer hover:opacity-80 flex-1 min-w-0"
                 title="Bấm để xem chi tiết tài khoản"

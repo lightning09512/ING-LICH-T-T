@@ -18,6 +18,8 @@ export interface LearningProgress {
   grammarProgress: Record<string, number>;
   vocabUnlockedDay: number;
   vocabDayStars: Record<number, number>;
+  vocabChapter2UnlockedDay: number;
+  vocabChapter2DayStars: Record<number, number>;
   streakDays: number;
   lastStudyDate: string;
   hearts: number;
@@ -44,7 +46,7 @@ interface ProgressContextValue {
   signOut: () => Promise<void>;
   clearAuthError: () => void;
   saveGrammarScore: (topicId: string, score: number) => void;
-  saveVocabularyProgress: (unlockedDay: number, dayStars: Record<number, number>) => void;
+  saveVocabularyProgress: (unlockedDay: number, dayStars: Record<number, number>, chapter?: 1 | 2) => void;
   recordStudyActivity: () => void;
   loseHeart: () => boolean;
   refillHearts: () => void;
@@ -54,6 +56,8 @@ const DEFAULT_PROGRESS: LearningProgress = {
   grammarProgress: {},
   vocabUnlockedDay: 1,
   vocabDayStars: {},
+  vocabChapter2UnlockedDay: 1,
+  vocabChapter2DayStars: {},
   streakDays: 5,
   lastStudyDate: '',
   hearts: 3,
@@ -64,6 +68,8 @@ const LEGACY_KEYS = {
   grammar: 'ing_grammar_progress',
   unlockedDay: 'ing_lich_unlocked_day',
   dayStars: 'ing_lich_day_stars',
+  chapter2UnlockedDay: 'ing_lich_v2_unlocked_day',
+  chapter2DayStars: 'ing_lich_v2_day_stars',
   streak: 'ing_lich_streak_days',
   lastStudyDate: 'ing_lich_last_study_date',
   hearts: 'ing_lich_hearts',
@@ -96,6 +102,11 @@ function normalizeProgress(value: unknown): LearningProgress {
     Object.entries(raw.vocabDayStars ?? {}).filter(([, stars]) => Number.isFinite(stars) && stars >= 0)
   );
   const unlockedDay = Number(raw.vocabUnlockedDay);
+  const rawChapter2Unlocked = Number(raw.vocabChapter2UnlockedDay);
+  const vocabChapter2UnlockedDay = Number.isFinite(rawChapter2Unlocked) ? Math.max(1, Math.min(13, rawChapter2Unlocked)) : 1;
+  const vocabChapter2DayStars = Object.fromEntries(
+    Object.entries(raw.vocabChapter2DayStars ?? {}).filter(([, stars]) => Number.isFinite(stars) && stars >= 0)
+  );
   const rawStreak = Number(raw.streakDays);
   const streakDays = Number.isFinite(rawStreak) && rawStreak >= 0 ? rawStreak : 5;
   const lastStudyDate = typeof raw.lastStudyDate === 'string' ? raw.lastStudyDate : '';
@@ -108,6 +119,8 @@ function normalizeProgress(value: unknown): LearningProgress {
     grammarProgress,
     vocabUnlockedDay: Number.isFinite(unlockedDay) ? Math.max(1, Math.min(26, unlockedDay)) : 1,
     vocabDayStars,
+    vocabChapter2UnlockedDay,
+    vocabChapter2DayStars,
     streakDays,
     lastStudyDate,
     hearts,
@@ -127,6 +140,14 @@ function mergeProgress(...items: LearningProgress[]): LearningProgress {
       }
     }
     result.vocabUnlockedDay = Math.max(result.vocabUnlockedDay, item.vocabUnlockedDay);
+    result.vocabChapter2UnlockedDay = Math.max(result.vocabChapter2UnlockedDay ?? 1, item.vocabChapter2UnlockedDay ?? 1);
+    for (const [day, stars] of Object.entries(item.vocabChapter2DayStars ?? {})) {
+      const numericDay = Number(day);
+      if (Number.isFinite(numericDay)) {
+        result.vocabChapter2DayStars = result.vocabChapter2DayStars || {};
+        result.vocabChapter2DayStars[numericDay] = Math.max(result.vocabChapter2DayStars[numericDay] ?? 0, stars);
+      }
+    }
     result.streakDays = Math.max(result.streakDays, item.streakDays);
     if (item.lastStudyDate && (!result.lastStudyDate || item.lastStudyDate > result.lastStudyDate)) {
       result.lastStudyDate = item.lastStudyDate;
@@ -148,6 +169,8 @@ function readGuestProgress(): LearningProgress {
     const grammar = localStorage.getItem(LEGACY_KEYS.grammar);
     const unlockedDay = localStorage.getItem(LEGACY_KEYS.unlockedDay);
     const dayStars = localStorage.getItem(LEGACY_KEYS.dayStars);
+    const chapter2Unlocked = localStorage.getItem(LEGACY_KEYS.chapter2UnlockedDay);
+    const chapter2Stars = localStorage.getItem(LEGACY_KEYS.chapter2DayStars);
     const streak = localStorage.getItem(LEGACY_KEYS.streak);
     const lastDate = localStorage.getItem(LEGACY_KEYS.lastStudyDate);
     const hearts = localStorage.getItem(LEGACY_KEYS.hearts);
@@ -156,6 +179,8 @@ function readGuestProgress(): LearningProgress {
       grammarProgress: grammar ? JSON.parse(grammar) : {},
       vocabUnlockedDay: unlockedDay ? Number.parseInt(unlockedDay, 10) : 1,
       vocabDayStars: dayStars ? JSON.parse(dayStars) : {},
+      vocabChapter2UnlockedDay: chapter2Unlocked ? Number.parseInt(chapter2Unlocked, 10) : 1,
+      vocabChapter2DayStars: chapter2Stars ? JSON.parse(chapter2Stars) : {},
       streakDays: streak ? Number.parseInt(streak, 10) : 5,
       lastStudyDate: lastDate || '',
       hearts: hearts ? Number.parseInt(hearts, 10) : 3,
@@ -185,6 +210,8 @@ function writeLocalProgress(progress: LearningProgress, uid: string | null) {
     localStorage.setItem(LEGACY_KEYS.grammar, JSON.stringify(progress.grammarProgress));
     localStorage.setItem(LEGACY_KEYS.unlockedDay, String(progress.vocabUnlockedDay));
     localStorage.setItem(LEGACY_KEYS.dayStars, JSON.stringify(progress.vocabDayStars));
+    localStorage.setItem(LEGACY_KEYS.chapter2UnlockedDay, String(progress.vocabChapter2UnlockedDay ?? 1));
+    localStorage.setItem(LEGACY_KEYS.chapter2DayStars, JSON.stringify(progress.vocabChapter2DayStars ?? {}));
     localStorage.setItem(LEGACY_KEYS.streak, String(progress.streakDays));
     localStorage.setItem(LEGACY_KEYS.lastStudyDate, progress.lastStudyDate);
     localStorage.setItem(LEGACY_KEYS.hearts, String(progress.hearts));
@@ -557,20 +584,30 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     }));
   }, [commitProgress]);
 
-  const saveVocabularyProgress = useCallback((unlockedDay: number, dayStars: Record<number, number>) => {
+  const saveVocabularyProgress = useCallback((unlockedDay: number, dayStars: Record<number, number>, chapter: 1 | 2 = 1) => {
     commitProgress(current => {
-      const mergedStars = { ...current.vocabDayStars };
+      const isChap2 = chapter === 2;
+      const targetStars = isChap2 ? { ...(current.vocabChapter2DayStars || {}) } : { ...(current.vocabDayStars || {}) };
+
       for (const [day, stars] of Object.entries(dayStars)) {
         const numericDay = Number(day);
         if (Number.isFinite(numericDay)) {
-          mergedStars[numericDay] = Math.max(mergedStars[numericDay] ?? 0, stars);
+          targetStars[numericDay] = Math.max(targetStars[numericDay] ?? 0, stars);
         }
+      }
+
+      if (isChap2) {
+        return {
+          ...current,
+          vocabChapter2UnlockedDay: Math.max(current.vocabChapter2UnlockedDay ?? 1, unlockedDay),
+          vocabChapter2DayStars: targetStars,
+        };
       }
 
       return {
         ...current,
         vocabUnlockedDay: Math.max(current.vocabUnlockedDay, unlockedDay),
-        vocabDayStars: mergedStars,
+        vocabDayStars: targetStars,
       };
     });
   }, [commitProgress]);

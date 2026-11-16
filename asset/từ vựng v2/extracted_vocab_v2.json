@@ -1,0 +1,2693 @@
+[
+  {
+    "file": "XYAGMT+NotoSansExtraCondensed-Thin",
+    "title": "Part 1 New economy",
+    "count": 63,
+    "words": [
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_1",
+        "word": "type",
+        "meaning": "đánh máy"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_2",
+        "word": "bake",
+        "meaning": "nướng"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_3",
+        "word": "bakery",
+        "meaning": "tiệm bánh"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_4",
+        "word": "screwdriver",
+        "meaning": "cái tô vít"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_5",
+        "word": "screw",
+        "meaning": "vặn ốc, ốc vít"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_6",
+        "word": "hammer",
+        "meaning": "cái búa, gõ búa"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_7",
+        "word": "frame",
+        "meaning": "khung ảnh"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_8",
+        "word": "glasses",
+        "meaning": "cái kính"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_9",
+        "word": "umbrella",
+        "meaning": "cái dù"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_10",
+        "word": "calculator",
+        "meaning": "cái máy tính cầm tay"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_11",
+        "word": "calculate",
+        "meaning": "tính toán"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_12",
+        "word": "dock",
+        "meaning": "cập bến, cảng"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_13",
+        "word": "board",
+        "meaning": "lên tàu xe"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_14",
+        "word": "wheel",
+        "meaning": "bánh xe"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_15",
+        "word": "bike",
+        "meaning": "xe đạp, đạp xe"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_16",
+        "word": "change",
+        "meaning": "thay đổi"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_17",
+        "word": "tire",
+        "meaning": "lốp xe"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_18",
+        "word": "windmill",
+        "meaning": "cối xay gió"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_19",
+        "word": "chairlift",
+        "meaning": "ghế cáp treo"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_20",
+        "word": "ski",
+        "meaning": "trượt tuyết"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_21",
+        "word": "helmet",
+        "meaning": "mũ bảo hiểm"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_22",
+        "word": "headset",
+        "meaning": "tai nghe"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_23",
+        "word": "a pair of scissors",
+        "meaning": "một đôi kéo"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_24",
+        "word": "cucumber",
+        "meaning": "dưa leo"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_25",
+        "word": "lean over",
+        "meaning": "rướn người về phía trước"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_26",
+        "word": "lean against",
+        "meaning": "tựa vào"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_27",
+        "word": "flowerpot",
+        "meaning": "chậu hoa"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_28",
+        "word": "shoulder",
+        "meaning": "vai"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_29",
+        "word": "fill",
+        "meaning": "làm đầy, lấp đầy"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_30",
+        "word": "pump",
+        "meaning": "cái bơm, bơm"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_31",
+        "word": "treadmill",
+        "meaning": "máy chạy bộ"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_32",
+        "word": "button",
+        "meaning": "cái nút"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_33",
+        "word": "hook",
+        "meaning": "lưỡi câu"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_34",
+        "word": "tool belt",
+        "meaning": "dây đai dung cu"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_35",
+        "word": "lecture",
+        "meaning": "bài giảng"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_36",
+        "word": "lecturer",
+        "meaning": "giảng viên"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_37",
+        "word": "lecture theater",
+        "meaning": "giảng đường"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_38",
+        "word": "occupied",
+        "meaning": "có người"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_39",
+        "word": "unoccupied",
+        "meaning": "trống"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_40",
+        "word": "bait",
+        "meaning": "mồi câu"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_41",
+        "word": "reel in",
+        "meaning": "kéo vào"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_42",
+        "word": "pier",
+        "meaning": "bến cảng"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_43",
+        "word": "blueprint",
+        "meaning": "bản vẽ"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_44",
+        "word": "blow",
+        "meaning": "thổi"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_45",
+        "word": "blower",
+        "meaning": "máy thổi"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_46",
+        "word": "broom",
+        "meaning": "cây chổi"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_47",
+        "word": "pants",
+        "meaning": "quần dài"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_48",
+        "word": "mirror",
+        "meaning": "cái gương"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_49",
+        "word": "reflection",
+        "meaning": "hình phản chiếu"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_50",
+        "word": "pepper",
+        "meaning": "tiêu, ớt"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_51",
+        "word": "business card",
+        "meaning": "danh thiếp"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_52",
+        "word": "garment",
+        "meaning": "quần áo (trang phuc)"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_53",
+        "word": "hanger",
+        "meaning": "móc treo"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_54",
+        "word": "bacteria",
+        "meaning": "vi khuẩn"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_55",
+        "word": "microscope",
+        "meaning": "kính hiển vi"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_56",
+        "word": "golf clubs",
+        "meaning": "gậy đánh golf"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_57",
+        "word": "sock",
+        "meaning": "vớ"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_58",
+        "word": "same direction",
+        "meaning": "cùng hướng"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_59",
+        "word": "paddle",
+        "meaning": "mái chèo"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_60",
+        "word": "bread paddle",
+        "meaning": "xẻng lấy bánh"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_61",
+        "word": "shore",
+        "meaning": "bờ biển"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_62",
+        "word": "pipe",
+        "meaning": "ống"
+      },
+      {
+        "id": "XYAGMT+NotoSansExtraCondensed-Thin_63",
+        "word": "cross",
+        "meaning": "băng qua"
+      }
+    ]
+  },
+  {
+    "file": "KSSRQB+NotoSansExtraCondensed-Thin",
+    "title": "Part 1 ETS 2019",
+    "count": 47,
+    "words": [
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_1",
+        "word": "display case",
+        "meaning": "tủ trưng bày"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_2",
+        "word": "switch off",
+        "meaning": "tắt"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_3",
+        "word": "switch on",
+        "meaning": "bật"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_4",
+        "word": "stair",
+        "meaning": "cầu thang"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_5",
+        "word": "trim",
+        "meaning": "cắt tỉa"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_6",
+        "word": "basket",
+        "meaning": "cái giỏ"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_7",
+        "word": "fishing pole",
+        "meaning": "cần câu"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_8",
+        "word": "wipe",
+        "meaning": "lau chùi"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_9",
+        "word": "kneel",
+        "meaning": "quỳ"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_10",
+        "word": "partition",
+        "meaning": "vách ngăn"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_11",
+        "word": "drawer",
+        "meaning": "ngăn kéo"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_12",
+        "word": "rack",
+        "meaning": "giá đỡ"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_13",
+        "word": "flag",
+        "meaning": "lá cờ"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_14",
+        "word": "raise",
+        "meaning": "nâng lên"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_15",
+        "word": "barrier",
+        "meaning": "rào chắn"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_16",
+        "word": "wheelbarrow",
+        "meaning": "xe rùa"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_17",
+        "word": "equipment",
+        "meaning": "thiết bi"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_18",
+        "word": "apron",
+        "meaning": "tạp dề"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_19",
+        "word": "pack",
+        "meaning": "đóng gói, đóng hàng"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_20",
+        "word": "unpack",
+        "meaning": "tháo gỡ hành lý, khui hàng"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_21",
+        "word": "tent",
+        "meaning": "lều"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_22",
+        "word": "railing",
+        "meaning": "tay vin"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_23",
+        "word": "descend",
+        "meaning": "đi xuống"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_24",
+        "word": "ascend",
+        "meaning": "đi lên"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_25",
+        "word": "projector",
+        "meaning": "máy chiếu"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_26",
+        "word": "material",
+        "meaning": "vật liệu, tài liệu, vật chất"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_27",
+        "word": "entryway",
+        "meaning": "lối vào"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_28",
+        "word": "plug in",
+        "meaning": "cắm điện"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_29",
+        "word": "plug out",
+        "meaning": "rút điện"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_30",
+        "word": "replace",
+        "meaning": "thay thế"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_31",
+        "word": "lightbulb",
+        "meaning": "bóng đèn dây tóc"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_32",
+        "word": "tollbooth",
+        "meaning": "trạm thu phí"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_33",
+        "word": "tunnel",
+        "meaning": "đường hầm"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_34",
+        "word": "construction",
+        "meaning": "công trình xây dựng"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_35",
+        "word": "mug",
+        "meaning": "ly sứ"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_36",
+        "word": "dry",
+        "meaning": "làm khô"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_37",
+        "word": "appliance",
+        "meaning": "thiết bi"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_38",
+        "word": "balcony",
+        "meaning": "ban công"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_39",
+        "word": "supplies",
+        "meaning": "thiết bi, đồ dùng, vật tư"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_40",
+        "word": "scatter",
+        "meaning": "rải ra, tung ra"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_41",
+        "word": "bulletin board",
+        "meaning": "bảng thông tin"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_42",
+        "word": "package",
+        "meaning": "gói hàng"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_43",
+        "word": "be laid out",
+        "meaning": "được sắp xếp, bày ra"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_44",
+        "word": "squeeze",
+        "meaning": "bóp"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_45",
+        "word": "awning",
+        "meaning": "mái che"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_46",
+        "word": "gather",
+        "meaning": "tập hợp"
+      },
+      {
+        "id": "KSSRQB+NotoSansExtraCondensed-Thin_47",
+        "word": "gesture",
+        "meaning": "cử chỉ"
+      }
+    ]
+  },
+  {
+    "file": "JHWXSH+NotoSansExtraCondensed-Thin",
+    "title": "Part 2 ETS 2019",
+    "count": 67,
+    "words": [
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_1",
+        "word": "misplace",
+        "meaning": "để nhầm chỗ"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_2",
+        "word": "directory",
+        "meaning": "danh bạ, thư muc"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_3",
+        "word": "building directory",
+        "meaning": "bảng chỉ dẫn tòa nhà"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_4",
+        "word": "entrance",
+        "meaning": "lối vào"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_5",
+        "word": "merger",
+        "meaning": "sự sáp nhập"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_6",
+        "word": "negotiation",
+        "meaning": "sự đàm phán"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_7",
+        "word": "appreciate",
+        "meaning": "đánh giá cao, cảm kích"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_8",
+        "word": "consultant",
+        "meaning": "cố vấn"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_9",
+        "word": "permission",
+        "meaning": "sự cho phép"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_10",
+        "word": "retreat",
+        "meaning": "kỳ nghỉ nội bộ (thường của công ty)"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_11",
+        "word": "decide",
+        "meaning": "quyết đinh"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_12",
+        "word": "manual",
+        "meaning": "sách hướng dẫn"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_13",
+        "word": "leadership training",
+        "meaning": "khóa đào tạo lãnh đạo"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_14",
+        "word": "time-off",
+        "meaning": "thời gian nghỉ phép"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_15",
+        "word": "round-trip",
+        "meaning": "chuyến đi khứ hồi"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_16",
+        "word": "sweater",
+        "meaning": "áo len"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_17",
+        "word": "train station",
+        "meaning": "nhà ga"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_18",
+        "word": "post",
+        "meaning": "đăng bài, bưu kiện"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_19",
+        "word": "post office",
+        "meaning": "bưu điện"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_20",
+        "word": "possible",
+        "meaning": "có thể"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_21",
+        "word": "conference",
+        "meaning": "hội nghi"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_22",
+        "word": "neither",
+        "meaning": "không... cũng không"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_23",
+        "word": "furniture",
+        "meaning": "đồ nội thất"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_24",
+        "word": "miss",
+        "meaning": "bỏ lỡ"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_25",
+        "word": "forecast",
+        "meaning": "dự báo"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_26",
+        "word": "operate",
+        "meaning": "vận hành"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_27",
+        "word": "probably",
+        "meaning": "có lẽ"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_28",
+        "word": "responsible for",
+        "meaning": "chiu trách nhiệm"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_29",
+        "word": "in charge of",
+        "meaning": "phu trách"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_30",
+        "word": "intern",
+        "meaning": "thực tập sinh"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_31",
+        "word": "internship",
+        "meaning": "kỳ thực tập"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_32",
+        "word": "flexible",
+        "meaning": "linh hoạt"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_33",
+        "word": "quarter",
+        "meaning": "quý (3 tháng), một phần tư"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_34",
+        "word": "leak",
+        "meaning": "rò rỉ"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_35",
+        "word": "stationery",
+        "meaning": "văn phòng phẩm"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_36",
+        "word": "fund-raising",
+        "meaning": "gây quỹ"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_37",
+        "word": "handle",
+        "meaning": "xử lý"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_38",
+        "word": "warranty",
+        "meaning": "bảo hành"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_39",
+        "word": "price tag",
+        "meaning": "nhãn giá"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_40",
+        "word": "authorize",
+        "meaning": "ủy quyền"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_41",
+        "word": "supervisor",
+        "meaning": "người giám sát"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_42",
+        "word": "postpone",
+        "meaning": "hoãn lại"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_43",
+        "word": "council meeting",
+        "meaning": "cuộc hop hội đồng"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_44",
+        "word": "statement",
+        "meaning": "bản sao kê, tuyên bố"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_45",
+        "word": "bureau",
+        "meaning": "cuc, phòng, cơ quan"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_46",
+        "word": "estimate",
+        "meaning": "bảng ước tính"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_47",
+        "word": "exhibit",
+        "meaning": "triển lãm"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_48",
+        "word": "sales figures",
+        "meaning": "số liệu doanh thu"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_49",
+        "word": "plenty of",
+        "meaning": "rất nhiều"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_50",
+        "word": "go straight",
+        "meaning": "đi thẳng"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_51",
+        "word": "behind schedule",
+        "meaning": "trễ tiến độ"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_52",
+        "word": "indoor track",
+        "meaning": "đường chạy trong nhà"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_53",
+        "word": "the first-aid kit",
+        "meaning": "hộp sơ cứu"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_54",
+        "word": "product launch",
+        "meaning": "buổi ra mắt sản phẩm"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_55",
+        "word": "be supposed to",
+        "meaning": "được cho là, có nhiệm vu"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_56",
+        "word": "avenue",
+        "meaning": "đại lộ"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_57",
+        "word": "venue",
+        "meaning": "đia điểm tổ chức"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_58",
+        "word": "guest",
+        "meaning": "khách mời"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_59",
+        "word": "parking pass",
+        "meaning": "thẻ đậu xe"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_60",
+        "word": "recently",
+        "meaning": "gần đây"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_61",
+        "word": "legal team",
+        "meaning": "đội ngũ pháp lý"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_62",
+        "word": "confirm",
+        "meaning": "xác nhận"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_63",
+        "word": "platter",
+        "meaning": "khay lớn (đựng thức ăn)"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_64",
+        "word": "console",
+        "meaning": "bảng điều khiển"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_65",
+        "word": "raffle",
+        "meaning": "xổ số trúng thưởng"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_66",
+        "word": "ink cartridge",
+        "meaning": "hộp mực in"
+      },
+      {
+        "id": "JHWXSH+NotoSansExtraCondensed-Thin_67",
+        "word": "striped shirt",
+        "meaning": "áo sơ mi soc"
+      }
+    ]
+  },
+  {
+    "file": "EWTTLC+NotoSansExtraCondensed-Thin",
+    "title": "Test 1 ETS 2019",
+    "count": 79,
+    "words": [
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_1",
+        "word": "extensive",
+        "meaning": "sâu rộng"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_2",
+        "word": "current",
+        "meaning": "hiện tại"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_3",
+        "word": "audit",
+        "meaning": "kiểm toán"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_4",
+        "word": "once",
+        "meaning": "một lần, một khi"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_5",
+        "word": "damage",
+        "meaning": "phá hủy"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_6",
+        "word": "concerning",
+        "meaning": "liên quan, về"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_7",
+        "word": "available",
+        "meaning": "rảnh, có sẵn"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_8",
+        "word": "binocular",
+        "meaning": "ống nhòm"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_9",
+        "word": "object",
+        "meaning": "vật thể"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_10",
+        "word": "affordable",
+        "meaning": "phải chăng"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_11",
+        "word": "permitted",
+        "meaning": "cho phép"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_12",
+        "word": "occupy",
+        "meaning": "chiếm"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_13",
+        "word": "remain on schedule",
+        "meaning": "giữ đúng lich trình"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_14",
+        "word": "author",
+        "meaning": "tác giả"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_15",
+        "word": "essay",
+        "meaning": "tiểu luận"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_16",
+        "word": "revision",
+        "meaning": "sự chỉnh sửa"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_17",
+        "word": "allow",
+        "meaning": "cho phép"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_18",
+        "word": "quality-improvement initiative",
+        "meaning": "sáng kiến cải thiện chất \nlượng"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_19",
+        "word": "congratulate",
+        "meaning": "chúc mừng"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_20",
+        "word": "nominate",
+        "meaning": "đề cử"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_21",
+        "word": "claim",
+        "meaning": "đòi lại, yêu cầu, nhận đinh"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_22",
+        "word": "predict",
+        "meaning": "dự đoán"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_23",
+        "word": "franchise",
+        "meaning": "nhượng quyền"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_24",
+        "word": "correspondence",
+        "meaning": "thư từ"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_25",
+        "word": "promotional item",
+        "meaning": "mặt hàng khuyến mãi"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_26",
+        "word": "address",
+        "meaning": "trình bày"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_27",
+        "word": "supervisor",
+        "meaning": "giám sát"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_28",
+        "word": "appropriate",
+        "meaning": "phù hợp"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_29",
+        "word": "subsequent",
+        "meaning": "tiếp theo, sau đó"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_30",
+        "word": "deliverable",
+        "meaning": "có thể giao được"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_31",
+        "word": "admit",
+        "meaning": "thừa nhận"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_32",
+        "word": "consecutively",
+        "meaning": "liên tiếp nhau"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_33",
+        "word": "generally",
+        "meaning": "một cách chung chung"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_34",
+        "word": "wireless speaker",
+        "meaning": "loa không dây"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_35",
+        "word": "fivefold",
+        "meaning": "gấp 5 lần"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_36",
+        "word": "on behalf of",
+        "meaning": "đại diện"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_37",
+        "word": "original projection",
+        "meaning": "dự đoán ban đầu"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_38",
+        "word": "quarter",
+        "meaning": "quý"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_39",
+        "word": "differ",
+        "meaning": "khác nhau"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_40",
+        "word": "marginal",
+        "meaning": "nhỏ, không quan trong"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_41",
+        "word": "unforeseen",
+        "meaning": "chưa từng thấy"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_42",
+        "word": "extend",
+        "meaning": "kéo dài"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_43",
+        "word": "commission",
+        "meaning": "ủy ban, tiền hoa hồng"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_44",
+        "word": "trial period",
+        "meaning": "giai đoạn thử"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_45",
+        "word": "facility",
+        "meaning": "cơ sở"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_46",
+        "word": "it is completely risk-free",
+        "meaning": "nó thì hoàn toàn không có \nrủi ro"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_47",
+        "word": "charge",
+        "meaning": "sạc điện, thu tiền"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_48",
+        "word": "elect to",
+        "meaning": "chon để"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_49",
+        "word": "justly",
+        "meaning": "một cách công bằng"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_50",
+        "word": "evenly",
+        "meaning": "một cách bằng nhau"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_51",
+        "word": "initiate",
+        "meaning": "bắt đầu"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_52",
+        "word": "be entitled to do something",
+        "meaning": "được cho phép để làm gì \nđó"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_53",
+        "word": "avoid",
+        "meaning": "tránh"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_54",
+        "word": "deduction",
+        "meaning": "khấu trừ"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_55",
+        "word": "statement",
+        "meaning": "bài báo cáo, lời tuyên bố"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_56",
+        "word": "your expected date",
+        "meaning": "ngày được mong đợi"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_57",
+        "word": "forward",
+        "meaning": "chuyển tiếp, nóng lòng"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_58",
+        "word": "senses",
+        "meaning": "giác quan"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_59",
+        "word": "privacy",
+        "meaning": "sự riêng tư"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_60",
+        "word": "permanent position",
+        "meaning": "vi trí lâu dài"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_61",
+        "word": "temporary",
+        "meaning": "tạm thời"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_62",
+        "word": "arrival",
+        "meaning": "sự đến, sự tới nơi"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_63",
+        "word": "look forward to",
+        "meaning": "mong đợi"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_64",
+        "word": "employee badge",
+        "meaning": "thẻ nhân viên"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_65",
+        "word": "campus",
+        "meaning": "khuôn viên"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_66",
+        "word": "accompany",
+        "meaning": "hộ tống"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_67",
+        "word": "also",
+        "meaning": "đồng thời"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_68",
+        "word": "as well as",
+        "meaning": "cùng với, cũng như là"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_69",
+        "word": "replace",
+        "meaning": "thay thế"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_70",
+        "word": "replacement",
+        "meaning": "sự thay thế"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_71",
+        "word": "exporter",
+        "meaning": "nhà xuất khẩu"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_72",
+        "word": "pecan",
+        "meaning": "hồ đào"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_73",
+        "word": "fact",
+        "meaning": "sự thật"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_74",
+        "word": "expand",
+        "meaning": "mở rộng"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_75",
+        "word": "land area",
+        "meaning": "diện tích đất canh tác"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_76",
+        "word": "yield",
+        "meaning": "sản lượng"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_77",
+        "word": "forecast",
+        "meaning": "dự báo"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_78",
+        "word": "unprecedented",
+        "meaning": "chưa từng thấy"
+      },
+      {
+        "id": "EWTTLC+NotoSansExtraCondensed-Thin_79",
+        "word": "mineral",
+        "meaning": "khoáng vật"
+      }
+    ]
+  },
+  {
+    "file": "LPEJLM+NotoSansExtraCondensed-Thin",
+    "title": "Test 2 ETS 2019",
+    "count": 50,
+    "words": [
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_1",
+        "word": "press release",
+        "meaning": "bài báo"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_2",
+        "word": "training manual",
+        "meaning": "sách hướng dẫn đào tạo"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_3",
+        "word": "auditorium",
+        "meaning": "hội trường"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_4",
+        "word": "punctual",
+        "meaning": "đúng giờ"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_5",
+        "word": "prospective",
+        "meaning": "tiềm năng, triển vong"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_6",
+        "word": "innovative",
+        "meaning": "sáng tạo, đổi mới"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_7",
+        "word": "almost",
+        "meaning": "hầu hết"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_8",
+        "word": "nearby",
+        "meaning": "gần (về khoảng cách)"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_9",
+        "word": "responsibility",
+        "meaning": "trách nhiệm"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_10",
+        "word": "invoice",
+        "meaning": "hóa đơn"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_11",
+        "word": "favor",
+        "meaning": "ủng hộ"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_12",
+        "word": "favorable",
+        "meaning": "thuận lợi, có lợi"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_13",
+        "word": "upon + Ving",
+        "meaning": "sau khi làm gì đó"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_14",
+        "word": "qualification",
+        "meaning": "Trình, Năng \n(Trình độ chuyên môn / Năng lực phẩm chất)"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_15",
+        "word": "slight",
+        "meaning": "nhe, nhỏ, xíu"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_16",
+        "word": "equal",
+        "meaning": "công bằng"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_17",
+        "word": "obliged",
+        "meaning": "biết ơn, bắt buộc"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_18",
+        "word": "essential",
+        "meaning": "quan trong"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_19",
+        "word": "courtesy",
+        "meaning": "phép lich sự"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_20",
+        "word": "rehearsal",
+        "meaning": "sự diễn tập"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_21",
+        "word": "final scene",
+        "meaning": "cảnh cuối cùng"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_22",
+        "word": "accommodate",
+        "meaning": "chứa, đáp ứng"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_23",
+        "word": "ideal venue",
+        "meaning": "đia điểm lý tưởng"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_24",
+        "word": "proximity",
+        "meaning": "sự gần"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_25",
+        "word": "payroll form",
+        "meaning": "đơn trả lương"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_26",
+        "word": "function",
+        "meaning": "hoạt động"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_27",
+        "word": "rather than",
+        "meaning": "thay vì, hơn là"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_28",
+        "word": "unveil",
+        "meaning": "tiết lộ"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_29",
+        "word": "resolve",
+        "meaning": "giải quyết"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_30",
+        "word": "implement",
+        "meaning": "thực thi"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_31",
+        "word": "no matter",
+        "meaning": "không vấn đề"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_32",
+        "word": "suit",
+        "meaning": "phù hợp"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_33",
+        "word": "suitable",
+        "meaning": "phù hợp"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_34",
+        "word": "nursery",
+        "meaning": "vườn ươm, nhà trẻ"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_35",
+        "word": "species",
+        "meaning": "giống loài"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_36",
+        "word": "variety",
+        "meaning": "loại, sự đa dạng"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_37",
+        "word": "transform",
+        "meaning": "biến đổi"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_38",
+        "word": "material",
+        "meaning": "tài liệu, vật liệu"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_39",
+        "word": "conservatory",
+        "meaning": "khu bảo tồn"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_40",
+        "word": "confirm",
+        "meaning": "xác nhận"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_41",
+        "word": "adjacent to",
+        "meaning": "liền kề"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_42",
+        "word": "lounge",
+        "meaning": "phòng chờ"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_43",
+        "word": "recall",
+        "meaning": "Thu hồi, nhớ lại"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_44",
+        "word": "convert",
+        "meaning": "chuyển đổi"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_45",
+        "word": "conversion",
+        "meaning": "sự chuyển đổi"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_46",
+        "word": "fault",
+        "meaning": "lỗi"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_47",
+        "word": "faulty",
+        "meaning": "bi lỗi"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_48",
+        "word": "free of charge",
+        "meaning": "miễn phí"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_49",
+        "word": "verify",
+        "meaning": "kiểm chứng"
+      },
+      {
+        "id": "LPEJLM+NotoSansExtraCondensed-Thin_50",
+        "word": "defect",
+        "meaning": "lỗi"
+      }
+    ]
+  },
+  {
+    "file": "JCSGBH+NotoSansExtraCondensed-Thin",
+    "title": "Test 3 ETS 2019",
+    "count": 42,
+    "words": [
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_1",
+        "word": "ribbon-cutting ceremony",
+        "meaning": "lễ cắt băng khánh thành"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_2",
+        "word": "possible",
+        "meaning": "có khả năng"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_3",
+        "word": "consequence",
+        "meaning": "hậu quả"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_4",
+        "word": "merger",
+        "meaning": "sáp nhập"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_5",
+        "word": "release",
+        "meaning": "phóng ra, phát ra, thả ra, phát hành"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_6",
+        "word": "coupon",
+        "meaning": "phiếu giảm giá"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_7",
+        "word": "operate",
+        "meaning": "hoạt động"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_8",
+        "word": "just in time, in time, on time",
+        "meaning": "vừa kip giờ, kip giờ, đúng giờ"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_9",
+        "word": "pond",
+        "meaning": "cái ao"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_10",
+        "word": "prevent",
+        "meaning": "ngăn chặn"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_11",
+        "word": "spoil",
+        "meaning": "làm hư"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_12",
+        "word": "spoilage",
+        "meaning": "sự hư hỏng"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_13",
+        "word": "potentially",
+        "meaning": "tiềm năng"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_14",
+        "word": "express",
+        "meaning": "bày tỏ"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_15",
+        "word": "alternate",
+        "meaning": "thay phiên, luân phiên"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_16",
+        "word": "be accustomed to",
+        "meaning": "quen thuộc với"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_17",
+        "word": "fuel",
+        "meaning": "nhiên liệu"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_18",
+        "word": "package",
+        "meaning": "gói hàng"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_19",
+        "word": "pursuit",
+        "meaning": "sự theo đuổi"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_20",
+        "word": "aim",
+        "meaning": "muc đích"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_21",
+        "word": "initial feedback",
+        "meaning": "phản hồi ban đầu"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_22",
+        "word": "convenient",
+        "meaning": "tiện lợi"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_23",
+        "word": "endorse",
+        "meaning": "ủng hộ, tán thành"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_24",
+        "word": "supplement",
+        "meaning": "bổ sung"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_25",
+        "word": "supplementary",
+        "meaning": "mang tính bổ sung"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_26",
+        "word": "consequential",
+        "meaning": "mang tính hậu quả"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_27",
+        "word": "persistent",
+        "meaning": "kiên trì"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_28",
+        "word": "bistro",
+        "meaning": "quán ăn nhỏ"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_29",
+        "word": "unfamiliar",
+        "meaning": "không quen thuộc"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_30",
+        "word": "flavor",
+        "meaning": "vi"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_31",
+        "word": "rewarding",
+        "meaning": "có giá tri, bổ ích"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_32",
+        "word": "guideline",
+        "meaning": "sự hướng dẫn"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_33",
+        "word": "inventory",
+        "meaning": "hàng tồn kho"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_34",
+        "word": "shortage",
+        "meaning": "thiếu hàng"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_35",
+        "word": "estimated time frame",
+        "meaning": "khung thời gian được ước lượng"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_36",
+        "word": "statement",
+        "meaning": "bài báo cáo, sự tuyên bố"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_37",
+        "word": "withdraw",
+        "meaning": "rút"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_38",
+        "word": "settle",
+        "meaning": "hòa giải, thiết lập"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_39",
+        "word": "proceeds",
+        "meaning": "tiền lời"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_40",
+        "word": "enhance",
+        "meaning": "nâng cấp, thúc đẩy"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_41",
+        "word": "portion",
+        "meaning": "một phần"
+      },
+      {
+        "id": "JCSGBH+NotoSansExtraCondensed-Thin_42",
+        "word": "primarily",
+        "meaning": "chủ yếu"
+      }
+    ]
+  },
+  {
+    "file": "UQTFLD+NotoSansExtraCondensed-Thin",
+    "title": "Test 4 ETS 2019",
+    "count": 31,
+    "words": [
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_1",
+        "word": "response",
+        "meaning": "phản hồi"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_2",
+        "word": "outline",
+        "meaning": "liệt kê"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_3",
+        "word": "separate",
+        "meaning": "riêng biệt, tách biệt"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_4",
+        "word": "grant",
+        "meaning": "trợ cấp"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_5",
+        "word": "due",
+        "meaning": "hạn, nợ"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_6",
+        "word": "prior to",
+        "meaning": "trước"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_7",
+        "word": "acquire",
+        "meaning": "mua lại, thâu tóm, đạt được (kiến thức, kỹ năng)"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_8",
+        "word": "acquisition",
+        "meaning": "sự mua lại, sự thâu tóm"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_9",
+        "word": "subsidiary",
+        "meaning": "công ty con"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_10",
+        "word": "worsening",
+        "meaning": "xấu đi"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_11",
+        "word": "train station",
+        "meaning": "trạm tàu"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_12",
+        "word": "association",
+        "meaning": "hiệp hội, sự kết hợp"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_13",
+        "word": "violation",
+        "meaning": "sự vi phạm"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_14",
+        "word": "thus",
+        "meaning": "do đó"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_15",
+        "word": "assumption",
+        "meaning": "sự giả đinh"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_16",
+        "word": "perception",
+        "meaning": "nhận thức"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_17",
+        "word": "obligation",
+        "meaning": "nghĩa vu"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_18",
+        "word": "casual",
+        "meaning": "bình dân"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_19",
+        "word": "induce",
+        "meaning": "xúi giuc"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_20",
+        "word": "issue",
+        "meaning": "ấn phẩm, phát hành"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_21",
+        "word": "contractor",
+        "meaning": "nhà thầu"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_22",
+        "word": "rear",
+        "meaning": "phía sau"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_23",
+        "word": "steel cover",
+        "meaning": "mái che bằng thép"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_24",
+        "word": "career matching service",
+        "meaning": "dich vu kết nối công việc"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_25",
+        "word": "payroll",
+        "meaning": "trả lương"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_26",
+        "word": "deposit-payroll payment",
+        "meaning": "trả lương gửi tiền vào tài khoản"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_27",
+        "word": "pay-stub",
+        "meaning": "cuống lương (giấy xác nhận trả lương)"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_28",
+        "word": "time card",
+        "meaning": "thẻ chấm công"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_29",
+        "word": "immigrant",
+        "meaning": "người nhập cư"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_30",
+        "word": "crafter",
+        "meaning": "thợ thủ công"
+      },
+      {
+        "id": "UQTFLD+NotoSansExtraCondensed-Thin_31",
+        "word": "combination",
+        "meaning": "sự kết hợp"
+      }
+    ]
+  },
+  {
+    "file": "XJWADY+NotoSansExtraCondensed-Thin",
+    "title": "Test 5 ETS 2019",
+    "count": 19,
+    "words": [
+      {
+        "id": "XJWADY+NotoSansExtraCondensed-Thin_1",
+        "word": "irrigate",
+        "meaning": "tưới tiêu"
+      },
+      {
+        "id": "XJWADY+NotoSansExtraCondensed-Thin_2",
+        "word": "poll",
+        "meaning": "sự bầu cử"
+      },
+      {
+        "id": "XJWADY+NotoSansExtraCondensed-Thin_3",
+        "word": "revenue",
+        "meaning": "doanh thu"
+      },
+      {
+        "id": "XJWADY+NotoSansExtraCondensed-Thin_4",
+        "word": "institution",
+        "meaning": "tổ chức"
+      },
+      {
+        "id": "XJWADY+NotoSansExtraCondensed-Thin_5",
+        "word": "sensation",
+        "meaning": "cảm giác"
+      },
+      {
+        "id": "XJWADY+NotoSansExtraCondensed-Thin_6",
+        "word": "be set to",
+        "meaning": "chuẩn bi"
+      },
+      {
+        "id": "XJWADY+NotoSansExtraCondensed-Thin_7",
+        "word": "inadvertently",
+        "meaning": "vô tình"
+      },
+      {
+        "id": "XJWADY+NotoSansExtraCondensed-Thin_8",
+        "word": "initially",
+        "meaning": "ban đầu"
+      },
+      {
+        "id": "XJWADY+NotoSansExtraCondensed-Thin_9",
+        "word": "main plant",
+        "meaning": "nhà máy chính"
+      },
+      {
+        "id": "XJWADY+NotoSansExtraCondensed-Thin_10",
+        "word": "tank",
+        "meaning": "cái bình, cái bể"
+      },
+      {
+        "id": "XJWADY+NotoSansExtraCondensed-Thin_11",
+        "word": "range",
+        "meaning": "phạm vi"
+      },
+      {
+        "id": "XJWADY+NotoSansExtraCondensed-Thin_12",
+        "word": "vary",
+        "meaning": "biến đổi"
+      },
+      {
+        "id": "XJWADY+NotoSansExtraCondensed-Thin_13",
+        "word": "confusing",
+        "meaning": "bối rối"
+      },
+      {
+        "id": "XJWADY+NotoSansExtraCondensed-Thin_14",
+        "word": "outlet",
+        "meaning": "đầu ra, cửa hàng"
+      },
+      {
+        "id": "XJWADY+NotoSansExtraCondensed-Thin_15",
+        "word": "power outlet",
+        "meaning": "ổ điện"
+      },
+      {
+        "id": "XJWADY+NotoSansExtraCondensed-Thin_16",
+        "word": "critical marketing outlet",
+        "meaning": "kênh marketing quan trong"
+      },
+      {
+        "id": "XJWADY+NotoSansExtraCondensed-Thin_17",
+        "word": "optimize",
+        "meaning": "tối ưu hóa"
+      },
+      {
+        "id": "XJWADY+NotoSansExtraCondensed-Thin_18",
+        "word": "territory",
+        "meaning": "lãnh thổ"
+      },
+      {
+        "id": "XJWADY+NotoSansExtraCondensed-Thin_19",
+        "word": "a wide range of vendor",
+        "meaning": "một phạm vi rộng của nhà cung cấp"
+      }
+    ]
+  },
+  {
+    "file": "TQDQZK+NotoSansExtraCondensed-Thin",
+    "title": "Test 6 ETS 2019",
+    "count": 32,
+    "words": [
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_1",
+        "word": "luncheon",
+        "meaning": "bữa trưa"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_2",
+        "word": "diplomat",
+        "meaning": "đại sứ, nhà ngoại giao"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_3",
+        "word": "incentive",
+        "meaning": "sự khích lệ"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_4",
+        "word": "stimulate",
+        "meaning": "kích thích"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_5",
+        "word": "externally",
+        "meaning": "bên ngoài"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_6",
+        "word": "certainly",
+        "meaning": "chắc chắn"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_7",
+        "word": "utterly",
+        "meaning": "hoàn toàn"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_8",
+        "word": "array",
+        "meaning": "mảng, dãy, chuỗi"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_9",
+        "word": "crucial",
+        "meaning": "quan trong"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_10",
+        "word": "punctuality",
+        "meaning": "đúng giờ"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_11",
+        "word": "trait",
+        "meaning": "nét tiêu biểu, đặc điểm, đường mòn, thói quen"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_12",
+        "word": "comprehension",
+        "meaning": "sự toàn diện"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_13",
+        "word": "adopt",
+        "meaning": "nhận nuôi, ban hành"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_14",
+        "word": "packing",
+        "meaning": "đóng gói"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_15",
+        "word": "delicate object",
+        "meaning": "vật dễ vỡ"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_16",
+        "word": "affix",
+        "meaning": "gắn vào"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_17",
+        "word": "tag",
+        "meaning": "nhãn"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_18",
+        "word": "authorize",
+        "meaning": "cấp quyền"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_19",
+        "word": "entail",
+        "meaning": "đòi hỏi"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_20",
+        "word": "alert",
+        "meaning": "tỉnh táo, cảnh báo"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_21",
+        "word": "be likely to",
+        "meaning": "dường như"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_22",
+        "word": "in progress",
+        "meaning": "tiến độ, đang tiến triển"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_23",
+        "word": "disruption",
+        "meaning": "sự gián đoạn"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_24",
+        "word": "suffer",
+        "meaning": "chiu đựng"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_25",
+        "word": "variety",
+        "meaning": "loại, sự đa dạng"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_26",
+        "word": "wheat",
+        "meaning": "lúa mì"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_27",
+        "word": "withstand",
+        "meaning": "chống chiu"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_28",
+        "word": "equator",
+        "meaning": "đường xích đạo"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_29",
+        "word": "seed",
+        "meaning": "hạt"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_30",
+        "word": "tolerate",
+        "meaning": "chiu đựng"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_31",
+        "word": "crop",
+        "meaning": "vu mùa, cây trồng"
+      },
+      {
+        "id": "TQDQZK+NotoSansExtraCondensed-Thin_32",
+        "word": "exclusive, exclusively",
+        "meaning": "riêng biệt, độc quyền"
+      }
+    ]
+  },
+  {
+    "file": "DTZLND+NotoSansExtraCondensed-Thin",
+    "title": "Test 7 ETS 2019",
+    "count": 18,
+    "words": [
+      {
+        "id": "DTZLND+NotoSansExtraCondensed-Thin_1",
+        "word": "forum",
+        "meaning": "diễn đàn"
+      },
+      {
+        "id": "DTZLND+NotoSansExtraCondensed-Thin_2",
+        "word": "summit",
+        "meaning": "cuộc hop thượng đỉnh"
+      },
+      {
+        "id": "DTZLND+NotoSansExtraCondensed-Thin_3",
+        "word": "turnout",
+        "meaning": "số lượng người tham gia"
+      },
+      {
+        "id": "DTZLND+NotoSansExtraCondensed-Thin_4",
+        "word": "customary",
+        "meaning": "phong tuc, thông thường"
+      },
+      {
+        "id": "DTZLND+NotoSansExtraCondensed-Thin_5",
+        "word": "sincerely",
+        "meaning": "chân thành"
+      },
+      {
+        "id": "DTZLND+NotoSansExtraCondensed-Thin_6",
+        "word": "adolescent",
+        "meaning": "thanh niên"
+      },
+      {
+        "id": "DTZLND+NotoSansExtraCondensed-Thin_7",
+        "word": "alter",
+        "meaning": "thay đổi"
+      },
+      {
+        "id": "DTZLND+NotoSansExtraCondensed-Thin_8",
+        "word": "effect",
+        "meaning": "ảnh hưởng"
+      },
+      {
+        "id": "DTZLND+NotoSansExtraCondensed-Thin_9",
+        "word": "involve",
+        "meaning": "liên quan"
+      },
+      {
+        "id": "DTZLND+NotoSansExtraCondensed-Thin_10",
+        "word": "authority",
+        "meaning": "nhà cầm quyền"
+      },
+      {
+        "id": "DTZLND+NotoSansExtraCondensed-Thin_11",
+        "word": "specimen",
+        "meaning": "mẫu vật, mẫu xét nghiệm"
+      },
+      {
+        "id": "DTZLND+NotoSansExtraCondensed-Thin_12",
+        "word": "eligible",
+        "meaning": "đủ điều kiện"
+      },
+      {
+        "id": "DTZLND+NotoSansExtraCondensed-Thin_13",
+        "word": "reliable, reliability",
+        "meaning": "đáng tin cậy"
+      },
+      {
+        "id": "DTZLND+NotoSansExtraCondensed-Thin_14",
+        "word": "community",
+        "meaning": "cộng đồng"
+      },
+      {
+        "id": "DTZLND+NotoSansExtraCondensed-Thin_15",
+        "word": "concern",
+        "meaning": "lo lắng"
+      },
+      {
+        "id": "DTZLND+NotoSansExtraCondensed-Thin_16",
+        "word": "substantial",
+        "meaning": "đáng kể"
+      },
+      {
+        "id": "DTZLND+NotoSansExtraCondensed-Thin_17",
+        "word": "terminal",
+        "meaning": "nhà ga, điểm đến"
+      },
+      {
+        "id": "DTZLND+NotoSansExtraCondensed-Thin_18",
+        "word": "preliminary",
+        "meaning": "sơ bộ"
+      }
+    ]
+  },
+  {
+    "file": "IWXAQI+NotoSansExtraCondensed-Thin",
+    "title": "Test 8 ETS 2019",
+    "count": 25,
+    "words": [
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_1",
+        "word": "briefly",
+        "meaning": "ngắn gon"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_2",
+        "word": "division",
+        "meaning": "sự chia, bộ phận"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_3",
+        "word": "specification",
+        "meaning": "thông số kỹ thuật, đặc điểm kỹ thuật"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_4",
+        "word": "allowance",
+        "meaning": "tiền trợ cấp"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_5",
+        "word": "discover",
+        "meaning": "khám phá"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_6",
+        "word": "probably",
+        "meaning": "có khả năng"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_7",
+        "word": "legibly",
+        "meaning": "rõ ràng, dễ đoc"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_8",
+        "word": "monitor",
+        "meaning": "(v) giám sát; (n) màn hình"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_9",
+        "word": "valued customer",
+        "meaning": "khách hàng thân thiết"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_10",
+        "word": "distinguish",
+        "meaning": "phân biệt"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_11",
+        "word": "distinguished",
+        "meaning": "xuất sắc, ưu tú"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_12",
+        "word": "dimension",
+        "meaning": "kích thước"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_13",
+        "word": "quote",
+        "meaning": "báo giá"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_14",
+        "word": "accordingly",
+        "meaning": "tương ứng"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_15",
+        "word": "empower",
+        "meaning": "cấp quyền"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_16",
+        "word": "declare",
+        "meaning": "khai báo"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_17",
+        "word": "prestigious",
+        "meaning": "uy tín"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_18",
+        "word": "flaw",
+        "meaning": "lỗi, sai sót"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_19",
+        "word": "flawless",
+        "meaning": "không có lỗi, hoàn hảo"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_20",
+        "word": "special",
+        "meaning": "món đặc sản"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_21",
+        "word": "debut",
+        "meaning": "ra mắt"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_22",
+        "word": "swipe",
+        "meaning": "quet"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_23",
+        "word": "transaction",
+        "meaning": "giao dich"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_24",
+        "word": "dozen",
+        "meaning": "một tá"
+      },
+      {
+        "id": "IWXAQI+NotoSansExtraCondensed-Thin_25",
+        "word": "workout",
+        "meaning": "tập thể duc"
+      }
+    ]
+  },
+  {
+    "file": "EYWTQX+NotoSansExtraCondensed-Thin",
+    "title": "Test 9 ETS 2019",
+    "count": 29,
+    "words": [
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_1",
+        "word": "meticulously",
+        "meaning": "tỉ mỉ, kỹ càng"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_2",
+        "word": "diagnose",
+        "meaning": "chẩn đoán"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_3",
+        "word": "mildly",
+        "meaning": "nhe nhàng, vừa phải"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_4",
+        "word": "narrowly",
+        "meaning": "hep, ít,"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_5",
+        "word": "emission",
+        "meaning": "khí thải"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_6",
+        "word": "economical",
+        "meaning": "tiết kiệm"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_7",
+        "word": "rely on",
+        "meaning": "dựa vào"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_8",
+        "word": "blend",
+        "meaning": "trộn"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_9",
+        "word": "execute",
+        "meaning": "tiến hành"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_10",
+        "word": "involve",
+        "meaning": "liên quan, tham gia"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_11",
+        "word": "gradually",
+        "meaning": "một cách từ từ"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_12",
+        "word": "insert",
+        "meaning": "thêm vào"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_13",
+        "word": "slide",
+        "meaning": "máng trượt, trượt"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_14",
+        "word": "sedan",
+        "meaning": "xe 4 chỗ"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_15",
+        "word": "multiple",
+        "meaning": "nhiều, bội"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_16",
+        "word": "take over",
+        "meaning": "đảm đương, đảm nhận"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_17",
+        "word": "waive",
+        "meaning": "khấu trừ, từ bỏ"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_18",
+        "word": "digital",
+        "meaning": "kỹ thuật số"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_19",
+        "word": "restriction",
+        "meaning": "hạn chế"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_20",
+        "word": "apparently",
+        "meaning": "rõ ràng"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_21",
+        "word": "obstacle",
+        "meaning": "trở ngại"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_22",
+        "word": "sensor",
+        "meaning": "cái cảm biến"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_23",
+        "word": "detect",
+        "meaning": "phát hiện"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_24",
+        "word": "corrosion",
+        "meaning": "sự bào mòn"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_25",
+        "word": "expose / exposure",
+        "meaning": "phơi bày, để hở ra"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_26",
+        "word": "commercial airline fleet",
+        "meaning": "đội bay hàng không thương mại"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_27",
+        "word": "stage",
+        "meaning": "giai đoạn (=period)"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_28",
+        "word": "joint",
+        "meaning": "khớp nối"
+      },
+      {
+        "id": "EYWTQX+NotoSansExtraCondensed-Thin_29",
+        "word": "susceptible",
+        "meaning": "dễ bi tổn thương, nhạy cảm"
+      }
+    ]
+  },
+  {
+    "file": "VJAIFP+NotoSansExtraCondensed-Thin",
+    "title": "Test 10 ETS 2019",
+    "count": 18,
+    "words": [
+      {
+        "id": "VJAIFP+NotoSansExtraCondensed-Thin_1",
+        "word": "insurance",
+        "meaning": "bảo hiểm"
+      },
+      {
+        "id": "VJAIFP+NotoSansExtraCondensed-Thin_2",
+        "word": "steady",
+        "meaning": "vững chắc, ổn đinh, đều đặn"
+      },
+      {
+        "id": "VJAIFP+NotoSansExtraCondensed-Thin_3",
+        "word": "swiftly",
+        "meaning": "nhanh chóng"
+      },
+      {
+        "id": "VJAIFP+NotoSansExtraCondensed-Thin_4",
+        "word": "rigidly",
+        "meaning": "cứng nhắc"
+      },
+      {
+        "id": "VJAIFP+NotoSansExtraCondensed-Thin_5",
+        "word": "simmer",
+        "meaning": "sôi lăn tăn, vừa tới"
+      },
+      {
+        "id": "VJAIFP+NotoSansExtraCondensed-Thin_6",
+        "word": "thicken",
+        "meaning": "đặc lại"
+      },
+      {
+        "id": "VJAIFP+NotoSansExtraCondensed-Thin_7",
+        "word": "pair with",
+        "meaning": "xếp cặp với"
+      },
+      {
+        "id": "VJAIFP+NotoSansExtraCondensed-Thin_8",
+        "word": "a pair of",
+        "meaning": "một đôi"
+      },
+      {
+        "id": "VJAIFP+NotoSansExtraCondensed-Thin_9",
+        "word": "prototype product",
+        "meaning": "sản phẩm mẫu"
+      },
+      {
+        "id": "VJAIFP+NotoSansExtraCondensed-Thin_10",
+        "word": "archive",
+        "meaning": "lưu trữ"
+      },
+      {
+        "id": "VJAIFP+NotoSansExtraCondensed-Thin_11",
+        "word": "force",
+        "meaning": "lực"
+      },
+      {
+        "id": "VJAIFP+NotoSansExtraCondensed-Thin_12",
+        "word": "back up",
+        "meaning": "lưu dự phòng"
+      },
+      {
+        "id": "VJAIFP+NotoSansExtraCondensed-Thin_13",
+        "word": "server",
+        "meaning": "máy chủ"
+      },
+      {
+        "id": "VJAIFP+NotoSansExtraCondensed-Thin_14",
+        "word": "memoir",
+        "meaning": "hồi ký"
+      },
+      {
+        "id": "VJAIFP+NotoSansExtraCondensed-Thin_15",
+        "word": "commence",
+        "meaning": "bắt đầu"
+      },
+      {
+        "id": "VJAIFP+NotoSansExtraCondensed-Thin_16",
+        "word": "mandatory",
+        "meaning": "bắt buộc"
+      },
+      {
+        "id": "VJAIFP+NotoSansExtraCondensed-Thin_17",
+        "word": "remote",
+        "meaning": "xa xôi, từ xa, hẻo lánh"
+      },
+      {
+        "id": "VJAIFP+NotoSansExtraCondensed-Thin_18",
+        "word": "regret",
+        "meaning": "tiếc nuối"
+      }
+    ]
+  }
+]

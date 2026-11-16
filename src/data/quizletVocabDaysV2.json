@@ -1,0 +1,3213 @@
+{
+  "day_1": {
+    "day": 1,
+    "title": "Part 1 New economy",
+    "totalWords": 63,
+    "words": [
+      {
+        "id": 1,
+        "word": "type",
+        "meaning": "đánh máy",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 2,
+        "word": "bake",
+        "meaning": "nướng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 3,
+        "word": "bakery",
+        "meaning": "tiệm bánh",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 4,
+        "word": "screwdriver",
+        "meaning": "cái tô vít",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 5,
+        "word": "screw",
+        "meaning": "vặn ốc, ốc vít",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 6,
+        "word": "hammer",
+        "meaning": "cái búa, gõ búa",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 7,
+        "word": "frame",
+        "meaning": "khung ảnh",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 8,
+        "word": "glasses",
+        "meaning": "cái kính",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 9,
+        "word": "umbrella",
+        "meaning": "cái dù",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 10,
+        "word": "calculator",
+        "meaning": "cái máy tính cầm tay",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 11,
+        "word": "calculate",
+        "meaning": "tính toán",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 12,
+        "word": "dock",
+        "meaning": "cập bến, cảng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 13,
+        "word": "board",
+        "meaning": "lên tàu xe",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 14,
+        "word": "wheel",
+        "meaning": "bánh xe",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 15,
+        "word": "bike",
+        "meaning": "xe đạp, đạp xe",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 16,
+        "word": "change",
+        "meaning": "thay đổi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 17,
+        "word": "tire",
+        "meaning": "lốp xe",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 18,
+        "word": "windmill",
+        "meaning": "cối xay gió",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 19,
+        "word": "chairlift",
+        "meaning": "ghế cáp treo",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 20,
+        "word": "ski",
+        "meaning": "trượt tuyết",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 21,
+        "word": "helmet",
+        "meaning": "mũ bảo hiểm",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 22,
+        "word": "headset",
+        "meaning": "tai nghe",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 23,
+        "word": "a pair of scissors",
+        "meaning": "một đôi kéo",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 24,
+        "word": "cucumber",
+        "meaning": "dưa leo",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 25,
+        "word": "lean over",
+        "meaning": "rướn người về phía trước",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 26,
+        "word": "lean against",
+        "meaning": "tựa vào",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 27,
+        "word": "flowerpot",
+        "meaning": "chậu hoa",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 28,
+        "word": "shoulder",
+        "meaning": "vai",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 29,
+        "word": "fill",
+        "meaning": "làm đầy, lấp đầy",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 30,
+        "word": "pump",
+        "meaning": "cái bơm, bơm",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 31,
+        "word": "treadmill",
+        "meaning": "máy chạy bộ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 32,
+        "word": "button",
+        "meaning": "cái nút",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 33,
+        "word": "hook",
+        "meaning": "lưỡi câu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 34,
+        "word": "tool belt",
+        "meaning": "dây đai dung cu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 35,
+        "word": "lecture",
+        "meaning": "bài giảng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 36,
+        "word": "lecturer",
+        "meaning": "giảng viên",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 37,
+        "word": "lecture theater",
+        "meaning": "giảng đường",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 38,
+        "word": "occupied",
+        "meaning": "có người",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 39,
+        "word": "unoccupied",
+        "meaning": "trống",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 40,
+        "word": "bait",
+        "meaning": "mồi câu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 41,
+        "word": "reel in",
+        "meaning": "kéo vào",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 42,
+        "word": "pier",
+        "meaning": "bến cảng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 43,
+        "word": "blueprint",
+        "meaning": "bản vẽ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 44,
+        "word": "blow",
+        "meaning": "thổi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 45,
+        "word": "blower",
+        "meaning": "máy thổi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 46,
+        "word": "broom",
+        "meaning": "cây chổi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 47,
+        "word": "pants",
+        "meaning": "quần dài",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 48,
+        "word": "mirror",
+        "meaning": "cái gương",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 49,
+        "word": "reflection",
+        "meaning": "hình phản chiếu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 50,
+        "word": "pepper",
+        "meaning": "tiêu, ớt",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 51,
+        "word": "business card",
+        "meaning": "danh thiếp",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 52,
+        "word": "garment",
+        "meaning": "quần áo (trang phuc)",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 53,
+        "word": "hanger",
+        "meaning": "móc treo",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 54,
+        "word": "bacteria",
+        "meaning": "vi khuẩn",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 55,
+        "word": "microscope",
+        "meaning": "kính hiển vi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 56,
+        "word": "golf clubs",
+        "meaning": "gậy đánh golf",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 57,
+        "word": "sock",
+        "meaning": "vớ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 58,
+        "word": "same direction",
+        "meaning": "cùng hướng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 59,
+        "word": "paddle",
+        "meaning": "mái chèo",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 60,
+        "word": "bread paddle",
+        "meaning": "xẻng lấy bánh",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 61,
+        "word": "shore",
+        "meaning": "bờ biển",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 62,
+        "word": "pipe",
+        "meaning": "ống",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 63,
+        "word": "cross",
+        "meaning": "băng qua",
+        "partOfSpeech": "Từ vựng TOEIC"
+      }
+    ]
+  },
+  "day_2": {
+    "day": 2,
+    "title": "Part 1 ETS 2019",
+    "totalWords": 47,
+    "words": [
+      {
+        "id": 1,
+        "word": "display case",
+        "meaning": "tủ trưng bày",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 2,
+        "word": "switch off",
+        "meaning": "tắt",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 3,
+        "word": "switch on",
+        "meaning": "bật",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 4,
+        "word": "stair",
+        "meaning": "cầu thang",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 5,
+        "word": "trim",
+        "meaning": "cắt tỉa",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 6,
+        "word": "basket",
+        "meaning": "cái giỏ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 7,
+        "word": "fishing pole",
+        "meaning": "cần câu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 8,
+        "word": "wipe",
+        "meaning": "lau chùi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 9,
+        "word": "kneel",
+        "meaning": "quỳ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 10,
+        "word": "partition",
+        "meaning": "vách ngăn",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 11,
+        "word": "drawer",
+        "meaning": "ngăn kéo",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 12,
+        "word": "rack",
+        "meaning": "giá đỡ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 13,
+        "word": "flag",
+        "meaning": "lá cờ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 14,
+        "word": "raise",
+        "meaning": "nâng lên",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 15,
+        "word": "barrier",
+        "meaning": "rào chắn",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 16,
+        "word": "wheelbarrow",
+        "meaning": "xe rùa",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 17,
+        "word": "equipment",
+        "meaning": "thiết bi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 18,
+        "word": "apron",
+        "meaning": "tạp dề",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 19,
+        "word": "pack",
+        "meaning": "đóng gói, đóng hàng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 20,
+        "word": "unpack",
+        "meaning": "tháo gỡ hành lý, khui hàng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 21,
+        "word": "tent",
+        "meaning": "lều",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 22,
+        "word": "railing",
+        "meaning": "tay vin",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 23,
+        "word": "descend",
+        "meaning": "đi xuống",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 24,
+        "word": "ascend",
+        "meaning": "đi lên",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 25,
+        "word": "projector",
+        "meaning": "máy chiếu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 26,
+        "word": "material",
+        "meaning": "vật liệu, tài liệu, vật chất",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 27,
+        "word": "entryway",
+        "meaning": "lối vào",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 28,
+        "word": "plug in",
+        "meaning": "cắm điện",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 29,
+        "word": "plug out",
+        "meaning": "rút điện",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 30,
+        "word": "replace",
+        "meaning": "thay thế",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 31,
+        "word": "lightbulb",
+        "meaning": "bóng đèn dây tóc",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 32,
+        "word": "tollbooth",
+        "meaning": "trạm thu phí",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 33,
+        "word": "tunnel",
+        "meaning": "đường hầm",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 34,
+        "word": "construction",
+        "meaning": "công trình xây dựng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 35,
+        "word": "mug",
+        "meaning": "ly sứ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 36,
+        "word": "dry",
+        "meaning": "làm khô",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 37,
+        "word": "appliance",
+        "meaning": "thiết bi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 38,
+        "word": "balcony",
+        "meaning": "ban công",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 39,
+        "word": "supplies",
+        "meaning": "thiết bi, đồ dùng, vật tư",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 40,
+        "word": "scatter",
+        "meaning": "rải ra, tung ra",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 41,
+        "word": "bulletin board",
+        "meaning": "bảng thông tin",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 42,
+        "word": "package",
+        "meaning": "gói hàng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 43,
+        "word": "be laid out",
+        "meaning": "được sắp xếp, bày ra",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 44,
+        "word": "squeeze",
+        "meaning": "bóp",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 45,
+        "word": "awning",
+        "meaning": "mái che",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 46,
+        "word": "gather",
+        "meaning": "tập hợp",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 47,
+        "word": "gesture",
+        "meaning": "cử chỉ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      }
+    ]
+  },
+  "day_3": {
+    "day": 3,
+    "title": "Part 2 ETS 2019",
+    "totalWords": 67,
+    "words": [
+      {
+        "id": 1,
+        "word": "misplace",
+        "meaning": "để nhầm chỗ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 2,
+        "word": "directory",
+        "meaning": "danh bạ, thư muc",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 3,
+        "word": "building directory",
+        "meaning": "bảng chỉ dẫn tòa nhà",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 4,
+        "word": "entrance",
+        "meaning": "lối vào",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 5,
+        "word": "merger",
+        "meaning": "sự sáp nhập",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 6,
+        "word": "negotiation",
+        "meaning": "sự đàm phán",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 7,
+        "word": "appreciate",
+        "meaning": "đánh giá cao, cảm kích",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 8,
+        "word": "consultant",
+        "meaning": "cố vấn",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 9,
+        "word": "permission",
+        "meaning": "sự cho phép",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 10,
+        "word": "retreat",
+        "meaning": "kỳ nghỉ nội bộ (thường của công ty)",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 11,
+        "word": "decide",
+        "meaning": "quyết đinh",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 12,
+        "word": "manual",
+        "meaning": "sách hướng dẫn",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 13,
+        "word": "leadership training",
+        "meaning": "khóa đào tạo lãnh đạo",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 14,
+        "word": "time-off",
+        "meaning": "thời gian nghỉ phép",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 15,
+        "word": "round-trip",
+        "meaning": "chuyến đi khứ hồi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 16,
+        "word": "sweater",
+        "meaning": "áo len",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 17,
+        "word": "train station",
+        "meaning": "nhà ga",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 18,
+        "word": "post",
+        "meaning": "đăng bài, bưu kiện",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 19,
+        "word": "post office",
+        "meaning": "bưu điện",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 20,
+        "word": "possible",
+        "meaning": "có thể",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 21,
+        "word": "conference",
+        "meaning": "hội nghi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 22,
+        "word": "neither",
+        "meaning": "không... cũng không",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 23,
+        "word": "furniture",
+        "meaning": "đồ nội thất",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 24,
+        "word": "miss",
+        "meaning": "bỏ lỡ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 25,
+        "word": "forecast",
+        "meaning": "dự báo",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 26,
+        "word": "operate",
+        "meaning": "vận hành",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 27,
+        "word": "probably",
+        "meaning": "có lẽ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 28,
+        "word": "responsible for",
+        "meaning": "chiu trách nhiệm",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 29,
+        "word": "in charge of",
+        "meaning": "phu trách",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 30,
+        "word": "intern",
+        "meaning": "thực tập sinh",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 31,
+        "word": "internship",
+        "meaning": "kỳ thực tập",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 32,
+        "word": "flexible",
+        "meaning": "linh hoạt",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 33,
+        "word": "quarter",
+        "meaning": "quý (3 tháng), một phần tư",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 34,
+        "word": "leak",
+        "meaning": "rò rỉ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 35,
+        "word": "stationery",
+        "meaning": "văn phòng phẩm",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 36,
+        "word": "fund-raising",
+        "meaning": "gây quỹ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 37,
+        "word": "handle",
+        "meaning": "xử lý",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 38,
+        "word": "warranty",
+        "meaning": "bảo hành",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 39,
+        "word": "price tag",
+        "meaning": "nhãn giá",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 40,
+        "word": "authorize",
+        "meaning": "ủy quyền",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 41,
+        "word": "supervisor",
+        "meaning": "người giám sát",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 42,
+        "word": "postpone",
+        "meaning": "hoãn lại",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 43,
+        "word": "council meeting",
+        "meaning": "cuộc hop hội đồng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 44,
+        "word": "statement",
+        "meaning": "bản sao kê, tuyên bố",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 45,
+        "word": "bureau",
+        "meaning": "cuc, phòng, cơ quan",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 46,
+        "word": "estimate",
+        "meaning": "bảng ước tính",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 47,
+        "word": "exhibit",
+        "meaning": "triển lãm",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 48,
+        "word": "sales figures",
+        "meaning": "số liệu doanh thu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 49,
+        "word": "plenty of",
+        "meaning": "rất nhiều",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 50,
+        "word": "go straight",
+        "meaning": "đi thẳng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 51,
+        "word": "behind schedule",
+        "meaning": "trễ tiến độ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 52,
+        "word": "indoor track",
+        "meaning": "đường chạy trong nhà",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 53,
+        "word": "the first-aid kit",
+        "meaning": "hộp sơ cứu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 54,
+        "word": "product launch",
+        "meaning": "buổi ra mắt sản phẩm",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 55,
+        "word": "be supposed to",
+        "meaning": "được cho là, có nhiệm vu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 56,
+        "word": "avenue",
+        "meaning": "đại lộ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 57,
+        "word": "venue",
+        "meaning": "đia điểm tổ chức",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 58,
+        "word": "guest",
+        "meaning": "khách mời",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 59,
+        "word": "parking pass",
+        "meaning": "thẻ đậu xe",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 60,
+        "word": "recently",
+        "meaning": "gần đây",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 61,
+        "word": "legal team",
+        "meaning": "đội ngũ pháp lý",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 62,
+        "word": "confirm",
+        "meaning": "xác nhận",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 63,
+        "word": "platter",
+        "meaning": "khay lớn (đựng thức ăn)",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 64,
+        "word": "console",
+        "meaning": "bảng điều khiển",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 65,
+        "word": "raffle",
+        "meaning": "xổ số trúng thưởng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 66,
+        "word": "ink cartridge",
+        "meaning": "hộp mực in",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 67,
+        "word": "striped shirt",
+        "meaning": "áo sơ mi soc",
+        "partOfSpeech": "Từ vựng TOEIC"
+      }
+    ]
+  },
+  "day_4": {
+    "day": 4,
+    "title": "Test 1 ETS 2019",
+    "totalWords": 79,
+    "words": [
+      {
+        "id": 1,
+        "word": "extensive",
+        "meaning": "sâu rộng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 2,
+        "word": "current",
+        "meaning": "hiện tại",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 3,
+        "word": "audit",
+        "meaning": "kiểm toán",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 4,
+        "word": "once",
+        "meaning": "một lần, một khi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 5,
+        "word": "damage",
+        "meaning": "phá hủy",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 6,
+        "word": "concerning",
+        "meaning": "liên quan, về",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 7,
+        "word": "available",
+        "meaning": "rảnh, có sẵn",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 8,
+        "word": "binocular",
+        "meaning": "ống nhòm",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 9,
+        "word": "object",
+        "meaning": "vật thể",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 10,
+        "word": "affordable",
+        "meaning": "phải chăng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 11,
+        "word": "permitted",
+        "meaning": "cho phép",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 12,
+        "word": "occupy",
+        "meaning": "chiếm",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 13,
+        "word": "remain on schedule",
+        "meaning": "giữ đúng lich trình",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 14,
+        "word": "author",
+        "meaning": "tác giả",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 15,
+        "word": "essay",
+        "meaning": "tiểu luận",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 16,
+        "word": "revision",
+        "meaning": "sự chỉnh sửa",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 17,
+        "word": "allow",
+        "meaning": "cho phép",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 18,
+        "word": "quality-improvement initiative",
+        "meaning": "sáng kiến cải thiện chất \nlượng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 19,
+        "word": "congratulate",
+        "meaning": "chúc mừng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 20,
+        "word": "nominate",
+        "meaning": "đề cử",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 21,
+        "word": "claim",
+        "meaning": "đòi lại, yêu cầu, nhận đinh",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 22,
+        "word": "predict",
+        "meaning": "dự đoán",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 23,
+        "word": "franchise",
+        "meaning": "nhượng quyền",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 24,
+        "word": "correspondence",
+        "meaning": "thư từ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 25,
+        "word": "promotional item",
+        "meaning": "mặt hàng khuyến mãi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 26,
+        "word": "address",
+        "meaning": "trình bày",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 27,
+        "word": "supervisor",
+        "meaning": "giám sát",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 28,
+        "word": "appropriate",
+        "meaning": "phù hợp",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 29,
+        "word": "subsequent",
+        "meaning": "tiếp theo, sau đó",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 30,
+        "word": "deliverable",
+        "meaning": "có thể giao được",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 31,
+        "word": "admit",
+        "meaning": "thừa nhận",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 32,
+        "word": "consecutively",
+        "meaning": "liên tiếp nhau",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 33,
+        "word": "generally",
+        "meaning": "một cách chung chung",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 34,
+        "word": "wireless speaker",
+        "meaning": "loa không dây",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 35,
+        "word": "fivefold",
+        "meaning": "gấp 5 lần",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 36,
+        "word": "on behalf of",
+        "meaning": "đại diện",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 37,
+        "word": "original projection",
+        "meaning": "dự đoán ban đầu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 38,
+        "word": "quarter",
+        "meaning": "quý",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 39,
+        "word": "differ",
+        "meaning": "khác nhau",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 40,
+        "word": "marginal",
+        "meaning": "nhỏ, không quan trong",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 41,
+        "word": "unforeseen",
+        "meaning": "chưa từng thấy",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 42,
+        "word": "extend",
+        "meaning": "kéo dài",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 43,
+        "word": "commission",
+        "meaning": "ủy ban, tiền hoa hồng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 44,
+        "word": "trial period",
+        "meaning": "giai đoạn thử",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 45,
+        "word": "facility",
+        "meaning": "cơ sở",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 46,
+        "word": "it is completely risk-free",
+        "meaning": "nó thì hoàn toàn không có \nrủi ro",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 47,
+        "word": "charge",
+        "meaning": "sạc điện, thu tiền",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 48,
+        "word": "elect to",
+        "meaning": "chon để",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 49,
+        "word": "justly",
+        "meaning": "một cách công bằng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 50,
+        "word": "evenly",
+        "meaning": "một cách bằng nhau",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 51,
+        "word": "initiate",
+        "meaning": "bắt đầu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 52,
+        "word": "be entitled to do something",
+        "meaning": "được cho phép để làm gì \nđó",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 53,
+        "word": "avoid",
+        "meaning": "tránh",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 54,
+        "word": "deduction",
+        "meaning": "khấu trừ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 55,
+        "word": "statement",
+        "meaning": "bài báo cáo, lời tuyên bố",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 56,
+        "word": "your expected date",
+        "meaning": "ngày được mong đợi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 57,
+        "word": "forward",
+        "meaning": "chuyển tiếp, nóng lòng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 58,
+        "word": "senses",
+        "meaning": "giác quan",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 59,
+        "word": "privacy",
+        "meaning": "sự riêng tư",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 60,
+        "word": "permanent position",
+        "meaning": "vi trí lâu dài",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 61,
+        "word": "temporary",
+        "meaning": "tạm thời",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 62,
+        "word": "arrival",
+        "meaning": "sự đến, sự tới nơi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 63,
+        "word": "look forward to",
+        "meaning": "mong đợi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 64,
+        "word": "employee badge",
+        "meaning": "thẻ nhân viên",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 65,
+        "word": "campus",
+        "meaning": "khuôn viên",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 66,
+        "word": "accompany",
+        "meaning": "hộ tống",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 67,
+        "word": "also",
+        "meaning": "đồng thời",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 68,
+        "word": "as well as",
+        "meaning": "cùng với, cũng như là",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 69,
+        "word": "replace",
+        "meaning": "thay thế",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 70,
+        "word": "replacement",
+        "meaning": "sự thay thế",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 71,
+        "word": "exporter",
+        "meaning": "nhà xuất khẩu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 72,
+        "word": "pecan",
+        "meaning": "hồ đào",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 73,
+        "word": "fact",
+        "meaning": "sự thật",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 74,
+        "word": "expand",
+        "meaning": "mở rộng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 75,
+        "word": "land area",
+        "meaning": "diện tích đất canh tác",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 76,
+        "word": "yield",
+        "meaning": "sản lượng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 77,
+        "word": "forecast",
+        "meaning": "dự báo",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 78,
+        "word": "unprecedented",
+        "meaning": "chưa từng thấy",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 79,
+        "word": "mineral",
+        "meaning": "khoáng vật",
+        "partOfSpeech": "Từ vựng TOEIC"
+      }
+    ]
+  },
+  "day_5": {
+    "day": 5,
+    "title": "Test 2 ETS 2019",
+    "totalWords": 50,
+    "words": [
+      {
+        "id": 1,
+        "word": "press release",
+        "meaning": "bài báo",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 2,
+        "word": "training manual",
+        "meaning": "sách hướng dẫn đào tạo",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 3,
+        "word": "auditorium",
+        "meaning": "hội trường",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 4,
+        "word": "punctual",
+        "meaning": "đúng giờ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 5,
+        "word": "prospective",
+        "meaning": "tiềm năng, triển vong",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 6,
+        "word": "innovative",
+        "meaning": "sáng tạo, đổi mới",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 7,
+        "word": "almost",
+        "meaning": "hầu hết",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 8,
+        "word": "nearby",
+        "meaning": "gần (về khoảng cách)",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 9,
+        "word": "responsibility",
+        "meaning": "trách nhiệm",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 10,
+        "word": "invoice",
+        "meaning": "hóa đơn",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 11,
+        "word": "favor",
+        "meaning": "ủng hộ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 12,
+        "word": "favorable",
+        "meaning": "thuận lợi, có lợi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 13,
+        "word": "upon + Ving",
+        "meaning": "sau khi làm gì đó",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 14,
+        "word": "qualification",
+        "meaning": "Trình, Năng \n(Trình độ chuyên môn / Năng lực phẩm chất)",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 15,
+        "word": "slight",
+        "meaning": "nhe, nhỏ, xíu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 16,
+        "word": "equal",
+        "meaning": "công bằng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 17,
+        "word": "obliged",
+        "meaning": "biết ơn, bắt buộc",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 18,
+        "word": "essential",
+        "meaning": "quan trong",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 19,
+        "word": "courtesy",
+        "meaning": "phép lich sự",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 20,
+        "word": "rehearsal",
+        "meaning": "sự diễn tập",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 21,
+        "word": "final scene",
+        "meaning": "cảnh cuối cùng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 22,
+        "word": "accommodate",
+        "meaning": "chứa, đáp ứng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 23,
+        "word": "ideal venue",
+        "meaning": "đia điểm lý tưởng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 24,
+        "word": "proximity",
+        "meaning": "sự gần",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 25,
+        "word": "payroll form",
+        "meaning": "đơn trả lương",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 26,
+        "word": "function",
+        "meaning": "hoạt động",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 27,
+        "word": "rather than",
+        "meaning": "thay vì, hơn là",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 28,
+        "word": "unveil",
+        "meaning": "tiết lộ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 29,
+        "word": "resolve",
+        "meaning": "giải quyết",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 30,
+        "word": "implement",
+        "meaning": "thực thi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 31,
+        "word": "no matter",
+        "meaning": "không vấn đề",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 32,
+        "word": "suit",
+        "meaning": "phù hợp",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 33,
+        "word": "suitable",
+        "meaning": "phù hợp",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 34,
+        "word": "nursery",
+        "meaning": "vườn ươm, nhà trẻ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 35,
+        "word": "species",
+        "meaning": "giống loài",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 36,
+        "word": "variety",
+        "meaning": "loại, sự đa dạng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 37,
+        "word": "transform",
+        "meaning": "biến đổi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 38,
+        "word": "material",
+        "meaning": "tài liệu, vật liệu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 39,
+        "word": "conservatory",
+        "meaning": "khu bảo tồn",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 40,
+        "word": "confirm",
+        "meaning": "xác nhận",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 41,
+        "word": "adjacent to",
+        "meaning": "liền kề",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 42,
+        "word": "lounge",
+        "meaning": "phòng chờ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 43,
+        "word": "recall",
+        "meaning": "Thu hồi, nhớ lại",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 44,
+        "word": "convert",
+        "meaning": "chuyển đổi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 45,
+        "word": "conversion",
+        "meaning": "sự chuyển đổi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 46,
+        "word": "fault",
+        "meaning": "lỗi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 47,
+        "word": "faulty",
+        "meaning": "bi lỗi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 48,
+        "word": "free of charge",
+        "meaning": "miễn phí",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 49,
+        "word": "verify",
+        "meaning": "kiểm chứng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 50,
+        "word": "defect",
+        "meaning": "lỗi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      }
+    ]
+  },
+  "day_6": {
+    "day": 6,
+    "title": "Test 3 ETS 2019",
+    "totalWords": 42,
+    "words": [
+      {
+        "id": 1,
+        "word": "ribbon-cutting ceremony",
+        "meaning": "lễ cắt băng khánh thành",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 2,
+        "word": "possible",
+        "meaning": "có khả năng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 3,
+        "word": "consequence",
+        "meaning": "hậu quả",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 4,
+        "word": "merger",
+        "meaning": "sáp nhập",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 5,
+        "word": "release",
+        "meaning": "phóng ra, phát ra, thả ra, phát hành",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 6,
+        "word": "coupon",
+        "meaning": "phiếu giảm giá",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 7,
+        "word": "operate",
+        "meaning": "hoạt động",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 8,
+        "word": "just in time, in time, on time",
+        "meaning": "vừa kip giờ, kip giờ, đúng giờ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 9,
+        "word": "pond",
+        "meaning": "cái ao",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 10,
+        "word": "prevent",
+        "meaning": "ngăn chặn",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 11,
+        "word": "spoil",
+        "meaning": "làm hư",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 12,
+        "word": "spoilage",
+        "meaning": "sự hư hỏng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 13,
+        "word": "potentially",
+        "meaning": "tiềm năng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 14,
+        "word": "express",
+        "meaning": "bày tỏ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 15,
+        "word": "alternate",
+        "meaning": "thay phiên, luân phiên",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 16,
+        "word": "be accustomed to",
+        "meaning": "quen thuộc với",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 17,
+        "word": "fuel",
+        "meaning": "nhiên liệu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 18,
+        "word": "package",
+        "meaning": "gói hàng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 19,
+        "word": "pursuit",
+        "meaning": "sự theo đuổi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 20,
+        "word": "aim",
+        "meaning": "muc đích",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 21,
+        "word": "initial feedback",
+        "meaning": "phản hồi ban đầu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 22,
+        "word": "convenient",
+        "meaning": "tiện lợi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 23,
+        "word": "endorse",
+        "meaning": "ủng hộ, tán thành",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 24,
+        "word": "supplement",
+        "meaning": "bổ sung",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 25,
+        "word": "supplementary",
+        "meaning": "mang tính bổ sung",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 26,
+        "word": "consequential",
+        "meaning": "mang tính hậu quả",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 27,
+        "word": "persistent",
+        "meaning": "kiên trì",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 28,
+        "word": "bistro",
+        "meaning": "quán ăn nhỏ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 29,
+        "word": "unfamiliar",
+        "meaning": "không quen thuộc",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 30,
+        "word": "flavor",
+        "meaning": "vi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 31,
+        "word": "rewarding",
+        "meaning": "có giá tri, bổ ích",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 32,
+        "word": "guideline",
+        "meaning": "sự hướng dẫn",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 33,
+        "word": "inventory",
+        "meaning": "hàng tồn kho",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 34,
+        "word": "shortage",
+        "meaning": "thiếu hàng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 35,
+        "word": "estimated time frame",
+        "meaning": "khung thời gian được ước lượng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 36,
+        "word": "statement",
+        "meaning": "bài báo cáo, sự tuyên bố",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 37,
+        "word": "withdraw",
+        "meaning": "rút",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 38,
+        "word": "settle",
+        "meaning": "hòa giải, thiết lập",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 39,
+        "word": "proceeds",
+        "meaning": "tiền lời",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 40,
+        "word": "enhance",
+        "meaning": "nâng cấp, thúc đẩy",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 41,
+        "word": "portion",
+        "meaning": "một phần",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 42,
+        "word": "primarily",
+        "meaning": "chủ yếu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      }
+    ]
+  },
+  "day_7": {
+    "day": 7,
+    "title": "Test 4 ETS 2019",
+    "totalWords": 31,
+    "words": [
+      {
+        "id": 1,
+        "word": "response",
+        "meaning": "phản hồi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 2,
+        "word": "outline",
+        "meaning": "liệt kê",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 3,
+        "word": "separate",
+        "meaning": "riêng biệt, tách biệt",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 4,
+        "word": "grant",
+        "meaning": "trợ cấp",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 5,
+        "word": "due",
+        "meaning": "hạn, nợ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 6,
+        "word": "prior to",
+        "meaning": "trước",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 7,
+        "word": "acquire",
+        "meaning": "mua lại, thâu tóm, đạt được (kiến thức, kỹ năng)",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 8,
+        "word": "acquisition",
+        "meaning": "sự mua lại, sự thâu tóm",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 9,
+        "word": "subsidiary",
+        "meaning": "công ty con",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 10,
+        "word": "worsening",
+        "meaning": "xấu đi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 11,
+        "word": "train station",
+        "meaning": "trạm tàu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 12,
+        "word": "association",
+        "meaning": "hiệp hội, sự kết hợp",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 13,
+        "word": "violation",
+        "meaning": "sự vi phạm",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 14,
+        "word": "thus",
+        "meaning": "do đó",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 15,
+        "word": "assumption",
+        "meaning": "sự giả đinh",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 16,
+        "word": "perception",
+        "meaning": "nhận thức",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 17,
+        "word": "obligation",
+        "meaning": "nghĩa vu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 18,
+        "word": "casual",
+        "meaning": "bình dân",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 19,
+        "word": "induce",
+        "meaning": "xúi giuc",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 20,
+        "word": "issue",
+        "meaning": "ấn phẩm, phát hành",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 21,
+        "word": "contractor",
+        "meaning": "nhà thầu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 22,
+        "word": "rear",
+        "meaning": "phía sau",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 23,
+        "word": "steel cover",
+        "meaning": "mái che bằng thép",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 24,
+        "word": "career matching service",
+        "meaning": "dich vu kết nối công việc",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 25,
+        "word": "payroll",
+        "meaning": "trả lương",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 26,
+        "word": "deposit-payroll payment",
+        "meaning": "trả lương gửi tiền vào tài khoản",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 27,
+        "word": "pay-stub",
+        "meaning": "cuống lương (giấy xác nhận trả lương)",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 28,
+        "word": "time card",
+        "meaning": "thẻ chấm công",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 29,
+        "word": "immigrant",
+        "meaning": "người nhập cư",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 30,
+        "word": "crafter",
+        "meaning": "thợ thủ công",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 31,
+        "word": "combination",
+        "meaning": "sự kết hợp",
+        "partOfSpeech": "Từ vựng TOEIC"
+      }
+    ]
+  },
+  "day_8": {
+    "day": 8,
+    "title": "Test 5 ETS 2019",
+    "totalWords": 19,
+    "words": [
+      {
+        "id": 1,
+        "word": "irrigate",
+        "meaning": "tưới tiêu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 2,
+        "word": "poll",
+        "meaning": "sự bầu cử",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 3,
+        "word": "revenue",
+        "meaning": "doanh thu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 4,
+        "word": "institution",
+        "meaning": "tổ chức",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 5,
+        "word": "sensation",
+        "meaning": "cảm giác",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 6,
+        "word": "be set to",
+        "meaning": "chuẩn bi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 7,
+        "word": "inadvertently",
+        "meaning": "vô tình",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 8,
+        "word": "initially",
+        "meaning": "ban đầu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 9,
+        "word": "main plant",
+        "meaning": "nhà máy chính",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 10,
+        "word": "tank",
+        "meaning": "cái bình, cái bể",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 11,
+        "word": "range",
+        "meaning": "phạm vi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 12,
+        "word": "vary",
+        "meaning": "biến đổi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 13,
+        "word": "confusing",
+        "meaning": "bối rối",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 14,
+        "word": "outlet",
+        "meaning": "đầu ra, cửa hàng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 15,
+        "word": "power outlet",
+        "meaning": "ổ điện",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 16,
+        "word": "critical marketing outlet",
+        "meaning": "kênh marketing quan trong",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 17,
+        "word": "optimize",
+        "meaning": "tối ưu hóa",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 18,
+        "word": "territory",
+        "meaning": "lãnh thổ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 19,
+        "word": "a wide range of vendor",
+        "meaning": "một phạm vi rộng của nhà cung cấp",
+        "partOfSpeech": "Từ vựng TOEIC"
+      }
+    ]
+  },
+  "day_9": {
+    "day": 9,
+    "title": "Test 6 ETS 2019",
+    "totalWords": 32,
+    "words": [
+      {
+        "id": 1,
+        "word": "luncheon",
+        "meaning": "bữa trưa",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 2,
+        "word": "diplomat",
+        "meaning": "đại sứ, nhà ngoại giao",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 3,
+        "word": "incentive",
+        "meaning": "sự khích lệ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 4,
+        "word": "stimulate",
+        "meaning": "kích thích",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 5,
+        "word": "externally",
+        "meaning": "bên ngoài",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 6,
+        "word": "certainly",
+        "meaning": "chắc chắn",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 7,
+        "word": "utterly",
+        "meaning": "hoàn toàn",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 8,
+        "word": "array",
+        "meaning": "mảng, dãy, chuỗi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 9,
+        "word": "crucial",
+        "meaning": "quan trong",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 10,
+        "word": "punctuality",
+        "meaning": "đúng giờ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 11,
+        "word": "trait",
+        "meaning": "nét tiêu biểu, đặc điểm, đường mòn, thói quen",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 12,
+        "word": "comprehension",
+        "meaning": "sự toàn diện",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 13,
+        "word": "adopt",
+        "meaning": "nhận nuôi, ban hành",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 14,
+        "word": "packing",
+        "meaning": "đóng gói",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 15,
+        "word": "delicate object",
+        "meaning": "vật dễ vỡ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 16,
+        "word": "affix",
+        "meaning": "gắn vào",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 17,
+        "word": "tag",
+        "meaning": "nhãn",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 18,
+        "word": "authorize",
+        "meaning": "cấp quyền",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 19,
+        "word": "entail",
+        "meaning": "đòi hỏi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 20,
+        "word": "alert",
+        "meaning": "tỉnh táo, cảnh báo",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 21,
+        "word": "be likely to",
+        "meaning": "dường như",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 22,
+        "word": "in progress",
+        "meaning": "tiến độ, đang tiến triển",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 23,
+        "word": "disruption",
+        "meaning": "sự gián đoạn",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 24,
+        "word": "suffer",
+        "meaning": "chiu đựng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 25,
+        "word": "variety",
+        "meaning": "loại, sự đa dạng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 26,
+        "word": "wheat",
+        "meaning": "lúa mì",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 27,
+        "word": "withstand",
+        "meaning": "chống chiu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 28,
+        "word": "equator",
+        "meaning": "đường xích đạo",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 29,
+        "word": "seed",
+        "meaning": "hạt",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 30,
+        "word": "tolerate",
+        "meaning": "chiu đựng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 31,
+        "word": "crop",
+        "meaning": "vu mùa, cây trồng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 32,
+        "word": "exclusive, exclusively",
+        "meaning": "riêng biệt, độc quyền",
+        "partOfSpeech": "Từ vựng TOEIC"
+      }
+    ]
+  },
+  "day_10": {
+    "day": 10,
+    "title": "Test 7 ETS 2019",
+    "totalWords": 18,
+    "words": [
+      {
+        "id": 1,
+        "word": "forum",
+        "meaning": "diễn đàn",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 2,
+        "word": "summit",
+        "meaning": "cuộc hop thượng đỉnh",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 3,
+        "word": "turnout",
+        "meaning": "số lượng người tham gia",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 4,
+        "word": "customary",
+        "meaning": "phong tuc, thông thường",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 5,
+        "word": "sincerely",
+        "meaning": "chân thành",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 6,
+        "word": "adolescent",
+        "meaning": "thanh niên",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 7,
+        "word": "alter",
+        "meaning": "thay đổi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 8,
+        "word": "effect",
+        "meaning": "ảnh hưởng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 9,
+        "word": "involve",
+        "meaning": "liên quan",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 10,
+        "word": "authority",
+        "meaning": "nhà cầm quyền",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 11,
+        "word": "specimen",
+        "meaning": "mẫu vật, mẫu xét nghiệm",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 12,
+        "word": "eligible",
+        "meaning": "đủ điều kiện",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 13,
+        "word": "reliable, reliability",
+        "meaning": "đáng tin cậy",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 14,
+        "word": "community",
+        "meaning": "cộng đồng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 15,
+        "word": "concern",
+        "meaning": "lo lắng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 16,
+        "word": "substantial",
+        "meaning": "đáng kể",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 17,
+        "word": "terminal",
+        "meaning": "nhà ga, điểm đến",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 18,
+        "word": "preliminary",
+        "meaning": "sơ bộ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      }
+    ]
+  },
+  "day_11": {
+    "day": 11,
+    "title": "Test 8 ETS 2019",
+    "totalWords": 25,
+    "words": [
+      {
+        "id": 1,
+        "word": "briefly",
+        "meaning": "ngắn gon",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 2,
+        "word": "division",
+        "meaning": "sự chia, bộ phận",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 3,
+        "word": "specification",
+        "meaning": "thông số kỹ thuật, đặc điểm kỹ thuật",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 4,
+        "word": "allowance",
+        "meaning": "tiền trợ cấp",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 5,
+        "word": "discover",
+        "meaning": "khám phá",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 6,
+        "word": "probably",
+        "meaning": "có khả năng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 7,
+        "word": "legibly",
+        "meaning": "rõ ràng, dễ đoc",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 8,
+        "word": "monitor",
+        "meaning": "(v) giám sát; (n) màn hình",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 9,
+        "word": "valued customer",
+        "meaning": "khách hàng thân thiết",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 10,
+        "word": "distinguish",
+        "meaning": "phân biệt",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 11,
+        "word": "distinguished",
+        "meaning": "xuất sắc, ưu tú",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 12,
+        "word": "dimension",
+        "meaning": "kích thước",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 13,
+        "word": "quote",
+        "meaning": "báo giá",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 14,
+        "word": "accordingly",
+        "meaning": "tương ứng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 15,
+        "word": "empower",
+        "meaning": "cấp quyền",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 16,
+        "word": "declare",
+        "meaning": "khai báo",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 17,
+        "word": "prestigious",
+        "meaning": "uy tín",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 18,
+        "word": "flaw",
+        "meaning": "lỗi, sai sót",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 19,
+        "word": "flawless",
+        "meaning": "không có lỗi, hoàn hảo",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 20,
+        "word": "special",
+        "meaning": "món đặc sản",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 21,
+        "word": "debut",
+        "meaning": "ra mắt",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 22,
+        "word": "swipe",
+        "meaning": "quet",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 23,
+        "word": "transaction",
+        "meaning": "giao dich",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 24,
+        "word": "dozen",
+        "meaning": "một tá",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 25,
+        "word": "workout",
+        "meaning": "tập thể duc",
+        "partOfSpeech": "Từ vựng TOEIC"
+      }
+    ]
+  },
+  "day_12": {
+    "day": 12,
+    "title": "Test 9 ETS 2019",
+    "totalWords": 29,
+    "words": [
+      {
+        "id": 1,
+        "word": "meticulously",
+        "meaning": "tỉ mỉ, kỹ càng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 2,
+        "word": "diagnose",
+        "meaning": "chẩn đoán",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 3,
+        "word": "mildly",
+        "meaning": "nhe nhàng, vừa phải",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 4,
+        "word": "narrowly",
+        "meaning": "hep, ít,",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 5,
+        "word": "emission",
+        "meaning": "khí thải",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 6,
+        "word": "economical",
+        "meaning": "tiết kiệm",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 7,
+        "word": "rely on",
+        "meaning": "dựa vào",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 8,
+        "word": "blend",
+        "meaning": "trộn",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 9,
+        "word": "execute",
+        "meaning": "tiến hành",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 10,
+        "word": "involve",
+        "meaning": "liên quan, tham gia",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 11,
+        "word": "gradually",
+        "meaning": "một cách từ từ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 12,
+        "word": "insert",
+        "meaning": "thêm vào",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 13,
+        "word": "slide",
+        "meaning": "máng trượt, trượt",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 14,
+        "word": "sedan",
+        "meaning": "xe 4 chỗ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 15,
+        "word": "multiple",
+        "meaning": "nhiều, bội",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 16,
+        "word": "take over",
+        "meaning": "đảm đương, đảm nhận",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 17,
+        "word": "waive",
+        "meaning": "khấu trừ, từ bỏ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 18,
+        "word": "digital",
+        "meaning": "kỹ thuật số",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 19,
+        "word": "restriction",
+        "meaning": "hạn chế",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 20,
+        "word": "apparently",
+        "meaning": "rõ ràng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 21,
+        "word": "obstacle",
+        "meaning": "trở ngại",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 22,
+        "word": "sensor",
+        "meaning": "cái cảm biến",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 23,
+        "word": "detect",
+        "meaning": "phát hiện",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 24,
+        "word": "corrosion",
+        "meaning": "sự bào mòn",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 25,
+        "word": "expose / exposure",
+        "meaning": "phơi bày, để hở ra",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 26,
+        "word": "commercial airline fleet",
+        "meaning": "đội bay hàng không thương mại",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 27,
+        "word": "stage",
+        "meaning": "giai đoạn (=period)",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 28,
+        "word": "joint",
+        "meaning": "khớp nối",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 29,
+        "word": "susceptible",
+        "meaning": "dễ bi tổn thương, nhạy cảm",
+        "partOfSpeech": "Từ vựng TOEIC"
+      }
+    ]
+  },
+  "day_13": {
+    "day": 13,
+    "title": "Test 10 ETS 2019",
+    "totalWords": 18,
+    "words": [
+      {
+        "id": 1,
+        "word": "insurance",
+        "meaning": "bảo hiểm",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 2,
+        "word": "steady",
+        "meaning": "vững chắc, ổn đinh, đều đặn",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 3,
+        "word": "swiftly",
+        "meaning": "nhanh chóng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 4,
+        "word": "rigidly",
+        "meaning": "cứng nhắc",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 5,
+        "word": "simmer",
+        "meaning": "sôi lăn tăn, vừa tới",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 6,
+        "word": "thicken",
+        "meaning": "đặc lại",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 7,
+        "word": "pair with",
+        "meaning": "xếp cặp với",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 8,
+        "word": "a pair of",
+        "meaning": "một đôi",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 9,
+        "word": "prototype product",
+        "meaning": "sản phẩm mẫu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 10,
+        "word": "archive",
+        "meaning": "lưu trữ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 11,
+        "word": "force",
+        "meaning": "lực",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 12,
+        "word": "back up",
+        "meaning": "lưu dự phòng",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 13,
+        "word": "server",
+        "meaning": "máy chủ",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 14,
+        "word": "memoir",
+        "meaning": "hồi ký",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 15,
+        "word": "commence",
+        "meaning": "bắt đầu",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 16,
+        "word": "mandatory",
+        "meaning": "bắt buộc",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 17,
+        "word": "remote",
+        "meaning": "xa xôi, từ xa, hẻo lánh",
+        "partOfSpeech": "Từ vựng TOEIC"
+      },
+      {
+        "id": 18,
+        "word": "regret",
+        "meaning": "tiếc nuối",
+        "partOfSpeech": "Từ vựng TOEIC"
+      }
+    ]
+  }
+}
