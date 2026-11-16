@@ -493,11 +493,6 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                   <span className="text-xs font-bold px-3 py-1 bg-neoPink text-white border-2 border-black uppercase">
                     Ý NGHĨA TIẾNG VIỆT
                   </span>
-                  {currentWord.partOfSpeech && (
-                    <span className="text-xs font-black px-2.5 py-1 bg-neoCyan text-black border-2 border-black uppercase">
-                      {currentWord.partOfSpeech}
-                    </span>
-                  )}
                 </div>
 
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-emerald-700 font-heading">
