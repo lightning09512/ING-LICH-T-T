@@ -15,7 +15,7 @@ interface NavbarProps {
   user: User | null;
   authLoading: boolean;
   syncStatus: SyncStatus;
-  onSignIn: () => void;
+  onOpenAccount: () => void;
   onSignOut: () => void;
 }
 
@@ -30,7 +30,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   user,
   authLoading,
   syncStatus,
-  onSignIn,
+  onOpenAccount,
   onSignOut,
 }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -55,13 +55,13 @@ export const Navbar: React.FC<NavbarProps> = ({
   const handleAccountClick = () => {
     sounds.playClick();
     if (user) onSignOut();
-    else onSignIn();
+    else onOpenAccount();
   };
 
   const syncLabel = {
     local: 'Tiến trình đang lưu trên thiết bị này',
     syncing: 'Đang đồng bộ tiến trình',
-    saved: 'Tiến trình đã được lưu vào tài khoản Google',
+    saved: 'Tiến trình đã được lưu vào tài khoản',
     error: 'Chưa đồng bộ được tiến trình lên đám mây',
   }[syncStatus];
 
@@ -87,15 +87,15 @@ export const Navbar: React.FC<NavbarProps> = ({
       </div>
 
       <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 shrink-0">
-        {/* Google sign-in and progress sync */}
+        {/* Email account and progress sync */}
         <button
           onClick={handleAccountClick}
           disabled={authLoading}
           className={`h-10 sm:h-11 min-w-10 px-2 sm:px-3 border-2 border-black rounded shadow-neo-sm font-black text-xs transition-transform active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-60 disabled:cursor-wait ${
             user ? 'bg-neoCyan hover:bg-cyan-300' : 'bg-white hover:bg-gray-100'
           }`}
-          title={user ? `${user.email ?? user.displayName ?? 'Tài khoản Google'} · ${syncLabel} · Bấm để đăng xuất` : 'Đăng nhập bằng Google để lưu tiến trình'}
-          aria-label={user ? 'Đăng xuất tài khoản Google' : 'Đăng nhập bằng Google để lưu tiến trình'}
+          title={user ? `${user.email ?? user.displayName ?? 'Tài khoản'} · ${syncLabel} · Bấm để đăng xuất` : 'Đăng nhập hoặc tạo tài khoản để đồng bộ tiến trình'}
+          aria-label={user ? 'Đăng xuất tài khoản' : 'Đăng nhập hoặc tạo tài khoản'}
         >
           {authLoading ? <LoaderCircle className="w-4 h-4 animate-spin" /> : user ? (
             <>
@@ -111,9 +111,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             </>
           ) : (
             <>
-              <span className="font-black text-red-600 text-sm">G</span>
               <LogIn className="w-4 h-4" />
-              <span className="hidden lg:inline">Đăng nhập Google</span>
+              <span className="hidden lg:inline">Tài khoản</span>
             </>
           )}
         </button>

@@ -9,6 +9,7 @@ import { GrammarScreen } from './components/GrammarScreen';
 import { ToeicExamScreen } from './components/ToeicExamScreen';
 import { TestSelectScreen } from './components/TestSelectScreen';
 import { LofiPlayer } from './components/LofiPlayer';
+import { AccountModal } from './components/AccountModal';
 import { initialVocabList, initialTest, VocabItem, ToeicTest } from './data/initialData';
 import { sounds } from './utils/soundEffects';
 import { useLearningProgress } from './contexts/ProgressContext';
@@ -21,7 +22,6 @@ export function App() {
     authLoading,
     syncStatus,
     authError,
-    signInWithGoogle,
     signOut,
     clearAuthError,
   } = useLearningProgress();
@@ -33,6 +33,7 @@ export function App() {
   const [currentTest, setCurrentTest] = useState<ToeicTest>(initialTest);
   const [loadingTest, setLoadingTest] = useState(false);
   const [isLofiOpen, setIsLofiOpen] = useState(false);
+  const [isAccountModalOpen, setIsAccountModalOpen] = useState(false);
 
   // Sync with NoSQL Backend or static fallback for Vercel deployment
   useEffect(() => {
@@ -173,12 +174,12 @@ export function App() {
           user={user}
           authLoading={authLoading}
           syncStatus={syncStatus}
-          onSignIn={() => { void signInWithGoogle(); }}
+          onOpenAccount={() => setIsAccountModalOpen(true)}
           onSignOut={() => { void signOut(); }}
         />
       )}
 
-      {authError && (
+      {authError && !isAccountModalOpen && (
         <div role="alert" className="fixed top-3 right-3 z-50 max-w-sm bg-white border-2 border-black shadow-neo px-4 py-3 text-sm font-bold flex items-start gap-3">
           <span>{authError}</span>
           <button onClick={clearAuthError} className="shrink-0 underline" aria-label="Đóng thông báo">Đóng</button>
@@ -194,7 +195,7 @@ export function App() {
             user={user}
             authLoading={authLoading}
             syncStatus={syncStatus}
-            onSignIn={() => { void signInWithGoogle(); }}
+            onOpenAccount={() => setIsAccountModalOpen(true)}
             onSignOut={() => { void signOut(); }}
           />
         )}
@@ -263,6 +264,8 @@ export function App() {
         isOpen={isLofiOpen}
         onToggleOpen={() => setIsLofiOpen(!isLofiOpen)}
       />
+
+      {isAccountModalOpen && <AccountModal onClose={() => setIsAccountModalOpen(false)} />}
     </div>
   );
 }

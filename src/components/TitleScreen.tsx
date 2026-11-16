@@ -10,11 +10,11 @@ interface TitleScreenProps {
   user: User | null;
   authLoading: boolean;
   syncStatus: SyncStatus;
-  onSignIn: () => void;
+  onOpenAccount: () => void;
   onSignOut: () => void;
 }
 
-export const TitleScreen: React.FC<TitleScreenProps> = ({ onStart, nickname, user, authLoading, syncStatus, onSignIn, onSignOut }) => {
+export const TitleScreen: React.FC<TitleScreenProps> = ({ onStart, nickname, user, authLoading, syncStatus, onOpenAccount, onSignOut }) => {
   const handleStart = () => {
     sounds.playCorrect();
     onStart();
@@ -64,10 +64,10 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({ onStart, nickname, use
 
         <div className="w-full max-w-sm px-2">
           <button
-            onClick={() => user ? onSignOut() : onSignIn()}
+            onClick={() => user ? onSignOut() : onOpenAccount()}
             disabled={authLoading}
             className="w-full min-h-11 px-4 py-2 bg-white border-2 border-black shadow-neo-sm hover:bg-gray-100 active:scale-95 transition-all flex items-center justify-center gap-2 font-black text-sm cursor-pointer disabled:opacity-60 disabled:cursor-wait"
-            title={user ? `${user.email ?? user.displayName ?? 'Google'} · ${syncStatus === 'saved' ? 'Đã lưu tiến trình lên đám mây' : 'Đang lưu tiến trình'} · Bấm để đăng xuất` : 'Đăng nhập Google để đồng bộ tiến trình trên các thiết bị'}
+            title={user ? `${user.email ?? user.displayName ?? 'Tài khoản'} · ${syncStatus === 'saved' ? 'Đã lưu tiến trình lên đám mây' : 'Đang lưu tiến trình'} · Bấm để đăng xuất` : 'Đăng nhập hoặc tạo tài khoản để đồng bộ tiến trình trên các thiết bị'}
           >
             {authLoading ? <LoaderCircle className="w-4 h-4 animate-spin" /> : user ? <LogOut className="w-4 h-4" /> : <LogIn className="w-4 h-4 text-red-600" />}
             <span>
@@ -75,7 +75,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({ onStart, nickname, use
                 ? 'Đang đồng bộ...'
                 : user
                   ? (syncStatus === 'saved' ? 'Đã lưu tiến trình · Đăng xuất' : 'Đã đăng nhập · Đăng xuất')
-                  : 'Đăng nhập Google để lưu tiến trình'}
+                  : 'Đăng nhập / Tạo tài khoản để đồng bộ'}
             </span>
             {user && <Cloud className={`w-4 h-4 ${syncStatus === 'error' ? 'text-red-600' : 'text-cyan-700'}`} />}
           </button>

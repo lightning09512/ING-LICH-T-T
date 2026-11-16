@@ -1,13 +1,14 @@
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import {
-  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
   onAuthStateChanged,
-  signInWithPopup,
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
   signOut as firebaseSignOut,
 } from 'firebase/auth';
 import type { User } from 'firebase/auth';
 import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
-import { firebaseAuth, firestore } from '../firebase';
+import { firebaseAuth, firebaseConfigured, firestore } from '../firebase';
 
 export interface LearningProgress {
   grammarProgress: Record<string, number>;
@@ -23,7 +24,10 @@ interface ProgressContextValue {
   authLoading: boolean;
   syncStatus: SyncStatus;
   authError: string | null;
-  signInWithGoogle: () => Promise<void>;
+  firebaseConfigured: boolean;
+  signInWithEmail: (email: string, password: string) => Promise<boolean>;
+  createEmailAccount: (email: string, password: string) => Promise<boolean>;
+  sendPasswordReset: (email: string) => Promise<boolean>;
   signOut: () => Promise<void>;
   clearAuthError: () => void;
   saveGrammarScore: (topicId: string, score: number) => void;
@@ -130,10 +134,17 @@ function clearGuestProgress() {
 
 function getErrorMessage(error: unknown): string {
   const code = (error as { code?: string })?.code;
-  if (code === 'auth/popup-closed-by-user') return 'Cửa sổ đăng nhập đã đóng trước khi hoàn tất.';
-  if (code === 'auth/popup-blocked') return 'Trình duyệt đã chặn cửa sổ đăng nhập. Hãy cho phép popup rồi thử lại.';
+  if (code === 'auth/email-already-in-use') return 'Email này đã có tài khoản. Hãy đăng nhập hoặc dùng email khác.';
+  if (code === 'auth/invalid-email') return 'Địa chỉ email chưa hợp lệ.';
+  if (code === 'auth/weak-password') return 'Mật khẩu cần có ít nhất 6 ký tự.';
+  if (code === 'auth/invalid-credential' || code === 'auth/user-not-found' || code === 'auth/wrong-password') {
+    return 'Email hoặc mật khẩu chưa đúng.';
+  }
+  if (code === 'auth/operation-not-allowed') return 'Firebase chưa bật đăng nhập bằng Email/Password.';
+  if (code === 'auth/too-many-requests') return 'Có quá nhiều lần thử. Hãy đợi một lúc rồi thử lại.';
   if (code === 'auth/unauthorized-domain') return 'Tên miền hiện tại chưa được thêm vào danh sách Authorized domains trong Firebase.';
-  return 'Đăng nhập Google chưa thành công. Hãy thử lại nhé.';
+  if (code === 'auth/network-request-failed') return 'Không kết nối được Firebase. Hãy kiểm tra mạng rồi thử lại.';
+  return 'Yêu cầu chưa thành công. Hãy thử lại nhé.';
 }
 
 export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
@@ -212,19 +223,51 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     });
   }, []);
 
-  const signInWithGoogle = useCallback(async () => {
+  const signInWithEmail = useCallback(async (email: string, password: string) => {
     setAuthError(null);
     if (!firebaseAuth) {
-      setAuthError('Cần cấu hình Firebase trong file .env để bật đăng nhập Google. Xem hướng dẫn trong README.');
-      return;
+      setAuthError('Ứng dụng chưa được kết nối Firebase. Cần cấu hình project trước khi tạo tài khoản.');
+      return false;
     }
 
-    const provider = new GoogleAuthProvider();
-    provider.setCustomParameters({ prompt: 'select_account' });
     try {
-      await signInWithPopup(firebaseAuth, provider);
+      await signInWithEmailAndPassword(firebaseAuth, email, password);
+      return true;
     } catch (error) {
       setAuthError(getErrorMessage(error));
+      return false;
+    }
+  }, []);
+
+  const createEmailAccount = useCallback(async (email: string, password: string) => {
+    setAuthError(null);
+    if (!firebaseAuth) {
+      setAuthError('Ứng dụng chưa được kết nối Firebase. Cần cấu hình project trước khi tạo tài khoản.');
+      return false;
+    }
+
+    try {
+      await createUserWithEmailAndPassword(firebaseAuth, email, password);
+      return true;
+    } catch (error) {
+      setAuthError(getErrorMessage(error));
+      return false;
+    }
+  }, []);
+
+  const sendPasswordReset = useCallback(async (email: string) => {
+    setAuthError(null);
+    if (!firebaseAuth) {
+      setAuthError('Ứng dụng chưa được kết nối Firebase. Cần cấu hình project trước khi đặt lại mật khẩu.');
+      return false;
+    }
+
+    try {
+      await sendPasswordResetEmail(firebaseAuth, email);
+      return true;
+    } catch (error) {
+      setAuthError(getErrorMessage(error));
+      return false;
     }
   }, []);
 
@@ -268,7 +311,7 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
       .catch(error => {
         console.error('Could not save learning progress to Firestore:', error);
         setSyncStatus('error');
-        setAuthError('Tiến trình đã lưu trên thiết bị này, nhưng chưa đồng bộ được lên Google. Kiểm tra kết nối và quyền Firestore.');
+        setAuthError('Tiến trình đã lưu trên thiết bị này, nhưng chưa đồng bộ được lên tài khoản. Kiểm tra kết nối và quyền Firestore.');
       });
   }, []);
 
@@ -306,7 +349,10 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     authLoading,
     syncStatus,
     authError,
-    signInWithGoogle,
+    firebaseConfigured,
+    signInWithEmail,
+    createEmailAccount,
+    sendPasswordReset,
     signOut,
     clearAuthError: () => setAuthError(null),
     saveGrammarScore,
