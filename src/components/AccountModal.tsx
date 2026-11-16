@@ -17,6 +17,7 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose, onSuccess }
     authError,
     signInWithEmail,
     signInWithGoogle,
+    signInWithGoogleRedirect,
     createEmailAccount,
     sendPasswordReset,
     signOut,
@@ -150,6 +151,20 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose, onSuccess }
                 <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" className="w-6 h-6 shrink-0" />
               )}
               <span>Đăng nhập nhanh bằng Google (Gmail)</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                setBusy(true);
+                setNotice('');
+                clearAuthError();
+                void signInWithGoogleRedirect();
+              }}
+              disabled={busy || authLoading}
+              className="mt-2 w-full py-2 px-3 bg-cyan-100 hover:bg-cyan-200 border-2 border-black font-black text-xs flex items-center justify-center gap-2 cursor-pointer shadow-neo-sm active:scale-95 transition-all"
+            >
+              <span>🌐 Trình duyệt chặn popup? Chuyển thẳng trang Google</span>
             </button>
 
             <div className="mt-4 flex items-center gap-3 text-xs font-bold text-gray-500">

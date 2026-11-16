@@ -14,6 +14,7 @@ interface TitleScreenProps {
   onOpenAccount: () => void;
   onSignOut: () => void;
   onGoogleSignIn?: () => Promise<boolean>;
+  onGoogleRedirectSignIn?: () => Promise<boolean>;
 }
 
 export const TitleScreen: React.FC<TitleScreenProps> = ({
@@ -25,7 +26,8 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
   authError,
   onOpenAccount,
   onSignOut,
-  onGoogleSignIn
+  onGoogleSignIn,
+  onGoogleRedirectSignIn
 }) => {
   const handleStart = () => {
     sounds.playCorrect();
@@ -132,6 +134,18 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
                   </>
                 )}
               </button>
+              {onGoogleRedirectSignIn && (
+                <button
+                  type="button"
+                  onClick={() => { void onGoogleRedirectSignIn(); }}
+                  disabled={authLoading}
+                  className="w-full min-h-10 px-3 py-1.5 bg-cyan-100 hover:bg-cyan-200 border-2 border-black font-black text-xs flex items-center justify-center gap-2 cursor-pointer shadow-neo-sm active:scale-95 transition-all"
+                  title="Không cần mở popup, chuyển thẳng sang trang đăng nhập Google"
+                >
+                  <span>🌐 Bị chặn popup? Bấm vào đây để chuyển sang Google</span>
+                </button>
+              )}
+
               <button
                 onClick={onOpenAccount}
                 className="text-xs font-bold text-gray-500 hover:text-black underline cursor-pointer"

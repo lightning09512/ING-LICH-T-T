@@ -31,6 +31,7 @@ interface ProgressContextValue {
   firebaseConfigured: boolean;
   signInWithEmail: (email: string, password: string) => Promise<boolean>;
   signInWithGoogle: () => Promise<boolean>;
+  signInWithGoogleRedirect: () => Promise<boolean>;
   createEmailAccount: (email: string, password: string) => Promise<boolean>;
   sendPasswordReset: (email: string) => Promise<boolean>;
   signOut: () => Promise<void>;
@@ -218,12 +219,15 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     void getRedirectResult(auth)
       .then(result => {
         if (!disposed && result?.user) {
+          userRef.current = result.user;
           setUser(result.user);
+          setSyncStatus('saved');
         }
       })
       .catch(error => {
         if (!disposed && error?.code !== 'auth/null-user') {
           console.warn('getRedirectResult error:', error);
+          setAuthError(getErrorMessage(error));
         }
       });
 
@@ -373,6 +377,25 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     }
   }, []);
 
+  const signInWithGoogleRedirect = useCallback(async () => {
+    setAuthError(null);
+    if (!firebaseAuth) {
+      setAuthError('Ứng dụng chưa được cấu hình Firebase. Hãy kiểm tra biến môi trường VITE_FIREBASE_* trên Vercel.');
+      return false;
+    }
+
+    const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: 'select_account' });
+
+    try {
+      await signInWithRedirect(firebaseAuth, provider);
+      return true;
+    } catch (error) {
+      setAuthError(getErrorMessage(error));
+      return false;
+    }
+  }, []);
+
   const createEmailAccount = useCallback(async (email: string, password: string) => {
     setAuthError(null);
     if (!firebaseAuth) {
@@ -403,8 +426,10 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
       return false;
     }
 
+    const validEmail = email.includes('@') ? email.trim() : `${email.trim()}@gmail.com`;
+
     try {
-      await sendPasswordResetEmail(firebaseAuth, email);
+      await sendPasswordResetEmail(firebaseAuth, validEmail);
       return true;
     } catch (error) {
       setAuthError(getErrorMessage(error));
@@ -493,6 +518,7 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     firebaseConfigured,
     signInWithEmail,
     signInWithGoogle,
+    signInWithGoogleRedirect,
     createEmailAccount,
     sendPasswordReset,
     signOut,

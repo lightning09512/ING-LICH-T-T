@@ -23,6 +23,7 @@ export function App() {
     syncStatus,
     authError,
     signInWithGoogle,
+    signInWithGoogleRedirect,
     signOut,
     clearAuthError,
   } = useLearningProgress();
@@ -218,6 +219,7 @@ export function App() {
               }
               return success;
             }}
+            onGoogleRedirectSignIn={signInWithGoogleRedirect}
           />
         )}
 
