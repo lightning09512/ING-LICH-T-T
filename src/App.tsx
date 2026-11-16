@@ -180,7 +180,7 @@ export function App() {
   return (
     <div className="min-h-screen bg-neoBg text-neoDark relative font-comic overflow-x-hidden">
       {/* Background Interactive Floating Trollfaces */}
-      <FloatingTrollfaces />
+      {screen !== 'EXAM' && <FloatingTrollfaces />}
 
       {/* Persistent Navbar */}
       {screen !== 'TITLE' && (

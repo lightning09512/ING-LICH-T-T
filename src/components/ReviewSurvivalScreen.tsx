@@ -192,7 +192,9 @@ export const ReviewSurvivalScreen: React.FC<ReviewSurvivalScreenProps> = ({
       {/* GAME OVER MODAL */}
       {gameOver ? (
         <div className="bg-white border-4 border-black p-8 text-center shadow-neo-lg flex flex-col items-center gap-6 animate-bounceSlow">
-          <img src="/trollface.png" alt="Troll" className="w-24 h-24 object-contain animate-wiggle" />
+          <div className="w-20 h-20 bg-rose-100 border-3 border-black rounded-2xl flex items-center justify-center shadow-neo-sm">
+            <AlertTriangle className="w-12 h-12 text-rose-600 animate-pulse" />
+          </div>
           <h2 className="text-4xl font-black text-red-600 font-heading uppercase">
             GAME OVER RỒI MẬP ĐỊCH!
           </h2>

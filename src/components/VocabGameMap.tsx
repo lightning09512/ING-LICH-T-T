@@ -718,7 +718,15 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
         {/* RESULTS SCREEN */}
         {quizFinished ? (
           <div className="bg-white border-4 border-black p-8 text-center shadow-neo-lg flex flex-col items-center gap-6 animate-bounceSlow">
-            <img src="/trollface.png" alt="Troll" className="w-20 h-20 object-contain animate-wiggle" />
+            {passed ? (
+              <div className="w-20 h-20 bg-amber-100 border-3 border-black rounded-2xl flex items-center justify-center shadow-neo-sm">
+                <Trophy className="w-12 h-12 text-amber-600 animate-bounce" />
+              </div>
+            ) : (
+              <div className="w-20 h-20 bg-rose-100 border-3 border-black rounded-2xl flex items-center justify-center shadow-neo-sm">
+                <AlertCircle className="w-12 h-12 text-rose-600 animate-pulse" />
+              </div>
+            )}
 
             {passed ? (
               <>
@@ -797,17 +805,11 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
         ) : (
           /* QUESTION CARD */
           <div className="bg-white border-4 border-black p-6 sm:p-8 shadow-neo-lg flex flex-col gap-6">
-            {/* Word Banner with Audio button & Image */}
+            {/* Word Banner with Audio button */}
             <div className="bg-yellow-50 border-3 border-black p-5 text-center flex flex-col items-center gap-2">
               <span className="text-xs font-bold text-gray-500 uppercase tracking-widest">
                 Từ vựng tiếng Anh
               </span>
-
-              {currentQ.word.imageUrl && (
-                <div className="w-28 h-20 sm:w-32 sm:h-24 border-2 border-black bg-white rounded-lg p-1 flex items-center justify-center shadow-neo-sm overflow-hidden my-1">
-                  <img src={currentQ.word.imageUrl} alt={currentQ.word.word} className="max-h-full max-w-full object-contain" />
-                </div>
-              )}
 
               <h3 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading text-black">
                 {currentQ.word.word}

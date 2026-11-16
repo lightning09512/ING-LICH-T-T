@@ -5,7 +5,7 @@ import confetti from 'canvas-confetti';
 import { 
   Play, Pause, RotateCcw, FastForward, Flag, CheckCircle, 
   HelpCircle, Clock, Volume2, ArrowLeft, Send, Sparkles, BookOpen,
-  ChevronLeft, ChevronRight, CheckCircle2, AlertCircle
+  ChevronLeft, ChevronRight, CheckCircle2, AlertCircle, Trophy
 } from 'lucide-react';
 import { useLearningProgress } from '../contexts/ProgressContext';
 
@@ -1046,7 +1046,9 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="w-full max-w-xl bg-white border-4 border-black p-6 sm:p-8 shadow-neo-lg flex flex-col items-center text-center gap-6 animate-bounceSlow relative">
             
-            <img src="/trollface.png" alt="Trollface" className="w-20 h-20 object-contain animate-wiggle" />
+            <div className="w-20 h-20 bg-amber-100 border-3 border-black rounded-2xl flex items-center justify-center shadow-neo-sm">
+              <Trophy className="w-12 h-12 text-amber-600 animate-bounce" />
+            </div>
 
             <div>
               <span className="px-3 py-1 bg-neoYellow border-2 border-black font-black text-xs uppercase shadow-neo-sm">
