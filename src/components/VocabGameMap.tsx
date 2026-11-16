@@ -359,14 +359,25 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
 
             {/* Card Content */}
             {!isFlipped ? (
-              /* Front: English Word + IPA + Speaker */
-              <div className="my-auto py-8 text-center flex flex-col items-center gap-3">
-                <h2 className="text-4xl sm:text-5xl md:text-6xl font-black font-heading text-black tracking-wide">
+              /* Front: English Word + Image + IPA + Speaker */
+              <div className="my-auto py-4 text-center flex flex-col items-center gap-3">
+                {currentWord.imageUrl && (
+                  <div className="w-40 h-28 sm:w-48 sm:h-36 border-3 border-black bg-white rounded-xl overflow-hidden shadow-neo-sm flex items-center justify-center p-1.5 hover:scale-105 transition-transform">
+                    <img
+                      src={currentWord.imageUrl}
+                      alt={currentWord.word}
+                      className="max-w-full max-h-full object-contain rounded"
+                      onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
+                    />
+                  </div>
+                )}
+
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading text-black tracking-wide">
                   {currentWord.word}
                 </h2>
 
                 {currentWord.ipa && (
-                  <span className="text-lg sm:text-2xl font-mono font-bold text-gray-700 bg-yellow-100/90 px-4 py-1 border-2 border-black rounded-lg shadow-neo-sm">
+                  <span className="text-base sm:text-xl font-mono font-bold text-gray-700 bg-yellow-100/90 px-4 py-1 border-2 border-black rounded-lg shadow-neo-sm">
                     {currentWord.ipa}
                   </span>
                 )}
@@ -377,28 +388,38 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                     sounds.playClick();
                     sounds.speakEnglish(currentWord.word);
                   }}
-                  className="mt-2 flex items-center gap-2 px-5 py-2.5 bg-neoYellow border-3 border-black font-black text-sm uppercase shadow-neo-sm hover:bg-yellow-300 active:translate-x-0.5 active:translate-y-0.5 group min-h-[44px]"
+                  className="mt-1 flex items-center gap-2 px-5 py-2.5 bg-neoYellow border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo-sm hover:bg-yellow-300 active:translate-x-0.5 active:translate-y-0.5 group min-h-[44px]"
                 >
                   <Volume2 className="w-5 h-5 group-hover:scale-125 transition-transform" />
                   <span>Phát âm giọng Mỹ chuẩn</span>
                 </button>
 
-                <p className="text-xs text-gray-400 font-bold mt-2">
+                <p className="text-[11px] sm:text-xs text-gray-400 font-bold mt-1">
                   (Chạm vào thẻ để xem nghĩa tiếng Việt • Vuốt ngang để chuyển từ)
                 </p>
               </div>
             ) : (
-              /* Back: Vietnamese Definition */
-              <div className="my-auto py-8 text-center flex flex-col items-center gap-4">
+              /* Back: Vietnamese Definition + Image */
+              <div className="my-auto py-6 text-center flex flex-col items-center gap-4">
+                {currentWord.imageUrl && (
+                  <div className="w-32 h-24 border-2 border-black bg-white rounded-lg overflow-hidden shadow-neo-sm flex items-center justify-center p-1">
+                    <img
+                      src={currentWord.imageUrl}
+                      alt={currentWord.word}
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  </div>
+                )}
+
                 <span className="text-xs font-bold px-3 py-1 bg-neoPink text-white border-2 border-black uppercase">
                   Ý NGHĨA TIẾNG VIỆT
                 </span>
 
-                <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-emerald-700 font-heading">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-emerald-700 font-heading">
                   {currentWord.meaning}
                 </h3>
 
-                <p className="text-xs text-gray-400 font-bold mt-3">
+                <p className="text-xs text-gray-400 font-bold mt-2">
                   (Chạm để lật lại mặt tiếng Anh)
                 </p>
               </div>
@@ -481,9 +502,15 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                     className="p-3 bg-yellow-50/70 border-2 border-black flex items-center justify-between gap-3 shadow-neo-sm"
                   >
                     <div className="flex items-center gap-3">
-                      <span className="w-7 h-7 bg-black text-white rounded-full flex items-center justify-center font-bold text-xs shrink-0">
-                        {idx + 1}
-                      </span>
+                      {w.imageUrl ? (
+                        <div className="w-12 h-12 border-2 border-black rounded bg-white p-0.5 shrink-0 flex items-center justify-center overflow-hidden">
+                          <img src={w.imageUrl} alt={w.word} className="max-h-full max-w-full object-contain" />
+                        </div>
+                      ) : (
+                        <span className="w-7 h-7 bg-black text-white rounded-full flex items-center justify-center font-bold text-xs shrink-0">
+                          {idx + 1}
+                        </span>
+                      )}
                       <div>
                         <div className="flex items-center gap-2">
                           <strong className="text-base font-black text-black">{w.word}</strong>
@@ -630,11 +657,18 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
         ) : (
           /* QUESTION CARD */
           <div className="bg-white border-4 border-black p-6 sm:p-8 shadow-neo-lg flex flex-col gap-6">
-            {/* Word Banner with Audio button */}
-            <div className="bg-yellow-50 border-3 border-black p-6 text-center flex flex-col items-center gap-2">
+            {/* Word Banner with Audio button & Image */}
+            <div className="bg-yellow-50 border-3 border-black p-5 text-center flex flex-col items-center gap-2">
               <span className="text-xs font-bold text-gray-500 uppercase tracking-widest">
                 Từ vựng tiếng Anh
               </span>
+
+              {currentQ.word.imageUrl && (
+                <div className="w-28 h-20 sm:w-32 sm:h-24 border-2 border-black bg-white rounded-lg p-1 flex items-center justify-center shadow-neo-sm overflow-hidden my-1">
+                  <img src={currentQ.word.imageUrl} alt={currentQ.word.word} className="max-h-full max-w-full object-contain" />
+                </div>
+              )}
+
               <h3 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading text-black">
                 {currentQ.word.word}
               </h3>

@@ -5,6 +5,7 @@ export interface VocabWord {
   word: string;
   meaning: string;
   ipa?: string;
+  imageUrl?: string;
 }
 
 export interface DayLesson {

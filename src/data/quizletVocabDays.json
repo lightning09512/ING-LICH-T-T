@@ -8,121 +8,141 @@
         "id": 1,
         "word": "Bench",
         "meaning": "ghế dài",
-        "ipa": "/bɛnʧ/"
+        "ipa": "/bɛnʧ/",
+        "imageUrl": "/vocab_images/day_1/1.png"
       },
       {
         "id": 2,
         "word": "previous",
         "meaning": "trước đó (pre...)",
-        "ipa": "/ˈpriviəs/"
+        "ipa": "/ˈpriviəs/",
+        "imageUrl": "/vocab_images/day_1/2.png"
       },
       {
         "id": 3,
         "word": "former",
         "meaning": "trước đây (for...)",
-        "ipa": "/ˈfɔrmər/"
+        "ipa": "/ˈfɔrmər/",
+        "imageUrl": "/vocab_images/day_1/3.png"
       },
       {
         "id": 4,
         "word": "sip",
         "meaning": "nhâm nhi",
-        "ipa": "/sɪp/"
+        "ipa": "/sɪp/",
+        "imageUrl": "/vocab_images/day_1/4.png"
       },
       {
         "id": 5,
         "word": "cup",
         "meaning": "tách, chén, cốc",
-        "ipa": "/kəp/"
+        "ipa": "/kəp/",
+        "imageUrl": "/vocab_images/day_1/5.png"
       },
       {
         "id": 6,
         "word": "pavement",
         "meaning": "vỉa hè",
-        "ipa": "/ˈpeɪvmənt/"
+        "ipa": "/ˈpeɪvmənt/",
+        "imageUrl": "/vocab_images/day_1/6.png"
       },
       {
         "id": 7,
         "word": "plant",
         "meaning": "cây",
-        "ipa": "/plænt/"
+        "ipa": "/plænt/",
+        "imageUrl": "/vocab_images/day_1/7.png"
       },
       {
         "id": 8,
         "word": "leaf",
         "meaning": "lá cây",
-        "ipa": "/lif/"
+        "ipa": "/lif/",
+        "imageUrl": "/vocab_images/day_1/8.png"
       },
       {
         "id": 9,
         "word": "branch",
         "meaning": "chi nhánh, cành cây",
-        "ipa": "/brænʧ/"
+        "ipa": "/brænʧ/",
+        "imageUrl": "/vocab_images/day_1/9.png"
       },
       {
         "id": 10,
         "word": "carry",
         "meaning": "mang",
-        "ipa": "/ˈkɛri/"
+        "ipa": "/ˈkɛri/",
+        "imageUrl": "/vocab_images/day_1/10.png"
       },
       {
         "id": 11,
         "word": "briefcase",
         "meaning": "cặp tài liệu",
-        "ipa": "/ˈbrifˌkeɪs/"
+        "ipa": "/ˈbrifˌkeɪs/",
+        "imageUrl": "/vocab_images/day_1/11.png"
       },
       {
         "id": 12,
         "word": "suitcase",
         "meaning": "va li",
-        "ipa": "/ˈsutˌkeɪs/"
+        "ipa": "/ˈsutˌkeɪs/",
+        "imageUrl": "/vocab_images/day_1/12.png"
       },
       {
         "id": 13,
         "word": "catch",
         "meaning": "bắt (cat...)",
-        "ipa": "/kæʧ/"
+        "ipa": "/kæʧ/",
+        "imageUrl": "/vocab_images/day_1/13.png"
       },
       {
         "id": 14,
         "word": "capture",
         "meaning": "bắt giữ (cap...)",
-        "ipa": "/ˈkæpʧər/"
+        "ipa": "/ˈkæpʧər/",
+        "imageUrl": "/vocab_images/day_1/14.png"
       },
       {
         "id": 15,
         "word": "vehicle",
         "meaning": "phương tiện",
-        "ipa": "/ˈviɪkəl/"
+        "ipa": "/ˈviɪkəl/",
+        "imageUrl": "/vocab_images/day_1/15.png"
       },
       {
         "id": 16,
         "word": "truck",
         "meaning": "xe tải (tr...)",
-        "ipa": "/trək/"
+        "ipa": "/trək/",
+        "imageUrl": "/vocab_images/day_1/16.png"
       },
       {
         "id": 17,
         "word": "lorry",
         "meaning": "xe tải (lo...)",
-        "ipa": "/ˈlɔri/"
+        "ipa": "/ˈlɔri/",
+        "imageUrl": "/vocab_images/day_1/17.png"
       },
       {
         "id": 18,
         "word": "take a nap",
         "meaning": "chợp mắt",
-        "ipa": "/teɪk ə næp/"
+        "ipa": "/teɪk ə næp/",
+        "imageUrl": "/vocab_images/day_1/18.png"
       },
       {
         "id": 19,
         "word": "navigate",
         "meaning": "đinh hướng",
-        "ipa": "/ˈnævəˌgeɪt/"
+        "ipa": "/ˈnævəˌgeɪt/",
+        "imageUrl": "/vocab_images/day_1/19.png"
       },
       {
         "id": 20,
         "word": "sailor",
         "meaning": "thủy thủ",
-        "ipa": "/ˈseɪlər/"
+        "ipa": "/ˈseɪlər/",
+        "imageUrl": "/vocab_images/day_1/20.png"
       },
       {
         "id": 21,
@@ -134,7 +154,8 @@
         "id": 22,
         "word": "vessel",
         "meaning": "thuyền lớn, tàu lớn (V...)",
-        "ipa": "/ˈvɛsəl/"
+        "ipa": "/ˈvɛsəl/",
+        "imageUrl": "/vocab_images/day_1/22.png"
       },
       {
         "id": 23,
@@ -146,19 +167,22 @@
         "id": 24,
         "word": "boat",
         "meaning": "Tàu thuyền (B...)",
-        "ipa": "/boʊt/"
+        "ipa": "/boʊt/",
+        "imageUrl": "/vocab_images/day_1/24.png"
       },
       {
         "id": 25,
         "word": "put on",
         "meaning": "mặc vào (p...)",
-        "ipa": "/pʊt ɔn/"
+        "ipa": "/pʊt ɔn/",
+        "imageUrl": "/vocab_images/day_1/25.png"
       },
       {
         "id": 26,
         "word": "wear",
         "meaning": "mặc, mang, đeo (w...)",
-        "ipa": "/wɛr/"
+        "ipa": "/wɛr/",
+        "imageUrl": "/vocab_images/day_1/26.png"
       },
       {
         "id": 27,
@@ -170,31 +194,36 @@
         "id": 28,
         "word": "plane",
         "meaning": "máy bay (p...)",
-        "ipa": "/pleɪn/"
+        "ipa": "/pleɪn/",
+        "imageUrl": "/vocab_images/day_1/28.png"
       },
       {
         "id": 29,
         "word": "expressway",
         "meaning": "đường cao tốc",
-        "ipa": "/ɪkˈsprɛsˌweɪ/"
+        "ipa": "/ɪkˈsprɛsˌweɪ/",
+        "imageUrl": "/vocab_images/day_1/29.png"
       },
       {
         "id": 30,
         "word": "way",
         "meaning": "đường, đường đi (w...)",
-        "ipa": "/weɪ/"
+        "ipa": "/weɪ/",
+        "imageUrl": "/vocab_images/day_1/30.png"
       },
       {
         "id": 31,
         "word": "path",
         "meaning": "con đường (p...)",
-        "ipa": "/pæθ/"
+        "ipa": "/pæθ/",
+        "imageUrl": "/vocab_images/day_1/31.png"
       },
       {
         "id": 32,
         "word": "road",
         "meaning": "con đường (r...)",
-        "ipa": "/roʊd/"
+        "ipa": "/roʊd/",
+        "imageUrl": "/vocab_images/day_1/32.png"
       },
       {
         "id": 33,
@@ -206,25 +235,29 @@
         "id": 34,
         "word": "wave at",
         "meaning": "vẫy tay",
-        "ipa": "/weɪv æt/"
+        "ipa": "/weɪv æt/",
+        "imageUrl": "/vocab_images/day_1/34.png"
       },
       {
         "id": 35,
         "word": "wave",
         "meaning": "sóng",
-        "ipa": "/weɪv/"
+        "ipa": "/weɪv/",
+        "imageUrl": "/vocab_images/day_1/35.png"
       },
       {
         "id": 36,
         "word": "famous",
         "meaning": "nổi tiếng",
-        "ipa": "/ˈfeɪməs/"
+        "ipa": "/ˈfeɪməs/",
+        "imageUrl": "/vocab_images/day_1/36.png"
       },
       {
         "id": 37,
         "word": "actor",
         "meaning": "nam diễn viên",
-        "ipa": "/ˈæktər/"
+        "ipa": "/ˈæktər/",
+        "imageUrl": "/vocab_images/day_1/37.png"
       },
       {
         "id": 38,
@@ -236,19 +269,22 @@
         "id": 39,
         "word": "cap",
         "meaning": "mũ lưỡi trai",
-        "ipa": "/kæp/"
+        "ipa": "/kæp/",
+        "imageUrl": "/vocab_images/day_1/39.png"
       },
       {
         "id": 40,
         "word": "pedestrian",
         "meaning": "người đi bộ",
-        "ipa": "/pəˈdɛstriən/"
+        "ipa": "/pəˈdɛstriən/",
+        "imageUrl": "/vocab_images/day_1/40.png"
       },
       {
         "id": 41,
         "word": "scarf",
         "meaning": "khăn quàng cổ",
-        "ipa": "/skɑrf/"
+        "ipa": "/skɑrf/",
+        "imageUrl": "/vocab_images/day_1/41.png"
       },
       {
         "id": 42,
@@ -260,25 +296,29 @@
         "id": 43,
         "word": "skirt",
         "meaning": "chân váy",
-        "ipa": "/skərt/"
+        "ipa": "/skərt/",
+        "imageUrl": "/vocab_images/day_1/43.png"
       },
       {
         "id": 44,
         "word": "boots",
         "meaning": "đôi ủng",
-        "ipa": "/buts/"
+        "ipa": "/buts/",
+        "imageUrl": "/vocab_images/day_1/44.png"
       },
       {
         "id": 45,
         "word": "landscape",
         "meaning": "phong cảnh (l...)",
-        "ipa": "/ˈlænˌskeɪp/"
+        "ipa": "/ˈlænˌskeɪp/",
+        "imageUrl": "/vocab_images/day_1/45.png"
       },
       {
         "id": 46,
         "word": "scenery",
         "meaning": "phong cảnh (s...)",
-        "ipa": "/ˈsinəri/"
+        "ipa": "/ˈsinəri/",
+        "imageUrl": "/vocab_images/day_1/46.png"
       },
       {
         "id": 47,
@@ -290,7 +330,8 @@
         "id": 48,
         "word": "rest",
         "meaning": "nghỉ ngơi",
-        "ipa": "/rɛst/"
+        "ipa": "/rɛst/",
+        "imageUrl": "/vocab_images/day_1/48.png"
       },
       {
         "id": 49,
@@ -302,7 +343,8 @@
         "id": 50,
         "word": "rip = rest in peace.",
         "meaning": "Yên nghỉ",
-        "ipa": "/rɪp  rɛst ɪn pis./"
+        "ipa": "/rɪp  rɛst ɪn pis./",
+        "imageUrl": "/vocab_images/day_1/50.png"
       }
     ]
   },
@@ -315,55 +357,64 @@
         "id": 1,
         "word": "Piece",
         "meaning": "miếng, mảnh",
-        "ipa": "/pis/"
+        "ipa": "/pis/",
+        "imageUrl": "/vocab_images/day_2/1.png"
       },
       {
         "id": 2,
         "word": "cloth",
         "meaning": "vải",
-        "ipa": "/klɔθ/"
+        "ipa": "/klɔθ/",
+        "imageUrl": "/vocab_images/day_2/2.png"
       },
       {
         "id": 3,
         "word": "cover",
         "meaning": "bao phủ",
-        "ipa": "/ˈkəvər/"
+        "ipa": "/ˈkəvər/",
+        "imageUrl": "/vocab_images/day_2/3.png"
       },
       {
         "id": 4,
         "word": "patient",
         "meaning": "kiên nhẫn",
-        "ipa": "/ˈpeɪʃənt/"
+        "ipa": "/ˈpeɪʃənt/",
+        "imageUrl": "/vocab_images/day_2/4.png"
       },
       {
         "id": 5,
         "word": "patience",
         "meaning": "sự kiên nhẫn",
-        "ipa": "/ˈpeɪʃəns/"
+        "ipa": "/ˈpeɪʃəns/",
+        "imageUrl": "/vocab_images/day_2/5.png"
       },
       {
         "id": 6,
         "word": "patiently",
         "meaning": "một cách kiên nhẫn",
-        "ipa": "/ˈpeɪʃəntli/"
+        "ipa": "/ˈpeɪʃəntli/",
+        "imageUrl": "/vocab_images/day_2/6.png"
       },
       {
         "id": 7,
         "word": "local",
         "meaning": "đia phương",
-        "ipa": "/ˈloʊkəl/"
+        "ipa": "/ˈloʊkəl/",
+        "imageUrl": "/vocab_images/day_2/7.png"
       },
       {
         "id": 8,
         "word": "resident",
         "meaning": "cư dân",
-        "ipa": "/ˈrɛzɪdənt/"
+        "ipa": "/ˈrɛzɪdənt/",
+        "imageUrl": "/vocab_images/day_2/8.png"
       },
       {
         "id": 9,
         "word": "bottom",
         "meaning": "đáy",
-        "ipa": "/ˈbɑtəm/"
+        "ipa": "/ˈbɑtəm/",
+        "imageUrl": "/vocab_images/day_2/9.png"
       },
       {
         "id": 10,
@@ -375,25 +426,29 @@
         "id": 11,
         "word": "object",
         "meaning": "vật thể (o...)",
-        "ipa": "/ˈɑbʤɛkt/"
+        "ipa": "/ˈɑbʤɛkt/",
+        "imageUrl": "/vocab_images/day_2/11.png"
       },
       {
         "id": 12,
         "word": "item",
         "meaning": "món hàng (i...)",
-        "ipa": "/ˈaɪtəm/"
+        "ipa": "/ˈaɪtəm/",
+        "imageUrl": "/vocab_images/day_2/12.png"
       },
       {
         "id": 13,
         "word": "physician",
         "meaning": "bác sĩ",
-        "ipa": "/fəˈzɪʃən/"
+        "ipa": "/fəˈzɪʃən/",
+        "imageUrl": "/vocab_images/day_2/13.png"
       },
       {
         "id": 14,
         "word": "physics",
         "meaning": "vật lý",
-        "ipa": "/ˈfɪzɪks/"
+        "ipa": "/ˈfɪzɪks/",
+        "imageUrl": "/vocab_images/day_2/14.png"
       },
       {
         "id": 15,
@@ -405,85 +460,99 @@
         "id": 16,
         "word": "emergency room",
         "meaning": "phòng cấp cứu",
-        "ipa": "/ˈimərʤənsi rum/"
+        "ipa": "/ˈimərʤənsi rum/",
+        "imageUrl": "/vocab_images/day_2/16.png"
       },
       {
         "id": 17,
         "word": "take a picture",
         "meaning": "chup ảnh",
-        "ipa": "/teɪk ə ˈpɪkʧər/"
+        "ipa": "/teɪk ə ˈpɪkʧər/",
+        "imageUrl": "/vocab_images/day_2/17.png"
       },
       {
         "id": 18,
         "word": "surround",
         "meaning": "bao quanh",
-        "ipa": "/səraʊnd/"
+        "ipa": "/səraʊnd/",
+        "imageUrl": "/vocab_images/day_2/18.png"
       },
       {
         "id": 19,
         "word": "urgently",
         "meaning": "khẩn cấp",
-        "ipa": "/ˈərʤəntli/"
+        "ipa": "/ˈərʤəntli/",
+        "imageUrl": "/vocab_images/day_2/19.png"
       },
       {
         "id": 20,
         "word": "immediately",
         "meaning": "ngay lập tức (i...)",
-        "ipa": "/ˌɪˈmiˌdiətli/"
+        "ipa": "/ˌɪˈmiˌdiətli/",
+        "imageUrl": "/vocab_images/day_2/20.png"
       },
       {
         "id": 21,
         "word": "promptly",
         "meaning": "mau le, ngay lập tức (p...)",
-        "ipa": "/ˈprɑmptli/"
+        "ipa": "/ˈprɑmptli/",
+        "imageUrl": "/vocab_images/day_2/21.png"
       },
       {
         "id": 22,
         "word": "fountain",
         "meaning": "đài phun nước",
-        "ipa": "/ˈfaʊntən/"
+        "ipa": "/ˈfaʊntən/",
+        "imageUrl": "/vocab_images/day_2/22.png"
       },
       {
         "id": 23,
         "word": "roundabout",
         "meaning": "vòng xuyến",
-        "ipa": "/ˈraʊndəˌbaʊt/"
+        "ipa": "/ˈraʊndəˌbaʊt/",
+        "imageUrl": "/vocab_images/day_2/23.png"
       },
       {
         "id": 24,
         "word": "round",
         "meaning": "tròn",
-        "ipa": "/raʊnd/"
+        "ipa": "/raʊnd/",
+        "imageUrl": "/vocab_images/day_2/24.png"
       },
       {
         "id": 25,
         "word": "nurse",
         "meaning": "y tá",
-        "ipa": "/nərs/"
+        "ipa": "/nərs/",
+        "imageUrl": "/vocab_images/day_2/25.png"
       },
       {
         "id": 26,
         "word": "intersection",
         "meaning": "ngã tư",
-        "ipa": "/ˌɪntərˈsɛkʃən/"
+        "ipa": "/ˌɪntərˈsɛkʃən/",
+        "imageUrl": "/vocab_images/day_2/26.png"
       },
       {
         "id": 27,
         "word": "victim",
         "meaning": "nạn nhân",
-        "ipa": "/ˈvɪktɪm/"
+        "ipa": "/ˈvɪktɪm/",
+        "imageUrl": "/vocab_images/day_2/27.png"
       },
       {
         "id": 28,
         "word": "ambulance",
         "meaning": "xe cứu thương",
-        "ipa": "/ˈæmbjələns/"
+        "ipa": "/ˈæmbjələns/",
+        "imageUrl": "/vocab_images/day_2/28.png"
       },
       {
         "id": 29,
         "word": "lamppost",
         "meaning": "cột đèn",
-        "ipa": "/ˈlæmˌpoʊst/"
+        "ipa": "/ˈlæmˌpoʊst/",
+        "imageUrl": "/vocab_images/day_2/29.png"
       },
       {
         "id": 30,
@@ -495,25 +564,29 @@
         "id": 31,
         "word": "post",
         "meaning": "cột",
-        "ipa": "/poʊst/"
+        "ipa": "/poʊst/",
+        "imageUrl": "/vocab_images/day_2/31.png"
       },
       {
         "id": 32,
         "word": "congestion",
         "meaning": "sự tắc nghẽn",
-        "ipa": "/kənˈʤɛsʧən/"
+        "ipa": "/kənˈʤɛsʧən/",
+        "imageUrl": "/vocab_images/day_2/32.png"
       },
       {
         "id": 33,
         "word": "traffic jam",
         "meaning": "ket xe",
-        "ipa": "/ˈtræfɪk ʤæm/"
+        "ipa": "/ˈtræfɪk ʤæm/",
+        "imageUrl": "/vocab_images/day_2/33.png"
       },
       {
         "id": 34,
         "word": "jam",
         "meaning": "ket",
-        "ipa": "/ʤæm/"
+        "ipa": "/ʤæm/",
+        "imageUrl": "/vocab_images/day_2/34.png"
       },
       {
         "id": 35,
@@ -525,25 +598,29 @@
         "id": 36,
         "word": "hit",
         "meaning": "đánh",
-        "ipa": "/hɪt/"
+        "ipa": "/hɪt/",
+        "imageUrl": "/vocab_images/day_2/36.png"
       },
       {
         "id": 37,
         "word": "suddenly",
         "meaning": "một cách đột ngột",
-        "ipa": "/ˈsədənli/"
+        "ipa": "/ˈsədənli/",
+        "imageUrl": "/vocab_images/day_2/37.png"
       },
       {
         "id": 38,
         "word": "sudden",
         "meaning": "đột ngột",
-        "ipa": "/ˈsədən/"
+        "ipa": "/ˈsədən/",
+        "imageUrl": "/vocab_images/day_2/38.png"
       },
       {
         "id": 39,
         "word": "van",
         "meaning": "xe tải nhỏ",
-        "ipa": "/væn/"
+        "ipa": "/væn/",
+        "imageUrl": "/vocab_images/day_2/39.png"
       },
       {
         "id": 40,
@@ -555,55 +632,64 @@
         "id": 41,
         "word": "sweep",
         "meaning": "quét",
-        "ipa": "/swip/"
+        "ipa": "/swip/",
+        "imageUrl": "/vocab_images/day_2/41.png"
       },
       {
         "id": 42,
         "word": "mop",
         "meaning": "cây lau nhà",
-        "ipa": "/mɑp/"
+        "ipa": "/mɑp/",
+        "imageUrl": "/vocab_images/day_2/42.png"
       },
       {
         "id": 43,
         "word": "be close to",
         "meaning": "gần với",
-        "ipa": "/bi kloʊz tɪ/"
+        "ipa": "/bi kloʊz tɪ/",
+        "imageUrl": "/vocab_images/day_2/43.png"
       },
       {
         "id": 44,
         "word": "driver",
         "meaning": "tài xế",
-        "ipa": "/ˈdraɪvər/"
+        "ipa": "/ˈdraɪvər/",
+        "imageUrl": "/vocab_images/day_2/44.png"
       },
       {
         "id": 45,
         "word": "vanish",
         "meaning": "biến mất",
-        "ipa": "/ˈvænɪʃ/"
+        "ipa": "/ˈvænɪʃ/",
+        "imageUrl": "/vocab_images/day_2/45.png"
       },
       {
         "id": 46,
         "word": "transport",
         "meaning": "vận chuyển",
-        "ipa": "/ˈtrænspɔrt/"
+        "ipa": "/ˈtrænspɔrt/",
+        "imageUrl": "/vocab_images/day_2/46.png"
       },
       {
         "id": 47,
         "word": "treat",
         "meaning": "đối xử, điều tri",
-        "ipa": "/trit/"
+        "ipa": "/trit/",
+        "imageUrl": "/vocab_images/day_2/47.png"
       },
       {
         "id": 48,
         "word": "treatment",
         "meaning": "sự điều tri",
-        "ipa": "/ˈtritmənt/"
+        "ipa": "/ˈtritmənt/",
+        "imageUrl": "/vocab_images/day_2/48.png"
       },
       {
         "id": 49,
         "word": "eliminate",
         "meaning": "loại bỏ (e...)",
-        "ipa": "/ɪˈlɪməˌneɪt/"
+        "ipa": "/ɪˈlɪməˌneɪt/",
+        "imageUrl": "/vocab_images/day_2/49.png"
       },
       {
         "id": 50,
@@ -615,7 +701,8 @@
         "id": 51,
         "word": "remove",
         "meaning": "loại bỏ (r...)",
-        "ipa": "/riˈmuv/"
+        "ipa": "/riˈmuv/",
+        "imageUrl": "/vocab_images/day_2/51.png"
       },
       {
         "id": 52,
@@ -627,13 +714,15 @@
         "id": 53,
         "word": "stab",
         "meaning": "đâm",
-        "ipa": "/stæb/"
+        "ipa": "/stæb/",
+        "imageUrl": "/vocab_images/day_2/53.png"
       },
       {
         "id": 54,
         "word": "injury",
         "meaning": "chấn thương",
-        "ipa": "/ˈɪnʤəri/"
+        "ipa": "/ˈɪnʤəri/",
+        "imageUrl": "/vocab_images/day_2/54.png"
       }
     ]
   },
@@ -1278,31 +1367,36 @@
         "id": 1,
         "word": "Incur",
         "meaning": "gánh chiu",
-        "ipa": "/ˌɪnˈkər/"
+        "ipa": "/ˌɪnˈkər/",
+        "imageUrl": "/vocab_images/day_5/1.png"
       },
       {
         "id": 2,
         "word": "bear",
         "meaning": "chiu đựng",
-        "ipa": "/bɛr/"
+        "ipa": "/bɛr/",
+        "imageUrl": "/vocab_images/day_5/2.png"
       },
       {
         "id": 3,
         "word": "fiction movie",
         "meaning": "phim viễn tưởng",
-        "ipa": "/ˈfɪkʃən ˈmuvi/"
+        "ipa": "/ˈfɪkʃən ˈmuvi/",
+        "imageUrl": "/vocab_images/day_5/3.png"
       },
       {
         "id": 4,
         "word": "label",
         "meaning": "nhãn hiệu",
-        "ipa": "/ˈleɪbəl/"
+        "ipa": "/ˈleɪbəl/",
+        "imageUrl": "/vocab_images/day_5/4.png"
       },
       {
         "id": 5,
         "word": "fiction",
         "meaning": "viễn tưởng",
-        "ipa": "/ˈfɪkʃən/"
+        "ipa": "/ˈfɪkʃən/",
+        "imageUrl": "/vocab_images/day_5/5.png"
       },
       {
         "id": 6,
@@ -1314,13 +1408,15 @@
         "id": 7,
         "word": "tile",
         "meaning": "ngói",
-        "ipa": "/taɪl/"
+        "ipa": "/taɪl/",
+        "imageUrl": "/vocab_images/day_5/7.png"
       },
       {
         "id": 8,
         "word": "brick",
         "meaning": "gạch",
-        "ipa": "/brɪk/"
+        "ipa": "/brɪk/",
+        "imageUrl": "/vocab_images/day_5/8.png"
       },
       {
         "id": 9,
@@ -1332,43 +1428,50 @@
         "id": 10,
         "word": "footwear",
         "meaning": "giày dép",
-        "ipa": "/ˈfʊtˌwɛr/"
+        "ipa": "/ˈfʊtˌwɛr/",
+        "imageUrl": "/vocab_images/day_5/10.png"
       },
       {
         "id": 11,
         "word": "wear",
         "meaning": "mặc",
-        "ipa": "/wɛr/"
+        "ipa": "/wɛr/",
+        "imageUrl": "/vocab_images/day_5/11.png"
       },
       {
         "id": 12,
         "word": "ticket",
         "meaning": "vé",
-        "ipa": "/ˈtɪkɪt/"
+        "ipa": "/ˈtɪkɪt/",
+        "imageUrl": "/vocab_images/day_5/12.png"
       },
       {
         "id": 13,
         "word": "content",
         "meaning": "nội dung",
-        "ipa": "/ˈkɑntɛnt/"
+        "ipa": "/ˈkɑntɛnt/",
+        "imageUrl": "/vocab_images/day_5/13.png"
       },
       {
         "id": 14,
         "word": "audience",
         "meaning": "thính giả",
-        "ipa": "/ˈɔdiəns/"
+        "ipa": "/ˈɔdiəns/",
+        "imageUrl": "/vocab_images/day_5/14.png"
       },
       {
         "id": 15,
         "word": "entertainment area",
         "meaning": "khu vực giải trí",
-        "ipa": "/ˌɛnərˈteɪnmənt ˈɛriə/"
+        "ipa": "/ˌɛnərˈteɪnmənt ˈɛriə/",
+        "imageUrl": "/vocab_images/day_5/15.png"
       },
       {
         "id": 16,
         "word": "entertain",
         "meaning": "giải trí",
-        "ipa": "/ˌɛnərˈteɪn/"
+        "ipa": "/ˌɛnərˈteɪn/",
+        "imageUrl": "/vocab_images/day_5/16.png"
       },
       {
         "id": 17,
@@ -1380,25 +1483,29 @@
         "id": 18,
         "word": "outdated",
         "meaning": "lỗi thời",
-        "ipa": "/ˈaʊtˌdeɪtɪd/"
+        "ipa": "/ˈaʊtˌdeɪtɪd/",
+        "imageUrl": "/vocab_images/day_5/18.png"
       },
       {
         "id": 19,
         "word": "surf",
         "meaning": "lướt",
-        "ipa": "/sərf/"
+        "ipa": "/sərf/",
+        "imageUrl": "/vocab_images/day_5/19.png"
       },
       {
         "id": 20,
         "word": "load",
         "meaning": "chất hàng",
-        "ipa": "/loʊd/"
+        "ipa": "/loʊd/",
+        "imageUrl": "/vocab_images/day_5/20.png"
       },
       {
         "id": 21,
         "word": "monitor",
         "meaning": "màn hình (m...)",
-        "ipa": "/ˈmɑnətər/"
+        "ipa": "/ˈmɑnətər/",
+        "imageUrl": "/vocab_images/day_5/21.png"
       },
       {
         "id": 22,
@@ -1410,79 +1517,92 @@
         "id": 23,
         "word": "fit = match",
         "meaning": "phù hợp",
-        "ipa": "/fɪt  mæʧ/"
+        "ipa": "/fɪt  mæʧ/",
+        "imageUrl": "/vocab_images/day_5/23.png"
       },
       {
         "id": 24,
         "word": "unfit",
         "meaning": "không thích hợp",
-        "ipa": "/ənˈfɪt/"
+        "ipa": "/ənˈfɪt/",
+        "imageUrl": "/vocab_images/day_5/24.png"
       },
       {
         "id": 25,
         "word": "cost = price",
         "meaning": "chi phí, giá cả",
-        "ipa": "/kɔst  praɪs/"
+        "ipa": "/kɔst  praɪs/",
+        "imageUrl": "/vocab_images/day_5/25.png"
       },
       {
         "id": 26,
         "word": "sandal",
         "meaning": "dép quai hậu",
-        "ipa": "/ˈsændəl/"
+        "ipa": "/ˈsændəl/",
+        "imageUrl": "/vocab_images/day_5/26.png"
       },
       {
         "id": 27,
         "word": "cash",
         "meaning": "tiền mặt",
-        "ipa": "/kæʃ/"
+        "ipa": "/kæʃ/",
+        "imageUrl": "/vocab_images/day_5/27.png"
       },
       {
         "id": 28,
         "word": "cashier",
         "meaning": "thu ngân",
-        "ipa": "/kæˈʃɪr/"
+        "ipa": "/kæˈʃɪr/",
+        "imageUrl": "/vocab_images/day_5/28.png"
       },
       {
         "id": 29,
         "word": "perform",
         "meaning": "thực hiện",
-        "ipa": "/pərˈfɔrm/"
+        "ipa": "/pərˈfɔrm/",
+        "imageUrl": "/vocab_images/day_5/29.png"
       },
       {
         "id": 30,
         "word": "shelf",
         "meaning": "cái kệ",
-        "ipa": "/ʃɛlf/"
+        "ipa": "/ʃɛlf/",
+        "imageUrl": "/vocab_images/day_5/30.png"
       },
       {
         "id": 31,
         "word": "display = showcase",
         "meaning": "trưng bày",
-        "ipa": "/dɪˈspleɪ  ˈʃoʊˌkeɪs/"
+        "ipa": "/dɪˈspleɪ  ˈʃoʊˌkeɪs/",
+        "imageUrl": "/vocab_images/day_5/31.png"
       },
       {
         "id": 32,
         "word": "outfit",
         "meaning": "trang phuc",
-        "ipa": "/ˈaʊtˌfɪt/"
+        "ipa": "/ˈaʊtˌfɪt/",
+        "imageUrl": "/vocab_images/day_5/32.png"
       },
       {
         "id": 33,
         "word": "in front of",
         "meaning": "phía trước",
-        "ipa": "/ɪn frənt əv/"
+        "ipa": "/ɪn frənt əv/",
+        "imageUrl": "/vocab_images/day_5/33.png"
       },
       {
         "id": 34,
         "word": "throw",
         "meaning": "ném",
-        "ipa": "/θroʊ/"
+        "ipa": "/θroʊ/",
+        "imageUrl": "/vocab_images/day_5/34.png"
       },
       {
         "id": 35,
         "word": "screen",
         "meaning": "màn hình (s...)",
-        "ipa": "/skrin/"
+        "ipa": "/skrin/",
+        "imageUrl": "/vocab_images/day_5/35.png"
       },
       {
         "id": 36,
@@ -1494,55 +1614,64 @@
         "id": 37,
         "word": "disappointed",
         "meaning": "thất vong",
-        "ipa": "/ˌdɪsəˈpɔɪnɪd/"
+        "ipa": "/ˌdɪsəˈpɔɪnɪd/",
+        "imageUrl": "/vocab_images/day_5/37.png"
       },
       {
         "id": 38,
         "word": "renew",
         "meaning": "làm mới",
-        "ipa": "/rɪˈnu/"
+        "ipa": "/rɪˈnu/",
+        "imageUrl": "/vocab_images/day_5/38.png"
       },
       {
         "id": 39,
         "word": "compensation",
         "meaning": "sự bồi thường",
-        "ipa": "/ˌkɑmpənˈseɪʃən/"
+        "ipa": "/ˌkɑmpənˈseɪʃən/",
+        "imageUrl": "/vocab_images/day_5/39.png"
       },
       {
         "id": 40,
         "word": "try it",
         "meaning": "Thử nó.",
-        "ipa": "/traɪ ɪt/"
+        "ipa": "/traɪ ɪt/",
+        "imageUrl": "/vocab_images/day_5/40.png"
       },
       {
         "id": 41,
         "word": "receive",
         "meaning": "nhận",
-        "ipa": "/rɪˈsiv/"
+        "ipa": "/rɪˈsiv/",
+        "imageUrl": "/vocab_images/day_5/41.png"
       },
       {
         "id": 42,
         "word": "cart",
         "meaning": "xe đẩy",
-        "ipa": "/kɑrt/"
+        "ipa": "/kɑrt/",
+        "imageUrl": "/vocab_images/day_5/42.png"
       },
       {
         "id": 43,
         "word": "payment",
         "meaning": "thanh toán",
-        "ipa": "/ˈpeɪmənt/"
+        "ipa": "/ˈpeɪmənt/",
+        "imageUrl": "/vocab_images/day_5/43.png"
       },
       {
         "id": 44,
         "word": "access",
         "meaning": "tiến tới",
-        "ipa": "/ˈækˌsɛs/"
+        "ipa": "/ˈækˌsɛs/",
+        "imageUrl": "/vocab_images/day_5/44.png"
       },
       {
         "id": 45,
         "word": "seat belt",
         "meaning": "dây an toàn",
-        "ipa": "/sit bɛlt/"
+        "ipa": "/sit bɛlt/",
+        "imageUrl": "/vocab_images/day_5/45.png"
       },
       {
         "id": 46,
@@ -3156,55 +3285,64 @@
         "id": 1,
         "word": "wage",
         "meaning": "tiền công",
-        "ipa": "/weɪʤ/"
+        "ipa": "/weɪʤ/",
+        "imageUrl": "/vocab_images/day_11/1.png"
       },
       {
         "id": 2,
         "word": "Salary",
         "meaning": "lương",
-        "ipa": "/ˈsæləri/"
+        "ipa": "/ˈsæləri/",
+        "imageUrl": "/vocab_images/day_11/2.png"
       },
       {
         "id": 3,
         "word": "maintenance",
         "meaning": "sự bảo trì",
-        "ipa": "/ˈmeɪntənəns/"
+        "ipa": "/ˈmeɪntənəns/",
+        "imageUrl": "/vocab_images/day_11/3.png"
       },
       {
         "id": 4,
         "word": "maintain",
         "meaning": "duy trì",
-        "ipa": "/meɪnˈteɪn/"
+        "ipa": "/meɪnˈteɪn/",
+        "imageUrl": "/vocab_images/day_11/4.png"
       },
       {
         "id": 5,
         "word": "application",
         "meaning": "đơn xin việc",
-        "ipa": "/ˌæpləˈkeɪʃən/"
+        "ipa": "/ˌæpləˈkeɪʃən/",
+        "imageUrl": "/vocab_images/day_11/5.png"
       },
       {
         "id": 6,
         "word": "apply",
         "meaning": "ứng tuyển",
-        "ipa": "/əˈplaɪ/"
+        "ipa": "/əˈplaɪ/",
+        "imageUrl": "/vocab_images/day_11/6.png"
       },
       {
         "id": 7,
         "word": "resume",
         "meaning": "sơ yếu lý lich",
-        "ipa": "/ˈrɛzəˌmeɪ/"
+        "ipa": "/ˈrɛzəˌmeɪ/",
+        "imageUrl": "/vocab_images/day_11/7.png"
       },
       {
         "id": 8,
         "word": "assign",
         "meaning": "phân công",
-        "ipa": "/əˈsaɪn/"
+        "ipa": "/əˈsaɪn/",
+        "imageUrl": "/vocab_images/day_11/8.png"
       },
       {
         "id": 9,
         "word": "assignment",
         "meaning": "nhiệm vu",
-        "ipa": "/əˈsaɪnmənt/"
+        "ipa": "/əˈsaɪnmənt/",
+        "imageUrl": "/vocab_images/day_11/9.png"
       },
       {
         "id": 10,
@@ -3222,7 +3360,8 @@
         "id": 12,
         "word": "interview",
         "meaning": "phỏng vấn",
-        "ipa": "/ˈɪntərvˌju/"
+        "ipa": "/ˈɪntərvˌju/",
+        "imageUrl": "/vocab_images/day_11/12.png"
       },
       {
         "id": 13,
@@ -3234,7 +3373,8 @@
         "id": 14,
         "word": "interviewee",
         "meaning": "người được phỏng vấn",
-        "ipa": "/ˌɪntərvjuˈi/"
+        "ipa": "/ˌɪntərvjuˈi/",
+        "imageUrl": "/vocab_images/day_11/14.png"
       },
       {
         "id": 15,
@@ -3252,19 +3392,22 @@
         "id": 17,
         "word": "pass out",
         "meaning": "phát",
-        "ipa": "/pæs aʊt/"
+        "ipa": "/pæs aʊt/",
+        "imageUrl": "/vocab_images/day_11/17.png"
       },
       {
         "id": 18,
         "word": "hand out",
         "meaning": "phát tay",
-        "ipa": "/hænd aʊt/"
+        "ipa": "/hænd aʊt/",
+        "imageUrl": "/vocab_images/day_11/18.png"
       },
       {
         "id": 19,
         "word": "contribute",
         "meaning": "đóng góp",
-        "ipa": "/kənˈtrɪbjut/"
+        "ipa": "/kənˈtrɪbjut/",
+        "imageUrl": "/vocab_images/day_11/19.png"
       },
       {
         "id": 20,
@@ -3276,7 +3419,8 @@
         "id": 21,
         "word": "arrange",
         "meaning": "sắp xếp",
-        "ipa": "/əreɪnʤ/"
+        "ipa": "/əreɪnʤ/",
+        "imageUrl": "/vocab_images/day_11/21.png"
       },
       {
         "id": 22,
@@ -3288,43 +3432,50 @@
         "id": 23,
         "word": "get in touch",
         "meaning": "liên lạc",
-        "ipa": "/gɪt ɪn təʧ/"
+        "ipa": "/gɪt ɪn təʧ/",
+        "imageUrl": "/vocab_images/day_11/23.png"
       },
       {
         "id": 24,
         "word": "recruit",
         "meaning": "tuyển dung",
-        "ipa": "/rɪˈkrut/"
+        "ipa": "/rɪˈkrut/",
+        "imageUrl": "/vocab_images/day_11/24.png"
       },
       {
         "id": 25,
         "word": "recruitment",
         "meaning": "sự tuyển dung",
-        "ipa": "/rɪˈkrutmənt/"
+        "ipa": "/rɪˈkrutmənt/",
+        "imageUrl": "/vocab_images/day_11/25.png"
       },
       {
         "id": 26,
         "word": "hire",
         "meaning": "thuê",
-        "ipa": "/haɪər/"
+        "ipa": "/haɪər/",
+        "imageUrl": "/vocab_images/day_11/26.png"
       },
       {
         "id": 27,
         "word": "contact",
         "meaning": "liên hệ",
-        "ipa": "/ˈkɑnˌtækt/"
+        "ipa": "/ˈkɑnˌtækt/",
+        "imageUrl": "/vocab_images/day_11/27.png"
       },
       {
         "id": 28,
         "word": "touch",
         "meaning": "chạm",
-        "ipa": "/təʧ/"
+        "ipa": "/təʧ/",
+        "imageUrl": "/vocab_images/day_11/28.png"
       },
       {
         "id": 29,
         "word": "employee",
         "meaning": "nhân viên",
-        "ipa": "/ɪmˈplɔɪi/"
+        "ipa": "/ɪmˈplɔɪi/",
+        "imageUrl": "/vocab_images/day_11/29.png"
       },
       {
         "id": 30,
@@ -3336,25 +3487,29 @@
         "id": 31,
         "word": "employer",
         "meaning": "chủ sử dung lao động",
-        "ipa": "/ɪmˈplɔɪər/"
+        "ipa": "/ɪmˈplɔɪər/",
+        "imageUrl": "/vocab_images/day_11/31.png"
       },
       {
         "id": 32,
         "word": "brochure",
         "meaning": "tờ rơi",
-        "ipa": "/broʊˈʃʊr/"
+        "ipa": "/broʊˈʃʊr/",
+        "imageUrl": "/vocab_images/day_11/32.png"
       },
       {
         "id": 33,
         "word": "flyer",
         "meaning": "tờ rơi",
-        "ipa": "/flaɪər/"
+        "ipa": "/flaɪər/",
+        "imageUrl": "/vocab_images/day_11/33.png"
       },
       {
         "id": 34,
         "word": "staff",
         "meaning": "nhân viên",
-        "ipa": "/stæf/"
+        "ipa": "/stæf/",
+        "imageUrl": "/vocab_images/day_11/34.png"
       },
       {
         "id": 35,
@@ -3366,61 +3521,71 @@
         "id": 36,
         "word": "resources",
         "meaning": "tài nguyên",
-        "ipa": "/ˈrisɔrsɪz/"
+        "ipa": "/ˈrisɔrsɪz/",
+        "imageUrl": "/vocab_images/day_11/36.png"
       },
       {
         "id": 37,
         "word": "source",
         "meaning": "nguồn",
-        "ipa": "/sɔrs/"
+        "ipa": "/sɔrs/",
+        "imageUrl": "/vocab_images/day_11/37.png"
       },
       {
         "id": 38,
         "word": "director",
         "meaning": "giám đốc",
-        "ipa": "/dɪˈrɛktər/"
+        "ipa": "/dɪˈrɛktər/",
+        "imageUrl": "/vocab_images/day_11/38.png"
       },
       {
         "id": 39,
         "word": "assist",
         "meaning": "hỗ trợ",
-        "ipa": "/əˈsɪst/"
+        "ipa": "/əˈsɪst/",
+        "imageUrl": "/vocab_images/day_11/39.png"
       },
       {
         "id": 40,
         "word": "assistant",
         "meaning": "trợ lý",
-        "ipa": "/əˈsɪstənt/"
+        "ipa": "/əˈsɪstənt/",
+        "imageUrl": "/vocab_images/day_11/40.png"
       },
       {
         "id": 41,
         "word": "assistance",
         "meaning": "sự hỗ trợ",
-        "ipa": "/əˈsɪstəns/"
+        "ipa": "/əˈsɪstəns/",
+        "imageUrl": "/vocab_images/day_11/41.png"
       },
       {
         "id": 42,
         "word": "applicant",
         "meaning": "người nộp đơn",
-        "ipa": "/ˈæplɪkənt/"
+        "ipa": "/ˈæplɪkənt/",
+        "imageUrl": "/vocab_images/day_11/42.png"
       },
       {
         "id": 43,
         "word": "candidate",
         "meaning": "ứng viên",
-        "ipa": "/ˈkænədɪt/"
+        "ipa": "/ˈkænədɪt/",
+        "imageUrl": "/vocab_images/day_11/43.png"
       },
       {
         "id": 44,
         "word": "appointment",
         "meaning": "cuộc hen",
-        "ipa": "/əˈpɔɪntmənt/"
+        "ipa": "/əˈpɔɪntmənt/",
+        "imageUrl": "/vocab_images/day_11/44.png"
       },
       {
         "id": 45,
         "word": "expense",
         "meaning": "chi phí",
-        "ipa": "/ɪkˈspɛns/"
+        "ipa": "/ɪkˈspɛns/",
+        "imageUrl": "/vocab_images/day_11/45.png"
       },
       {
         "id": 46,
@@ -3432,13 +3597,15 @@
         "id": 47,
         "word": "electricity",
         "meaning": "điện",
-        "ipa": "/ɪˌlɛkˈtrɪsəti/"
+        "ipa": "/ɪˌlɛkˈtrɪsəti/",
+        "imageUrl": "/vocab_images/day_11/47.png"
       },
       {
         "id": 48,
         "word": "system",
         "meaning": "hệ thống",
-        "ipa": "/ˈsɪstəm/"
+        "ipa": "/ˈsɪstəm/",
+        "imageUrl": "/vocab_images/day_11/48.png"
       }
     ]
   },
@@ -4540,19 +4707,22 @@
         "id": 1,
         "word": "Headquarters",
         "meaning": "Tru sở chính",
-        "ipa": "/ˈhɛdˌkɔrtərz/"
+        "ipa": "/ˈhɛdˌkɔrtərz/",
+        "imageUrl": "/vocab_images/day_15/1.png"
       },
       {
         "id": 2,
         "word": "Due to",
         "meaning": "Do, bởi vì",
-        "ipa": "/du tɪ/"
+        "ipa": "/du tɪ/",
+        "imageUrl": "/vocab_images/day_15/2.png"
       },
       {
         "id": 3,
         "word": "Achieve",
         "meaning": "Đạt được",
-        "ipa": "/əˈʧiv/"
+        "ipa": "/əˈʧiv/",
+        "imageUrl": "/vocab_images/day_15/3.png"
       },
       {
         "id": 4,
@@ -4564,7 +4734,8 @@
         "id": 5,
         "word": "Gain",
         "meaning": "Đạt được",
-        "ipa": "/geɪn/"
+        "ipa": "/geɪn/",
+        "imageUrl": "/vocab_images/day_15/5.png"
       },
       {
         "id": 6,
@@ -4576,19 +4747,22 @@
         "id": 7,
         "word": "Obtain",
         "meaning": "Thu được",
-        "ipa": "/əbˈteɪn/"
+        "ipa": "/əbˈteɪn/",
+        "imageUrl": "/vocab_images/day_15/7.png"
       },
       {
         "id": 8,
         "word": "Vice-president",
         "meaning": "Phó chủ tich",
-        "ipa": "/ˈvaɪˈsprɛzədənt/"
+        "ipa": "/ˈvaɪˈsprɛzədənt/",
+        "imageUrl": "/vocab_images/day_15/8.png"
       },
       {
         "id": 9,
         "word": "Career",
         "meaning": "Sự nghiệp",
-        "ipa": "/kərɪr/"
+        "ipa": "/kərɪr/",
+        "imageUrl": "/vocab_images/day_15/9.png"
       },
       {
         "id": 10,
@@ -4600,25 +4774,29 @@
         "id": 11,
         "word": "Transfer",
         "meaning": "Chuyển",
-        "ipa": "/ˈtrænsfər/"
+        "ipa": "/ˈtrænsfər/",
+        "imageUrl": "/vocab_images/day_15/11.png"
       },
       {
         "id": 12,
         "word": "Faculty",
         "meaning": "Khoa (trong trường đại hoc)",
-        "ipa": "/ˈfækəlti/"
+        "ipa": "/ˈfækəlti/",
+        "imageUrl": "/vocab_images/day_15/12.png"
       },
       {
         "id": 13,
         "word": "Policy",
         "meaning": "Chính sách",
-        "ipa": "/ˈpɑləsi/"
+        "ipa": "/ˈpɑləsi/",
+        "imageUrl": "/vocab_images/day_15/13.png"
       },
       {
         "id": 14,
         "word": "Chief Executive Officer",
         "meaning": "Giám đốc điều hành",
-        "ipa": "/ʧif ɪgˈzɛkjətɪv ˈɔfɪsər/"
+        "ipa": "/ʧif ɪgˈzɛkjətɪv ˈɔfɪsər/",
+        "imageUrl": "/vocab_images/day_15/14.png"
       },
       {
         "id": 15,
@@ -4630,25 +4808,29 @@
         "id": 16,
         "word": "Approval",
         "meaning": "Sự phê duyệt",
-        "ipa": "/əˈpruvəl/"
+        "ipa": "/əˈpruvəl/",
+        "imageUrl": "/vocab_images/day_15/16.png"
       },
       {
         "id": 17,
         "word": "Revise",
         "meaning": "Sửa đổi",
-        "ipa": "/rɪˈvaɪz/"
+        "ipa": "/rɪˈvaɪz/",
+        "imageUrl": "/vocab_images/day_15/17.png"
       },
       {
         "id": 18,
         "word": "Modify",
         "meaning": "Chỉnh sửa",
-        "ipa": "/ˈmɑdəˌfaɪ/"
+        "ipa": "/ˈmɑdəˌfaɪ/",
+        "imageUrl": "/vocab_images/day_15/18.png"
       },
       {
         "id": 19,
         "word": "Chairman",
         "meaning": "Chủ tich",
-        "ipa": "/ˈʧɛrmən/"
+        "ipa": "/ˈʧɛrmən/",
+        "imageUrl": "/vocab_images/day_15/19.png"
       },
       {
         "id": 20,
@@ -4660,13 +4842,15 @@
         "id": 21,
         "word": "Appoint",
         "meaning": "Bổ nhiệm",
-        "ipa": "/əˈpɔɪnt/"
+        "ipa": "/əˈpɔɪnt/",
+        "imageUrl": "/vocab_images/day_15/21.png"
       },
       {
         "id": 22,
         "word": "Proposal",
         "meaning": "Sự đề xuất, cầu hôn",
-        "ipa": "/prəˈpoʊzəl/"
+        "ipa": "/prəˈpoʊzəl/",
+        "imageUrl": "/vocab_images/day_15/22.png"
       },
       {
         "id": 23,
@@ -4678,25 +4862,29 @@
         "id": 24,
         "word": "Suggestion",
         "meaning": "Gợi ý",
-        "ipa": "/səˈʤɛsʧən/"
+        "ipa": "/səˈʤɛsʧən/",
+        "imageUrl": "/vocab_images/day_15/24.png"
       },
       {
         "id": 25,
         "word": "Suggest",
         "meaning": "Gợi ý",
-        "ipa": "/səˈʤɛst/"
+        "ipa": "/səˈʤɛst/",
+        "imageUrl": "/vocab_images/day_15/25.png"
       },
       {
         "id": 26,
         "word": "Promotion",
         "meaning": "Sự thăng tiến",
-        "ipa": "/pərˈmoʊʃən/"
+        "ipa": "/pərˈmoʊʃən/",
+        "imageUrl": "/vocab_images/day_15/26.png"
       },
       {
         "id": 27,
         "word": "Consultant",
         "meaning": "Tư vấn viên",
-        "ipa": "/kənˈsəltənt/"
+        "ipa": "/kənˈsəltənt/",
+        "imageUrl": "/vocab_images/day_15/27.png"
       },
       {
         "id": 28,
@@ -4708,7 +4896,8 @@
         "id": 29,
         "word": "Consider",
         "meaning": "Cân nhắc",
-        "ipa": "/kənˈsɪdər/"
+        "ipa": "/kənˈsɪdər/",
+        "imageUrl": "/vocab_images/day_15/29.png"
       },
       {
         "id": 30,
@@ -4726,7 +4915,8 @@
         "id": 32,
         "word": "Lawyer",
         "meaning": "Luật sư",
-        "ipa": "/ˈlɔjər/"
+        "ipa": "/ˈlɔjər/",
+        "imageUrl": "/vocab_images/day_15/32.png"
       },
       {
         "id": 33,
@@ -4738,7 +4928,8 @@
         "id": 34,
         "word": "Rule",
         "meaning": "Quy tắc",
-        "ipa": "/rul/"
+        "ipa": "/rul/",
+        "imageUrl": "/vocab_images/day_15/34.png"
       },
       {
         "id": 35,
@@ -4750,25 +4941,29 @@
         "id": 36,
         "word": "Reimbursement",
         "meaning": "Sự hoàn trả",
-        "ipa": "/ˌriɪmˈbərsmənt/"
+        "ipa": "/ˌriɪmˈbərsmənt/",
+        "imageUrl": "/vocab_images/day_15/36.png"
       },
       {
         "id": 37,
         "word": "Refund",
         "meaning": "Hoàn tiền",
-        "ipa": "/ˈriˌfənd/"
+        "ipa": "/ˈriˌfənd/",
+        "imageUrl": "/vocab_images/day_15/37.png"
       },
       {
         "id": 38,
         "word": "Repayment",
         "meaning": "Sự trả lại",
-        "ipa": "/riˈpeɪmənt/"
+        "ipa": "/riˈpeɪmənt/",
+        "imageUrl": "/vocab_images/day_15/38.png"
       },
       {
         "id": 39,
         "word": "Promote",
         "meaning": "Thăng tiến",
-        "ipa": "/prəˈmoʊt/"
+        "ipa": "/prəˈmoʊt/",
+        "imageUrl": "/vocab_images/day_15/39.png"
       },
       {
         "id": 40,
@@ -4780,25 +4975,29 @@
         "id": 41,
         "word": "Institute",
         "meaning": "Viện",
-        "ipa": "/ˈɪnstɪˌtut/"
+        "ipa": "/ˈɪnstɪˌtut/",
+        "imageUrl": "/vocab_images/day_15/41.png"
       },
       {
         "id": 42,
         "word": "Academy",
         "meaning": "Hoc viện",
-        "ipa": "/əˈkædəmi/"
+        "ipa": "/əˈkædəmi/",
+        "imageUrl": "/vocab_images/day_15/42.png"
       },
       {
         "id": 43,
         "word": "Academic",
         "meaning": "Hoc thuật",
-        "ipa": "/ˌækəˈdɛmɪk/"
+        "ipa": "/ˌækəˈdɛmɪk/",
+        "imageUrl": "/vocab_images/day_15/43.png"
       },
       {
         "id": 44,
         "word": "Contract",
         "meaning": "Hợp đồng",
-        "ipa": "/ˈkɑnˌtrækt/"
+        "ipa": "/ˈkɑnˌtrækt/",
+        "imageUrl": "/vocab_images/day_15/44.png"
       },
       {
         "id": 45,
@@ -4810,37 +5009,43 @@
         "id": 46,
         "word": "Agree",
         "meaning": "Đồng ý",
-        "ipa": "/əˈgri/"
+        "ipa": "/əˈgri/",
+        "imageUrl": "/vocab_images/day_15/46.png"
       },
       {
         "id": 47,
         "word": "Lease",
         "meaning": "Cho thuê",
-        "ipa": "/lis/"
+        "ipa": "/lis/",
+        "imageUrl": "/vocab_images/day_15/47.png"
       },
       {
         "id": 48,
         "word": "Recommend",
         "meaning": "Đề nghi",
-        "ipa": "/ˌrɛkəˈmɛnd/"
+        "ipa": "/ˌrɛkəˈmɛnd/",
+        "imageUrl": "/vocab_images/day_15/48.png"
       },
       {
         "id": 49,
         "word": "Recommendation",
         "meaning": "Sự đề nghi",
-        "ipa": "/ˌrɛkəmənˈdeɪʃən/"
+        "ipa": "/ˌrɛkəmənˈdeɪʃən/",
+        "imageUrl": "/vocab_images/day_15/49.png"
       },
       {
         "id": 50,
         "word": "Outstanding",
         "meaning": "Xuất sắc",
-        "ipa": "/ˌaʊtˈstændɪŋ/"
+        "ipa": "/ˌaʊtˈstændɪŋ/",
+        "imageUrl": "/vocab_images/day_15/50.png"
       },
       {
         "id": 51,
         "word": "Lecturer",
         "meaning": "Giảng viên",
-        "ipa": "/ˈlɛkʧərər/"
+        "ipa": "/ˈlɛkʧərər/",
+        "imageUrl": "/vocab_images/day_15/51.png"
       },
       {
         "id": 52,
@@ -4852,25 +5057,29 @@
         "id": 53,
         "word": "Locate",
         "meaning": "Đinh vi",
-        "ipa": "/ˈloʊˌkeɪt/"
+        "ipa": "/ˈloʊˌkeɪt/",
+        "imageUrl": "/vocab_images/day_15/53.png"
       },
       {
         "id": 54,
         "word": "Location",
         "meaning": "Đia điểm",
-        "ipa": "/loʊˈkeɪʃən/"
+        "ipa": "/loʊˈkeɪʃən/",
+        "imageUrl": "/vocab_images/day_15/54.png"
       },
       {
         "id": 55,
         "word": "Relocate",
         "meaning": "Tái đinh cư",
-        "ipa": "/ˌriˈloʊkeɪt/"
+        "ipa": "/ˌriˈloʊkeɪt/",
+        "imageUrl": "/vocab_images/day_15/55.png"
       },
       {
         "id": 56,
         "word": "Entire",
         "meaning": "Toàn bộ",
-        "ipa": "/ɪnˈtaɪər/"
+        "ipa": "/ɪnˈtaɪər/",
+        "imageUrl": "/vocab_images/day_15/56.png"
       },
       {
         "id": 57,
@@ -4882,7 +5091,8 @@
         "id": 58,
         "word": "Finger",
         "meaning": "Ngón tay",
-        "ipa": "/ˈfɪŋgər/"
+        "ipa": "/ˈfɪŋgər/",
+        "imageUrl": "/vocab_images/day_15/58.png"
       }
     ]
   },
@@ -4895,7 +5105,8 @@
         "id": 1,
         "word": "Huge",
         "meaning": "To lớn",
-        "ipa": "/juʤ/"
+        "ipa": "/juʤ/",
+        "imageUrl": "/vocab_images/day_16/1.png"
       },
       {
         "id": 2,
@@ -4907,19 +5118,22 @@
         "id": 3,
         "word": "Enormously",
         "meaning": "Vô cùng",
-        "ipa": "/ɪˈnɔrməsli/"
+        "ipa": "/ɪˈnɔrməsli/",
+        "imageUrl": "/vocab_images/day_16/3.png"
       },
       {
         "id": 4,
         "word": "Front desk",
         "meaning": "Quầy tiếp tân",
-        "ipa": "/frənt dɛsk/"
+        "ipa": "/frənt dɛsk/",
+        "imageUrl": "/vocab_images/day_16/4.png"
       },
       {
         "id": 5,
         "word": "Stationery",
         "meaning": "Văn phòng phẩm",
-        "ipa": "/ˈsteɪʃəˌnɛri/"
+        "ipa": "/ˈsteɪʃəˌnɛri/",
+        "imageUrl": "/vocab_images/day_16/5.png"
       },
       {
         "id": 6,
@@ -4931,19 +5145,22 @@
         "id": 7,
         "word": "Several",
         "meaning": "Một vài",
-        "ipa": "/ˈsɛvərəl/"
+        "ipa": "/ˈsɛvərəl/",
+        "imageUrl": "/vocab_images/day_16/7.png"
       },
       {
         "id": 8,
         "word": "Figure",
         "meaning": "Con số",
-        "ipa": "/ˈfɪgjər/"
+        "ipa": "/ˈfɪgjər/",
+        "imageUrl": "/vocab_images/day_16/8.png"
       },
       {
         "id": 9,
         "word": "Figure out",
         "meaning": "Tìm ra",
-        "ipa": "/ˈfɪgjər aʊt/"
+        "ipa": "/ˈfɪgjər aʊt/",
+        "imageUrl": "/vocab_images/day_16/9.png"
       },
       {
         "id": 10,
@@ -4961,7 +5178,8 @@
         "id": 12,
         "word": "Be aware of",
         "meaning": "Nhận thức về",
-        "ipa": "/bi əˈwɛr əv/"
+        "ipa": "/bi əˈwɛr əv/",
+        "imageUrl": "/vocab_images/day_16/12.png"
       },
       {
         "id": 13,
@@ -4979,37 +5197,43 @@
         "id": 15,
         "word": "Chance",
         "meaning": "Cơ hội",
-        "ipa": "/ʧæns/"
+        "ipa": "/ʧæns/",
+        "imageUrl": "/vocab_images/day_16/15.png"
       },
       {
         "id": 16,
         "word": "Job fair",
         "meaning": "Hội chợ việc làm",
-        "ipa": "/ʤɑb fɛr/"
+        "ipa": "/ʤɑb fɛr/",
+        "imageUrl": "/vocab_images/day_16/16.png"
       },
       {
         "id": 17,
         "word": "Contain",
         "meaning": "Chứa đựng",
-        "ipa": "/kənˈteɪn/"
+        "ipa": "/kənˈteɪn/",
+        "imageUrl": "/vocab_images/day_16/17.png"
       },
       {
         "id": 18,
         "word": "Stare up",
         "meaning": "Nhìn chằm chằm lên",
-        "ipa": "/stɛr əp/"
+        "ipa": "/stɛr əp/",
+        "imageUrl": "/vocab_images/day_16/18.png"
       },
       {
         "id": 19,
         "word": "Gaze up",
         "meaning": "Nhìn chằm chằm lên",
-        "ipa": "/geɪz əp/"
+        "ipa": "/geɪz əp/",
+        "imageUrl": "/vocab_images/day_16/19.png"
       },
       {
         "id": 20,
         "word": "Enroll in",
         "meaning": "Ghi danh vào",
-        "ipa": "/ɪnˈroʊl ɪn/"
+        "ipa": "/ɪnˈroʊl ɪn/",
+        "imageUrl": "/vocab_images/day_16/20.png"
       },
       {
         "id": 21,
@@ -5021,13 +5245,15 @@
         "id": 22,
         "word": "Greet",
         "meaning": "Chào hỏi",
-        "ipa": "/grit/"
+        "ipa": "/grit/",
+        "imageUrl": "/vocab_images/day_16/22.png"
       },
       {
         "id": 23,
         "word": "Volunteer",
         "meaning": "Tình nguyện viên",
-        "ipa": "/ˌvɑlənˈtɪr/"
+        "ipa": "/ˌvɑlənˈtɪr/",
+        "imageUrl": "/vocab_images/day_16/23.png"
       },
       {
         "id": 24,
@@ -5039,25 +5265,29 @@
         "id": 25,
         "word": "Entrance exam",
         "meaning": "Kỳ thi đầu vào",
-        "ipa": "/ˈɛntrəns ɪgˈzæm/"
+        "ipa": "/ˈɛntrəns ɪgˈzæm/",
+        "imageUrl": "/vocab_images/day_16/25.png"
       },
       {
         "id": 26,
         "word": "Bend down",
         "meaning": "Cúi xuống",
-        "ipa": "/bɛnd daʊn/"
+        "ipa": "/bɛnd daʊn/",
+        "imageUrl": "/vocab_images/day_16/26.png"
       },
       {
         "id": 27,
         "word": "Bend",
         "meaning": "Uốn cong",
-        "ipa": "/bɛnd/"
+        "ipa": "/bɛnd/",
+        "imageUrl": "/vocab_images/day_16/27.png"
       },
       {
         "id": 28,
         "word": "Instruct",
         "meaning": "Hướng dẫn",
-        "ipa": "/ˌɪnˈstrəkt/"
+        "ipa": "/ˌɪnˈstrəkt/",
+        "imageUrl": "/vocab_images/day_16/28.png"
       },
       {
         "id": 29,
@@ -5069,13 +5299,15 @@
         "id": 30,
         "word": "Guide",
         "meaning": "Hướng dẫn",
-        "ipa": "/gaɪd/"
+        "ipa": "/gaɪd/",
+        "imageUrl": "/vocab_images/day_16/30.png"
       },
       {
         "id": 31,
         "word": "Guidance",
         "meaning": "Sự hướng dẫn",
-        "ipa": "/ˈgaɪdəns/"
+        "ipa": "/ˈgaɪdəns/",
+        "imageUrl": "/vocab_images/day_16/31.png"
       },
       {
         "id": 32,
@@ -5087,19 +5319,22 @@
         "id": 33,
         "word": "Properly",
         "meaning": "Đúng cách",
-        "ipa": "/ˈprɑpərli/"
+        "ipa": "/ˈprɑpərli/",
+        "imageUrl": "/vocab_images/day_16/33.png"
       },
       {
         "id": 34,
         "word": "Accurately",
         "meaning": "Chính xác",
-        "ipa": "/ˈækjərətli/"
+        "ipa": "/ˈækjərətli/",
+        "imageUrl": "/vocab_images/day_16/34.png"
       },
       {
         "id": 35,
         "word": "Inaccurate",
         "meaning": "Không chính xác",
-        "ipa": "/ˌɪˈnækjərət/"
+        "ipa": "/ˌɪˈnækjərət/",
+        "imageUrl": "/vocab_images/day_16/35.png"
       },
       {
         "id": 36,
@@ -5111,43 +5346,50 @@
         "id": 37,
         "word": "Bulletin board",
         "meaning": "Bảng thông báo",
-        "ipa": "/ˈbʊlɪtən bɔrd/"
+        "ipa": "/ˈbʊlɪtən bɔrd/",
+        "imageUrl": "/vocab_images/day_16/37.png"
       },
       {
         "id": 38,
         "word": "Agenda",
         "meaning": "Chương trình nghi sự",
-        "ipa": "/əˈʤɛndə/"
+        "ipa": "/əˈʤɛndə/",
+        "imageUrl": "/vocab_images/day_16/38.png"
       },
       {
         "id": 39,
         "word": "Delighted",
         "meaning": "Vui mừng",
-        "ipa": "/dɪˈlaɪtɪd/"
+        "ipa": "/dɪˈlaɪtɪd/",
+        "imageUrl": "/vocab_images/day_16/39.png"
       },
       {
         "id": 40,
         "word": "Pleased",
         "meaning": "Hài lòng",
-        "ipa": "/plizd/"
+        "ipa": "/plizd/",
+        "imageUrl": "/vocab_images/day_16/40.png"
       },
       {
         "id": 41,
         "word": "Interact",
         "meaning": "Tương tác",
-        "ipa": "/ˌɪnərˈækt/"
+        "ipa": "/ˌɪnərˈækt/",
+        "imageUrl": "/vocab_images/day_16/41.png"
       },
       {
         "id": 42,
         "word": "Interaction",
         "meaning": "Sự tương tác",
-        "ipa": "/ˌɪnərˈækʃən/"
+        "ipa": "/ˌɪnərˈækʃən/",
+        "imageUrl": "/vocab_images/day_16/42.png"
       },
       {
         "id": 43,
         "word": "Feature",
         "meaning": "Đặc điểm",
-        "ipa": "/ˈfiʧər/"
+        "ipa": "/ˈfiʧər/",
+        "imageUrl": "/vocab_images/day_16/43.png"
       }
     ]
   },
