@@ -11,10 +11,26 @@ export interface Document {
 export class Collection<T extends Document> {
   private filePath: string;
   private items: T[] = [];
+  private lastMtime: number = 0;
 
   constructor(private name: string, baseDir: string, defaultData: T[] = []) {
     this.filePath = path.join(baseDir, `${name}.json`);
     this.init(defaultData);
+  }
+
+  private checkReload() {
+    try {
+      if (fs.existsSync(this.filePath)) {
+        const stat = fs.statSync(this.filePath);
+        if (stat.mtimeMs > this.lastMtime) {
+          const raw = fs.readFileSync(this.filePath, 'utf-8');
+          this.items = JSON.parse(raw);
+          this.lastMtime = stat.mtimeMs;
+        }
+      }
+    } catch (err) {
+      console.error(`[NoSQL] Error reloading collection ${this.name}:`, err);
+    }
   }
 
   private init(defaultData: T[]) {
@@ -25,8 +41,10 @@ export class Collection<T extends Document> {
       }
 
       if (fs.existsSync(this.filePath)) {
+        const stat = fs.statSync(this.filePath);
         const raw = fs.readFileSync(this.filePath, 'utf-8');
         this.items = JSON.parse(raw);
+        this.lastMtime = stat.mtimeMs;
       } else {
         this.items = defaultData;
         this.save();
@@ -40,12 +58,16 @@ export class Collection<T extends Document> {
   private save() {
     try {
       fs.writeFileSync(this.filePath, JSON.stringify(this.items, null, 2), 'utf-8');
+      if (fs.existsSync(this.filePath)) {
+        this.lastMtime = fs.statSync(this.filePath).mtimeMs;
+      }
     } catch (err) {
       console.error(`[NoSQL] Error saving collection ${this.name}:`, err);
     }
   }
 
   public find(query?: Partial<T>): T[] {
+    this.checkReload();
     if (!query || Object.keys(query).length === 0) {
       return [...this.items];
     }
@@ -55,6 +77,7 @@ export class Collection<T extends Document> {
   }
 
   public findOne(query: Partial<T>): T | null {
+    this.checkReload();
     const found = this.items.find(item => {
       return Object.entries(query).every(([k, v]) => (item as any)[k] === v);
     });

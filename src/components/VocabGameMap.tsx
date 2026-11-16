@@ -442,43 +442,31 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                   </span>
                 )}
 
-                {/* Phần câu minh họa ngữ cảnh cho vào chỗ phát âm màu vàng */}
+                {/* Phần câu minh họa ngữ cảnh thon gọn (bỏ chữ câu minh họa và bản dịch) */}
                 {currentWord.exampleEn ? (
                   <div
                     onClick={(e) => e.stopPropagation()}
-                    className="w-full max-w-lg bg-neoYellow border-3 border-black p-3.5 sm:p-4 rounded-xl shadow-neo text-left mt-2 flex flex-col gap-1.5 transition-all"
+                    className="w-full max-w-lg bg-neoYellow border-3 border-black px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl shadow-neo-sm text-left mt-2 flex items-center justify-between gap-3 transition-all"
                   >
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="flex-1">
-                        <span className="text-[10px] font-black uppercase bg-black text-white px-2 py-0.5 rounded inline-block mb-1 shadow-neo-sm">
-                          Câu minh họa
-                        </span>
-                        <p className="font-extrabold text-sm sm:text-base text-black leading-snug">
-                          "{currentWord.exampleEn}"
-                        </p>
-                        {currentWord.exampleVi && (
-                          <p className="font-bold text-xs sm:text-sm text-gray-800 mt-1 italic leading-snug">
-                            👉 {currentWord.exampleVi}
-                          </p>
-                        )}
-                      </div>
+                    <p className="font-bold text-sm sm:text-base text-black leading-snug flex-1">
+                      "{currentWord.exampleEn}"
+                    </p>
 
-                      {/* Nút nghe đọc câu ví dụ */}
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          sounds.playClick();
-                          sounds.speakEnglish(currentWord.exampleEn!);
-                        }}
-                        className="p-2 bg-white border-2 border-black rounded-lg shadow-neo-sm hover:bg-yellow-100 active:translate-x-0.5 active:translate-y-0.5 shrink-0 group transition-all"
-                        title="Nghe đọc câu minh họa"
-                      >
-                        <Volume2 className="w-4 h-4 text-black group-hover:scale-125 transition-transform" />
-                      </button>
-                    </div>
+                    {/* Nút nghe đọc câu ví dụ */}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        sounds.playClick();
+                        sounds.speakEnglish(currentWord.exampleEn!);
+                      }}
+                      className="p-1.5 sm:p-2 bg-white border-2 border-black rounded-lg shadow-neo-sm hover:bg-yellow-100 active:translate-x-0.5 active:translate-y-0.5 shrink-0 group transition-all"
+                      title="Nghe đọc câu ví dụ"
+                    >
+                      <Volume2 className="w-4 h-4 text-black group-hover:scale-125 transition-transform" />
+                    </button>
                   </div>
                 ) : (
-                  <div className="w-full max-w-lg bg-yellow-50 border-2 border-dashed border-gray-400 p-3 rounded-xl text-xs text-gray-500 font-bold mt-2">
+                  <div className="w-full max-w-lg bg-yellow-50 border-2 border-dashed border-gray-400 p-2.5 rounded-xl text-xs text-gray-500 font-bold mt-2">
                     Đang nạp câu minh họa...
                   </div>
                 )}
