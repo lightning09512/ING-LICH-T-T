@@ -54,100 +54,132 @@ class SoundEngine {
     }
   }
 
-  // Retro 8-bit button blip
+  // Gentle soft button tap (soothing bubble pop, non-intrusive)
   public playClick() {
     if (!this.soundEnabled) return;
     const ctx = this.getContext();
     if (!ctx) return;
 
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
+    try {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
 
-    osc.type = 'square';
-    osc.frequency.setValueAtTime(440, ctx.currentTime);
-    osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.08);
+      osc.type = 'sine';
+      // Subtle downward bubble pop: 520Hz -> 340Hz
+      osc.frequency.setValueAtTime(520, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(340, ctx.currentTime + 0.04);
 
-    gain.gain.setValueAtTime(0.15, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.08);
+      gain.gain.setValueAtTime(0.035, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
 
-    osc.connect(gain);
-    gain.connect(ctx.destination);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
 
-    osc.start();
-    osc.stop(ctx.currentTime + 0.08);
+      osc.start(ctx.currentTime);
+      osc.stop(ctx.currentTime + 0.04);
+    } catch {
+      // AudioContext failure handling
+    }
   }
 
-  // Success 8-bit chime (C-E-G-C)
+  // Soothing warm chime (gentle marimba / glass bell C5-E5-G5)
   public playCorrect() {
     if (!this.soundEnabled) return;
     const ctx = this.getContext();
     if (!ctx) return;
 
-    const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
-    notes.forEach((freq, idx) => {
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
+    try {
+      const notes = [523.25, 659.25, 783.99]; // C5, E5, G5
+      notes.forEach((freq, idx) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
 
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.08);
+        osc.type = 'sine';
+        const startTime = ctx.currentTime + idx * 0.07;
+        const duration = 0.16;
 
-      gain.gain.setValueAtTime(0.2, ctx.currentTime + idx * 0.08);
-      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + idx * 0.08 + 0.15);
+        osc.frequency.setValueAtTime(freq, startTime);
 
-      osc.connect(gain);
-      gain.connect(ctx.destination);
+        gain.gain.setValueAtTime(0.001, startTime);
+        gain.gain.linearRampToValueAtTime(0.045, startTime + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
 
-      osc.start(ctx.currentTime + idx * 0.08);
-      osc.stop(ctx.currentTime + idx * 0.08 + 0.15);
-    });
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(startTime);
+        osc.stop(startTime + duration);
+      });
+    } catch {
+      // AudioContext failure handling
+    }
   }
 
-  // Comedic wrong answer buzz
+  // Gentle soft reminder (warm soft 2-tone tap, never harsh or loud)
   public playWrong() {
     if (!this.soundEnabled) return;
     const ctx = this.getContext();
     if (!ctx) return;
 
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
+    try {
+      const notes = [293.66, 246.94]; // D4 -> B3
+      notes.forEach((freq, idx) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
 
-    osc.type = 'sawtooth';
-    osc.frequency.setValueAtTime(150, ctx.currentTime);
-    osc.frequency.linearRampToValueAtTime(80, ctx.currentTime + 0.35);
+        osc.type = 'sine';
+        const startTime = ctx.currentTime + idx * 0.09;
+        const duration = 0.14;
 
-    gain.gain.setValueAtTime(0.3, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.35);
+        osc.frequency.setValueAtTime(freq, startTime);
+        osc.frequency.exponentialRampToValueAtTime(freq * 0.92, startTime + duration);
 
-    osc.connect(gain);
-    gain.connect(ctx.destination);
+        gain.gain.setValueAtTime(0.001, startTime);
+        gain.gain.linearRampToValueAtTime(0.04, startTime + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
 
-    osc.start();
-    osc.stop(ctx.currentTime + 0.35);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(startTime);
+        osc.stop(startTime + duration);
+      });
+    } catch {
+      // AudioContext failure handling
+    }
   }
 
-  // Fanfare win arpeggio
+  // Gentle music-box victory arpeggio
   public playVictory() {
     if (!this.soundEnabled) return;
     const ctx = this.getContext();
     if (!ctx) return;
 
-    const notes = [440, 554.37, 659.25, 880, 880, 1108.73];
-    notes.forEach((freq, idx) => {
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
+    try {
+      const notes = [523.25, 659.25, 783.99, 987.77, 1046.50]; // C5, E5, G5, B5, C6
+      notes.forEach((freq, idx) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
 
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.12);
+        osc.type = 'sine';
+        const startTime = ctx.currentTime + idx * 0.08;
+        const duration = 0.22;
 
-      gain.gain.setValueAtTime(0.25, ctx.currentTime + idx * 0.12);
-      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + idx * 0.12 + 0.25);
+        osc.frequency.setValueAtTime(freq, startTime);
 
-      osc.connect(gain);
-      gain.connect(ctx.destination);
+        gain.gain.setValueAtTime(0.001, startTime);
+        gain.gain.linearRampToValueAtTime(0.04, startTime + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
 
-      osc.start(ctx.currentTime + idx * 0.12);
-      osc.stop(ctx.currentTime + idx * 0.12 + 0.25);
-    });
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(startTime);
+        osc.stop(startTime + duration);
+      });
+    } catch {
+      // AudioContext failure handling
+    }
   }
 
   // Neural US English voice, with Google TTS as a fallback if the API is unavailable.
@@ -203,6 +235,7 @@ class SoundEngine {
     preparedAudio?: HTMLAudioElement,
   ) {
     const audio = preparedAudio ?? new Audio(audioUrl);
+    audio.volume = 0.85;
     if (preparedAudio) audio.currentTime = 0;
     this.currentAudio = audio;
 
