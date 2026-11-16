@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { MAX_TTS_TEXT_LENGTH, streamSpeech, synthesizeSpeech } from '../services/tts.js';
 
-const MAX_REQUESTS_PER_MINUTE = 30;
+const MAX_REQUESTS_PER_MINUTE = 120;
 const requestCounts = new Map<string, { count: number; windowStartedAt: number }>();
 
 function isRateLimited(ip: string, now: number): boolean {

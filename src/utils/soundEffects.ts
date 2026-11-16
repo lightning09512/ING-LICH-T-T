@@ -37,6 +37,9 @@ class SoundEngine {
     const audio = new Audio();
     audio.preload = 'auto';
     audio.src = `/api/tts?text=${encodeURIComponent(cleanText)}`;
+    audio.addEventListener('error', () => {
+      if (this.preloadedAudio.get(cleanText) === audio) this.preloadedAudio.delete(cleanText);
+    }, { once: true });
     audio.load();
     this.preloadedAudio.set(cleanText, audio);
 
