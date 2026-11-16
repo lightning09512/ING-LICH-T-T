@@ -1,18 +1,71 @@
 import React from 'react';
 import { sounds } from '../utils/soundEffects';
-import { BookOpen, GraduationCap, Target, ArrowLeft } from 'lucide-react';
+import { BookOpen, GraduationCap, Target, Cloud, LogIn, ArrowLeft } from 'lucide-react';
+import type { User } from 'firebase/auth';
+import type { SyncStatus } from '../contexts/ProgressContext';
 
 interface MenuScreenProps {
   onSelectMode: (mode: 'LEARN' | 'GRAMMAR' | 'EXAM') => void;
   onBack: () => void;
   nickname: string;
+  user?: User | null;
+  syncStatus?: SyncStatus;
+  onOpenAccount?: () => void;
 }
 
-export const MenuScreen: React.FC<MenuScreenProps> = ({ onSelectMode, onBack, nickname }) => {
+export const MenuScreen: React.FC<MenuScreenProps> = ({
+  onSelectMode,
+  onBack,
+  nickname,
+  user,
+  syncStatus,
+  onOpenAccount
+}) => {
   return (
     <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-80px)] px-3 sm:px-4 py-4 sm:py-6 md:py-10">
-      <div className="w-full max-w-xl md:max-w-2xl flex flex-col items-center gap-5 sm:gap-6 md:gap-8">
+      <div className="w-full max-w-xl md:max-w-2xl flex flex-col items-center gap-4 sm:gap-5 md:gap-6">
         
+        {/* User Account Status Banner */}
+        {user ? (
+          <div 
+            onClick={onOpenAccount}
+            className="w-full bg-white border-3 border-black p-3 sm:p-3.5 shadow-neo flex items-center justify-between gap-3 cursor-pointer hover:bg-cyan-50/50 transition-colors"
+          >
+            <div className="flex items-center gap-3 min-w-0">
+              {user.photoURL ? (
+                <img src={user.photoURL} alt="" className="w-10 h-10 rounded-full border-2 border-black shrink-0" />
+              ) : (
+                <div className="w-10 h-10 rounded-full bg-neoCyan border-2 border-black flex items-center justify-center font-black text-sm shrink-0">
+                  {(user.displayName || user.email || 'U')[0].toUpperCase()}
+                </div>
+              )}
+              <div className="flex flex-col text-left min-w-0">
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <span className="font-heading font-black text-base sm:text-lg text-black truncate max-w-[200px]">
+                    {user.displayName || user.email}
+                  </span>
+                  <span className="text-[10px] bg-neoGreen text-black border border-black font-black px-1.5 py-0.5 rounded shadow-neo-sm">
+                    ✅ Đã đăng nhập
+                  </span>
+                </div>
+                <span className="text-xs text-gray-600 font-bold flex items-center gap-1">
+                  <Cloud className="w-3.5 h-3.5 text-cyan-600 inline shrink-0" />
+                  {syncStatus === 'saved' ? 'Tiến trình tự động lưu vào Google' : 'Đang kết nối đồng bộ đám mây'}
+                </span>
+              </div>
+            </div>
+            <span className="text-xs font-black underline shrink-0">Chi tiết</span>
+          </div>
+        ) : (
+          <button
+            onClick={onOpenAccount}
+            className="w-full bg-neoYellow border-3 border-black p-2.5 sm:p-3 shadow-neo-sm hover:bg-yellow-300 transition-colors flex items-center justify-center gap-2 font-black text-xs sm:text-sm cursor-pointer"
+          >
+            <LogIn className="w-4 h-4 text-black" />
+            <span>Đăng nhập tài khoản Google để lưu tiến trình của bạn</span>
+          </button>
+        )}
+
         {/* Header badge */}
         <div className="text-center">
           <span className="inline-block px-3.5 sm:px-4 py-1.5 sm:py-2 bg-neoPurple border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo-sm rotate-[-2deg]">

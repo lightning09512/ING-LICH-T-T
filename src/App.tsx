@@ -35,6 +35,9 @@ export function App() {
   const [isLofiOpen, setIsLofiOpen] = useState(false);
   const [isAccountModalOpen, setIsAccountModalOpen] = useState(false);
 
+  // Use user's Google name / email if signed in, fallback to nickname
+  const activeDisplayName = user?.displayName || (user?.email ? user.email.split('@')[0] : nickname);
+
   // Sync with NoSQL Backend or static fallback for Vercel deployment
   useEffect(() => {
     // 1. Fetch profile
@@ -167,7 +170,7 @@ export function App() {
           onGoHome={() => setScreen('TITLE')}
           soundEnabled={soundEnabled}
           onToggleSound={handleToggleSound}
-          nickname={nickname}
+          nickname={activeDisplayName}
           streakDays={streakDays}
           onToggleLofi={() => setIsLofiOpen(!isLofiOpen)}
           isLofiOpen={isLofiOpen}
@@ -190,7 +193,7 @@ export function App() {
       <main className="relative z-10">
         {screen === 'TITLE' && (
           <TitleScreen
-            nickname={nickname}
+            nickname={activeDisplayName}
             onStart={() => setScreen('MENU')}
             user={user}
             authLoading={authLoading}
@@ -202,7 +205,10 @@ export function App() {
 
         {screen === 'MENU' && (
           <MenuScreen
-            nickname={nickname}
+            nickname={activeDisplayName}
+            user={user}
+            syncStatus={syncStatus}
+            onOpenAccount={() => setIsAccountModalOpen(true)}
             onSelectMode={(mode) => {
               if (mode === 'EXAM') {
                 setScreen('SELECT_TEST');
@@ -217,14 +223,14 @@ export function App() {
         {screen === 'LEARN' && (
           <VocabGameMap
             onBack={() => setScreen('MENU')}
-            nickname={nickname}
+            nickname={activeDisplayName}
           />
         )}
 
         {screen === 'GRAMMAR' && (
           <GrammarScreen
             onBack={() => setScreen('MENU')}
-            nickname={nickname}
+            nickname={activeDisplayName}
           />
         )}
 
@@ -232,7 +238,7 @@ export function App() {
           <ReviewSurvivalScreen
             vocabList={vocabList}
             onBack={() => setScreen('MENU')}
-            nickname={nickname}
+            nickname={activeDisplayName}
           />
         )}
 
@@ -240,7 +246,7 @@ export function App() {
           <TestSelectScreen
             onSelectTest={handleSelectTest}
             onBack={() => setScreen('MENU')}
-            nickname={nickname}
+            nickname={activeDisplayName}
           />
         )}
 
@@ -248,7 +254,7 @@ export function App() {
           <ToeicExamScreen
             test={currentTest}
             onBack={() => setScreen('SELECT_TEST')}
-            nickname={nickname}
+            nickname={activeDisplayName}
           />
         )}
       </main>
@@ -260,7 +266,7 @@ export function App() {
 
       {/* Persistent Background Lofi Chill Music Player */}
       <LofiPlayer
-        nickname={nickname}
+        nickname={activeDisplayName}
         isOpen={isLofiOpen}
         onToggleOpen={() => setIsLofiOpen(!isLofiOpen)}
       />

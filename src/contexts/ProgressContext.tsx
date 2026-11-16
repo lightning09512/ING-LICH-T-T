@@ -207,80 +207,89 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
   useEffect(() => {
     const auth = firebaseAuth;
     const db = firestore;
-    if (!auth || !db) {
+    if (!auth) {
       setAuthLoading(false);
       return;
     }
 
-    let unsubscribe: (() => void) | undefined;
     let disposed = false;
 
-    // Resolve a pending Google redirect before subscribing so redirect errors
-    // remain visible after returning to the app.
+    // Check redirect result in background without blocking onAuthStateChanged
     void getRedirectResult(auth)
-      .catch(error => {
-        if (!disposed) setAuthError(getErrorMessage(error));
+      .then(result => {
+        if (!disposed && result?.user) {
+          setUser(result.user);
+        }
       })
-      .finally(() => {
-        if (disposed) return;
-
-        unsubscribe = onAuthStateChanged(auth, nextUser => {
-          const requestId = ++authRequestRef.current;
-          userRef.current = nextUser;
-          setUser(nextUser);
-          if (nextUser) setAuthError(null);
-
-          if (!nextUser) {
-            progressRef.current = guestProgressRef.current;
-            setProgress(guestProgressRef.current);
-            setSyncStatus('local');
-            setAuthLoading(false);
-            return;
-          }
-
-          setAuthLoading(true);
-          setSyncStatus('syncing');
-          const cachedProgress = readUserCache(nextUser.uid);
-          const initialProgress = mergeProgress(cachedProgress ?? DEFAULT_PROGRESS, guestProgressRef.current);
-          progressRef.current = initialProgress;
-          setProgress(initialProgress);
-
-          void (async () => {
-            try {
-              const progressDoc = doc(db, 'users', nextUser.uid, 'progress', 'learning');
-              const remoteSnapshot = await getDoc(progressDoc);
-              if (requestId !== authRequestRef.current) return;
-
-              const latestCache = readUserCache(nextUser.uid) ?? initialProgress;
-              const remoteProgress = remoteSnapshot.exists()
-                ? normalizeProgress(remoteSnapshot.data())
-                : DEFAULT_PROGRESS;
-              const merged = mergeProgress(remoteProgress, latestCache, guestProgressRef.current);
-
-              await setDoc(progressDoc, { ...merged, updatedAt: serverTimestamp() }, { merge: true });
-              if (requestId !== authRequestRef.current) return;
-
-              progressRef.current = merged;
-              setProgress(merged);
-              writeLocalProgress(merged, nextUser.uid);
-              clearGuestProgress();
-              guestProgressRef.current = { ...DEFAULT_PROGRESS };
-              setSyncStatus('saved');
-            } catch (error) {
-              if (requestId !== authRequestRef.current) return;
-              console.error('Could not sync learning progress:', error);
-              setSyncStatus('error');
-              setAuthError('Đã đăng nhập, nhưng chưa đồng bộ được tiến trình. Kiểm tra cấu hình Firestore và quyền truy cập.');
-            } finally {
-              if (requestId === authRequestRef.current) setAuthLoading(false);
-            }
-          })();
-        });
+      .catch(error => {
+        if (!disposed && error?.code !== 'auth/null-user') {
+          console.warn('getRedirectResult error:', error);
+        }
       });
+
+    // Attach onAuthStateChanged immediately so session restores instantaneously
+    const unsubscribe = onAuthStateChanged(auth, nextUser => {
+      const requestId = ++authRequestRef.current;
+      userRef.current = nextUser;
+      setUser(nextUser);
+      if (nextUser) setAuthError(null);
+
+      if (!nextUser) {
+        progressRef.current = guestProgressRef.current;
+        setProgress(guestProgressRef.current);
+        setSyncStatus('local');
+        setAuthLoading(false);
+        return;
+      }
+
+      setAuthLoading(true);
+      setSyncStatus('syncing');
+      const cachedProgress = readUserCache(nextUser.uid);
+      const initialProgress = mergeProgress(cachedProgress ?? DEFAULT_PROGRESS, guestProgressRef.current);
+      progressRef.current = initialProgress;
+      setProgress(initialProgress);
+
+      if (!db) {
+        setSyncStatus('local');
+        setAuthLoading(false);
+        return;
+      }
+
+      void (async () => {
+        try {
+          const progressDoc = doc(db, 'users', nextUser.uid, 'progress', 'learning');
+          const remoteSnapshot = await getDoc(progressDoc);
+          if (requestId !== authRequestRef.current) return;
+
+          const latestCache = readUserCache(nextUser.uid) ?? initialProgress;
+          const remoteProgress = remoteSnapshot.exists()
+            ? normalizeProgress(remoteSnapshot.data())
+            : DEFAULT_PROGRESS;
+          const merged = mergeProgress(remoteProgress, latestCache, guestProgressRef.current);
+
+          await setDoc(progressDoc, { ...merged, updatedAt: serverTimestamp() }, { merge: true });
+          if (requestId !== authRequestRef.current) return;
+
+          progressRef.current = merged;
+          setProgress(merged);
+          writeLocalProgress(merged, nextUser.uid);
+          clearGuestProgress();
+          guestProgressRef.current = { ...DEFAULT_PROGRESS };
+          setSyncStatus('saved');
+        } catch (error) {
+          if (requestId !== authRequestRef.current) return;
+          console.error('Could not sync learning progress with Firestore:', error);
+          setSyncStatus('error');
+          // Không văng lỗi chặn người dùng, chỉ ghi chú nhẹ
+        } finally {
+          if (requestId === authRequestRef.current) setAuthLoading(false);
+        }
+      })();
+    });
 
     return () => {
       disposed = true;
-      unsubscribe?.();
+      unsubscribe();
     };
   }, []);
 
