@@ -359,11 +359,17 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
 
             {/* Card Content */}
             {!isFlipped ? (
-              /* Front: English Word + Speaker */
-              <div className="my-auto py-8 text-center flex flex-col items-center gap-4">
+              /* Front: English Word + IPA + Speaker */
+              <div className="my-auto py-8 text-center flex flex-col items-center gap-3">
                 <h2 className="text-4xl sm:text-5xl md:text-6xl font-black font-heading text-black tracking-wide">
                   {currentWord.word}
                 </h2>
+
+                {currentWord.ipa && (
+                  <span className="text-lg sm:text-2xl font-mono font-bold text-gray-700 bg-yellow-100/90 px-4 py-1 border-2 border-black rounded-lg shadow-neo-sm">
+                    {currentWord.ipa}
+                  </span>
+                )}
 
                 <button
                   onClick={(e) => {
@@ -371,13 +377,13 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                     sounds.playClick();
                     sounds.speakEnglish(currentWord.word);
                   }}
-                  className="mt-3 flex items-center gap-2 px-5 py-2.5 bg-neoYellow border-3 border-black font-black text-sm uppercase shadow-neo-sm hover:bg-yellow-300 active:translate-x-0.5 active:translate-y-0.5 group min-h-[44px]"
+                  className="mt-2 flex items-center gap-2 px-5 py-2.5 bg-neoYellow border-3 border-black font-black text-sm uppercase shadow-neo-sm hover:bg-yellow-300 active:translate-x-0.5 active:translate-y-0.5 group min-h-[44px]"
                 >
                   <Volume2 className="w-5 h-5 group-hover:scale-125 transition-transform" />
-                  <span>Phát âm tiếng Anh</span>
+                  <span>Phát âm giọng Mỹ chuẩn</span>
                 </button>
 
-                <p className="text-xs text-gray-400 font-bold mt-3">
+                <p className="text-xs text-gray-400 font-bold mt-2">
                   (Chạm vào thẻ để xem nghĩa tiếng Việt • Vuốt ngang để chuyển từ)
                 </p>
               </div>
@@ -479,7 +485,14 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                         {idx + 1}
                       </span>
                       <div>
-                        <strong className="text-base font-black text-black">{w.word}</strong>
+                        <div className="flex items-center gap-2">
+                          <strong className="text-base font-black text-black">{w.word}</strong>
+                          {w.ipa && (
+                            <span className="text-xs font-mono font-bold text-gray-600 bg-yellow-100 px-1.5 py-0.5 border border-black rounded">
+                              {w.ipa}
+                            </span>
+                          )}
+                        </div>
                         <p className="text-sm font-bold text-emerald-800">{w.meaning}</p>
                       </div>
                     </div>
@@ -618,16 +631,21 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
           /* QUESTION CARD */
           <div className="bg-white border-4 border-black p-6 sm:p-8 shadow-neo-lg flex flex-col gap-6">
             {/* Word Banner with Audio button */}
-            <div className="bg-yellow-50 border-3 border-black p-6 text-center flex flex-col items-center gap-3">
+            <div className="bg-yellow-50 border-3 border-black p-6 text-center flex flex-col items-center gap-2">
               <span className="text-xs font-bold text-gray-500 uppercase tracking-widest">
                 Từ vựng tiếng Anh
               </span>
               <h3 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading text-black">
                 {currentQ.word.word}
               </h3>
+              {currentQ.word.ipa && (
+                <span className="text-base sm:text-lg font-mono font-bold text-gray-600 bg-white px-3 py-0.5 border border-black rounded shadow-neo-sm">
+                  {currentQ.word.ipa}
+                </span>
+              )}
               <button
                 onClick={() => { sounds.playClick(); sounds.speakEnglish(currentQ.word.word); }}
-                className="flex items-center gap-1.5 px-3 py-1 bg-white border-2 border-black text-xs font-bold shadow-neo-sm hover:bg-gray-100"
+                className="mt-1 flex items-center gap-1.5 px-4 py-1.5 bg-neoYellow border-2 border-black text-xs font-black shadow-neo-sm hover:bg-yellow-300"
               >
                 <Volume2 className="w-4 h-4" /> Nghe phát âm
               </button>

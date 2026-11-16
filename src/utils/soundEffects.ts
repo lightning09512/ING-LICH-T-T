@@ -126,32 +126,92 @@ class SoundEngine {
     });
   }
 
-  // Speech pronunciation for English words and Listening scripts
+  // High-fidelity native studio pronunciation with natural Web Speech fallback
+  private currentAudio: HTMLAudioElement | null = null;
+
   public speakEnglish(text: string, rate: number = 0.95): Promise<void> {
     return new Promise((resolve) => {
-      if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+      if (!this.soundEnabled) {
         resolve();
         return;
       }
-      window.speechSynthesis.cancel(); // Stop any pending speech
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'en-US';
-      utterance.rate = rate;
-      utterance.onend = () => resolve();
-      utterance.onerror = () => resolve();
 
-      // Find an English voice if available
-      const voices = window.speechSynthesis.getVoices();
-      const enVoice = voices.find(v => v.lang.startsWith('en')) || voices[0];
-      if (enVoice) {
-        utterance.voice = enVoice;
+      const cleanText = text.trim();
+      if (!cleanText) {
+        resolve();
+        return;
       }
 
-      window.speechSynthesis.speak(utterance);
+      // Stop any currently playing audio or speech
+      this.stopSpeaking();
+
+      // Primary: High-fidelity American native studio recording (warm, crystal clear human audio)
+      try {
+        const audioUrl = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(cleanText)}&type=2`;
+        const audio = new Audio(audioUrl);
+        this.currentAudio = audio;
+
+        audio.onended = () => {
+          this.currentAudio = null;
+          resolve();
+        };
+
+        audio.onerror = () => {
+          this.currentAudio = null;
+          this.speakWithSpeechSynthesis(cleanText, rate, resolve);
+        };
+
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            this.currentAudio = null;
+            this.speakWithSpeechSynthesis(cleanText, rate, resolve);
+          });
+        }
+      } catch (err) {
+        this.speakWithSpeechSynthesis(cleanText, rate, resolve);
+      }
     });
   }
 
+  private speakWithSpeechSynthesis(text: string, rate: number, resolve: () => void) {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+      resolve();
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'en-US';
+    utterance.rate = rate;
+    utterance.pitch = 1.05;
+
+    utterance.onend = () => resolve();
+    utterance.onerror = () => resolve();
+
+    // Select the best natural human voice (avoid creepy robotic SAPI David)
+    const voices = window.speechSynthesis.getVoices();
+    const naturalVoice = voices.find(v => 
+      v.lang.startsWith('en') && 
+      (v.name.toLowerCase().includes('natural') || 
+       v.name.toLowerCase().includes('google') ||
+       v.name.toLowerCase().includes('jenny') || 
+       v.name.toLowerCase().includes('aria') || 
+       v.name.toLowerCase().includes('samantha'))
+    ) || voices.find(v => v.lang.startsWith('en') && !v.name.toLowerCase().includes('david')) || voices[0];
+
+    if (naturalVoice) {
+      utterance.voice = naturalVoice;
+    }
+
+    window.speechSynthesis.speak(utterance);
+  }
+
   public stopSpeaking() {
+    if (this.currentAudio) {
+      this.currentAudio.pause();
+      this.currentAudio = null;
+    }
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
       window.speechSynthesis.cancel();
     }

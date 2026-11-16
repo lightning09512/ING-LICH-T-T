@@ -4,6 +4,7 @@ export interface VocabWord {
   id: number;
   word: string;
   meaning: string;
+  ipa?: string;
 }
 
 export interface DayLesson {
