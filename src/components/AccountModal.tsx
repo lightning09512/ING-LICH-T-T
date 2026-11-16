@@ -1,5 +1,5 @@
 import React, { FormEvent, useEffect, useState } from 'react';
-import { X, Mail, LockKeyhole, LoaderCircle, Cloud, LogOut } from 'lucide-react';
+import { X, User, LockKeyhole, LoaderCircle, Cloud, LogOut } from 'lucide-react';
 import { useLearningProgress } from '../contexts/ProgressContext';
 
 interface AccountModalProps {
@@ -14,18 +14,15 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose }) => {
     authLoading,
     syncStatus,
     authError,
-    firebaseConfigured,
-    signInWithEmail,
-    createEmailAccount,
-    sendPasswordReset,
+    signInWithUsername,
+    createUsernameAccount,
     signOut,
     clearAuthError,
   } = useLearningProgress();
   const [mode, setMode] = useState<AccountMode>('signin');
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [busy, setBusy] = useState(false);
-  const [notice, setNotice] = useState('');
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -37,36 +34,20 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose }) => {
 
   const switchMode = (nextMode: AccountMode) => {
     setMode(nextMode);
-    setNotice('');
     clearAuthError();
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setBusy(true);
-    setNotice('');
     clearAuthError();
 
     const success = mode === 'signup'
-      ? await createEmailAccount(email.trim(), password)
-      : await signInWithEmail(email.trim(), password);
+      ? await createUsernameAccount(username, password)
+      : await signInWithUsername(username, password);
 
     setBusy(false);
     if (success) onClose();
-  };
-
-  const handlePasswordReset = async () => {
-    if (!email.trim()) {
-      setNotice('Nhập email trước, rồi mình sẽ gửi link đặt lại mật khẩu.');
-      return;
-    }
-
-    setBusy(true);
-    setNotice('');
-    clearAuthError();
-    const sent = await sendPasswordReset(email.trim());
-    setBusy(false);
-    if (sent) setNotice('Đã gửi email đặt lại mật khẩu. Kiểm tra hộp thư nhé.');
   };
 
   return (
@@ -93,7 +74,7 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose }) => {
             {user ? 'Tài khoản của bạn' : mode === 'signup' ? 'Tạo tài khoản' : 'Đăng nhập'}
           </h2>
           <p className="text-sm font-bold text-gray-600 mt-1">
-            {user ? 'Tiến trình sẽ đồng bộ theo tài khoản này.' : 'Dùng email và mật khẩu để lưu tiến trình trên các thiết bị.'}
+            {user ? 'Tiến trình sẽ đồng bộ theo tài khoản này.' : 'Chỉ cần tên tài khoản và mật khẩu để lưu tiến trình.'}
           </p>
         </div>
 
@@ -101,8 +82,9 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose }) => {
           <div className="mt-5 space-y-4">
             <div className="bg-cyan-50 border-2 border-black px-3 py-3 flex items-center gap-2 font-bold break-all">
               <Cloud className={`w-5 h-5 shrink-0 ${syncStatus === 'error' ? 'text-red-600' : 'text-cyan-700'}`} />
-              <span>{user.email} · {syncStatus === 'saved' ? 'Đã đồng bộ' : syncStatus === 'error' ? 'Lỗi đồng bộ' : 'Đang đồng bộ'}</span>
+              <span>{user.username} · {syncStatus === 'saved' ? 'Đã đồng bộ' : syncStatus === 'error' ? 'Lỗi đồng bộ' : 'Đang đồng bộ'}</span>
             </div>
+            {authError && <p role="alert" className="bg-red-50 border-2 border-red-400 px-3 py-2 text-sm font-bold text-red-800">{authError}</p>}
             <button
               onClick={() => { void signOut(); onClose(); }}
               className="w-full min-h-11 bg-white border-2 border-black shadow-neo-sm font-black flex items-center justify-center gap-2 hover:bg-gray-100"
@@ -112,28 +94,27 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose }) => {
           </div>
         ) : (
           <>
-            {!firebaseConfigured && (
-              <div role="status" className="mt-5 bg-amber-50 border-2 border-amber-500 p-3 text-sm font-bold text-amber-950">
-                Cần kết nối Firebase trước khi tạo tài khoản. Tài khoản email/mật khẩu cũng cần Firebase Authentication và Firestore để đồng bộ giữa các thiết bị.
-              </div>
-            )}
-
             <form onSubmit={handleSubmit} className="mt-5 space-y-3">
               <label className="block text-sm font-black">
-                Email
+                Tên tài khoản
                 <span className="mt-1 flex items-center gap-2 border-2 border-black px-3 bg-white focus-within:ring-2 focus-within:ring-cyan-500">
-                  <Mail className="w-4 h-4 text-gray-500 shrink-0" />
+                  <User className="w-4 h-4 text-gray-500 shrink-0" />
                   <input
-                    type="email"
-                    autoComplete="email"
+                    type="text"
+                    autoComplete="username"
                     required
-                    value={email}
-                    onChange={event => setEmail(event.target.value)}
-                    placeholder="ban@example.com"
-                    disabled={!firebaseConfigured || busy}
+                    minLength={3}
+                    maxLength={20}
+                    pattern="[A-Za-z0-9][A-Za-z0-9_.-]{2,19}"
+                    title="3–20 ký tự: chữ không dấu, số, dấu chấm, gạch ngang hoặc gạch dưới."
+                    value={username}
+                    onChange={event => setUsername(event.target.value)}
+                    placeholder="Tên tài khoản"
+                    disabled={busy}
                     className="w-full h-11 outline-none bg-transparent font-bold"
                   />
                 </span>
+                <span className="mt-1 block text-xs font-semibold text-gray-500">3–20 ký tự, không dấu.</span>
               </label>
 
               <label className="block text-sm font-black">
@@ -144,22 +125,22 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose }) => {
                     type="password"
                     autoComplete={mode === 'signup' ? 'new-password' : 'current-password'}
                     required
-                    minLength={mode === 'signup' ? 6 : undefined}
+                    minLength={8}
+                    maxLength={128}
                     value={password}
                     onChange={event => setPassword(event.target.value)}
-                    placeholder={mode === 'signup' ? 'Ít nhất 6 ký tự' : 'Mật khẩu'}
-                    disabled={!firebaseConfigured || busy}
+                    placeholder="Ít nhất 8 ký tự"
+                    disabled={busy}
                     className="w-full h-11 outline-none bg-transparent font-bold"
                   />
                 </span>
               </label>
 
               {authError && <p role="alert" className="bg-red-50 border-2 border-red-400 px-3 py-2 text-sm font-bold text-red-800">{authError}</p>}
-              {notice && <p role="status" className="bg-cyan-50 border-2 border-cyan-500 px-3 py-2 text-sm font-bold text-cyan-900">{notice}</p>}
 
               <button
                 type="submit"
-                disabled={!firebaseConfigured || busy || authLoading}
+                disabled={busy || authLoading}
                 className="w-full min-h-12 px-4 bg-neoYellow border-2 border-black shadow-neo-sm font-black flex items-center justify-center gap-2 hover:bg-yellow-300 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {busy || authLoading ? <LoaderCircle className="w-4 h-4 animate-spin" /> : null}
@@ -171,11 +152,6 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose }) => {
               <button onClick={() => switchMode(mode === 'signin' ? 'signup' : 'signin')} className="underline underline-offset-2">
                 {mode === 'signin' ? 'Chưa có tài khoản? Đăng ký' : 'Đã có tài khoản? Đăng nhập'}
               </button>
-              {mode === 'signin' && (
-                <button onClick={() => { void handlePasswordReset(); }} disabled={!firebaseConfigured || busy} className="underline underline-offset-2 disabled:opacity-50">
-                  Quên mật khẩu?
-                </button>
-              )}
             </div>
           </>
         )}

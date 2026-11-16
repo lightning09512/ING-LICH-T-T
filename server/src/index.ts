@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
@@ -15,6 +16,7 @@ import { createVocabRouter } from './routes/vocab.routes.js';
 import { createTestRouter, SubmissionDoc } from './routes/test.routes.js';
 import { createProfileRouter } from './routes/profile.routes.js';
 import { createTtsRouter } from './routes/tts.routes.js';
+import { createAccountRouter } from './routes/account.routes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -24,6 +26,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+app.use('/api', createAccountRouter());
 
 // Initialize NoSQL Document Database
 const dataDir = path.join(__dirname, '..', 'data');

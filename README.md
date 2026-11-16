@@ -19,17 +19,15 @@
 
 ## 🚀 Hướng Dẫn Khởi Chạy
 
-### Tạo tài khoản email và đồng bộ tiến trình
+### Tài khoản tên đăng nhập và đồng bộ tiến trình
 
-Người học có thể tạo tài khoản bằng email và mật khẩu ngay trong ứng dụng. Firebase Authentication quản lý thông tin đăng nhập; tiến trình từ vựng và ngữ pháp được đồng bộ vào Cloud Firestore theo tài khoản. Mật khẩu không được lưu trong ứng dụng.
+Người học tạo tài khoản bằng tên đăng nhập và mật khẩu; tiến trình từ vựng và ngữ pháp được đồng bộ vào PostgreSQL. Tên đăng nhập không cần email. Mật khẩu được băm bằng `scrypt`; ứng dụng chỉ giữ phiên đăng nhập trong cookie bảo mật.
 
-1. Tạo một dự án Firebase, thêm ứng dụng Web, bật **Authentication → Email/Password** và tạo cơ sở dữ liệu **Cloud Firestore**.
-2. Sao chép `.env.example` thành `.env`, rồi điền các giá trị cấu hình Web App Firebase (`VITE_FIREBASE_*`).
-3. Trong Firebase Authentication, thêm domain chạy ứng dụng vào **Authorized domains**.
-4. Đưa nội dung `firestore.rules` lên mục **Firestore Database → Rules** rồi publish.
-5. Khởi động lại ứng dụng bằng `npm run dev`. Trên Vercel, khai báo cùng các biến `VITE_FIREBASE_*` trong Environment Variables và deploy lại.
+1. Tạo PostgreSQL database trong Vercel Marketplace (ví dụ Neon) và kết nối nó với project Vercel.
+2. Sao chép `.env.example` thành `.env` khi chạy local, rồi điền `DATABASE_URL` từ database. Vercel sẽ cung cấp biến này khi kết nối database.
+3. Khởi động bằng `npm run dev`. Các bảng tài khoản, phiên đăng nhập và tiến trình sẽ tự tạo khi API được gọi lần đầu.
 
-Người chưa đăng nhập vẫn lưu tiến trình trên thiết bị. Khi tạo tài khoản hoặc đăng nhập lần đầu trên thiết bị đó, tiến trình cũ sẽ được gộp vào tài khoản; sau đó tiến trình được lưu theo tài khoản để dùng trên thiết bị khác. Màn hình đăng nhập cũng có chức năng gửi email đặt lại mật khẩu.
+Người chưa đăng nhập vẫn lưu tiến trình trên thiết bị. Khi tạo tài khoản hoặc đăng nhập lần đầu trên thiết bị đó, tiến trình cũ được gộp vào tài khoản. Tài khoản chỉ dùng cho việc lưu tiến trình; nếu quên mật khẩu thì không có email để đặt lại.
 
 ### Cách 1: Chạy cả Frontend & Backend đồng thời (Khuyên dùng)
 ```bash

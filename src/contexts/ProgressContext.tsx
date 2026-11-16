@@ -1,14 +1,9 @@
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
-import {
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-  sendPasswordResetEmail,
-  signInWithEmailAndPassword,
-  signOut as firebaseSignOut,
-} from 'firebase/auth';
-import type { User } from 'firebase/auth';
-import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
-import { firebaseAuth, firebaseConfigured, firestore } from '../firebase';
+
+export interface AccountUser {
+  id: string;
+  username: string;
+}
 
 export interface LearningProgress {
   grammarProgress: Record<string, number>;
@@ -19,15 +14,13 @@ export interface LearningProgress {
 export type SyncStatus = 'local' | 'syncing' | 'saved' | 'error';
 
 interface ProgressContextValue {
-  user: User | null;
+  user: AccountUser | null;
   progress: LearningProgress;
   authLoading: boolean;
   syncStatus: SyncStatus;
   authError: string | null;
-  firebaseConfigured: boolean;
-  signInWithEmail: (email: string, password: string) => Promise<boolean>;
-  createEmailAccount: (email: string, password: string) => Promise<boolean>;
-  sendPasswordReset: (email: string) => Promise<boolean>;
+  signInWithUsername: (username: string, password: string) => Promise<boolean>;
+  createUsernameAccount: (username: string, password: string) => Promise<boolean>;
   signOut: () => Promise<void>;
   clearAuthError: () => void;
   saveGrammarScore: (topicId: string, score: number) => void;
@@ -49,8 +42,7 @@ const LEGACY_KEYS = {
 const ProgressContext = createContext<ProgressContextValue | null>(null);
 
 function normalizeProgress(value: unknown): LearningProgress {
-  if (!value || typeof value !== 'object') return { ...DEFAULT_PROGRESS };
-
+  if (!value || typeof value !== 'object') return { ...DEFAULT_PROGRESS, grammarProgress: {}, vocabDayStars: {} };
   const raw = value as Partial<LearningProgress>;
   const grammarProgress = Object.fromEntries(
     Object.entries(raw.grammarProgress ?? {}).filter(([, score]) => Number.isFinite(score) && score >= 0)
@@ -68,7 +60,7 @@ function normalizeProgress(value: unknown): LearningProgress {
 }
 
 function mergeProgress(...items: LearningProgress[]): LearningProgress {
-  const merged = items.map(normalizeProgress).reduce<LearningProgress>((result, item) => {
+  return items.map(normalizeProgress).reduce<LearningProgress>((result, item) => {
     for (const [topicId, score] of Object.entries(item.grammarProgress)) {
       result.grammarProgress[topicId] = Math.max(result.grammarProgress[topicId] ?? 0, score);
     }
@@ -81,8 +73,6 @@ function mergeProgress(...items: LearningProgress[]): LearningProgress {
     result.vocabUnlockedDay = Math.max(result.vocabUnlockedDay, item.vocabUnlockedDay);
     return result;
   }, { ...DEFAULT_PROGRESS, grammarProgress: {}, vocabDayStars: {} });
-
-  return merged;
 }
 
 function readGuestProgress(): LearningProgress {
@@ -96,26 +86,25 @@ function readGuestProgress(): LearningProgress {
       vocabDayStars: dayStars ? JSON.parse(dayStars) : {},
     });
   } catch {
-    return { ...DEFAULT_PROGRESS };
+    return { ...DEFAULT_PROGRESS, grammarProgress: {}, vocabDayStars: {} };
   }
 }
 
-function readUserCache(uid: string): LearningProgress | null {
+function readUserCache(userId: string): LearningProgress | null {
   try {
-    const saved = localStorage.getItem(`ing_progress_${uid}`);
+    const saved = localStorage.getItem(`ing_progress_${userId}`);
     return saved ? normalizeProgress(JSON.parse(saved)) : null;
   } catch {
     return null;
   }
 }
 
-function writeLocalProgress(progress: LearningProgress, uid: string | null) {
+function writeLocalProgress(progress: LearningProgress, userId: string | null) {
   try {
-    if (uid) {
-      localStorage.setItem(`ing_progress_${uid}`, JSON.stringify(progress));
+    if (userId) {
+      localStorage.setItem(`ing_progress_${userId}`, JSON.stringify(progress));
       return;
     }
-
     localStorage.setItem(LEGACY_KEYS.grammar, JSON.stringify(progress.grammarProgress));
     localStorage.setItem(LEGACY_KEYS.unlockedDay, String(progress.vocabUnlockedDay));
     localStorage.setItem(LEGACY_KEYS.dayStars, JSON.stringify(progress.vocabDayStars));
@@ -128,156 +117,167 @@ function clearGuestProgress() {
   try {
     Object.values(LEGACY_KEYS).forEach(key => localStorage.removeItem(key));
   } catch {
-    // Ignore storage restrictions; the signed-in user's cache is separate.
+    // Ignore storage restrictions; account progress is cached separately.
   }
 }
 
-function getErrorMessage(error: unknown): string {
-  const code = (error as { code?: string })?.code;
-  if (code === 'auth/email-already-in-use') return 'Email này đã có tài khoản. Hãy đăng nhập hoặc dùng email khác.';
-  if (code === 'auth/invalid-email') return 'Địa chỉ email chưa hợp lệ.';
-  if (code === 'auth/weak-password') return 'Mật khẩu cần có ít nhất 6 ký tự.';
-  if (code === 'auth/invalid-credential' || code === 'auth/user-not-found' || code === 'auth/wrong-password') {
-    return 'Email hoặc mật khẩu chưa đúng.';
+async function readJson(response: Response): Promise<Record<string, unknown>> {
+  try {
+    return await response.json() as Record<string, unknown>;
+  } catch {
+    return {};
   }
-  if (code === 'auth/operation-not-allowed') return 'Firebase chưa bật đăng nhập bằng Email/Password.';
-  if (code === 'auth/too-many-requests') return 'Có quá nhiều lần thử. Hãy đợi một lúc rồi thử lại.';
-  if (code === 'auth/unauthorized-domain') return 'Tên miền hiện tại chưa được thêm vào danh sách Authorized domains trong Firebase.';
-  if (code === 'auth/network-request-failed') return 'Không kết nối được Firebase. Hãy kiểm tra mạng rồi thử lại.';
-  return 'Yêu cầu chưa thành công. Hãy thử lại nhé.';
+}
+
+function responseMessage(data: Record<string, unknown>, fallback: string): string {
+  return typeof data.message === 'string' ? data.message : fallback;
 }
 
 export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<AccountUser | null>(null);
   const [progress, setProgress] = useState<LearningProgress>(readGuestProgress);
   const [authLoading, setAuthLoading] = useState(true);
   const [syncStatus, setSyncStatus] = useState<SyncStatus>('local');
   const [authError, setAuthError] = useState<string | null>(null);
   const progressRef = useRef(progress);
   const guestProgressRef = useRef(progress);
-  const userRef = useRef<User | null>(null);
+  const userRef = useRef<AccountUser | null>(null);
   const authRequestRef = useRef(0);
 
   useEffect(() => {
     progressRef.current = progress;
   }, [progress]);
 
-  useEffect(() => {
-    const db = firestore;
-    if (!firebaseAuth || !db) {
-      setAuthLoading(false);
-      return;
-    }
+  const syncUserProgress = useCallback(async (activeUser: AccountUser, requestId: number) => {
+    const cachedProgress = readUserCache(activeUser.id);
+    const initialProgress = mergeProgress(cachedProgress ?? DEFAULT_PROGRESS, guestProgressRef.current);
+    progressRef.current = initialProgress;
+    setProgress(initialProgress);
+    setSyncStatus('syncing');
 
-    return onAuthStateChanged(firebaseAuth, nextUser => {
-      const requestId = ++authRequestRef.current;
-      userRef.current = nextUser;
-      setUser(nextUser);
+    try {
+      const response = await fetch('/api/progress', { credentials: 'same-origin', cache: 'no-store' });
+      const result = await readJson(response);
+      if (requestId !== authRequestRef.current) return false;
+      if (!response.ok || !result.success) throw new Error(responseMessage(result, 'Không tải được tiến trình từ máy chủ.'));
+
+      const remoteProgress = normalizeProgress(result.data);
+      const merged = mergeProgress(remoteProgress, readUserCache(activeUser.id) ?? initialProgress, guestProgressRef.current);
+      const saveResponse = await fetch('/api/progress', {
+        method: 'PUT',
+        credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(merged),
+      });
+      const saveResult = await readJson(saveResponse);
+      if (requestId !== authRequestRef.current) return false;
+      if (!saveResponse.ok || !saveResult.success) throw new Error(responseMessage(saveResult, 'Không lưu được tiến trình lên máy chủ.'));
+
+      progressRef.current = merged;
+      setProgress(merged);
+      writeLocalProgress(merged, activeUser.id);
+      clearGuestProgress();
+      guestProgressRef.current = { ...DEFAULT_PROGRESS, grammarProgress: {}, vocabDayStars: {} };
+      setSyncStatus('saved');
       setAuthError(null);
+      return true;
+    } catch (error) {
+      if (requestId !== authRequestRef.current) return false;
+      console.error('Could not sync learning progress:', error);
+      setSyncStatus('error');
+      setAuthError(error instanceof Error ? error.message : 'Không đồng bộ được tiến trình.');
+      return false;
+    }
+  }, []);
 
-      if (!nextUser) {
-        progressRef.current = guestProgressRef.current;
-        setProgress(guestProgressRef.current);
-        setSyncStatus('local');
-        setAuthLoading(false);
-        return;
+  useEffect(() => {
+    let cancelled = false;
+    const requestId = ++authRequestRef.current;
+
+    void (async () => {
+      try {
+        const response = await fetch('/api/auth', { credentials: 'same-origin', cache: 'no-store' });
+        const result = await readJson(response);
+        if (cancelled) return;
+        if (response.ok && result.success && result.user && typeof result.user === 'object') {
+          const activeUser = result.user as AccountUser;
+          userRef.current = activeUser;
+          setUser(activeUser);
+          await syncUserProgress(activeUser, requestId);
+        }
+      } catch {
+        // Keep local progress available when the online SQL database is not configured.
+      } finally {
+        if (!cancelled && requestId === authRequestRef.current) setAuthLoading(false);
+      }
+    })();
+
+    return () => { cancelled = true; };
+  }, [syncUserProgress]);
+
+  const runAccountAction = useCallback(async (action: 'login' | 'register', username: string, password: string) => {
+    setAuthError(null);
+    setAuthLoading(true);
+    setSyncStatus('syncing');
+    const requestId = ++authRequestRef.current;
+
+    try {
+      const response = await fetch('/api/auth', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action, username, password }),
+      });
+      const result = await readJson(response);
+      if (!response.ok || !result.success || !result.user || typeof result.user !== 'object') {
+        throw new Error(responseMessage(result, 'Không đăng nhập được. Hãy thử lại.'));
       }
 
-      setAuthLoading(true);
-      setSyncStatus('syncing');
-      const cachedProgress = readUserCache(nextUser.uid);
-      const initialProgress = mergeProgress(cachedProgress ?? DEFAULT_PROGRESS, guestProgressRef.current);
-      progressRef.current = initialProgress;
-      setProgress(initialProgress);
-
-      void (async () => {
-        try {
-          const progressDoc = doc(db, 'users', nextUser.uid, 'progress', 'learning');
-          const remoteSnapshot = await getDoc(progressDoc);
-          if (requestId !== authRequestRef.current) return;
-
-          const latestCache = readUserCache(nextUser.uid) ?? initialProgress;
-          const remoteProgress = remoteSnapshot.exists()
-            ? normalizeProgress(remoteSnapshot.data())
-            : DEFAULT_PROGRESS;
-          const merged = mergeProgress(remoteProgress, latestCache, guestProgressRef.current);
-
-          await setDoc(progressDoc, { ...merged, updatedAt: serverTimestamp() }, { merge: true });
-          if (requestId !== authRequestRef.current) return;
-
-          progressRef.current = merged;
-          setProgress(merged);
-          writeLocalProgress(merged, nextUser.uid);
-          clearGuestProgress();
-          guestProgressRef.current = { ...DEFAULT_PROGRESS };
-          setSyncStatus('saved');
-        } catch (error) {
-          if (requestId !== authRequestRef.current) return;
-          console.error('Could not sync learning progress:', error);
-          setSyncStatus('error');
-          setAuthError('Đã đăng nhập, nhưng chưa đồng bộ được tiến trình. Kiểm tra cấu hình Firestore và quyền truy cập.');
-        } finally {
-          if (requestId === authRequestRef.current) setAuthLoading(false);
-        }
-      })();
-    });
-  }, []);
-
-  const signInWithEmail = useCallback(async (email: string, password: string) => {
-    setAuthError(null);
-    if (!firebaseAuth) {
-      setAuthError('Ứng dụng chưa được kết nối Firebase. Cần cấu hình project trước khi tạo tài khoản.');
-      return false;
-    }
-
-    try {
-      await signInWithEmailAndPassword(firebaseAuth, email, password);
-      return true;
+      const activeUser = result.user as AccountUser;
+      userRef.current = activeUser;
+      setUser(activeUser);
+      return await syncUserProgress(activeUser, requestId);
     } catch (error) {
-      setAuthError(getErrorMessage(error));
+      if (requestId === authRequestRef.current) {
+        setSyncStatus(userRef.current ? 'error' : 'local');
+        setAuthError(error instanceof Error ? error.message : 'Không đăng nhập được. Hãy thử lại.');
+      }
       return false;
+    } finally {
+      if (requestId === authRequestRef.current) setAuthLoading(false);
     }
-  }, []);
+  }, [syncUserProgress]);
 
-  const createEmailAccount = useCallback(async (email: string, password: string) => {
-    setAuthError(null);
-    if (!firebaseAuth) {
-      setAuthError('Ứng dụng chưa được kết nối Firebase. Cần cấu hình project trước khi tạo tài khoản.');
-      return false;
-    }
+  const signInWithUsername = useCallback((username: string, password: string) => (
+    runAccountAction('login', username, password)
+  ), [runAccountAction]);
 
-    try {
-      await createUserWithEmailAndPassword(firebaseAuth, email, password);
-      return true;
-    } catch (error) {
-      setAuthError(getErrorMessage(error));
-      return false;
-    }
-  }, []);
-
-  const sendPasswordReset = useCallback(async (email: string) => {
-    setAuthError(null);
-    if (!firebaseAuth) {
-      setAuthError('Ứng dụng chưa được kết nối Firebase. Cần cấu hình project trước khi đặt lại mật khẩu.');
-      return false;
-    }
-
-    try {
-      await sendPasswordResetEmail(firebaseAuth, email);
-      return true;
-    } catch (error) {
-      setAuthError(getErrorMessage(error));
-      return false;
-    }
-  }, []);
+  const createUsernameAccount = useCallback((username: string, password: string) => (
+    runAccountAction('register', username, password)
+  ), [runAccountAction]);
 
   const signOut = useCallback(async () => {
-    if (!firebaseAuth) return;
     setAuthError(null);
+    const requestId = ++authRequestRef.current;
+    setAuthLoading(true);
     try {
-      await firebaseSignOut(firebaseAuth);
+      const response = await fetch('/api/auth', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'logout' }),
+      });
+      const result = await readJson(response);
+      if (!response.ok || !result.success) throw new Error(responseMessage(result, 'Không đăng xuất được.'));
+      userRef.current = null;
+      setUser(null);
+      progressRef.current = guestProgressRef.current;
+      setProgress(guestProgressRef.current);
+      setSyncStatus('local');
     } catch (error) {
-      setAuthError(getErrorMessage(error));
+      setAuthError(error instanceof Error ? error.message : 'Không đăng xuất được.');
+    } finally {
+      if (requestId === authRequestRef.current) setAuthLoading(false);
     }
   }, []);
 
@@ -286,33 +286,33 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     progressRef.current = next;
     setProgress(next);
 
-    const uid = userRef.current?.uid ?? null;
-    writeLocalProgress(next, uid);
-    if (!uid) {
+    const activeUser = userRef.current;
+    writeLocalProgress(next, activeUser?.id ?? null);
+    if (!activeUser) {
       guestProgressRef.current = next;
       setSyncStatus('local');
       return;
     }
 
-    if (!firestore) {
-      setSyncStatus('error');
-      return;
-    }
-
+    const requestId = authRequestRef.current;
     setSyncStatus('syncing');
-    void setDoc(doc(firestore, 'users', uid, 'progress', 'learning'), {
-      ...next,
-      updatedAt: serverTimestamp(),
-    }, { merge: true })
-      .then(() => {
-        setSyncStatus('saved');
-        setAuthError(null);
-      })
-      .catch(error => {
-        console.error('Could not save learning progress to Firestore:', error);
-        setSyncStatus('error');
-        setAuthError('Tiến trình đã lưu trên thiết bị này, nhưng chưa đồng bộ được lên tài khoản. Kiểm tra kết nối và quyền Firestore.');
-      });
+    void fetch('/api/progress', {
+      method: 'PUT',
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(next),
+    }).then(async response => {
+      const result = await readJson(response);
+      if (!response.ok || !result.success) throw new Error(responseMessage(result, 'Không lưu được tiến trình.'));
+      if (requestId !== authRequestRef.current) return;
+      setSyncStatus('saved');
+      setAuthError(null);
+    }).catch(error => {
+      if (requestId !== authRequestRef.current) return;
+      console.error('Could not save learning progress:', error);
+      setSyncStatus('error');
+      setAuthError(error instanceof Error ? error.message : 'Không lưu được tiến trình.');
+    });
   }, []);
 
   const saveGrammarScore = useCallback((topicId: string, score: number) => {
@@ -334,7 +334,6 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
           mergedStars[numericDay] = Math.max(mergedStars[numericDay] ?? 0, stars);
         }
       }
-
       return {
         ...current,
         vocabUnlockedDay: Math.max(current.vocabUnlockedDay, unlockedDay),
@@ -349,10 +348,8 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     authLoading,
     syncStatus,
     authError,
-    firebaseConfigured,
-    signInWithEmail,
-    createEmailAccount,
-    sendPasswordReset,
+    signInWithUsername,
+    createUsernameAccount,
     signOut,
     clearAuthError: () => setAuthError(null),
     saveGrammarScore,
