@@ -4,7 +4,8 @@ import { sounds } from '../utils/soundEffects';
 import confetti from 'canvas-confetti';
 import { 
   ArrowLeft, Lock, Star, Volume2, RotateCcw, ArrowRight, 
-  CheckCircle2, AlertCircle, Trophy, Sparkles, BookOpen, List, Play
+  CheckCircle2, AlertCircle, Trophy, Sparkles, BookOpen, List, Play,
+  Maximize, Minimize
 } from 'lucide-react';
 
 interface VocabGameMapProps {
@@ -38,6 +39,24 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
   const [quizAnswers, setQuizAnswers] = useState<{ [index: number]: string }>({});
   const [quizFinished, setQuizFinished] = useState(false);
   const [shakeDay, setShakeDay] = useState<number | null>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  useEffect(() => {
+    const handleFsChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', handleFsChange);
+    return () => document.removeEventListener('fullscreenchange', handleFsChange);
+  }, []);
+
+  const toggleFullscreen = () => {
+    sounds.playClick();
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen().catch(() => {});
+    }
+  };
 
   // Load progress from localStorage
   useEffect(() => {
@@ -209,6 +228,16 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
           </button>
 
           <div className="flex items-center gap-3">
+            {/* Fullscreen Button */}
+            <button
+              onClick={toggleFullscreen}
+              className="flex items-center gap-1.5 px-3 py-2 bg-neoYellow border-2 border-black font-black text-xs sm:text-sm shadow-neo-sm hover:bg-yellow-300 min-h-[40px] cursor-pointer"
+              title={isFullscreen ? "Thu nhỏ màn hình" : "Toàn màn hình"}
+            >
+              {isFullscreen ? <Minimize className="w-4 h-4" /> : <Maximize className="w-4 h-4" />}
+              <span className="hidden sm:inline">{isFullscreen ? "Thu nhỏ" : "Full màn hình"}</span>
+            </button>
+
             {/* Stars counter */}
             <div className="flex items-center gap-1.5 px-4 py-2 bg-neoYellow border-3 border-black font-black shadow-neo-sm">
               <Star className="w-5 h-5 text-amber-500 fill-amber-500 animate-spin" />
@@ -325,14 +354,24 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
             <ArrowLeft className="w-4 h-4" /> Quay lại Bản Đồ Màn
           </button>
 
-          <div className="flex items-center gap-3">
-            <span className="px-4 py-1.5 bg-neoPurple border-3 border-black font-black text-sm shadow-neo-sm uppercase">
-              {currentLesson.title} ({currentLesson.totalWords} từ vựng)
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Fullscreen Button */}
+            <button
+              onClick={toggleFullscreen}
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-neoYellow border-2 border-black font-black text-xs shadow-neo-sm hover:bg-yellow-300 min-h-[38px] cursor-pointer"
+              title={isFullscreen ? "Thu nhỏ màn hình" : "Toàn màn hình"}
+            >
+              {isFullscreen ? <Minimize className="w-4 h-4" /> : <Maximize className="w-4 h-4" />}
+              <span className="hidden sm:inline">{isFullscreen ? "Thu nhỏ" : "Full màn hình"}</span>
+            </button>
+
+            <span className="px-3 sm:px-4 py-1.5 bg-neoPurple border-3 border-black font-black text-xs sm:text-sm shadow-neo-sm uppercase">
+              {currentLesson.title} ({currentLesson.totalWords} từ)
             </span>
 
             <button
               onClick={() => setShowAllWordsModal(true)}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-black font-bold text-xs shadow-neo-sm hover:bg-gray-100"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-black font-bold text-xs shadow-neo-sm hover:bg-gray-100 min-h-[38px]"
             >
               <List className="w-4 h-4" /> Xem tất cả từ
             </button>
@@ -359,25 +398,14 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
 
             {/* Card Content */}
             {!isFlipped ? (
-              /* Front: English Word + Image + IPA + Speaker */
-              <div className="my-auto py-4 text-center flex flex-col items-center gap-3">
-                {currentWord.imageUrl && (
-                  <div className="w-40 h-28 sm:w-48 sm:h-36 border-3 border-black bg-white rounded-xl overflow-hidden shadow-neo-sm flex items-center justify-center p-1.5 hover:scale-105 transition-transform">
-                    <img
-                      src={currentWord.imageUrl}
-                      alt={currentWord.word}
-                      className="max-w-full max-h-full object-contain rounded"
-                      onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
-                    />
-                  </div>
-                )}
-
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading text-black tracking-wide">
+              /* Front: English Word + IPA + Speaker (NO image on front to test memory) */
+              <div className="my-auto py-8 text-center flex flex-col items-center gap-4">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-black font-heading text-black tracking-wide">
                   {currentWord.word}
                 </h2>
 
                 {currentWord.ipa && (
-                  <span className="text-base sm:text-xl font-mono font-bold text-gray-700 bg-yellow-100/90 px-4 py-1 border-2 border-black rounded-lg shadow-neo-sm">
+                  <span className="text-xl sm:text-2xl font-mono font-bold text-gray-700 bg-yellow-100/90 px-4 py-1.5 border-2 border-black rounded-lg shadow-neo-sm">
                     {currentWord.ipa}
                   </span>
                 )}
@@ -388,29 +416,19 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                     sounds.playClick();
                     sounds.speakEnglish(currentWord.word);
                   }}
-                  className="mt-1 flex items-center gap-2 px-5 py-2.5 bg-neoYellow border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo-sm hover:bg-yellow-300 active:translate-x-0.5 active:translate-y-0.5 group min-h-[44px]"
+                  className="mt-2 flex items-center gap-2 px-6 py-3 bg-neoYellow border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo-sm hover:bg-yellow-300 active:translate-x-0.5 active:translate-y-0.5 group min-h-[46px]"
                 >
                   <Volume2 className="w-5 h-5 group-hover:scale-125 transition-transform" />
                   <span>Phát âm giọng Mỹ chuẩn</span>
                 </button>
 
-                <p className="text-[11px] sm:text-xs text-gray-400 font-bold mt-1">
-                  (Chạm vào thẻ để xem nghĩa tiếng Việt • Vuốt ngang để chuyển từ)
+                <p className="text-xs text-gray-400 font-bold mt-2">
+                  (Chạm vào thẻ để xem nghĩa & hình ảnh minh họa • Vuốt ngang để chuyển từ)
                 </p>
               </div>
             ) : (
-              /* Back: Vietnamese Definition + Image */
-              <div className="my-auto py-6 text-center flex flex-col items-center gap-4">
-                {currentWord.imageUrl && (
-                  <div className="w-32 h-24 border-2 border-black bg-white rounded-lg overflow-hidden shadow-neo-sm flex items-center justify-center p-1">
-                    <img
-                      src={currentWord.imageUrl}
-                      alt={currentWord.word}
-                      className="max-w-full max-h-full object-contain"
-                    />
-                  </div>
-                )}
-
+              /* Back: Vietnamese Definition + Illustration Image on BACK */
+              <div className="my-auto py-4 text-center flex flex-col items-center gap-3">
                 <span className="text-xs font-bold px-3 py-1 bg-neoPink text-white border-2 border-black uppercase">
                   Ý NGHĨA TIẾNG VIỆT
                 </span>
@@ -419,7 +437,19 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                   {currentWord.meaning}
                 </h3>
 
-                <p className="text-xs text-gray-400 font-bold mt-2">
+                {/* Illustration Image on Back Side */}
+                {currentWord.imageUrl && (
+                  <div className="w-52 h-36 sm:w-64 sm:h-44 border-3 border-black bg-white rounded-xl overflow-hidden shadow-neo flex items-center justify-center p-2 my-1 hover:scale-105 transition-transform">
+                    <img
+                      src={currentWord.imageUrl}
+                      alt={currentWord.word}
+                      className="max-w-full max-h-full object-contain rounded"
+                      onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
+                    />
+                  </div>
+                )}
+
+                <p className="text-xs text-gray-400 font-bold mt-1">
                   (Chạm để lật lại mặt tiếng Anh)
                 </p>
               </div>

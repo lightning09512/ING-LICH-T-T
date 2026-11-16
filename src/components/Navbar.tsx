@@ -1,5 +1,5 @@
-import React from 'react';
-import { Volume2, VolumeX, Home, Heart, Flame } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Volume2, VolumeX, Home, Heart, Flame, Maximize, Minimize } from 'lucide-react';
 import { sounds } from '../utils/soundEffects';
 
 interface NavbarProps {
@@ -17,6 +17,25 @@ export const Navbar: React.FC<NavbarProps> = ({
   nickname,
   streakDays
 }) => {
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  useEffect(() => {
+    const handleFsChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', handleFsChange);
+    return () => document.removeEventListener('fullscreenchange', handleFsChange);
+  }, []);
+
+  const toggleFullscreen = () => {
+    sounds.playClick();
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen().catch(() => {});
+    }
+  };
+
   return (
     <header className="relative z-10 w-full px-4 py-3 bg-white border-b-4 border-black flex items-center justify-between shadow-neo-sm">
       <div 
@@ -51,6 +70,15 @@ export const Navbar: React.FC<NavbarProps> = ({
           <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
           <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
         </div>
+
+        {/* Fullscreen Toggle */}
+        <button
+          onClick={toggleFullscreen}
+          className="p-2 border-2 border-black bg-neoPurple rounded hover:bg-purple-300 active:translate-x-0.5 active:translate-y-0.5 shadow-neo-sm"
+          title={isFullscreen ? "Thu nhỏ màn hình" : "Toàn màn hình"}
+        >
+          {isFullscreen ? <Minimize className="w-5 h-5" /> : <Maximize className="w-5 h-5" />}
+        </button>
 
         {/* Sound Toggle */}
         <button
