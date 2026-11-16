@@ -428,19 +428,29 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                   {currentWord.word}
                 </h2>
 
-                {currentWord.ipa && (
-                  <span 
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      sounds.playClick();
-                      sounds.speakEnglish(currentWord.word);
-                    }}
-                    className="text-lg sm:text-xl md:text-2xl font-mono font-bold text-gray-700 bg-yellow-100/90 px-4 py-1.5 border-2 border-black rounded-lg shadow-neo-sm cursor-pointer hover:bg-yellow-200 transition-all"
-                    title="Phiên âm IPA (nhấn để nghe)"
-                  >
-                    {currentWord.ipa}
-                  </span>
-                )}
+                <div className="flex items-center justify-center gap-2 flex-wrap">
+                  {currentWord.ipa && (
+                    <span 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        sounds.playClick();
+                        sounds.speakEnglish(currentWord.word);
+                      }}
+                      className="text-lg sm:text-xl md:text-2xl font-mono font-bold text-gray-700 bg-yellow-100/90 px-4 py-1.5 border-2 border-black rounded-lg shadow-neo-sm cursor-pointer hover:bg-yellow-200 transition-all"
+                      title="Phiên âm IPA (nhấn để nghe)"
+                    >
+                      {currentWord.ipa}
+                    </span>
+                  )}
+                  {currentWord.partOfSpeech && (
+                    <span 
+                      className="text-sm sm:text-base font-black px-3 py-1.5 bg-neoCyan text-black border-2 border-black rounded-lg shadow-neo-sm"
+                      title="Từ loại"
+                    >
+                      {currentWord.partOfSpeech}
+                    </span>
+                  )}
+                </div>
 
                 {/* Phần câu minh họa ngữ cảnh thon gọn (bỏ chữ câu minh họa và bản dịch) */}
                 {currentWord.exampleEn ? (
@@ -471,16 +481,31 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                   </div>
                 )}
 
-                <p className="text-xs text-gray-400 font-bold mt-1">
-                  (Chạm vào thẻ để xem nghĩa & hình ảnh minh họa • Vuốt ngang để chuyển từ)
-                </p>
+                {/* Hướng dẫn lật thẻ kèm từ loại ngay bên cạnh */}
+                <div className="flex items-center justify-center gap-2 mt-2 flex-wrap">
+                  <span className="text-xs sm:text-sm text-gray-500 font-bold">
+                    (Chạm để xem nghĩa)
+                  </span>
+                  {currentWord.partOfSpeech && (
+                    <span className="text-xs sm:text-sm font-black px-2.5 py-0.5 bg-neoCyan text-black border-2 border-black rounded-md shadow-neo-sm">
+                      {currentWord.partOfSpeech}
+                    </span>
+                  )}
+                </div>
               </div>
             ) : (
               /* Back: Vietnamese Definition + Illustration Image on BACK */
               <div className="my-auto py-4 text-center flex flex-col items-center gap-3">
-                <span className="text-xs font-bold px-3 py-1 bg-neoPink text-white border-2 border-black uppercase">
-                  Ý NGHĨA TIẾNG VIỆT
-                </span>
+                <div className="flex items-center justify-center gap-2 flex-wrap">
+                  <span className="text-xs font-bold px-3 py-1 bg-neoPink text-white border-2 border-black uppercase">
+                    Ý NGHĨA TIẾNG VIỆT
+                  </span>
+                  {currentWord.partOfSpeech && (
+                    <span className="text-xs font-black px-2.5 py-1 bg-neoCyan text-black border-2 border-black uppercase">
+                      {currentWord.partOfSpeech}
+                    </span>
+                  )}
+                </div>
 
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-emerald-700 font-heading">
                   {currentWord.meaning}

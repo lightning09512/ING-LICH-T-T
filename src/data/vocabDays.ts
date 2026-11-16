@@ -8,6 +8,7 @@ export interface VocabWord {
   imageUrl?: string;
   exampleEn?: string;
   exampleVi?: string;
+  partOfSpeech?: string;
 }
 
 export interface DayLesson {
