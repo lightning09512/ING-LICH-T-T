@@ -4,9 +4,9 @@ class SoundEngine {
   private ctx: AudioContext | null = null;
   private soundEnabled: boolean = true;
   private currentAudio: HTMLAudioElement | null = null;
-  private currentAudioUrl: string | null = null;
   private speechController: AbortController | null = null;
   private activeSpeechResolve: (() => void) | null = null;
+  private preloadedAudio = new Map<string, HTMLAudioElement>();
 
   private getContext(): AudioContext | null {
     if (!this.ctx && typeof window !== 'undefined') {
@@ -28,6 +28,27 @@ class SoundEngine {
 
   public isEnabled(): boolean {
     return this.soundEnabled;
+  }
+
+  public prefetchEnglish(text: string) {
+    const cleanText = text.trim();
+    if (!this.soundEnabled || !cleanText || cleanText.length > 800 || this.preloadedAudio.has(cleanText)) return;
+
+    const audio = new Audio();
+    audio.preload = 'auto';
+    audio.src = `/api/tts?text=${encodeURIComponent(cleanText)}`;
+    audio.load();
+    this.preloadedAudio.set(cleanText, audio);
+
+    if (this.preloadedAudio.size > 4) {
+      const oldestEntry = this.preloadedAudio.entries().next().value as [string, HTMLAudioElement] | undefined;
+      if (oldestEntry) {
+        oldestEntry[1].pause();
+        oldestEntry[1].removeAttribute('src');
+        oldestEntry[1].load();
+        this.preloadedAudio.delete(oldestEntry[0]);
+      }
+    }
   }
 
   // Retro 8-bit button blip
@@ -148,38 +169,16 @@ class SoundEngine {
     });
   }
 
-  private async speakWithNeuralTts(text: string, controller: AbortController, resolve: () => void) {
-    try {
-      const response = await fetch('/api/tts', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text }),
-        signal: controller.signal,
-      });
-
-      if (!response.ok) throw new Error('Neural TTS request failed');
-      const contentType = response.headers.get('content-type')?.toLowerCase() ?? '';
-      if (!contentType.startsWith('audio/')) throw new Error('Neural TTS returned a non-audio response');
-
-      const audioBlob = await response.blob();
-      if (audioBlob.size === 0) throw new Error('Neural TTS returned empty audio');
-
-      const audioUrl = URL.createObjectURL(audioBlob);
-      if (controller.signal.aborted) {
-        URL.revokeObjectURL(audioUrl);
-        this.finishSpeech(controller, resolve);
-        return;
-      }
-
-      this.playAudio(audioUrl, true, controller, resolve, true, text);
-    } catch {
-      if (controller.signal.aborted) {
-        this.finishSpeech(controller, resolve);
-        return;
-      }
-
-      this.speakWithGoogleTts(text, controller, resolve);
+  private speakWithNeuralTts(text: string, controller: AbortController, resolve: () => void) {
+    if (controller.signal.aborted) {
+      this.finishSpeech(controller, resolve);
+      return;
     }
+
+    const audioUrl = `/api/tts?text=${encodeURIComponent(text)}`;
+    const preparedAudio = this.preloadedAudio.get(text);
+    this.preloadedAudio.delete(text);
+    this.playAudio(audioUrl, controller, resolve, true, text, preparedAudio);
   }
 
   private speakWithGoogleTts(text: string, controller: AbortController, resolve: () => void) {
@@ -189,27 +188,25 @@ class SoundEngine {
     }
 
     const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en-US&client=tw-ob&q=${encodeURIComponent(text)}`;
-    this.playAudio(audioUrl, false, controller, resolve, false, text);
+    this.playAudio(audioUrl, controller, resolve, false, text);
   }
 
   private playAudio(
     audioUrl: string,
-    isObjectUrl: boolean,
     controller: AbortController,
     resolve: () => void,
     fallbackToGoogle: boolean,
     text: string,
+    preparedAudio?: HTMLAudioElement,
   ) {
-    const audio = new Audio(audioUrl);
+    const audio = preparedAudio ?? new Audio(audioUrl);
+    if (preparedAudio) audio.currentTime = 0;
     this.currentAudio = audio;
-    this.currentAudioUrl = isObjectUrl ? audioUrl : null;
 
     const finish = (played: boolean) => {
       if (this.currentAudio !== audio) return;
 
       this.currentAudio = null;
-      if (this.currentAudioUrl) URL.revokeObjectURL(this.currentAudioUrl);
-      this.currentAudioUrl = null;
 
       if (!played && fallbackToGoogle && !controller.signal.aborted) {
         this.speakWithGoogleTts(text, controller, resolve);
@@ -233,8 +230,6 @@ class SoundEngine {
       this.currentAudio.pause();
       this.currentAudio = null;
     }
-    if (this.currentAudioUrl) URL.revokeObjectURL(this.currentAudioUrl);
-    this.currentAudioUrl = null;
 
     const resolve = this.activeSpeechResolve;
     this.activeSpeechResolve = null;

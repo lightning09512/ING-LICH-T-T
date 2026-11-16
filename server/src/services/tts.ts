@@ -5,12 +5,13 @@ export const MAX_TTS_TEXT_LENGTH = 800;
 const CACHE_LIMIT = 100;
 const audioCache = new Map<string, Buffer>();
 
-export async function synthesizeSpeech(text: string): Promise<Buffer> {
+export async function* streamSpeech(text: string): AsyncGenerator<Buffer> {
   const cachedAudio = audioCache.get(text);
   if (cachedAudio) {
     audioCache.delete(text);
     audioCache.set(text, cachedAudio);
-    return cachedAudio;
+    yield cachedAudio;
+    return;
   }
 
   const tts = new EdgeTTS({
@@ -23,7 +24,10 @@ export async function synthesizeSpeech(text: string): Promise<Buffer> {
   const chunks: Buffer[] = [];
 
   for await (const chunk of tts.streamAudio(text)) {
-    if (Buffer.isBuffer(chunk)) chunks.push(chunk);
+    if (Buffer.isBuffer(chunk)) {
+      chunks.push(chunk);
+      yield chunk;
+    }
   }
 
   if (chunks.length === 0) throw new Error('Speech service returned no audio.');
@@ -34,6 +38,10 @@ export async function synthesizeSpeech(text: string): Promise<Buffer> {
     if (oldestKey) audioCache.delete(oldestKey);
   }
   audioCache.set(text, audio);
+}
 
-  return audio;
+export async function synthesizeSpeech(text: string): Promise<Buffer> {
+  const chunks: Buffer[] = [];
+  for await (const chunk of streamSpeech(text)) chunks.push(chunk);
+  return Buffer.concat(chunks);
 }

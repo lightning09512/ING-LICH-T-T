@@ -77,6 +77,15 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
   const currentLesson: DayLesson | null = getDayData(selectedDay);
   const currentWord: VocabWord | undefined = currentLesson?.words[flashcardIndex];
 
+  useEffect(() => {
+    if (view === 'STUDY' && currentWord?.word) sounds.prefetchEnglish(currentWord.word);
+  }, [view, currentWord?.word]);
+
+  useEffect(() => {
+    const currentQuizWord = quizQuestions[quizIndex]?.word.word;
+    if (view === 'QUIZ' && currentQuizWord) sounds.prefetchEnglish(currentQuizWord);
+  }, [view, quizIndex, quizQuestions]);
+
   // Touch Swipe for Flashcard
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStartX(e.touches[0].clientX);

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { VocabItem } from '../data/initialData';
 import { sounds } from '../utils/soundEffects';
 import { Volume2, RotateCcw, ArrowLeft, ArrowRight, CheckCircle2, Bookmark, Sparkles } from 'lucide-react';
@@ -26,6 +26,10 @@ export const LearnVocabScreen: React.FC<LearnVocabScreenProps> = ({
     : vocabList.filter(v => v.topic === selectedTopic);
 
   const currentWord = filteredList[currentIndex] || vocabList[0];
+
+  useEffect(() => {
+    if (currentWord) sounds.prefetchEnglish(currentWord.word);
+  }, [currentWord?.word]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStartX(e.touches[0].clientX);
