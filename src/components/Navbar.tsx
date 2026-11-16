@@ -10,6 +10,7 @@ interface NavbarProps {
   onToggleSound: () => void;
   nickname: string;
   streakDays: number;
+  hearts?: number;
   onToggleLofi?: () => void;
   isLofiOpen?: boolean;
   user: User | null;
@@ -17,6 +18,8 @@ interface NavbarProps {
   syncStatus: SyncStatus;
   onOpenAccount: () => void;
   onSignOut: () => void;
+  onOpenStreak?: () => void;
+  onOpenHearts?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -25,6 +28,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onToggleSound,
   nickname,
   streakDays,
+  hearts = 3,
   onToggleLofi,
   isLofiOpen,
   user,
@@ -32,6 +36,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   syncStatus,
   onOpenAccount,
   onSignOut,
+  onOpenStreak,
+  onOpenHearts,
 }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
@@ -112,18 +118,35 @@ export const Navbar: React.FC<NavbarProps> = ({
           )}
         </button>
 
-        {/* Streak Indicator */}
-        <div className="hidden md:flex items-center gap-1.5 px-3 py-1 bg-orange-100 border-2 border-black rounded shadow-neo-sm font-bold text-xs sm:text-sm min-h-[40px]">
-          <Flame className="w-4 h-4 text-orange-500 fill-orange-500" />
+        {/* Streak Indicator Button */}
+        <button
+          onClick={() => { sounds.playClick(); onOpenStreak?.(); }}
+          className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 h-10 sm:h-11 bg-orange-100 hover:bg-orange-200 border-2 border-black rounded shadow-neo-sm font-black text-xs sm:text-sm cursor-pointer active:scale-95 transition-all"
+          title="Bấm để xem chi tiết chuỗi ngày học tập"
+          aria-label="Chuỗi học tập"
+        >
+          <Flame className="w-4 h-4 text-orange-500 fill-orange-500 shrink-0" />
           <span>{streakDays} ngày</span>
-        </div>
+        </button>
 
-        {/* 3 Hearts indicator */}
-        <div className="hidden sm:flex items-center gap-1 px-2.5 py-1 bg-pink-100 border-2 border-black rounded shadow-neo-sm min-h-[40px]">
-          <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
-          <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
-          <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
-        </div>
+        {/* 3 Hearts indicator Button */}
+        <button
+          onClick={() => { sounds.playClick(); onOpenHearts?.(); }}
+          className="flex items-center gap-0.5 sm:gap-1 px-1.5 sm:px-2.5 h-10 sm:h-11 bg-pink-100 hover:bg-pink-200 border-2 border-black rounded shadow-neo-sm cursor-pointer active:scale-95 transition-all"
+          title={`Bạn còn ${hearts}/3 tim. Bấm để xem hoặc hồi tim!`}
+          aria-label="Mạng sống"
+        >
+          {[1, 2, 3].map(num => (
+            <Heart
+              key={num}
+              className={`w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 transition-transform ${
+                num <= hearts
+                  ? 'text-red-500 fill-red-500 animate-pulse'
+                  : 'text-gray-300 fill-gray-200 scale-90'
+              }`}
+            />
+          ))}
+        </button>
 
         {/* Lofi Music Toggle */}
         <button

@@ -10,6 +10,8 @@ import { ToeicExamScreen } from './components/ToeicExamScreen';
 import { TestSelectScreen } from './components/TestSelectScreen';
 import { LofiPlayer } from './components/LofiPlayer';
 import { AccountModal } from './components/AccountModal';
+import { StreakModal } from './components/StreakModal';
+import { HeartsModal } from './components/HeartsModal';
 import { initialVocabList, initialTest, VocabItem, ToeicTest } from './data/initialData';
 import { sounds } from './utils/soundEffects';
 import { useLearningProgress } from './contexts/ProgressContext';
@@ -22,20 +24,25 @@ export function App() {
     authLoading,
     syncStatus,
     authError,
+    streakDays,
+    lastStudyDate,
+    hearts,
     signInWithGoogle,
     signInWithGoogleRedirect,
     signOut,
     clearAuthError,
+    refillHearts,
   } = useLearningProgress();
   const [screen, setScreen] = useState<ScreenState>('TITLE');
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [nickname, setNickname] = useState('Mập địch');
-  const [streakDays, setStreakDays] = useState(5);
   const [vocabList, setVocabList] = useState<VocabItem[]>(initialVocabList);
   const [currentTest, setCurrentTest] = useState<ToeicTest>(initialTest);
   const [loadingTest, setLoadingTest] = useState(false);
   const [isLofiOpen, setIsLofiOpen] = useState(false);
   const [isAccountModalOpen, setIsAccountModalOpen] = useState(false);
+  const [isStreakModalOpen, setIsStreakModalOpen] = useState(false);
+  const [isHeartsModalOpen, setIsHeartsModalOpen] = useState(false);
 
 
   // Chỉ tự động vào MENU nếu người dùng vừa hoàn tất đăng nhập bằng Google Redirect
@@ -64,7 +71,6 @@ export function App() {
       .then(data => {
         if (data.success && data.data) {
           if (data.data.nickname) setNickname(data.data.nickname);
-          if (data.data.streakDays) setStreakDays(data.data.streakDays);
         }
       })
       .catch(() => {
@@ -73,7 +79,6 @@ export function App() {
           .then(res => res.json())
           .then(data => {
             if (data && data.nickname) setNickname(data.nickname);
-            if (data && data.streakDays) setStreakDays(data.streakDays);
           })
           .catch(() => {});
       });
@@ -185,6 +190,9 @@ export function App() {
           onToggleSound={handleToggleSound}
           nickname={nickname}
           streakDays={streakDays}
+          hearts={hearts}
+          onOpenStreak={() => setIsStreakModalOpen(true)}
+          onOpenHearts={() => setIsHeartsModalOpen(true)}
           onToggleLofi={() => setIsLofiOpen(!isLofiOpen)}
           isLofiOpen={isLofiOpen}
           user={user}
@@ -305,6 +313,28 @@ export function App() {
           }}
         />
       )}
+
+      {/* Streak Details Modal */}
+      <StreakModal
+        isOpen={isStreakModalOpen}
+        onClose={() => setIsStreakModalOpen(false)}
+        streakDays={streakDays}
+        lastStudyDate={lastStudyDate}
+        nickname={nickname}
+        onStartLearning={() => {
+          setIsStreakModalOpen(false);
+          setScreen('LEARN');
+        }}
+      />
+
+      {/* Hearts / Lives Modal */}
+      <HeartsModal
+        isOpen={isHeartsModalOpen}
+        onClose={() => setIsHeartsModalOpen(false)}
+        hearts={hearts}
+        nickname={nickname}
+        onRefillHearts={refillHearts}
+      />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { VocabItem } from '../data/initialData';
 import { sounds } from '../utils/soundEffects';
 import confetti from 'canvas-confetti';
 import { Heart, Timer, ArrowLeft, RefreshCw, Trophy, AlertTriangle } from 'lucide-react';
+import { useLearningProgress } from '../contexts/ProgressContext';
 
 interface ReviewSurvivalScreenProps {
   vocabList: VocabItem[];
@@ -22,6 +23,7 @@ export const ReviewSurvivalScreen: React.FC<ReviewSurvivalScreenProps> = ({
   onBack,
   nickname
 }) => {
+  const { recordStudyActivity, loseHeart } = useLearningProgress();
   const [quizzes, setQuizzes] = useState<QuizItem[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [hearts, setHearts] = useState(3);
@@ -104,6 +106,7 @@ export const ReviewSurvivalScreen: React.FC<ReviewSurvivalScreenProps> = ({
 
     const newHearts = hearts - 1;
     setHearts(newHearts);
+    loseHeart();
 
     if (newHearts <= 0) {
       setTimeout(() => {
@@ -142,6 +145,7 @@ export const ReviewSurvivalScreen: React.FC<ReviewSurvivalScreenProps> = ({
     } else {
       sounds.playVictory();
       setGameWon(true);
+      recordStudyActivity();
       confetti({
         particleCount: 150,
         spread: 100,

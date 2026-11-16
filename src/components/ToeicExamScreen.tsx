@@ -7,6 +7,7 @@ import {
   HelpCircle, Clock, Volume2, ArrowLeft, Send, Sparkles, BookOpen,
   ChevronLeft, ChevronRight, CheckCircle2, AlertCircle
 } from 'lucide-react';
+import { useLearningProgress } from '../contexts/ProgressContext';
 
 interface ToeicExamScreenProps {
   test: ToeicTest;
@@ -28,6 +29,7 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
   onBack,
   nickname
 }) => {
+  const { recordStudyActivity } = useLearningProgress();
   // Current active part tab: 1 to 7
   const [activePart, setActivePart] = useState<number>(1);
   const [answers, setAnswers] = useState<{ [questionId: number]: 'A' | 'B' | 'C' | 'D' }>({});
@@ -147,6 +149,7 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
     setIsTimerRunning(false);
     setIsSubmitted(true);
     setShowResultModal(true);
+    recordStudyActivity();
     if (audioRef.current) {
       audioRef.current.pause();
       setAudioPlaying(false);

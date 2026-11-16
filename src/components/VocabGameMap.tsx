@@ -25,7 +25,7 @@ interface QuizQuestion {
 export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) => {
   const [view, setView] = useState<VocabView>('MAP');
   const [selectedDay, setSelectedDay] = useState<number>(1);
-  const { progress, saveVocabularyProgress } = useLearningProgress();
+  const { progress, saveVocabularyProgress, recordStudyActivity, loseHeart } = useLearningProgress();
   const unlockedDay = progress.vocabUnlockedDay;
   const dayStars = progress.vocabDayStars;
   
@@ -178,6 +178,7 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
 
     if (passed) {
       sounds.playVictory();
+      recordStudyActivity();
       confetti({ particleCount: 140, spread: 80, origin: { y: 0.6 } });
 
       let stars = 1;
@@ -190,6 +191,7 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
       saveVocabularyProgress(nextUnlocked, newStars);
     } else {
       sounds.playWrong();
+      loseHeart();
     }
 
     setQuizFinished(true);

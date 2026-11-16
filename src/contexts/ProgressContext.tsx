@@ -18,6 +18,10 @@ export interface LearningProgress {
   grammarProgress: Record<string, number>;
   vocabUnlockedDay: number;
   vocabDayStars: Record<number, number>;
+  streakDays: number;
+  lastStudyDate: string;
+  hearts: number;
+  lastHeartRefillTime: number;
 }
 
 export type SyncStatus = 'local' | 'syncing' | 'saved' | 'error';
@@ -29,6 +33,9 @@ interface ProgressContextValue {
   syncStatus: SyncStatus;
   authError: string | null;
   firebaseConfigured: boolean;
+  streakDays: number;
+  lastStudyDate: string;
+  hearts: number;
   signInWithEmail: (email: string, password: string) => Promise<boolean>;
   signInWithGoogle: () => Promise<boolean>;
   signInWithGoogleRedirect: () => Promise<boolean>;
@@ -38,19 +45,43 @@ interface ProgressContextValue {
   clearAuthError: () => void;
   saveGrammarScore: (topicId: string, score: number) => void;
   saveVocabularyProgress: (unlockedDay: number, dayStars: Record<number, number>) => void;
+  recordStudyActivity: () => void;
+  loseHeart: () => boolean;
+  refillHearts: () => void;
 }
 
 const DEFAULT_PROGRESS: LearningProgress = {
   grammarProgress: {},
   vocabUnlockedDay: 1,
   vocabDayStars: {},
+  streakDays: 5,
+  lastStudyDate: '',
+  hearts: 3,
+  lastHeartRefillTime: Date.now(),
 };
 
 const LEGACY_KEYS = {
   grammar: 'ing_grammar_progress',
   unlockedDay: 'ing_lich_unlocked_day',
   dayStars: 'ing_lich_day_stars',
+  streak: 'ing_lich_streak_days',
+  lastStudyDate: 'ing_lich_last_study_date',
+  hearts: 'ing_lich_hearts',
+  lastHeartRefillTime: 'ing_lich_heart_refill_time',
 };
+
+function getLocalDateString(d = new Date()): string {
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+function getYesterdayDateString(): string {
+  const d = new Date();
+  d.setDate(d.getDate() - 1);
+  return getLocalDateString(d);
+}
 
 const ProgressContext = createContext<ProgressContextValue | null>(null);
 
@@ -65,11 +96,22 @@ function normalizeProgress(value: unknown): LearningProgress {
     Object.entries(raw.vocabDayStars ?? {}).filter(([, stars]) => Number.isFinite(stars) && stars >= 0)
   );
   const unlockedDay = Number(raw.vocabUnlockedDay);
+  const rawStreak = Number(raw.streakDays);
+  const streakDays = Number.isFinite(rawStreak) && rawStreak >= 0 ? rawStreak : 5;
+  const lastStudyDate = typeof raw.lastStudyDate === 'string' ? raw.lastStudyDate : '';
+  const rawHearts = Number(raw.hearts);
+  const hearts = Number.isFinite(rawHearts) ? Math.max(0, Math.min(3, rawHearts)) : 3;
+  const rawRefill = Number(raw.lastHeartRefillTime);
+  const lastHeartRefillTime = Number.isFinite(rawRefill) ? rawRefill : Date.now();
 
   return {
     grammarProgress,
     vocabUnlockedDay: Number.isFinite(unlockedDay) ? Math.max(1, Math.min(26, unlockedDay)) : 1,
     vocabDayStars,
+    streakDays,
+    lastStudyDate,
+    hearts,
+    lastHeartRefillTime,
   };
 }
 
@@ -85,6 +127,16 @@ function mergeProgress(...items: LearningProgress[]): LearningProgress {
       }
     }
     result.vocabUnlockedDay = Math.max(result.vocabUnlockedDay, item.vocabUnlockedDay);
+    result.streakDays = Math.max(result.streakDays, item.streakDays);
+    if (item.lastStudyDate && (!result.lastStudyDate || item.lastStudyDate > result.lastStudyDate)) {
+      result.lastStudyDate = item.lastStudyDate;
+    }
+    if (typeof item.hearts === 'number') {
+      result.hearts = item.hearts;
+    }
+    if (typeof item.lastHeartRefillTime === 'number') {
+      result.lastHeartRefillTime = item.lastHeartRefillTime;
+    }
     return result;
   }, { ...DEFAULT_PROGRESS, grammarProgress: {}, vocabDayStars: {} });
 
@@ -96,10 +148,18 @@ function readGuestProgress(): LearningProgress {
     const grammar = localStorage.getItem(LEGACY_KEYS.grammar);
     const unlockedDay = localStorage.getItem(LEGACY_KEYS.unlockedDay);
     const dayStars = localStorage.getItem(LEGACY_KEYS.dayStars);
+    const streak = localStorage.getItem(LEGACY_KEYS.streak);
+    const lastDate = localStorage.getItem(LEGACY_KEYS.lastStudyDate);
+    const hearts = localStorage.getItem(LEGACY_KEYS.hearts);
+    const refill = localStorage.getItem(LEGACY_KEYS.lastHeartRefillTime);
     return normalizeProgress({
       grammarProgress: grammar ? JSON.parse(grammar) : {},
       vocabUnlockedDay: unlockedDay ? Number.parseInt(unlockedDay, 10) : 1,
       vocabDayStars: dayStars ? JSON.parse(dayStars) : {},
+      streakDays: streak ? Number.parseInt(streak, 10) : 5,
+      lastStudyDate: lastDate || '',
+      hearts: hearts ? Number.parseInt(hearts, 10) : 3,
+      lastHeartRefillTime: refill ? Number.parseInt(refill, 10) : Date.now(),
     });
   } catch {
     return { ...DEFAULT_PROGRESS };
@@ -125,6 +185,10 @@ function writeLocalProgress(progress: LearningProgress, uid: string | null) {
     localStorage.setItem(LEGACY_KEYS.grammar, JSON.stringify(progress.grammarProgress));
     localStorage.setItem(LEGACY_KEYS.unlockedDay, String(progress.vocabUnlockedDay));
     localStorage.setItem(LEGACY_KEYS.dayStars, JSON.stringify(progress.vocabDayStars));
+    localStorage.setItem(LEGACY_KEYS.streak, String(progress.streakDays));
+    localStorage.setItem(LEGACY_KEYS.lastStudyDate, progress.lastStudyDate);
+    localStorage.setItem(LEGACY_KEYS.hearts, String(progress.hearts));
+    localStorage.setItem(LEGACY_KEYS.lastHeartRefillTime, String(progress.lastHeartRefillTime));
   } catch (error) {
     console.error('Could not save learning progress locally:', error);
   }
@@ -511,6 +575,81 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     });
   }, [commitProgress]);
 
+  const recordStudyActivity = useCallback(() => {
+    const today = getLocalDateString();
+    const yesterday = getYesterdayDateString();
+
+    commitProgress(current => {
+      if (current.lastStudyDate === today) {
+        return current;
+      }
+
+      let nextStreak = current.streakDays;
+      if (current.lastStudyDate === yesterday) {
+        nextStreak = (current.streakDays || 0) + 1;
+      } else if (!current.lastStudyDate) {
+        nextStreak = Math.max(1, current.streakDays || 1);
+      } else {
+        // Missed at least one day
+        nextStreak = 1;
+      }
+
+      return {
+        ...current,
+        streakDays: nextStreak,
+        lastStudyDate: today,
+      };
+    });
+  }, [commitProgress]);
+
+  const loseHeart = useCallback(() => {
+    let alive = true;
+    commitProgress(current => {
+      const nextHearts = Math.max(0, (current.hearts ?? 3) - 1);
+      alive = nextHearts > 0;
+      return {
+        ...current,
+        hearts: nextHearts,
+        lastHeartRefillTime: current.hearts === 3 ? Date.now() : current.lastHeartRefillTime || Date.now(),
+      };
+    });
+    return alive;
+  }, [commitProgress]);
+
+  const refillHearts = useCallback(() => {
+    commitProgress(current => ({
+      ...current,
+      hearts: 3,
+      lastHeartRefillTime: Date.now(),
+    }));
+  }, [commitProgress]);
+
+  // Tự động hồi phục 1 tim mỗi 20 phút nếu chưa đầy 3 tim
+  useEffect(() => {
+    const checkRefill = () => {
+      const cur = progressRef.current;
+      if ((cur.hearts ?? 3) < 3) {
+        const elapsed = Date.now() - (cur.lastHeartRefillTime || Date.now());
+        const REFILL_MS = 20 * 60 * 1000;
+        const heartsToAdd = Math.floor(elapsed / REFILL_MS);
+        if (heartsToAdd > 0) {
+          commitProgress(current => {
+            const nextHearts = Math.min(3, (current.hearts ?? 0) + heartsToAdd);
+            return {
+              ...current,
+              hearts: nextHearts,
+              lastHeartRefillTime: nextHearts === 3 ? Date.now() : (current.lastHeartRefillTime || Date.now()) + heartsToAdd * REFILL_MS,
+            };
+          });
+        }
+      }
+    };
+
+    checkRefill();
+    const interval = setInterval(checkRefill, 60000);
+    return () => clearInterval(interval);
+  }, [commitProgress]);
+
   const value: ProgressContextValue = {
     user,
     progress,
@@ -518,6 +657,9 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     syncStatus,
     authError,
     firebaseConfigured,
+    streakDays: progress.streakDays ?? 5,
+    lastStudyDate: progress.lastStudyDate ?? '',
+    hearts: progress.hearts ?? 3,
     signInWithEmail,
     signInWithGoogle,
     signInWithGoogleRedirect,
@@ -527,6 +669,9 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     clearAuthError: () => setAuthError(null),
     saveGrammarScore,
     saveVocabularyProgress,
+    recordStudyActivity,
+    loseHeart,
+    refillHearts,
   };
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;

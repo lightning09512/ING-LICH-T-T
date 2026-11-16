@@ -87,7 +87,7 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
   const [isAnswerChecked, setIsAnswerChecked] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [exerciseFinished, setExerciseFinished] = useState(false);
-  const { progress, saveGrammarScore } = useLearningProgress();
+  const { progress, saveGrammarScore, recordStudyActivity, loseHeart } = useLearningProgress();
   const topicProgress = progress.grammarProgress;
 
   // Survival Mode state
@@ -105,6 +105,7 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
 
   const saveProgress = (topicId: string, scoreVal: number) => {
     saveGrammarScore(topicId, scoreVal);
+    recordStudyActivity();
   };
 
   // Categories
