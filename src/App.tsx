@@ -60,12 +60,14 @@ export function App() {
           setCurrentTest(data.data);
           setScreen('EXAM');
         } else {
-          alert('Không thể tải đề thi này!');
+          setCurrentTest(initialTest);
+          setScreen('EXAM');
         }
       })
-      .catch(err => {
-        console.error('Fetch test detail error:', err);
-        alert('Lỗi kết nối khi tải đề thi!');
+      .catch(() => {
+        // Fallback to local full test (works seamlessly on Vercel deployment)
+        setCurrentTest(initialTest);
+        setScreen('EXAM');
       })
       .finally(() => {
         setLoadingTest(false);

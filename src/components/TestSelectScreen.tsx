@@ -20,6 +20,17 @@ interface TestSelectScreenProps {
   nickname: string;
 }
 
+const fallbackTests: TestSummary[] = [
+  {
+    _id: 'test-1',
+    title: 'Full Test 1 - ETS TOEIC 2022 (Study4)',
+    code: 'ETS2022-T1',
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: 'Đề thi đầy đủ 200 câu Part 1 - 7 chuẩn cấu trúc ETS 2022 format mới nhất có Audio bản quyền Study4'
+  }
+];
+
 export const TestSelectScreen: React.FC<TestSelectScreenProps> = ({
   onSelectTest,
   onBack,
@@ -32,14 +43,15 @@ export const TestSelectScreen: React.FC<TestSelectScreenProps> = ({
     fetch('/api/tests')
       .then(res => res.json())
       .then(data => {
-        if (data.success && data.data) {
-          // Filter out any mini test if present
+        if (data.success && data.data && data.data.length > 0) {
           const fullTests = data.data.filter((t: TestSummary) => t.totalQuestions >= 100);
-          setTests(fullTests);
+          setTests(fullTests.length > 0 ? fullTests : fallbackTests);
+        } else {
+          setTests(fallbackTests);
         }
       })
-      .catch(err => {
-        console.error('Error fetching tests:', err);
+      .catch(() => {
+        setTests(fallbackTests);
       })
       .finally(() => {
         setLoading(false);
