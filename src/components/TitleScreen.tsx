@@ -10,6 +10,7 @@ interface TitleScreenProps {
   user: User | null;
   authLoading: boolean;
   syncStatus: SyncStatus;
+  authError: string | null;
   onOpenAccount: () => void;
   onSignOut: () => void;
   onGoogleSignIn?: () => Promise<boolean>;
@@ -21,6 +22,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
   user,
   authLoading,
   syncStatus,
+  authError,
   onOpenAccount,
   onSignOut,
   onGoogleSignIn
@@ -136,6 +138,15 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
               >
                 Hoặc dùng Email & Mật khẩu
               </button>
+
+              {authError && (
+                <div role="alert" className="w-full bg-red-50 border-2 border-red-500 p-3 mt-1 text-xs sm:text-sm font-bold text-red-800 text-left shadow-neo-sm animate-shake">
+                  <p className="font-black text-red-900 mb-1 flex items-center gap-1.5">
+                    ⚠️ Chưa đăng nhập được:
+                  </p>
+                  <p>{authError}</p>
+                </div>
+              )}
             </div>
           )}
         </div>

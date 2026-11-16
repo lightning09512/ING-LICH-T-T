@@ -39,6 +39,14 @@ export function App() {
   // Use user's Google name / email if signed in, fallback to nickname
   const activeDisplayName = user?.displayName || (user?.email ? user.email.split('@')[0] : nickname);
 
+  // Khi phát hiện có tài khoản đăng nhập thành công, tự động chuyển vào MENU chính
+  useEffect(() => {
+    if (user && screen === 'TITLE') {
+      sounds.playCorrect();
+      setScreen('MENU');
+    }
+  }, [user, screen]);
+
   // Sync with NoSQL Backend or static fallback for Vercel deployment
   useEffect(() => {
     // 1. Fetch profile
@@ -199,6 +207,7 @@ export function App() {
             user={user}
             authLoading={authLoading}
             syncStatus={syncStatus}
+            authError={authError}
             onOpenAccount={() => setIsAccountModalOpen(true)}
             onSignOut={() => { void signOut(); }}
             onGoogleSignIn={async () => {
