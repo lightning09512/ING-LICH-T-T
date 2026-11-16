@@ -22,7 +22,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({ onStart, nickname }) =
           <div className="absolute -top-3.5 -right-3 sm:-top-4 sm:-right-4 bg-neoPink text-white text-[10px] sm:text-xs font-black px-2.5 sm:px-3 py-1 border-2 border-black rotate-12 shadow-neo-sm">
             EDITION BẠN GÁI 2026
           </div>
-          
+
           <h1 className="text-3xl sm:text-6xl md:text-7xl font-black uppercase tracking-wider font-heading text-black break-words">
             ing lich tét
           </h1>
@@ -36,10 +36,10 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({ onStart, nickname }) =
           <span className="text-3xl sm:text-5xl md:text-6xl font-black text-red-600 font-comic tracking-tight rotate-[-3deg] hover:scale-110 transition-transform cursor-pointer">
             ✨ {nickname} ✨
           </span>
-          <img 
-            src="/trollface.png" 
-            alt="troll" 
-            className="w-10 h-10 sm:w-12 sm:h-12 object-contain animate-wiggle inline-block shrink-0" 
+          <img
+            src="/trollface.png"
+            alt="troll"
+            className="w-10 h-10 sm:w-12 sm:h-12 object-contain animate-wiggle inline-block shrink-0"
           />
         </div>
 
@@ -57,7 +57,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({ onStart, nickname }) =
 
         {/* Troll Disclaimer */}
         <div className="bg-neoBg/90 border-2 border-dashed border-black px-3.5 sm:px-4 py-2 mt-2 sm:mt-4 text-xs sm:text-sm font-bold text-gray-700 max-w-md">
-          ⚠️ Cảnh báo: Làm sai quá 3 câu sẽ bị Trollface cười vào mặt và trừ 1 ly trà sữa!
+          ⚠️ Cảnh báo: Làm sai quá 3 câu sẽ bị cười vào mặt và trừ 1 ly trà sữa!
         </div>
       </div>
     </div>
