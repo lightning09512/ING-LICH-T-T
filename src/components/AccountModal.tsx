@@ -115,49 +115,64 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose, onSuccess }
 
         {user ? (
           <div className="mt-5 space-y-4">
-            <div className="bg-cyan-50 border-2 border-black px-3 py-3 flex items-center gap-2 font-bold break-all">
-              <Cloud className={`w-5 h-5 shrink-0 ${syncStatus === 'error' ? 'text-red-600' : 'text-cyan-700'}`} />
-              <span>{user.email} · {syncStatus === 'saved' ? 'Đã đồng bộ' : syncStatus === 'error' ? 'Lỗi đồng bộ' : 'Đang đồng bộ'}</span>
+            <div className="bg-cyan-50 border-2 border-black px-4 py-3 flex items-center gap-3 font-bold break-all">
+              {user.photoURL ? (
+                <img src={user.photoURL} alt="" className="w-8 h-8 rounded-full border border-black shrink-0" />
+              ) : (
+                <Cloud className={`w-6 h-6 shrink-0 ${syncStatus === 'error' ? 'text-red-600' : 'text-cyan-700'}`} />
+              )}
+              <div className="flex flex-col text-left min-w-0">
+                <span className="font-black text-sm text-black">{user.displayName || user.email}</span>
+                <span className="text-xs text-emerald-700 font-bold">
+                  {syncStatus === 'saved' ? '✅ Đã đồng bộ tiến trình' : syncStatus === 'error' ? '❌ Lỗi đồng bộ đám mây' : '🔄 Đang đồng bộ...'}
+                </span>
+              </div>
             </div>
             <button
               onClick={() => { void signOut(); onClose(); }}
-              className="w-full min-h-11 bg-white border-2 border-black shadow-neo-sm font-black flex items-center justify-center gap-2 hover:bg-gray-100"
+              className="w-full min-h-11 bg-white border-2 border-black shadow-neo-sm font-black flex items-center justify-center gap-2 hover:bg-red-50 hover:text-red-700 cursor-pointer"
             >
-              <LogOut className="w-4 h-4" /> Đăng xuất
+              <LogOut className="w-4 h-4" /> Đăng xuất tài khoản này
             </button>
           </div>
         ) : (
           <>
+            {/* Nút đăng nhập Google to, rõ, 1 chạm */}
             <button
               type="button"
               onClick={() => { void handleGoogleSignIn(); }}
               disabled={busy || authLoading}
-              className="mt-5 w-full min-h-12 px-4 bg-white border-2 border-black shadow-neo-sm font-black flex items-center justify-center gap-2 hover:bg-gray-100 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="mt-5 w-full min-h-14 px-4 bg-white border-3 border-black shadow-neo font-black text-sm sm:text-base flex items-center justify-center gap-3 hover:bg-yellow-100 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer transition-all"
             >
-              {busy ? <LoaderCircle className="w-4 h-4 animate-spin" /> : <span aria-hidden="true" className="text-xl font-black text-[#4285F4]">G</span>}
-              Đăng nhập bằng Google
+              {busy ? (
+                <LoaderCircle className="w-5 h-5 animate-spin" />
+              ) : (
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" className="w-6 h-6 shrink-0" />
+              )}
+              <span>Đăng nhập nhanh bằng Google (Gmail)</span>
             </button>
 
-            <div className="mt-3 flex items-center gap-3 text-xs font-bold text-gray-500">
+            <div className="mt-4 flex items-center gap-3 text-xs font-bold text-gray-500">
               <span className="h-px flex-1 bg-gray-300" />
-              Hoặc dùng email
+              Hoặc dùng Email & Mật khẩu
               <span className="h-px flex-1 bg-gray-300" />
             </div>
 
             <form onSubmit={handleSubmit} className="mt-3 space-y-3">
               <label className="block text-sm font-black">
-                Email
+                Email hoặc Tên tài khoản
                 <span className="mt-1 flex items-center gap-2 border-2 border-black px-3 bg-white focus-within:ring-2 focus-within:ring-cyan-500">
                   <Mail className="w-4 h-4 text-gray-500 shrink-0" />
                   <input
-                    type="email"
+                    type="text"
+                    inputMode="email"
                     autoComplete="email"
                     required
                     value={email}
                     onChange={event => setEmail(event.target.value)}
-                    placeholder="ban@example.com"
+                    placeholder="ví dụ: lightning095 hoặc ban@gmail.com"
                     disabled={busy}
-                    className="w-full h-11 outline-none bg-transparent font-bold"
+                    className="w-full h-11 outline-none bg-transparent font-bold text-sm"
                   />
                 </span>
               </label>
@@ -170,12 +185,12 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose, onSuccess }
                     type="password"
                     autoComplete={mode === 'signup' ? 'new-password' : 'current-password'}
                     required
-                    minLength={mode === 'signup' ? 6 : undefined}
+                    minLength={6}
                     value={password}
                     onChange={event => setPassword(event.target.value)}
-                    placeholder={mode === 'signup' ? 'Ít nhất 6 ký tự' : 'Mật khẩu'}
+                    placeholder="Ít nhất 6 ký tự"
                     disabled={busy}
-                    className="w-full h-11 outline-none bg-transparent font-bold"
+                    className="w-full h-11 outline-none bg-transparent font-bold text-sm"
                   />
                 </span>
               </label>
@@ -186,7 +201,7 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose, onSuccess }
               <button
                 type="submit"
                 disabled={busy || authLoading}
-                className="w-full min-h-12 px-4 bg-neoYellow border-2 border-black shadow-neo-sm font-black flex items-center justify-center gap-2 hover:bg-yellow-300 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full min-h-12 px-4 bg-neoYellow border-2 border-black shadow-neo-sm font-black flex items-center justify-center gap-2 hover:bg-yellow-300 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
               >
                 {busy || authLoading ? <LoaderCircle className="w-4 h-4 animate-spin" /> : null}
                 {mode === 'signup' ? 'Tạo tài khoản' : 'Đăng nhập và đồng bộ'}
@@ -194,11 +209,11 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose, onSuccess }
             </form>
 
             <div className="mt-4 flex flex-wrap items-center justify-between gap-2 text-sm font-bold">
-              <button onClick={() => switchMode(mode === 'signin' ? 'signup' : 'signin')} className="underline underline-offset-2">
+              <button onClick={() => switchMode(mode === 'signin' ? 'signup' : 'signin')} className="underline underline-offset-2 cursor-pointer">
                 {mode === 'signin' ? 'Chưa có tài khoản? Đăng ký' : 'Đã có tài khoản? Đăng nhập'}
               </button>
               {mode === 'signin' && (
-                <button onClick={() => { void handlePasswordReset(); }} disabled={busy} className="underline underline-offset-2 disabled:opacity-50">
+                <button onClick={() => { void handlePasswordReset(); }} disabled={busy} className="underline underline-offset-2 disabled:opacity-50 cursor-pointer">
                   Quên mật khẩu?
                 </button>
               )}

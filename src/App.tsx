@@ -22,6 +22,7 @@ export function App() {
     authLoading,
     syncStatus,
     authError,
+    signInWithGoogle,
     signOut,
     clearAuthError,
   } = useLearningProgress();
@@ -200,6 +201,14 @@ export function App() {
             syncStatus={syncStatus}
             onOpenAccount={() => setIsAccountModalOpen(true)}
             onSignOut={() => { void signOut(); }}
+            onGoogleSignIn={async () => {
+              const success = await signInWithGoogle();
+              if (success) {
+                sounds.playCorrect();
+                setScreen('MENU');
+              }
+              return success;
+            }}
           />
         )}
 

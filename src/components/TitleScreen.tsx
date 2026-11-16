@@ -12,9 +12,19 @@ interface TitleScreenProps {
   syncStatus: SyncStatus;
   onOpenAccount: () => void;
   onSignOut: () => void;
+  onGoogleSignIn?: () => Promise<boolean>;
 }
 
-export const TitleScreen: React.FC<TitleScreenProps> = ({ onStart, nickname, user, authLoading, syncStatus, onOpenAccount, onSignOut }) => {
+export const TitleScreen: React.FC<TitleScreenProps> = ({
+  onStart,
+  nickname,
+  user,
+  authLoading,
+  syncStatus,
+  onOpenAccount,
+  onSignOut,
+  onGoogleSignIn
+}) => {
   const handleStart = () => {
     sounds.playCorrect();
     onStart();
@@ -95,23 +105,38 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({ onStart, nickname, use
               </button>
             </div>
           ) : (
-            <button
-              onClick={onOpenAccount}
-              disabled={authLoading}
-              className="w-full min-h-11 px-4 py-2 bg-white border-2 border-black shadow-neo-sm hover:bg-gray-100 active:scale-95 transition-all flex items-center justify-center gap-2 font-black text-sm cursor-pointer disabled:opacity-60"
-            >
-              {authLoading ? (
-                <>
-                  <LoaderCircle className="w-4 h-4 animate-spin" />
-                  <span>Đang kết nối tài khoản...</span>
-                </>
-              ) : (
-                <>
-                  <LogIn className="w-4 h-4 text-red-600" />
-                  <span>Đăng nhập Google để đồng bộ tiến trình</span>
-                </>
-              )}
-            </button>
+            <div className="flex flex-col gap-2 w-full">
+              <button
+                onClick={async () => {
+                  if (onGoogleSignIn) {
+                    const ok = await onGoogleSignIn();
+                    if (ok) onStart();
+                  } else {
+                    onOpenAccount();
+                  }
+                }}
+                disabled={authLoading}
+                className="w-full min-h-12 px-4 py-2.5 bg-white border-3 border-black shadow-neo hover:bg-yellow-100 active:scale-95 transition-all flex items-center justify-center gap-2.5 font-black text-sm cursor-pointer disabled:opacity-60"
+              >
+                {authLoading ? (
+                  <>
+                    <LoaderCircle className="w-4 h-4 animate-spin" />
+                    <span>Đang kết nối...</span>
+                  </>
+                ) : (
+                  <>
+                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" className="w-5 h-5 shrink-0" />
+                    <span>Đăng nhập Gmail để lưu tiến trình</span>
+                  </>
+                )}
+              </button>
+              <button
+                onClick={onOpenAccount}
+                className="text-xs font-bold text-gray-500 hover:text-black underline cursor-pointer"
+              >
+                Hoặc dùng Email & Mật khẩu
+              </button>
+            </div>
           )}
         </div>
 

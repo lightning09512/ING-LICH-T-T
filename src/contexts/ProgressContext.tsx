@@ -300,10 +300,33 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
       return false;
     }
 
+    const validEmail = email.includes('@') ? email.trim() : `${email.trim()}@gmail.com`;
+
     try {
-      await signInWithEmailAndPassword(firebaseAuth, email, password);
+      const cred = await signInWithEmailAndPassword(firebaseAuth, validEmail, password);
+      if (cred?.user) {
+        userRef.current = cred.user;
+        setUser(cred.user);
+        setSyncStatus('saved');
+      }
       return true;
-    } catch (error) {
+    } catch (error: unknown) {
+      const code = (error as { code?: string })?.code;
+      // Nếu tài khoản chưa có, tự động tạo mới luôn để người dùng không phải đổi tab
+      if (code === 'auth/user-not-found' || code === 'auth/invalid-credential') {
+        try {
+          const createCred = await createUserWithEmailAndPassword(firebaseAuth, validEmail, password);
+          if (createCred?.user) {
+            userRef.current = createCred.user;
+            setUser(createCred.user);
+            setSyncStatus('saved');
+          }
+          return true;
+        } catch {
+          setAuthError(getErrorMessage(error));
+          return false;
+        }
+      }
       setAuthError(getErrorMessage(error));
       return false;
     }
@@ -321,7 +344,12 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
 
     try {
       // Ưu tiên mở popup: mượt mà, không load lại trang
-      await signInWithPopup(firebaseAuth, provider);
+      const cred = await signInWithPopup(firebaseAuth, provider);
+      if (cred?.user) {
+        userRef.current = cred.user;
+        setUser(cred.user);
+        setSyncStatus('saved');
+      }
       return true;
     } catch (popupError: unknown) {
       console.warn('Google signInWithPopup error, checking fallback:', popupError);
@@ -352,8 +380,15 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
       return false;
     }
 
+    const validEmail = email.includes('@') ? email.trim() : `${email.trim()}@gmail.com`;
+
     try {
-      await createUserWithEmailAndPassword(firebaseAuth, email, password);
+      const cred = await createUserWithEmailAndPassword(firebaseAuth, validEmail, password);
+      if (cred?.user) {
+        userRef.current = cred.user;
+        setUser(cred.user);
+        setSyncStatus('saved');
+      }
       return true;
     } catch (error) {
       setAuthError(getErrorMessage(error));
