@@ -4,13 +4,13 @@ class SoundEngine {
   private ctx: AudioContext | null = null;
   private soundEnabled: boolean = true;
   private currentAudio: HTMLAudioElement | null = null;
-  private femaleVoice: SpeechSynthesisVoice | null = null;
+  private englishVoice: SpeechSynthesisVoice | null = null;
 
   constructor() {
     this.initVoices();
   }
 
-  // Pre-load and lock strictly to a pleasant, natural female English voice
+  // Prefer high-quality English voices exposed by the browser/operating system.
   private initVoices() {
     if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
 
@@ -18,57 +18,26 @@ class SoundEngine {
       const voices = window.speechSynthesis.getVoices();
       if (!voices || voices.length === 0) return;
 
-      const MALE_NAMES = [
-        'david', 'mark', 'george', 'guy', 'stefan', 'richard', 'christopher', 
-        'paul', 'tom', 'alex', 'fred', 'daniel', 'james', 'brian', 'charles', 
-        'male', 'man', 'boy'
-      ];
+      const rankVoice = (voice: SpeechSynthesisVoice) => {
+        if (!voice.lang.toLowerCase().startsWith('en')) return -1;
 
-      const isMale = (name: string) => {
-        const lower = name.toLowerCase();
-        return MALE_NAMES.some(m => lower.includes(m));
+        const name = voice.name.toLowerCase();
+        const lang = voice.lang.toLowerCase();
+        let score = lang === 'en-us' ? 20 : 0;
+
+        // These are typically cloud-backed neural voices and sound less synthetic.
+        if (/natural|neural|online/.test(name)) score += 100;
+        if (/jenny|aria|ava|samantha|zira|victoria|karen|moira|tessa|fiona/.test(name)) score += 30;
+        if (/google us english/.test(name)) score += 25;
+        if (/desktop|compact/.test(name)) score -= 20;
+
+        return score;
       };
 
-      const PREFERRED_FEMALE = [
-        'google us english',
-        'microsoft jenny',
-        'microsoft aria',
-        'microsoft zira',
-        'samantha',
-        'victoria',
-        'karen',
-        'moira',
-        'tessa',
-        'fiona',
-        'female'
-      ];
-
-      // 1. Try to find standard high-quality natural female voices
-      let chosen = voices.find(v => {
-        if (!v.lang.startsWith('en')) return false;
-        if (isMale(v.name)) return false;
-        const lower = v.name.toLowerCase();
-        return PREFERRED_FEMALE.some(f => lower.includes(f));
-      });
-
-      // 2. Try any English voice with 'female' or 'natural' in the name that is not male
-      if (!chosen) {
-        chosen = voices.find(v => {
-          if (!v.lang.startsWith('en')) return false;
-          if (isMale(v.name)) return false;
-          const lower = v.name.toLowerCase();
-          return lower.includes('female') || lower.includes('natural');
-        });
-      }
-
-      // 3. Fallback to any English voice that is strictly NOT in the male list
-      if (!chosen) {
-        chosen = voices.find(v => v.lang.startsWith('en') && !isMale(v.name));
-      }
-
-      if (chosen) {
-        this.femaleVoice = chosen;
-      }
+      this.englishVoice = voices
+        .map(voice => ({ voice, score: rankVoice(voice) }))
+        .filter(candidate => candidate.score >= 0)
+        .sort((a, b) => b.score - a.score)[0]?.voice ?? null;
     };
 
     selectFemaleVoice();
@@ -195,8 +164,8 @@ class SoundEngine {
     });
   }
 
-  // Standardized high-fidelity natural female English pronunciation
-  public speakEnglish(text: string, rate: number = 0.92): Promise<void> {
+  // Use the best natural voice available in the browser, then fall back to Google TTS.
+  public speakEnglish(text: string, rate: number = 0.95): Promise<void> {
     return new Promise((resolve) => {
       if (!this.soundEnabled) {
         resolve();
@@ -212,44 +181,53 @@ class SoundEngine {
       // Stop any currently playing audio or speech
       this.stopSpeaking();
 
-      // Primary: High-fidelity natural female native voice via Google TTS (consistent, warm, crystal-clear American female)
-      if (cleanText.length <= 200) {
-        try {
-          const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en-US&client=tw-ob&q=${encodeURIComponent(cleanText)}`;
-          const audio = new Audio(audioUrl);
-          this.currentAudio = audio;
-
-          audio.onended = () => {
-            this.currentAudio = null;
-            resolve();
-          };
-
-          audio.onerror = () => {
-            this.currentAudio = null;
-            this.speakWithSpeechSynthesis(cleanText, rate, resolve);
-          };
-
-          const playPromise = audio.play();
-          if (playPromise !== undefined) {
-            playPromise.catch(() => {
-              this.currentAudio = null;
-              this.speakWithSpeechSynthesis(cleanText, rate, resolve);
-            });
-          }
+      this.speakWithSpeechSynthesis(cleanText, rate, (spoken, cancelled) => {
+        if (spoken) {
+          resolve();
           return;
-        } catch {
-          // Fall through to female SpeechSynthesis fallback
         }
-      }
 
-      // Secondary / Fallback: Strictly female Web SpeechSynthesis
-      this.speakWithSpeechSynthesis(cleanText, rate, resolve);
+        if (cancelled) {
+          resolve();
+          return;
+        }
+
+        this.speakWithGoogleTts(cleanText, resolve);
+      });
     });
   }
 
-  private speakWithSpeechSynthesis(text: string, rate: number, resolve: () => void) {
-    if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+  private speakWithGoogleTts(text: string, resolve: () => void) {
+    if (text.length > 200) {
       resolve();
+      return;
+    }
+
+    try {
+      const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en-US&client=tw-ob&q=${encodeURIComponent(text)}`;
+      const audio = new Audio(audioUrl);
+      this.currentAudio = audio;
+
+      const finish = () => {
+        if (this.currentAudio === audio) this.currentAudio = null;
+        resolve();
+      };
+
+      audio.onended = finish;
+      audio.onerror = finish;
+      audio.play().catch(finish);
+    } catch {
+      resolve();
+    }
+  }
+
+  private speakWithSpeechSynthesis(
+    text: string,
+    rate: number,
+    resolve: (spoken: boolean, cancelled?: boolean) => void,
+  ) {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+      resolve(false);
       return;
     }
 
@@ -257,17 +235,20 @@ class SoundEngine {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'en-US';
     utterance.rate = rate;
-    utterance.pitch = 1.08; // Friendly, warm female pitch
+    utterance.pitch = 1;
 
-    utterance.onend = () => resolve();
-    utterance.onerror = () => resolve();
+    utterance.onend = () => resolve(true);
+    utterance.onerror = (event) => {
+      const cancelled = event.error === 'canceled' || event.error === 'interrupted';
+      resolve(false, cancelled);
+    };
 
-    if (!this.femaleVoice) {
+    if (!this.englishVoice) {
       this.initVoices();
     }
 
-    if (this.femaleVoice) {
-      utterance.voice = this.femaleVoice;
+    if (this.englishVoice) {
+      utterance.voice = this.englishVoice;
     }
 
     window.speechSynthesis.speak(utterance);
