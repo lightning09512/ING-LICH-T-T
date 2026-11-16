@@ -15,6 +15,7 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose }) => {
     syncStatus,
     authError,
     signInWithEmail,
+    signInWithGoogle,
     createEmailAccount,
     sendPasswordReset,
     signOut,
@@ -50,6 +51,15 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose }) => {
       ? await createEmailAccount(email.trim(), password)
       : await signInWithEmail(email.trim(), password);
 
+    setBusy(false);
+    if (success) onClose();
+  };
+
+  const handleGoogleSignIn = async () => {
+    setBusy(true);
+    setNotice('');
+    clearAuthError();
+    const success = await signInWithGoogle();
     setBusy(false);
     if (success) onClose();
   };
@@ -92,7 +102,7 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose }) => {
             {user ? 'Tài khoản của bạn' : mode === 'signup' ? 'Tạo tài khoản' : 'Đăng nhập'}
           </h2>
           <p className="text-sm font-bold text-gray-600 mt-1">
-            {user ? 'Tiến trình sẽ đồng bộ theo tài khoản này.' : 'Dùng email và mật khẩu để lưu tiến trình trên các thiết bị.'}
+            {user ? 'Tiến trình sẽ đồng bộ theo tài khoản này.' : 'Đăng nhập bằng Google hoặc email và mật khẩu để đồng bộ tiến trình.'}
           </p>
         </div>
 
@@ -111,7 +121,23 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose }) => {
           </div>
         ) : (
           <>
-            <form onSubmit={handleSubmit} className="mt-5 space-y-3">
+            <button
+              type="button"
+              onClick={() => { void handleGoogleSignIn(); }}
+              disabled={busy || authLoading}
+              className="mt-5 w-full min-h-12 px-4 bg-white border-2 border-black shadow-neo-sm font-black flex items-center justify-center gap-2 hover:bg-gray-100 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {busy ? <LoaderCircle className="w-4 h-4 animate-spin" /> : <span aria-hidden="true" className="text-xl font-black text-[#4285F4]">G</span>}
+              Đăng nhập bằng Google
+            </button>
+
+            <div className="mt-3 flex items-center gap-3 text-xs font-bold text-gray-500">
+              <span className="h-px flex-1 bg-gray-300" />
+              Hoặc dùng email
+              <span className="h-px flex-1 bg-gray-300" />
+            </div>
+
+            <form onSubmit={handleSubmit} className="mt-3 space-y-3">
               <label className="block text-sm font-black">
                 Email
                 <span className="mt-1 flex items-center gap-2 border-2 border-black px-3 bg-white focus-within:ring-2 focus-within:ring-cyan-500">

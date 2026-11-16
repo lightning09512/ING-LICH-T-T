@@ -21,11 +21,11 @@
 
 ### Tạo tài khoản email và đồng bộ tiến trình
 
-Người học tạo tài khoản bằng email và mật khẩu qua Firebase Authentication. Tiến trình từ vựng và ngữ pháp được đồng bộ vào Cloud Firestore theo tài khoản.
+Người học có thể đăng nhập bằng tài khoản Google hoặc email và mật khẩu qua Firebase Authentication. Tiến trình từ vựng và ngữ pháp được đồng bộ vào Cloud Firestore theo tài khoản.
 
 1. Tạo dự án tại [Firebase Console](https://console.firebase.google.com/), rồi thêm ứng dụng Web (biểu tượng `</>`).
 2. Trong **Project settings → General → Your apps**, sao chép cấu hình Web App vào `.env` theo các tên biến trong `.env.example`.
-3. Vào **Authentication → Sign-in method**, bật **Email/Password**.
+3. Vào **Authentication → Sign-in method**, bật **Email/Password** và **Google**. Khi bật Google, chọn email hỗ trợ rồi lưu.
 4. Vào **Firestore Database → Create database** để tạo cơ sở dữ liệu.
 5. Trong tab **Firestore Database → Rules**, dán nội dung file `firestore.rules` rồi bấm **Publish**. Quy tắc chỉ cho phép người dùng đọc/ghi tiến trình theo UID của chính tài khoản đó.
 6. Khi chạy local, khởi động lại bằng `npm run dev`. Trên Vercel, thêm cùng các biến `VITE_FIREBASE_*` ở **Project → Settings → Environment Variables**, rồi deploy lại. Nếu domain production chưa được Firebase chấp nhận, thêm domain đó trong **Authentication → Settings → Authorized domains**.

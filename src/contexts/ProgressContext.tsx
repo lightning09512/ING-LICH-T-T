@@ -1,9 +1,11 @@
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import {
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
   onAuthStateChanged,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut as firebaseSignOut,
 } from 'firebase/auth';
 import type { User } from 'firebase/auth';
@@ -26,6 +28,7 @@ interface ProgressContextValue {
   authError: string | null;
   firebaseConfigured: boolean;
   signInWithEmail: (email: string, password: string) => Promise<boolean>;
+  signInWithGoogle: () => Promise<boolean>;
   createEmailAccount: (email: string, password: string) => Promise<boolean>;
   sendPasswordReset: (email: string) => Promise<boolean>;
   signOut: () => Promise<void>;
@@ -140,7 +143,10 @@ function getErrorMessage(error: unknown): string {
   if (code === 'auth/invalid-credential' || code === 'auth/user-not-found' || code === 'auth/wrong-password') {
     return 'Email hoặc mật khẩu chưa đúng.';
   }
-  if (code === 'auth/operation-not-allowed') return 'Firebase chưa bật đăng nhập bằng Email/Password.';
+  if (code === 'auth/operation-not-allowed') return 'Firebase chưa bật phương thức đăng nhập này.';
+  if (code === 'auth/popup-closed-by-user') return 'Cửa sổ đăng nhập Google đã bị đóng.';
+  if (code === 'auth/popup-blocked') return 'Trình duyệt đã chặn cửa sổ Google. Cho phép cửa sổ bật lên rồi thử lại.';
+  if (code === 'auth/cancelled-popup-request') return 'Đang có một yêu cầu đăng nhập Google khác. Thử lại nhé.';
   if (code === 'auth/too-many-requests') return 'Có quá nhiều lần thử. Hãy đợi một lúc rồi thử lại.';
   if (code === 'auth/unauthorized-domain') return 'Tên miền hiện tại chưa được thêm vào danh sách Authorized domains trong Firebase.';
   if (code === 'auth/network-request-failed') return 'Không kết nối được Firebase. Hãy kiểm tra mạng rồi thử lại.';
@@ -232,6 +238,22 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
 
     try {
       await signInWithEmailAndPassword(firebaseAuth, email, password);
+      return true;
+    } catch (error) {
+      setAuthError(getErrorMessage(error));
+      return false;
+    }
+  }, []);
+
+  const signInWithGoogle = useCallback(async () => {
+    setAuthError(null);
+    if (!firebaseAuth) {
+      setAuthError('Ứng dụng chưa được kết nối Firebase. Cần cấu hình project trước khi đăng nhập.');
+      return false;
+    }
+
+    try {
+      await signInWithPopup(firebaseAuth, new GoogleAuthProvider());
       return true;
     } catch (error) {
       setAuthError(getErrorMessage(error));
@@ -351,6 +373,7 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     authError,
     firebaseConfigured,
     signInWithEmail,
+    signInWithGoogle,
     createEmailAccount,
     sendPasswordReset,
     signOut,
