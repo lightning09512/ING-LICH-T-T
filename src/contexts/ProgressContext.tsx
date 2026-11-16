@@ -148,10 +148,15 @@ function getErrorMessage(error: unknown): string {
   if (code === 'auth/popup-closed-by-user') return 'Cửa sổ đăng nhập Google đã bị đóng.';
   if (code === 'auth/popup-blocked') return 'Trình duyệt đã chặn cửa sổ Google. Cho phép cửa sổ bật lên rồi thử lại.';
   if (code === 'auth/cancelled-popup-request') return 'Đang có một yêu cầu đăng nhập Google khác. Thử lại nhé.';
+  if (code === 'auth/invalid-oauth-client-id') return 'OAuth Client ID của Google chưa khớp với cấu hình Google trong Firebase.';
+  if (code === 'auth/auth-domain-config-required') return 'Tên miền xác thực Firebase chưa được cấu hình đúng trên Vercel.';
+  if (code === 'auth/web-storage-unsupported') return 'Trình duyệt đang chặn bộ nhớ cần thiết cho đăng nhập. Hãy bật cookie và dữ liệu trang web.';
+  if (code === 'auth/redirect-cancelled-by-user') return 'Bạn đã hủy đăng nhập Google trước khi hoàn tất.';
+  if (code === 'auth/redirect-operation-pending') return 'Đang có một yêu cầu đăng nhập Google khác đang chờ xử lý.';
   if (code === 'auth/too-many-requests') return 'Có quá nhiều lần thử. Hãy đợi một lúc rồi thử lại.';
   if (code === 'auth/unauthorized-domain') return 'Tên miền hiện tại chưa được thêm vào danh sách Authorized domains trong Firebase.';
   if (code === 'auth/network-request-failed') return 'Không kết nối được Firebase. Hãy kiểm tra mạng rồi thử lại.';
-  return 'Yêu cầu chưa thành công. Hãy thử lại nhé.';
+  return code ? `Yêu cầu chưa thành công (${code}). Hãy gửi mã này để mình kiểm tra.` : 'Yêu cầu chưa thành công. Hãy thử lại nhé.';
 }
 
 export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
