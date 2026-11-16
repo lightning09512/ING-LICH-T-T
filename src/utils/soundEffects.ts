@@ -1,4 +1,4 @@
-// Web Audio API sound effects and high-performance, zero-latency English pronunciation engine.
+// Web Audio API sound effects and natural, pleasant American Female pronunciation engine.
 
 class SoundEngine {
   private ctx: AudioContext | null = null;
@@ -6,49 +6,82 @@ class SoundEngine {
   private currentAudio: HTMLAudioElement | null = null;
   private activeSpeechResolve: (() => void) | null = null;
   private audioCache = new Map<string, HTMLAudioElement>();
-  private cachedVoice: SpeechSynthesisVoice | null = null;
+  private femaleVoice: SpeechSynthesisVoice | null = null;
   private networkTimeoutId: any = null;
 
   constructor() {
-    this.initVoices();
+    this.initFemaleVoices();
   }
 
-  private initVoices() {
+  // Pre-load and strictly lock to a pleasant, natural American female voice
+  private initFemaleVoices() {
     if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
 
-    const selectBestVoice = () => {
+    const selectFemaleVoice = () => {
       try {
         const voices = window.speechSynthesis.getVoices();
         if (!voices || voices.length === 0) return;
 
-        // Priority 1: High-fidelity Natural / Neural American English voices
-        const priorityVoice = voices.find(v => 
-          (v.lang === 'en-US' || v.lang === 'en_US') && (
-            v.name.includes('Natural') || 
-            v.name.includes('Neural') || 
-            v.name.includes('Google') || 
-            v.name.includes('Jenny') || 
-            v.name.includes('Samantha') || 
-            v.name.includes('Aria') ||
-            v.name.includes('Ava')
-          )
-        ) 
-        // Priority 2: Standard US English voice
-        || voices.find(v => v.lang === 'en-US' || v.lang === 'en_US')
-        // Priority 3: Any English voice (en-GB, en-AU, etc.)
-        || voices.find(v => v.lang.startsWith('en'));
+        const MALE_NAMES = [
+          'david', 'mark', 'george', 'guy', 'stefan', 'richard', 'christopher', 
+          'paul', 'tom', 'alex', 'fred', 'daniel', 'james', 'brian', 'charles', 
+          'male', 'man', 'boy'
+        ];
 
-        if (priorityVoice) {
-          this.cachedVoice = priorityVoice;
+        const isMale = (name: string) => {
+          const lower = name.toLowerCase();
+          return MALE_NAMES.some(m => lower.includes(m));
+        };
+
+        const PREFERRED_FEMALE = [
+          'microsoft jenny',
+          'microsoft aria',
+          'google us english',
+          'samantha',
+          'ava',
+          'victoria',
+          'karen',
+          'microsoft zira',
+          'moira',
+          'tessa',
+          'fiona',
+          'female'
+        ];
+
+        // 1. Try to find standard high-quality natural female voices
+        let chosen = voices.find(v => {
+          if (!v.lang.startsWith('en')) return false;
+          if (isMale(v.name)) return false;
+          const lower = v.name.toLowerCase();
+          return PREFERRED_FEMALE.some(f => lower.includes(f));
+        });
+
+        // 2. Try any English voice with 'female' or 'natural' in the name that is strictly not male
+        if (!chosen) {
+          chosen = voices.find(v => {
+            if (!v.lang.startsWith('en')) return false;
+            if (isMale(v.name)) return false;
+            const lower = v.name.toLowerCase();
+            return lower.includes('female') || lower.includes('natural');
+          });
+        }
+
+        // 3. Fallback to any English voice that is strictly NOT in the male list
+        if (!chosen) {
+          chosen = voices.find(v => v.lang.startsWith('en') && !isMale(v.name));
+        }
+
+        if (chosen) {
+          this.femaleVoice = chosen;
         }
       } catch {
-        // Ignore voice selection errors
+        // Voice selection error handling
       }
     };
 
-    selectBestVoice();
+    selectFemaleVoice();
     if (typeof window.speechSynthesis.onvoiceschanged !== 'undefined') {
-      window.speechSynthesis.onvoiceschanged = selectBestVoice;
+      window.speechSynthesis.onvoiceschanged = selectFemaleVoice;
     }
   }
 
@@ -74,7 +107,7 @@ class SoundEngine {
     return this.soundEnabled;
   }
 
-  // Pre-caches the authentic native pronunciation audio in memory for instant playback on click
+  // Pre-caches the pleasant female native voice in memory for instant playback on click
   public prefetchEnglish(text: string) {
     if (!this.soundEnabled || !text || typeof window === 'undefined') return;
 
@@ -84,41 +117,37 @@ class SoundEngine {
     const cacheKey = cleanText.toLowerCase();
     if (this.audioCache.has(cacheKey)) return;
 
-    const wordCount = cleanText.split(/\s+/).length;
-    // Only prefetch single words or very short phrases (up to 4 words)
-    if (wordCount <= 4) {
-      try {
-        const audio = new Audio();
-        audio.preload = 'auto';
-        audio.src = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(cleanText)}&type=2`;
-        
-        audio.addEventListener('canplaythrough', () => {
-          this.audioCache.set(cacheKey, audio);
-        }, { once: true });
+    try {
+      const audio = new Audio();
+      audio.preload = 'auto';
+      audio.src = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en-US&client=tw-ob&q=${encodeURIComponent(cleanText)}`;
+      
+      audio.addEventListener('canplaythrough', () => {
+        this.audioCache.set(cacheKey, audio);
+      }, { once: true });
 
-        audio.addEventListener('error', () => {
-          if (this.audioCache.get(cacheKey) === audio) {
-            this.audioCache.delete(cacheKey);
-          }
-        }, { once: true });
-
-        audio.load();
-
-        // Keep cache bounded to 60 items
-        if (this.audioCache.size > 60) {
-          const oldest = this.audioCache.keys().next().value;
-          if (oldest) {
-            const oldAudio = this.audioCache.get(oldest);
-            if (oldAudio) {
-              oldAudio.removeAttribute('src');
-              oldAudio.load();
-            }
-            this.audioCache.delete(oldest);
-          }
+      audio.addEventListener('error', () => {
+        if (this.audioCache.get(cacheKey) === audio) {
+          this.audioCache.delete(cacheKey);
         }
-      } catch {
-        // Preload failure is silent
+      }, { once: true });
+
+      audio.load();
+
+      // Keep cache bounded to 60 items
+      if (this.audioCache.size > 60) {
+        const oldest = this.audioCache.keys().next().value;
+        if (oldest) {
+          const oldAudio = this.audioCache.get(oldest);
+          if (oldAudio) {
+            oldAudio.removeAttribute('src');
+            oldAudio.load();
+          }
+          this.audioCache.delete(oldest);
+        }
       }
+    } catch {
+      // Preload failure is silent
     }
   }
 
@@ -265,11 +294,11 @@ class SoundEngine {
   }
 
   /**
-   * Ultra-fast English Speech Synthesis with Zero-Lag Multi-Tier Fallback:
+   * High-fidelity, natural American FEMALE pronunciation:
    * 1. Check in-memory audio cache -> Instant play (0ms).
-   * 2. For single words & short phrases: Try high-quality native US studio pronunciation with strict 650ms timeout.
-   * 3. Instant fallback to Native Web Speech API (window.speechSynthesis) -> 0ms latency, 100% offline, guaranteed to speak.
-   * 4. For long sentences: Directly use Native Web Speech API for natural intonation and zero network latency.
+   * 2. Primary: Natural, crystal-clear American Female Voice via Google TTS (with fast 700ms timeout).
+   * 3. Secondary / Fallback: Strictly filtered Female Web SpeechSynthesis (Jenny, Aria, Google US English, Samantha, Zira).
+   * Strictly avoids robotic male voices (David, Mark, etc.).
    */
   public speakEnglish(text: string): Promise<void> {
     return new Promise((resolve) => {
@@ -287,35 +316,32 @@ class SoundEngine {
       this.stopSpeaking();
       this.activeSpeechResolve = resolve;
 
-      const wordCount = cleanText.split(/\s+/).length;
+      const cacheKey = cleanText.toLowerCase();
 
-      // Single word or short phrase (<= 4 words)
-      if (wordCount <= 4) {
-        const cacheKey = cleanText.toLowerCase();
+      // 1. Instant Play from In-Memory Cache (0ms)
+      const cached = this.audioCache.get(cacheKey);
+      if (cached && cached.readyState >= 2) {
+        cached.currentTime = 0;
+        cached.volume = 0.95;
+        this.currentAudio = cached;
 
-        // 1. Instant Play from In-Memory Cache
-        const cached = this.audioCache.get(cacheKey);
-        if (cached && cached.readyState >= 2) {
-          cached.currentTime = 0;
-          cached.volume = 0.95;
-          this.currentAudio = cached;
+        cached.onended = () => {
+          if (this.currentAudio === cached) this.currentAudio = null;
+          this.finishSpeech();
+        };
+        cached.onerror = () => {
+          if (this.currentAudio === cached) this.currentAudio = null;
+          this.speakWithFemaleSpeechSynthesis(cleanText);
+        };
 
-          cached.onended = () => {
-            if (this.currentAudio === cached) this.currentAudio = null;
-            this.finishSpeech();
-          };
-          cached.onerror = () => {
-            if (this.currentAudio === cached) this.currentAudio = null;
-            this.speakWithSpeechSynthesis(cleanText);
-          };
+        cached.play().catch(() => {
+          this.speakWithFemaleSpeechSynthesis(cleanText);
+        });
+        return;
+      }
 
-          cached.play().catch(() => {
-            this.speakWithSpeechSynthesis(cleanText);
-          });
-          return;
-        }
-
-        // 2. Fetch authentic US Native Studio human recording with strict 650ms timeout
+      // 2. Play warm, natural American Female Voice (Google TTS) with 700ms fallback
+      if (cleanText.length <= 200) {
         let hasFallenBack = false;
         const fallbackToSpeechSynthesis = () => {
           if (hasFallenBack) return;
@@ -328,16 +354,16 @@ class SoundEngine {
             this.currentAudio.pause();
             this.currentAudio = null;
           }
-          this.speakWithSpeechSynthesis(cleanText);
+          this.speakWithFemaleSpeechSynthesis(cleanText);
         };
 
-        // Strict 650ms timer: if network is lagging or offline, fall back instantly to Web Speech API
+        // Strict 700ms timeout: if network is slow or offline, instantly use female SpeechSynthesis
         this.networkTimeoutId = setTimeout(() => {
           fallbackToSpeechSynthesis();
-        }, 650);
+        }, 700);
 
         try {
-          const audioUrl = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(cleanText)}&type=2`;
+          const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en-US&client=tw-ob&q=${encodeURIComponent(cleanText)}`;
           const audio = new Audio();
           audio.preload = 'auto';
           audio.volume = 0.95;
@@ -374,14 +400,14 @@ class SoundEngine {
           fallbackToSpeechSynthesis();
         }
       } else {
-        // For full sentences / examples: Native Web Speech API is instantaneous, natural, and requires no network
-        this.speakWithSpeechSynthesis(cleanText);
+        // Long sentences (> 200 chars): Female Web SpeechSynthesis
+        this.speakWithFemaleSpeechSynthesis(cleanText);
       }
     });
   }
 
-  // Built-in OS/Browser Speech Synthesis: 0ms latency, zero bandwidth, 100% reliable
-  private speakWithSpeechSynthesis(text: string) {
+  // Strictly Female Web Speech Synthesis (0ms latency, warm friendly pitch, strictly NO robotic male voice)
+  private speakWithFemaleSpeechSynthesis(text: string) {
     if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
       this.finishSpeech();
       return;
@@ -389,34 +415,22 @@ class SoundEngine {
 
     try {
       window.speechSynthesis.cancel();
-      // Workaround for Chrome/Android where speech can get stuck in paused state
       if (window.speechSynthesis.paused) {
         window.speechSynthesis.resume();
       }
 
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'en-US';
-      utterance.rate = 0.92; // Slightly articulated rate, ideal for TOEIC learners
-      utterance.pitch = 1.0;
+      utterance.rate = 0.90;  // Gentle, clear, natural pace
+      utterance.pitch = 1.08; // Friendly, warm, natural female pitch
       utterance.volume = 1.0;
 
-      if (this.cachedVoice) {
-        utterance.voice = this.cachedVoice;
-      } else {
-        const voices = window.speechSynthesis.getVoices();
-        const best = voices.find(v => (v.lang === 'en-US' || v.lang === 'en_US') && (
-          v.name.includes('Natural') || 
-          v.name.includes('Neural') || 
-          v.name.includes('Google') || 
-          v.name.includes('Jenny') || 
-          v.name.includes('Samantha') || 
-          v.name.includes('Aria')
-        )) || voices.find(v => v.lang.startsWith('en'));
+      if (!this.femaleVoice) {
+        this.initFemaleVoices();
+      }
 
-        if (best) {
-          this.cachedVoice = best;
-          utterance.voice = best;
-        }
+      if (this.femaleVoice) {
+        utterance.voice = this.femaleVoice;
       }
 
       utterance.onend = () => {
@@ -429,7 +443,7 @@ class SoundEngine {
 
       window.speechSynthesis.speak(utterance);
     } catch (err) {
-      console.warn('[SoundEngine] SpeechSynthesis error:', err);
+      console.warn('[SoundEngine] Female SpeechSynthesis error:', err);
       this.finishSpeech();
     }
   }
