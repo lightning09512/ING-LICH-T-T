@@ -3,7 +3,7 @@ import { FloatingTrollfaces } from './components/FloatingTrollfaces';
 import { Navbar } from './components/Navbar';
 import { TitleScreen } from './components/TitleScreen';
 import { MenuScreen } from './components/MenuScreen';
-import { LearnVocabScreen } from './components/LearnVocabScreen';
+import { VocabGameMap } from './components/VocabGameMap';
 import { ReviewSurvivalScreen } from './components/ReviewSurvivalScreen';
 import { ToeicExamScreen } from './components/ToeicExamScreen';
 import { initialVocabList, initialTest, VocabItem, ToeicTest } from './data/initialData';
@@ -94,8 +94,7 @@ export function App() {
         )}
 
         {screen === 'LEARN' && (
-          <LearnVocabScreen
-            vocabList={vocabList}
+          <VocabGameMap
             onBack={() => setScreen('MENU')}
             nickname={nickname}
           />

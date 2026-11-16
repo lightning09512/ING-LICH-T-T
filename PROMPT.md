@@ -38,10 +38,23 @@
 
 ### Màn hình 2: Game Mode Select (Bám sát sketch 2)
 Menu gồm 3 nút dạng card RPG:
-1. **[ 📖 Học bài ]**:
-   - Thẻ Flashcard từ vựng TOEIC chia theo chủ đề.
-   - 2 mặt: Mặt trước có từ, loại từ, IPA, nút loa phát âm native US. Mặt sau có nghĩa tiếng Việt và ví dụ câu siêu troll/thực tế.
-   - Nút đánh dấu "Đã thuộc" để theo dõi tiến độ.
+1. **[ 📖 Học bài ] (Level Map phong cách Angry Birds từ Bài 1 -> Bài 26)**:
+   - **Bản đồ chọn màn (Stage Select Grid 1 - 26)**:
+     - Bài 1 mở khóa sẵn. Các bài từ 2 đến 26 bị khóa (biểu tượng ổ khóa 🔒).
+     - Mỗi màn hiển thị số sao đạt được (⭐⭐⭐) dựa trên điểm thi test.
+     - Khi bấm vào màn bị khóa: hiệu ứng rung lắc (shake) + phát tiếng buzz và dằn mặt troll: *"Chưa mở khóa đâu Mập địch ơi!"*.
+     - Người chơi có thể bấm vào các bài đã học để chơi lại bất cứ lúc nào.
+   - **Chế độ Flashcard học từ vựng (Quizlet Style)**:
+     - Nạp toàn bộ dữ liệu từ 26 file PDF trong `asset/từ vựng` (tổng cộng hơn 1.400 từ vựng).
+     - Thẻ 2 mặt lật mở: Mặt trước từ tiếng Anh + Nút phát âm (Web Speech API). Mặt sau nghĩa tiếng Việt.
+     - Hỗ trợ vuốt ngón tay (Touch swipe) trái/phải trên tablet.
+     - Có nút xem nhanh danh sách toàn bộ từ vựng của bài đó.
+   - **Cơ chế Kiểm Tra Dồn Lũy Tiến (Spaced Repetition Cumulative Quiz)**:
+     - Để mở khóa bài tiếp theo, người học bắt buộc phải làm bài kiểm tra và đạt tối thiểu **80%**.
+     - Số lượng câu hỏi tăng dần từ 10 câu (Bài 1) lên 25 câu (các bài sau).
+     - **Thuật toán trộn từ dồn**: Bài kiểm tra của Bài `N` sẽ lấy ngẫu nhiên 50-60% từ của Bài `N` và 40-50% từ của toàn bộ các Bài từ `1` đến `N-1` (Ví dụ: Bài 15 sẽ dồn từ của toàn bộ từ Bài 1 đến Bài 15).
+     - Đạt >= 80%: Nổ pháo hoa `confetti`, chuông thắng cuộc, tặng sao và mở khóa Bài `N + 1`.
+     - Dưới 80%: Rung màn hình, tiếng fail, Trollface dằn mặt và bắt buộc ôn lại flashcard để thi lại.
 2. **[ ⚡ Ôn tập ]**:
    - Chế độ sinh tồn 15 giây/câu, thanh máu 3 Trái Tim (HP).
    - Chọn đúng: Cộng điểm, streak tăng, pháo hoa.
