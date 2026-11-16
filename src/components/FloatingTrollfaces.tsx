@@ -37,6 +37,18 @@ export const FloatingTrollfaces: React.FC = () => {
     };
     window.addEventListener('mousemove', onMouseMove);
 
+    const onTouchMove = (e: TouchEvent) => {
+      if (e.touches && e.touches.length > 0) {
+        mouseRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      }
+    };
+    const onTouchEnd = () => {
+      mouseRef.current = { x: -1000, y: -1000 };
+    };
+    window.addEventListener('touchstart', onTouchMove, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: true });
+    window.addEventListener('touchend', onTouchEnd, { passive: true });
+
     // Initialize 10-14 troll particles
     const particleCount = Math.min(14, Math.max(8, Math.floor(window.innerWidth / 120)));
     const particles: Particle[] = [];
@@ -106,6 +118,9 @@ export const FloatingTrollfaces: React.FC = () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', resize);
       window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('touchstart', onTouchMove);
+      window.removeEventListener('touchmove', onTouchMove);
+      window.removeEventListener('touchend', onTouchEnd);
     };
   }, []);
 

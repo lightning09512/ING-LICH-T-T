@@ -18,6 +18,7 @@ export const LearnVocabScreen: React.FC<LearnVocabScreenProps> = ({
   const [isFlipped, setIsFlipped] = useState(false);
   const [learnedIds, setLearnedIds] = useState<string[]>([]);
   const [selectedTopic, setSelectedTopic] = useState<string>('All');
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
   const topics = ['All', ...Array.from(new Set(vocabList.map(v => v.topic)))];
   const filteredList = selectedTopic === 'All' 
@@ -25,6 +26,26 @@ export const LearnVocabScreen: React.FC<LearnVocabScreenProps> = ({
     : vocabList.filter(v => v.topic === selectedTopic);
 
   const currentWord = filteredList[currentIndex] || vocabList[0];
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX - touchEndX;
+
+    // Swipe left -> Next
+    if (diff > 50) {
+      handleNext();
+    }
+    // Swipe right -> Prev
+    else if (diff < -50) {
+      handlePrev();
+    }
+    setTouchStartX(null);
+  };
 
   const handleFlip = () => {
     sounds.playClick();
@@ -111,7 +132,9 @@ export const LearnVocabScreen: React.FC<LearnVocabScreenProps> = ({
       <div className="flex flex-col items-center">
         <div
           onClick={handleFlip}
-          className="w-full max-w-xl min-h-[340px] bg-white border-4 border-black p-8 shadow-neo-lg cursor-pointer select-none transition-all hover:-translate-y-1 relative flex flex-col justify-between"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          className="w-full max-w-xl md:max-w-2xl min-h-[380px] md:min-h-[420px] bg-white border-4 border-black p-6 sm:p-8 md:p-10 shadow-neo-lg cursor-pointer select-none transition-all hover:-translate-y-1 relative flex flex-col justify-between"
         >
           {/* Top card bar */}
           <div className="flex items-center justify-between w-full">

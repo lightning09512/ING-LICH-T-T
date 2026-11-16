@@ -3,9 +3,12 @@
 @tailwind utilities;
 
 @layer base {
-  body {
+  html, body {
     background-color: #FFFDF5;
     font-family: 'Comic Neue', cursive, sans-serif;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
   }
 
   h1, h2, h3, .font-heading {
@@ -19,9 +22,9 @@
 }
 
 @layer components {
-  /* Neobrutalism Button */
+  /* Neobrutalism Button - Tablet optimized touch targets */
   .neo-btn {
-    @apply border-4 border-black bg-neoYellow px-6 py-3 font-bold text-black transition-all duration-100 ease-out active:translate-x-1 active:translate-y-1 active:shadow-none hover:-translate-y-0.5 shadow-neo cursor-pointer select-none text-center inline-block;
+    @apply border-4 border-black bg-neoYellow px-6 py-4 md:py-3.5 font-bold text-black transition-all duration-100 ease-out active:translate-x-1 active:translate-y-1 active:shadow-none hover:-translate-y-0.5 shadow-neo cursor-pointer select-none text-center inline-block min-h-[48px];
   }
 
   .neo-btn-pink {
@@ -42,11 +45,12 @@
 
   /* Neobrutalism Card / Box */
   .neo-box {
-    @apply border-4 border-black bg-white p-6 shadow-neo-lg;
+    @apply border-4 border-black bg-white p-5 md:p-6 shadow-neo-lg;
   }
 
   /* Question Option button in exam */
   .neo-option {
-    @apply border-3 border-black p-4 bg-white hover:bg-yellow-50 transition-all flex items-center gap-4 cursor-pointer shadow-neo-sm active:translate-x-0.5 active:translate-y-0.5;
+    @apply border-3 border-black p-4 sm:p-5 bg-white hover:bg-yellow-50 transition-all flex items-center gap-4 cursor-pointer shadow-neo-sm active:translate-x-0.5 active:translate-y-0.5 min-h-[56px];
   }
 }
+
