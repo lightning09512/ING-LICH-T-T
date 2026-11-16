@@ -22,28 +22,56 @@ export function App() {
   const [currentTest, setCurrentTest] = useState<ToeicTest>(initialTest);
   const [loadingTest, setLoadingTest] = useState(false);
 
-  // Sync with NoSQL Backend if available
+  // Sync with NoSQL Backend or static fallback for Vercel deployment
   useEffect(() => {
-    // Fetch profile
+    // 1. Fetch profile
     fetch('/api/profile')
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error('API not available');
+        const ct = res.headers.get('content-type') || '';
+        if (!ct.includes('application/json')) throw new Error('Not JSON');
+        return res.json();
+      })
       .then(data => {
         if (data.success && data.data) {
           if (data.data.nickname) setNickname(data.data.nickname);
           if (data.data.streakDays) setStreakDays(data.data.streakDays);
         }
       })
-      .catch(() => {});
+      .catch(() => {
+        // Fallback to static public data
+        fetch('/data/profile.json')
+          .then(res => res.json())
+          .then(data => {
+            if (data && data.nickname) setNickname(data.nickname);
+            if (data && data.streakDays) setStreakDays(data.streakDays);
+          })
+          .catch(() => {});
+      });
 
-    // Fetch vocabularies from NoSQL
+    // 2. Fetch vocabularies
     fetch('/api/vocab')
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error('API not available');
+        const ct = res.headers.get('content-type') || '';
+        if (!ct.includes('application/json')) throw new Error('Not JSON');
+        return res.json();
+      })
       .then(data => {
         if (data.success && data.data && data.data.length > 0) {
           setVocabList(data.data);
         }
       })
-      .catch(() => {});
+      .catch(() => {
+        fetch('/data/vocabularies.json')
+          .then(res => res.json())
+          .then(data => {
+            if (Array.isArray(data) && data.length > 0) {
+              setVocabList(data);
+            }
+          })
+          .catch(() => {});
+      });
   }, []);
 
   const handleToggleSound = () => {
@@ -53,24 +81,65 @@ export function App() {
 
   const handleSelectTest = (testId: string) => {
     setLoadingTest(true);
+
+    const loadFromStatic = () => {
+      // 1. Try direct test JSON from public/data/tests/{testId}.json
+      fetch(`/data/tests/${testId}.json`)
+        .then(res => {
+          if (!res.ok) throw new Error('Static test file not found');
+          return res.json();
+        })
+        .then(testData => {
+          if (testData && testData.questions && testData.questions.length > 0) {
+            setCurrentTest(testData);
+            setScreen('EXAM');
+          } else {
+            throw new Error('Invalid test data');
+          }
+        })
+        .catch(() => {
+          // 2. Try looking up inside public/data/tests.json
+          fetch('/data/tests.json')
+            .then(res => res.json())
+            .then(allTests => {
+              const found = allTests.find((t: any) => t._id === testId || t.code === testId);
+              if (found) {
+                setCurrentTest(found);
+                setScreen('EXAM');
+              } else {
+                setCurrentTest(initialTest);
+                setScreen('EXAM');
+              }
+            })
+            .catch(() => {
+              setCurrentTest(initialTest);
+              setScreen('EXAM');
+            });
+        })
+        .finally(() => {
+          setLoadingTest(false);
+        });
+    };
+
+    // Try fullstack Express server first
     fetch(`/api/tests/${testId}`)
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error('API not available');
+        const ct = res.headers.get('content-type') || '';
+        if (!ct.includes('application/json')) throw new Error('Not JSON');
+        return res.json();
+      })
       .then(data => {
         if (data.success && data.data) {
           setCurrentTest(data.data);
           setScreen('EXAM');
+          setLoadingTest(false);
         } else {
-          setCurrentTest(initialTest);
-          setScreen('EXAM');
+          loadFromStatic();
         }
       })
       .catch(() => {
-        // Fallback to local full test (works seamlessly on Vercel deployment)
-        setCurrentTest(initialTest);
-        setScreen('EXAM');
-      })
-      .finally(() => {
-        setLoadingTest(false);
+        loadFromStatic();
       });
   };
 

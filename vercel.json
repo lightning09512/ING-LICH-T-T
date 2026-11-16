@@ -4,7 +4,23 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/api/tests/:id",
+      "destination": "/data/tests/:id.json"
+    },
+    {
+      "source": "/api/tests",
+      "destination": "/data/tests_summary.json"
+    },
+    {
+      "source": "/api/vocab",
+      "destination": "/data/vocabularies.json"
+    },
+    {
+      "source": "/api/profile",
+      "destination": "/data/profile.json"
+    },
+    {
+      "source": "/((?!data/|assets/).*)",
       "destination": "/index.html"
     }
   ]

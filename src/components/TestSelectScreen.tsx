@@ -22,12 +22,84 @@ interface TestSelectScreenProps {
 
 const fallbackTests: TestSummary[] = [
   {
-    _id: 'test-1',
-    title: 'Full Test 1 - ETS TOEIC 2022 (Study4)',
-    code: 'ETS2022-T1',
+    _id: "toeic-lr-collection-1-test-1",
+    title: "TOEIC LR Collection 1 - Test 1 (Full 200 Questions)",
+    code: "S4-COL1-T1",
     durationMinutes: 120,
     totalQuestions: 200,
-    description: 'Đề thi đầy đủ 200 câu Part 1 - 7 chuẩn cấu trúc ETS 2022 format mới nhất có Audio bản quyền Study4'
+    description: "Đề thi TOEIC Quốc tế 200 câu số 1 từ Collection 1 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-1-test-2",
+    title: "TOEIC LR Collection 1 - Test 2 (Full 200 Questions)",
+    code: "S4-COL1-T2",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 2 từ Collection 1 kèm Audio Listening MP3 chuẩn (46 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-1-test-3",
+    title: "TOEIC LR Collection 1 - Test 3 (Full 200 Questions)",
+    code: "S4-COL1-T3",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 3 từ Collection 1 kèm Audio Listening MP3 chuẩn (46 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-1-test-4",
+    title: "TOEIC LR Collection 1 - Test 4 (Full 200 Questions)",
+    code: "S4-COL1-T4",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 4 từ Collection 1 kèm Audio Listening MP3 chuẩn (46 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-1-test-5",
+    title: "TOEIC LR Collection 1 - Test 5 (Full 200 Questions)",
+    code: "S4-COL1-T5",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 5 từ Collection 1 kèm Audio Listening MP3 chuẩn (44 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-1-test-6",
+    title: "TOEIC LR Collection 1 - Test 6 (Full 200 Questions)",
+    code: "S4-COL1-T6",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 6 từ Collection 1 kèm Audio Listening MP3 chuẩn (46 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-1-test-7",
+    title: "TOEIC LR Collection 1 - Test 7 (Full 200 Questions)",
+    code: "S4-COL1-T7",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 7 từ Collection 1 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-1-test-8",
+    title: "TOEIC LR Collection 1 - Test 8 (Full 200 Questions)",
+    code: "S4-COL1-T8",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 8 từ Collection 1 kèm Audio Listening MP3 chuẩn (46 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-1-test-9",
+    title: "TOEIC LR Collection 1 - Test 9 (Full 200 Questions)",
+    code: "S4-COL1-T9",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 9 từ Collection 1 kèm Audio Listening MP3 chuẩn (46 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-1-test-10",
+    title: "TOEIC LR Collection 1 - Test 10 (Full 200 Questions)",
+    code: "S4-COL1-T10",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 10 từ Collection 1 kèm Audio Listening MP3 chuẩn (46 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
   }
 ];
 
@@ -36,22 +108,40 @@ export const TestSelectScreen: React.FC<TestSelectScreenProps> = ({
   onBack,
   nickname
 }) => {
-  const [tests, setTests] = useState<TestSummary[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [tests, setTests] = useState<TestSummary[]>(fallbackTests);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    // 1. Try fetching from /api/tests (Express NoSQL Backend)
     fetch('/api/tests')
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error('API not available');
+        const contentType = res.headers.get('content-type') || '';
+        if (!contentType.includes('application/json')) throw new Error('Not JSON');
+        return res.json();
+      })
       .then(data => {
         if (data.success && data.data && data.data.length > 0) {
           const fullTests = data.data.filter((t: TestSummary) => t.totalQuestions >= 100);
           setTests(fullTests.length > 0 ? fullTests : fallbackTests);
         } else {
-          setTests(fallbackTests);
+          throw new Error('No tests from API');
         }
       })
       .catch(() => {
-        setTests(fallbackTests);
+        // 2. Fallback to static public data (for Vercel & static deployments)
+        fetch('/data/tests_summary.json')
+          .then(res => res.json())
+          .then(data => {
+            if (Array.isArray(data) && data.length > 0) {
+              setTests(data);
+            } else {
+              setTests(fallbackTests);
+            }
+          })
+          .catch(() => {
+            setTests(fallbackTests);
+          });
       })
       .finally(() => {
         setLoading(false);
