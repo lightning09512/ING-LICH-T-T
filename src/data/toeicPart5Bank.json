@@ -1258,5 +1258,425 @@
     "explanation": "Đáp án đúng là (C). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
     "translation": "Your temporary parking permit _______ at midnight tonight, so please renew it at the front office before you leave.",
     "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_116",
+    "testIndex": 2,
+    "questionNumber": 116,
+    "question": "The revised vendor agreement outlines new terms _______ every supplier.",
+    "options": [
+      {
+        "label": "A",
+        "text": "and"
+      },
+      {
+        "label": "B",
+        "text": "for"
+      },
+      {
+        "label": "C",
+        "text": "both"
+      },
+      {
+        "label": "D",
+        "text": "so"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Đáp án đúng là (B). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "The revised vendor agreement outlines new terms _______ every supplier.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_117",
+    "testIndex": 2,
+    "questionNumber": 117,
+    "question": "The cordless vacuum's automatic dust sensor is widely considered its most _______ feature.",
+    "options": [
+      {
+        "label": "A",
+        "text": "innovation"
+      },
+      {
+        "label": "B",
+        "text": "innovate"
+      },
+      {
+        "label": "C",
+        "text": "innovated"
+      },
+      {
+        "label": "D",
+        "text": "innovative"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Đáp án đúng là (D). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "The cordless vacuum's automatic dust sensor is widely considered its most _______ feature.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_118",
+    "testIndex": 2,
+    "questionNumber": 118,
+    "question": "The renovation permit that Halbrook Builders submitted last month is still _______ review, so construction cannot begin yet.",
+    "options": [
+      {
+        "label": "A",
+        "text": "under"
+      },
+      {
+        "label": "B",
+        "text": "over"
+      },
+      {
+        "label": "C",
+        "text": "within"
+      },
+      {
+        "label": "D",
+        "text": "before"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Đáp án đúng là (A). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "The renovation permit that Halbrook Builders submitted last month is still _______ review, so construction cannot begin yet.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_119",
+    "testIndex": 2,
+    "questionNumber": 119,
+    "question": "Before any repairs begin, our technicians will provide each customer with a detailed _______ of the expected parts and labor costs.",
+    "options": [
+      {
+        "label": "A",
+        "text": "appraisal"
+      },
+      {
+        "label": "B",
+        "text": "assessment"
+      },
+      {
+        "label": "C",
+        "text": "estimate"
+      },
+      {
+        "label": "D",
+        "text": "inventory"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Đáp án đúng là (C). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "Before any repairs begin, our technicians will provide each customer with a detailed _______ of the expected parts and labor costs.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_120",
+    "testIndex": 2,
+    "questionNumber": 120,
+    "question": "The new scheduling tool enables supervisors at Brantford Logistics to distribute weekly shifts _______ among all staff members.",
+    "options": [
+      {
+        "label": "A",
+        "text": "efficiency"
+      },
+      {
+        "label": "B",
+        "text": "efficiencies"
+      },
+      {
+        "label": "C",
+        "text": "efficient"
+      },
+      {
+        "label": "D",
+        "text": "efficiently"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Đáp án đúng là (D). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "The new scheduling tool enables supervisors at Brantford Logistics to distribute weekly shifts _______ among all staff members.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_121",
+    "testIndex": 2,
+    "questionNumber": 121,
+    "question": "The front-desk receptionist accepted the courier's parcel on _______ of a colleague who was out of the office all afternoon.",
+    "options": [
+      {
+        "label": "A",
+        "text": "favor"
+      },
+      {
+        "label": "B",
+        "text": "regard"
+      },
+      {
+        "label": "C",
+        "text": "behalf"
+      },
+      {
+        "label": "D",
+        "text": "reason"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Đáp án đúng là (C). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "The front-desk receptionist accepted the courier's parcel on _______ of a colleague who was out of the office all afternoon.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_122",
+    "testIndex": 2,
+    "questionNumber": 122,
+    "question": "Although the safety guidelines had been _______ explained, several volunteers still operated the tools incorrectly.",
+    "options": [
+      {
+        "label": "A",
+        "text": "clearly"
+      },
+      {
+        "label": "B",
+        "text": "nearly"
+      },
+      {
+        "label": "C",
+        "text": "barely"
+      },
+      {
+        "label": "D",
+        "text": "soon"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Đáp án đúng là (A). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "Although the safety guidelines had been _______ explained, several volunteers still operated the tools incorrectly.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_123",
+    "testIndex": 2,
+    "questionNumber": 123,
+    "question": "As soon as the order _______, the front desk will text the customer and set the cleaned garments aside for same-day pickup.",
+    "options": [
+      {
+        "label": "A",
+        "text": "arrived"
+      },
+      {
+        "label": "B",
+        "text": "arrives"
+      },
+      {
+        "label": "C",
+        "text": "is arriving"
+      },
+      {
+        "label": "D",
+        "text": "will be arriving"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Đáp án đúng là (B). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "As soon as the order _______, the front desk will text the customer and set the cleaned garments aside for same-day pickup.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_124",
+    "testIndex": 2,
+    "questionNumber": 124,
+    "question": "The senior _______ on duty monitors all three packaging machines from the central control booth.",
+    "options": [
+      {
+        "label": "A",
+        "text": "operating"
+      },
+      {
+        "label": "B",
+        "text": "operator"
+      },
+      {
+        "label": "C",
+        "text": "operation"
+      },
+      {
+        "label": "D",
+        "text": "operable"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Đáp án đúng là (B). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "The senior _______ on duty monitors all three packaging machines from the central control booth.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_125",
+    "testIndex": 2,
+    "questionNumber": 125,
+    "question": "Ms. Adela Koval decorates each wedding cake at the bakery _______.",
+    "options": [
+      {
+        "label": "A",
+        "text": "she"
+      },
+      {
+        "label": "B",
+        "text": "her"
+      },
+      {
+        "label": "C",
+        "text": "hers"
+      },
+      {
+        "label": "D",
+        "text": "herself"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Đáp án đúng là (D). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "Ms. Adela Koval decorates each wedding cake at the bakery _______.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_126",
+    "testIndex": 2,
+    "questionNumber": 126,
+    "question": "Kirchner Furnishings' revenue has climbed steadily despite sharp declines _______ the housing sector.",
+    "options": [
+      {
+        "label": "A",
+        "text": "through"
+      },
+      {
+        "label": "B",
+        "text": "on"
+      },
+      {
+        "label": "C",
+        "text": "at"
+      },
+      {
+        "label": "D",
+        "text": "in"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Đáp án đúng là (D). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "Kirchner Furnishings' revenue has climbed steadily despite sharp declines _______ the housing sector.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_127",
+    "testIndex": 2,
+    "questionNumber": 127,
+    "question": "The lobby's refurbishment lasted six weeks, while the restaurant _______ reopened after only two.",
+    "options": [
+      {
+        "label": "A",
+        "text": "itself"
+      },
+      {
+        "label": "B",
+        "text": "themselves"
+      },
+      {
+        "label": "C",
+        "text": "it"
+      },
+      {
+        "label": "D",
+        "text": "them"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Đáp án đúng là (A). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "The lobby's refurbishment lasted six weeks, while the restaurant _______ reopened after only two.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_128",
+    "testIndex": 2,
+    "questionNumber": 128,
+    "question": "Once the residents finish the required paperwork, the leasing office will mail the parking decals to _______ within five business days.",
+    "options": [
+      {
+        "label": "A",
+        "text": "they"
+      },
+      {
+        "label": "B",
+        "text": "them"
+      },
+      {
+        "label": "C",
+        "text": "their"
+      },
+      {
+        "label": "D",
+        "text": "themselves"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Đáp án đúng là (B). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "Once the residents finish the required paperwork, the leasing office will mail the parking decals to _______ within five business days.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_129",
+    "testIndex": 2,
+    "questionNumber": 129,
+    "question": "A complimentary shuttle will operate _______ the three-day craft fair at Marlowe Fairgrounds, departing from the main gate every half hour.",
+    "options": [
+      {
+        "label": "A",
+        "text": "between"
+      },
+      {
+        "label": "B",
+        "text": "beyond"
+      },
+      {
+        "label": "C",
+        "text": "among"
+      },
+      {
+        "label": "D",
+        "text": "throughout"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Đáp án đúng là (D). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "A complimentary shuttle will operate _______ the three-day craft fair at Marlowe Fairgrounds, departing from the main gate every half hour.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_130",
+    "testIndex": 2,
+    "questionNumber": 130,
+    "question": "The new guidelines for booking meeting rooms turned out to be _______ useful to first-time members.",
+    "options": [
+      {
+        "label": "A",
+        "text": "clears"
+      },
+      {
+        "label": "B",
+        "text": "clear"
+      },
+      {
+        "label": "C",
+        "text": "clearing"
+      },
+      {
+        "label": "D",
+        "text": "clearly"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Đáp án đúng là (D). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "The new guidelines for booking meeting rooms turned out to be _______ useful to first-time members.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
   }
 ]
