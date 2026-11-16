@@ -481,17 +481,10 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                   </div>
                 )}
 
-                {/* Hướng dẫn lật thẻ kèm từ loại ngay bên cạnh */}
-                <div className="flex items-center justify-center gap-2 mt-2 flex-wrap">
-                  <span className="text-xs sm:text-sm text-gray-500 font-bold">
-                    (Chạm để xem nghĩa)
-                  </span>
-                  {currentWord.partOfSpeech && (
-                    <span className="text-xs sm:text-sm font-black px-2.5 py-0.5 bg-neoCyan text-black border-2 border-black rounded-md shadow-neo-sm">
-                      {currentWord.partOfSpeech}
-                    </span>
-                  )}
-                </div>
+                {/* Hướng dẫn lật thẻ */}
+                <p className="text-xs sm:text-sm text-gray-400 font-bold mt-2">
+                  (Chạm để xem nghĩa)
+                </p>
               </div>
             ) : (
               /* Back: Vietnamese Definition + Illustration Image on BACK */
