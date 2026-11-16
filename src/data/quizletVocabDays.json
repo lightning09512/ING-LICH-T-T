@@ -3912,295 +3912,393 @@
         "id": 1,
         "word": "debt",
         "meaning": "nợ",
-        "ipa": "/dɛt/"
+        "ipa": "/dɛt/",
+        "exampleEn": "The company is working hard to pay off its outstanding debt.",
+        "exampleVi": "Công ty đang nỗ lực để trả hết khoản nợ còn tồn đọng."
       },
       {
         "id": 2,
         "word": "department",
         "meaning": "phòng ban",
-        "ipa": "/dɪˈpɑrtmənt/"
+        "ipa": "/dɪˈpɑrtmənt/",
+        "exampleEn": "Please contact the human resources department if you have any questions about the policy.",
+        "exampleVi": "Vui lòng liên hệ với phòng nhân sự nếu bạn có bất kỳ câu hỏi nào về chính sách."
       },
       {
         "id": 3,
         "word": "finance",
         "meaning": "tài chính",
-        "ipa": "/ˈfaɪˌnæns/"
+        "ipa": "/ˈfaɪˌnæns/",
+        "exampleEn": "He decided to study finance to better manage his personal investments.",
+        "exampleVi": "Anh ấy quyết định học tài chính để quản lý các khoản đầu tư cá nhân tốt hơn."
       },
       {
         "id": 4,
         "word": "financial",
         "meaning": "thuộc về tài chính",
-        "ipa": "/ˌfaɪˈnænʃəl/"
+        "ipa": "/ˌfaɪˈnænʃəl/",
+        "exampleEn": "The firm provides financial advice to small business owners.",
+        "exampleVi": "Công ty cung cấp lời khuyên tài chính cho các chủ doanh nghiệp nhỏ."
       },
       {
         "id": 5,
         "word": "inefficient",
         "meaning": "không hiệu quả",
-        "ipa": "/ˌɪnɪˈfɪʃənt/"
+        "ipa": "/ˌɪnɪˈfɪʃənt/",
+        "exampleEn": "The old machinery is inefficient and costs too much to maintain.",
+        "exampleVi": "Máy móc cũ hoạt động không hiệu quả và tốn quá nhiều chi phí bảo trì."
       },
       {
         "id": 6,
         "word": "ineffective",
         "meaning": "không có hiệu quả",
-        "ipa": "/ˌɪnɪˈfɛktɪv/"
+        "ipa": "/ˌɪnɪˈfɛktɪv/",
+        "exampleEn": "The marketing campaign was ineffective and failed to increase sales.",
+        "exampleVi": "Chiến dịch tiếp thị không hiệu quả và đã không thể làm tăng doanh số."
       },
       {
         "id": 7,
         "word": "effective",
         "meaning": "hiệu quả",
-        "ipa": "/ˈifɛktɪv/"
+        "ipa": "/ˈifɛktɪv/",
+        "exampleEn": "This new software is a very effective tool for managing project tasks.",
+        "exampleVi": "Phần mềm mới này là một công cụ rất hiệu quả để quản lý các nhiệm vụ của dự án."
       },
       {
         "id": 8,
         "word": "effectively",
         "meaning": "một cách hiệu quả",
-        "ipa": "/ˈifɛktɪvli/"
+        "ipa": "/ˈifɛktɪvli/",
+        "exampleEn": "We need to communicate more effectively to avoid misunderstandings.",
+        "exampleVi": "Chúng ta cần giao tiếp hiệu quả hơn để tránh những hiểu lầm."
       },
       {
         "id": 9,
         "word": "efficient",
         "meaning": "hiệu quả",
-        "ipa": "/ɪˈfɪʃənt/"
+        "ipa": "/ɪˈfɪʃənt/",
+        "exampleEn": "The new production process is much more efficient than the previous one.",
+        "exampleVi": "Quy trình sản xuất mới hiệu quả hơn nhiều so với quy trình trước đó."
       },
       {
         "id": 10,
         "word": "upcoming",
         "meaning": "sắp tới",
-        "ipa": "/ˈəpˌkəmɪŋ/"
+        "ipa": "/ˈəpˌkəmɪŋ/",
+        "exampleEn": "We are preparing for the upcoming trade fair in Tokyo.",
+        "exampleVi": "Chúng tôi đang chuẩn bị cho hội chợ thương mại sắp tới tại Tokyo."
       },
       {
         "id": 11,
         "word": "draft",
         "meaning": "bản nháp",
-        "ipa": "/dræft/"
+        "ipa": "/dræft/",
+        "exampleEn": "I will send you the first draft of the report by tomorrow morning.",
+        "exampleVi": "Tôi sẽ gửi cho bạn bản nháp đầu tiên của báo cáo vào sáng mai."
       },
       {
         "id": 12,
         "word": "driver's license",
         "meaning": "bằng lái xe",
-        "ipa": "/ˈdraɪvərz ˈlaɪsəns/"
+        "ipa": "/ˈdraɪvərz ˈlaɪsəns/",
+        "exampleEn": "You must present a valid driver's license to rent a car.",
+        "exampleVi": "Bạn phải trình bằng lái xe hợp lệ để thuê xe ô tô."
       },
       {
         "id": 13,
         "word": "brainstorm",
         "meaning": "động não",
-        "ipa": "/ˈbreɪnˌstɔrm/"
+        "ipa": "/ˈbreɪnˌstɔrm/",
+        "exampleEn": "The team met to brainstorm ideas for the new advertising campaign.",
+        "exampleVi": "Nhóm đã họp để động não tìm ý tưởng cho chiến dịch quảng cáo mới."
       },
       {
         "id": 14,
         "word": "storm",
         "meaning": "bão",
-        "ipa": "/stɔrm/"
+        "ipa": "/stɔrm/",
+        "exampleEn": "The outdoor event was canceled due to a sudden storm.",
+        "exampleVi": "Sự kiện ngoài trời đã bị hủy do một cơn bão bất ngờ."
       },
       {
         "id": 15,
         "word": "typhoon",
         "meaning": "bão nhiệt đới",
-        "ipa": "/ˌtaɪˈfun/"
+        "ipa": "/ˌtaɪˈfun/",
+        "exampleEn": "The typhoon caused significant damage to the coastal villages.",
+        "exampleVi": "Cơn bão nhiệt đới đã gây ra thiệt hại đáng kể cho các ngôi làng ven biển."
       },
       {
         "id": 16,
         "word": "hurricane",
         "meaning": "cuồng phong",
-        "ipa": "/ˈhərəˌkeɪnz/"
+        "ipa": "/ˈhərəˌkeɪnz/",
+        "exampleEn": "Residents were warned to evacuate before the hurricane hit the coast.",
+        "exampleVi": "Cư dân được cảnh báo sơ tán trước khi cơn cuồng phong đổ bộ vào bờ biển."
       },
       {
         "id": 17,
         "word": "seminar",
         "meaning": "hội thảo",
-        "ipa": "/ˈsɛməˌnɑr/"
+        "ipa": "/ˈsɛməˌnɑr/",
+        "exampleEn": "I attended a seminar on digital marketing trends last week.",
+        "exampleVi": "Tôi đã tham dự một buổi hội thảo về các xu hướng tiếp thị kỹ thuật số vào tuần trước."
       },
       {
         "id": 18,
         "word": "workshop",
         "meaning": "hội thảo thực hành",
-        "ipa": "/ˈwərkˌʃɑp/"
+        "ipa": "/ˈwərkˌʃɑp/",
+        "exampleEn": "The company organized a workshop to improve employees' coding skills.",
+        "exampleVi": "Công ty đã tổ chức một buổi hội thảo thực hành để cải thiện kỹ năng lập trình của nhân viên."
       },
       {
         "id": 19,
         "word": "strategy",
         "meaning": "chiến lược",
-        "ipa": "/ˈstrætəʤi/"
+        "ipa": "/ˈstrætəʤi/",
+        "exampleEn": "The CEO outlined a new strategy for expanding into international markets.",
+        "exampleVi": "Giám đốc điều hành đã vạch ra một chiến lược mới để mở rộng sang các thị trường quốc tế."
       },
       {
         "id": 20,
         "word": "tactic",
         "meaning": "chiến thuật",
-        "ipa": "/ˈtæktɪk/"
+        "ipa": "/ˈtæktɪk/",
+        "exampleEn": "Using discounts is a common tactic to attract new customers.",
+        "exampleVi": "Sử dụng giảm giá là một chiến thuật phổ biến để thu hút khách hàng mới."
       },
       {
         "id": 21,
         "word": "campaign",
         "meaning": "chiến dich",
-        "ipa": "/kæmˈpeɪn/"
+        "ipa": "/kæmˈpeɪn/",
+        "exampleEn": "The political campaign focused on improving the local education system.",
+        "exampleVi": "Chiến dịch chính trị tập trung vào việc cải thiện hệ thống giáo dục địa phương."
       },
       {
         "id": 22,
         "word": "guard",
         "meaning": "bảo vệ",
-        "ipa": "/gɑrd/"
+        "ipa": "/gɑrd/",
+        "exampleEn": "A security guard is stationed at the entrance of the building 24/7.",
+        "exampleVi": "Một nhân viên bảo vệ được bố trí tại lối vào của tòa nhà 24/7."
       },
       {
         "id": 23,
         "word": "identify",
         "meaning": "xác đinh",
-        "ipa": "/aɪˈdɛntəˌfaɪ/"
+        "ipa": "/aɪˈdɛntəˌfaɪ/",
+        "exampleEn": "The technician was able to identify the cause of the system failure.",
+        "exampleVi": "Kỹ thuật viên đã có thể xác định được nguyên nhân gây ra lỗi hệ thống."
       },
       {
         "id": 24,
         "word": "determine",
         "meaning": "quyết đinh",
-        "ipa": "/dɪˈtərmən/"
+        "ipa": "/dɪˈtərmən/",
+        "exampleEn": "We need to determine the exact budget before starting the project.",
+        "exampleVi": "Chúng ta cần xác định ngân sách chính xác trước khi bắt đầu dự án."
       },
       {
         "id": 25,
         "word": "determination",
         "meaning": "sự quyết tâm",
-        "ipa": "/dɪˌtərməˈneɪʃən/"
+        "ipa": "/dɪˌtərməˈneɪʃən/",
+        "exampleEn": "Her determination to succeed helped her overcome many obstacles.",
+        "exampleVi": "Sự quyết tâm thành công đã giúp cô ấy vượt qua nhiều trở ngại."
       },
       {
         "id": 26,
         "word": "manager",
         "meaning": "người quản lý",
-        "ipa": "/ˈmænɪʤər/"
+        "ipa": "/ˈmænɪʤər/",
+        "exampleEn": "The word 'manager' is commonly used in English.",
+        "exampleVi": "Từ 'manager' (người quản lý) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 27,
         "word": "gate",
         "meaning": "cổng",
-        "ipa": "/geɪt/"
+        "ipa": "/geɪt/",
+        "exampleEn": "The word 'gate' is commonly used in English.",
+        "exampleVi": "Từ 'gate' (cổng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 28,
         "word": "management",
         "meaning": "sự quản lý",
-        "ipa": "/ˈmænɪʤmənt/"
+        "ipa": "/ˈmænɪʤmənt/",
+        "exampleEn": "The word 'management' is commonly used in English.",
+        "exampleVi": "Từ 'management' (sự quản lý) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 29,
         "word": "secretary",
         "meaning": "thư ký",
-        "ipa": "/ˈsɛkrəˌtɛri/"
+        "ipa": "/ˈsɛkrəˌtɛri/",
+        "exampleEn": "The word 'secretary' is commonly used in English.",
+        "exampleVi": "Từ 'secretary' (thư ký) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 30,
         "word": "advertisement",
         "meaning": "quảng cáo",
-        "ipa": "/ˌædvərˈtaɪzmənt/"
+        "ipa": "/ˌædvərˈtaɪzmənt/",
+        "exampleEn": "The word 'advertisement' is commonly used in English.",
+        "exampleVi": "Từ 'advertisement' (quảng cáo) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 31,
         "word": "advertising",
         "meaning": "quảng cáo",
-        "ipa": "/ˈædvərˌtaɪzɪŋ/"
+        "ipa": "/ˈædvərˌtaɪzɪŋ/",
+        "exampleEn": "The word 'advertising' is commonly used in English.",
+        "exampleVi": "Từ 'advertising' (quảng cáo) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 32,
         "word": "identity card",
         "meaning": "chứng minh nhân dân",
-        "ipa": "/aɪˈdɛntəˌti kɑrd/"
+        "ipa": "/aɪˈdɛntəˌti kɑrd/",
+        "exampleEn": "The word 'identity card' is commonly used in English.",
+        "exampleVi": "Từ 'identity card' (chứng minh nhân dân) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 33,
         "word": "schedule",
         "meaning": "lich trình",
-        "ipa": "/ˈskɛʤʊl/"
+        "ipa": "/ˈskɛʤʊl/",
+        "exampleEn": "The word 'schedule' is commonly used in English.",
+        "exampleVi": "Từ 'schedule' (lich trình) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 34,
         "word": "personal information",
         "meaning": "thông tin cá nhân",
-        "ipa": "/ˈpərsɪnəl ˌɪnˌfɔrˈmeɪʃən/"
+        "ipa": "/ˈpərsɪnəl ˌɪnˌfɔrˈmeɪʃən/",
+        "exampleEn": "The word 'personal information' is commonly used in English.",
+        "exampleVi": "Từ 'personal information' (thông tin cá nhân) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 35,
         "word": "personality",
         "meaning": "tính cách",
-        "ipa": "/ˌpərsəˈnælɪti/"
+        "ipa": "/ˌpərsəˈnælɪti/",
+        "exampleEn": "The word 'personality' is commonly used in English.",
+        "exampleVi": "Từ 'personality' (tính cách) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 36,
         "word": "in order to",
         "meaning": "để",
-        "ipa": "/ɪn ˈɔrdər tɪ/"
+        "ipa": "/ɪn ˈɔrdər tɪ/",
+        "exampleEn": "The word 'in order to' is commonly used in English.",
+        "exampleVi": "Từ 'in order to' (để) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 37,
         "word": "protect",
         "meaning": "bảo vệ",
-        "ipa": "/prəˈtɛkt/"
+        "ipa": "/prəˈtɛkt/",
+        "exampleEn": "The word 'protect' is commonly used in English.",
+        "exampleVi": "Từ 'protect' (bảo vệ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 38,
         "word": "protector",
         "meaning": "người bảo vệ",
-        "ipa": "/prəˈtɛktər/"
+        "ipa": "/prəˈtɛktər/",
+        "exampleEn": "The word 'protector' is commonly used in English.",
+        "exampleVi": "Từ 'protector' (người bảo vệ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 39,
         "word": "examine",
         "meaning": "kiểm tra",
-        "ipa": "/ɪgˈzæmɪn/"
+        "ipa": "/ɪgˈzæmɪn/",
+        "exampleEn": "The word 'examine' is commonly used in English.",
+        "exampleVi": "Từ 'examine' (kiểm tra) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 40,
         "word": "pass the exam",
         "meaning": "đỗ kỳ thi",
-        "ipa": "/pæs ðə ɪgˈzæm/"
+        "ipa": "/pæs ðə ɪgˈzæm/",
+        "exampleEn": "The word 'pass the exam' is commonly used in English.",
+        "exampleVi": "Từ 'pass the exam' (đỗ kỳ thi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 41,
         "word": "fail the exam",
         "meaning": "trượt kỳ thi",
-        "ipa": "/feɪl ðə ɪgˈzæm/"
+        "ipa": "/feɪl ðə ɪgˈzæm/",
+        "exampleEn": "The word 'fail the exam' is commonly used in English.",
+        "exampleVi": "Từ 'fail the exam' (trượt kỳ thi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 42,
         "word": "valid",
         "meaning": "hợp lệ",
-        "ipa": "/ˈvælɪd/"
+        "ipa": "/ˈvælɪd/",
+        "exampleEn": "The word 'valid' is commonly used in English.",
+        "exampleVi": "Từ 'valid' (hợp lệ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 43,
         "word": "divide",
         "meaning": "chia",
-        "ipa": "/dɪˈvaɪd/"
+        "ipa": "/dɪˈvaɪd/",
+        "exampleEn": "The word 'divide' is commonly used in English.",
+        "exampleVi": "Từ 'divide' (chia) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 44,
         "word": "division",
         "meaning": "sự phân chia, bộ phận, phòng ban",
-        "ipa": "/dɪˈvɪʒən/"
+        "ipa": "/dɪˈvɪʒən/",
+        "exampleEn": "The word 'division' is commonly used in English.",
+        "exampleVi": "Từ 'division' (sự phân chia, bộ phận, phòng ban) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 45,
         "word": "demand",
         "meaning": "nhu cầu",
-        "ipa": "/dɪˈmænd/"
+        "ipa": "/dɪˈmænd/",
+        "exampleEn": "The word 'demand' is commonly used in English.",
+        "exampleVi": "Từ 'demand' (nhu cầu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 46,
         "word": "owe",
         "meaning": "nợ",
-        "ipa": "/oʊ/"
+        "ipa": "/oʊ/",
+        "exampleEn": "The word 'owe' is commonly used in English.",
+        "exampleVi": "Từ 'owe' (nợ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 47,
         "word": "own",
         "meaning": "sở hữu",
-        "ipa": "/oʊn/"
+        "ipa": "/oʊn/",
+        "exampleEn": "The word 'own' is commonly used in English.",
+        "exampleVi": "Từ 'own' (sở hữu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 48,
         "word": "owner",
         "meaning": "chủ sở hữu",
-        "ipa": "/ˈoʊnər/"
+        "ipa": "/ˈoʊnər/",
+        "exampleEn": "The word 'owner' is commonly used in English.",
+        "exampleVi": "Từ 'owner' (chủ sở hữu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 49,
         "word": "executive",
         "meaning": "giám đốc điều hành",
-        "ipa": "/ɪgˈzɛkjətɪv/"
+        "ipa": "/ɪgˈzɛkjətɪv/",
+        "exampleEn": "The word 'executive' is commonly used in English.",
+        "exampleVi": "Từ 'executive' (giám đốc điều hành) được sử dụng phổ biến trong tiếng Anh."
       }
     ]
   },
@@ -4214,168 +4312,218 @@
         "word": "wage",
         "meaning": "tiền công",
         "ipa": "/weɪʤ/",
-        "imageUrl": "/vocab_images/day_11/1.png"
+        "imageUrl": "/vocab_images/day_11/1.png",
+        "exampleEn": "The word 'wage' is commonly used in English.",
+        "exampleVi": "Từ 'wage' (tiền công) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 2,
         "word": "Salary",
         "meaning": "lương",
         "ipa": "/ˈsæləri/",
-        "imageUrl": "/vocab_images/day_11/2.png"
+        "imageUrl": "/vocab_images/day_11/2.png",
+        "exampleEn": "The word 'Salary' is commonly used in English.",
+        "exampleVi": "Từ 'Salary' (lương) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 3,
         "word": "maintenance",
         "meaning": "sự bảo trì",
         "ipa": "/ˈmeɪntənəns/",
-        "imageUrl": "/vocab_images/day_11/3.png"
+        "imageUrl": "/vocab_images/day_11/3.png",
+        "exampleEn": "The word 'maintenance' is commonly used in English.",
+        "exampleVi": "Từ 'maintenance' (sự bảo trì) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 4,
         "word": "maintain",
         "meaning": "duy trì",
         "ipa": "/meɪnˈteɪn/",
-        "imageUrl": "/vocab_images/day_11/4.png"
+        "imageUrl": "/vocab_images/day_11/4.png",
+        "exampleEn": "The word 'maintain' is commonly used in English.",
+        "exampleVi": "Từ 'maintain' (duy trì) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 5,
         "word": "application",
         "meaning": "đơn xin việc",
         "ipa": "/ˌæpləˈkeɪʃən/",
-        "imageUrl": "/vocab_images/day_11/5.png"
+        "imageUrl": "/vocab_images/day_11/5.png",
+        "exampleEn": "The word 'application' is commonly used in English.",
+        "exampleVi": "Từ 'application' (đơn xin việc) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 6,
         "word": "apply",
         "meaning": "ứng tuyển",
         "ipa": "/əˈplaɪ/",
-        "imageUrl": "/vocab_images/day_11/6.png"
+        "imageUrl": "/vocab_images/day_11/6.png",
+        "exampleEn": "The word 'apply' is commonly used in English.",
+        "exampleVi": "Từ 'apply' (ứng tuyển) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 7,
         "word": "resume",
         "meaning": "sơ yếu lý lich",
         "ipa": "/ˈrɛzəˌmeɪ/",
-        "imageUrl": "/vocab_images/day_11/7.png"
+        "imageUrl": "/vocab_images/day_11/7.png",
+        "exampleEn": "The word 'resume' is commonly used in English.",
+        "exampleVi": "Từ 'resume' (sơ yếu lý lich) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 8,
         "word": "assign",
         "meaning": "phân công",
         "ipa": "/əˈsaɪn/",
-        "imageUrl": "/vocab_images/day_11/8.png"
+        "imageUrl": "/vocab_images/day_11/8.png",
+        "exampleEn": "The word 'assign' is commonly used in English.",
+        "exampleVi": "Từ 'assign' (phân công) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 9,
         "word": "assignment",
         "meaning": "nhiệm vu",
         "ipa": "/əˈsaɪnmənt/",
-        "imageUrl": "/vocab_images/day_11/9.png"
+        "imageUrl": "/vocab_images/day_11/9.png",
+        "exampleEn": "The word 'assignment' is commonly used in English.",
+        "exampleVi": "Từ 'assignment' (nhiệm vu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 10,
         "word": "calculate",
         "meaning": "tính toán",
-        "ipa": "/ˈkælkjəˌleɪt/"
+        "ipa": "/ˈkælkjəˌleɪt/",
+        "exampleEn": "The word 'calculate' is commonly used in English.",
+        "exampleVi": "Từ 'calculate' (tính toán) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 11,
         "word": "calculator",
         "meaning": "máy tính",
-        "ipa": "/ˈkælkjəˌleɪtər/"
+        "ipa": "/ˈkælkjəˌleɪtər/",
+        "exampleEn": "The word 'calculator' is commonly used in English.",
+        "exampleVi": "Từ 'calculator' (máy tính) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 12,
         "word": "interview",
         "meaning": "phỏng vấn",
         "ipa": "/ˈɪntərvˌju/",
-        "imageUrl": "/vocab_images/day_11/12.png"
+        "imageUrl": "/vocab_images/day_11/12.png",
+        "exampleEn": "The word 'interview' is commonly used in English.",
+        "exampleVi": "Từ 'interview' (phỏng vấn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 13,
         "word": "interviewer",
         "meaning": "người phỏng vấn",
-        "ipa": "/ˈɪntərvˌjuər/"
+        "ipa": "/ˈɪntərvˌjuər/",
+        "exampleEn": "The word 'interviewer' is commonly used in English.",
+        "exampleVi": "Từ 'interviewer' (người phỏng vấn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 14,
         "word": "interviewee",
         "meaning": "người được phỏng vấn",
         "ipa": "/ˌɪntərvjuˈi/",
-        "imageUrl": "/vocab_images/day_11/14.png"
+        "imageUrl": "/vocab_images/day_11/14.png",
+        "exampleEn": "The word 'interviewee' is commonly used in English.",
+        "exampleVi": "Từ 'interviewee' (người được phỏng vấn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 15,
         "word": "distribute",
         "meaning": "phân phát",
-        "ipa": "/dɪˈstrɪbjut/"
+        "ipa": "/dɪˈstrɪbjut/",
+        "exampleEn": "The word 'distribute' is commonly used in English.",
+        "exampleVi": "Từ 'distribute' (phân phát) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 16,
         "word": "distribution",
         "meaning": "sự phân phát",
-        "ipa": "/ˌdɪstrəˈbjuʃən/"
+        "ipa": "/ˌdɪstrəˈbjuʃən/",
+        "exampleEn": "The word 'distribution' is commonly used in English.",
+        "exampleVi": "Từ 'distribution' (sự phân phát) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 17,
         "word": "pass out",
         "meaning": "phát",
         "ipa": "/pæs aʊt/",
-        "imageUrl": "/vocab_images/day_11/17.png"
+        "imageUrl": "/vocab_images/day_11/17.png",
+        "exampleEn": "The word 'pass out' is commonly used in English.",
+        "exampleVi": "Từ 'pass out' (phát) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 18,
         "word": "hand out",
         "meaning": "phát tay",
         "ipa": "/hænd aʊt/",
-        "imageUrl": "/vocab_images/day_11/18.png"
+        "imageUrl": "/vocab_images/day_11/18.png",
+        "exampleEn": "The word 'hand out' is commonly used in English.",
+        "exampleVi": "Từ 'hand out' (phát tay) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 19,
         "word": "contribute",
         "meaning": "đóng góp",
         "ipa": "/kənˈtrɪbjut/",
-        "imageUrl": "/vocab_images/day_11/19.png"
+        "imageUrl": "/vocab_images/day_11/19.png",
+        "exampleEn": "The word 'contribute' is commonly used in English.",
+        "exampleVi": "Từ 'contribute' (đóng góp) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 20,
         "word": "contribution",
         "meaning": "sự đóng góp",
-        "ipa": "/ˌkɑntrəˈbjuʃən/"
+        "ipa": "/ˌkɑntrəˈbjuʃən/",
+        "exampleEn": "The word 'contribution' is commonly used in English.",
+        "exampleVi": "Từ 'contribution' (sự đóng góp) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 21,
         "word": "arrange",
         "meaning": "sắp xếp",
         "ipa": "/əreɪnʤ/",
-        "imageUrl": "/vocab_images/day_11/21.png"
+        "imageUrl": "/vocab_images/day_11/21.png",
+        "exampleEn": "The word 'arrange' is commonly used in English.",
+        "exampleVi": "Từ 'arrange' (sắp xếp) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 22,
         "word": "arrangement",
         "meaning": "sự sắp xếp",
-        "ipa": "/ərˈeɪnʤmənt/"
+        "ipa": "/ərˈeɪnʤmənt/",
+        "exampleEn": "The word 'arrangement' is commonly used in English.",
+        "exampleVi": "Từ 'arrangement' (sự sắp xếp) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 23,
         "word": "get in touch",
         "meaning": "liên lạc",
         "ipa": "/gɪt ɪn təʧ/",
-        "imageUrl": "/vocab_images/day_11/23.png"
+        "imageUrl": "/vocab_images/day_11/23.png",
+        "exampleEn": "The word 'get in touch' is commonly used in English.",
+        "exampleVi": "Từ 'get in touch' (liên lạc) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 24,
         "word": "recruit",
         "meaning": "tuyển dung",
         "ipa": "/rɪˈkrut/",
-        "imageUrl": "/vocab_images/day_11/24.png"
+        "imageUrl": "/vocab_images/day_11/24.png",
+        "exampleEn": "The word 'recruit' is commonly used in English.",
+        "exampleVi": "Từ 'recruit' (tuyển dung) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 25,
         "word": "recruitment",
         "meaning": "sự tuyển dung",
         "ipa": "/rɪˈkrutmənt/",
-        "imageUrl": "/vocab_images/day_11/25.png"
+        "imageUrl": "/vocab_images/day_11/25.png",
+        "exampleEn": "The word 'recruitment' is commonly used in English.",
+        "exampleVi": "Từ 'recruitment' (sự tuyển dung) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 26,
