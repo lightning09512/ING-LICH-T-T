@@ -4,11 +4,12 @@ import { useLearningProgress } from '../contexts/ProgressContext';
 
 interface AccountModalProps {
   onClose: () => void;
+  onSuccess?: () => void;
 }
 
 type AccountMode = 'signin' | 'signup';
 
-export const AccountModal: React.FC<AccountModalProps> = ({ onClose }) => {
+export const AccountModal: React.FC<AccountModalProps> = ({ onClose, onSuccess }) => {
   const {
     user,
     authLoading,
@@ -52,7 +53,10 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose }) => {
       : await signInWithEmail(email.trim(), password);
 
     setBusy(false);
-    if (success) onClose();
+    if (success) {
+      onSuccess?.();
+      onClose();
+    }
   };
 
   const handleGoogleSignIn = async () => {
@@ -61,7 +65,10 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose }) => {
     clearAuthError();
     const success = await signInWithGoogle();
     setBusy(false);
-    if (success) onClose();
+    if (success) {
+      onSuccess?.();
+      onClose();
+    }
   };
 
   const handlePasswordReset = async () => {

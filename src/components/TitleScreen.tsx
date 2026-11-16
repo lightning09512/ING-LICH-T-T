@@ -62,23 +62,57 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({ onStart, nickname, use
           </button>
         </div>
 
+        {/* Account status card / Login button */}
         <div className="w-full max-w-sm px-2">
-          <button
-            onClick={() => user ? onSignOut() : onOpenAccount()}
-            disabled={authLoading}
-            className="w-full min-h-11 px-4 py-2 bg-white border-2 border-black shadow-neo-sm hover:bg-gray-100 active:scale-95 transition-all flex items-center justify-center gap-2 font-black text-sm cursor-pointer disabled:opacity-60 disabled:cursor-wait"
-            title={user ? `${user.email ?? user.displayName ?? 'Tài khoản'} · ${syncStatus === 'saved' ? 'Đã lưu tiến trình lên đám mây' : 'Đang lưu tiến trình'} · Bấm để đăng xuất` : 'Đăng nhập hoặc tạo tài khoản để đồng bộ tiến trình trên các thiết bị'}
-          >
-            {authLoading ? <LoaderCircle className="w-4 h-4 animate-spin" /> : user ? <LogOut className="w-4 h-4" /> : <LogIn className="w-4 h-4 text-red-600" />}
-            <span>
-              {authLoading
-                ? 'Đang đồng bộ...'
-                : user
-                  ? (syncStatus === 'saved' ? 'Đã lưu tiến trình · Đăng xuất' : 'Đã đăng nhập · Đăng xuất')
-                  : 'Đăng nhập / Tạo tài khoản để đồng bộ'}
-            </span>
-            {user && <Cloud className={`w-4 h-4 ${syncStatus === 'error' ? 'text-red-600' : 'text-cyan-700'}`} />}
-          </button>
+          {user ? (
+            <div className="w-full bg-white border-2 border-black p-2.5 sm:p-3 shadow-neo-sm flex items-center justify-between gap-2">
+              <div 
+                onClick={onOpenAccount}
+                className="flex items-center gap-2 truncate cursor-pointer hover:opacity-80 flex-1 min-w-0"
+                title="Bấm để xem chi tiết tài khoản"
+              >
+                {user.photoURL ? (
+                  <img src={user.photoURL} alt="" className="w-7 h-7 rounded-full border border-black shrink-0" />
+                ) : (
+                  <span className="w-7 h-7 rounded-full bg-neoCyan border border-black flex items-center justify-center font-black text-xs shrink-0">
+                    {(user.displayName || user.email || 'U')[0].toUpperCase()}
+                  </span>
+                )}
+                <div className="flex flex-col text-left min-w-0 truncate">
+                  <span className="text-xs font-black truncate">{user.displayName || user.email?.split('@')[0]}</span>
+                  <span className="text-[10px] text-emerald-700 font-bold flex items-center gap-1">
+                    <Cloud className="w-3 h-3 text-emerald-600 inline shrink-0" /> Đã đồng bộ tiến trình
+                  </span>
+                </div>
+              </div>
+
+              <button
+                onClick={onSignOut}
+                className="px-2.5 py-1 bg-gray-100 hover:bg-red-50 hover:text-red-600 border border-black text-xs font-bold shrink-0 transition-colors cursor-pointer"
+                title="Đăng xuất tài khoản này"
+              >
+                Đăng xuất
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={onOpenAccount}
+              disabled={authLoading}
+              className="w-full min-h-11 px-4 py-2 bg-white border-2 border-black shadow-neo-sm hover:bg-gray-100 active:scale-95 transition-all flex items-center justify-center gap-2 font-black text-sm cursor-pointer disabled:opacity-60"
+            >
+              {authLoading ? (
+                <>
+                  <LoaderCircle className="w-4 h-4 animate-spin" />
+                  <span>Đang kết nối tài khoản...</span>
+                </>
+              ) : (
+                <>
+                  <LogIn className="w-4 h-4 text-red-600" />
+                  <span>Đăng nhập Google để đồng bộ tiến trình</span>
+                </>
+              )}
+            </button>
+          )}
         </div>
 
         {/* Troll Disclaimer */}

@@ -54,8 +54,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const handleAccountClick = () => {
     sounds.playClick();
-    if (user) onSignOut();
-    else onOpenAccount();
+    onOpenAccount();
   };
 
   const syncLabel = {
@@ -94,20 +93,19 @@ export const Navbar: React.FC<NavbarProps> = ({
           className={`h-10 sm:h-11 min-w-10 px-2 sm:px-3 border-2 border-black rounded shadow-neo-sm font-black text-xs transition-transform active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-60 disabled:cursor-wait ${
             user ? 'bg-neoCyan hover:bg-cyan-300' : 'bg-white hover:bg-gray-100'
           }`}
-          title={user ? `${user.email ?? user.displayName ?? 'Tài khoản'} · ${syncLabel} · Bấm để đăng xuất` : 'Đăng nhập hoặc tạo tài khoản để đồng bộ tiến trình'}
-          aria-label={user ? 'Đăng xuất tài khoản' : 'Đăng nhập hoặc tạo tài khoản'}
+          title={user ? `${user.displayName || user.email} · ${syncLabel} · Bấm để xem thông tin` : 'Đăng nhập để đồng bộ tiến trình'}
+          aria-label={user ? 'Xem thông tin tài khoản' : 'Đăng nhập hoặc tạo tài khoản'}
         >
           {authLoading ? <LoaderCircle className="w-4 h-4 animate-spin" /> : user ? (
             <>
               {user.photoURL ? (
-                <>
-                  <img src={user.photoURL} alt="" className="w-5 h-5 rounded-full border border-black" />
-                  <LogOut className="w-4 h-4" />
-                </>
+                <img src={user.photoURL} alt="" className="w-5 h-5 rounded-full border border-black shrink-0" />
               ) : (
-                <LogOut className="w-4 h-4" />
+                <span className="w-5 h-5 rounded-full bg-neoYellow border border-black flex items-center justify-center text-[10px] font-black shrink-0">
+                  {(user.displayName || user.email || 'U')[0].toUpperCase()}
+                </span>
               )}
-              <span className="hidden lg:inline">Đăng xuất</span>
+              <span className="hidden lg:inline truncate max-w-[120px]">{user.displayName || user.email?.split('@')[0]}</span>
             </>
           ) : (
             <>

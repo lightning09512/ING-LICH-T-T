@@ -265,7 +265,17 @@ export function App() {
         onToggleOpen={() => setIsLofiOpen(!isLofiOpen)}
       />
 
-      {isAccountModalOpen && <AccountModal onClose={() => setIsAccountModalOpen(false)} />}
+      {isAccountModalOpen && (
+        <AccountModal
+          onClose={() => setIsAccountModalOpen(false)}
+          onSuccess={() => {
+            sounds.playCorrect();
+            if (screen === 'TITLE') {
+              setScreen('MENU');
+            }
+          }}
+        />
+      )}
     </div>
   );
 }
