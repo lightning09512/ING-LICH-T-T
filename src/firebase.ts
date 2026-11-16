@@ -10,9 +10,18 @@ const rawAuthDomain = clean(import.meta.env.VITE_FIREBASE_AUTH_DOMAIN);
 const rawAppId = clean(import.meta.env.VITE_FIREBASE_APP_ID);
 const rawMessagingSenderId = clean(import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID);
 
+// Canonical Firebase auth domain is {projectId}.firebaseapp.com.
+// If rawAuthDomain was set to the Vercel app domain, prefer firebaseapp.com for reliable popups.
+const authDomain =
+  rawAuthDomain && !rawAuthDomain.endsWith('vercel.app')
+    ? rawAuthDomain
+    : rawProjectId
+    ? `${rawProjectId}.firebaseapp.com`
+    : rawAuthDomain;
+
 const firebaseConfig = {
   apiKey: rawApiKey,
-  authDomain: rawAuthDomain,
+  authDomain: authDomain,
   projectId: rawProjectId,
   appId: rawAppId,
   messagingSenderId: rawMessagingSenderId,
