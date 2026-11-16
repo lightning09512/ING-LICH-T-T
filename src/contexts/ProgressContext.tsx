@@ -6,6 +6,7 @@ import {
   onAuthStateChanged,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signInWithRedirect,
   signOut as firebaseSignOut,
 } from 'firebase/auth';
@@ -138,25 +139,54 @@ function clearGuestProgress() {
 
 function getErrorMessage(error: unknown): string {
   const code = (error as { code?: string })?.code;
-  if (code === 'auth/email-already-in-use') return 'Email này đã có tài khoản. Hãy đăng nhập hoặc dùng email khác.';
-  if (code === 'auth/invalid-email') return 'Địa chỉ email chưa hợp lệ.';
-  if (code === 'auth/weak-password') return 'Mật khẩu cần có ít nhất 6 ký tự.';
-  if (code === 'auth/invalid-credential' || code === 'auth/user-not-found' || code === 'auth/wrong-password') {
+  const message = (error as { message?: string })?.message;
+
+  if (!code && !message) return 'Yêu cầu chưa thành công. Hãy thử lại nhé.';
+
+  const cleanCode = code?.toLowerCase() || '';
+
+  if (cleanCode.includes('api-key-not-valid') || cleanCode.includes('invalid-api-key')) {
+    return 'Lỗi: API Key Firebase không hợp lệ. Vui lòng vào Firebase Console > Project settings (biểu tượng ⚙️) để copy đúng Web API Key và cập nhật lại biến VITE_FIREBASE_API_KEY trên Vercel.';
+  }
+  if (cleanCode.includes('unauthorized-domain')) {
+    return 'Lỗi: Tên miền chưa được cấp phép. Vui lòng vào Firebase Console > Authentication > Settings > Authorized domains và thêm "ing-lich-tet.vercel.app".';
+  }
+  if (cleanCode.includes('operation-not-allowed')) {
+    return 'Lỗi: Chưa bật phương thức đăng nhập này. Vui lòng vào Firebase Console > Authentication > Sign-in method và bật "Google" (và Email/Password).';
+  }
+  if (cleanCode.includes('email-already-in-use')) {
+    return 'Email này đã có tài khoản. Hãy chuyển sang Đăng nhập hoặc dùng email khác.';
+  }
+  if (cleanCode.includes('invalid-email')) {
+    return 'Địa chỉ email chưa đúng định dạng (ví dụ: yourname@gmail.com).';
+  }
+  if (cleanCode.includes('weak-password')) {
+    return 'Mật khẩu cần có ít nhất 6 ký tự.';
+  }
+  if (
+    cleanCode.includes('invalid-credential') ||
+    cleanCode.includes('user-not-found') ||
+    cleanCode.includes('wrong-password')
+  ) {
     return 'Email hoặc mật khẩu chưa đúng.';
   }
-  if (code === 'auth/operation-not-allowed') return 'Firebase chưa bật phương thức đăng nhập này.';
-  if (code === 'auth/popup-closed-by-user') return 'Cửa sổ đăng nhập Google đã bị đóng.';
-  if (code === 'auth/popup-blocked') return 'Trình duyệt đã chặn cửa sổ Google. Cho phép cửa sổ bật lên rồi thử lại.';
-  if (code === 'auth/cancelled-popup-request') return 'Đang có một yêu cầu đăng nhập Google khác. Thử lại nhé.';
-  if (code === 'auth/invalid-oauth-client-id') return 'OAuth Client ID của Google chưa khớp với cấu hình Google trong Firebase.';
-  if (code === 'auth/auth-domain-config-required') return 'Tên miền xác thực Firebase chưa được cấu hình đúng trên Vercel.';
-  if (code === 'auth/web-storage-unsupported') return 'Trình duyệt đang chặn bộ nhớ cần thiết cho đăng nhập. Hãy bật cookie và dữ liệu trang web.';
-  if (code === 'auth/redirect-cancelled-by-user') return 'Bạn đã hủy đăng nhập Google trước khi hoàn tất.';
-  if (code === 'auth/redirect-operation-pending') return 'Đang có một yêu cầu đăng nhập Google khác đang chờ xử lý.';
-  if (code === 'auth/too-many-requests') return 'Có quá nhiều lần thử. Hãy đợi một lúc rồi thử lại.';
-  if (code === 'auth/unauthorized-domain') return 'Tên miền hiện tại chưa được thêm vào danh sách Authorized domains trong Firebase.';
-  if (code === 'auth/network-request-failed') return 'Không kết nối được Firebase. Hãy kiểm tra mạng rồi thử lại.';
-  return code ? `Yêu cầu chưa thành công (${code}). Hãy gửi mã này để mình kiểm tra.` : 'Yêu cầu chưa thành công. Hãy thử lại nhé.';
+  if (cleanCode.includes('popup-closed-by-user')) {
+    return 'Cửa sổ đăng nhập Google đã bị đóng.';
+  }
+  if (cleanCode.includes('popup-blocked')) {
+    return 'Trình duyệt đã chặn cửa sổ đăng nhập Google. Hãy cho phép popup hoặc thử lại.';
+  }
+  if (cleanCode.includes('cancelled-popup-request')) {
+    return 'Đang có một yêu cầu đăng nhập khác đang mở. Vui lòng thử lại.';
+  }
+  if (cleanCode.includes('too-many-requests')) {
+    return 'Thử đăng nhập quá nhiều lần liên tiếp. Hãy đợi ít phút rồi thử lại.';
+  }
+  if (cleanCode.includes('network-request-failed')) {
+    return 'Không kết nối được Firebase. Hãy kiểm tra kết nối mạng của bạn.';
+  }
+
+  return `Lỗi đăng nhập (${code || 'unknown'}): ${message || 'Yêu cầu chưa thành công.'}`;
 }
 
 export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
@@ -273,15 +303,35 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
   const signInWithGoogle = useCallback(async () => {
     setAuthError(null);
     if (!firebaseAuth) {
-      setAuthError('Ứng dụng chưa được kết nối Firebase. Cần cấu hình project trước khi đăng nhập.');
+      setAuthError('Ứng dụng chưa được cấu hình Firebase. Hãy kiểm tra biến môi trường VITE_FIREBASE_* trên Vercel.');
       return false;
     }
 
+    const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: 'select_account' });
+
     try {
-      await signInWithRedirect(firebaseAuth, new GoogleAuthProvider());
+      // Ưu tiên mở popup: mượt mà, không load lại trang
+      await signInWithPopup(firebaseAuth, provider);
       return true;
-    } catch (error) {
-      setAuthError(getErrorMessage(error));
+    } catch (popupError: unknown) {
+      console.warn('Google signInWithPopup error, checking fallback:', popupError);
+      const code = (popupError as { code?: string })?.code;
+      // Nếu trình duyệt chặn popup, tự động chuyển sang redirect
+      if (
+        code === 'auth/popup-blocked' ||
+        code === 'auth/cancelled-popup-request' ||
+        code === 'auth/operation-not-supported-in-this-environment'
+      ) {
+        try {
+          await signInWithRedirect(firebaseAuth, provider);
+          return true;
+        } catch (redirectError) {
+          setAuthError(getErrorMessage(redirectError));
+          return false;
+        }
+      }
+      setAuthError(getErrorMessage(popupError));
       return false;
     }
   }, []);
