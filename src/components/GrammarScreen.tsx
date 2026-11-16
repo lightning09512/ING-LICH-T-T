@@ -9,6 +9,7 @@ import {
   WordOrderStep
 } from '../data/grammarData';
 import { sounds } from '../utils/soundEffects';
+import { useLearningProgress } from '../contexts/ProgressContext';
 import confetti from 'canvas-confetti';
 import { 
   BookOpen, 
@@ -86,7 +87,8 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
   const [isAnswerChecked, setIsAnswerChecked] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [exerciseFinished, setExerciseFinished] = useState(false);
-  const [topicProgress, setTopicProgress] = useState<{ [topicId: string]: number }>({});
+  const { progress, saveGrammarScore } = useLearningProgress();
+  const topicProgress = progress.grammarProgress;
 
   // Survival Mode state
   const [survivalQuizzes, setSurvivalQuizzes] = useState<(GrammarExercise & { topicTitle: string })[]>([]);
@@ -101,26 +103,8 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
   const [screenShake, setScreenShake] = useState(false);
   const [roastMessage, setRoastMessage] = useState<string | null>(null);
 
-  // Load progress from localStorage
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem('ing_grammar_progress');
-      if (saved) {
-        setTopicProgress(JSON.parse(saved));
-      }
-    } catch {
-      // Ignore
-    }
-  }, []);
-
   const saveProgress = (topicId: string, scoreVal: number) => {
-    try {
-      const updated = { ...topicProgress, [topicId]: Math.max(topicProgress[topicId] || 0, scoreVal) };
-      setTopicProgress(updated);
-      localStorage.setItem('ing_grammar_progress', JSON.stringify(updated));
-    } catch {
-      // Ignore
-    }
+    saveGrammarScore(topicId, scoreVal);
   };
 
   // Categories

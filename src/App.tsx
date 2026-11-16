@@ -11,10 +11,20 @@ import { TestSelectScreen } from './components/TestSelectScreen';
 import { LofiPlayer } from './components/LofiPlayer';
 import { initialVocabList, initialTest, VocabItem, ToeicTest } from './data/initialData';
 import { sounds } from './utils/soundEffects';
+import { useLearningProgress } from './contexts/ProgressContext';
 
 type ScreenState = 'TITLE' | 'MENU' | 'LEARN' | 'GRAMMAR' | 'REVIEW' | 'SELECT_TEST' | 'EXAM';
 
 export function App() {
+  const {
+    user,
+    authLoading,
+    syncStatus,
+    authError,
+    signInWithGoogle,
+    signOut,
+    clearAuthError,
+  } = useLearningProgress();
   const [screen, setScreen] = useState<ScreenState>('TITLE');
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [nickname, setNickname] = useState('Mập địch');
@@ -160,7 +170,19 @@ export function App() {
           streakDays={streakDays}
           onToggleLofi={() => setIsLofiOpen(!isLofiOpen)}
           isLofiOpen={isLofiOpen}
+          user={user}
+          authLoading={authLoading}
+          syncStatus={syncStatus}
+          onSignIn={() => { void signInWithGoogle(); }}
+          onSignOut={() => { void signOut(); }}
         />
+      )}
+
+      {authError && (
+        <div role="alert" className="fixed top-3 right-3 z-50 max-w-sm bg-white border-2 border-black shadow-neo px-4 py-3 text-sm font-bold flex items-start gap-3">
+          <span>{authError}</span>
+          <button onClick={clearAuthError} className="shrink-0 underline" aria-label="Đóng thông báo">Đóng</button>
+        </div>
       )}
 
       {/* Screen Router */}
@@ -169,6 +191,11 @@ export function App() {
           <TitleScreen
             nickname={nickname}
             onStart={() => setScreen('MENU')}
+            user={user}
+            authLoading={authLoading}
+            syncStatus={syncStatus}
+            onSignIn={() => { void signInWithGoogle(); }}
+            onSignOut={() => { void signOut(); }}
           />
         )}
 

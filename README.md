@@ -19,6 +19,18 @@
 
 ## 🚀 Hướng Dẫn Khởi Chạy
 
+### Đăng nhập Google và đồng bộ tiến trình
+
+Tính năng đăng nhập dùng Firebase Authentication; tiến trình từ vựng và ngữ pháp được đồng bộ vào Cloud Firestore theo tài khoản Google.
+
+1. Tạo một dự án Firebase, thêm ứng dụng Web, bật **Authentication → Google** và tạo cơ sở dữ liệu **Cloud Firestore**.
+2. Sao chép `.env.example` thành `.env`, rồi điền các giá trị cấu hình Web App Firebase (`VITE_FIREBASE_*`).
+3. Trong Firebase Authentication, thêm domain chạy ứng dụng vào **Authorized domains**.
+4. Đưa nội dung `firestore.rules` lên mục **Firestore Database → Rules** rồi publish.
+5. Khởi động lại ứng dụng bằng `npm run dev`. Trên Vercel, khai báo cùng các biến `VITE_FIREBASE_*` trong Environment Variables và deploy lại.
+
+Người chưa đăng nhập vẫn lưu tiến trình trên thiết bị. Khi đăng nhập lần đầu trên thiết bị đó, tiến trình cũ sẽ được gộp vào tài khoản Google; sau đó tiến trình được lưu theo tài khoản để dùng trên thiết bị khác.
+
 ### Cách 1: Chạy cả Frontend & Backend đồng thời (Khuyên dùng)
 ```bash
 npm run dev

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getDayData, getCumulativeWords, VocabWord, DayLesson } from '../data/vocabDays';
 import { sounds } from '../utils/soundEffects';
+import { useLearningProgress } from '../contexts/ProgressContext';
 import confetti from 'canvas-confetti';
 import { 
   ArrowLeft, Lock, Star, Volume2, RotateCcw, ArrowRight, 
@@ -24,8 +25,9 @@ interface QuizQuestion {
 export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) => {
   const [view, setView] = useState<VocabView>('MAP');
   const [selectedDay, setSelectedDay] = useState<number>(1);
-  const [unlockedDay, setUnlockedDay] = useState<number>(1);
-  const [dayStars, setDayStars] = useState<{ [day: number]: number }>({});
+  const { progress, saveVocabularyProgress } = useLearningProgress();
+  const unlockedDay = progress.vocabUnlockedDay;
+  const dayStars = progress.vocabDayStars;
   
   // Flashcard state
   const [flashcardIndex, setFlashcardIndex] = useState(0);
@@ -55,32 +57,6 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
       document.documentElement.requestFullscreen().catch(() => {});
     } else {
       document.exitFullscreen().catch(() => {});
-    }
-  };
-
-  // Load progress from localStorage
-  useEffect(() => {
-    try {
-      const savedUnlocked = localStorage.getItem('ing_lich_unlocked_day');
-      if (savedUnlocked) {
-        setUnlockedDay(Math.max(1, parseInt(savedUnlocked, 10)));
-      }
-      const savedStars = localStorage.getItem('ing_lich_day_stars');
-      if (savedStars) {
-        setDayStars(JSON.parse(savedStars));
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  }, []);
-
-  // Save progress
-  const saveProgress = (newUnlocked: number, starsUpdate: { [day: number]: number }) => {
-    try {
-      localStorage.setItem('ing_lich_unlocked_day', newUnlocked.toString());
-      localStorage.setItem('ing_lich_day_stars', JSON.stringify(starsUpdate));
-    } catch (e) {
-      console.error(e);
     }
   };
 
@@ -200,11 +176,9 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
       else if (percent >= 90) stars = 2;
 
       const newStars = { ...dayStars, [selectedDay]: Math.max(dayStars[selectedDay] || 0, stars) };
-      setDayStars(newStars);
 
       const nextUnlocked = Math.max(unlockedDay, Math.min(26, selectedDay + 1));
-      setUnlockedDay(nextUnlocked);
-      saveProgress(nextUnlocked, newStars);
+      saveVocabularyProgress(nextUnlocked, newStars);
     } else {
       sounds.playWrong();
     }
