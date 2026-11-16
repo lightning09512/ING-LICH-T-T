@@ -1,76 +1,120 @@
-# 🎮 ING LỊCH TÉT (TOEIC Troll Game Cho Nóc Nhà)
+<div align="center">
 
-> Ứng dụng luyện thi TOEIC phong cách Game Retro & Neobrutalism meme hài hước, bựa nhưng cực kỳ tâm lý dành riêng cho bạn gái.
+# 🤪 ING LỊCH TÉT
+### Web App Luyện Thi TOEIC Gamification Meme Troll Bạn Gái
+
+[![Vite](https://img.shields.io/badge/Vite-6.x-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![React](https://img.shields.io/badge/React-18.x-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-Neobrutalism-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Deployment](https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge&logo=vercel&logoColor=white)](https://g-lich-tet.vercel.app)
+
+**Website trải nghiệm trực tiếp**: [👉 g-lich-tet.vercel.app](https://g-lich-tet.vercel.app)
+
+<br/>
+
+> *"Học TOEIC không quạu — biến nỗi sợ tiếng Anh của Nóc Nhà thành tiếng cười và chuỗi ngày leo rank bất tận."*
+
+</div>
 
 ---
 
-## 🛠️ Công Nghệ Sử Dụng
-- **Ngôn ngữ**: TypeScript 100% (Strict mode)
-- **Frontend**: React (Vite) + Tailwind CSS Neobrutalism + Lucide Icons
-- **Backend**: Node.js + Express.js + tsx
-- **Cơ sở dữ liệu**: NoSQL Document Database (JSON file persistence, tự động seed data)
-- **Hiệu ứng & Âm thanh**:
-  - Background Canvas với các mặt Trollface bay lơ lửng và tương tác chuột
-  - Web Audio API Synthesizer (Âm thanh 8-bit retro không phụ thuộc file mp3 ngoài)
-  - Web Speech API (Phát âm giọng bản xứ Mỹ chuẩn chỉnh cho từ vựng và câu nghe)
-  - `canvas-confetti` (Pháo hoa ăn mừng)
+## 💡 Giới Thiệu
+
+**Ing Lịch Tét** (Việt hóa hài hước của *English Test*) là ứng dụng web luyện thi TOEIC được thiết kế theo phong cách đồ họa **Neobrutalism** cổ điển kết hợp yếu tố **Gamification**. 
+
+Dự án ra đời nhằm mục đích giúp bạn gái ("Mập địch") có thêm động lực học từ vựng và ngữ pháp mỗi ngày mà không bị nhàm chán như khi cày giáo trình truyền thống.
 
 ---
 
-## 🚀 Hướng Dẫn Khởi Chạy
+## ✨ Tính Năng Nổi Bật
 
-### Tạo tài khoản email và đồng bộ tiến trình
+### 1. 🗺️ Vượt Màn Từ Vựng 26 Ngày (Angry Birds Style)
+- **Hệ thống 26 bài học** tích hợp hơn **1.400+ từ vựng** chọn lọc từ bộ Quizlet TOEIC trọng điểm.
+- **Flashcard tương tác**: Mặt trước hiển thị từ, phiên âm IPA, câu ví dụ thực tế và nút phát âm; mặt sau là nghĩa tiếng Việt kèm ảnh minh họa.
+- **Cơ chế khóa màn & Lặp lại ngắt quãng (Spaced Repetition)**: Đạt từ 80% điểm bài test mới mở khóa ngày tiếp theo. Bài kiểm tra tự động dồn từ vựng của các ngày trước đó để chống quên.
 
-Người học có thể đăng nhập bằng tài khoản Google hoặc email và mật khẩu qua Firebase Authentication. Tiến trình từ vựng và ngữ pháp được đồng bộ vào Cloud Firestore theo tài khoản.
+### 2. 📚 Ngữ Pháp Trực Quan & Ngân Hàng Đề Part 5 Random
+- **Trọn bộ 12 thì tiếng Anh**: Trình bày dạng khối màu sắc trực quan (khẳng định, phủ định, nghi vấn, dấu hiệu nhận biết, mẹo bẫy ETS).
+- **Quy tắc trật tự từ loại**: Sơ đồ vị trí danh từ, tính từ, trạng từ, động từ nối (Linking Verbs) và cấu trúc đặc biệt.
+- **10 Chuyên đề trọng điểm**: Bị động, quan hệ, điều kiện, đảo ngữ, To-V/V-ing, liên từ...
+- **Test ngẫu nhiên 10 câu**: Hệ thống tự động bốc ngẫu nhiên 10 câu từ ngân hàng hơn 200+ câu trắc nghiệm chuẩn format Part 5, giải thích chi tiết từng đáp án.
 
-1. Tạo dự án tại [Firebase Console](https://console.firebase.google.com/), rồi thêm ứng dụng Web (biểu tượng `</>`).
-2. Trong **Project settings → General → Your apps**, sao chép cấu hình Web App vào `.env` theo các tên biến trong `.env.example`.
-3. Vào **Authentication → Sign-in method**, bật **Email/Password** và **Google**. Khi bật Google, chọn email hỗ trợ rồi lưu.
-4. Vào **Firestore Database → Create database** để tạo cơ sở dữ liệu.
-5. Trong tab **Firestore Database → Rules**, dán nội dung file `firestore.rules` rồi bấm **Publish**. Quy tắc chỉ cho phép người dùng đọc/ghi tiến trình theo UID của chính tài khoản đó.
-6. Khi chạy local, khởi động lại bằng `npm run dev`. Trên Vercel, thêm cùng các biến `VITE_FIREBASE_*` ở **Project → Settings → Environment Variables**, rồi deploy lại. Nếu domain production chưa được Firebase chấp nhận, thêm domain đó trong **Authentication → Settings → Authorized domains**.
+### 3. ⚡ Thách Đấu Sinh Tồn 15s (Troll Mode)
+- Đếm ngược 15 giây mỗi câu hỏi, cấp sẵn 3 Mạng Tim (HP).
+- Trả lời đúng nhận pháo hoa confetti; trả lời sai hoặc hết giờ bị trừ máu kèm meme Trollface dằn mặt trừ ly trà sữa.
 
-#### Đăng nhập Google bằng chuyển hướng trên Vercel
+### 4. 📝 Luyện Đề TOEIC Chuẩn Format
+- Bộ đề thi đầy đủ cả 2 phần **Listening (Part 1 - 4)** và **Reading (Part 5 - 7)**.
+- Trình phát âm thanh có tùy chỉnh tốc độ đọc (0.8x, 1.0x, 1.2x).
+- Bảng ma trận câu hỏi (Question Palette), gắn cờ phân vân, đồng hồ đếm ngược và chấm điểm thang 990.
 
-Nút Google dùng chuyển hướng toàn trang, không mở popup. Để Firebase hoàn tất chuyển hướng trên domain Vercel:
+### 5. 📻 Góc Nhạc Lofi Chill Boombox
+- Tích hợp 7 playlist Lofi / Chillhop thời lượng 1 - 2 tiếng (Lofi Girl, Coffee Shop Rain, Ghibli Lofi, Jazz Piano...).
+- **Chạy ngầm xuyên suốt**: Đóng bảng nhạc vẫn nghe qua nút nổi góc màn hình. Hỗ trợ chạy ngầm cả khi tắt/khóa màn hình điện thoại.
 
-1. Trong **Firebase → Authentication → Settings → Authorized domains**, thêm `ing-lich-tet.vercel.app`.
-2. Trong **Vercel → Project → Settings → Environment Variables**, đặt `VITE_FIREBASE_AUTH_DOMAIN` thành `ing-lich-tet.vercel.app` cho Production.
-3. Trong **Google Cloud Console → APIs & Services → Credentials**, mở OAuth Web client đang dùng cho Firebase Google sign-in và thêm URI này vào **Authorized redirect URIs**: `https://ing-lich-tet.vercel.app/__/auth/handler`.
-4. Deploy lại. `vercel.json` đã chuyển tiếp đường dẫn `/__/auth/*` tới Firebase để luồng chuyển hướng hoạt động cùng domain.
+---
 
-Với domain production khác, thay `ing-lich-tet.vercel.app` bằng domain đó ở cả ba nơi.
+## 🛠️ Tech Stack
 
-Người chưa đăng nhập vẫn lưu tiến trình trên thiết bị. Khi đăng ký hoặc đăng nhập lần đầu, tiến trình cục bộ được gộp vào tài khoản Firebase để dùng trên thiết bị khác. Mật khẩu do Firebase Authentication quản lý; ứng dụng cũng hỗ trợ gửi email đặt lại mật khẩu.
+| Thành phần | Công nghệ sử dụng |
+| :--- | :--- |
+| **Frontend** | React 18, TypeScript, Vite |
+| **Styling** | Tailwind CSS (Neobrutalism design system: viền đen đậm, shadow cứng) |
+| **Typography**| Nunito (Body & Thẻ từ) + Baloo 2 (Tiêu đề game) — Chuẩn 100% tiếng Việt |
+| **Game Engine**| HTML5 Canvas Particle Engine (Mặt Trollface bay lơ lửng & né chuột) |
+| **Audio** | Web Audio API (Synthesizer âm thanh 8-bit retro) + Edge Neural TTS |
+| **Hiệu ứng** | canvas-confetti, Lucide React Icons |
+| **Deploy** | Vercel (Auto-deploy on Git Push) |
 
-### Cách 1: Chạy cả Frontend & Backend đồng thời (Khuyên dùng)
+---
+
+## 🚀 Cài Đặt & Chạy Local
+
+Yêu cầu máy đã cài đặt **Node.js** (phiên bản 18+).
+
 ```bash
+# 1. Clone repository
+git clone https://github.com/lightning09512/ING-LICH-T-T.git
+cd ING-LICH-T-T
+
+# 2. Cài đặt dependencies
+npm install
+
+# 3. Khởi động môi trường phát triển (Frontend & Backend)
 npm run dev
 ```
-- **Client (Frontend)**: `http://localhost:5173`
-- **Server (Backend API)**: `http://localhost:5000`
 
-### Cách 2: Chạy riêng lẻ
-- Chạy Frontend: `npm run client:dev`
-- Chạy Backend NoSQL: `npm run server:dev`
+Mở trình duyệt truy cập:
+- **Client (Frontend)**: `http://localhost:5173`
+- **Server API**: `http://localhost:5000`
+
+```bash
+# Build production
+npm run build
+```
 
 ---
 
-## 📸 Các Tính Năng Đã Hoàn Thiện
+## 📂 Cấu Trúc Dự Án
 
-1. **Title Screen (Màn hình mở đầu - Theo phác thảo hình 1)**:
-   - Hộp viền đen `ING LỊCH TÉT`
-   - Chữ phụ đề viết tay `Mập địch`
-   - Nút `Bắt đầu` có hiệu ứng âm thanh 8-bit và chuyển cảnh mượt mà
-   - Các mặt Trollface bay bay nảy nảy ở background
+```
+├── api/                # Vercel Serverless Functions (TTS API endpoint)
+├── public/             # Assets tĩnh (Trollface, hình ảnh từ vựng)
+├── src/
+│   ├── components/     # UI screens (Flashcards, Grammar, Survival, Exam, Lofi)
+│   ├── data/           # Dữ liệu từ vựng 26 ngày, ngữ pháp, đề thi TOEIC
+│   ├── utils/          # Bộ tạo âm thanh 8-bit retro, Web Audio synthesizer
+│   ├── App.tsx         # Root Router & Navigation
+│   └── main.tsx        # Entry point
+├── tailwind.config.js  # Cấu hình màu sắc, shadow và font Neobrutalism
+└── vercel.json         # Routing & Cấu hình deployment Vercel
+```
 
-2. **Menu Chọn Chế Độ (Theo phác thảo hình 2)**:
-   - **Học bài**: Flashcard từ vựng TOEIC, lật mặt thẻ xem nghĩa và câu ví dụ troll, nút phát âm tiếng Anh native.
-   - **Ôn tập**: Thử thách sinh tồn 15 giây/câu, thanh máu 3 tim, meme dằn mặt khi trả lời sai, hiệu ứng pháo hoa khi sống sót.
-   - **Luyện đề (Chuẩn Study4)**:
-     - Đầy đủ 7 Part của TOEIC (Nghe Part 1-4 & Đọc Part 5-7)
-     - Audio Player có chỉnh tốc độ (0.8x, 1.0x, 1.2x)
-     - Question Palette ma trận câu hỏi (Trạng thái Chưa làm, Đã chọn, Gắn cờ, Đang xem)
-     - Đồng hồ đếm ngược
-     - Chấm điểm chuẩn thang 990 TOEIC (Listening + Reading)
-     - Xếp hạng troll bạn gái & xem lại Transcript + Giải thích chi tiết.
+---
+
+<div align="center">
+
+Dành trọn tình cảm & sự kiên nhẫn cho **Nóc Nhà** đỗ TOEIC 800+ 💖
+
+</div>

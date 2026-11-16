@@ -88,14 +88,14 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose, onSuccess }
 
   return (
     <div
-      className="fixed inset-0 z-[60] bg-black/50 px-4 py-6 flex items-center justify-center"
+      className="fixed inset-0 z-[60] bg-black/50 p-2.5 sm:p-4 flex items-center justify-center"
       onMouseDown={event => { if (event.target === event.currentTarget) onClose(); }}
     >
       <section
         role="dialog"
         aria-modal="true"
         aria-labelledby="account-modal-title"
-        className="w-full max-w-md bg-white border-4 border-black shadow-neo-lg p-5 sm:p-6 relative"
+        className="w-full max-w-md max-h-[92dvh] overflow-y-auto bg-white border-3 sm:border-4 border-black shadow-neo-lg p-4 sm:p-6 relative"
       >
         <button
           onClick={onClose}

@@ -113,32 +113,39 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
     setTouchStartX(null);
   };
 
-  // Start Cumulative Quiz for selectedDay: ~20 words from current lesson + 10 random words from past lessons
+  // Start Cumulative Quiz for selectedDay: 20 words from current lesson + 10 random words from past lessons
   const startQuiz = () => {
     sounds.playClick();
-    const cumulativePool = getCumulativeWords(selectedDay, chapter);
     const currentDayWords = currentLesson?.words || [];
+
+    // Get all words strictly from previous lessons (Day 1 up to Day selectedDay - 1)
+    const pastDaysPool = selectedDay > 1 ? getCumulativeWords(selectedDay - 1, chapter) : [];
+
+    // Filter out words that share the same word text with current day
+    const currentWordSet = new Set(currentDayWords.map(w => w.word.trim().toLowerCase()));
+    const pastWords = pastDaysPool.filter(w => !currentWordSet.has(w.word.trim().toLowerCase()));
 
     // Shuffle current day words and past words
     const shuffledCurrent = [...currentDayWords].sort(() => 0.5 - Math.random());
-    const pastWords = cumulativePool.filter(w => !currentDayWords.some(cw => cw.id === w.id));
     const shuffledPast = [...pastWords].sort(() => 0.5 - Math.random());
 
     // 1. Pick 20 words from current day's lesson (or all if lesson has fewer than 20)
     const currentPickCount = Math.min(20, shuffledCurrent.length);
     const currentPicked = shuffledCurrent.slice(0, currentPickCount);
 
-    // 2. Pick 10 random words from previous lessons
-    const pastPickCount = Math.min(10, shuffledPast.length);
+    // 2. Pick 10 random words from previous lessons (or more if current day has < 20, aiming for 30 questions)
+    const neededPast = selectedDay > 1 ? Math.max(10, 30 - currentPickCount) : 0;
+    const pastPickCount = Math.min(neededPast, shuffledPast.length);
     const pastPicked = shuffledPast.slice(0, pastPickCount);
 
-    // Combine: 20 current + 10 past (for Day 1: 20 questions)
+    // Combine: 20 current + 10 past (for Day 1: 20 questions; Day 2+: exactly 30 questions)
     const targetWords: VocabWord[] = [...currentPicked, ...pastPicked];
 
     // Shuffle all target words so current and past questions appear randomly mixed
     const finalWords = targetWords.sort(() => 0.5 - Math.random());
 
-    // Generate 4 multiple choices for each
+    // Generate 4 multiple choices for each from cumulative pool
+    const cumulativePool = getCumulativeWords(selectedDay, chapter);
     const allMeanings = Array.from(new Set(cumulativePool.map(w => w.meaning)));
 
     const generated: QuizQuestion[] = finalWords.map(word => {
@@ -209,19 +216,19 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
     return (
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 py-6">
         {/* Top Header */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-4 mb-4 sm:mb-6">
           <button
             onClick={() => { sounds.playClick(); onBack(); }}
-            className="flex items-center gap-2 px-4 py-2.5 bg-white border-3 border-black font-black text-sm uppercase shadow-neo-sm hover:bg-gray-100 active:translate-x-0.5 active:translate-y-0.5"
+            className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 bg-white border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo-sm hover:bg-gray-100 active:translate-x-0.5 active:translate-y-0.5 min-h-[40px]"
           >
             <ArrowLeft className="w-4 h-4" /> Về Menu
           </button>
 
-          <div className="flex items-center gap-3">
-            {/* Fullscreen Button */}
+          <div className="flex items-center gap-1.5 sm:gap-3 flex-wrap">
+            {/* Fullscreen Button - Hidden on small mobile */}
             <button
               onClick={toggleFullscreen}
-              className="flex items-center gap-1.5 px-3 py-2 bg-neoYellow border-2 border-black font-black text-xs sm:text-sm shadow-neo-sm hover:bg-yellow-300 min-h-[40px] cursor-pointer"
+              className="hidden sm:flex items-center gap-1.5 px-3 py-2 bg-neoYellow border-2 border-black font-black text-xs sm:text-sm shadow-neo-sm hover:bg-yellow-300 min-h-[40px] cursor-pointer"
               title={isFullscreen ? "Thu nhỏ màn hình" : "Toàn màn hình"}
             >
               {isFullscreen ? <Minimize className="w-4 h-4" /> : <Maximize className="w-4 h-4" />}
@@ -229,20 +236,20 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
             </button>
 
             {/* Stars counter */}
-            <div className="flex items-center gap-1.5 px-4 py-2 bg-neoYellow border-3 border-black font-black shadow-neo-sm">
-              <Star className="w-5 h-5 text-amber-500 fill-amber-500 animate-spin" />
+            <div className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-4 py-1.5 sm:py-2 bg-neoYellow border-2 sm:border-3 border-black font-black text-xs sm:text-sm shadow-neo-sm min-h-[40px]">
+              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500 fill-amber-500 animate-spin" />
               <span>{totalEarnedStars} / {maxDay * 3} ⭐</span>
             </div>
 
             {/* Unlocked status */}
-            <div className="px-4 py-2 bg-neoGreen border-3 border-black font-black shadow-neo-sm text-sm">
-              Đã mở: {unlockedDay} / {maxDay} Màn
+            <div className="px-2.5 sm:px-4 py-1.5 sm:py-2 bg-neoGreen border-2 sm:border-3 border-black font-black shadow-neo-sm text-xs sm:text-sm min-h-[40px] flex items-center">
+              Đã mở: {unlockedDay}/{maxDay} Màn
             </div>
           </div>
         </div>
 
         {/* Chapter Switcher Tabs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4 mb-6">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-4 sm:mb-6">
           <button
             onClick={() => {
               if (chapter !== 1) {
@@ -251,9 +258,9 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                 setSelectedDay(1);
               }
             }}
-            className={`w-full sm:w-auto px-5 py-3 border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo transition-all cursor-pointer ${
+            className={`w-full sm:w-auto px-4 py-2.5 sm:px-5 sm:py-3 border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo transition-all cursor-pointer ${
               chapter === 1
-                ? 'bg-neoYellow -translate-y-1 shadow-neo-lg ring-2 ring-black text-black'
+                ? 'bg-neoYellow -translate-y-0.5 sm:-translate-y-1 shadow-neo sm:shadow-neo-lg ring-2 ring-black text-black'
                 : 'bg-white hover:bg-gray-100 text-gray-700'
             }`}
           >
@@ -268,13 +275,13 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                 setSelectedDay(1);
               }
             }}
-            className={`w-full sm:w-auto px-5 py-3 border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo transition-all cursor-pointer relative ${
+            className={`w-full sm:w-auto px-4 py-2.5 sm:px-5 sm:py-3 border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo transition-all cursor-pointer relative ${
               chapter === 2
-                ? 'bg-neoCyan -translate-y-1 shadow-neo-lg ring-2 ring-black text-black'
+                ? 'bg-neoCyan -translate-y-0.5 sm:-translate-y-1 shadow-neo sm:shadow-neo-lg ring-2 ring-black text-black'
                 : 'bg-white hover:bg-gray-100 text-gray-700'
             }`}
           >
-            <span className="absolute -top-3 -right-2 bg-neoPink text-white text-[10px] font-black px-2 py-0.5 border border-black rotate-12 shadow-neo-sm">
+            <span className="absolute -top-2.5 -right-1 sm:-top-3 sm:-right-2 bg-neoPink text-white text-[9px] sm:text-[10px] font-black px-1.5 sm:px-2 py-0.5 border border-black rotate-12 shadow-neo-sm">
               MỚI 🔥
             </span>
             🚀 Chương 2: ETS 2019 & New Economy (13 Bài)
@@ -282,14 +289,14 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
         </div>
 
         {/* Title Banner */}
-        <div className="text-center mb-8">
-          <span className="inline-block px-4 py-1.5 bg-neoPink text-white border-2 border-black font-black text-xs uppercase shadow-neo-sm rotate-[-2deg]">
+        <div className="text-center mb-5 sm:mb-8">
+          <span className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 bg-neoPink text-white border-2 border-black font-black text-[11px] sm:text-xs uppercase shadow-neo-sm rotate-[-2deg]">
             {isChap2 ? 'BỘ TỪ VỰNG ETS 2019 & NEW ECONOMY' : 'BẢN ĐỒ 26 NGÀY TOEIC CĂN BẢN'}
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mt-2 font-heading">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black mt-2 font-heading leading-tight">
             {isChap2 ? 'Từ Vựng Sát Đề Thi Thật (13 Bài)' : 'Vượt Màn Học Từ Vựng (Day 1 - 26)'}
           </h2>
-          <p className="text-sm font-bold text-gray-600 mt-1 max-w-lg mx-auto">
+          <p className="text-xs sm:text-sm font-bold text-gray-600 mt-1 max-w-lg mx-auto">
             {isChap2
               ? `Bộ từ vựng trọng điểm trích trực tiếp từ đề ETS 2019 và New Economy! Mỗi bài test gồm 20 từ bài đó + 10 câu ngẫu nhiên dồn từ các bài trước!`
               : `Học flashcard rồi làm bài test để mở khóa màn tiếp theo! Mỗi bài test gồm 20 từ bài hiện tại + 10 câu ngẫu nhiên từ các bài trước!`}
@@ -297,7 +304,7 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
         </div>
 
         {/* ANGRY BIRDS STAGE GRID */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3.5 sm:gap-5 bg-white border-4 border-black p-5 sm:p-7 md:p-8 shadow-neo-lg rounded-2xl relative">
+        <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-2.5 sm:gap-4 md:gap-5 bg-white border-3 sm:border-4 border-black p-3.5 sm:p-6 md:p-8 shadow-neo sm:shadow-neo-lg rounded-2xl relative">
           {Array.from({ length: maxDay }, (_, i) => i + 1).map(day => {
             const isUnlocked = day <= unlockedDay;
             const isCompleted = (dayStars[day] || 0) > 0;
@@ -310,13 +317,13 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
               <div
                 key={day}
                 onClick={() => handleSelectDay(day)}
-                className={`relative flex flex-col items-center justify-center p-2.5 sm:p-3 rounded-2xl border-4 border-black transition-all cursor-pointer select-none group min-h-[110px] ${
+                className={`relative flex flex-col items-center justify-center p-2 sm:p-3 rounded-2xl border-3 sm:border-4 border-black transition-all cursor-pointer select-none group min-h-[96px] sm:min-h-[110px] ${
                   isShaking ? 'animate-shake' : ''
                 } ${
                   isCompleted
                     ? 'bg-neoGreen shadow-neo hover:-translate-y-1'
                     : isCurrent
-                    ? 'bg-neoYellow shadow-neo-lg animate-bounceSlow'
+                    ? 'bg-neoYellow shadow-neo sm:shadow-neo-lg animate-bounceSlow'
                     : isUnlocked
                     ? 'bg-neoCyan shadow-neo hover:-translate-y-1'
                     : 'bg-gray-200 border-gray-500 opacity-60 cursor-not-allowed shadow-none'
@@ -325,7 +332,7 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                 {/* Level Number or Lock */}
                 {isUnlocked ? (
                   <div className="flex flex-col items-center text-center w-full px-1">
-                    <span className="text-2xl sm:text-3xl font-black font-heading text-black leading-tight">
+                    <span className="text-xl sm:text-3xl font-black font-heading text-black leading-tight">
                       {day}
                     </span>
                     <span className="text-[10px] sm:text-[11px] font-black uppercase text-gray-800 line-clamp-1 w-full truncate mt-0.5">
@@ -339,7 +346,7 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                   </div>
                 ) : (
                   <div className="flex flex-col items-center gap-1 text-gray-500">
-                    <Lock className="w-6 h-6 text-gray-600" />
+                    <Lock className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" />
                     <span className="text-[10px] font-bold">Khóa</span>
                   </div>
                 )}
@@ -384,36 +391,36 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
   // ==================== 2. FLASHCARD STUDY VIEW ====================
   if (view === 'STUDY' && currentLesson && currentWord) {
     return (
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 py-6">
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
         {/* Navigation Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-4 mb-4 sm:mb-6">
           <button
             onClick={() => { sounds.playClick(); setView('MAP'); }}
-            className="flex items-center gap-2 px-4 py-2 bg-white border-3 border-black font-black text-xs sm:text-sm shadow-neo-sm hover:bg-gray-100"
+            className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 bg-white border-2 sm:border-3 border-black font-black text-xs sm:text-sm shadow-neo-sm hover:bg-gray-100 min-h-[40px]"
           >
             <ArrowLeft className="w-4 h-4" /> Quay lại Bản Đồ Màn
           </button>
 
-          <div className="flex items-center gap-2 sm:gap-3">
-            {/* Fullscreen Button */}
+          <div className="flex items-center gap-1.5 sm:gap-3 flex-wrap">
+            {/* Fullscreen Button - Hidden on small screens */}
             <button
               onClick={toggleFullscreen}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-neoYellow border-2 border-black font-black text-xs shadow-neo-sm hover:bg-yellow-300 min-h-[38px] cursor-pointer"
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-neoYellow border-2 border-black font-black text-xs shadow-neo-sm hover:bg-yellow-300 min-h-[38px] cursor-pointer"
               title={isFullscreen ? "Thu nhỏ màn hình" : "Toàn màn hình"}
             >
               {isFullscreen ? <Minimize className="w-4 h-4" /> : <Maximize className="w-4 h-4" />}
               <span className="hidden sm:inline">{isFullscreen ? "Thu nhỏ" : "Full màn hình"}</span>
             </button>
 
-            <span className="px-3 sm:px-4 py-1.5 bg-neoPurple border-3 border-black font-black text-xs sm:text-sm shadow-neo-sm uppercase">
+            <span className="px-2.5 sm:px-4 py-1 sm:py-1.5 bg-neoPurple border-2 sm:border-3 border-black font-black text-xs sm:text-sm shadow-neo-sm uppercase">
               {currentLesson.title} ({currentLesson.totalWords} từ)
             </span>
 
             <button
               onClick={() => setShowAllWordsModal(true)}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-black font-bold text-xs shadow-neo-sm hover:bg-gray-100 min-h-[38px]"
+              className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 bg-white border-2 border-black font-bold text-xs shadow-neo-sm hover:bg-gray-100 min-h-[38px]"
             >
-              <List className="w-4 h-4" /> Xem tất cả từ
+              <List className="w-4 h-4" /> <span className="hidden xs:inline">Xem</span> tất cả từ
             </button>
           </div>
         </div>
@@ -424,15 +431,15 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
             onClick={() => { sounds.playClick(); setIsFlipped(!isFlipped); }}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
-            className="w-full max-w-xl md:max-w-2xl min-h-[420px] md:min-h-[460px] bg-white border-4 border-black p-6 sm:p-8 md:p-10 shadow-neo-lg cursor-pointer select-none transition-all hover:-translate-y-1 relative flex flex-col justify-between"
+            className="w-full max-w-xl md:max-w-2xl min-h-[380px] sm:min-h-[420px] md:min-h-[460px] bg-white border-3 sm:border-4 border-black p-4 sm:p-7 md:p-10 shadow-neo sm:shadow-neo-lg cursor-pointer select-none transition-all hover:-translate-y-1 relative flex flex-col justify-between"
           >
             {/* Top Card Info */}
             <div className="flex items-center justify-between gap-2">
-              <span className="px-3 py-1 bg-neoCyan border-2 border-black text-xs font-black uppercase shadow-neo-sm">
-                {currentLesson.title} • Từ #{currentWord.id}
+              <span className="px-2 sm:px-3 py-1 bg-neoCyan border-2 border-black text-[10px] sm:text-xs font-black uppercase shadow-neo-sm">
+                {currentLesson.title} • #{currentWord.id}
               </span>
 
-              {/* Phần phát âm lên góc phải theo yêu cầu */}
+              {/* Phần phát âm lên góc phải */}
               <div className="flex items-center gap-2 sm:gap-3">
                 <span className="text-xs font-bold text-gray-500">
                   {flashcardIndex + 1} / {currentLesson.words.length}
@@ -443,7 +450,7 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                     sounds.playClick();
                     sounds.speakEnglish(currentWord.word);
                   }}
-                  className="flex items-center gap-1.5 px-3 py-1.5 bg-neoYellow border-2 border-black font-black text-xs uppercase shadow-neo-sm hover:bg-yellow-300 active:translate-x-0.5 active:translate-y-0.5 transition-all group cursor-pointer"
+                  className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 bg-neoYellow border-2 border-black font-black text-xs uppercase shadow-neo-sm hover:bg-yellow-300 active:translate-x-0.5 active:translate-y-0.5 transition-all group cursor-pointer min-h-[36px]"
                   title="Phát âm từ vựng (giọng Mỹ chuẩn)"
                 >
                   <Volume2 className="w-4 h-4 group-hover:scale-125 transition-transform" />
@@ -454,21 +461,21 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
 
             {/* Card Content */}
             {!isFlipped ? (
-              /* Front: English Word + IPA + Câu minh họa tại chỗ phát âm màu vàng cũ */
-              <div className="my-auto py-6 sm:py-8 text-center flex flex-col items-center gap-3 sm:gap-4 w-full">
+              /* Front: English Word + IPA + Câu minh họa */
+              <div className="my-auto py-4 sm:py-8 text-center flex flex-col items-center gap-2.5 sm:gap-4 w-full">
                 <h2 
                   onClick={(e) => {
                     e.stopPropagation();
                     sounds.playClick();
                     sounds.speakEnglish(currentWord.word);
                   }}
-                  className="text-4xl sm:text-5xl md:text-6xl font-black font-heading text-black tracking-wide cursor-pointer hover:text-indigo-800 transition-colors"
+                  className="text-3xl sm:text-5xl md:text-6xl font-black font-heading text-black tracking-wide cursor-pointer hover:text-indigo-800 transition-colors"
                   title="Nhấn để nghe phát âm từ"
                 >
                   {currentWord.word}
                 </h2>
 
-                <div className="flex items-center justify-center gap-2 flex-wrap">
+                <div className="flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap">
                   {currentWord.ipa && (
                     <span 
                       onClick={(e) => {
@@ -476,7 +483,7 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                         sounds.playClick();
                         sounds.speakEnglish(currentWord.word);
                       }}
-                      className="text-lg sm:text-xl md:text-2xl font-mono font-bold text-gray-700 bg-yellow-100/90 px-4 py-1.5 border-2 border-black rounded-lg shadow-neo-sm cursor-pointer hover:bg-yellow-200 transition-all"
+                      className="text-base sm:text-xl md:text-2xl font-mono font-bold text-gray-700 bg-yellow-100/90 px-3 sm:px-4 py-1 sm:py-1.5 border-2 border-black rounded-lg shadow-neo-sm cursor-pointer hover:bg-yellow-200 transition-all"
                       title="Phiên âm IPA (nhấn để nghe)"
                     >
                       {currentWord.ipa}
@@ -484,7 +491,7 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                   )}
                   {currentWord.partOfSpeech && (
                     <span 
-                      className="text-sm sm:text-base font-black px-3 py-1.5 bg-neoCyan text-black border-2 border-black rounded-lg shadow-neo-sm"
+                      className="text-xs sm:text-base font-black px-2.5 sm:px-3 py-1 sm:py-1.5 bg-neoCyan text-black border-2 border-black rounded-lg shadow-neo-sm"
                       title="Từ loại"
                     >
                       {currentWord.partOfSpeech}
@@ -492,13 +499,13 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                   )}
                 </div>
 
-                {/* Phần câu minh họa ngữ cảnh thon gọn (bỏ chữ câu minh họa và bản dịch) */}
+                {/* Phần câu minh họa ngữ cảnh */}
                 {currentWord.exampleEn ? (
                   <div
                     onClick={(e) => e.stopPropagation()}
-                    className="w-full max-w-lg bg-neoYellow border-3 border-black px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl shadow-neo-sm text-left mt-2 flex items-center justify-between gap-3 transition-all"
+                    className="w-full max-w-lg bg-neoYellow border-2 sm:border-3 border-black px-3 py-2 sm:px-5 sm:py-3 rounded-xl shadow-neo-sm text-left mt-2 flex items-center justify-between gap-2.5 sm:gap-3 transition-all"
                   >
-                    <p className="font-bold text-sm sm:text-base text-black leading-snug flex-1">
+                    <p className="font-bold text-xs sm:text-base text-black leading-snug flex-1">
                       "{currentWord.exampleEn}"
                     </p>
 
@@ -522,26 +529,26 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                 )}
 
                 {/* Hướng dẫn lật thẻ */}
-                <p className="text-xs sm:text-sm text-gray-400 font-bold mt-2">
+                <p className="text-[11px] sm:text-sm text-gray-400 font-bold mt-1 sm:mt-2">
                   (Chạm để xem nghĩa)
                 </p>
               </div>
             ) : (
               /* Back: Vietnamese Definition + Illustration Image on BACK */
-              <div className="my-auto py-4 text-center flex flex-col items-center gap-3">
+              <div className="my-auto py-3 sm:py-4 text-center flex flex-col items-center gap-2 sm:gap-3">
                 <div className="flex items-center justify-center gap-2 flex-wrap">
-                  <span className="text-xs font-bold px-3 py-1 bg-neoPink text-white border-2 border-black uppercase">
+                  <span className="text-[11px] sm:text-xs font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 bg-neoPink text-white border-2 border-black uppercase">
                     Ý NGHĨA TIẾNG VIỆT
                   </span>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-emerald-700 font-heading">
+                <h3 className="text-xl sm:text-3xl md:text-4xl font-black text-emerald-700 font-heading">
                   {currentWord.meaning}
                 </h3>
 
                 {/* Illustration Image on Back Side */}
                 {currentWord.imageUrl && (
-                  <div className="w-52 h-36 sm:w-64 sm:h-44 border-3 border-black bg-white rounded-xl overflow-hidden shadow-neo flex items-center justify-center p-2 my-1 hover:scale-105 transition-transform">
+                  <div className="w-40 h-28 sm:w-64 sm:h-44 border-2 sm:border-3 border-black bg-white rounded-xl overflow-hidden shadow-neo flex items-center justify-center p-1.5 sm:p-2 my-1 hover:scale-105 transition-transform">
                     <img
                       src={currentWord.imageUrl}
                       alt={currentWord.word}
@@ -551,25 +558,25 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                   </div>
                 )}
 
-                <p className="text-xs text-gray-400 font-bold mt-1">
+                <p className="text-[11px] sm:text-xs text-gray-400 font-bold mt-1">
                   (Chạm để lật lại mặt tiếng Anh)
                 </p>
               </div>
             )}
 
             {/* Bottom Card Navigation Tip */}
-            <div className="flex items-center justify-between text-xs font-bold text-gray-500 pt-3 border-t-2 border-dashed border-gray-300">
+            <div className="flex items-center justify-between text-[11px] sm:text-xs font-bold text-gray-500 pt-2.5 sm:pt-3 border-t-2 border-dashed border-gray-300">
               <span className="flex items-center gap-1">
-                <RotateCcw className="w-3.5 h-3.5" /> Chạm để lật thẻ
+                <RotateCcw className="w-3.5 h-3.5" /> Chạm lật thẻ
               </span>
-              <span className="text-pink-600 font-bold">
-                Cố lên {nickname}! Đạt 80% test mới qua màn nhé!
+              <span className="text-pink-600 font-bold truncate ml-2">
+                Đạt 80% test mới qua màn nhé {nickname}!
               </span>
             </div>
           </div>
 
           {/* Flashcard Next/Prev Controls */}
-          <div className="flex items-center gap-3 sm:gap-4 mt-6">
+          <div className="w-full max-w-xl md:max-w-2xl flex items-center gap-2.5 sm:gap-4 mt-4 sm:mt-6">
             <button
               disabled={flashcardIndex === 0}
               onClick={() => {
@@ -577,7 +584,7 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                 setFlashcardIndex(flashcardIndex - 1);
                 setIsFlipped(false);
               }}
-              className="flex items-center gap-2 px-5 sm:px-6 py-3 bg-white border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo hover:bg-gray-100 disabled:opacity-40 min-h-[48px]"
+              className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-2.5 sm:py-3 bg-white border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo hover:bg-gray-100 disabled:opacity-40 min-h-[44px] sm:min-h-[48px] active:scale-95 transition-all"
             >
               <ArrowLeft className="w-4 h-4" /> Từ trước
             </button>
@@ -589,26 +596,26 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                 setFlashcardIndex(flashcardIndex + 1);
                 setIsFlipped(false);
               }}
-              className="flex items-center gap-2 px-5 sm:px-6 py-3 bg-neoYellow border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo hover:bg-yellow-300 disabled:opacity-40 min-h-[48px]"
+              className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-2.5 sm:py-3 bg-neoYellow border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo hover:bg-yellow-300 disabled:opacity-40 min-h-[44px] sm:min-h-[48px] active:scale-95 transition-all"
             >
               Từ sau <ArrowRight className="w-4 h-4" />
             </button>
           </div>
 
           {/* BIG CTA BUTTON: GO TO QUIZ */}
-          <div className="w-full max-w-xl mt-8">
+          <div className="w-full max-w-xl md:max-w-2xl mt-6 sm:mt-8">
             <button
               onClick={startQuiz}
-              className="w-full py-4 px-6 bg-neoPink text-white border-4 border-black text-lg sm:text-xl font-black font-heading uppercase shadow-neo-lg hover:bg-pink-600 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all flex items-center justify-center gap-3 group min-h-[60px]"
+              className="w-full py-3.5 sm:py-4 px-4 sm:px-6 bg-neoPink text-white border-3 sm:border-4 border-black text-sm sm:text-lg md:text-xl font-black font-heading uppercase shadow-neo sm:shadow-neo-lg hover:bg-pink-600 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all flex items-center justify-center gap-2 sm:gap-3 group min-h-[54px] sm:min-h-[60px]"
             >
-              <Play className="w-6 h-6 fill-white group-hover:scale-125 transition-transform" />
-              <span>Vào Làm Bài Test Bài {selectedDay} Để Mở Khóa Màn Sau</span>
-              <Sparkles className="w-5 h-5 text-yellow-300" />
+              <Play className="w-5 h-5 sm:w-6 sm:h-6 fill-white group-hover:scale-125 transition-transform" />
+              <span>Làm Bài Test Bài {selectedDay} Mở Màn</span>
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-300" />
             </button>
-            <p className="text-center text-xs font-bold text-gray-500 mt-2">
+            <p className="text-center text-[11px] sm:text-xs font-bold text-gray-500 mt-1.5 sm:mt-2">
               {selectedDay === 1
                 ? `(Bài test gồm 20 câu hỏi trọng tâm của Bài 1)`
-                : `(Bài test gồm 20 từ trọng tâm của Bài ${selectedDay} + 10 câu ngẫu nhiên từ các bài trước)`}
+                : `(Bài test gồm 20 từ trọng tâm Bài ${selectedDay} + 10 câu ngẫu nhiên từ các bài trước)`}
             </p>
           </div>
         </div>
@@ -718,38 +725,38 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
 
         {/* RESULTS SCREEN */}
         {quizFinished ? (
-          <div className="bg-white border-4 border-black p-8 text-center shadow-neo-lg flex flex-col items-center gap-6 animate-bounceSlow">
+          <div className="bg-white border-3 sm:border-4 border-black p-4 sm:p-8 text-center shadow-neo sm:shadow-neo-lg flex flex-col items-center gap-4 sm:gap-6 animate-bounceSlow">
             {passed ? (
-              <div className="w-20 h-20 bg-amber-100 border-3 border-black rounded-2xl flex items-center justify-center shadow-neo-sm">
-                <Trophy className="w-12 h-12 text-amber-600 animate-bounce" />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-amber-100 border-3 border-black rounded-2xl flex items-center justify-center shadow-neo-sm">
+                <Trophy className="w-10 h-10 sm:w-12 sm:h-12 text-amber-600 animate-bounce" />
               </div>
             ) : (
-              <div className="w-20 h-20 bg-rose-100 border-3 border-black rounded-2xl flex items-center justify-center shadow-neo-sm">
-                <AlertCircle className="w-12 h-12 text-rose-600 animate-pulse" />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-rose-100 border-3 border-black rounded-2xl flex items-center justify-center shadow-neo-sm">
+                <AlertCircle className="w-10 h-10 sm:w-12 sm:h-12 text-rose-600 animate-pulse" />
               </div>
             )}
 
             {passed ? (
               <>
                 <div className="flex items-center gap-1 text-amber-500">
-                  <Star className="w-8 h-8 fill-current" />
-                  <Star className="w-10 h-10 fill-current animate-bounce" />
-                  <Star className="w-8 h-8 fill-current" />
+                  <Star className="w-6 h-6 sm:w-8 sm:h-8 fill-current" />
+                  <Star className="w-8 h-8 sm:w-10 sm:h-10 fill-current animate-bounce" />
+                  <Star className="w-6 h-6 sm:w-8 sm:h-8 fill-current" />
                 </div>
 
-                <h2 className="text-3xl sm:text-4xl font-black text-emerald-600 font-heading uppercase">
+                <h2 className="text-2xl sm:text-4xl font-black text-emerald-600 font-heading uppercase">
                   QUA MÀN THÀNH CÔNG!
                 </h2>
 
-                <p className="font-bold text-gray-700 text-base max-w-md">
+                <p className="font-bold text-gray-700 text-sm sm:text-base max-w-md">
                   Xuất sắc quá {nickname}! Đạt <strong>{correctCount}/{totalQ} câu ({percent}%)</strong>. Bài tiếp theo đã được mở khóa trên bản đồ!
                 </p>
 
-                <div className="flex items-center gap-4 mt-2">
+                <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-4 mt-2 w-full sm:w-auto">
                   <button
                     onClick={() => {
                       sounds.playClick();
-                      if (selectedDay < 26) {
+                      if (selectedDay < maxDay) {
                         setSelectedDay(selectedDay + 1);
                         setFlashcardIndex(0);
                         setIsFlipped(false);
@@ -758,14 +765,14 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                         setView('MAP');
                       }
                     }}
-                    className="px-6 py-3 bg-neoGreen border-3 border-black font-black text-sm uppercase shadow-neo hover:bg-emerald-300"
+                    className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 bg-neoGreen border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo hover:bg-emerald-300 active:scale-95"
                   >
                     Học Tiếp Bài {selectedDay + 1} 👉
                   </button>
 
                   <button
                     onClick={() => { sounds.playClick(); setView('MAP'); }}
-                    className="px-6 py-3 bg-white border-3 border-black font-black text-sm uppercase shadow-neo hover:bg-gray-100"
+                    className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 bg-white border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo hover:bg-gray-100 active:scale-95"
                   >
                     Về Bản Đồ
                   </button>
@@ -773,11 +780,11 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
               </>
             ) : (
               <>
-                <h2 className="text-3xl sm:text-4xl font-black text-red-600 font-heading uppercase">
+                <h2 className="text-2xl sm:text-4xl font-black text-red-600 font-heading uppercase">
                   TRƯỢT RỒI MẬP ĐỊCH ƠI!
                 </h2>
 
-                <p className="font-bold text-gray-700 text-base max-w-md">
+                <p className="font-bold text-gray-700 text-sm sm:text-base max-w-md">
                   Chỉ đúng được <strong>{correctCount}/{totalQ} câu ({percent}%)</strong> thôi! Phải đạt tối thiểu <strong>80%</strong> mới được mở khóa Bài tiếp theo!
                 </p>
 
@@ -785,17 +792,17 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                   ⚠️ Phạt: Mau vào ôn lại flashcard rồi thi lại ngay, không được lười biếng!
                 </div>
 
-                <div className="flex items-center gap-4 mt-2">
+                <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-4 mt-2 w-full sm:w-auto">
                   <button
                     onClick={startQuiz}
-                    className="px-6 py-3 bg-neoYellow border-3 border-black font-black text-sm uppercase shadow-neo hover:bg-yellow-300"
+                    className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 bg-neoYellow border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo hover:bg-yellow-300 active:scale-95"
                   >
                     Thi Lại Ngay ⚡
                   </button>
 
                   <button
                     onClick={() => { sounds.playClick(); setView('STUDY'); }}
-                    className="px-6 py-3 bg-white border-3 border-black font-black text-sm uppercase shadow-neo hover:bg-gray-100"
+                    className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 bg-white border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo hover:bg-gray-100 active:scale-95"
                   >
                     Ôn Lại Flashcard
                   </button>

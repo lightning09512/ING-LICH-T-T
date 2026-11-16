@@ -35,19 +35,19 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
   };
 
   return (
-    <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-70px)] px-3 sm:px-4 py-4 sm:py-6 text-center">
+    <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100dvh-64px)] px-3 sm:px-4 py-4 sm:py-6 text-center">
       {/* Container simulating the exact sketch 1 */}
-      <div className="w-full max-w-2xl flex flex-col items-center gap-5 sm:gap-6 animate-bounceSlow">
+      <div className="w-full max-w-2xl flex flex-col items-center gap-4 sm:gap-6 animate-bounceSlow">
         {/* Top Box: ing lich tet */}
         <div className="w-full bg-white border-4 border-black p-4 sm:p-6 md:p-8 shadow-neo-lg relative">
-          <div className="absolute -top-3.5 -right-3 sm:-top-4 sm:-right-4 bg-neoPink text-white text-[10px] sm:text-xs font-black px-2.5 sm:px-3 py-1 border-2 border-black rotate-12 shadow-neo-sm">
+          <div className="absolute -top-3 -right-2 sm:-top-4 sm:-right-4 bg-neoPink text-white text-[10px] sm:text-xs font-black px-2 sm:px-3 py-0.5 sm:py-1 border-2 border-black rotate-6 sm:rotate-12 shadow-neo-sm">
             EDITION BẠN GÁI 2026
           </div>
 
-          <h1 className="text-3xl sm:text-6xl md:text-7xl font-black uppercase tracking-wider font-heading text-black break-words">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-wider font-heading text-black break-words mt-1 sm:mt-0">
             ing lịch tét
           </h1>
-          <p className="text-xs sm:text-sm md:text-base font-bold text-gray-600 mt-2 font-comic">
+          <p className="text-xs sm:text-sm md:text-base font-bold text-gray-600 mt-1.5 sm:mt-2 font-comic">
             (giải cứu bạn gái khỏi nỗi sợ TOEIC)
           </p>
         </div>
@@ -60,7 +60,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
           <img
             src="/trollface.png"
             alt="troll"
-            className="w-10 h-10 sm:w-12 sm:h-12 object-contain animate-wiggle inline-block shrink-0"
+            className="w-9 h-9 sm:w-12 sm:h-12 object-contain animate-wiggle inline-block shrink-0"
           />
         </div>
 
@@ -68,11 +68,11 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
         <div className="w-full max-w-sm px-2">
           <button
             onClick={handleStart}
-            className="w-full py-4 sm:py-5 px-6 sm:px-8 bg-neoYellow border-4 border-black text-xl sm:text-2xl md:text-3xl font-black font-heading uppercase shadow-neo-lg hover:bg-yellow-300 hover:shadow-neo active:scale-95 transition-all flex items-center justify-center gap-3 group min-h-[58px] cursor-pointer"
+            className="w-full py-3.5 sm:py-5 px-6 sm:px-8 bg-neoYellow border-4 border-black text-xl sm:text-2xl md:text-3xl font-black font-heading uppercase shadow-neo-lg hover:bg-yellow-300 hover:shadow-neo active:scale-95 transition-all flex items-center justify-center gap-3 group min-h-[54px] sm:min-h-[58px] cursor-pointer"
           >
-            <Play className="w-6 h-6 sm:w-7 sm:h-7 fill-black group-hover:scale-125 transition-transform" />
+            <Play className="w-5 h-5 sm:w-7 sm:h-7 fill-black group-hover:scale-125 transition-transform" />
             <span>Bắt đầu</span>
-            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-pink-500 fill-pink-500 group-hover:rotate-45 transition-transform" />
+            <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-pink-500 fill-pink-500 group-hover:rotate-45 transition-transform" />
           </button>
         </div>
 

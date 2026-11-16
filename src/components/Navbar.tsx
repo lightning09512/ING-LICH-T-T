@@ -71,29 +71,31 @@ export const Navbar: React.FC<NavbarProps> = ({
   }[syncStatus];
 
   return (
-    <header className="relative z-10 w-full px-2.5 sm:px-4 py-2 sm:py-3 bg-white border-b-4 border-black flex items-center justify-between shadow-neo-sm">
+    <header className="relative z-10 w-full px-2 sm:px-4 py-2 sm:py-3 bg-white border-b-4 border-black flex items-center justify-between shadow-neo-sm">
+      {/* Brand logo & name */}
       <div 
         onClick={() => { sounds.playClick(); onGoHome(); }}
-        className="flex items-center gap-2 sm:gap-3 cursor-pointer group min-h-[44px]"
+        className="flex items-center gap-1.5 sm:gap-2.5 cursor-pointer group min-h-[40px] shrink-0"
       >
         <img 
           src="/trollface.png" 
           alt="Trollface" 
-          className="w-8 h-8 sm:w-10 sm:h-10 object-contain group-hover:rotate-12 transition-transform shrink-0" 
+          className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 object-contain group-hover:rotate-12 transition-transform shrink-0" 
         />
         <div className="flex flex-col min-w-0">
-          <span className="font-heading text-base sm:text-lg md:text-xl font-black tracking-wide uppercase truncate">
+          <span className="font-heading text-sm sm:text-lg md:text-xl font-black tracking-wide uppercase truncate max-w-[100px] xs:max-w-[130px] sm:max-w-none">
             Ing Lịch Tét
           </span>
         </div>
       </div>
 
-      <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 shrink-0">
+      {/* Right Controls */}
+      <div className="flex items-center gap-1 sm:gap-2 md:gap-3 shrink-0">
         {/* Email account and progress sync */}
         <button
           onClick={handleAccountClick}
           disabled={authLoading}
-          className={`h-10 sm:h-11 min-w-10 px-2 sm:px-3 border-2 border-black rounded shadow-neo-sm font-black text-xs transition-transform active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-60 disabled:cursor-wait ${
+          className={`h-9 sm:h-11 min-w-9 sm:min-w-10 px-1.5 sm:px-3 border-2 border-black rounded shadow-neo-sm font-black text-xs transition-transform active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-60 disabled:cursor-wait ${
             user ? 'bg-neoCyan hover:bg-cyan-300' : 'bg-white hover:bg-gray-100'
           }`}
           title={user ? `${user.displayName || user.email} · ${syncLabel} · Bấm để xem thông tin` : 'Đăng nhập để đồng bộ tiến trình'}
@@ -121,25 +123,25 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Streak Indicator Button */}
         <button
           onClick={() => { sounds.playClick(); onOpenStreak?.(); }}
-          className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 h-10 sm:h-11 bg-orange-100 hover:bg-orange-200 border-2 border-black rounded shadow-neo-sm font-black text-xs sm:text-sm cursor-pointer active:scale-95 transition-all"
+          className="flex items-center gap-1 sm:gap-1.5 px-1.5 sm:px-3 h-9 sm:h-11 bg-orange-100 hover:bg-orange-200 border-2 border-black rounded shadow-neo-sm font-black text-xs sm:text-sm cursor-pointer active:scale-95 transition-all"
           title="Bấm để xem chi tiết chuỗi ngày học tập"
           aria-label="Chuỗi học tập"
         >
-          <Flame className="w-4 h-4 text-orange-500 fill-orange-500 shrink-0" />
-          <span>{streakDays} ngày</span>
+          <Flame className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-500 fill-orange-500 shrink-0" />
+          <span>{streakDays}<span className="hidden xs:inline"> ngày</span></span>
         </button>
 
         {/* 3 Hearts indicator Button */}
         <button
           onClick={() => { sounds.playClick(); onOpenHearts?.(); }}
-          className="flex items-center gap-0.5 sm:gap-1 px-1.5 sm:px-2.5 h-10 sm:h-11 bg-pink-100 hover:bg-pink-200 border-2 border-black rounded shadow-neo-sm cursor-pointer active:scale-95 transition-all"
+          className="flex items-center gap-0.5 sm:gap-1 px-1 sm:px-2.5 h-9 sm:h-11 bg-pink-100 hover:bg-pink-200 border-2 border-black rounded shadow-neo-sm cursor-pointer active:scale-95 transition-all"
           title={`Bạn còn ${hearts}/3 tim. Bấm để xem hoặc hồi tim!`}
           aria-label="Mạng sống"
         >
           {[1, 2, 3].map(num => (
             <Heart
               key={num}
-              className={`w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 transition-transform ${
+              className={`w-3 h-3 sm:w-4 sm:h-4 shrink-0 transition-transform ${
                 num <= hearts
                   ? 'text-red-500 fill-red-500 animate-pulse'
                   : 'text-gray-300 fill-gray-200 scale-90'
@@ -154,20 +156,20 @@ export const Navbar: React.FC<NavbarProps> = ({
             sounds.playClick();
             onToggleLofi?.();
           }}
-          className={`flex items-center gap-1.5 px-2.5 sm:px-3 h-10 sm:h-11 border-2 border-black rounded shadow-neo-sm font-black text-xs transition-transform active:scale-95 cursor-pointer ${
+          className={`flex items-center justify-center gap-1.5 w-9 sm:w-auto px-1.5 sm:px-3 h-9 sm:h-11 border-2 border-black rounded shadow-neo-sm font-black text-xs transition-transform active:scale-95 cursor-pointer ${
             isLofiOpen ? 'bg-neoPink text-white' : 'bg-neoYellow hover:bg-yellow-300 text-black'
           }`}
           title="Bật/Tắt Góc Nhạc Lofi Chill"
           aria-label="Lofi Music"
         >
           <Headphones className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
-          <span className="hidden sm:inline">Lofi Chill</span>
+          <span className="hidden md:inline">Lofi Chill</span>
         </button>
 
-        {/* Fullscreen Toggle */}
+        {/* Fullscreen Toggle - Hidden on phone (< sm) since mobile browsers use native fullscreen & iOS doesn't support requestFullscreen on documentElement */}
         <button
           onClick={toggleFullscreen}
-          className="w-10 h-10 sm:w-11 sm:h-11 border-2 border-black bg-neoPurple rounded hover:bg-purple-300 active:scale-95 shadow-neo-sm flex items-center justify-center cursor-pointer transition-transform"
+          className="hidden sm:flex w-10 h-10 sm:w-11 sm:h-11 border-2 border-black bg-neoPurple rounded hover:bg-purple-300 active:scale-95 shadow-neo-sm items-center justify-center cursor-pointer transition-transform"
           title={isFullscreen ? "Thu nhỏ màn hình" : "Toàn màn hình"}
           aria-label="Toàn màn hình"
         >
@@ -180,11 +182,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             sounds.playClick();
             onToggleSound();
           }}
-          className="w-10 h-10 sm:w-11 sm:h-11 border-2 border-black bg-neoYellow rounded hover:bg-yellow-400 active:scale-95 shadow-neo-sm flex items-center justify-center cursor-pointer transition-transform"
+          className="w-9 h-9 sm:w-11 sm:h-11 border-2 border-black bg-neoYellow rounded hover:bg-yellow-400 active:scale-95 shadow-neo-sm flex items-center justify-center cursor-pointer transition-transform"
           title={soundEnabled ? "Tắt âm thanh" : "Bật âm thanh"}
           aria-label="Bật tắt âm thanh"
         >
-          {soundEnabled ? <Volume2 className="w-5 h-5" /> : <VolumeX className="w-5 h-5 text-red-600" />}
+          {soundEnabled ? <Volume2 className="w-4 h-4 sm:w-5 sm:h-5" /> : <VolumeX className="w-4 h-4 sm:w-5 sm:h-5 text-red-600" />}
         </button>
 
         {/* Home Button */}
@@ -193,11 +195,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             sounds.playClick();
             onGoHome();
           }}
-          className="w-10 h-10 sm:w-11 sm:h-11 border-2 border-black bg-neoCyan rounded hover:bg-cyan-300 active:scale-95 shadow-neo-sm flex items-center justify-center cursor-pointer transition-transform"
+          className="w-9 h-9 sm:w-11 sm:h-11 border-2 border-black bg-neoCyan rounded hover:bg-cyan-300 active:scale-95 shadow-neo-sm flex items-center justify-center cursor-pointer transition-transform"
           title="Về Trang Chủ"
           aria-label="Về Trang Chủ"
         >
-          <Home className="w-5 h-5" />
+          <Home className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
       </div>
     </header>

@@ -95,25 +95,25 @@ export const LearnVocabScreen: React.FC<LearnVocabScreenProps> = ({
   const isCurrentLearned = learnedIds.includes(currentWord._id);
 
   return (
-    <div className="relative z-10 w-full max-w-4xl mx-auto px-4 py-6">
+    <div className="relative z-10 w-full max-w-4xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
       {/* Top action header */}
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+      <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-4 mb-4 sm:mb-6">
         <button
           onClick={() => { sounds.playClick(); onBack(); }}
-          className="flex items-center gap-2 px-4 py-2 bg-white border-3 border-black font-bold text-sm shadow-neo-sm hover:bg-gray-100 active:translate-x-0.5 active:translate-y-0.5"
+          className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 bg-white border-2 sm:border-3 border-black font-bold text-xs sm:text-sm shadow-neo-sm hover:bg-gray-100 active:translate-x-0.5 active:translate-y-0.5 min-h-[40px]"
         >
           <ArrowLeft className="w-4 h-4" /> Quay lại Menu
         </button>
 
-        <div className="flex items-center gap-3">
-          <div className="px-4 py-1.5 bg-neoGreen border-3 border-black font-black text-sm shadow-neo-sm">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="px-3 sm:px-4 py-1.5 bg-neoGreen border-2 sm:border-3 border-black font-black text-xs sm:text-sm shadow-neo-sm min-h-[40px] flex items-center">
             ✅ Đã thuộc: {learnedIds.length}/{vocabList.length} từ
           </div>
         </div>
       </div>
 
       {/* Topic Filter Chips */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-6 scrollbar-none">
+      <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-3 mb-4 sm:mb-6 scrollbar-none">
         {topics.map(t => (
           <button
             key={t}
@@ -123,7 +123,7 @@ export const LearnVocabScreen: React.FC<LearnVocabScreenProps> = ({
               setCurrentIndex(0);
               setIsFlipped(false);
             }}
-            className={`px-3 py-1.5 border-2 border-black font-bold text-xs whitespace-nowrap shadow-neo-sm transition-all ${
+            className={`px-3 py-1.5 border-2 border-black font-bold text-xs whitespace-nowrap shadow-neo-sm transition-all min-h-[36px] ${
               selectedTopic === t ? 'bg-neoYellow -translate-y-0.5' : 'bg-white hover:bg-gray-100'
             }`}
           >
@@ -138,7 +138,7 @@ export const LearnVocabScreen: React.FC<LearnVocabScreenProps> = ({
           onClick={handleFlip}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
-          className="w-full max-w-xl md:max-w-2xl min-h-[380px] md:min-h-[420px] bg-white border-4 border-black p-6 sm:p-8 md:p-10 shadow-neo-lg cursor-pointer select-none transition-all hover:-translate-y-1 relative flex flex-col justify-between"
+          className="w-full max-w-xl md:max-w-2xl min-h-[360px] sm:min-h-[380px] md:min-h-[420px] bg-white border-3 sm:border-4 border-black p-4 sm:p-7 md:p-10 shadow-neo sm:shadow-neo-lg cursor-pointer select-none transition-all hover:-translate-y-1 relative flex flex-col justify-between"
         >
           {/* Top card bar */}
           <div className="flex items-center justify-between w-full">
@@ -227,26 +227,26 @@ export const LearnVocabScreen: React.FC<LearnVocabScreenProps> = ({
         </div>
 
         {/* Navigation Buttons */}
-        <div className="flex items-center gap-4 mt-6">
+        <div className="w-full max-w-xl md:max-w-2xl flex items-center gap-2 sm:gap-4 mt-4 sm:mt-6">
           <button
             onClick={handlePrev}
-            className="flex items-center gap-2 px-6 py-3 bg-white border-3 border-black font-black text-sm uppercase shadow-neo hover:bg-gray-100 active:translate-x-0.5 active:translate-y-0.5"
+            className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 sm:px-6 py-2.5 sm:py-3 bg-white border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo hover:bg-gray-100 active:translate-x-0.5 active:translate-y-0.5 min-h-[44px]"
           >
-            <ArrowLeft className="w-5 h-5" /> Từ trước
+            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" /> <span className="hidden xs:inline">Từ trước</span><span className="xs:hidden">Trước</span>
           </button>
           
           <button
             onClick={handleFlip}
-            className="px-6 py-3 bg-neoPurple border-3 border-black font-black text-sm uppercase shadow-neo hover:bg-purple-300 active:translate-x-0.5 active:translate-y-0.5"
+            className="flex-1 flex items-center justify-center px-2.5 sm:px-6 py-2.5 sm:py-3 bg-neoPurple border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo hover:bg-purple-300 active:translate-x-0.5 active:translate-y-0.5 min-h-[44px]"
           >
             Lật thẻ
           </button>
 
           <button
             onClick={handleNext}
-            className="flex items-center gap-2 px-6 py-3 bg-neoYellow border-3 border-black font-black text-sm uppercase shadow-neo hover:bg-yellow-300 active:translate-x-0.5 active:translate-y-0.5"
+            className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 sm:px-6 py-2.5 sm:py-3 bg-neoYellow border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo hover:bg-yellow-300 active:translate-x-0.5 active:translate-y-0.5 min-h-[44px]"
           >
-            Từ sau <ArrowRight className="w-5 h-5" />
+            <span className="hidden xs:inline">Từ sau</span><span className="xs:hidden">Sau</span> <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
         </div>
       </div>

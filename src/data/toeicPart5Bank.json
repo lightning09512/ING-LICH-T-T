@@ -1,0 +1,842 @@
+[
+  {
+    "uniqueId": "test_1_q_101",
+    "testIndex": 1,
+    "questionNumber": 101,
+    "question": "Throughout the onboarding program, new hires develop _______ habits that streamline their daily tasks.",
+    "options": [
+      {
+        "label": "A",
+        "text": "productive"
+      },
+      {
+        "label": "B",
+        "text": "products"
+      },
+      {
+        "label": "C",
+        "text": "produce"
+      },
+      {
+        "label": "D",
+        "text": "produces"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Vị trí trống đứng trước danh từ 'habits' nên cần một tính từ để bổ nghĩa. 'Productive' (có năng suất/hiệu quả) là tính từ phù hợp nhất. Các phương án khác là danh từ hoặc động từ.",
+    "translation": "Trong suốt chương trình định hướng, nhân viên mới hình thành các thói quen làm việc hiệu quả giúp tinh giản các nhiệm vụ hàng ngày của họ.",
+    "topic": "Từ loại (Word Form)"
+  },
+  {
+    "uniqueId": "test_1_q_102",
+    "testIndex": 1,
+    "questionNumber": 102,
+    "question": "The building manager will not authorize _______ renovations until the annual budget has been finalized.",
+    "options": [
+      {
+        "label": "A",
+        "text": "between"
+      },
+      {
+        "label": "B",
+        "text": "any"
+      },
+      {
+        "label": "C",
+        "text": "whether"
+      },
+      {
+        "label": "D",
+        "text": "which"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "'Any' thường được dùng trong câu phủ định để chỉ 'bất kỳ' cái nào. Trong ngữ cảnh này, quản lý sẽ không cho phép bất kỳ sự tu sửa nào cho đến khi ngân sách được chốt.",
+    "translation": "Quản lý tòa nhà sẽ không cho phép bất kỳ hoạt động tu sửa nào cho đến khi ngân sách hàng năm được hoàn tất.",
+    "topic": "Đại từ & Lượng từ (Pronouns)"
+  },
+  {
+    "uniqueId": "test_1_q_103",
+    "testIndex": 1,
+    "questionNumber": 103,
+    "question": "The recently expanded support team will _______ international clients across several different time zones.",
+    "options": [
+      {
+        "label": "A",
+        "text": "communicate"
+      },
+      {
+        "label": "B",
+        "text": "assist"
+      },
+      {
+        "label": "C",
+        "text": "cooperate"
+      },
+      {
+        "label": "D",
+        "text": "collaborate"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "'Assist' là ngoại động từ có nghĩa là 'hỗ trợ', đi trực tiếp với tân ngữ 'clients'. Các từ còn lại như 'communicate', 'cooperate', 'collaborate' thường phải đi kèm với giới từ 'with'.",
+    "translation": "Đội ngũ hỗ trợ vừa được mở rộng sẽ hỗ trợ các khách hàng quốc tế ở nhiều múi giờ khác nhau.",
+    "topic": "Từ vựng công sở (Vocabulary)"
+  },
+  {
+    "uniqueId": "test_1_q_104",
+    "testIndex": 1,
+    "questionNumber": 104,
+    "question": "Guests visiting the newly opened lounge at Glenwater Airport can enjoy a wide selection of _______ amenities before boarding.",
+    "options": [
+      {
+        "label": "A",
+        "text": "recreational"
+      },
+      {
+        "label": "B",
+        "text": "reluctant"
+      },
+      {
+        "label": "C",
+        "text": "eventual"
+      },
+      {
+        "label": "D",
+        "text": "hopeful"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Cụm từ 'recreational amenities' (tiện nghi giải trí) là sự kết hợp từ vựng tự nhiên và phù hợp nhất trong ngữ cảnh phòng chờ sân bay. Các tính từ khác không hợp nghĩa.",
+    "translation": "Hành khách ghé thăm phòng chờ mới khai trương tại Sân bay Glenwater có thể tận hưởng nhiều tiện nghi giải trí trước khi lên máy bay.",
+    "topic": "Từ vựng công sở (Vocabulary)"
+  },
+  {
+    "uniqueId": "test_1_q_105",
+    "testIndex": 1,
+    "questionNumber": 105,
+    "question": "Customers who visited the reopened Brindle bookshop last weekend seemed _______ by the expanded selection of titles.",
+    "options": [
+      {
+        "label": "A",
+        "text": "pleased"
+      },
+      {
+        "label": "B",
+        "text": "pleasingly"
+      },
+      {
+        "label": "C",
+        "text": "please"
+      },
+      {
+        "label": "D",
+        "text": "pleasure"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Sau động từ nối 'seemed' cần một tính từ. 'Pleased' (hài lòng) là tính từ dạng phân từ dùng để mô tả cảm xúc của con người (customers).",
+    "translation": "Những khách hàng ghé thăm hiệu sách Brindle vừa mở cửa trở lại vào cuối tuần trước có vẻ hài lòng với danh mục đầu sách được mở rộng.",
+    "topic": "Từ loại (Word Form)"
+  },
+  {
+    "uniqueId": "test_1_q_106",
+    "testIndex": 1,
+    "questionNumber": 106,
+    "question": "Attendees _______ register before noon will receive a printed name badge and a complimentary lunch voucher.",
+    "options": [
+      {
+        "label": "A",
+        "text": "whom"
+      },
+      {
+        "label": "B",
+        "text": "whose"
+      },
+      {
+        "label": "C",
+        "text": "whichever"
+      },
+      {
+        "label": "D",
+        "text": "who"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Cần một đại từ quan hệ làm chủ ngữ thay thế cho danh từ chỉ người 'Attendees' và đứng trước động từ 'register'. 'Who' là lựa chọn chính xác nhất.",
+    "translation": "Những người tham dự đăng ký trước buổi trưa sẽ nhận được thẻ tên in sẵn và một phiếu ăn trưa miễn phí.",
+    "topic": "Mệnh đề quan hệ (Relative Clauses)"
+  },
+  {
+    "uniqueId": "test_1_q_107",
+    "testIndex": 1,
+    "questionNumber": 107,
+    "question": "During the final stage of hiring, applicants at Crestline Consulting must provide three professional _______ who can speak to their qualifications.",
+    "options": [
+      {
+        "label": "A",
+        "text": "portfolios"
+      },
+      {
+        "label": "B",
+        "text": "credentials"
+      },
+      {
+        "label": "C",
+        "text": "references"
+      },
+      {
+        "label": "D",
+        "text": "testimonials"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "'Professional references' (người tham chiếu) là thuật ngữ chuyên dụng trong tuyển dụng, chỉ những người có thể xác nhận năng lực và kinh nghiệm của ứng viên.",
+    "translation": "Trong giai đoạn tuyển dụng cuối cùng, các ứng viên tại Crestline Consulting phải cung cấp ba người tham chiếu chuyên môn, những người có thể xác nhận năng lực của họ.",
+    "topic": "Từ vựng công sở (Vocabulary)"
+  },
+  {
+    "uniqueId": "test_1_q_108",
+    "testIndex": 1,
+    "questionNumber": 108,
+    "question": "Ms. Delacroix has exceeded her monthly sales targets every quarter _______ transferring to the Ravensworth branch last spring.",
+    "options": [
+      {
+        "label": "A",
+        "text": "until"
+      },
+      {
+        "label": "B",
+        "text": "since"
+      },
+      {
+        "label": "C",
+        "text": "upon"
+      },
+      {
+        "label": "D",
+        "text": "onto"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Câu sử dụng thì hiện tại hoàn thành (has exceeded) kết hợp với một mốc thời gian trong quá khứ (việc chuyển công tác), do đó giới từ 'since' (kể từ khi) là phù hợp nhất.",
+    "translation": "Cô Delacroix đã vượt mục tiêu doanh số hàng tháng mỗi quý kể từ khi chuyển đến chi nhánh Ravensworth vào mùa xuân năm ngoái.",
+    "topic": "Liên từ & Giới từ (Conjunctions & Preps)"
+  },
+  {
+    "uniqueId": "test_1_q_109",
+    "testIndex": 1,
+    "questionNumber": 109,
+    "question": "Mr. Osei _______ a daily report of each delivery to the regional office.",
+    "options": [
+      {
+        "label": "A",
+        "text": "posting"
+      },
+      {
+        "label": "B",
+        "text": "was posted"
+      },
+      {
+        "label": "C",
+        "text": "post"
+      },
+      {
+        "label": "D",
+        "text": "posts"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chủ ngữ 'Mr. Osei' là danh từ số ít, và trạng từ 'daily' cho thấy đây là hành động lặp lại thường xuyên, nên động từ phải chia ở thì hiện tại đơn số ít 'posts'.",
+    "translation": "Ông Osei gửi một báo cáo hàng ngày về mỗi chuyến giao hàng tới văn phòng khu vực.",
+    "topic": "Thì động từ (Tenses)"
+  },
+  {
+    "uniqueId": "test_1_q_110",
+    "testIndex": 1,
+    "questionNumber": 110,
+    "question": "The selection committee will review three competing proposals before _______ on a final vendor.",
+    "options": [
+      {
+        "label": "A",
+        "text": "reporting"
+      },
+      {
+        "label": "B",
+        "text": "deciding"
+      },
+      {
+        "label": "C",
+        "text": "relying"
+      },
+      {
+        "label": "D",
+        "text": "focusing"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Cấu trúc 'decide on something' có nghĩa là quyết định chọn cái gì đó sau khi đã cân nhắc. Ngữ cảnh ở đây là chọn một nhà cung cấp (vendor) sau khi xem xét các đề xuất.",
+    "translation": "Ủy ban lựa chọn sẽ xem xét ba đề xuất cạnh tranh trước khi quyết định chọn nhà cung cấp cuối cùng.",
+    "topic": "Từ vựng công sở (Vocabulary)"
+  },
+  {
+    "uniqueId": "test_1_q_111",
+    "testIndex": 1,
+    "questionNumber": 111,
+    "question": "The lobby elevators at Westland Tower will be unavailable this weekend _______ the maintenance crew must replace several worn cables.",
+    "options": [
+      {
+        "label": "A",
+        "text": "therefore"
+      },
+      {
+        "label": "B",
+        "text": "due to"
+      },
+      {
+        "label": "C",
+        "text": "because"
+      },
+      {
+        "label": "D",
+        "text": "yet"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Sau chỗ trống là một mệnh đề hoàn chỉnh (S+V), vì vậy cần một liên từ chỉ nguyên nhân. 'Because' là lựa chọn đúng. 'Due to' cũng chỉ nguyên nhân nhưng theo sau phải là danh từ/cụm danh từ.",
+    "translation": "Các thang máy ở sảnh tại Westland Tower sẽ không hoạt động vào cuối tuần này vì đội bảo trì phải thay thế một số dây cáp bị mòn.",
+    "topic": "Liên từ & Giới từ (Conjunctions & Preps)"
+  },
+  {
+    "uniqueId": "test_1_q_112",
+    "testIndex": 1,
+    "questionNumber": 112,
+    "question": "The garden center takes on extra staff every spring because demand for its plants and outdoor supplies tends to be strongly _______ throughout the year.",
+    "options": [
+      {
+        "label": "A",
+        "text": "seasonal"
+      },
+      {
+        "label": "B",
+        "text": "periodic"
+      },
+      {
+        "label": "C",
+        "text": "frequent"
+      },
+      {
+        "label": "D",
+        "text": "brief"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "'Seasonal' (mang tính thời vụ) là tính từ phù hợp nhất để giải thích tại sao cửa hàng chỉ cần thêm nhân viên vào mùa xuân thay vì cả năm.",
+    "translation": "Trung tâm làm vườn thuê thêm nhân viên vào mỗi mùa xuân vì nhu cầu về cây cảnh và thiết bị ngoài trời có xu hướng mang tính thời vụ mạnh mẽ trong suốt cả năm.",
+    "topic": "Từ vựng công sở (Vocabulary)"
+  },
+  {
+    "uniqueId": "test_1_q_113",
+    "testIndex": 1,
+    "questionNumber": 113,
+    "question": "_______ that the new ticketing system has already been installed, visitors to the Halden Museum can enter the main galleries without waiting in line.",
+    "options": [
+      {
+        "label": "A",
+        "text": "Whereas"
+      },
+      {
+        "label": "B",
+        "text": "Considering"
+      },
+      {
+        "label": "C",
+        "text": "Provided"
+      },
+      {
+        "label": "D",
+        "text": "Although"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "'Considering (that)' là một liên từ có nghĩa là 'xét đến việc' hoặc 'bởi vì'. Nó dùng để đưa ra lý do cho sự việc ở mệnh đề chính.",
+    "translation": "Xét đến việc hệ thống bán vé mới đã được lắp đặt, khách tham quan Bảo tàng Halden có thể vào các phòng trưng bày chính mà không cần xếp hàng chờ đợi.",
+    "topic": "Liên từ & Giới từ (Conjunctions & Preps)"
+  },
+  {
+    "uniqueId": "test_1_q_114",
+    "testIndex": 1,
+    "questionNumber": 114,
+    "question": "The Verdano refrigerator combines a generous storage capacity with a _______ compact exterior.",
+    "options": [
+      {
+        "label": "A",
+        "text": "surprising"
+      },
+      {
+        "label": "B",
+        "text": "surprisingly"
+      },
+      {
+        "label": "C",
+        "text": "surprise"
+      },
+      {
+        "label": "D",
+        "text": "surprises"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Chỗ trống đứng trước tính từ 'compact' để bổ nghĩa cho tính từ đó, nên ta cần một trạng từ. 'Surprisingly' (một cách đáng ngạc nhiên) là đáp án đúng.",
+    "translation": "Tủ lạnh Verdano kết hợp dung tích lưu trữ lớn với vẻ ngoài nhỏ gọn một cách đáng ngạc nhiên.",
+    "topic": "Từ loại (Word Form)"
+  },
+  {
+    "uniqueId": "test_1_q_115",
+    "testIndex": 1,
+    "questionNumber": 115,
+    "question": "Thanks to the upgraded insulation at Elmwood Court, tenants reported noticeable _______ in their monthly heating costs throughout the winter.",
+    "options": [
+      {
+        "label": "A",
+        "text": "reductions"
+      },
+      {
+        "label": "B",
+        "text": "increments"
+      },
+      {
+        "label": "C",
+        "text": "provisions"
+      },
+      {
+        "label": "D",
+        "text": "impressions"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Dựa vào ngữ cảnh 'upgraded insulation' (nâng cấp lớp cách nhiệt), kết quả logic nhất là sự sụt giảm (reductions) trong chi phí sưởi ấm.",
+    "translation": "Nhờ vào việc nâng cấp lớp cách nhiệt tại Elmwood Court, những người thuê nhà đã báo cáo sự sụt giảm đáng kể trong chi phí sưởi ấm hàng tháng của họ suốt mùa đông.",
+    "topic": "Từ vựng công sở (Vocabulary)"
+  },
+  {
+    "uniqueId": "test_1_q_116",
+    "testIndex": 1,
+    "questionNumber": 116,
+    "question": "Although the front desk can _______ requests immediately, every reservation must be confirmed by email.",
+    "options": [
+      {
+        "label": "A",
+        "text": "processes"
+      },
+      {
+        "label": "B",
+        "text": "processed"
+      },
+      {
+        "label": "C",
+        "text": "process"
+      },
+      {
+        "label": "D",
+        "text": "processing"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Sau động từ khuyết thiếu 'can', ta cần một động từ nguyên thể không 'to' (V-bare). 'Process' là động từ nguyên thể phù hợp nhất.",
+    "translation": "Mặc dù quầy lễ tân có thể xử lý các yêu cầu ngay lập tức, mọi yêu cầu đặt phòng đều phải được xác nhận qua email.",
+    "topic": "Từ loại (Word Form)"
+  },
+  {
+    "uniqueId": "test_1_q_117",
+    "testIndex": 1,
+    "questionNumber": 117,
+    "question": "Mr. Petrov confirmed that the brochures would be printed in time for _______ presentation.",
+    "options": [
+      {
+        "label": "A",
+        "text": "him"
+      },
+      {
+        "label": "B",
+        "text": "he"
+      },
+      {
+        "label": "C",
+        "text": "himself"
+      },
+      {
+        "label": "D",
+        "text": "his"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Trước danh từ 'presentation', ta cần một tính từ sở hữu để bổ nghĩa. 'His' là tính từ sở hữu duy nhất trong các lựa chọn.",
+    "translation": "Ông Petrov đã xác nhận rằng các tờ rơi sẽ được in kịp thời cho buổi thuyết trình của ông ấy.",
+    "topic": "Đại từ & Lượng từ (Pronouns)"
+  },
+  {
+    "uniqueId": "test_1_q_118",
+    "testIndex": 1,
+    "questionNumber": 118,
+    "question": "Responses entered into the system after the survey closed are not _______ in the totals displayed.",
+    "options": [
+      {
+        "label": "A",
+        "text": "reflect"
+      },
+      {
+        "label": "B",
+        "text": "reflects"
+      },
+      {
+        "label": "C",
+        "text": "reflected"
+      },
+      {
+        "label": "D",
+        "text": "reflecting"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Câu đang ở thể bị động (be + V3/ed) vì chủ ngữ 'Responses' (các phản hồi) không thể tự thực hiện hành động 'phản ánh'. 'Reflected' là dạng quá khứ phân từ phù hợp.",
+    "translation": "Các phản hồi được nhập vào hệ thống sau khi cuộc khảo sát kết thúc không được phản ánh trong tổng số hiển thị.",
+    "topic": "Thể bị động (Passive Voice)"
+  },
+  {
+    "uniqueId": "test_1_q_119",
+    "testIndex": 1,
+    "questionNumber": 119,
+    "question": "The workshop developed by Ms. Renaud is recommended for _______ seeking to sharpen their presentation skills.",
+    "options": [
+      {
+        "label": "A",
+        "text": "which"
+      },
+      {
+        "label": "B",
+        "text": "whose"
+      },
+      {
+        "label": "C",
+        "text": "either"
+      },
+      {
+        "label": "D",
+        "text": "those"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "'Those' đóng vai trò là đại từ chỉ người (những người mà). Cấum 'those seeking' tương đương với 'those who are seeking' (rút gọn mệnh đề quan hệ).",
+    "translation": "Hội thảo do cô Renaud xây dựng được đề xuất cho những người đang tìm cách mài giũa kỹ năng thuyết trình của họ.",
+    "topic": "Đại từ & Lượng từ (Pronouns)"
+  },
+  {
+    "uniqueId": "test_1_q_120",
+    "testIndex": 1,
+    "questionNumber": 120,
+    "question": "After reviewing the strong turnout at last week's tasting event, the owners feel _______ confident that the new menu will succeed.",
+    "options": [
+      {
+        "label": "A",
+        "text": "fairly"
+      },
+      {
+        "label": "B",
+        "text": "fair"
+      },
+      {
+        "label": "C",
+        "text": "fairness"
+      },
+      {
+        "label": "D",
+        "text": "fairest"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Trong cấu trúc 'feel + adj', trạng từ 'fairly' (khá) được dùng để bổ nghĩa cho tính từ 'confident'.",
+    "translation": "Sau khi xem xét lượng người tham gia đông đảo tại sự kiện nếm thử tuần trước, các chủ sở hữu cảm thấy khá tự tin rằng thực đơn mới sẽ thành công.",
+    "topic": "Từ loại (Word Form)"
+  },
+  {
+    "uniqueId": "test_1_q_121",
+    "testIndex": 1,
+    "questionNumber": 121,
+    "question": "The store manager will contact each supplier this afternoon _______ the delayed shipments before the weekend sale.",
+    "options": [
+      {
+        "label": "A",
+        "text": "confirms"
+      },
+      {
+        "label": "B",
+        "text": "had confirmed"
+      },
+      {
+        "label": "C",
+        "text": "to confirm"
+      },
+      {
+        "label": "D",
+        "text": "confirmation"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Cấu trúc 'to + V-bare' được dùng để chỉ mục đích (để làm gì). Quản lý liên hệ 'để xác nhận' (to confirm).",
+    "translation": "Quản lý cửa hàng sẽ liên hệ với từng nhà cung cấp vào chiều nay để xác nhận các lô hàng bị chậm trễ trước đợt giảm giá cuối tuần.",
+    "topic": "Dạng động từ (Gerund & Infinitive)"
+  },
+  {
+    "uniqueId": "test_1_q_122",
+    "testIndex": 1,
+    "questionNumber": 122,
+    "question": "Parcels left at the reception desk will be returned to their sender _______ they remain unclaimed after thirty days.",
+    "options": [
+      {
+        "label": "A",
+        "text": "as"
+      },
+      {
+        "label": "B",
+        "text": "if"
+      },
+      {
+        "label": "C",
+        "text": "so"
+      },
+      {
+        "label": "D",
+        "text": "to"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Dựa vào ngữ cảnh điều kiện: bưu kiện sẽ bị trả lại 'nếu' (if) không có người nhận. 'If' dùng để nối hai mệnh đề trong câu điều kiện.",
+    "translation": "Các bưu kiện để lại tại quầy lễ tân sẽ được trả lại cho người gửi nếu chúng vẫn không có người nhận sau ba mươi ngày.",
+    "topic": "Liên từ & Giới từ (Conjunctions & Preps)"
+  },
+  {
+    "uniqueId": "test_1_q_123",
+    "testIndex": 1,
+    "questionNumber": 123,
+    "question": "Since its launch in March, the redesigned QuickCart checkout page has produced a noticeable _______ in customer satisfaction.",
+    "options": [
+      {
+        "label": "A",
+        "text": "improve"
+      },
+      {
+        "label": "B",
+        "text": "improving"
+      },
+      {
+        "label": "C",
+        "text": "improved"
+      },
+      {
+        "label": "D",
+        "text": "improvement"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Sau tính từ 'noticeable', ta cần một danh từ để tạo thành cụm danh từ. 'Improvement' (sự cải thiện) là danh từ duy nhất.",
+    "translation": "Kể từ khi ra mắt vào tháng 3, trang thanh toán QuickCart được thiết kế lại đã tạo ra một sự cải thiện đáng kể về mức độ hài lòng của khách hàng.",
+    "topic": "Từ loại (Word Form)"
+  },
+  {
+    "uniqueId": "test_1_q_124",
+    "testIndex": 1,
+    "questionNumber": 124,
+    "question": "Timberline Hardware's new assembly guide has proven extremely _______ to customers tackling their first home improvement project.",
+    "options": [
+      {
+        "label": "A",
+        "text": "valuable"
+      },
+      {
+        "label": "B",
+        "text": "value"
+      },
+      {
+        "label": "C",
+        "text": "valuably"
+      },
+      {
+        "label": "D",
+        "text": "valuation"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Sau trạng từ 'extremely', ta cần một tính từ để bổ nghĩa cho chủ ngữ. Cấu trúc 'prove + adj' (chứng tỏ như thế nào). 'Valuable' là tính từ.",
+    "translation": "Hướng dẫn lắp ráp mới của Timberline Hardware đã chứng tỏ là cực kỳ hữu ích đối với những khách hàng đang thực hiện dự án cải tạo nhà đầu tiên của họ.",
+    "topic": "Từ loại (Word Form)"
+  },
+  {
+    "uniqueId": "test_1_q_125",
+    "testIndex": 1,
+    "questionNumber": 125,
+    "question": "The supervisory role _______ the new sales division was created especially for Mr. Nakamura.",
+    "options": [
+      {
+        "label": "A",
+        "text": "in"
+      },
+      {
+        "label": "B",
+        "text": "of"
+      },
+      {
+        "label": "C",
+        "text": "on"
+      },
+      {
+        "label": "D",
+        "text": "to"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Giới từ 'in' được dùng để chỉ vị trí hoặc bộ phận trong một tổ chức. 'Role in the division' (vai trò trong bộ phận).",
+    "translation": "Vai trò giám sát trong bộ phận bán hàng mới đã được tạo ra đặc biệt dành cho ông Nakamura.",
+    "topic": "Liên từ & Giới từ (Conjunctions & Preps)"
+  },
+  {
+    "uniqueId": "test_1_q_126",
+    "testIndex": 1,
+    "questionNumber": 126,
+    "question": "The service clerk at Halbrook Tool Rental promised to process the deposit refund _______ five business days.",
+    "options": [
+      {
+        "label": "A",
+        "text": "after"
+      },
+      {
+        "label": "B",
+        "text": "until"
+      },
+      {
+        "label": "C",
+        "text": "over"
+      },
+      {
+        "label": "D",
+        "text": "within"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Giới từ 'within' dùng để chỉ một khoảng thời gian mà một hành động phải được hoàn thành (trong vòng).",
+    "translation": "Nhân viên dịch vụ tại Halbrook Tool Rental đã hứa sẽ xử lý việc hoàn trả tiền đặt cọc trong vòng năm ngày làm việc.",
+    "topic": "Liên từ & Giới từ (Conjunctions & Preps)"
+  },
+  {
+    "uniqueId": "test_1_q_127",
+    "testIndex": 1,
+    "questionNumber": 127,
+    "question": "Larkwing Travel is recognized _______ the region as a dependable provider of affordable holiday packages for busy families.",
+    "options": [
+      {
+        "label": "A",
+        "text": "between"
+      },
+      {
+        "label": "B",
+        "text": "among"
+      },
+      {
+        "label": "C",
+        "text": "toward"
+      },
+      {
+        "label": "D",
+        "text": "throughout"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Giới từ 'throughout' có nghĩa là 'khắp' hoặc 'xuyên suốt'. 'Throughout the region' nghĩa là khắp khu vực.",
+    "translation": "Larkwing Travel được công nhận khắp khu vực là một nhà cung cấp đáng tin cậy các gói kỳ nghỉ giá cả phải chăng cho các gia đình bận rộn.",
+    "topic": "Liên từ & Giới từ (Conjunctions & Preps)"
+  },
+  {
+    "uniqueId": "test_1_q_128",
+    "testIndex": 1,
+    "questionNumber": 128,
+    "question": "Employees who wish to update _______ contact details should notify the personnel office before the end of the month.",
+    "options": [
+      {
+        "label": "A",
+        "text": "they"
+      },
+      {
+        "label": "B",
+        "text": "themselves"
+      },
+      {
+        "label": "C",
+        "text": "theirs"
+      },
+      {
+        "label": "D",
+        "text": "their"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Trước cụm danh từ 'contact details', ta cần một tính từ sở hữu. 'Their' (của họ) phù hợp để thay thế cho 'Employees'.",
+    "translation": "Những nhân viên muốn cập nhật chi tiết liên lạc của họ nên thông báo cho văn phòng nhân sự trước cuối tháng.",
+    "topic": "Đại từ & Lượng từ (Pronouns)"
+  },
+  {
+    "uniqueId": "test_1_q_129",
+    "testIndex": 1,
+    "questionNumber": 129,
+    "question": "Because the free airport shuttle departs every ten minutes throughout the day, guests _______ wait long for a ride to the terminal.",
+    "options": [
+      {
+        "label": "A",
+        "text": "nearly"
+      },
+      {
+        "label": "B",
+        "text": "mostly"
+      },
+      {
+        "label": "C",
+        "text": "kindly"
+      },
+      {
+        "label": "D",
+        "text": "seldom"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Dựa vào ngữ cảnh: vì xe chạy liên tục 10 phút/chuyến nên khách 'hiếm khi' (seldom) phải chờ lâu.",
+    "translation": "Vì xe đưa đón sân bay miễn phí khởi hành mười phút một lần trong suốt cả ngày, khách hàng hiếm khi phải chờ lâu để được chở đến nhà ga.",
+    "topic": "Từ vựng công sở (Vocabulary)"
+  },
+  {
+    "uniqueId": "test_1_q_130",
+    "testIndex": 1,
+    "questionNumber": 130,
+    "question": "Marlowe Retail Group, Inc., will be _______ its first customer loyalty program in June.",
+    "options": [
+      {
+        "label": "A",
+        "text": "collecting"
+      },
+      {
+        "label": "B",
+        "text": "rewarding"
+      },
+      {
+        "label": "C",
+        "text": "launching"
+      },
+      {
+        "label": "D",
+        "text": "renewing"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Động từ 'launching' (ra mắt/triển khai) thường đi kèm với các danh từ như 'program', 'product', 'campaign'.",
+    "translation": "Tập đoàn bán lẻ Marlowe, Inc., sẽ ra mắt chương trình khách hàng thân thiết đầu tiên vào tháng Sáu.",
+    "topic": "Từ vựng công sở (Vocabulary)"
+  }
+]

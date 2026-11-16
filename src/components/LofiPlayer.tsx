@@ -250,33 +250,33 @@ export const LofiPlayer: React.FC<LofiPlayerProps> = ({
 
       {/* 2. FLOATING MINI PILL (Always visible when boombox is closed, NEVER stops playing) */}
       {!isOpen && !isPillDismissed && (
-        <div className="fixed bottom-4 right-4 z-40 flex items-center gap-2">
-          <div className="flex items-center bg-neoYellow border-3 border-black rounded-full shadow-neo pl-3.5 pr-2 py-1.5 transition-all">
+        <div className="fixed bottom-16 sm:bottom-4 right-2.5 sm:right-4 z-40 flex items-center gap-2">
+          <div className="flex items-center bg-neoYellow border-2 sm:border-3 border-black rounded-full shadow-neo pl-3 pr-1.5 sm:pl-3.5 sm:pr-2 py-1 sm:py-1.5 transition-all max-w-[calc(100vw-20px)]">
             <button
               onClick={() => {
                 sounds.playClick();
                 onToggleOpen();
               }}
-              className="flex items-center gap-2.5 cursor-pointer text-left group"
+              className="flex items-center gap-2 sm:gap-2.5 cursor-pointer text-left group min-w-0"
               title="Mở bảng điều khiển Lofi"
             >
-              <div className="relative">
-                <Headphones className="w-5 h-5 text-black group-hover:rotate-12 transition-transform" />
+              <div className="relative shrink-0">
+                <Headphones className="w-4 h-4 sm:w-5 sm:h-5 text-black group-hover:rotate-12 transition-transform" />
                 {isPlaying && (
-                  <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full animate-ping" />
+                  <span className="absolute -top-1 -right-1 w-2 sm:w-2.5 h-2 sm:h-2.5 bg-red-500 rounded-full animate-ping" />
                 )}
               </div>
 
-              <div className="flex flex-col text-left">
+              <div className="flex flex-col text-left min-w-0">
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-gray-800 leading-none">
+                  <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-gray-800 leading-none">
                     Lofi Chill
                   </span>
                   {isPlaying && (
                     <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full animate-pulse" />
                   )}
                 </div>
-                <span className="text-xs font-black text-black max-w-[130px] sm:max-w-[170px] truncate leading-tight">
+                <span className="text-[11px] sm:text-xs font-black text-black max-w-[110px] xs:max-w-[140px] sm:max-w-[170px] truncate leading-tight">
                   {currentTrack.emoji} {currentTrack.title}
                 </span>
               </div>
@@ -288,13 +288,13 @@ export const LofiPlayer: React.FC<LofiPlayerProps> = ({
                 e.stopPropagation();
                 togglePlay();
               }}
-              className="p-1.5 bg-white border-2 border-black rounded-full shadow-neo-sm hover:bg-gray-100 active:scale-90 transition-transform ml-2"
+              className="p-1 sm:p-1.5 bg-white border-2 border-black rounded-full shadow-neo-sm hover:bg-gray-100 active:scale-90 transition-transform ml-1.5 sm:ml-2 shrink-0"
               title={isPlaying ? "Tạm dừng" : "Tiếp tục phát"}
             >
               {isPlaying ? (
-                <Pause className="w-3.5 h-3.5 fill-black" />
+                <Pause className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-black" />
               ) : (
-                <Play className="w-3.5 h-3.5 fill-black ml-0.5" />
+                <Play className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-black ml-0.5" />
               )}
             </button>
 
@@ -304,10 +304,10 @@ export const LofiPlayer: React.FC<LofiPlayerProps> = ({
                 sounds.playClick();
                 setIsPillDismissed(true);
               }}
-              className="p-1 text-gray-500 hover:text-black ml-1 cursor-pointer"
+              className="p-1 text-gray-500 hover:text-black ml-0.5 cursor-pointer shrink-0"
               title="Ẩn nút nổi (nhạc vẫn phát ngầm, mở lại từ thanh Menu trên cùng)"
             >
-              <X className="w-3.5 h-3.5" />
+              <X className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
             </button>
           </div>
         </div>
@@ -315,7 +315,7 @@ export const LofiPlayer: React.FC<LofiPlayerProps> = ({
 
       {/* 3. EXPANDED BOOMBOX CARD (ALWAYS IN DOM, only hidden via CSS so audio NEVER reloads or stops!) */}
       <div
-        className={`fixed bottom-4 right-4 z-50 w-[320px] sm:w-[360px] bg-white border-4 border-black rounded-2xl shadow-neo-lg flex flex-col overflow-hidden transition-all duration-200 ${
+        className={`fixed bottom-16 sm:bottom-4 right-2.5 sm:right-4 z-50 w-[calc(100vw-20px)] max-w-[350px] sm:max-w-[360px] max-h-[82dvh] bg-white border-3 sm:border-4 border-black rounded-2xl shadow-neo-lg flex flex-col overflow-hidden transition-all duration-200 ${
           isOpen
             ? 'opacity-100 scale-100 pointer-events-auto translate-y-0 visible'
             : 'opacity-0 scale-95 pointer-events-none translate-y-8 invisible'

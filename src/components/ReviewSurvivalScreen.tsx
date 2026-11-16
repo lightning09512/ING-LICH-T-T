@@ -158,22 +158,22 @@ export const ReviewSurvivalScreen: React.FC<ReviewSurvivalScreenProps> = ({
   const currentQuiz = quizzes[currentIndex];
 
   return (
-    <div className={`relative z-10 w-full max-w-2xl mx-auto px-4 py-6 ${screenShake ? 'animate-shake' : ''}`}>
+    <div className={`relative z-10 w-full max-w-2xl mx-auto px-3 sm:px-4 py-4 sm:py-6 ${screenShake ? 'animate-shake' : ''}`}>
       {/* Top Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between gap-2 mb-4 sm:mb-6">
         <button
           onClick={() => { sounds.playClick(); onBack(); }}
-          className="flex items-center gap-2 px-3 py-1.5 bg-white border-2 border-black font-bold text-xs shadow-neo-sm hover:bg-gray-100"
+          className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 bg-white border-2 border-black font-bold text-xs shadow-neo-sm hover:bg-gray-100 min-h-[38px]"
         >
           <ArrowLeft className="w-4 h-4" /> Quay lại
         </button>
 
         {/* Hearts HP Bar */}
-        <div className="flex items-center gap-1.5 px-4 py-2 bg-white border-3 border-black shadow-neo-sm">
+        <div className="flex items-center gap-1 px-2.5 sm:px-4 py-1.5 sm:py-2 bg-white border-2 sm:border-3 border-black shadow-neo-sm min-h-[38px]">
           {[1, 2, 3].map(h => (
             <Heart
               key={h}
-              className={`w-6 h-6 transition-all ${
+              className={`w-5 h-5 sm:w-6 sm:h-6 transition-all ${
                 h <= hearts ? 'text-red-500 fill-red-500 scale-110' : 'text-gray-300 fill-gray-200'
               }`}
             />
@@ -181,39 +181,39 @@ export const ReviewSurvivalScreen: React.FC<ReviewSurvivalScreenProps> = ({
         </div>
 
         {/* Timer */}
-        <div className={`flex items-center gap-2 px-4 py-2 border-3 border-black font-black font-mono shadow-neo-sm ${
+        <div className={`flex items-center gap-1.5 px-2.5 sm:px-4 py-1.5 sm:py-2 border-2 sm:border-3 border-black font-black font-mono shadow-neo-sm min-h-[38px] text-xs sm:text-base ${
           timeLeft <= 5 ? 'bg-red-400 text-white animate-pulse' : 'bg-neoYellow'
         }`}>
-          <Timer className="w-5 h-5" />
+          <Timer className="w-4 h-4 sm:w-5 sm:h-5" />
           <span>{timeLeft}s</span>
         </div>
       </div>
 
       {/* GAME OVER MODAL */}
       {gameOver ? (
-        <div className="bg-white border-4 border-black p-8 text-center shadow-neo-lg flex flex-col items-center gap-6 animate-bounceSlow">
-          <div className="w-20 h-20 bg-rose-100 border-3 border-black rounded-2xl flex items-center justify-center shadow-neo-sm">
-            <AlertTriangle className="w-12 h-12 text-rose-600 animate-pulse" />
+        <div className="bg-white border-3 sm:border-4 border-black p-4 sm:p-8 text-center shadow-neo sm:shadow-neo-lg flex flex-col items-center gap-4 sm:gap-6 animate-bounceSlow">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 bg-rose-100 border-3 border-black rounded-2xl flex items-center justify-center shadow-neo-sm">
+            <AlertTriangle className="w-10 h-10 sm:w-12 sm:h-12 text-rose-600 animate-pulse" />
           </div>
-          <h2 className="text-4xl font-black text-red-600 font-heading uppercase">
+          <h2 className="text-2xl sm:text-4xl font-black text-red-600 font-heading uppercase leading-tight">
             GAME OVER RỒI MẬP ĐỊCH!
           </h2>
-          <p className="font-bold text-gray-700 text-base max-w-md">
+          <p className="font-bold text-gray-700 text-sm sm:text-base max-w-md">
             Hết 3 tim rồi! Cần phải vào mục "Học bài" ôn lại ngay và luôn, không thì đừng mơ đòi đi ăn lẩu nhé!
           </p>
-          <div className="px-6 py-2 bg-neoPink text-white border-2 border-black font-black">
+          <div className="px-4 sm:px-6 py-2 bg-neoPink text-white border-2 border-black font-black text-xs sm:text-sm">
             Điểm số đạt được: {score} điểm
           </div>
-          <div className="flex items-center gap-4 mt-2">
+          <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-4 mt-2 w-full sm:w-auto">
             <button
               onClick={() => { sounds.playClick(); initGame(); }}
-              className="flex items-center gap-2 px-6 py-3 bg-neoGreen border-3 border-black font-black text-sm uppercase shadow-neo hover:bg-emerald-300 active:translate-x-0.5 active:translate-y-0.5"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-neoGreen border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo hover:bg-emerald-300 active:translate-x-0.5 active:translate-y-0.5"
             >
               <RefreshCw className="w-4 h-4" /> Thử Thách Lại
             </button>
             <button
               onClick={() => { sounds.playClick(); onBack(); }}
-              className="px-6 py-3 bg-white border-3 border-black font-black text-sm uppercase shadow-neo hover:bg-gray-100"
+              className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 bg-white border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo hover:bg-gray-100"
             >
               Về Menu
             </button>
@@ -221,27 +221,27 @@ export const ReviewSurvivalScreen: React.FC<ReviewSurvivalScreenProps> = ({
         </div>
       ) : gameWon ? (
         /* GAME WON MODAL */
-        <div className="bg-white border-4 border-black p-8 text-center shadow-neo-lg flex flex-col items-center gap-6">
-          <Trophy className="w-20 h-20 text-yellow-500 fill-yellow-400 animate-bounce" />
-          <h2 className="text-4xl font-black text-emerald-600 font-heading uppercase">
+        <div className="bg-white border-3 sm:border-4 border-black p-4 sm:p-8 text-center shadow-neo sm:shadow-neo-lg flex flex-col items-center gap-4 sm:gap-6">
+          <Trophy className="w-16 h-16 sm:w-20 sm:h-20 text-yellow-500 fill-yellow-400 animate-bounce" />
+          <h2 className="text-2xl sm:text-4xl font-black text-emerald-600 font-heading uppercase leading-tight">
             XUẤT SẮC QUÁ {nickname}!
           </h2>
-          <p className="font-bold text-gray-700 text-base max-w-md">
+          <p className="font-bold text-gray-700 text-sm sm:text-base max-w-md">
             Bạn đã sống sót qua toàn bộ câu hỏi và bảo toàn được mạng sống! Xứng danh Nóc nhà quyền lực!
           </p>
-          <div className="px-6 py-3 bg-neoYellow border-3 border-black font-black text-xl shadow-neo-sm">
+          <div className="px-4 sm:px-6 py-2.5 sm:py-3 bg-neoYellow border-2 sm:border-3 border-black font-black text-base sm:text-xl shadow-neo-sm">
             🏆 Tổng điểm: {score} Điểm
           </div>
-          <div className="flex items-center gap-4 mt-2">
+          <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-4 mt-2 w-full sm:w-auto">
             <button
               onClick={() => { sounds.playClick(); initGame(); }}
-              className="px-6 py-3 bg-neoGreen border-3 border-black font-black text-sm uppercase shadow-neo"
+              className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 bg-neoGreen border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo"
             >
               Chơi Lại Trận Nữa
             </button>
             <button
               onClick={() => { sounds.playClick(); onBack(); }}
-              className="px-6 py-3 bg-white border-3 border-black font-black text-sm uppercase shadow-neo"
+              className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 bg-white border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo"
             >
               Về Menu
             </button>

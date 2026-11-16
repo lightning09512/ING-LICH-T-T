@@ -53,10 +53,10 @@ export const StreakModal: React.FC<StreakModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-[70] bg-black/50 px-4 py-6 flex items-center justify-center animate-fadeIn"
+      className="fixed inset-0 z-[70] bg-black/50 p-2.5 sm:p-4 flex items-center justify-center animate-fadeIn"
       onMouseDown={e => { if (e.target === e.currentTarget) onClose(); }}
     >
-      <div className="w-full max-w-md bg-white border-4 border-black shadow-neo-lg p-5 sm:p-6 relative animate-scaleUp">
+      <div className="w-full max-w-md max-h-[92dvh] overflow-y-auto bg-white border-3 sm:border-4 border-black shadow-neo-lg p-4 sm:p-6 relative animate-scaleUp">
         {/* Close Button */}
         <button
           onClick={() => { sounds.playClick(); onClose(); }}

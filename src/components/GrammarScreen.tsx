@@ -463,13 +463,13 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
     return (
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 py-6 md:py-8">
         {/* Navigation & Header */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-4 mb-4 sm:mb-6">
           <button
             onClick={() => {
               sounds.playClick();
               onBack();
             }}
-            className="flex items-center gap-2 px-4 py-2 bg-white border-3 border-black font-black text-sm uppercase shadow-neo hover:bg-gray-100 active:translate-x-0.5 active:translate-y-0.5 cursor-pointer"
+            className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 bg-white border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo-sm hover:bg-gray-100 active:translate-x-0.5 active:translate-y-0.5 cursor-pointer min-h-[40px]"
           >
             <ArrowLeft className="w-4 h-4" /> Quay lại Menu
           </button>
@@ -477,41 +477,41 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
           {/* Quick Survival Quiz Trigger */}
           <button
             onClick={handleStartSurvival}
-            className="flex items-center gap-2 px-5 py-2.5 bg-neoYellow hover:bg-amber-300 border-3 border-black font-black text-sm uppercase shadow-neo hover:shadow-neo-lg active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer"
+            className="flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 bg-neoYellow hover:bg-amber-300 border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo-sm hover:shadow-neo active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer min-h-[40px]"
           >
-            <Zap className="w-5 h-5 fill-black text-black" />
+            <Zap className="w-4 h-4 sm:w-5 sm:h-5 fill-black text-black shrink-0" />
             <span>Thách Đấu Sinh Tồn 15s ⚡</span>
           </button>
         </div>
 
         {/* Hero Banner */}
-        <div className="bg-neoYellow border-4 border-black p-6 md:p-8 shadow-neo-lg mb-6 relative overflow-hidden">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
+        <div className="bg-neoYellow border-3 sm:border-4 border-black p-4 sm:p-6 md:p-8 shadow-neo sm:shadow-neo-lg mb-4 sm:mb-6 relative overflow-hidden">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 relative z-10">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border-2 border-black font-black text-xs uppercase mb-3 shadow-neo-sm rotate-[-1deg]">
-                <GraduationCap className="w-4 h-4 text-emerald-600" />
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 bg-white border-2 border-black font-black text-[11px] sm:text-xs uppercase mb-2 sm:mb-3 shadow-neo-sm rotate-[-1deg]">
+                <GraduationCap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600" />
                 <span>Bí Kíp Độc Quyền Dành Cho {nickname}</span>
               </div>
-              <h1 className="text-3xl md:text-5xl font-black font-heading uppercase text-black">
+              <h1 className="text-2xl sm:text-3xl md:text-5xl font-black font-heading uppercase text-black leading-tight">
                 Ngữ Pháp TOEIC Trực Quan
               </h1>
-              <p className="text-base md:text-lg font-bold text-gray-800 mt-2 max-w-2xl">
+              <p className="text-xs sm:text-base md:text-lg font-bold text-gray-800 mt-1 sm:mt-2 max-w-2xl">
                 Công thức dạng khối màu sắc dễ nhìn, trọn bộ Full 12 thì chuẩn xác và quy tắc vị trí từ loại (Adv + Verb, Adj + Noun, Linking Verbs).
               </p>
             </div>
 
-            <div className="flex flex-wrap sm:flex-nowrap gap-3 w-full md:w-auto">
-              <div className="bg-white border-3 border-black p-3 text-center shadow-neo-sm min-w-[100px] flex-1 sm:flex-none">
-                <div className="text-2xl font-black text-neoDark">12</div>
-                <div className="text-xs font-bold text-gray-600 uppercase">Thì Chuẩn</div>
+            <div className="grid grid-cols-3 gap-2 w-full md:w-auto shrink-0">
+              <div className="bg-white border-2 sm:border-3 border-black p-2 sm:p-3 text-center shadow-neo-sm">
+                <div className="text-xl sm:text-2xl font-black text-neoDark">12</div>
+                <div className="text-[10px] sm:text-xs font-bold text-gray-600 uppercase">Thì Chuẩn</div>
               </div>
-              <div className="bg-white border-3 border-black p-3 text-center shadow-neo-sm min-w-[100px] flex-1 sm:flex-none">
-                <div className="text-2xl font-black text-neoDark">6</div>
-                <div className="text-xs font-bold text-gray-600 uppercase">Sơ Đồ Từ Loại</div>
+              <div className="bg-white border-2 sm:border-3 border-black p-2 sm:p-3 text-center shadow-neo-sm">
+                <div className="text-xl sm:text-2xl font-black text-neoDark">6</div>
+                <div className="text-[10px] sm:text-xs font-bold text-gray-600 uppercase">Sơ Đồ Từ</div>
               </div>
-              <div className="bg-white border-3 border-black p-3 text-center shadow-neo-sm min-w-[100px] flex-1 sm:flex-none">
-                <div className="text-2xl font-black text-emerald-600">50+</div>
-                <div className="text-xs font-bold text-gray-600 uppercase">Câu Part 5</div>
+              <div className="bg-white border-2 sm:border-3 border-black p-2 sm:p-3 text-center shadow-neo-sm">
+                <div className="text-xl sm:text-2xl font-black text-emerald-600">50+</div>
+                <div className="text-[10px] sm:text-xs font-bold text-gray-600 uppercase">Part 5</div>
               </div>
             </div>
           </div>
@@ -652,44 +652,50 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
             </div>
 
             {/* Layout: Sidebar selector + Detail card */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-              {/* Tense list selector */}
-              <div className="lg:col-span-4 flex flex-col gap-2.5">
-                {filteredTenses.map((t, idx) => (
-                  <button
-                    key={t.id}
-                    onClick={() => handleSelectTense(t.id)}
-                    className={`relative p-3.5 border-3 border-black text-left font-black transition-all cursor-pointer flex items-center justify-between ${
-                      selectedTenseId === t.id
-                        ? 'bg-neoYellow shadow-neo translate-x-1'
-                        : 'bg-white hover:bg-amber-50 shadow-neo-sm'
-                    }`}
-                  >
-                    <div>
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-xs uppercase text-gray-500 font-bold">
-                          {t.group} • Thì #{idx + 1}
-                        </span>
-                        {t.isHighFrequency && (
-                          <span className="px-1.5 py-0.5 bg-red-600 text-white font-black text-[10px] uppercase border border-black shadow-neo-sm">
-                            🔥 RA THI
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
+              {/* Tense list selector: Horizontal scroll on mobile/tablet, vertical sidebar on desktop */}
+              <div className="lg:col-span-4 flex flex-col gap-1.5">
+                <div className="lg:hidden flex items-center justify-between text-[11px] font-black text-gray-600 px-1">
+                  <span>⚡ Chọn thì (Vuốt ngang):</span>
+                  <span>{filteredTenses.length} thì</span>
+                </div>
+                <div className="flex lg:flex-col overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 gap-2 sm:gap-2.5 scrollbar-none">
+                  {filteredTenses.map((t, idx) => (
+                    <button
+                      key={t.id}
+                      onClick={() => handleSelectTense(t.id)}
+                      className={`relative p-2.5 sm:p-3.5 border-2 sm:border-3 border-black text-left font-black transition-all cursor-pointer flex items-center justify-between min-w-[210px] xs:min-w-[230px] lg:min-w-0 shrink-0 lg:shrink ${
+                        selectedTenseId === t.id
+                          ? 'bg-neoYellow shadow-neo -translate-y-0.5 lg:translate-x-1 lg:translate-y-0'
+                          : 'bg-white hover:bg-amber-50 shadow-neo-sm'
+                      }`}
+                    >
+                      <div>
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-[10px] sm:text-xs uppercase text-gray-500 font-bold">
+                            {t.group} • #{idx + 1}
                           </span>
-                        )}
+                          {t.isHighFrequency && (
+                            <span className="px-1.5 py-0.5 bg-red-600 text-white font-black text-[9px] sm:text-[10px] uppercase border border-black shadow-neo-sm">
+                              🔥 RA THI
+                            </span>
+                          )}
+                        </div>
+                        <div className="text-sm sm:text-base font-black font-heading mt-0.5">
+                          {t.nameVi}
+                        </div>
+                        <div className="text-[11px] sm:text-xs font-mono text-gray-700 italic">
+                          {t.nameEn}
+                        </div>
                       </div>
-                      <div className="text-base font-black font-heading mt-0.5">
-                        {t.nameVi}
-                      </div>
-                      <div className="text-xs font-mono text-gray-700 italic">
-                        {t.nameEn}
-                      </div>
-                    </div>
-                    <ChevronRight className="w-4 h-4 shrink-0" />
-                  </button>
-                ))}
+                      <ChevronRight className="w-4 h-4 shrink-0 hidden lg:block" />
+                    </button>
+                  ))}
+                </div>
               </div>
 
               {/* Tense Detail View */}
-              <div className="relative lg:col-span-8 bg-white border-4 border-black p-6 md:p-8 shadow-neo flex flex-col gap-6">
+              <div className="relative lg:col-span-8 bg-white border-3 sm:border-4 border-black p-4 sm:p-6 md:p-8 shadow-neo sm:shadow-neo-lg flex flex-col gap-4 sm:gap-6">
                 {/* Corner Indicator */}
                 {selectedTense.isHighFrequency && (
                   <div className="absolute -top-3.5 -right-2.5 sm:-right-3 z-10 bg-red-600 text-white font-black text-xs uppercase px-3 py-1 border-2 border-black shadow-neo-sm rotate-2 flex items-center gap-1.5">
