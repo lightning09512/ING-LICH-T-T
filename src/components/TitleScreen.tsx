@@ -27,7 +27,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({ onStart, nickname }) =
             ing lich tét
           </h1>
           <p className="text-xs sm:text-sm md:text-base font-bold text-gray-600 mt-2 font-comic">
-            (English Test phiên bản giải cứu bạn gái khỏi nỗi sợ TOEIC)
+            (giải cứu bạn gái khỏi nỗi sợ TOEIC)
           </p>
         </div>
 
