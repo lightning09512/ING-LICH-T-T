@@ -8,6 +8,7 @@ import { ReviewSurvivalScreen } from './components/ReviewSurvivalScreen';
 import { GrammarScreen } from './components/GrammarScreen';
 import { ToeicExamScreen } from './components/ToeicExamScreen';
 import { TestSelectScreen } from './components/TestSelectScreen';
+import { LofiPlayer } from './components/LofiPlayer';
 import { initialVocabList, initialTest, VocabItem, ToeicTest } from './data/initialData';
 import { sounds } from './utils/soundEffects';
 
@@ -21,6 +22,7 @@ export function App() {
   const [vocabList, setVocabList] = useState<VocabItem[]>(initialVocabList);
   const [currentTest, setCurrentTest] = useState<ToeicTest>(initialTest);
   const [loadingTest, setLoadingTest] = useState(false);
+  const [isLofiOpen, setIsLofiOpen] = useState(false);
 
   // Sync with NoSQL Backend or static fallback for Vercel deployment
   useEffect(() => {
@@ -156,6 +158,8 @@ export function App() {
           onToggleSound={handleToggleSound}
           nickname={nickname}
           streakDays={streakDays}
+          onToggleLofi={() => setIsLofiOpen(!isLofiOpen)}
+          isLofiOpen={isLofiOpen}
         />
       )}
 
@@ -225,6 +229,13 @@ export function App() {
       <footer className="relative z-10 py-3 text-center text-xs font-bold text-gray-500 border-t border-black/10 mt-10">
         © 2026 Ing Lịch Tét • Dành trọn tình yêu & tiếng cười cho Nóc Nhà
       </footer>
+
+      {/* Persistent Background Lofi Chill Music Player */}
+      <LofiPlayer
+        nickname={nickname}
+        isOpen={isLofiOpen}
+        onToggleOpen={() => setIsLofiOpen(!isLofiOpen)}
+      />
     </div>
   );
 }

@@ -58,6 +58,24 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
   // 12 Tenses state
   const [tenseFilter, setTenseFilter] = useState<'ALL' | 'PRESENT' | 'PAST' | 'FUTURE'>('ALL');
   const [selectedTenseId, setSelectedTenseId] = useState<string>(fullTwelveTenses[0].id);
+  const [tenseViewTab, setTenseViewTab] = useState<'THEORY' | 'PRACTICE'>('THEORY');
+  const [tenseExIndex, setTenseExIndex] = useState(0);
+  const [tenseSelectedAnswer, setTenseSelectedAnswer] = useState<'A' | 'B' | 'C' | 'D' | null>(null);
+  const [tenseIsAnswerChecked, setTenseIsAnswerChecked] = useState(false);
+  const [tenseCorrectCount, setTenseCorrectCount] = useState(0);
+  const [tenseExerciseFinished, setTenseExerciseFinished] = useState(false);
+
+  // Word Order interactive practice state
+  const [expandedWordOrderQuizId, setExpandedWordOrderQuizId] = useState<string | null>(null);
+  const [wordOrderQuizState, setWordOrderQuizState] = useState<{
+    [ruleId: string]: {
+      index: number;
+      selectedAnswer: 'A' | 'B' | 'C' | 'D' | null;
+      isChecked: boolean;
+      correctCount: number;
+      isFinished: boolean;
+    };
+  }>({});
 
   // Symbol legend toggle
   const [showLegend, setShowLegend] = useState(true);
@@ -182,6 +200,164 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
     setIsAnswerChecked(false);
     setCorrectCount(0);
     setExerciseFinished(false);
+  };
+
+  // Tense Quiz Actions
+  const handleSelectTense = (id: string) => {
+    sounds.playClick();
+    setSelectedTenseId(id);
+    setTenseExIndex(0);
+    setTenseSelectedAnswer(null);
+    setTenseIsAnswerChecked(false);
+    setTenseCorrectCount(0);
+    setTenseExerciseFinished(false);
+  };
+
+  const handleSelectTenseOption = (label: 'A' | 'B' | 'C' | 'D') => {
+    if (tenseIsAnswerChecked) return;
+    setTenseSelectedAnswer(label);
+    setTenseIsAnswerChecked(true);
+
+    const currentTense = fullTwelveTenses.find(t => t.id === selectedTenseId) || fullTwelveTenses[0];
+    const currentEx = currentTense.exercises[tenseExIndex];
+    if (currentEx && label === currentEx.correctAnswer) {
+      sounds.playCorrect();
+      setTenseCorrectCount(prev => prev + 1);
+      confetti({
+        particleCount: 40,
+        spread: 50,
+        origin: { y: 0.7 }
+      });
+    } else {
+      sounds.playWrong();
+    }
+  };
+
+  const handleNextTenseExercise = () => {
+    sounds.playClick();
+    const currentTense = fullTwelveTenses.find(t => t.id === selectedTenseId) || fullTwelveTenses[0];
+    if (tenseExIndex + 1 < currentTense.exercises.length) {
+      setTenseExIndex(prev => prev + 1);
+      setTenseSelectedAnswer(null);
+      setTenseIsAnswerChecked(false);
+    } else {
+      setTenseExerciseFinished(true);
+      if (tenseCorrectCount >= currentTense.exercises.length * 0.8) {
+        sounds.playVictory();
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      }
+    }
+  };
+
+  const handleRestartTenseQuiz = () => {
+    sounds.playClick();
+    setTenseExIndex(0);
+    setTenseSelectedAnswer(null);
+    setTenseIsAnswerChecked(false);
+    setTenseCorrectCount(0);
+    setTenseExerciseFinished(false);
+  };
+
+  // Word Order Quiz Handlers
+  const handleToggleWordOrderQuiz = (ruleId: string) => {
+    sounds.playClick();
+    setExpandedWordOrderQuizId(prev => (prev === ruleId ? null : ruleId));
+    if (!wordOrderQuizState[ruleId]) {
+      setWordOrderQuizState(prev => ({
+        ...prev,
+        [ruleId]: {
+          index: 0,
+          selectedAnswer: null,
+          isChecked: false,
+          correctCount: 0,
+          isFinished: false
+        }
+      }));
+    }
+  };
+
+  const handleSelectWordOrderOption = (ruleId: string, label: 'A' | 'B' | 'C' | 'D', correctAnswer: 'A' | 'B' | 'C' | 'D') => {
+    const currentState = wordOrderQuizState[ruleId] || {
+      index: 0,
+      selectedAnswer: null,
+      isChecked: false,
+      correctCount: 0,
+      isFinished: false
+    };
+
+    if (currentState.isChecked) return;
+
+    const isCorrect = label === correctAnswer;
+    if (isCorrect) {
+      sounds.playCorrect();
+      confetti({
+        particleCount: 40,
+        spread: 50,
+        origin: { y: 0.7 }
+      });
+    } else {
+      sounds.playWrong();
+    }
+
+    setWordOrderQuizState(prev => ({
+      ...prev,
+      [ruleId]: {
+        ...currentState,
+        selectedAnswer: label,
+        isChecked: true,
+        correctCount: currentState.correctCount + (isCorrect ? 1 : 0)
+      }
+    }));
+  };
+
+  const handleNextWordOrderExercise = (ruleId: string, totalExercises: number) => {
+    sounds.playClick();
+    const currentState = wordOrderQuizState[ruleId];
+    if (!currentState) return;
+
+    if (currentState.index + 1 < totalExercises) {
+      setWordOrderQuizState(prev => ({
+        ...prev,
+        [ruleId]: {
+          ...currentState,
+          index: currentState.index + 1,
+          selectedAnswer: null,
+          isChecked: false
+        }
+      }));
+    } else {
+      setWordOrderQuizState(prev => ({
+        ...prev,
+        [ruleId]: {
+          ...currentState,
+          isFinished: true
+        }
+      }));
+      sounds.playVictory();
+      confetti({
+        particleCount: 90,
+        spread: 60,
+        origin: { y: 0.6 }
+      });
+    }
+  };
+
+  const handleRestartWordOrderQuiz = (ruleId: string) => {
+    sounds.playClick();
+    setWordOrderQuizState(prev => ({
+      ...prev,
+      [ruleId]: {
+        index: 0,
+        selectedAnswer: null,
+        isChecked: false,
+        correctCount: 0,
+        isFinished: false
+      }
+    }));
   };
 
   // Survival Mode logic
@@ -497,10 +673,7 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                 {filteredTenses.map((t, idx) => (
                   <button
                     key={t.id}
-                    onClick={() => {
-                      sounds.playClick();
-                      setSelectedTenseId(t.id);
-                    }}
+                    onClick={() => handleSelectTense(t.id)}
                     className={`relative p-3.5 border-3 border-black text-left font-black transition-all cursor-pointer flex items-center justify-between ${
                       selectedTenseId === t.id
                         ? 'bg-neoYellow shadow-neo translate-x-1'
@@ -559,6 +732,41 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                     📌 {selectedTense.summaryBadge}
                   </p>
                 </div>
+
+                {/* Tense Sub-tabs (Theory vs Practice) */}
+                <div className="flex border-3 border-black p-1 bg-gray-100 gap-1.5 shadow-neo-sm">
+                  <button
+                    onClick={() => {
+                      sounds.playClick();
+                      setTenseViewTab('THEORY');
+                    }}
+                    className={`flex-1 py-2.5 font-black text-xs sm:text-sm uppercase flex items-center justify-center gap-2 transition-all cursor-pointer border-2 border-black ${
+                      tenseViewTab === 'THEORY'
+                        ? 'bg-neoYellow shadow-neo-sm'
+                        : 'bg-white hover:bg-gray-50'
+                    }`}
+                  >
+                    <BookOpen className="w-4 h-4" />
+                    <span>Lý Thuyết & Công Thức</span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      sounds.playClick();
+                      setTenseViewTab('PRACTICE');
+                    }}
+                    className={`flex-1 py-2.5 font-black text-xs sm:text-sm uppercase flex items-center justify-center gap-2 transition-all cursor-pointer border-2 border-black ${
+                      tenseViewTab === 'PRACTICE'
+                        ? 'bg-neoGreen shadow-neo-sm'
+                        : 'bg-white hover:bg-gray-50'
+                    }`}
+                  >
+                    <CheckCircle2 className="w-4 h-4" />
+                    <span>Luyện Tập Trắc Nghiệm ({selectedTense.exercises.length} câu)</span>
+                  </button>
+                </div>
+
+                {tenseViewTab === 'THEORY' && (
+                  <div className="flex flex-col gap-6">
 
                 {/* VISUAL COLOR-CODED FORMULA CARDS */}
                 <div className="space-y-4">
@@ -656,6 +864,153 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                     {selectedTense.toeicTrap}
                   </p>
                 </div>
+              </div>
+            )}
+
+            {/* TENSE PRACTICE QUIZ */}
+            {tenseViewTab === 'PRACTICE' && (
+              <div>
+                {!tenseExerciseFinished ? (
+                  <div className="bg-amber-50/50 border-3 border-black p-5 md:p-6 shadow-neo-sm">
+                    {/* Progress bar */}
+                    <div className="flex items-center justify-between text-xs font-black mb-3">
+                      <span className="uppercase">
+                        Câu hỏi {tenseExIndex + 1} / {selectedTense.exercises.length}
+                      </span>
+                      <span className="text-emerald-700 font-bold">
+                        Đúng: {tenseCorrectCount} câu
+                      </span>
+                    </div>
+                    <div className="w-full h-3 bg-gray-200 border-2 border-black mb-5">
+                      <div
+                        className="h-full bg-neoGreen transition-all duration-300"
+                        style={{
+                          width: `${((tenseExIndex + 1) / selectedTense.exercises.length) * 100}%`
+                        }}
+                      />
+                    </div>
+
+                    {/* Question Box */}
+                    {(() => {
+                      const currentTenseEx = selectedTense.exercises[tenseExIndex];
+                      if (!currentTenseEx) return null;
+
+                      return (
+                        <div>
+                          <div className="text-xs font-black uppercase text-amber-800 mb-2 flex items-center gap-1.5">
+                            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                            Bài Tập Thực Chiến: {selectedTense.nameVi} ({selectedTense.nameEn})
+                          </div>
+                          <h3 className="text-base md:text-xl font-black font-heading leading-relaxed text-black bg-white p-4 border-3 border-black shadow-neo-sm mb-5">
+                            {currentTenseEx.question}
+                          </h3>
+
+                          {/* Options */}
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+                            {currentTenseEx.options.map(opt => {
+                              const isSelected = tenseSelectedAnswer === opt.label;
+                              const isCorrect = opt.label === currentTenseEx.correctAnswer;
+                              let btnStyle = 'bg-white hover:bg-amber-100 text-black';
+
+                              if (tenseIsAnswerChecked) {
+                                if (isCorrect) {
+                                  btnStyle = 'bg-emerald-400 text-black ring-2 ring-emerald-700 font-black';
+                                } else if (isSelected && !isCorrect) {
+                                  btnStyle = 'bg-rose-400 text-black ring-2 ring-rose-700 font-black';
+                                } else {
+                                  btnStyle = 'bg-gray-100 text-gray-400 opacity-60';
+                                }
+                              }
+
+                              return (
+                                <button
+                                  key={opt.label}
+                                  onClick={() => handleSelectTenseOption(opt.label)}
+                                  disabled={tenseIsAnswerChecked}
+                                  className={`p-3.5 border-3 border-black text-left font-black text-sm transition-all cursor-pointer shadow-neo-sm flex items-center gap-3 ${btnStyle}`}
+                                >
+                                  <span className="w-7 h-7 border-2 border-black bg-black text-white flex items-center justify-center font-mono font-black text-xs shrink-0">
+                                    {opt.label}
+                                  </span>
+                                  <span className="flex-1">{opt.text}</span>
+                                  {tenseIsAnswerChecked && isCorrect && (
+                                    <Check className="w-5 h-5 text-emerald-900 stroke-[3] shrink-0" />
+                                  )}
+                                  {tenseIsAnswerChecked && isSelected && !isCorrect && (
+                                    <X className="w-5 h-5 text-rose-900 stroke-[3] shrink-0" />
+                                  )}
+                                </button>
+                              );
+                            })}
+                          </div>
+
+                          {/* Explanation & Translation Box */}
+                          {tenseIsAnswerChecked && (
+                            <div className="p-4 bg-white border-3 border-black shadow-neo-sm space-y-3 mb-5">
+                              <div className="text-xs font-black uppercase text-amber-900 flex items-center gap-1.5">
+                                <Sparkles className="w-4 h-4 text-amber-600" /> Giải thích chi tiết:
+                              </div>
+                              <p className="text-sm font-bold text-gray-800 leading-relaxed">
+                                {currentTenseEx.explanation}
+                              </p>
+                              <div className="border-t border-dashed border-gray-300 pt-2 text-xs md:text-sm font-bold text-gray-600 italic">
+                                👉 Dịch nghĩa: "{currentTenseEx.translation}"
+                              </div>
+
+                              <div className="pt-2 flex justify-end">
+                                <button
+                                  onClick={handleNextTenseExercise}
+                                  className="px-6 py-2.5 bg-neoGreen hover:bg-emerald-400 border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo cursor-pointer flex items-center gap-2 active:translate-x-0.5 active:translate-y-0.5"
+                                >
+                                  <span>
+                                    {tenseExIndex + 1 < selectedTense.exercises.length
+                                      ? 'Câu Tiếp Theo'
+                                      : 'Xem Kết Quả'}
+                                  </span>
+                                  <ChevronRight className="w-4 h-4 stroke-[3]" />
+                                </button>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })()}
+                  </div>
+                ) : (
+                  /* Tense Quiz Result Screen */
+                  <div className="bg-white border-4 border-black p-6 md:p-8 shadow-neo text-center">
+                    <div className="w-16 h-16 bg-neoYellow border-3 border-black mx-auto flex items-center justify-center shadow-neo mb-4">
+                      <Trophy className="w-8 h-8 text-black" />
+                    </div>
+                    <h3 className="text-2xl font-black font-heading uppercase text-black mb-1">
+                      Hoàn Thành Bài Luyện Tập Thì!
+                    </h3>
+                    <p className="text-sm font-bold text-gray-600 mb-4">
+                      Bạn đã trả lời đúng {tenseCorrectCount} / {selectedTense.exercises.length} câu của thì {selectedTense.nameVi} ({selectedTense.nameEn}).
+                    </p>
+                    <div className="inline-block px-4 py-2 bg-neoGreen border-3 border-black font-black text-base uppercase shadow-neo-sm mb-6">
+                      Đạt {Math.round((tenseCorrectCount / selectedTense.exercises.length) * 100)}% Điểm
+                    </div>
+                    <div className="flex flex-wrap items-center justify-center gap-3">
+                      <button
+                        onClick={handleRestartTenseQuiz}
+                        className="px-5 py-2.5 bg-neoYellow hover:bg-amber-300 border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo flex items-center gap-2 cursor-pointer active:translate-x-0.5 active:translate-y-0.5"
+                      >
+                        <RefreshCw className="w-4 h-4" />
+                        <span>Luyện Tập Lại</span>
+                      </button>
+                      <button
+                        onClick={() => setTenseViewTab('THEORY')}
+                        className="px-5 py-2.5 bg-white hover:bg-gray-100 border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo flex items-center gap-2 cursor-pointer active:translate-x-0.5 active:translate-y-0.5"
+                      >
+                        <BookOpen className="w-4 h-4" />
+                        <span>Xem Lại Lý Thuyết</span>
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
               </div>
             </div>
           </div>
@@ -758,6 +1113,133 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                       <span className="font-black text-emerald-700 uppercase block mb-1">💡 Mẹo ETS Part 5:</span>
                       {rule.etsTip}
                     </div>
+                  </div>
+
+                  {/* WORD ORDER INTERACTIVE PRACTICE */}
+                  <div className="border-3 border-black bg-gray-50 p-3 sm:p-4 shadow-neo-sm">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                        <span className="font-black text-xs uppercase text-gray-700">
+                          Luyện tập củng cố: {rule.exercises.length} câu trắc nghiệm Part 5
+                        </span>
+                      </div>
+                      <button
+                        onClick={() => handleToggleWordOrderQuiz(rule.id)}
+                        className={`px-3 py-1.5 border-2 border-black font-black text-xs uppercase shadow-neo-sm flex items-center gap-1.5 cursor-pointer active:translate-x-0.5 active:translate-y-0.5 ${
+                          expandedWordOrderQuizId === rule.id
+                            ? 'bg-neoYellow'
+                            : 'bg-white hover:bg-amber-50'
+                        }`}
+                      >
+                        <span>{expandedWordOrderQuizId === rule.id ? 'Đóng Quiz' : 'Làm Bài Ngay'}</span>
+                        {expandedWordOrderQuizId === rule.id ? (
+                          <ChevronUp className="w-3.5 h-3.5 stroke-[3]" />
+                        ) : (
+                          <ChevronDown className="w-3.5 h-3.5 stroke-[3]" />
+                        )}
+                      </button>
+                    </div>
+
+                    {expandedWordOrderQuizId === rule.id && (() => {
+                      const qState = wordOrderQuizState[rule.id] || {
+                        index: 0,
+                        selectedAnswer: null,
+                        isChecked: false,
+                        correctCount: 0,
+                        isFinished: false
+                      };
+                      const currentEx = rule.exercises[qState.index];
+
+                      if (qState.isFinished) {
+                        return (
+                          <div className="mt-4 bg-white border-2 border-black p-4 text-center">
+                            <div className="font-black text-base uppercase text-black mb-1">
+                              🎉 Hoàn thành luyện tập quy tắc!
+                            </div>
+                            <p className="text-xs font-bold text-gray-600 mb-3">
+                              Đúng {qState.correctCount} / {rule.exercises.length} câu ({Math.round((qState.correctCount / rule.exercises.length) * 100)}%)
+                            </p>
+                            <button
+                              onClick={() => handleRestartWordOrderQuiz(rule.id)}
+                              className="px-4 py-2 bg-neoYellow border-2 border-black font-black text-xs uppercase shadow-neo-sm cursor-pointer flex items-center gap-1.5 mx-auto active:translate-x-0.5 active:translate-y-0.5"
+                            >
+                              <RefreshCw className="w-3.5 h-3.5" />
+                              <span>Làm Lại Quiz</span>
+                            </button>
+                          </div>
+                        );
+                      }
+
+                      if (!currentEx) return null;
+
+                      return (
+                        <div className="mt-4 bg-white border-2 border-black p-4">
+                          <div className="flex items-center justify-between text-xs font-black text-gray-500 mb-2">
+                            <span>Câu {qState.index + 1} / {rule.exercises.length}</span>
+                            <span className="text-emerald-700 font-bold">Đúng: {qState.correctCount} câu</span>
+                          </div>
+
+                          <div className="text-sm md:text-base font-black font-heading text-black bg-amber-50 p-3 border-2 border-black mb-3">
+                            {currentEx.question}
+                          </div>
+
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
+                            {currentEx.options.map(opt => {
+                              const isSelected = qState.selectedAnswer === opt.label;
+                              const isCorrect = opt.label === currentEx.correctAnswer;
+                              let btnStyle = 'bg-white hover:bg-amber-100 text-black';
+
+                              if (qState.isChecked) {
+                                if (isCorrect) {
+                                  btnStyle = 'bg-emerald-300 text-black font-black ring-2 ring-emerald-600';
+                                } else if (isSelected && !isCorrect) {
+                                  btnStyle = 'bg-rose-300 text-black font-black ring-2 ring-rose-600';
+                                } else {
+                                  btnStyle = 'bg-gray-100 text-gray-400 opacity-60';
+                                }
+                              }
+
+                              return (
+                                <button
+                                  key={opt.label}
+                                  onClick={() => handleSelectWordOrderOption(rule.id, opt.label, currentEx.correctAnswer)}
+                                  disabled={qState.isChecked}
+                                  className={`p-2.5 border-2 border-black text-left font-black text-xs transition-all cursor-pointer shadow-neo-sm flex items-center gap-2 ${btnStyle}`}
+                                >
+                                  <span className="w-5 h-5 border border-black bg-black text-white flex items-center justify-center font-mono font-black text-[10px] shrink-0">
+                                    {opt.label}
+                                  </span>
+                                  <span className="flex-1">{opt.text}</span>
+                                  {qState.isChecked && isCorrect && <Check className="w-4 h-4 text-emerald-900 stroke-[3] shrink-0" />}
+                                  {qState.isChecked && isSelected && !isCorrect && <X className="w-4 h-4 text-rose-900 stroke-[3] shrink-0" />}
+                                </button>
+                              );
+                            })}
+                          </div>
+
+                          {qState.isChecked && (
+                            <div className="p-3 bg-amber-50/70 border-2 border-black space-y-2">
+                              <p className="text-xs font-bold text-gray-800">
+                                💡 <span className="font-black text-black">Giải thích:</span> {currentEx.explanation}
+                              </p>
+                              <p className="text-xs font-bold text-gray-600 italic">
+                                👉 Dịch nghĩa: "{currentEx.translation}"
+                              </p>
+                              <div className="pt-1 flex justify-end">
+                                <button
+                                  onClick={() => handleNextWordOrderExercise(rule.id, rule.exercises.length)}
+                                  className="px-4 py-1.5 bg-neoGreen border-2 border-black font-black text-xs uppercase shadow-neo-sm cursor-pointer flex items-center gap-1 active:translate-x-0.5 active:translate-y-0.5"
+                                >
+                                  <span>{qState.index + 1 < rule.exercises.length ? 'Câu Tiếp' : 'Xem Kết Quả'}</span>
+                                  <ChevronRight className="w-3.5 h-3.5 stroke-[3]" />
+                                </button>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })()}
                   </div>
                 </div>
               ))}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Volume2, VolumeX, Home, Heart, Flame, Maximize, Minimize } from 'lucide-react';
+import { Volume2, VolumeX, Home, Heart, Flame, Maximize, Minimize, Headphones } from 'lucide-react';
 import { sounds } from '../utils/soundEffects';
 
 interface NavbarProps {
@@ -8,6 +8,8 @@ interface NavbarProps {
   onToggleSound: () => void;
   nickname: string;
   streakDays: number;
+  onToggleLofi?: () => void;
+  isLofiOpen?: boolean;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -15,7 +17,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   soundEnabled,
   onToggleSound,
   nickname,
-  streakDays
+  streakDays,
+  onToggleLofi,
+  isLofiOpen
 }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
@@ -70,6 +74,22 @@ export const Navbar: React.FC<NavbarProps> = ({
           <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
           <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
         </div>
+
+        {/* Lofi Music Toggle */}
+        <button
+          onClick={() => {
+            sounds.playClick();
+            onToggleLofi?.();
+          }}
+          className={`flex items-center gap-1.5 px-2.5 sm:px-3 h-10 sm:h-11 border-2 border-black rounded shadow-neo-sm font-black text-xs transition-transform active:scale-95 cursor-pointer ${
+            isLofiOpen ? 'bg-neoPink text-white' : 'bg-neoYellow hover:bg-yellow-300 text-black'
+          }`}
+          title="Bật/Tắt Góc Nhạc Lofi Chill"
+          aria-label="Lofi Music"
+        >
+          <Headphones className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+          <span className="hidden sm:inline">Lofi Chill</span>
+        </button>
 
         {/* Fullscreen Toggle */}
         <button
