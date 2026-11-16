@@ -23,11 +23,19 @@ interface QuizQuestion {
 }
 
 export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) => {
+  const [chapter, setChapter] = useState<1 | 2>(1);
   const [view, setView] = useState<VocabView>('MAP');
   const [selectedDay, setSelectedDay] = useState<number>(1);
   const { progress, saveVocabularyProgress, recordStudyActivity, loseHeart } = useLearningProgress();
-  const unlockedDay = progress.vocabUnlockedDay;
-  const dayStars = progress.vocabDayStars;
+
+  const isChap2 = chapter === 2;
+  const maxDay = isChap2 ? 13 : 26;
+  const unlockedDay = isChap2
+    ? (progress.vocabChapter2UnlockedDay ?? 1)
+    : (progress.vocabUnlockedDay ?? 1);
+  const dayStars = isChap2
+    ? (progress.vocabChapter2DayStars ?? {})
+    : (progress.vocabDayStars ?? {});
   
   // Flashcard state
   const [flashcardIndex, setFlashcardIndex] = useState(0);
@@ -74,7 +82,7 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
     setView('STUDY');
   };
 
-  const currentLesson: DayLesson | null = getDayData(selectedDay);
+  const currentLesson: DayLesson | null = getDayData(selectedDay, chapter);
   const currentWord: VocabWord | undefined = currentLesson?.words[flashcardIndex];
 
   useEffect(() => {
@@ -108,7 +116,7 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
   // Start Cumulative Quiz for selectedDay
   const startQuiz = () => {
     sounds.playClick();
-    const cumulativePool = getCumulativeWords(selectedDay);
+    const cumulativePool = getCumulativeWords(selectedDay, chapter);
     const currentDayWords = currentLesson?.words || [];
 
     // Calculate number of questions: Day 1: 10, scales up to 25
@@ -187,8 +195,8 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
 
       const newStars = { ...dayStars, [selectedDay]: Math.max(dayStars[selectedDay] || 0, stars) };
 
-      const nextUnlocked = Math.max(unlockedDay, Math.min(26, selectedDay + 1));
-      saveVocabularyProgress(nextUnlocked, newStars);
+      const nextUnlocked = Math.max(unlockedDay, Math.min(maxDay, selectedDay + 1));
+      saveVocabularyProgress(nextUnlocked, newStars, chapter);
     } else {
       sounds.playWrong();
       loseHeart();
@@ -226,43 +234,86 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
             {/* Stars counter */}
             <div className="flex items-center gap-1.5 px-4 py-2 bg-neoYellow border-3 border-black font-black shadow-neo-sm">
               <Star className="w-5 h-5 text-amber-500 fill-amber-500 animate-spin" />
-              <span>{totalEarnedStars} / 78 ⭐</span>
+              <span>{totalEarnedStars} / {maxDay * 3} ⭐</span>
             </div>
 
             {/* Unlocked status */}
             <div className="px-4 py-2 bg-neoGreen border-3 border-black font-black shadow-neo-sm text-sm">
-              Đã mở: {unlockedDay} / 26 Màn
+              Đã mở: {unlockedDay} / {maxDay} Màn
             </div>
           </div>
+        </div>
+
+        {/* Chapter Switcher Tabs */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4 mb-6">
+          <button
+            onClick={() => {
+              if (chapter !== 1) {
+                sounds.playClick();
+                setChapter(1);
+                setSelectedDay(1);
+              }
+            }}
+            className={`w-full sm:w-auto px-5 py-3 border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo transition-all cursor-pointer ${
+              chapter === 1
+                ? 'bg-neoYellow -translate-y-1 shadow-neo-lg ring-2 ring-black text-black'
+                : 'bg-white hover:bg-gray-100 text-gray-700'
+            }`}
+          >
+            📘 Chương 1: 26 Ngày Cơ Bản (Day 1 - 26)
+          </button>
+
+          <button
+            onClick={() => {
+              if (chapter !== 2) {
+                sounds.playClick();
+                setChapter(2);
+                setSelectedDay(1);
+              }
+            }}
+            className={`w-full sm:w-auto px-5 py-3 border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo transition-all cursor-pointer relative ${
+              chapter === 2
+                ? 'bg-neoCyan -translate-y-1 shadow-neo-lg ring-2 ring-black text-black'
+                : 'bg-white hover:bg-gray-100 text-gray-700'
+            }`}
+          >
+            <span className="absolute -top-3 -right-2 bg-neoPink text-white text-[10px] font-black px-2 py-0.5 border border-black rotate-12 shadow-neo-sm">
+              MỚI 🔥
+            </span>
+            🚀 Chương 2: ETS 2019 & New Economy (13 Bài)
+          </button>
         </div>
 
         {/* Title Banner */}
         <div className="text-center mb-8">
           <span className="inline-block px-4 py-1.5 bg-neoPink text-white border-2 border-black font-black text-xs uppercase shadow-neo-sm rotate-[-2deg]">
-            BẢN ĐỒ CHINH PHỤC TOEIC
+            {isChap2 ? 'BỘ TỪ VỰNG ETS 2019 & NEW ECONOMY' : 'BẢN ĐỒ 26 NGÀY TOEIC CĂN BẢN'}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mt-2 font-heading">
-            Vượt Màn Học Từ Vựng (Day 1 - 26)
+            {isChap2 ? 'Từ Vựng Sát Đề Thi Thật (13 Bài)' : 'Vượt Màn Học Từ Vựng (Day 1 - 26)'}
           </h2>
           <p className="text-sm font-bold text-gray-600 mt-1 max-w-lg mx-auto">
-            Học flashcard rồi làm bài test để mở khóa màn tiếp theo! Bài kiểm tra sẽ dồn từ của tất cả các bài trước đó để {nickname} không bao giờ bị quên từ!
+            {isChap2
+              ? `Bộ từ vựng trọng điểm trích trực tiếp từ đề ETS 2019 và New Economy! Bài test chỉ dồn từ riêng của Chương 2 để ${nickname} học đâu chắc đó!`
+              : `Học flashcard rồi làm bài test để mở khóa màn tiếp theo! Bài kiểm tra sẽ dồn từ của tất cả các bài trước đó để ${nickname} không bao giờ bị quên từ!`}
           </p>
         </div>
 
-        {/* ANGRY BIRDS STAGE GRID (26 Levels) */}
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-4 sm:gap-6 bg-white border-4 border-black p-6 sm:p-8 shadow-neo-lg rounded-2xl relative">
-          {Array.from({ length: 26 }, (_, i) => i + 1).map(day => {
+        {/* ANGRY BIRDS STAGE GRID */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3.5 sm:gap-5 bg-white border-4 border-black p-5 sm:p-7 md:p-8 shadow-neo-lg rounded-2xl relative">
+          {Array.from({ length: maxDay }, (_, i) => i + 1).map(day => {
             const isUnlocked = day <= unlockedDay;
             const isCompleted = (dayStars[day] || 0) > 0;
             const stars = dayStars[day] || 0;
             const isCurrent = day === unlockedDay;
             const isShaking = shakeDay === day;
+            const lessonInfo = getDayData(day, chapter);
 
             return (
               <div
                 key={day}
                 onClick={() => handleSelectDay(day)}
-                className={`relative flex flex-col items-center justify-center p-3 rounded-2xl border-4 border-black transition-all cursor-pointer select-none group min-h-[105px] ${
+                className={`relative flex flex-col items-center justify-center p-2.5 sm:p-3 rounded-2xl border-4 border-black transition-all cursor-pointer select-none group min-h-[110px] ${
                   isShaking ? 'animate-shake' : ''
                 } ${
                   isCompleted
@@ -276,17 +327,22 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
               >
                 {/* Level Number or Lock */}
                 {isUnlocked ? (
-                  <div className="flex flex-col items-center">
-                    <span className="text-2xl sm:text-3xl font-black font-heading text-black">
+                  <div className="flex flex-col items-center text-center w-full px-1">
+                    <span className="text-2xl sm:text-3xl font-black font-heading text-black leading-tight">
                       {day}
                     </span>
-                    <span className="text-[10px] font-black uppercase text-gray-800 -mt-1">
-                      Bài {day}
+                    <span className="text-[10px] sm:text-[11px] font-black uppercase text-gray-800 line-clamp-1 w-full truncate mt-0.5">
+                      {isChap2 ? (lessonInfo?.title.replace(' ETS 2019', '') || `Bài ${day}`) : `Bài ${day}`}
                     </span>
+                    {isChap2 && lessonInfo && (
+                      <span className="text-[9px] font-bold text-gray-600">
+                        {lessonInfo.totalWords} từ
+                      </span>
+                    )}
                   </div>
                 ) : (
                   <div className="flex flex-col items-center gap-1 text-gray-500">
-                    <Lock className="w-7 h-7 text-gray-600" />
+                    <Lock className="w-6 h-6 text-gray-600" />
                     <span className="text-[10px] font-bold">Khóa</span>
                   </div>
                 )}
@@ -320,7 +376,9 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
 
         {/* Bottom Troll Hint */}
         <div className="mt-6 text-center text-xs sm:text-sm font-bold text-gray-600 bg-amber-50 border-2 border-dashed border-black p-3">
-          💡 Mẹo: Ở các bài sau (ví dụ Bài 15), bài kiểm tra sẽ bao gồm cả từ của Bài 1 đến Bài 15. Hãy học thật kỹ trước khi ấn làm test nha {nickname}!
+          {isChap2
+            ? `💡 Mẹo Chương 2: Mỗi bài gồm từ vựng sát đề thi thực chiến (Part 1, Part 2, Test 1 - 10). Kiểm tra chỉ dồn từ của Chương 2 thôi nha ${nickname}!`
+            : `💡 Mẹo: Ở các bài sau (ví dụ Bài 15), bài kiểm tra sẽ bao gồm cả từ của Bài 1 đến Bài 15. Hãy học thật kỹ trước khi ấn làm test nha ${nickname}!`}
         </div>
       </div>
     );

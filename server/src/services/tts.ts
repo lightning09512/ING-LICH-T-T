@@ -15,10 +15,10 @@ export async function* streamSpeech(text: string): AsyncGenerator<Buffer> {
   }
 
   const tts = new EdgeTTS({
-    voice: 'en-US-JennyNeural',
+    voice: 'en-US-AriaNeural',
     lang: 'en-US',
     outputFormat: 'audio-24khz-96kbitrate-mono-mp3',
-    rate: '-5%',
+    rate: '-2%',
     timeout: 15_000,
   });
   const chunks: Buffer[] = [];

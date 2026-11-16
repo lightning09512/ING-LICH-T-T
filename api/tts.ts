@@ -1,88 +1,99 @@
-import { MAX_TTS_TEXT_LENGTH, streamSpeech } from '../server/src/services/tts.js';
+import { EdgeTTS } from 'node-edge-tts';
 
-const MAX_REQUESTS_PER_MINUTE = 120;
-const requestCounts = new Map<string, { count: number; windowStartedAt: number }>();
+export const config = {
+  maxDuration: 30,
+};
 
-function isRateLimited(ip: string, now: number): boolean {
-  if (requestCounts.size > 1_000) {
-    for (const [knownIp, entry] of requestCounts) {
-      if (now - entry.windowStartedAt >= 60_000) requestCounts.delete(knownIp);
-    }
-  }
+const audioCache = new Map<string, Buffer>();
 
-  const current = requestCounts.get(ip);
-  if (!current || now - current.windowStartedAt >= 60_000) {
-    requestCounts.set(ip, { count: 1, windowStartedAt: now });
-    return false;
-  }
+async function getSpeechAudio(text: string): Promise<Buffer> {
+  const cached = audioCache.get(text);
+  if (cached) return cached;
 
-  if (current.count >= MAX_REQUESTS_PER_MINUTE) return true;
-  current.count += 1;
-  return false;
-}
-
-function jsonResponse(status: number, message: string): Response {
-  return new Response(JSON.stringify({ success: false, message }), {
-    status,
-    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+  // Use Microsoft Edge's most natural, warm, human studio female voice (AriaNeural)
+  const tts = new EdgeTTS({
+    voice: 'en-US-AriaNeural',
+    lang: 'en-US',
+    outputFormat: 'audio-24khz-96kbitrate-mono-mp3',
+    rate: '-2%',
+    timeout: 12_000,
   });
+
+  const chunks: Buffer[] = [];
+  for await (const chunk of tts.streamAudio(text)) {
+    if (Buffer.isBuffer(chunk)) chunks.push(chunk);
+  }
+
+  if (chunks.length === 0) {
+    throw new Error('No audio generated');
+  }
+
+  const audio = Buffer.concat(chunks);
+  if (audioCache.size > 300) {
+    const oldestKey = audioCache.keys().next().value;
+    if (oldestKey) audioCache.delete(oldestKey);
+  }
+  audioCache.set(text, audio);
+  return audio;
 }
 
-export default {
-  async fetch(request: Request): Promise<Response> {
-    let text = '';
-    if (request.method === 'GET') {
-      text = new URL(request.url).searchParams.get('text')?.trim() ?? '';
-    } else if (request.method === 'POST') {
-      let body: unknown;
-      try {
-        body = await request.json();
-      } catch {
-        return jsonResponse(400, 'Request body must be valid JSON.');
-      }
-      text = typeof body === 'object' && body !== null && 'text' in body && typeof body.text === 'string'
-        ? body.text.trim()
-        : '';
-    } else {
-      return jsonResponse(405, 'Method not allowed.');
+export default async function handler(req: any, res?: any) {
+  // 1. Node.js serverless handler (Standard Vercel Function)
+  if (res && typeof res.status === 'function') {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    if (req.method === 'OPTIONS') return res.status(200).end();
+
+    const text = (req.query?.text || req.body?.text || '').trim();
+    if (!text || text.length > 800) {
+      return res.status(400).json({ error: 'Text required (max 800 chars)' });
     }
 
-    if (!text || text.length > MAX_TTS_TEXT_LENGTH) {
-      return jsonResponse(400, `Text must be between 1 and ${MAX_TTS_TEXT_LENGTH} characters.`);
+    try {
+      const audioBuffer = await getSpeechAudio(text);
+      res.setHeader('Content-Type', 'audio/mpeg');
+      res.setHeader('Cache-Control', 'public, max-age=604800, immutable');
+      return res.send(audioBuffer);
+    } catch (e: any) {
+      console.error('[TTS Error]', e);
+      return res.status(500).json({ error: e.message || 'TTS Error' });
     }
+  }
 
-    const forwardedFor = request.headers.get('x-forwarded-for') ?? 'unknown';
-    const ip = forwardedFor.split(',')[0].trim() || 'unknown';
-    if (isRateLimited(ip, Date.now())) {
-      return jsonResponse(429, 'Too many speech requests. Try again shortly.');
-    }
-
-    let iterator: AsyncGenerator<Buffer> | null = null;
-    const body = new ReadableStream<Uint8Array>({
-      async start(controller) {
-        iterator = streamSpeech(text);
-        try {
-          for await (const chunk of iterator) {
-            const audioBytes = new Uint8Array(chunk.length);
-            audioBytes.set(chunk);
-            controller.enqueue(audioBytes);
-          }
-          controller.close();
-        } catch (error) {
-          console.error('[TTS] Neural speech synthesis failed:', error instanceof Error ? error.message : 'unknown error');
-          controller.error(error);
-        }
-      },
-      async cancel() {
-        await iterator?.return(undefined);
+  // 2. Web standard Request/Response handler (Vercel Edge / Fetch)
+  const request = req as Request;
+  if (request.method === 'OPTIONS') {
+    return new Response(null, {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
       },
     });
+  }
 
-    return new Response(body, {
+  let text = '';
+  if (request.method === 'GET') {
+    text = new URL(request.url).searchParams.get('text')?.trim() ?? '';
+  } else if (request.method === 'POST') {
+    const body: any = await request.json().catch(() => ({}));
+    text = (body.text || '').trim();
+  }
+
+  if (!text || text.length > 800) {
+    return new Response(JSON.stringify({ error: 'Text required' }), { status: 400 });
+  }
+
+  try {
+    const audioBuffer = await getSpeechAudio(text);
+    return new Response(audioBuffer, {
       headers: {
         'Content-Type': 'audio/mpeg',
-        'Cache-Control': 'private, max-age=86400',
+        'Cache-Control': 'public, max-age=604800, immutable',
+        'Access-Control-Allow-Origin': '*',
       },
     });
-  },
-};
+  } catch (e: any) {
+    return new Response(JSON.stringify({ error: e.message }), { status: 500 });
+  }
+}
