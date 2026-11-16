@@ -6917,123 +6917,159 @@
         "word": "Bend down",
         "meaning": "Cúi xuống",
         "ipa": "/bɛnd daʊn/",
-        "imageUrl": "/vocab_images/day_16/26.png"
+        "imageUrl": "/vocab_images/day_16/26.png",
+        "exampleEn": "The word 'Bend down' is commonly used in English.",
+        "exampleVi": "Từ 'Bend down' (Cúi xuống) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 27,
         "word": "Bend",
         "meaning": "Uốn cong",
         "ipa": "/bɛnd/",
-        "imageUrl": "/vocab_images/day_16/27.png"
+        "imageUrl": "/vocab_images/day_16/27.png",
+        "exampleEn": "The word 'Bend' is commonly used in English.",
+        "exampleVi": "Từ 'Bend' (Uốn cong) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 28,
         "word": "Instruct",
         "meaning": "Hướng dẫn",
         "ipa": "/ˌɪnˈstrəkt/",
-        "imageUrl": "/vocab_images/day_16/28.png"
+        "imageUrl": "/vocab_images/day_16/28.png",
+        "exampleEn": "The word 'Instruct' is commonly used in English.",
+        "exampleVi": "Từ 'Instruct' (Hướng dẫn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 29,
         "word": "Instruction",
         "meaning": "Sự hướng dẫn",
-        "ipa": "/ˌɪnˈstrəkʃən/"
+        "ipa": "/ˌɪnˈstrəkʃən/",
+        "exampleEn": "The word 'Instruction' is commonly used in English.",
+        "exampleVi": "Từ 'Instruction' (Sự hướng dẫn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 30,
         "word": "Guide",
         "meaning": "Hướng dẫn",
         "ipa": "/gaɪd/",
-        "imageUrl": "/vocab_images/day_16/30.png"
+        "imageUrl": "/vocab_images/day_16/30.png",
+        "exampleEn": "The word 'Guide' is commonly used in English.",
+        "exampleVi": "Từ 'Guide' (Hướng dẫn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 31,
         "word": "Guidance",
         "meaning": "Sự hướng dẫn",
         "ipa": "/ˈgaɪdəns/",
-        "imageUrl": "/vocab_images/day_16/31.png"
+        "imageUrl": "/vocab_images/day_16/31.png",
+        "exampleEn": "The word 'Guidance' is commonly used in English.",
+        "exampleVi": "Từ 'Guidance' (Sự hướng dẫn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 32,
         "word": "Tour guide",
         "meaning": "Hướng dẫn viên du lich",
-        "ipa": "/tʊr gaɪd/"
+        "ipa": "/tʊr gaɪd/",
+        "exampleEn": "The word 'Tour guide' is commonly used in English.",
+        "exampleVi": "Từ 'Tour guide' (Hướng dẫn viên du lich) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 33,
         "word": "Properly",
         "meaning": "Đúng cách",
         "ipa": "/ˈprɑpərli/",
-        "imageUrl": "/vocab_images/day_16/33.png"
+        "imageUrl": "/vocab_images/day_16/33.png",
+        "exampleEn": "The word 'Properly' is commonly used in English.",
+        "exampleVi": "Từ 'Properly' (Đúng cách) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 34,
         "word": "Accurately",
         "meaning": "Chính xác",
         "ipa": "/ˈækjərətli/",
-        "imageUrl": "/vocab_images/day_16/34.png"
+        "imageUrl": "/vocab_images/day_16/34.png",
+        "exampleEn": "The word 'Accurately' is commonly used in English.",
+        "exampleVi": "Từ 'Accurately' (Chính xác) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 35,
         "word": "Inaccurate",
         "meaning": "Không chính xác",
         "ipa": "/ˌɪˈnækjərət/",
-        "imageUrl": "/vocab_images/day_16/35.png"
+        "imageUrl": "/vocab_images/day_16/35.png",
+        "exampleEn": "The word 'Inaccurate' is commonly used in English.",
+        "exampleVi": "Từ 'Inaccurate' (Không chính xác) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 36,
         "word": "Inaccurately",
         "meaning": "Một cách không chính xác",
-        "ipa": "/ˌɪˈnækjərətli/"
+        "ipa": "/ˌɪˈnækjərətli/",
+        "exampleEn": "The word 'Inaccurately' is commonly used in English.",
+        "exampleVi": "Từ 'Inaccurately' (Một cách không chính xác) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 37,
         "word": "Bulletin board",
         "meaning": "Bảng thông báo",
         "ipa": "/ˈbʊlɪtən bɔrd/",
-        "imageUrl": "/vocab_images/day_16/37.png"
+        "imageUrl": "/vocab_images/day_16/37.png",
+        "exampleEn": "The word 'Bulletin board' is commonly used in English.",
+        "exampleVi": "Từ 'Bulletin board' (Bảng thông báo) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 38,
         "word": "Agenda",
         "meaning": "Chương trình nghi sự",
         "ipa": "/əˈʤɛndə/",
-        "imageUrl": "/vocab_images/day_16/38.png"
+        "imageUrl": "/vocab_images/day_16/38.png",
+        "exampleEn": "The word 'Agenda' is commonly used in English.",
+        "exampleVi": "Từ 'Agenda' (Chương trình nghi sự) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 39,
         "word": "Delighted",
         "meaning": "Vui mừng",
         "ipa": "/dɪˈlaɪtɪd/",
-        "imageUrl": "/vocab_images/day_16/39.png"
+        "imageUrl": "/vocab_images/day_16/39.png",
+        "exampleEn": "The word 'Delighted' is commonly used in English.",
+        "exampleVi": "Từ 'Delighted' (Vui mừng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 40,
         "word": "Pleased",
         "meaning": "Hài lòng",
         "ipa": "/plizd/",
-        "imageUrl": "/vocab_images/day_16/40.png"
+        "imageUrl": "/vocab_images/day_16/40.png",
+        "exampleEn": "The word 'Pleased' is commonly used in English.",
+        "exampleVi": "Từ 'Pleased' (Hài lòng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 41,
         "word": "Interact",
         "meaning": "Tương tác",
         "ipa": "/ˌɪnərˈækt/",
-        "imageUrl": "/vocab_images/day_16/41.png"
+        "imageUrl": "/vocab_images/day_16/41.png",
+        "exampleEn": "The word 'Interact' is commonly used in English.",
+        "exampleVi": "Từ 'Interact' (Tương tác) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 42,
         "word": "Interaction",
         "meaning": "Sự tương tác",
         "ipa": "/ˌɪnərˈækʃən/",
-        "imageUrl": "/vocab_images/day_16/42.png"
+        "imageUrl": "/vocab_images/day_16/42.png",
+        "exampleEn": "The word 'Interaction' is commonly used in English.",
+        "exampleVi": "Từ 'Interaction' (Sự tương tác) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 43,
         "word": "Feature",
         "meaning": "Đặc điểm",
         "ipa": "/ˈfiʧər/",
-        "imageUrl": "/vocab_images/day_16/43.png"
+        "imageUrl": "/vocab_images/day_16/43.png",
+        "exampleEn": "The word 'Feature' is commonly used in English.",
+        "exampleVi": "Từ 'Feature' (Đặc điểm) được sử dụng phổ biến trong tiếng Anh."
       }
     ]
   },
