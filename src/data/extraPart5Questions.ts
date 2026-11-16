@@ -772,5 +772,456 @@ export const extraPart5Questions: ExtraP5Exercise[] = [
     translation: "Sổ tay nhân viên sửa đổi có chứa các hướng dẫn chi tiết liên quan đến các quy chuẩn đạo đức và an toàn nơi làm việc.",
     topicTitle: "Liên từ & Giới từ (Conjunctions & Preps)",
     category: "PART5_GRAMMAR"
+  },
+  // --- 10. BỔ SUNG ĐỀ TOEIC PART 5 THỰC CHIẾN (1051 - 1080) ---
+  {
+    id: 1051,
+    question: "The newly recruited software developer proved to be an _______ addition to our artificial intelligence lab.",
+    options: [
+      { label: 'A', text: 'asset' },
+      { label: 'B', text: 'invaluable' },
+      { label: 'C', text: 'invaluably' },
+      { label: 'D', text: 'invalue' }
+    ],
+    correctAnswer: 'B',
+    explanation: "Đứng sau mạo từ 'an' và trước danh từ 'addition' cần một tính từ bắt đầu bằng nguyên âm: 'invaluable' (vô giá, cực kỳ quý báu).",
+    translation: "Nhà phát triển phần mềm mới được tuyển dụng đã chứng tỏ là một sự bổ sung vô giá cho phòng thí nghiệm trí tuệ nhân tạo của chúng tôi.",
+    topicTitle: "Từ loại (Word Form)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1052,
+    question: "By the time the keynote speaker arrived, the conference hall _______ completely packed with attendees.",
+    options: [
+      { label: 'A', text: 'is' },
+      { label: 'B', text: 'was' },
+      { label: 'C', text: 'had been' },
+      { label: 'D', text: 'has been' }
+    ],
+    correctAnswer: 'C',
+    explanation: "Cấu trúc 'By the time + S + V2/ed (quá khứ đơn), S + had + V3/ed (quá khứ hoàn thành)': hành động hội trường chật kín xảy ra trước khi diễn giả đến.",
+    translation: "Vào thời điểm diễn giả chính đến nơi, hội trường hội nghị đã chật kín người tham dự.",
+    topicTitle: "Thì động từ (Tenses)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1053,
+    question: "Mr. Henderson decided to delegate the project responsibilities _______ he could focus on business development.",
+    options: [
+      { label: 'A', text: 'so that' },
+      { label: 'B', text: 'in order to' },
+      { label: 'C', text: 'such that' },
+      { label: 'D', text: 'as well as' }
+    ],
+    correctAnswer: 'A',
+    explanation: "'So that + S + could/can + V' (để mà, nhằm mục đích): theo sau là một mệnh đề hoàn chỉnh. 'In order to' chỉ đi với V-infinitive.",
+    translation: "Ông Henderson đã quyết định ủy quyền các trách nhiệm của dự án để ông có thể tập trung vào việc phát triển kinh doanh.",
+    topicTitle: "Liên từ & Giới từ (Conjunctions & Preps)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1054,
+    question: "Neither the design drafts nor the structural prototype _______ ready for tomorrow morning's client presentation.",
+    options: [
+      { label: 'A', text: 'is' },
+      { label: 'B', text: 'are' },
+      { label: 'C', text: 'were' },
+      { label: 'D', text: 'have' }
+    ],
+    correctAnswer: 'A',
+    explanation: "'Neither S1 nor S2 + V': động từ chia theo S2 ('the structural prototype' là danh từ số ít -> chia 'is').",
+    translation: "Cả các bản thảo thiết kế lẫn mẫu nguyên mẫu cấu trúc đều chưa sẵn sàng cho buổi thuyết trình khách hàng sáng mai.",
+    topicTitle: "Hòa hợp chủ vị (Subject-Verb Agreement)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1055,
+    question: "All catering orders must be placed at least forty-eight hours _______ to guarantee prompt kitchen delivery.",
+    options: [
+      { label: 'A', text: 'in advance' },
+      { label: 'B', text: 'forward' },
+      { label: 'C', text: 'ahead of' },
+      { label: 'D', text: 'beforehand of' }
+    ],
+    correctAnswer: 'A',
+    explanation: "Cụm trạng từ cố định đứng cuối câu chỉ thời gian: 'in advance' (trước): 'forty-eight hours in advance' (trước 48 giờ).",
+    translation: "Tất cả các đơn đặt tiệc phải được đặt trước ít nhất 48 giờ để đảm bảo bếp giao hàng đúng giờ.",
+    topicTitle: "Cụm từ cố định (Collocations)",
+    category: "PART5_VOCAB"
+  },
+  {
+    id: 1056,
+    question: "The newly published quarterly report provides an in-depth _______ of emerging Southeast Asian market trends.",
+    options: [
+      { label: 'A', text: 'analyze' },
+      { label: 'B', text: 'analyst' },
+      { label: 'C', text: 'analytical' },
+      { label: 'D', text: 'analysis' }
+    ],
+    correctAnswer: 'D',
+    explanation: "Sau tính từ 'in-depth' (chuyên sâu) cần một danh từ: 'analysis' (bản phân tích). 'Analyst' là nhà phân tích (người).",
+    translation: "Báo cáo hàng quý mới xuất bản cung cấp một bản phân tích chuyên sâu về các xu hướng thị trường Đông Nam Á mới nổi.",
+    topicTitle: "Từ loại (Word Form)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1057,
+    question: "Employees are strongly advised to keep all travel receipts _______ they can be reimbursed promptly upon return.",
+    options: [
+      { label: 'A', text: 'so that' },
+      { label: 'B', text: 'because of' },
+      { label: 'C', text: 'in spite of' },
+      { label: 'D', text: 'owing to' }
+    ],
+    correctAnswer: 'A',
+    explanation: "Theo sau là mệnh đề chỉ mục đích (S + can + V): dùng liên từ 'so that' (để mà).",
+    translation: "Nhân viên được khuyến cáo giữ lại toàn bộ hóa đơn đi lại để có thể được hoàn tiền nhanh chóng khi trở về.",
+    topicTitle: "Liên từ & Giới từ (Conjunctions & Preps)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1058,
+    question: "The director _______ recommended that all marketing initiatives be reviewed by the compliance committee.",
+    options: [
+      { label: 'A', text: 'strong' },
+      { label: 'B', text: 'strength' },
+      { label: 'C', text: 'strongly' },
+      { label: 'D', text: 'strengthen' }
+    ],
+    correctAnswer: 'C',
+    explanation: "Đứng giữa chủ ngữ 'The director' và động từ chính 'recommended' cần trạng từ (Adv) bổ nghĩa: 'strongly' (một cách mạnh mẽ, kiên quyết).",
+    translation: "Giám đốc đã khuyến nghị mạnh mẽ rằng tất cả các sáng kiến tiếp thị phải được ủy ban tuân thủ rà soát.",
+    topicTitle: "Từ loại (Word Form)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1059,
+    question: "The factory equipment has functioned without any interruption _______ it was serviced last January.",
+    options: [
+      { label: 'A', text: 'since' },
+      { label: 'B', text: 'for' },
+      { label: 'C', text: 'during' },
+      { label: 'D', text: 'while' }
+    ],
+    correctAnswer: 'A',
+    explanation: "Mệnh đề chính dùng thì hiện tại hoàn thành ('has functioned'), vế sau là mốc thời gian quá khứ đơn ('it was serviced') -> dùng liên từ 'since' (kể từ khi).",
+    translation: "Thiết bị nhà máy đã hoạt động mà không gặp bất kỳ sự gián đoạn nào kể từ khi được bảo dưỡng vào tháng 1 vừa qua.",
+    topicTitle: "Thì động từ (Tenses)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1060,
+    question: "Customers can obtain a complete refund provided they return the merchandise _______ thirty days of receipt.",
+    options: [
+      { label: 'A', text: 'within' },
+      { label: 'B', text: 'among' },
+      { label: 'C', text: 'between' },
+      { label: 'D', text: 'during' }
+    ],
+    correctAnswer: 'A',
+    explanation: "'Within + khoảng thời gian' mang nghĩa 'trong vòng': 'within thirty days of receipt' (trong vòng 30 ngày kể từ ngày nhận hàng).",
+    translation: "Khách hàng có thể được hoàn tiền đầy đủ với điều kiện họ trả lại hàng hóa trong vòng 30 ngày kể từ khi nhận.",
+    topicTitle: "Liên từ & Giới từ (Conjunctions & Preps)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1061,
+    question: "The corporate legal advisor warned that violating patent rights could result in _______ financial penalties.",
+    options: [
+      { label: 'A', text: 'severe' },
+      { label: 'B', text: 'severely' },
+      { label: 'C', text: 'severity' },
+      { label: 'D', text: 'severest' }
+    ],
+    correctAnswer: 'A',
+    explanation: "Đứng trước cụm danh từ 'financial penalties' cần một tính từ bổ nghĩa: 'severe' (nghiêm trọng, nặng nề).",
+    translation: "Cố vấn pháp lý của công ty cảnh báo rằng việc vi phạm quyền bằng sáng chế có thể dẫn đến các hình phạt tài chính nặng nề.",
+    topicTitle: "Từ loại (Word Form)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1062,
+    question: "The facility manager announced that the office cafeteria will remain _______ until sanitary inspections conclude.",
+    options: [
+      { label: 'A', text: 'close' },
+      { label: 'B', text: 'closed' },
+      { label: 'C', text: 'closing' },
+      { label: 'D', text: 'closely' }
+    ],
+    correctAnswer: 'B',
+    explanation: "Sau linking verb 'remain' cần tính từ mô tả trạng thái: 'closed' (bị đóng cửa).",
+    translation: "Quản lý cơ sở vật chất thông báo rằng nhà ăn văn phòng sẽ tiếp tục đóng cửa cho đến khi các cuộc kiểm tra vệ sinh kết thúc.",
+    topicTitle: "Từ loại (Word Form)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1063,
+    question: "The shipping department guarantees that international parcels will arrive _______ four business days.",
+    options: [
+      { label: 'A', text: 'within' },
+      { label: 'B', text: 'along' },
+      { label: 'C', text: 'toward' },
+      { label: 'D', text: 'until' }
+    ],
+    correctAnswer: 'A',
+    explanation: "'Within four business days' (trong vòng 4 ngày làm việc) chỉ thời hạn tối đa.",
+    translation: "Bộ phận giao vận bảo đảm rằng các bưu kiện quốc tế sẽ đến nơi trong vòng 4 ngày làm việc.",
+    topicTitle: "Liên từ & Giới từ (Conjunctions & Preps)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1064,
+    question: "Mr. Kowalski was commended for his ability to solve intricate software problems _______.",
+    options: [
+      { label: 'A', text: 'effective' },
+      { label: 'B', text: 'effectiveness' },
+      { label: 'C', text: 'effectively' },
+      { label: 'D', text: 'effect' }
+    ],
+    correctAnswer: 'C',
+    explanation: "Bổ nghĩa cho cụm động từ 'solve intricate software problems' cần trạng từ: 'effectively' (một cách hiệu quả).",
+    translation: "Ông Kowalski được khen ngợi vì khả năng giải quyết các vấn đề phần mềm phức tạp một cách hiệu quả.",
+    topicTitle: "Từ loại (Word Form)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1065,
+    question: "The new transit system is designed to provide residents with _______ access to downtown business districts.",
+    options: [
+      { label: 'A', text: 'convenient' },
+      { label: 'B', text: 'conveniently' },
+      { label: 'C', text: 'convenience' },
+      { label: 'D', text: 'convening' }
+    ],
+    correctAnswer: 'A',
+    explanation: "Bổ nghĩa cho danh từ không đếm được 'access' (sự tiếp cận) cần tính từ: 'convenient' (tiện lợi).",
+    translation: "Hệ thống giao thông công cộng mới được thiết kế nhằm mang lại cho cư dân khả năng tiếp cận thuận tiện đến các khu thương mại trung tâm.",
+    topicTitle: "Từ loại (Word Form)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1066,
+    question: "_______ the project manager approves the revised budget, the procurement team will place the hardware order.",
+    options: [
+      { label: 'A', text: 'As soon as' },
+      { label: 'B', text: 'In spite of' },
+      { label: 'C', text: 'In order that' },
+      { label: 'D', text: 'Except for' }
+    ],
+    correctAnswer: 'A',
+    explanation: "Liên từ chỉ thời gian 'As soon as + S + V(hiện tại đơn), S + will + V': Ngay khi...",
+    translation: "Ngay sau khi quản lý dự án phê duyệt ngân sách điều chỉnh, đội mua sắm sẽ tiến hành đặt hàng thiết bị phần cứng.",
+    topicTitle: "Liên từ & Giới từ (Conjunctions & Preps)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1067,
+    question: "The supervisor asked all technicians to double-check their safety gear before _______ the wind turbine tower.",
+    options: [
+      { label: 'A', text: 'climb' },
+      { label: 'B', text: 'climbed' },
+      { label: 'C', text: 'climbing' },
+      { label: 'D', text: 'climber' }
+    ],
+    correctAnswer: 'C',
+    explanation: "Sau giới từ 'before' động từ phải ở dạng V-ing: 'climbing'.",
+    translation: "Người giám sát đã yêu cầu tất cả kỹ thuật viên kiểm tra kỹ thiết bị bảo hộ trước khi leo lên trụ tua bin gió.",
+    topicTitle: "Dạng động từ (Gerund & Infinitive)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1068,
+    question: "The new regional sales headquarters is _______ located near the central metropolitan railway terminal.",
+    options: [
+      { label: 'A', text: 'convenient' },
+      { label: 'B', text: 'convenience' },
+      { label: 'C', text: 'conveniently' },
+      { label: 'D', text: 'more convenient' }
+    ],
+    correctAnswer: 'C',
+    explanation: "Cụm từ quen thuộc trong TOEIC: 'be conveniently located' (tọa lạc ở vị trí vô cùng thuận tiện): trạng từ 'conveniently' đứng trước tính từ 'located'.",
+    translation: "Trụ sở bán hàng khu vực mới tọa lạc ở vị trí rất thuận lợi gần ga đường sắt trung tâm đô thị.",
+    topicTitle: "Từ loại (Word Form)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1069,
+    question: "The research and development department spent _______ months refining the bio-sensor prototype.",
+    options: [
+      { label: 'A', text: 'several' },
+      { label: 'B', text: 'much' },
+      { label: 'C', text: 'every' },
+      { label: 'D', text: 'each' }
+    ],
+    correctAnswer: 'A',
+    explanation: "'Months' là danh từ đếm được số nhiều nên đi cùng lượng từ 'several' (vài, một số). 'Much' đi với N không đếm được, 'every' và 'each' đi với N số ít.",
+    translation: "Phòng nghiên cứu và phát triển đã dành ra vài tháng để hoàn thiện mẫu cảm biến sinh học nguyên mẫu.",
+    topicTitle: "Đại từ & Lượng từ (Pronouns)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1070,
+    question: "The human resources director expects all department heads to submit their annual evaluations _______ time.",
+    options: [
+      { label: 'A', text: 'on' },
+      { label: 'B', text: 'at' },
+      { label: 'C', text: 'in' },
+      { label: 'D', text: 'with' }
+    ],
+    correctAnswer: 'A',
+    explanation: "Cụm từ cố định: 'on time' (đúng giờ, đúng lịch đã định). Phân biệt với 'in time' (kịp lúc, trước khi quá muộn).",
+    translation: "Giám đốc nhân sự kỳ vọng tất cả trưởng bộ phận sẽ nộp bản đánh giá hàng năm của họ đúng hạn.",
+    topicTitle: "Cụm từ cố định (Collocations)",
+    category: "PART5_VOCAB"
+  },
+  {
+    id: 1071,
+    question: "Neither the flight attendants nor the captain _______ aware of the sudden schedule alteration.",
+    options: [
+      { label: 'A', text: 'were' },
+      { label: 'B', text: 'was' },
+      { label: 'C', text: 'are' },
+      { label: 'D', text: 'have been' }
+    ],
+    correctAnswer: 'B',
+    explanation: "Quy tắc 'Neither S1 nor S2 + V': động từ chia theo S2 ('the captain' số ít trong quá khứ -> 'was').",
+    translation: "Cả các tiếp viên hàng không lẫn cơ trưởng đều không biết về sự thay đổi lịch trình đột ngột.",
+    topicTitle: "Hòa hợp chủ vị (Subject-Verb Agreement)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1072,
+    question: "Please handle this fragile electronic testing apparatus with extreme _______ during transport.",
+    options: [
+      { label: 'A', text: 'care' },
+      { label: 'B', text: 'careful' },
+      { label: 'C', text: 'carefully' },
+      { label: 'D', text: 'caring' }
+    ],
+    correctAnswer: 'A',
+    explanation: "Sau giới từ 'with' và tính từ 'extreme' cần danh từ: 'care' (sự cẩn trọng): 'with extreme care' (với sự hết sức cẩn thận).",
+    translation: "Xin vui lòng xử lý thiết bị thử nghiệm điện tử dễ vỡ này với sự hết sức cẩn trọng trong suốt quá trình vận chuyển.",
+    topicTitle: "Từ loại (Word Form)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1073,
+    question: "The keynote speaker will discuss innovative strategies for _______ brand visibility in international markets.",
+    options: [
+      { label: 'A', text: 'enhance' },
+      { label: 'B', text: 'enhancing' },
+      { label: 'C', text: 'enhancement' },
+      { label: 'D', text: 'enhanced' }
+    ],
+    correctAnswer: 'B',
+    explanation: "Sau giới từ 'for' có tân ngữ phía sau ('brand visibility') nên phải dùng danh động từ (Gerund V-ing): 'enhancing'.",
+    translation: "Diễn giả chính sẽ thảo luận về các chiến lược đổi mới nhằm nâng cao mức độ hiện diện thương hiệu trên thị trường quốc tế.",
+    topicTitle: "Dạng động từ (Gerund & Infinitive)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1074,
+    question: "The corporate merger will not proceed _______ final approval is granted by international regulatory authorities.",
+    options: [
+      { label: 'A', text: 'unless' },
+      { label: 'B', text: 'despite' },
+      { label: 'C', text: 'without' },
+      { label: 'D', text: 'instead of' }
+    ],
+    correctAnswer: 'A',
+    explanation: "'Unless + S + V' (trừ khi / nếu không): liên từ dẫn dắt một mệnh đề điều kiện mang nghĩa phủ định. 'Without' và 'despite' là giới từ chỉ đi với cụm danh từ.",
+    translation: "Thương vụ sáp nhập doanh nghiệp sẽ không được tiến hành trừ khi sự phê duyệt cuối cùng được cấp bởi các cơ quan quản lý quốc tế.",
+    topicTitle: "Liên từ & Giới từ (Conjunctions & Preps)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1075,
+    question: "The customer support hotline is operated _______ by bilingual representatives to assist international travelers.",
+    options: [
+      { label: 'A', text: 'entire' },
+      { label: 'B', text: 'entirely' },
+      { label: 'C', text: 'entirety' },
+      { label: 'D', text: 'entiring' }
+    ],
+    correctAnswer: 'B',
+    explanation: "Đứng giữa 'is' và 'operated' (dạng bị động) cần trạng từ (Adv) bổ nghĩa: 'entirely' (hoàn toàn).",
+    translation: "Đường dây nóng hỗ trợ khách hàng được vận hành hoàn toàn bởi các đại diện song ngữ nhằm hỗ trợ du khách quốc tế.",
+    topicTitle: "Từ loại (Word Form)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1076,
+    question: "Only employees with valid cryptographic security badges may gain _______ to the mainframe computer server vault.",
+    options: [
+      { label: 'A', text: 'admit' },
+      { label: 'B', text: 'admittance' },
+      { label: 'C', text: 'admitted' },
+      { label: 'D', text: 'admissibly' }
+    ],
+    correctAnswer: 'B',
+    explanation: "Sau ngoại động từ 'gain' cần một danh từ tân ngữ: 'admittance' (sự cho phép vào, quyền vào). 'Gain admittance to': được phép bước vào.",
+    translation: "Chỉ những nhân viên có thẻ an ninh mật mã hợp lệ mới được phép vào hầm máy chủ điện toán trung tâm.",
+    topicTitle: "Từ loại (Word Form)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1077,
+    question: "The director was _______ impressed by the high caliber of applications submitted for the research residency.",
+    options: [
+      { label: 'A', text: 'favor' },
+      { label: 'B', text: 'favorable' },
+      { label: 'C', text: 'favorably' },
+      { label: 'D', text: 'favorite' }
+    ],
+    correctAnswer: 'C',
+    explanation: "Đứng trước tính từ bị động 'impressed' cần trạng từ bổ nghĩa: 'favorably' (một cách tích cực, đầy thiện cảm). Cụm 'favorably impressed' rất phổ biến trong TOEIC.",
+    translation: "Giám đốc đã có ấn tượng rất tốt trước trình độ xuất sắc của các hồ sơ ứng tuyển nộp cho chương trình nghiên cứu lưu trú.",
+    topicTitle: "Từ loại (Word Form)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1078,
+    question: "The executive committee decided to _______ the launch of the electric vehicle model until spring.",
+    options: [
+      { label: 'A', text: 'defer' },
+      { label: 'B', text: 'deferral' },
+      { label: 'C', text: 'deferring' },
+      { label: 'D', text: 'deferred' }
+    ],
+    correctAnswer: 'A',
+    explanation: "'Decide to + V-inf': cần động từ nguyên mẫu 'defer' (hoãn lại, lùi thời điểm).",
+    translation: "Ủy ban điều hành đã quyết định lùi thời điểm ra mắt mẫu xe điện cho đến mùa xuân.",
+    topicTitle: "Từ loại (Word Form)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1079,
+    question: "The accounting firm implemented new digital protocols to safeguard sensitive client _______ from cyber threats.",
+    options: [
+      { label: 'A', text: 'inform' },
+      { label: 'B', text: 'information' },
+      { label: 'C', text: 'informative' },
+      { label: 'D', text: 'informatively' }
+    ],
+    correctAnswer: 'B',
+    explanation: "Sau cụm tính từ 'sensitive client' cần danh từ: 'information' (thông tin - danh từ không đếm được).",
+    translation: "Công ty kế toán đã áp dụng các giao thức số mới nhằm bảo vệ thông tin khách hàng nhạy cảm trước các mối đe dọa không gian mạng.",
+    topicTitle: "Từ loại (Word Form)",
+    category: "PART5_GRAMMAR"
+  },
+  {
+    id: 1080,
+    question: "The warranty covers mechanical repairs _______ that the vehicle was serviced exclusively at certified dealerships.",
+    options: [
+      { label: 'A', text: 'provided' },
+      { label: 'B', text: 'unless' },
+      { label: 'C', text: 'as if' },
+      { label: 'D', text: 'suppose' }
+    ],
+    correctAnswer: 'A',
+    explanation: "Cụm liên từ điều kiện 'provided that / providing that' mang nghĩa 'với điều kiện là / miễn là' (= as long as / if).",
+    translation: "Bảo hành sẽ chi trả cho các sửa chữa cơ khí với điều kiện là chiếc xe được bảo dưỡng độc quyền tại các đại lý được chứng nhận.",
+    topicTitle: "Liên từ & Giới từ (Conjunctions & Preps)",
+    category: "PART5_GRAMMAR"
   }
 ];
