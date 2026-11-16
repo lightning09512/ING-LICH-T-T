@@ -5,11 +5,13 @@ import { TitleScreen } from './components/TitleScreen';
 import { MenuScreen } from './components/MenuScreen';
 import { VocabGameMap } from './components/VocabGameMap';
 import { ReviewSurvivalScreen } from './components/ReviewSurvivalScreen';
+import { GrammarScreen } from './components/GrammarScreen';
 import { ToeicExamScreen } from './components/ToeicExamScreen';
+import { TestSelectScreen } from './components/TestSelectScreen';
 import { initialVocabList, initialTest, VocabItem, ToeicTest } from './data/initialData';
 import { sounds } from './utils/soundEffects';
 
-type ScreenState = 'TITLE' | 'MENU' | 'LEARN' | 'REVIEW' | 'EXAM';
+type ScreenState = 'TITLE' | 'MENU' | 'LEARN' | 'GRAMMAR' | 'REVIEW' | 'SELECT_TEST' | 'EXAM';
 
 export function App() {
   const [screen, setScreen] = useState<ScreenState>('TITLE');
@@ -18,6 +20,7 @@ export function App() {
   const [streakDays, setStreakDays] = useState(5);
   const [vocabList, setVocabList] = useState<VocabItem[]>(initialVocabList);
   const [currentTest, setCurrentTest] = useState<ToeicTest>(initialTest);
+  const [loadingTest, setLoadingTest] = useState(false);
 
   // Sync with NoSQL Backend if available
   useEffect(() => {
@@ -30,9 +33,7 @@ export function App() {
           if (data.data.streakDays) setStreakDays(data.data.streakDays);
         }
       })
-      .catch(() => {
-        // Fallback to local defaults if server not up yet
-      });
+      .catch(() => {});
 
     // Fetch vocabularies from NoSQL
     fetch('/api/vocab')
@@ -43,21 +44,32 @@ export function App() {
         }
       })
       .catch(() => {});
-
-    // Fetch test from NoSQL
-    fetch('/api/tests/test_mini_01')
-      .then(res => res.json())
-      .then(data => {
-        if (data.success && data.data) {
-          setCurrentTest(data.data);
-        }
-      })
-      .catch(() => {});
   }, []);
 
   const handleToggleSound = () => {
     const newState = sounds.toggleSound();
     setSoundEnabled(newState);
+  };
+
+  const handleSelectTest = (testId: string) => {
+    setLoadingTest(true);
+    fetch(`/api/tests/${testId}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.success && data.data) {
+          setCurrentTest(data.data);
+          setScreen('EXAM');
+        } else {
+          alert('Không thể tải đề thi này!');
+        }
+      })
+      .catch(err => {
+        console.error('Fetch test detail error:', err);
+        alert('Lỗi kết nối khi tải đề thi!');
+      })
+      .finally(() => {
+        setLoadingTest(false);
+      });
   };
 
   return (
@@ -88,13 +100,26 @@ export function App() {
         {screen === 'MENU' && (
           <MenuScreen
             nickname={nickname}
-            onSelectMode={(mode) => setScreen(mode)}
+            onSelectMode={(mode) => {
+              if (mode === 'EXAM') {
+                setScreen('SELECT_TEST');
+              } else {
+                setScreen(mode);
+              }
+            }}
             onBack={() => setScreen('TITLE')}
           />
         )}
 
         {screen === 'LEARN' && (
           <VocabGameMap
+            onBack={() => setScreen('MENU')}
+            nickname={nickname}
+          />
+        )}
+
+        {screen === 'GRAMMAR' && (
+          <GrammarScreen
             onBack={() => setScreen('MENU')}
             nickname={nickname}
           />
@@ -108,10 +133,18 @@ export function App() {
           />
         )}
 
+        {screen === 'SELECT_TEST' && (
+          <TestSelectScreen
+            onSelectTest={handleSelectTest}
+            onBack={() => setScreen('MENU')}
+            nickname={nickname}
+          />
+        )}
+
         {screen === 'EXAM' && (
           <ToeicExamScreen
             test={currentTest}
-            onBack={() => setScreen('MENU')}
+            onBack={() => setScreen('SELECT_TEST')}
             nickname={nickname}
           />
         )}

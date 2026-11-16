@@ -1,9 +1,9 @@
 import React from 'react';
 import { sounds } from '../utils/soundEffects';
-import { BookOpen, Zap, Target, ArrowLeft } from 'lucide-react';
+import { BookOpen, GraduationCap, Target, ArrowLeft } from 'lucide-react';
 
 interface MenuScreenProps {
-  onSelectMode: (mode: 'LEARN' | 'REVIEW' | 'EXAM') => void;
+  onSelectMode: (mode: 'LEARN' | 'GRAMMAR' | 'EXAM') => void;
   onBack: () => void;
   nickname: string;
 }
@@ -51,29 +51,32 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({ onSelectMode, onBack, ni
             </span>
           </button>
 
-          {/* Button 2: Ôn tập */}
+          {/* Button 2: Ngữ pháp */}
           <button
             onClick={() => {
               sounds.playClick();
-              onSelectMode('REVIEW');
+              onSelectMode('GRAMMAR');
             }}
-            className="w-full bg-white hover:bg-amber-50 border-4 border-black p-5 md:p-6 shadow-neo-lg hover:shadow-neo active:translate-x-1 active:translate-y-1 active:shadow-none transition-all flex items-center justify-between group min-h-[96px] cursor-pointer"
+            className="w-full bg-white hover:bg-amber-50 border-4 border-black p-5 md:p-6 shadow-neo-lg hover:shadow-neo active:translate-x-1 active:translate-y-1 active:shadow-none transition-all flex items-center justify-between group min-h-[96px] cursor-pointer relative overflow-hidden"
           >
+            <div className="absolute top-2 right-2 bg-red-600 text-white text-[11px] font-black px-2.5 py-0.5 border border-black uppercase rotate-6 shadow-neo-sm">
+              🔥 Trọng Điểm Part 5
+            </div>
             <div className="flex items-center gap-4 md:gap-5 text-left">
               <div className="w-14 h-14 md:w-16 md:h-16 bg-neoYellow border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:-rotate-6 transition-transform shrink-0">
-                <Zap className="w-7 h-7 md:w-8 md:h-8 text-black fill-black" />
+                <GraduationCap className="w-7 h-7 md:w-8 md:h-8 text-black" />
               </div>
               <div>
                 <h3 className="text-2xl md:text-3xl font-black uppercase font-heading">
-                  Ôn tập
+                  Ngữ pháp
                 </h3>
                 <p className="text-sm md:text-base font-bold text-gray-600 mt-0.5">
-                  Quiz sinh tồn 15 giây, đếm ngược thời gian, trả lời sai mất tim!
+                  10 chủ điểm then chốt Part 5 & 6 + Công thức, Mẹo diệt bẫy ETS & Mini Quiz!
                 </p>
               </div>
             </div>
             <span className="text-2xl md:text-3xl font-black font-heading group-hover:translate-x-1 transition-transform">
-              ⚡
+              📝
             </span>
           </button>
 

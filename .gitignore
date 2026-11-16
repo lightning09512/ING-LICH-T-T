@@ -5,3 +5,12 @@ server/data/*.json
 !server/data/.gitkeep
 .env
 .DS_Store
+
+# Temporary & backup files
+*.bak
+scratch/
+
+# Large archives and raw assets (>100MB)
+*.rar
+*.zip
+ĐỀ THI TOEIC LISTENING/

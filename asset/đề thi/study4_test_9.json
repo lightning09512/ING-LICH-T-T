@@ -1,0 +1,4276 @@
+{
+  "_id": "toeic-lr-collection-1-test-9",
+  "title": "TOEIC LR Collection 1 - Test 9 (Full 200 Questions)",
+  "code": "S4-COL1-T9",
+  "durationMinutes": 120,
+  "totalQuestions": 200,
+  "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+  "description": "Đề thi TOEIC Quốc tế 200 câu số 9 từ Collection 1 kèm Audio Listening MP3 chuẩn (46-48 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4.",
+  "questions": [
+    {
+      "id": 1,
+      "part": 1,
+      "direction": "Part 1: Photographs. Listen to four statements about the picture and choose the best description.",
+      "imageUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/images/1_updated_resized.3fa3311c.jpg",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Look at the photograph marked No. 1 and choose the best statement.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Statement (A)"
+        },
+        {
+          "label": "B",
+          "text": "Statement (B)"
+        },
+        {
+          "label": "C",
+          "text": "Statement (C)"
+        },
+        {
+          "label": "D",
+          "text": "Statement (D)"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 2,
+      "part": 1,
+      "direction": "Part 1: Photographs. Listen to four statements about the picture and choose the best description.",
+      "imageUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/images/2_updated_resized.2f8864d1.jpg",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Look at the photograph marked No. 2 and choose the best statement.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Statement (A)"
+        },
+        {
+          "label": "B",
+          "text": "Statement (B)"
+        },
+        {
+          "label": "C",
+          "text": "Statement (C)"
+        },
+        {
+          "label": "D",
+          "text": "Statement (D)"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 3,
+      "part": 1,
+      "direction": "Part 1: Photographs. Listen to four statements about the picture and choose the best description.",
+      "imageUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/images/3_updated_resized.b8bed509.jpg",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Look at the photograph marked No. 3 and choose the best statement.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Statement (A)"
+        },
+        {
+          "label": "B",
+          "text": "Statement (B)"
+        },
+        {
+          "label": "C",
+          "text": "Statement (C)"
+        },
+        {
+          "label": "D",
+          "text": "Statement (D)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 4,
+      "part": 1,
+      "direction": "Part 1: Photographs. Listen to four statements about the picture and choose the best description.",
+      "imageUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/images/4_updated_resized.8c2b5954.jpg",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Look at the photograph marked No. 4 and choose the best statement.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Statement (A)"
+        },
+        {
+          "label": "B",
+          "text": "Statement (B)"
+        },
+        {
+          "label": "C",
+          "text": "Statement (C)"
+        },
+        {
+          "label": "D",
+          "text": "Statement (D)"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 5,
+      "part": 1,
+      "direction": "Part 1: Photographs. Listen to four statements about the picture and choose the best description.",
+      "imageUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/images/5_updated_resized.8e09f982.jpg",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Look at the photograph marked No. 5 and choose the best statement.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Statement (A)"
+        },
+        {
+          "label": "B",
+          "text": "Statement (B)"
+        },
+        {
+          "label": "C",
+          "text": "Statement (C)"
+        },
+        {
+          "label": "D",
+          "text": "Statement (D)"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 6,
+      "part": 1,
+      "direction": "Part 1: Photographs. Listen to four statements about the picture and choose the best description.",
+      "imageUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/images/6_updated_resized.8d7a056f.jpg",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Look at the photograph marked No. 6 and choose the best statement.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Statement (A)"
+        },
+        {
+          "label": "B",
+          "text": "Statement (B)"
+        },
+        {
+          "label": "C",
+          "text": "Statement (C)"
+        },
+        {
+          "label": "D",
+          "text": "Statement (D)"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 7,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 7 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 8,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 8 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 9,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 9 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 10,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 10 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 11,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 11 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 12,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 12 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 13,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 13 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 14,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 14 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 15,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 15 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 16,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 16 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 17,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 17 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 18,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 18 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 19,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 19 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 20,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 20 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 21,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 21 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 22,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 22 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 23,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 23 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 24,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 24 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 25,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 25 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 26,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 26 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 27,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 27 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 28,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 28 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 29,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 29 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 30,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 30 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 31,
+      "part": 2,
+      "direction": "Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Listen to question No. 31 and select the best response.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Response (A)"
+        },
+        {
+          "label": "B",
+          "text": "Response (B)"
+        },
+        {
+          "label": "C",
+          "text": "Response (C)"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 32,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Where most likely does the man work?",
+      "options": [
+        {
+          "label": "A",
+          "text": "At a print shop"
+        },
+        {
+          "label": "B",
+          "text": "At a supply room"
+        },
+        {
+          "label": "C",
+          "text": "At a café"
+        },
+        {
+          "label": "D",
+          "text": "At a repair center"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 33,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Why does the woman come to speak with the man?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To place an order"
+        },
+        {
+          "label": "B",
+          "text": "To ask about a menu item"
+        },
+        {
+          "label": "C",
+          "text": "To request a refund"
+        },
+        {
+          "label": "D",
+          "text": "To report a broken machine"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 34,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the man say he will do?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Repair the machine himself"
+        },
+        {
+          "label": "B",
+          "text": "Speak to a manager"
+        },
+        {
+          "label": "C",
+          "text": "Offer a free drink"
+        },
+        {
+          "label": "D",
+          "text": "Post a warning sign"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 35,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the man want to do?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Join a hockey team"
+        },
+        {
+          "label": "B",
+          "text": "Sign up for skating lessons"
+        },
+        {
+          "label": "C",
+          "text": "Attend a public skating session"
+        },
+        {
+          "label": "D",
+          "text": "Reserve the rink for a party"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 36,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What information does the woman ask the man for?",
+      "options": [
+        {
+          "label": "A",
+          "text": "His membership number"
+        },
+        {
+          "label": "B",
+          "text": "His phone number"
+        },
+        {
+          "label": "C",
+          "text": "His shoe size"
+        },
+        {
+          "label": "D",
+          "text": "His date of birth"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 37,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What will the man most likely do next?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Pay a rental deposit"
+        },
+        {
+          "label": "B",
+          "text": "Try on a pair of skates"
+        },
+        {
+          "label": "C",
+          "text": "Watch a skating demonstration"
+        },
+        {
+          "label": "D",
+          "text": "Sign a rental waiver"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 38,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the woman want the shop to build?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A filing cabinet"
+        },
+        {
+          "label": "B",
+          "text": "A set of chairs"
+        },
+        {
+          "label": "C",
+          "text": "A reception desk"
+        },
+        {
+          "label": "D",
+          "text": "A bookshelf"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 39,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Where will the piece be placed?",
+      "options": [
+        {
+          "label": "A",
+          "text": "In a waiting area"
+        },
+        {
+          "label": "B",
+          "text": "In an examination room"
+        },
+        {
+          "label": "C",
+          "text": "In a staff break room"
+        },
+        {
+          "label": "D",
+          "text": "In a storage room"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 40,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the man suggest the woman do next?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Approve a design"
+        },
+        {
+          "label": "B",
+          "text": "Choose a wood finish"
+        },
+        {
+          "label": "C",
+          "text": "Check some measurements"
+        },
+        {
+          "label": "D",
+          "text": "Leave a deposit"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 41,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Why is the man calling?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To cancel his water service"
+        },
+        {
+          "label": "B",
+          "text": "To update his delivery address"
+        },
+        {
+          "label": "C",
+          "text": "To place his first order"
+        },
+        {
+          "label": "D",
+          "text": "To report an order that never arrived"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 42,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the woman ask the man to provide?",
+      "options": [
+        {
+          "label": "A",
+          "text": "His mailing address"
+        },
+        {
+          "label": "B",
+          "text": "His account number"
+        },
+        {
+          "label": "C",
+          "text": "His card number"
+        },
+        {
+          "label": "D",
+          "text": "His order receipt"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 43,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the woman say she will do?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Issue a refund"
+        },
+        {
+          "label": "B",
+          "text": "Contact the delivery driver"
+        },
+        {
+          "label": "C",
+          "text": "Have him reschedule online"
+        },
+        {
+          "label": "D",
+          "text": "Schedule a new delivery"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 44,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What type of product is the customer shopping for?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A garment bag"
+        },
+        {
+          "label": "B",
+          "text": "A laptop bag"
+        },
+        {
+          "label": "C",
+          "text": "A travel backpack"
+        },
+        {
+          "label": "D",
+          "text": "A rolling suitcase"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 45,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the woman say she is currently doing?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Checking the store's inventory"
+        },
+        {
+          "label": "B",
+          "text": "Ringing up a customer's purchase"
+        },
+        {
+          "label": "C",
+          "text": "Setting out recently arrived merchandise"
+        },
+        {
+          "label": "D",
+          "text": "Restocking an empty shelf"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 46,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What is the man concerned about?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The durability of the wheels"
+        },
+        {
+          "label": "B",
+          "text": "Compliance with airline size and weight limits"
+        },
+        {
+          "label": "C",
+          "text": "The price of the case"
+        },
+        {
+          "label": "D",
+          "text": "The color options available"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 47,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Where most likely does this conversation take place?",
+      "options": [
+        {
+          "label": "A",
+          "text": "At a public library"
+        },
+        {
+          "label": "B",
+          "text": "At a bookbinding shop"
+        },
+        {
+          "label": "C",
+          "text": "At a stationery store"
+        },
+        {
+          "label": "D",
+          "text": "At a used bookstore"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 48,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Why most likely is the man at the business?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To buy a rare book"
+        },
+        {
+          "label": "B",
+          "text": "To return a damaged book"
+        },
+        {
+          "label": "C",
+          "text": "To have documents photocopied"
+        },
+        {
+          "label": "D",
+          "text": "To have a manuscript bound"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 49,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "According to the woman, what must the man do before work begins?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Pay a deposit"
+        },
+        {
+          "label": "B",
+          "text": "Sign a contract"
+        },
+        {
+          "label": "C",
+          "text": "Approve a cover proof"
+        },
+        {
+          "label": "D",
+          "text": "Provide a digital file"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 50,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Where most likely are the speakers?",
+      "options": [
+        {
+          "label": "A",
+          "text": "At a restaurant"
+        },
+        {
+          "label": "B",
+          "text": "At a brewery"
+        },
+        {
+          "label": "C",
+          "text": "At a hotel"
+        },
+        {
+          "label": "D",
+          "text": "At a farm"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 51,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "How did the woman learn about the tour?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A friend recommended it."
+        },
+        {
+          "label": "B",
+          "text": "She read about it online."
+        },
+        {
+          "label": "C",
+          "text": "She saw a sign nearby."
+        },
+        {
+          "label": "D",
+          "text": "She visited last year."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 52,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the woman imply when she says, \"I'm also buying gifts for my whole team\"?",
+      "options": [
+        {
+          "label": "A",
+          "text": "She works at a nearby office."
+        },
+        {
+          "label": "B",
+          "text": "She wants a group discount."
+        },
+        {
+          "label": "C",
+          "text": "She is planning a party."
+        },
+        {
+          "label": "D",
+          "text": "She needs to buy several items."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 53,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What is the woman planning to do soon?",
+      "options": [
+        {
+          "label": "A",
+          "text": "See a doctor"
+        },
+        {
+          "label": "B",
+          "text": "Take a trip"
+        },
+        {
+          "label": "C",
+          "text": "Move to a new home"
+        },
+        {
+          "label": "D",
+          "text": "Start a new job"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 54,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What problem does the man mention?",
+      "options": [
+        {
+          "label": "A",
+          "text": "She cannot collect one of her items today."
+        },
+        {
+          "label": "B",
+          "text": "She was given an incorrect item."
+        },
+        {
+          "label": "C",
+          "text": "She missed the delivery deadline."
+        },
+        {
+          "label": "D",
+          "text": "She was charged too much for her order."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 55,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the man ask the woman to do?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Return later this week"
+        },
+        {
+          "label": "B",
+          "text": "Call another location"
+        },
+        {
+          "label": "C",
+          "text": "Provide her mailing address"
+        },
+        {
+          "label": "D",
+          "text": "Wait for a new shipment"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 56,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Where most likely are the speakers?",
+      "options": [
+        {
+          "label": "A",
+          "text": "At an art gallery"
+        },
+        {
+          "label": "B",
+          "text": "At a furniture showroom"
+        },
+        {
+          "label": "C",
+          "text": "At a print shop"
+        },
+        {
+          "label": "D",
+          "text": "At a photography studio"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 57,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What are the speakers mainly discussing?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Pricing some artwork"
+        },
+        {
+          "label": "B",
+          "text": "Setting up an exhibit"
+        },
+        {
+          "label": "C",
+          "text": "Rescheduling a delivery"
+        },
+        {
+          "label": "D",
+          "text": "Revising a work schedule"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 58,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the woman say the men should do?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Rearrange the artwork"
+        },
+        {
+          "label": "B",
+          "text": "Adjust the lighting"
+        },
+        {
+          "label": "C",
+          "text": "Print some labels"
+        },
+        {
+          "label": "D",
+          "text": "Contact an artist"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 59,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What is the man trying to do?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Move to an earlier flight"
+        },
+        {
+          "label": "B",
+          "text": "Cancel his evening reservation"
+        },
+        {
+          "label": "C",
+          "text": "Upgrade to a corporate fare"
+        },
+        {
+          "label": "D",
+          "text": "Rebook for a later date"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 60,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the man imply when he says, \"getting in tonight would be far too late\"?",
+      "options": [
+        {
+          "label": "A",
+          "text": "He is concerned about the extra fee."
+        },
+        {
+          "label": "B",
+          "text": "He wants to postpone his presentation."
+        },
+        {
+          "label": "C",
+          "text": "He needs to arrive earlier in the day."
+        },
+        {
+          "label": "D",
+          "text": "He plans to meet a client at the airport."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 61,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What will the woman most likely do next?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Print a boarding pass"
+        },
+        {
+          "label": "B",
+          "text": "Waive the service charge"
+        },
+        {
+          "label": "C",
+          "text": "Update the man's reservation"
+        },
+        {
+          "label": "D",
+          "text": "Contact the travel office"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 62,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Look at the graphic. Which detail on the ticket is now out of date?",
+      "options": [
+        {
+          "label": "A",
+          "text": "October 5"
+        },
+        {
+          "label": "B",
+          "text": "12"
+        },
+        {
+          "label": "C",
+          "text": "8"
+        },
+        {
+          "label": "D",
+          "text": "7:30 P.M."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)",
+      "imageUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/images/62_updated_resized.jpg"
+    },
+    {
+      "id": 63,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Why did the schedule change?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A performer was delayed in traffic."
+        },
+        {
+          "label": "B",
+          "text": "The concert was oversold."
+        },
+        {
+          "label": "C",
+          "text": "The sound system needed repair."
+        },
+        {
+          "label": "D",
+          "text": "A new act was added to the program."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)",
+      "imageUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/images/63_updated_resized.jpg"
+    },
+    {
+      "id": 64,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the woman give the man besides his ticket?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A program booklet"
+        },
+        {
+          "label": "B",
+          "text": "An order confirmation"
+        },
+        {
+          "label": "C",
+          "text": "A café voucher"
+        },
+        {
+          "label": "D",
+          "text": "A parking pass"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)",
+      "imageUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/images/64_updated_resized.jpg"
+    },
+    {
+      "id": 65,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Why is the man visiting the convention center?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To exhibit at a trade show"
+        },
+        {
+          "label": "B",
+          "text": "To browse the antiques fair"
+        },
+        {
+          "label": "C",
+          "text": "To eat at the food court"
+        },
+        {
+          "label": "D",
+          "text": "To attend a job-recruitment event"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)",
+      "imageUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/images/65_updated_resized.jpg"
+    },
+    {
+      "id": 66,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Look at the graphic. Which hall does the woman direct the man to?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Hall 1"
+        },
+        {
+          "label": "B",
+          "text": "Hall 2"
+        },
+        {
+          "label": "C",
+          "text": "Hall 3"
+        },
+        {
+          "label": "D",
+          "text": "Hall 4"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)",
+      "imageUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/images/66_updated_resized.jpg"
+    },
+    {
+      "id": 67,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the woman caution the man about?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The elevator cannot be used"
+        },
+        {
+          "label": "B",
+          "text": "The event may end soon"
+        },
+        {
+          "label": "C",
+          "text": "The signs are hard to read"
+        },
+        {
+          "label": "D",
+          "text": "The entrance is crowded"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)",
+      "imageUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/images/67_updated_resized.jpg"
+    },
+    {
+      "id": 68,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Why does the man want to become a member?",
+      "options": [
+        {
+          "label": "A",
+          "text": "He received a gift card."
+        },
+        {
+          "label": "B",
+          "text": "He visits frequently."
+        },
+        {
+          "label": "C",
+          "text": "He is planning a special event."
+        },
+        {
+          "label": "D",
+          "text": "He wants a group discount."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)",
+      "imageUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/images/68_updated_resized.jpg"
+    },
+    {
+      "id": 69,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "According to the woman, what does every membership include?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Free guest passes"
+        },
+        {
+          "label": "B",
+          "text": "Discounted parking"
+        },
+        {
+          "label": "C",
+          "text": "A monthly newsletter"
+        },
+        {
+          "label": "D",
+          "text": "Priority event tickets"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)",
+      "imageUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/images/69_updated_resized.jpg"
+    },
+    {
+      "id": 70,
+      "part": 3,
+      "direction": "Part 3: Conversations. Listen to conversations between two or more people and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Look at the graphic. Which membership will the man most likely choose?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Individual"
+        },
+        {
+          "label": "B",
+          "text": "Dual"
+        },
+        {
+          "label": "C",
+          "text": "Patron"
+        },
+        {
+          "label": "D",
+          "text": "Family"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)",
+      "imageUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/images/70_updated_resized.jpg"
+    },
+    {
+      "id": 71,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What is the speaker mainly announcing?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A change to the terminal's schedule"
+        },
+        {
+          "label": "B",
+          "text": "The launch of an additional route"
+        },
+        {
+          "label": "C",
+          "text": "A refund policy for unused tickets"
+        },
+        {
+          "label": "D",
+          "text": "A new mobile ticketing service"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 72,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "According to the speaker, what is one advantage of the service?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Shorter waiting times"
+        },
+        {
+          "label": "B",
+          "text": "Lower ticket fares"
+        },
+        {
+          "label": "C",
+          "text": "Additional seating options"
+        },
+        {
+          "label": "D",
+          "text": "More departure routes"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 73,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What are interested listeners instructed to do?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Download an application"
+        },
+        {
+          "label": "B",
+          "text": "Visit the ticket counter"
+        },
+        {
+          "label": "C",
+          "text": "Call a customer hotline"
+        },
+        {
+          "label": "D",
+          "text": "Complete a paper form"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 74,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Who most likely is the announcement for?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Delivery drivers"
+        },
+        {
+          "label": "B",
+          "text": "Store cashiers"
+        },
+        {
+          "label": "C",
+          "text": "Stockroom workers"
+        },
+        {
+          "label": "D",
+          "text": "Retail salespeople"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 75,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What is one characteristic of the running shoes?",
+      "options": [
+        {
+          "label": "A",
+          "text": "They come in a variety of colors."
+        },
+        {
+          "label": "B",
+          "text": "They are designed for running on trails."
+        },
+        {
+          "label": "C",
+          "text": "They are heavier than other models."
+        },
+        {
+          "label": "D",
+          "text": "They are sold at a discount."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 76,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the speaker ask Diego to do?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Contact some customers"
+        },
+        {
+          "label": "B",
+          "text": "Unload a shipment"
+        },
+        {
+          "label": "C",
+          "text": "Arrange a product display"
+        },
+        {
+          "label": "D",
+          "text": "Open the store doors"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 77,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Where does the speaker most likely work?",
+      "options": [
+        {
+          "label": "A",
+          "text": "At an amusement park"
+        },
+        {
+          "label": "B",
+          "text": "At a shipping warehouse"
+        },
+        {
+          "label": "C",
+          "text": "At a movie theater"
+        },
+        {
+          "label": "D",
+          "text": "At a sports stadium"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 78,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What are employees required to do?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Wear protective clothing"
+        },
+        {
+          "label": "B",
+          "text": "Carry a communication device"
+        },
+        {
+          "label": "C",
+          "text": "Report to the front gate"
+        },
+        {
+          "label": "D",
+          "text": "Sign in before each shift"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 79,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the speaker say has happened this week?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Several rides were closed"
+        },
+        {
+          "label": "B",
+          "text": "More staff were hired"
+        },
+        {
+          "label": "C",
+          "text": "Attendance was higher than anticipated"
+        },
+        {
+          "label": "D",
+          "text": "Ticket prices were raised"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 80,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Why is the speaker calling?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To schedule a delivery time"
+        },
+        {
+          "label": "B",
+          "text": "To confirm an order is ready"
+        },
+        {
+          "label": "C",
+          "text": "To request a customer payment"
+        },
+        {
+          "label": "D",
+          "text": "To apologize for a delay"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 81,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the speaker imply when she says, \"they seat twelve guests each, the same as the ones you ordered\"?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Fewer tables will be needed"
+        },
+        {
+          "label": "B",
+          "text": "The substitute tables are suitable"
+        },
+        {
+          "label": "C",
+          "text": "The guest count should be reduced"
+        },
+        {
+          "label": "D",
+          "text": "The tables must be rearranged"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 82,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the speaker ask the customer to do upon arrival?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Pay the remaining balance"
+        },
+        {
+          "label": "B",
+          "text": "Sign a rental agreement"
+        },
+        {
+          "label": "C",
+          "text": "Verify that the order is complete"
+        },
+        {
+          "label": "D",
+          "text": "Show a form of identification"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 83,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What is the broadcast mainly about?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A park renovation project"
+        },
+        {
+          "label": "B",
+          "text": "A gardening class"
+        },
+        {
+          "label": "C",
+          "text": "A community volunteer event"
+        },
+        {
+          "label": "D",
+          "text": "A local fundraising campaign"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 84,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What are participants asked to bring themselves?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Some gardening tools"
+        },
+        {
+          "label": "B",
+          "text": "A few young trees"
+        },
+        {
+          "label": "C",
+          "text": "Some refreshments"
+        },
+        {
+          "label": "D",
+          "text": "A pair of gloves"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 85,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "How can interested listeners take part in the event?",
+      "options": [
+        {
+          "label": "A",
+          "text": "By calling the park office"
+        },
+        {
+          "label": "B",
+          "text": "By registering on a website"
+        },
+        {
+          "label": "C",
+          "text": "By arriving early on Saturday"
+        },
+        {
+          "label": "D",
+          "text": "By signing up at the park"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 86,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What is the speaker currently working on?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Creating brochures to hand out to customers"
+        },
+        {
+          "label": "B",
+          "text": "Designing the new rewards program"
+        },
+        {
+          "label": "C",
+          "text": "Preparing materials for employees to use"
+        },
+        {
+          "label": "D",
+          "text": "Arranging a meeting with the regional office"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 87,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "According to the speaker, what did the staff agree to at a previous meeting?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Lower certain account fees for members"
+        },
+        {
+          "label": "B",
+          "text": "Extend the program to all account holders"
+        },
+        {
+          "label": "C",
+          "text": "Print promotional materials for the launch"
+        },
+        {
+          "label": "D",
+          "text": "Set eligibility rules for new members"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 88,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the speaker plan to do before the program launches?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Send reminders to program members"
+        },
+        {
+          "label": "B",
+          "text": "Finalize the design of the guides"
+        },
+        {
+          "label": "C",
+          "text": "Meet with staff to answer their questions"
+        },
+        {
+          "label": "D",
+          "text": "Contact the regional office for approval"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 89,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What is the main purpose of the talk?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To welcome newly hired employees"
+        },
+        {
+          "label": "B",
+          "text": "To respond to a customer complaint"
+        },
+        {
+          "label": "C",
+          "text": "To describe a change to a work process"
+        },
+        {
+          "label": "D",
+          "text": "To promote a store-wide sale"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 90,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Why is the store changing the refund process?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To reduce the amount of paperwork"
+        },
+        {
+          "label": "B",
+          "text": "To follow a new company policy"
+        },
+        {
+          "label": "C",
+          "text": "To train recently hired staff"
+        },
+        {
+          "label": "D",
+          "text": "To speed up service at the desk"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 91,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the speaker ask the listeners to do?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Take a copy of the instructions"
+        },
+        {
+          "label": "B",
+          "text": "Enter product codes manually"
+        },
+        {
+          "label": "C",
+          "text": "Touch the item before scanning"
+        },
+        {
+          "label": "D",
+          "text": "Wait for the store to open"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 92,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Where does the speaker work?",
+      "options": [
+        {
+          "label": "A",
+          "text": "At a florist shop"
+        },
+        {
+          "label": "B",
+          "text": "At a warehouse"
+        },
+        {
+          "label": "C",
+          "text": "At a plant nursery"
+        },
+        {
+          "label": "D",
+          "text": "At a farm supply store"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 93,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the speaker imply when she says, \"we'd arranged for the extra weekend crew to come in on Thursday to handle it\"?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The seedlings were sent to the wrong address."
+        },
+        {
+          "label": "B",
+          "text": "The nursery is short of staff at the moment."
+        },
+        {
+          "label": "C",
+          "text": "The storage room has not been set up yet."
+        },
+        {
+          "label": "D",
+          "text": "The shipment is larger than they ordered."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 94,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What is the speaker concerned about?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Missing a delivery deadline"
+        },
+        {
+          "label": "B",
+          "text": "Losing part of a shipment"
+        },
+        {
+          "label": "C",
+          "text": "Running out of storage space"
+        },
+        {
+          "label": "D",
+          "text": "Paying for extra labor"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 95,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the customer need the printing for?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A product launch"
+        },
+        {
+          "label": "B",
+          "text": "A trade show"
+        },
+        {
+          "label": "C",
+          "text": "A training seminar"
+        },
+        {
+          "label": "D",
+          "text": "An upcoming conference"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)",
+      "imageUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/images/95_updated_resized.jpg"
+    },
+    {
+      "id": 96,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Look at the graphic. How much will the customer most likely pay?",
+      "options": [
+        {
+          "label": "A",
+          "text": "$180"
+        },
+        {
+          "label": "B",
+          "text": "$340"
+        },
+        {
+          "label": "C",
+          "text": "$520"
+        },
+        {
+          "label": "D",
+          "text": "$760"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)",
+      "imageUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/images/96_updated_resized.jpg"
+    },
+    {
+      "id": 97,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "According to the speaker, what can the customer do tomorrow?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Wait for proofs to arrive"
+        },
+        {
+          "label": "B",
+          "text": "Pay for the order"
+        },
+        {
+          "label": "C",
+          "text": "Send additional files"
+        },
+        {
+          "label": "D",
+          "text": "View a sample at the shop"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)",
+      "imageUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/images/97_updated_resized.jpg"
+    },
+    {
+      "id": 98,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the speaker say the company will do next month?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It will open its first retail store."
+        },
+        {
+          "label": "B",
+          "text": "It will redesign its company logo."
+        },
+        {
+          "label": "C",
+          "text": "It will merge with a competitor."
+        },
+        {
+          "label": "D",
+          "text": "It will start selling a new range of teas."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)",
+      "imageUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/images/98_updated_resized.jpg"
+    },
+    {
+      "id": 99,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "Look at the graphic. Which design did the company choose for the new label?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Design 1"
+        },
+        {
+          "label": "B",
+          "text": "Design 2"
+        },
+        {
+          "label": "C",
+          "text": "Design 3"
+        },
+        {
+          "label": "D",
+          "text": "Design 4"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)",
+      "imageUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/images/99_updated_resized.jpg"
+    },
+    {
+      "id": 100,
+      "part": 4,
+      "direction": "Part 4: Short Talks. Listen to talks given by a single speaker and answer the questions.",
+      "audioUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/audios/T9_audio.ca8e195d.mp3",
+      "questionText": "What does the speaker ask the team to do this week?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Update the online store listings."
+        },
+        {
+          "label": "B",
+          "text": "Take new product photos."
+        },
+        {
+          "label": "C",
+          "text": "Write the product descriptions."
+        },
+        {
+          "label": "D",
+          "text": "Approve the final label design."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)",
+      "imageUrl": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-9/images/100_updated_resized.jpg"
+    },
+    {
+      "id": 101,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "Shoppers at Greenvale Wholesale Club are _____ for the member discount only if they present a valid membership card at checkout.",
+      "options": [
+        {
+          "label": "A",
+          "text": "responsible"
+        },
+        {
+          "label": "B",
+          "text": "suitable"
+        },
+        {
+          "label": "C",
+          "text": "entitled"
+        },
+        {
+          "label": "D",
+          "text": "eligible"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 102,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "During peak season, the terminal regulations _____ all travelers to display a valid boarding pass before proceeding to the departure gates.",
+      "options": [
+        {
+          "label": "A",
+          "text": "prevent"
+        },
+        {
+          "label": "B",
+          "text": "confirm"
+        },
+        {
+          "label": "C",
+          "text": "require"
+        },
+        {
+          "label": "D",
+          "text": "suggest"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 103,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "The redesigned shelf labels at Brightfield Market allow stockroom staff to _____ find any product during the busy evening rush.",
+      "options": [
+        {
+          "label": "A",
+          "text": "easily"
+        },
+        {
+          "label": "B",
+          "text": "easy"
+        },
+        {
+          "label": "C",
+          "text": "easier"
+        },
+        {
+          "label": "D",
+          "text": "easiest"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 104,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "Malik Turner spoke _____ during the session, and his summary of the new procedures was clear.",
+      "options": [
+        {
+          "label": "A",
+          "text": "confident"
+        },
+        {
+          "label": "B",
+          "text": "confidently"
+        },
+        {
+          "label": "C",
+          "text": "confidence"
+        },
+        {
+          "label": "D",
+          "text": "confidential"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 105,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "The updated membership terms apply _____ every driver who registered with Loopway before the policy change.",
+      "options": [
+        {
+          "label": "A",
+          "text": "for"
+        },
+        {
+          "label": "B",
+          "text": "to"
+        },
+        {
+          "label": "C",
+          "text": "of"
+        },
+        {
+          "label": "D",
+          "text": "by"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 106,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "Volunteers at Deerfield Trade Center post all official _____ on the digital board located near the main conference hall.",
+      "options": [
+        {
+          "label": "A",
+          "text": "announce"
+        },
+        {
+          "label": "B",
+          "text": "announces"
+        },
+        {
+          "label": "C",
+          "text": "announced"
+        },
+        {
+          "label": "D",
+          "text": "announcements"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 107,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "The east-side branch of Cobblewood Books was commended for its efficient _____ throughout the busy holiday season.",
+      "options": [
+        {
+          "label": "A",
+          "text": "operations"
+        },
+        {
+          "label": "B",
+          "text": "operate"
+        },
+        {
+          "label": "C",
+          "text": "operational"
+        },
+        {
+          "label": "D",
+          "text": "operationally"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 108,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "Visitors to Palmgrove Conservatory must comply _____ the posted photography guidelines when using cameras inside the greenhouse.",
+      "options": [
+        {
+          "label": "A",
+          "text": "to"
+        },
+        {
+          "label": "B",
+          "text": "by"
+        },
+        {
+          "label": "C",
+          "text": "for"
+        },
+        {
+          "label": "D",
+          "text": "with"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 109,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "The course completion certificate _____ to each enrolled student at the closing ceremony last Friday.",
+      "options": [
+        {
+          "label": "A",
+          "text": "issues"
+        },
+        {
+          "label": "B",
+          "text": "was issued"
+        },
+        {
+          "label": "C",
+          "text": "issued"
+        },
+        {
+          "label": "D",
+          "text": "is issuing"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 110,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "The automated ticket kiosk at Rowley Cinema neither accepts cash payments _____ issues refunds after a screening has begun.",
+      "options": [
+        {
+          "label": "A",
+          "text": "and"
+        },
+        {
+          "label": "B",
+          "text": "but"
+        },
+        {
+          "label": "C",
+          "text": "nor"
+        },
+        {
+          "label": "D",
+          "text": "besides"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 111,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "The owner of Fernvale Chocolates commended the seasonal assistants for _____ careful handling of the delicate gift orders.",
+      "options": [
+        {
+          "label": "A",
+          "text": "their"
+        },
+        {
+          "label": "B",
+          "text": "them"
+        },
+        {
+          "label": "C",
+          "text": "themselves"
+        },
+        {
+          "label": "D",
+          "text": "they"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 112,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "The management team at Ridgeway Waste Services is _____ to introduce a new curbside recycling schedule across every neighborhood this autumn.",
+      "options": [
+        {
+          "label": "A",
+          "text": "capable"
+        },
+        {
+          "label": "B",
+          "text": "aware"
+        },
+        {
+          "label": "C",
+          "text": "eager"
+        },
+        {
+          "label": "D",
+          "text": "possible"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 113,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "New tellers at Halbrook Savings Bank are encouraged to acquaint _____ with the branch security procedures well before the first working day.",
+      "options": [
+        {
+          "label": "A",
+          "text": "them"
+        },
+        {
+          "label": "B",
+          "text": "themselves"
+        },
+        {
+          "label": "C",
+          "text": "their"
+        },
+        {
+          "label": "D",
+          "text": "theirs"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 114,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "Under the updated enrollment rules at Brackenridge Community Learning Center, _____ for the evening accounting course must submit a signed registration form by Friday.",
+      "options": [
+        {
+          "label": "A",
+          "text": "application"
+        },
+        {
+          "label": "B",
+          "text": "apply"
+        },
+        {
+          "label": "C",
+          "text": "applying"
+        },
+        {
+          "label": "D",
+          "text": "applicants"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 115,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "The redesigned booking portal at Halewood Recreation Center is fully _____ to members whose accounts remain active this year.",
+      "options": [
+        {
+          "label": "A",
+          "text": "similar"
+        },
+        {
+          "label": "B",
+          "text": "accessible"
+        },
+        {
+          "label": "C",
+          "text": "opposed"
+        },
+        {
+          "label": "D",
+          "text": "related"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 116,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "At last week's retirement dinner, a commemorative plaque was presented to Harold Winters in _____ of his long and dedicated service.",
+      "options": [
+        {
+          "label": "A",
+          "text": "recognize"
+        },
+        {
+          "label": "B",
+          "text": "recognizes"
+        },
+        {
+          "label": "C",
+          "text": "recognized"
+        },
+        {
+          "label": "D",
+          "text": "recognition"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 117,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "The new customer service training program has been remarkably _____ in reducing complaints across all regional offices.",
+      "options": [
+        {
+          "label": "A",
+          "text": "successfully"
+        },
+        {
+          "label": "B",
+          "text": "success"
+        },
+        {
+          "label": "C",
+          "text": "succeed"
+        },
+        {
+          "label": "D",
+          "text": "successful"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 118,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "To attract weekend travelers, the marketing team at Verano Suites has introduced a highly _____ pricing plan for its riverside rooms.",
+      "options": [
+        {
+          "label": "A",
+          "text": "competitive"
+        },
+        {
+          "label": "B",
+          "text": "competitively"
+        },
+        {
+          "label": "C",
+          "text": "competition"
+        },
+        {
+          "label": "D",
+          "text": "compete"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 119,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "The shuttle buses operated by Oakhurst Shuttle Services are _____ inspected in accordance with the depot's monthly safety checklist.",
+      "options": [
+        {
+          "label": "A",
+          "text": "routinely"
+        },
+        {
+          "label": "B",
+          "text": "promptly"
+        },
+        {
+          "label": "C",
+          "text": "formerly"
+        },
+        {
+          "label": "D",
+          "text": "seldom"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 120,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "After examining every submitted sample, the review team at Delbrook Consulting was finally able to _____ a firm conclusion about the vendor's reliability.",
+      "options": [
+        {
+          "label": "A",
+          "text": "arrive"
+        },
+        {
+          "label": "B",
+          "text": "reach"
+        },
+        {
+          "label": "C",
+          "text": "gather"
+        },
+        {
+          "label": "D",
+          "text": "decide"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 121,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "_____ the outstanding balance is settled by Friday, the reserved desk at Marlstone Workspaces will be released to another applicant.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Rather"
+        },
+        {
+          "label": "B",
+          "text": "Unless"
+        },
+        {
+          "label": "C",
+          "text": "Although"
+        },
+        {
+          "label": "D",
+          "text": "In addition"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 122,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "Garments processed by Marchmont Dry Cleaners will be held at the front counter _____ the outstanding balance is paid in full.",
+      "options": [
+        {
+          "label": "A",
+          "text": "during"
+        },
+        {
+          "label": "B",
+          "text": "whereas"
+        },
+        {
+          "label": "C",
+          "text": "until"
+        },
+        {
+          "label": "D",
+          "text": "how"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 123,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "The reservation system at Wrenfield Car Rental will be offline tonight, _____ print any confirmations that you need before the shutdown begins.",
+      "options": [
+        {
+          "label": "A",
+          "text": "because"
+        },
+        {
+          "label": "B",
+          "text": "but"
+        },
+        {
+          "label": "C",
+          "text": "so"
+        },
+        {
+          "label": "D",
+          "text": "thus"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 124,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "The management team at Sablewood Logistics remains _____ to expand its weekend delivery routes as long as regional fuel costs stay unpredictable.",
+      "options": [
+        {
+          "label": "A",
+          "text": "reluctant"
+        },
+        {
+          "label": "B",
+          "text": "eager"
+        },
+        {
+          "label": "C",
+          "text": "likely"
+        },
+        {
+          "label": "D",
+          "text": "able"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 125,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "Each display panel at the Ellsworth Expo Center must be _____ attached to the frame before the exhibition opens to visitors.",
+      "options": [
+        {
+          "label": "A",
+          "text": "firmly"
+        },
+        {
+          "label": "B",
+          "text": "firm"
+        },
+        {
+          "label": "C",
+          "text": "firming"
+        },
+        {
+          "label": "D",
+          "text": "firmness"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 126,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "The indoor pool at Millgate Sports Club will be closed _____ a burst water pipe near the changing rooms.",
+      "options": [
+        {
+          "label": "A",
+          "text": "during"
+        },
+        {
+          "label": "B",
+          "text": "because"
+        },
+        {
+          "label": "C",
+          "text": "therefore"
+        },
+        {
+          "label": "D",
+          "text": "because of"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 127,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "During Saturday's sale, the televisions at Halbeck Electronics sold so _____ that staff restocked the shelves twice before noon.",
+      "options": [
+        {
+          "label": "A",
+          "text": "deep"
+        },
+        {
+          "label": "B",
+          "text": "wide"
+        },
+        {
+          "label": "C",
+          "text": "fast"
+        },
+        {
+          "label": "D",
+          "text": "hard"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 128,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "The design team at Pinewood Studio presented a remarkably _____ concept for the client's new brand logo.",
+      "options": [
+        {
+          "label": "A",
+          "text": "creativity"
+        },
+        {
+          "label": "B",
+          "text": "creativeness"
+        },
+        {
+          "label": "C",
+          "text": "creative"
+        },
+        {
+          "label": "D",
+          "text": "creatives"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 129,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "At Halden Fitness Center, only _____ members may use the indoor pool during the supervised morning sessions.",
+      "options": [
+        {
+          "label": "A",
+          "text": "confident"
+        },
+        {
+          "label": "B",
+          "text": "reliable"
+        },
+        {
+          "label": "C",
+          "text": "agreeable"
+        },
+        {
+          "label": "D",
+          "text": "registered"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 130,
+      "part": 5,
+      "direction": "Part 5: Incomplete Sentences. Select the best answer to complete each sentence.",
+      "questionText": "The management at Beacon Auto Wash has kept its express service available _____ the sharp rise in water charges this quarter.",
+      "options": [
+        {
+          "label": "A",
+          "text": "however"
+        },
+        {
+          "label": "B",
+          "text": "in addition to"
+        },
+        {
+          "label": "C",
+          "text": "despite"
+        },
+        {
+          "label": "D",
+          "text": "therefore"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 131,
+      "part": 6,
+      "direction": "Part 6: Text Completion. Read the text and choose the best word, phrase, or sentence for each blank.",
+      "passage": "Growing Software Company to Move Headquarters Downtown\nMeridian Software announced this week that it will --(131)-- a newly renovated building on Carlton Avenue beginning in March. The firm, currently based in an office park on the city's outskirts, chose the downtown location for its proximity to public transportation and the surrounding business community. --(132)--. The larger premises will support the company's continued --(133)-- and its plans to add staff over the coming year.\nThe relocation is expected to bring roughly eighty new jobs to the central district, many of them in engineering and customer support. \"We wanted to be closer to the talent and the partners we rely on every day,\" said Alan Pruitt, the company's chief operating officer. The move will give the company room to grow. --(134)--, it will strengthen the firm's ties to neighboring downtown businesses.",
+      "questionText": "Select the best option for blank --(131)--",
+      "options": [
+        {
+          "label": "A",
+          "text": "vacate"
+        },
+        {
+          "label": "B",
+          "text": "occupy"
+        },
+        {
+          "label": "C",
+          "text": "inhabit"
+        },
+        {
+          "label": "D",
+          "text": "renovate"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 132,
+      "part": 6,
+      "direction": "Part 6: Text Completion. Read the text and choose the best word, phrase, or sentence for each blank.",
+      "passage": "Growing Software Company to Move Headquarters Downtown\nMeridian Software announced this week that it will --(131)-- a newly renovated building on Carlton Avenue beginning in March. The firm, currently based in an office park on the city's outskirts, chose the downtown location for its proximity to public transportation and the surrounding business community. --(132)--. The larger premises will support the company's continued --(133)-- and its plans to add staff over the coming year.\nThe relocation is expected to bring roughly eighty new jobs to the central district, many of them in engineering and customer support. \"We wanted to be closer to the talent and the partners we rely on every day,\" said Alan Pruitt, the company's chief operating officer. The move will give the company room to grow. --(134)--, it will strengthen the firm's ties to neighboring downtown businesses.",
+      "questionText": "Select the best option for blank --(132)--",
+      "options": [
+        {
+          "label": "A",
+          "text": "The company was launched fifteen years ago by a pair of local programmers"
+        },
+        {
+          "label": "B",
+          "text": "The Carlton Avenue building offers nearly twice the floor space it now uses"
+        },
+        {
+          "label": "C",
+          "text": "City workers recently repaved several roads throughout the downtown area"
+        },
+        {
+          "label": "D",
+          "text": "The firm had seriously considered leaving the region altogether last year"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 133,
+      "part": 6,
+      "direction": "Part 6: Text Completion. Read the text and choose the best word, phrase, or sentence for each blank.",
+      "passage": "Growing Software Company to Move Headquarters Downtown\nMeridian Software announced this week that it will --(131)-- a newly renovated building on Carlton Avenue beginning in March. The firm, currently based in an office park on the city's outskirts, chose the downtown location for its proximity to public transportation and the surrounding business community. --(132)--. The larger premises will support the company's continued --(133)-- and its plans to add staff over the coming year.\nThe relocation is expected to bring roughly eighty new jobs to the central district, many of them in engineering and customer support. \"We wanted to be closer to the talent and the partners we rely on every day,\" said Alan Pruitt, the company's chief operating officer. The move will give the company room to grow. --(134)--, it will strengthen the firm's ties to neighboring downtown businesses.",
+      "questionText": "Select the best option for blank --(133)--",
+      "options": [
+        {
+          "label": "A",
+          "text": "expansion"
+        },
+        {
+          "label": "B",
+          "text": "to expand"
+        },
+        {
+          "label": "C",
+          "text": "expanded"
+        },
+        {
+          "label": "D",
+          "text": "expand"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 134,
+      "part": 6,
+      "direction": "Part 6: Text Completion. Read the text and choose the best word, phrase, or sentence for each blank.",
+      "passage": "Growing Software Company to Move Headquarters Downtown\nMeridian Software announced this week that it will --(131)-- a newly renovated building on Carlton Avenue beginning in March. The firm, currently based in an office park on the city's outskirts, chose the downtown location for its proximity to public transportation and the surrounding business community. --(132)--. The larger premises will support the company's continued --(133)-- and its plans to add staff over the coming year.\nThe relocation is expected to bring roughly eighty new jobs to the central district, many of them in engineering and customer support. \"We wanted to be closer to the talent and the partners we rely on every day,\" said Alan Pruitt, the company's chief operating officer. The move will give the company room to grow. --(134)--, it will strengthen the firm's ties to neighboring downtown businesses.",
+      "questionText": "Select the best option for blank --(134)--",
+      "options": [
+        {
+          "label": "A",
+          "text": "On the other hand"
+        },
+        {
+          "label": "B",
+          "text": "In addition"
+        },
+        {
+          "label": "C",
+          "text": "Rather"
+        },
+        {
+          "label": "D",
+          "text": "Until then"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 135,
+      "part": 6,
+      "direction": "Part 6: Text Completion. Read the text and choose the best word, phrase, or sentence for each blank.",
+      "passage": "From: Owen Castellano\nTo: Ms. Fairholme\nDate: March 14\nSubject: Your custom framing order\nDear Ms. Fairholme,\nThank you for bringing your watercolor to Amberton Framing Studio last week. We were pleased to receive it in perfect condition.\nYour custom frame is --(135)-- underway, and the mounting board has already been cut to size. The molding you selected arrived from our supplier yesterday. Assembly should be finished within a few days.\nIf you would prefer a nonreflective glazing instead, we --(136)-- it at no additional charge. This option reduces glare and helps protect the artwork from fading.\nPlease let us know which afternoon next week suits you best for collection. --(137)--. Once we hear from you, we will set aside a fitting time.\nYou may also enroll in our order --(138)-- program. Doing so lets you receive a short message whenever your project reaches a new stage.\nWe look forward to seeing your finished piece soon.\nWarm regards,\nOwen Castellano\nAmberton Framing Studio",
+      "questionText": "Select the best option for blank --(135)--",
+      "options": [
+        {
+          "label": "A",
+          "text": "nearly"
+        },
+        {
+          "label": "B",
+          "text": "barely"
+        },
+        {
+          "label": "C",
+          "text": "roughly"
+        },
+        {
+          "label": "D",
+          "text": "well"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 136,
+      "part": 6,
+      "direction": "Part 6: Text Completion. Read the text and choose the best word, phrase, or sentence for each blank.",
+      "passage": "From: Owen Castellano\nTo: Ms. Fairholme\nDate: March 14\nSubject: Your custom framing order\nDear Ms. Fairholme,\nThank you for bringing your watercolor to Amberton Framing Studio last week. We were pleased to receive it in perfect condition.\nYour custom frame is --(135)-- underway, and the mounting board has already been cut to size. The molding you selected arrived from our supplier yesterday. Assembly should be finished within a few days.\nIf you would prefer a nonreflective glazing instead, we --(136)-- it at no additional charge. This option reduces glare and helps protect the artwork from fading.\nPlease let us know which afternoon next week suits you best for collection. --(137)--. Once we hear from you, we will set aside a fitting time.\nYou may also enroll in our order --(138)-- program. Doing so lets you receive a short message whenever your project reaches a new stage.\nWe look forward to seeing your finished piece soon.\nWarm regards,\nOwen Castellano\nAmberton Framing Studio",
+      "questionText": "Select the best option for blank --(136)--",
+      "options": [
+        {
+          "label": "A",
+          "text": "can substitute"
+        },
+        {
+          "label": "B",
+          "text": "substitute"
+        },
+        {
+          "label": "C",
+          "text": "would have substituted"
+        },
+        {
+          "label": "D",
+          "text": "have been substituting"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 137,
+      "part": 6,
+      "direction": "Part 6: Text Completion. Read the text and choose the best word, phrase, or sentence for each blank.",
+      "passage": "From: Owen Castellano\nTo: Ms. Fairholme\nDate: March 14\nSubject: Your custom framing order\nDear Ms. Fairholme,\nThank you for bringing your watercolor to Amberton Framing Studio last week. We were pleased to receive it in perfect condition.\nYour custom frame is --(135)-- underway, and the mounting board has already been cut to size. The molding you selected arrived from our supplier yesterday. Assembly should be finished within a few days.\nIf you would prefer a nonreflective glazing instead, we --(136)-- it at no additional charge. This option reduces glare and helps protect the artwork from fading.\nPlease let us know which afternoon next week suits you best for collection. --(137)--. Once we hear from you, we will set aside a fitting time.\nYou may also enroll in our order --(138)-- program. Doing so lets you receive a short message whenever your project reaches a new stage.\nWe look forward to seeing your finished piece soon.\nWarm regards,\nOwen Castellano\nAmberton Framing Studio",
+      "questionText": "Select the best option for blank --(137)--",
+      "options": [
+        {
+          "label": "A",
+          "text": "This spring, framing prices have risen at studios across the region"
+        },
+        {
+          "label": "B",
+          "text": "If you prefer, we can courier the finished piece to your home address"
+        },
+        {
+          "label": "C",
+          "text": "We will need your approval before we order any additional molding pieces"
+        },
+        {
+          "label": "D",
+          "text": "Our front counter stays open until six, so any weekday afternoon works"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 138,
+      "part": 6,
+      "direction": "Part 6: Text Completion. Read the text and choose the best word, phrase, or sentence for each blank.",
+      "passage": "From: Owen Castellano\nTo: Ms. Fairholme\nDate: March 14\nSubject: Your custom framing order\nDear Ms. Fairholme,\nThank you for bringing your watercolor to Amberton Framing Studio last week. We were pleased to receive it in perfect condition.\nYour custom frame is --(135)-- underway, and the mounting board has already been cut to size. The molding you selected arrived from our supplier yesterday. Assembly should be finished within a few days.\nIf you would prefer a nonreflective glazing instead, we --(136)-- it at no additional charge. This option reduces glare and helps protect the artwork from fading.\nPlease let us know which afternoon next week suits you best for collection. --(137)--. Once we hear from you, we will set aside a fitting time.\nYou may also enroll in our order --(138)-- program. Doing so lets you receive a short message whenever your project reaches a new stage.\nWe look forward to seeing your finished piece soon.\nWarm regards,\nOwen Castellano\nAmberton Framing Studio",
+      "questionText": "Select the best option for blank --(138)--",
+      "options": [
+        {
+          "label": "A",
+          "text": "billing"
+        },
+        {
+          "label": "B",
+          "text": "shipping"
+        },
+        {
+          "label": "C",
+          "text": "tracking"
+        },
+        {
+          "label": "D",
+          "text": "storage"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 139,
+      "part": 6,
+      "direction": "Part 6: Text Completion. Read the text and choose the best word, phrase, or sentence for each blank.",
+      "passage": "From: Colette Marsh\nTo: Grace Harmon\nDate: March 12\nSubject: An opening in your requested class\nDear Ms. Harmon,\nWhen you joined our waitlist last month, you asked to be notified the moment a place became available in our popular weekend baking --(139)--. I am pleased to confirm that one of our registered participants has withdrawn, so a seat is now yours to claim.\nDuring a single three-hour session, you --(140)-- two classic desserts alongside our head instructor. Each participant is assigned a private station, and all professional-grade tools and equipment are provided.\nThe registration fee covers your ingredients as well as an illustrated recipe booklet to take home. --(141)--. There are no further charges once your place is confirmed.\nPlease reply to this message within three days to secure your seat. We will then finalize your booking, so do feel free to contact --(142)-- with any questions in the meantime.\nWarm regards,\nColette Marsh\nSaffron Lane Cooking Studio",
+      "questionText": "Select the best option for blank --(139)--",
+      "options": [
+        {
+          "label": "A",
+          "text": "series"
+        },
+        {
+          "label": "B",
+          "text": "demonstration"
+        },
+        {
+          "label": "C",
+          "text": "festival"
+        },
+        {
+          "label": "D",
+          "text": "workshop"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 140,
+      "part": 6,
+      "direction": "Part 6: Text Completion. Read the text and choose the best word, phrase, or sentence for each blank.",
+      "passage": "From: Colette Marsh\nTo: Grace Harmon\nDate: March 12\nSubject: An opening in your requested class\nDear Ms. Harmon,\nWhen you joined our waitlist last month, you asked to be notified the moment a place became available in our popular weekend baking --(139)--. I am pleased to confirm that one of our registered participants has withdrawn, so a seat is now yours to claim.\nDuring a single three-hour session, you --(140)-- two classic desserts alongside our head instructor. Each participant is assigned a private station, and all professional-grade tools and equipment are provided.\nThe registration fee covers your ingredients as well as an illustrated recipe booklet to take home. --(141)--. There are no further charges once your place is confirmed.\nPlease reply to this message within three days to secure your seat. We will then finalize your booking, so do feel free to contact --(142)-- with any questions in the meantime.\nWarm regards,\nColette Marsh\nSaffron Lane Cooking Studio",
+      "questionText": "Select the best option for blank --(140)--",
+      "options": [
+        {
+          "label": "A",
+          "text": "have prepared"
+        },
+        {
+          "label": "B",
+          "text": "would have prepared"
+        },
+        {
+          "label": "C",
+          "text": "are preparing"
+        },
+        {
+          "label": "D",
+          "text": "will prepare"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 141,
+      "part": 6,
+      "direction": "Part 6: Text Completion. Read the text and choose the best word, phrase, or sentence for each blank.",
+      "passage": "From: Colette Marsh\nTo: Grace Harmon\nDate: March 12\nSubject: An opening in your requested class\nDear Ms. Harmon,\nWhen you joined our waitlist last month, you asked to be notified the moment a place became available in our popular weekend baking --(139)--. I am pleased to confirm that one of our registered participants has withdrawn, so a seat is now yours to claim.\nDuring a single three-hour session, you --(140)-- two classic desserts alongside our head instructor. Each participant is assigned a private station, and all professional-grade tools and equipment are provided.\nThe registration fee covers your ingredients as well as an illustrated recipe booklet to take home. --(141)--. There are no further charges once your place is confirmed.\nPlease reply to this message within three days to secure your seat. We will then finalize your booking, so do feel free to contact --(142)-- with any questions in the meantime.\nWarm regards,\nColette Marsh\nSaffron Lane Cooking Studio",
+      "questionText": "Select the best option for blank --(141)--",
+      "options": [
+        {
+          "label": "A",
+          "text": "The full amount is due only when you confirm your seat"
+        },
+        {
+          "label": "B",
+          "text": "Extra printed handouts can be purchased at the desk for a fee"
+        },
+        {
+          "label": "C",
+          "text": "Our head instructor trained at a respected culinary school"
+        },
+        {
+          "label": "D",
+          "text": "Gift cards toward future classes may be bought anytime"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 142,
+      "part": 6,
+      "direction": "Part 6: Text Completion. Read the text and choose the best word, phrase, or sentence for each blank.",
+      "passage": "From: Colette Marsh\nTo: Grace Harmon\nDate: March 12\nSubject: An opening in your requested class\nDear Ms. Harmon,\nWhen you joined our waitlist last month, you asked to be notified the moment a place became available in our popular weekend baking --(139)--. I am pleased to confirm that one of our registered participants has withdrawn, so a seat is now yours to claim.\nDuring a single three-hour session, you --(140)-- two classic desserts alongside our head instructor. Each participant is assigned a private station, and all professional-grade tools and equipment are provided.\nThe registration fee covers your ingredients as well as an illustrated recipe booklet to take home. --(141)--. There are no further charges once your place is confirmed.\nPlease reply to this message within three days to secure your seat. We will then finalize your booking, so do feel free to contact --(142)-- with any questions in the meantime.\nWarm regards,\nColette Marsh\nSaffron Lane Cooking Studio",
+      "questionText": "Select the best option for blank --(142)--",
+      "options": [
+        {
+          "label": "A",
+          "text": "us"
+        },
+        {
+          "label": "B",
+          "text": "them"
+        },
+        {
+          "label": "C",
+          "text": "it"
+        },
+        {
+          "label": "D",
+          "text": "me"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 143,
+      "part": 6,
+      "direction": "Part 6: Text Completion. Read the text and choose the best word, phrase, or sentence for each blank.",
+      "passage": "From: Lorraine Beckett\nTo: Samuel Ortega\nDate: March 6\nSubject: Your workshop proposal\nDear Dr. Ortega,\nYour proposal for a hands-on workshop --(143)-- by our review committee on March 3. --(144)--. With your permission, a brief description of your session will be listed in the conference --(145)-- so that attendees can decide which talks to join. --(146)--, please review the attached presenter guidelines and confirm the equipment you will need. Each accepted speaker is given a ninety-minute slot, a staffed meeting room, and on-site technical support throughout the day. We would be grateful if you could reply by April 10 to confirm that you are able to present. We look forward to welcoming you to the Northgate Learning Conference.\nSincerely,\nLorraine Beckett, Program Coordinator",
+      "questionText": "Select the best option for blank --(143)--",
+      "options": [
+        {
+          "label": "A",
+          "text": "will be reviewed"
+        },
+        {
+          "label": "B",
+          "text": "has been reviewed"
+        },
+        {
+          "label": "C",
+          "text": "was reviewed"
+        },
+        {
+          "label": "D",
+          "text": "reviewing"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 144,
+      "part": 6,
+      "direction": "Part 6: Text Completion. Read the text and choose the best word, phrase, or sentence for each blank.",
+      "passage": "From: Lorraine Beckett\nTo: Samuel Ortega\nDate: March 6\nSubject: Your workshop proposal\nDear Dr. Ortega,\nYour proposal for a hands-on workshop --(143)-- by our review committee on March 3. --(144)--. With your permission, a brief description of your session will be listed in the conference --(145)-- so that attendees can decide which talks to join. --(146)--, please review the attached presenter guidelines and confirm the equipment you will need. Each accepted speaker is given a ninety-minute slot, a staffed meeting room, and on-site technical support throughout the day. We would be grateful if you could reply by April 10 to confirm that you are able to present. We look forward to welcoming you to the Northgate Learning Conference.\nSincerely,\nLorraine Beckett, Program Coordinator",
+      "questionText": "Select the best option for blank --(144)--",
+      "options": [
+        {
+          "label": "A",
+          "text": "Regrettably, we were unable to include it in this year's conference program"
+        },
+        {
+          "label": "B",
+          "text": "Our review committee meets several times to plan each year's featured sessions"
+        },
+        {
+          "label": "C",
+          "text": "I am delighted to say that it was chosen as one of this year's featured sessions"
+        },
+        {
+          "label": "D",
+          "text": "Thank you for leading such a popular workshop at last year's conference"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 145,
+      "part": 6,
+      "direction": "Part 6: Text Completion. Read the text and choose the best word, phrase, or sentence for each blank.",
+      "passage": "From: Lorraine Beckett\nTo: Samuel Ortega\nDate: March 6\nSubject: Your workshop proposal\nDear Dr. Ortega,\nYour proposal for a hands-on workshop --(143)-- by our review committee on March 3. --(144)--. With your permission, a brief description of your session will be listed in the conference --(145)-- so that attendees can decide which talks to join. --(146)--, please review the attached presenter guidelines and confirm the equipment you will need. Each accepted speaker is given a ninety-minute slot, a staffed meeting room, and on-site technical support throughout the day. We would be grateful if you could reply by April 10 to confirm that you are able to present. We look forward to welcoming you to the Northgate Learning Conference.\nSincerely,\nLorraine Beckett, Program Coordinator",
+      "questionText": "Select the best option for blank --(145)--",
+      "options": [
+        {
+          "label": "A",
+          "text": "directory"
+        },
+        {
+          "label": "B",
+          "text": "program"
+        },
+        {
+          "label": "C",
+          "text": "newsletter"
+        },
+        {
+          "label": "D",
+          "text": "proceedings"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 146,
+      "part": 6,
+      "direction": "Part 6: Text Completion. Read the text and choose the best word, phrase, or sentence for each blank.",
+      "passage": "From: Lorraine Beckett\nTo: Samuel Ortega\nDate: March 6\nSubject: Your workshop proposal\nDear Dr. Ortega,\nYour proposal for a hands-on workshop --(143)-- by our review committee on March 3. --(144)--. With your permission, a brief description of your session will be listed in the conference --(145)-- so that attendees can decide which talks to join. --(146)--, please review the attached presenter guidelines and confirm the equipment you will need. Each accepted speaker is given a ninety-minute slot, a staffed meeting room, and on-site technical support throughout the day. We would be grateful if you could reply by April 10 to confirm that you are able to present. We look forward to welcoming you to the Northgate Learning Conference.\nSincerely,\nLorraine Beckett, Program Coordinator",
+      "questionText": "Select the best option for blank --(146)--",
+      "options": [
+        {
+          "label": "A",
+          "text": "So that"
+        },
+        {
+          "label": "B",
+          "text": "First of all"
+        },
+        {
+          "label": "C",
+          "text": "In the meantime"
+        },
+        {
+          "label": "D",
+          "text": "As noted above"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 131,
+      "part": 7,
+      "direction": "Part 7: Reading Comprehension. Read a variety of texts and choose the best answer to each question.",
+      "passage": "Growing Software Company to Move Headquarters Downtown\nMeridian Software announced this week that it will --(131)-- a newly renovated building on Carlton Avenue beginning in March. The firm, currently based in an office park on the city's outskirts, chose the downtown location for its proximity to public transportation and the surrounding business community. --(132)--. The larger premises will support the company's continued --(133)-- and its plans to add staff over the coming year.\nThe relocation is expected to bring roughly eighty new jobs to the central district, many of them in engineering and customer support. \"We wanted to be closer to the talent and the partners we rely on every day,\" said Alan Pruitt, the company's chief operating officer. The move will give the company room to grow. --(134)--, it will strengthen the firm's ties to neighboring downtown businesses.",
+      "questionText": "",
+      "options": [
+        {
+          "label": "A",
+          "text": "vacate"
+        },
+        {
+          "label": "B",
+          "text": "occupy"
+        },
+        {
+          "label": "C",
+          "text": "inhabit"
+        },
+        {
+          "label": "D",
+          "text": "renovate"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 132,
+      "part": 7,
+      "direction": "Part 7: Reading Comprehension. Read a variety of texts and choose the best answer to each question.",
+      "passage": "Growing Software Company to Move Headquarters Downtown\nMeridian Software announced this week that it will --(131)-- a newly renovated building on Carlton Avenue beginning in March. The firm, currently based in an office park on the city's outskirts, chose the downtown location for its proximity to public transportation and the surrounding business community. --(132)--. The larger premises will support the company's continued --(133)-- and its plans to add staff over the coming year.\nThe relocation is expected to bring roughly eighty new jobs to the central district, many of them in engineering and customer support. \"We wanted to be closer to the talent and the partners we rely on every day,\" said Alan Pruitt, the company's chief operating officer. The move will give the company room to grow. --(134)--, it will strengthen the firm's ties to neighboring downtown businesses.",
+      "questionText": "",
+      "options": [
+        {
+          "label": "A",
+          "text": "The company was launched fifteen years ago by a pair of local programmers"
+        },
+        {
+          "label": "B",
+          "text": "The Carlton Avenue building offers nearly twice the floor space it now uses"
+        },
+        {
+          "label": "C",
+          "text": "City workers recently repaved several roads throughout the downtown area"
+        },
+        {
+          "label": "D",
+          "text": "The firm had seriously considered leaving the region altogether last year"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 133,
+      "part": 7,
+      "direction": "Part 7: Reading Comprehension. Read a variety of texts and choose the best answer to each question.",
+      "passage": "Growing Software Company to Move Headquarters Downtown\nMeridian Software announced this week that it will --(131)-- a newly renovated building on Carlton Avenue beginning in March. The firm, currently based in an office park on the city's outskirts, chose the downtown location for its proximity to public transportation and the surrounding business community. --(132)--. The larger premises will support the company's continued --(133)-- and its plans to add staff over the coming year.\nThe relocation is expected to bring roughly eighty new jobs to the central district, many of them in engineering and customer support. \"We wanted to be closer to the talent and the partners we rely on every day,\" said Alan Pruitt, the company's chief operating officer. The move will give the company room to grow. --(134)--, it will strengthen the firm's ties to neighboring downtown businesses.",
+      "questionText": "",
+      "options": [
+        {
+          "label": "A",
+          "text": "expansion"
+        },
+        {
+          "label": "B",
+          "text": "to expand"
+        },
+        {
+          "label": "C",
+          "text": "expanded"
+        },
+        {
+          "label": "D",
+          "text": "expand"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 134,
+      "part": 7,
+      "direction": "Part 7: Reading Comprehension. Read a variety of texts and choose the best answer to each question.",
+      "passage": "Growing Software Company to Move Headquarters Downtown\nMeridian Software announced this week that it will --(131)-- a newly renovated building on Carlton Avenue beginning in March. The firm, currently based in an office park on the city's outskirts, chose the downtown location for its proximity to public transportation and the surrounding business community. --(132)--. The larger premises will support the company's continued --(133)-- and its plans to add staff over the coming year.\nThe relocation is expected to bring roughly eighty new jobs to the central district, many of them in engineering and customer support. \"We wanted to be closer to the talent and the partners we rely on every day,\" said Alan Pruitt, the company's chief operating officer. The move will give the company room to grow. --(134)--, it will strengthen the firm's ties to neighboring downtown businesses.",
+      "questionText": "",
+      "options": [
+        {
+          "label": "A",
+          "text": "On the other hand"
+        },
+        {
+          "label": "B",
+          "text": "In addition"
+        },
+        {
+          "label": "C",
+          "text": "Rather"
+        },
+        {
+          "label": "D",
+          "text": "Until then"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 135,
+      "part": 7,
+      "direction": "Part 7: Reading Comprehension. Read a variety of texts and choose the best answer to each question.",
+      "passage": "From: Owen Castellano\nTo: Ms. Fairholme\nDate: March 14\nSubject: Your custom framing order\nDear Ms. Fairholme,\nThank you for bringing your watercolor to Amberton Framing Studio last week. We were pleased to receive it in perfect condition.\nYour custom frame is --(135)-- underway, and the mounting board has already been cut to size. The molding you selected arrived from our supplier yesterday. Assembly should be finished within a few days.\nIf you would prefer a nonreflective glazing instead, we --(136)-- it at no additional charge. This option reduces glare and helps protect the artwork from fading.\nPlease let us know which afternoon next week suits you best for collection. --(137)--. Once we hear from you, we will set aside a fitting time.\nYou may also enroll in our order --(138)-- program. Doing so lets you receive a short message whenever your project reaches a new stage.\nWe look forward to seeing your finished piece soon.\nWarm regards,\nOwen Castellano\nAmberton Framing Studio",
+      "questionText": "",
+      "options": [
+        {
+          "label": "A",
+          "text": "nearly"
+        },
+        {
+          "label": "B",
+          "text": "barely"
+        },
+        {
+          "label": "C",
+          "text": "roughly"
+        },
+        {
+          "label": "D",
+          "text": "well"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 136,
+      "part": 7,
+      "direction": "Part 7: Reading Comprehension. Read a variety of texts and choose the best answer to each question.",
+      "passage": "From: Owen Castellano\nTo: Ms. Fairholme\nDate: March 14\nSubject: Your custom framing order\nDear Ms. Fairholme,\nThank you for bringing your watercolor to Amberton Framing Studio last week. We were pleased to receive it in perfect condition.\nYour custom frame is --(135)-- underway, and the mounting board has already been cut to size. The molding you selected arrived from our supplier yesterday. Assembly should be finished within a few days.\nIf you would prefer a nonreflective glazing instead, we --(136)-- it at no additional charge. This option reduces glare and helps protect the artwork from fading.\nPlease let us know which afternoon next week suits you best for collection. --(137)--. Once we hear from you, we will set aside a fitting time.\nYou may also enroll in our order --(138)-- program. Doing so lets you receive a short message whenever your project reaches a new stage.\nWe look forward to seeing your finished piece soon.\nWarm regards,\nOwen Castellano\nAmberton Framing Studio",
+      "questionText": "",
+      "options": [
+        {
+          "label": "A",
+          "text": "can substitute"
+        },
+        {
+          "label": "B",
+          "text": "substitute"
+        },
+        {
+          "label": "C",
+          "text": "would have substituted"
+        },
+        {
+          "label": "D",
+          "text": "have been substituting"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 137,
+      "part": 7,
+      "direction": "Part 7: Reading Comprehension. Read a variety of texts and choose the best answer to each question.",
+      "passage": "From: Owen Castellano\nTo: Ms. Fairholme\nDate: March 14\nSubject: Your custom framing order\nDear Ms. Fairholme,\nThank you for bringing your watercolor to Amberton Framing Studio last week. We were pleased to receive it in perfect condition.\nYour custom frame is --(135)-- underway, and the mounting board has already been cut to size. The molding you selected arrived from our supplier yesterday. Assembly should be finished within a few days.\nIf you would prefer a nonreflective glazing instead, we --(136)-- it at no additional charge. This option reduces glare and helps protect the artwork from fading.\nPlease let us know which afternoon next week suits you best for collection. --(137)--. Once we hear from you, we will set aside a fitting time.\nYou may also enroll in our order --(138)-- program. Doing so lets you receive a short message whenever your project reaches a new stage.\nWe look forward to seeing your finished piece soon.\nWarm regards,\nOwen Castellano\nAmberton Framing Studio",
+      "questionText": "",
+      "options": [
+        {
+          "label": "A",
+          "text": "This spring, framing prices have risen at studios across the region"
+        },
+        {
+          "label": "B",
+          "text": "If you prefer, we can courier the finished piece to your home address"
+        },
+        {
+          "label": "C",
+          "text": "We will need your approval before we order any additional molding pieces"
+        },
+        {
+          "label": "D",
+          "text": "Our front counter stays open until six, so any weekday afternoon works"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 138,
+      "part": 7,
+      "direction": "Part 7: Reading Comprehension. Read a variety of texts and choose the best answer to each question.",
+      "passage": "From: Owen Castellano\nTo: Ms. Fairholme\nDate: March 14\nSubject: Your custom framing order\nDear Ms. Fairholme,\nThank you for bringing your watercolor to Amberton Framing Studio last week. We were pleased to receive it in perfect condition.\nYour custom frame is --(135)-- underway, and the mounting board has already been cut to size. The molding you selected arrived from our supplier yesterday. Assembly should be finished within a few days.\nIf you would prefer a nonreflective glazing instead, we --(136)-- it at no additional charge. This option reduces glare and helps protect the artwork from fading.\nPlease let us know which afternoon next week suits you best for collection. --(137)--. Once we hear from you, we will set aside a fitting time.\nYou may also enroll in our order --(138)-- program. Doing so lets you receive a short message whenever your project reaches a new stage.\nWe look forward to seeing your finished piece soon.\nWarm regards,\nOwen Castellano\nAmberton Framing Studio",
+      "questionText": "",
+      "options": [
+        {
+          "label": "A",
+          "text": "billing"
+        },
+        {
+          "label": "B",
+          "text": "shipping"
+        },
+        {
+          "label": "C",
+          "text": "tracking"
+        },
+        {
+          "label": "D",
+          "text": "storage"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 139,
+      "part": 7,
+      "direction": "Part 7: Reading Comprehension. Read a variety of texts and choose the best answer to each question.",
+      "passage": "From: Colette Marsh\nTo: Grace Harmon\nDate: March 12\nSubject: An opening in your requested class\nDear Ms. Harmon,\nWhen you joined our waitlist last month, you asked to be notified the moment a place became available in our popular weekend baking --(139)--. I am pleased to confirm that one of our registered participants has withdrawn, so a seat is now yours to claim.\nDuring a single three-hour session, you --(140)-- two classic desserts alongside our head instructor. Each participant is assigned a private station, and all professional-grade tools and equipment are provided.\nThe registration fee covers your ingredients as well as an illustrated recipe booklet to take home. --(141)--. There are no further charges once your place is confirmed.\nPlease reply to this message within three days to secure your seat. We will then finalize your booking, so do feel free to contact --(142)-- with any questions in the meantime.\nWarm regards,\nColette Marsh\nSaffron Lane Cooking Studio",
+      "questionText": "",
+      "options": [
+        {
+          "label": "A",
+          "text": "series"
+        },
+        {
+          "label": "B",
+          "text": "demonstration"
+        },
+        {
+          "label": "C",
+          "text": "festival"
+        },
+        {
+          "label": "D",
+          "text": "workshop"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 140,
+      "part": 7,
+      "direction": "Part 7: Reading Comprehension. Read a variety of texts and choose the best answer to each question.",
+      "passage": "From: Colette Marsh\nTo: Grace Harmon\nDate: March 12\nSubject: An opening in your requested class\nDear Ms. Harmon,\nWhen you joined our waitlist last month, you asked to be notified the moment a place became available in our popular weekend baking --(139)--. I am pleased to confirm that one of our registered participants has withdrawn, so a seat is now yours to claim.\nDuring a single three-hour session, you --(140)-- two classic desserts alongside our head instructor. Each participant is assigned a private station, and all professional-grade tools and equipment are provided.\nThe registration fee covers your ingredients as well as an illustrated recipe booklet to take home. --(141)--. There are no further charges once your place is confirmed.\nPlease reply to this message within three days to secure your seat. We will then finalize your booking, so do feel free to contact --(142)-- with any questions in the meantime.\nWarm regards,\nColette Marsh\nSaffron Lane Cooking Studio",
+      "questionText": "",
+      "options": [
+        {
+          "label": "A",
+          "text": "have prepared"
+        },
+        {
+          "label": "B",
+          "text": "would have prepared"
+        },
+        {
+          "label": "C",
+          "text": "are preparing"
+        },
+        {
+          "label": "D",
+          "text": "will prepare"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Đáp án chính thức Study4: (D)"
+    },
+    {
+      "id": 141,
+      "part": 7,
+      "direction": "Part 7: Reading Comprehension. Read a variety of texts and choose the best answer to each question.",
+      "passage": "From: Colette Marsh\nTo: Grace Harmon\nDate: March 12\nSubject: An opening in your requested class\nDear Ms. Harmon,\nWhen you joined our waitlist last month, you asked to be notified the moment a place became available in our popular weekend baking --(139)--. I am pleased to confirm that one of our registered participants has withdrawn, so a seat is now yours to claim.\nDuring a single three-hour session, you --(140)-- two classic desserts alongside our head instructor. Each participant is assigned a private station, and all professional-grade tools and equipment are provided.\nThe registration fee covers your ingredients as well as an illustrated recipe booklet to take home. --(141)--. There are no further charges once your place is confirmed.\nPlease reply to this message within three days to secure your seat. We will then finalize your booking, so do feel free to contact --(142)-- with any questions in the meantime.\nWarm regards,\nColette Marsh\nSaffron Lane Cooking Studio",
+      "questionText": "",
+      "options": [
+        {
+          "label": "A",
+          "text": "The full amount is due only when you confirm your seat"
+        },
+        {
+          "label": "B",
+          "text": "Extra printed handouts can be purchased at the desk for a fee"
+        },
+        {
+          "label": "C",
+          "text": "Our head instructor trained at a respected culinary school"
+        },
+        {
+          "label": "D",
+          "text": "Gift cards toward future classes may be bought anytime"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 142,
+      "part": 7,
+      "direction": "Part 7: Reading Comprehension. Read a variety of texts and choose the best answer to each question.",
+      "passage": "From: Colette Marsh\nTo: Grace Harmon\nDate: March 12\nSubject: An opening in your requested class\nDear Ms. Harmon,\nWhen you joined our waitlist last month, you asked to be notified the moment a place became available in our popular weekend baking --(139)--. I am pleased to confirm that one of our registered participants has withdrawn, so a seat is now yours to claim.\nDuring a single three-hour session, you --(140)-- two classic desserts alongside our head instructor. Each participant is assigned a private station, and all professional-grade tools and equipment are provided.\nThe registration fee covers your ingredients as well as an illustrated recipe booklet to take home. --(141)--. There are no further charges once your place is confirmed.\nPlease reply to this message within three days to secure your seat. We will then finalize your booking, so do feel free to contact --(142)-- with any questions in the meantime.\nWarm regards,\nColette Marsh\nSaffron Lane Cooking Studio",
+      "questionText": "",
+      "options": [
+        {
+          "label": "A",
+          "text": "us"
+        },
+        {
+          "label": "B",
+          "text": "them"
+        },
+        {
+          "label": "C",
+          "text": "it"
+        },
+        {
+          "label": "D",
+          "text": "me"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Đáp án chính thức Study4: (A)"
+    },
+    {
+      "id": 143,
+      "part": 7,
+      "direction": "Part 7: Reading Comprehension. Read a variety of texts and choose the best answer to each question.",
+      "passage": "From: Lorraine Beckett\nTo: Samuel Ortega\nDate: March 6\nSubject: Your workshop proposal\nDear Dr. Ortega,\nYour proposal for a hands-on workshop --(143)-- by our review committee on March 3. --(144)--. With your permission, a brief description of your session will be listed in the conference --(145)-- so that attendees can decide which talks to join. --(146)--, please review the attached presenter guidelines and confirm the equipment you will need. Each accepted speaker is given a ninety-minute slot, a staffed meeting room, and on-site technical support throughout the day. We would be grateful if you could reply by April 10 to confirm that you are able to present. We look forward to welcoming you to the Northgate Learning Conference.\nSincerely,\nLorraine Beckett, Program Coordinator",
+      "questionText": "",
+      "options": [
+        {
+          "label": "A",
+          "text": "will be reviewed"
+        },
+        {
+          "label": "B",
+          "text": "has been reviewed"
+        },
+        {
+          "label": "C",
+          "text": "was reviewed"
+        },
+        {
+          "label": "D",
+          "text": "reviewing"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 144,
+      "part": 7,
+      "direction": "Part 7: Reading Comprehension. Read a variety of texts and choose the best answer to each question.",
+      "passage": "From: Lorraine Beckett\nTo: Samuel Ortega\nDate: March 6\nSubject: Your workshop proposal\nDear Dr. Ortega,\nYour proposal for a hands-on workshop --(143)-- by our review committee on March 3. --(144)--. With your permission, a brief description of your session will be listed in the conference --(145)-- so that attendees can decide which talks to join. --(146)--, please review the attached presenter guidelines and confirm the equipment you will need. Each accepted speaker is given a ninety-minute slot, a staffed meeting room, and on-site technical support throughout the day. We would be grateful if you could reply by April 10 to confirm that you are able to present. We look forward to welcoming you to the Northgate Learning Conference.\nSincerely,\nLorraine Beckett, Program Coordinator",
+      "questionText": "",
+      "options": [
+        {
+          "label": "A",
+          "text": "Regrettably, we were unable to include it in this year's conference program"
+        },
+        {
+          "label": "B",
+          "text": "Our review committee meets several times to plan each year's featured sessions"
+        },
+        {
+          "label": "C",
+          "text": "I am delighted to say that it was chosen as one of this year's featured sessions"
+        },
+        {
+          "label": "D",
+          "text": "Thank you for leading such a popular workshop at last year's conference"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    },
+    {
+      "id": 145,
+      "part": 7,
+      "direction": "Part 7: Reading Comprehension. Read a variety of texts and choose the best answer to each question.",
+      "passage": "From: Lorraine Beckett\nTo: Samuel Ortega\nDate: March 6\nSubject: Your workshop proposal\nDear Dr. Ortega,\nYour proposal for a hands-on workshop --(143)-- by our review committee on March 3. --(144)--. With your permission, a brief description of your session will be listed in the conference --(145)-- so that attendees can decide which talks to join. --(146)--, please review the attached presenter guidelines and confirm the equipment you will need. Each accepted speaker is given a ninety-minute slot, a staffed meeting room, and on-site technical support throughout the day. We would be grateful if you could reply by April 10 to confirm that you are able to present. We look forward to welcoming you to the Northgate Learning Conference.\nSincerely,\nLorraine Beckett, Program Coordinator",
+      "questionText": "",
+      "options": [
+        {
+          "label": "A",
+          "text": "directory"
+        },
+        {
+          "label": "B",
+          "text": "program"
+        },
+        {
+          "label": "C",
+          "text": "newsletter"
+        },
+        {
+          "label": "D",
+          "text": "proceedings"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Đáp án chính thức Study4: (B)"
+    },
+    {
+      "id": 146,
+      "part": 7,
+      "direction": "Part 7: Reading Comprehension. Read a variety of texts and choose the best answer to each question.",
+      "passage": "From: Lorraine Beckett\nTo: Samuel Ortega\nDate: March 6\nSubject: Your workshop proposal\nDear Dr. Ortega,\nYour proposal for a hands-on workshop --(143)-- by our review committee on March 3. --(144)--. With your permission, a brief description of your session will be listed in the conference --(145)-- so that attendees can decide which talks to join. --(146)--, please review the attached presenter guidelines and confirm the equipment you will need. Each accepted speaker is given a ninety-minute slot, a staffed meeting room, and on-site technical support throughout the day. We would be grateful if you could reply by April 10 to confirm that you are able to present. We look forward to welcoming you to the Northgate Learning Conference.\nSincerely,\nLorraine Beckett, Program Coordinator",
+      "questionText": "",
+      "options": [
+        {
+          "label": "A",
+          "text": "So that"
+        },
+        {
+          "label": "B",
+          "text": "First of all"
+        },
+        {
+          "label": "C",
+          "text": "In the meantime"
+        },
+        {
+          "label": "D",
+          "text": "As noted above"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Đáp án chính thức Study4: (C)"
+    }
+  ]
+}

@@ -384,45 +384,106 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
             onClick={() => { sounds.playClick(); setIsFlipped(!isFlipped); }}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
-            className="w-full max-w-xl md:max-w-2xl min-h-[380px] bg-white border-4 border-black p-8 md:p-10 shadow-neo-lg cursor-pointer select-none transition-all hover:-translate-y-1 relative flex flex-col justify-between"
+            className="w-full max-w-xl md:max-w-2xl min-h-[420px] md:min-h-[460px] bg-white border-4 border-black p-6 sm:p-8 md:p-10 shadow-neo-lg cursor-pointer select-none transition-all hover:-translate-y-1 relative flex flex-col justify-between"
           >
             {/* Top Card Info */}
-            <div className="flex items-center justify-between">
-              <span className="px-3 py-1 bg-neoCyan border-2 border-black text-xs font-black uppercase">
+            <div className="flex items-center justify-between gap-2">
+              <span className="px-3 py-1 bg-neoCyan border-2 border-black text-xs font-black uppercase shadow-neo-sm">
                 {currentLesson.title} • Từ #{currentWord.id}
               </span>
-              <span className="text-xs font-bold text-gray-500">
-                {flashcardIndex + 1} / {currentLesson.words.length}
-              </span>
-            </div>
 
-            {/* Card Content */}
-            {!isFlipped ? (
-              /* Front: English Word + IPA + Speaker (NO image on front to test memory) */
-              <div className="my-auto py-8 text-center flex flex-col items-center gap-4">
-                <h2 className="text-4xl sm:text-5xl md:text-6xl font-black font-heading text-black tracking-wide">
-                  {currentWord.word}
-                </h2>
-
-                {currentWord.ipa && (
-                  <span className="text-xl sm:text-2xl font-mono font-bold text-gray-700 bg-yellow-100/90 px-4 py-1.5 border-2 border-black rounded-lg shadow-neo-sm">
-                    {currentWord.ipa}
-                  </span>
-                )}
-
+              {/* Phần phát âm lên góc phải theo yêu cầu */}
+              <div className="flex items-center gap-2 sm:gap-3">
+                <span className="text-xs font-bold text-gray-500">
+                  {flashcardIndex + 1} / {currentLesson.words.length}
+                </span>
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
                     sounds.playClick();
                     sounds.speakEnglish(currentWord.word);
                   }}
-                  className="mt-2 flex items-center gap-2 px-6 py-3 bg-neoYellow border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo-sm hover:bg-yellow-300 active:translate-x-0.5 active:translate-y-0.5 group min-h-[46px]"
+                  className="flex items-center gap-1.5 px-3 py-1.5 bg-neoYellow border-2 border-black font-black text-xs uppercase shadow-neo-sm hover:bg-yellow-300 active:translate-x-0.5 active:translate-y-0.5 transition-all group cursor-pointer"
+                  title="Phát âm từ vựng (giọng Mỹ chuẩn)"
                 >
-                  <Volume2 className="w-5 h-5 group-hover:scale-125 transition-transform" />
-                  <span>Phát âm giọng Mỹ chuẩn</span>
+                  <Volume2 className="w-4 h-4 group-hover:scale-125 transition-transform" />
+                  <span>Phát âm</span>
                 </button>
+              </div>
+            </div>
 
-                <p className="text-xs text-gray-400 font-bold mt-2">
+            {/* Card Content */}
+            {!isFlipped ? (
+              /* Front: English Word + IPA + Câu minh họa tại chỗ phát âm màu vàng cũ */
+              <div className="my-auto py-6 sm:py-8 text-center flex flex-col items-center gap-3 sm:gap-4 w-full">
+                <h2 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    sounds.playClick();
+                    sounds.speakEnglish(currentWord.word);
+                  }}
+                  className="text-4xl sm:text-5xl md:text-6xl font-black font-heading text-black tracking-wide cursor-pointer hover:text-indigo-800 transition-colors"
+                  title="Nhấn để nghe phát âm từ"
+                >
+                  {currentWord.word}
+                </h2>
+
+                {currentWord.ipa && (
+                  <span 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      sounds.playClick();
+                      sounds.speakEnglish(currentWord.word);
+                    }}
+                    className="text-lg sm:text-xl md:text-2xl font-mono font-bold text-gray-700 bg-yellow-100/90 px-4 py-1.5 border-2 border-black rounded-lg shadow-neo-sm cursor-pointer hover:bg-yellow-200 transition-all"
+                    title="Phiên âm IPA (nhấn để nghe)"
+                  >
+                    {currentWord.ipa}
+                  </span>
+                )}
+
+                {/* Phần câu minh họa ngữ cảnh cho vào chỗ phát âm màu vàng */}
+                {currentWord.exampleEn ? (
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    className="w-full max-w-lg bg-neoYellow border-3 border-black p-3.5 sm:p-4 rounded-xl shadow-neo text-left mt-2 flex flex-col gap-1.5 transition-all"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex-1">
+                        <span className="text-[10px] font-black uppercase bg-black text-white px-2 py-0.5 rounded inline-block mb-1 shadow-neo-sm">
+                          Câu minh họa
+                        </span>
+                        <p className="font-extrabold text-sm sm:text-base text-black leading-snug">
+                          "{currentWord.exampleEn}"
+                        </p>
+                        {currentWord.exampleVi && (
+                          <p className="font-bold text-xs sm:text-sm text-gray-800 mt-1 italic leading-snug">
+                            👉 {currentWord.exampleVi}
+                          </p>
+                        )}
+                      </div>
+
+                      {/* Nút nghe đọc câu ví dụ */}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          sounds.playClick();
+                          sounds.speakEnglish(currentWord.exampleEn!);
+                        }}
+                        className="p-2 bg-white border-2 border-black rounded-lg shadow-neo-sm hover:bg-yellow-100 active:translate-x-0.5 active:translate-y-0.5 shrink-0 group transition-all"
+                        title="Nghe đọc câu minh họa"
+                      >
+                        <Volume2 className="w-4 h-4 text-black group-hover:scale-125 transition-transform" />
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="w-full max-w-lg bg-yellow-50 border-2 border-dashed border-gray-400 p-3 rounded-xl text-xs text-gray-500 font-bold mt-2">
+                    Đang nạp câu minh họa...
+                  </div>
+                )}
+
+                <p className="text-xs text-gray-400 font-bold mt-1">
                   (Chạm vào thẻ để xem nghĩa & hình ảnh minh họa • Vuốt ngang để chuyển từ)
                 </p>
               </div>
@@ -551,6 +612,11 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                           )}
                         </div>
                         <p className="text-sm font-bold text-emerald-800">{w.meaning}</p>
+                        {w.exampleEn && (
+                          <p className="text-xs text-gray-700 font-medium italic mt-0.5">
+                            "{w.exampleEn}"
+                          </p>
+                        )}
                       </div>
                     </div>
 
