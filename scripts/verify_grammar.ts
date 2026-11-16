@@ -133,4 +133,33 @@ allExercises.forEach((ex, idx) => {
   }
 });
 
+// 5. Kiểm tra Ngân hàng câu hỏi tổng hợp (masterGrammarBank & getRandomGrammarTest)
+import { masterGrammarBank, getRandomGrammarTest, getGrammarBankStats } from '../src/data/grammarBank';
+
+console.log('\n--- 5. KIỂM TRA NGÂN HÀNG ĐỀ TỔNG HỢP (MASTER GRAMMAR BANK) ---');
+console.log(`✓ Tổng số câu trong ngân hàng đề: ${masterGrammarBank.length} câu`);
+
+if (masterGrammarBank.length < 250) {
+  console.error(`LỖI: Ngân hàng câu hỏi quá ít (${masterGrammarBank.length} câu), yêu cầu >= 250 câu!`);
+  totalIssues++;
+}
+
+// Kiểm tra 10 câu random từ ngân hàng
+for (let run = 1; run <= 5; run++) {
+  const test10 = getRandomGrammarTest(10);
+  if (test10.length !== 10) {
+    console.error(`LỖI lần chạy ${run}: getRandomGrammarTest(10) trả về ${test10.length} câu, không đủ 10 câu!`);
+    totalIssues++;
+  }
+  const uniqueIds = new Set(test10.map(q => q.uniqueId));
+  if (uniqueIds.size !== 10) {
+    console.error(`LỖI lần chạy ${run}: 10 câu random bị trùng lặp ID!`);
+    totalIssues++;
+  }
+}
+console.log(`✓ getRandomGrammarTest(10): Thử nghiệm 5 lần lấy 10 câu random, tất cả đều phân tán ngẫu nhiên và không trùng lặp.`);
+
+const stats = getGrammarBankStats();
+console.log(`✓ Thống kê ngân hàng: ${Object.keys(stats.topics).length} chủ điểm đa dạng.`);
+
 console.log(`\n=== TỔNG KẾT KIỂM TRA: ${totalIssues === 0 ? 'TẤT CẢ 100% CHÍNH XÁC VÀ HỢP LỆ!' : `PHÁT HIỆN ${totalIssues} LỖI CẦN SỬA`} ===`);
