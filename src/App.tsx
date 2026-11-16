@@ -38,13 +38,18 @@ export function App() {
   const [isAccountModalOpen, setIsAccountModalOpen] = useState(false);
 
 
-  // Khi phát hiện có tài khoản đăng nhập thành công, tự động chuyển vào MENU chính
+  // Chỉ tự động vào MENU nếu người dùng vừa hoàn tất đăng nhập bằng Google Redirect
   useEffect(() => {
-    if (user && screen === 'TITLE') {
-      sounds.playCorrect();
-      setScreen('MENU');
+    if (user) {
+      try {
+        if (sessionStorage.getItem('ing_signing_in_redirect') === '1') {
+          sessionStorage.removeItem('ing_signing_in_redirect');
+          sounds.playCorrect();
+          setScreen('MENU');
+        }
+      } catch {}
     }
-  }, [user, screen]);
+  }, [user]);
 
   // Sync with NoSQL Backend or static fallback for Vercel deployment
   useEffect(() => {

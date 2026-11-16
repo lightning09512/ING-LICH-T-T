@@ -365,6 +365,7 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
         code === 'auth/operation-not-supported-in-this-environment'
       ) {
         try {
+          try { sessionStorage.setItem('ing_signing_in_redirect', '1'); } catch {}
           await signInWithRedirect(firebaseAuth, provider);
           return true;
         } catch (redirectError) {
@@ -388,6 +389,7 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     provider.setCustomParameters({ prompt: 'select_account' });
 
     try {
+      try { sessionStorage.setItem('ing_signing_in_redirect', '1'); } catch {}
       await signInWithRedirect(firebaseAuth, provider);
       return true;
     } catch (error) {
