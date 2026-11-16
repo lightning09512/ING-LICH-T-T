@@ -1,4 +1,4 @@
-// Web Audio API sound effects and natural, pleasant American Female pronunciation engine.
+// Web Audio API sound effects and high-fidelity Natural Human American Female pronunciation engine.
 
 class SoundEngine {
   private ctx: AudioContext | null = null;
@@ -36,12 +36,12 @@ class SoundEngine {
         const PREFERRED_FEMALE = [
           'microsoft jenny',
           'microsoft aria',
+          'microsoft michelle',
           'google us english',
           'samantha',
           'ava',
           'victoria',
           'karen',
-          'microsoft zira',
           'moira',
           'tessa',
           'fiona',
@@ -120,7 +120,7 @@ class SoundEngine {
     try {
       const audio = new Audio();
       audio.preload = 'auto';
-      audio.src = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en-US&client=tw-ob&q=${encodeURIComponent(cleanText)}`;
+      audio.src = `/api/tts?text=${encodeURIComponent(cleanText)}`;
       
       audio.addEventListener('canplaythrough', () => {
         this.audioCache.set(cacheKey, audio);
@@ -296,9 +296,10 @@ class SoundEngine {
   /**
    * High-fidelity, natural American FEMALE pronunciation:
    * 1. Check in-memory audio cache -> Instant play (0ms).
-   * 2. Primary: Natural, crystal-clear American Female Voice via Google TTS (with fast 700ms timeout).
-   * 3. Secondary / Fallback: Strictly filtered Female Web SpeechSynthesis (Jenny, Aria, Google US English, Samantha, Zira).
-   * Strictly avoids robotic male voices (David, Mark, etc.).
+   * 2. Primary: Natural Microsoft Jenny Neural Voice (/api/tts) with 1000ms timeout.
+   * 3. Secondary: Real Human Studio Voice from Dictionary API for single words.
+   * 4. Fallback: Strictly filtered Female Web SpeechSynthesis (Jenny, Aria, Google US English, Samantha, Ava).
+   * Strictly avoids robotic voices.
    */
   public speakEnglish(text: string): Promise<void> {
     return new Promise((resolve) => {
@@ -331,79 +332,103 @@ class SoundEngine {
         };
         cached.onerror = () => {
           if (this.currentAudio === cached) this.currentAudio = null;
-          this.speakWithFemaleSpeechSynthesis(cleanText);
+          this.fallbackSpeech(cleanText);
         };
 
         cached.play().catch(() => {
-          this.speakWithFemaleSpeechSynthesis(cleanText);
+          this.fallbackSpeech(cleanText);
         });
         return;
       }
 
-      // 2. Play warm, natural American Female Voice (Google TTS) with 700ms fallback
-      if (cleanText.length <= 200) {
-        let hasFallenBack = false;
-        const fallbackToSpeechSynthesis = () => {
+      // 2. Play Microsoft Jenny Neural voice from /api/tts (Ultra-natural female human AI)
+      let hasFallenBack = false;
+      const triggerFallback = () => {
+        if (hasFallenBack) return;
+        hasFallenBack = true;
+        if (this.networkTimeoutId) {
+          clearTimeout(this.networkTimeoutId);
+          this.networkTimeoutId = null;
+        }
+        if (this.currentAudio) {
+          this.currentAudio.pause();
+          this.currentAudio = null;
+        }
+        this.fallbackSpeech(cleanText);
+      };
+
+      // 1000ms safety timeout: if server is slow, seamlessly fall back to dictionary human voice or female Web Speech
+      this.networkTimeoutId = setTimeout(() => {
+        triggerFallback();
+      }, 1000);
+
+      try {
+        const audioUrl = `/api/tts?text=${encodeURIComponent(cleanText)}`;
+        const audio = new Audio();
+        audio.preload = 'auto';
+        audio.volume = 0.95;
+        this.currentAudio = audio;
+
+        audio.oncanplaythrough = () => {
           if (hasFallenBack) return;
-          hasFallenBack = true;
           if (this.networkTimeoutId) {
             clearTimeout(this.networkTimeoutId);
             this.networkTimeoutId = null;
           }
-          if (this.currentAudio) {
-            this.currentAudio.pause();
-            this.currentAudio = null;
-          }
-          this.speakWithFemaleSpeechSynthesis(cleanText);
+          this.audioCache.set(cacheKey, audio);
         };
 
-        // Strict 700ms timeout: if network is slow or offline, instantly use female SpeechSynthesis
-        this.networkTimeoutId = setTimeout(() => {
-          fallbackToSpeechSynthesis();
-        }, 700);
+        audio.onended = () => {
+          if (this.networkTimeoutId) {
+            clearTimeout(this.networkTimeoutId);
+            this.networkTimeoutId = null;
+          }
+          if (this.currentAudio === audio) this.currentAudio = null;
+          this.finishSpeech();
+        };
 
-        try {
-          const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en-US&client=tw-ob&q=${encodeURIComponent(cleanText)}`;
-          const audio = new Audio();
-          audio.preload = 'auto';
-          audio.volume = 0.95;
-          this.currentAudio = audio;
+        audio.onerror = () => {
+          triggerFallback();
+        };
 
-          audio.oncanplaythrough = () => {
-            if (hasFallenBack) return;
-            if (this.networkTimeoutId) {
-              clearTimeout(this.networkTimeoutId);
-              this.networkTimeoutId = null;
-            }
-            this.audioCache.set(cacheKey, audio);
-          };
-
-          audio.onended = () => {
-            if (this.networkTimeoutId) {
-              clearTimeout(this.networkTimeoutId);
-              this.networkTimeoutId = null;
-            }
-            if (this.currentAudio === audio) this.currentAudio = null;
-            this.finishSpeech();
-          };
-
-          audio.onerror = () => {
-            fallbackToSpeechSynthesis();
-          };
-
-          audio.src = audioUrl;
-          audio.load();
-          audio.play().catch(() => {
-            fallbackToSpeechSynthesis();
-          });
-        } catch {
-          fallbackToSpeechSynthesis();
-        }
-      } else {
-        // Long sentences (> 200 chars): Female Web SpeechSynthesis
-        this.speakWithFemaleSpeechSynthesis(cleanText);
+        audio.src = audioUrl;
+        audio.load();
+        audio.play().catch(() => {
+          triggerFallback();
+        });
+      } catch {
+        triggerFallback();
       }
     });
+  }
+
+  // Seamless Fallback: First try real human studio MP3 for single words, then natural female Web Speech
+  private fallbackSpeech(cleanText: string) {
+    const isSingleWord = !cleanText.includes(' ') && /^[a-zA-Z]+$/.test(cleanText);
+
+    if (isSingleWord) {
+      // Try human studio recording from dictionaryapi
+      const humanAudioUrl = `https://api.dictionaryapi.dev/media/pronunciations/en/${cleanText.toLowerCase()}-us.mp3`;
+      const humanAudio = new Audio(humanAudioUrl);
+      humanAudio.volume = 0.95;
+      this.currentAudio = humanAudio;
+
+      humanAudio.onended = () => {
+        if (this.currentAudio === humanAudio) this.currentAudio = null;
+        this.finishSpeech();
+      };
+
+      humanAudio.onerror = () => {
+        if (this.currentAudio === humanAudio) this.currentAudio = null;
+        this.speakWithFemaleSpeechSynthesis(cleanText);
+      };
+
+      humanAudio.play().catch(() => {
+        this.speakWithFemaleSpeechSynthesis(cleanText);
+      });
+    } else {
+      this.speakWithFemaleSpeechSynthesis(cleanText);
+    }
   }
 
   // Strictly Female Web Speech Synthesis (0ms latency, warm friendly pitch, strictly NO robotic male voice)
@@ -422,7 +447,7 @@ class SoundEngine {
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'en-US';
       utterance.rate = 0.90;  // Gentle, clear, natural pace
-      utterance.pitch = 1.08; // Friendly, warm, natural female pitch
+      utterance.pitch = 1.06; // Friendly, warm, natural female pitch
       utterance.volume = 1.0;
 
       if (!this.femaleVoice) {

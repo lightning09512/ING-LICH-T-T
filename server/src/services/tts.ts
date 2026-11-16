@@ -15,7 +15,7 @@ export async function* streamSpeech(text: string): AsyncGenerator<Buffer> {
   }
 
   const tts = new EdgeTTS({
-    voice: 'en-US-AriaNeural',
+    voice: 'en-US-JennyNeural',
     lang: 'en-US',
     outputFormat: 'audio-24khz-96kbitrate-mono-mp3',
     rate: '-2%',

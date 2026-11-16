@@ -10,9 +10,9 @@ async function getSpeechAudio(text: string): Promise<Buffer> {
   const cached = audioCache.get(text);
   if (cached) return cached;
 
-  // Use Microsoft Edge's most natural, warm, human studio female voice (AriaNeural)
+  // Use Microsoft Edge's most natural, warm, human female voice (JennyNeural)
   const tts = new EdgeTTS({
-    voice: 'en-US-AriaNeural',
+    voice: 'en-US-JennyNeural',
     lang: 'en-US',
     outputFormat: 'audio-24khz-96kbitrate-mono-mp3',
     rate: '-2%',
