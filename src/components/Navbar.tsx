@@ -79,9 +79,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           <span className="font-heading text-base sm:text-lg md:text-xl font-black tracking-wide uppercase truncate">
             Ing Lịch Tét
           </span>
-          <span className="text-[11px] sm:text-xs text-pink-600 font-bold -mt-0.5 truncate">
-            Dành cho {nickname} ❤️
-          </span>
         </div>
       </div>
 
