@@ -1162,7 +1162,7 @@ const baseGrammarTopics: GrammarTopic[] = [
       },
       {
         id: 3,
-        question: 'The newly introduced automated scheduling platform makes shift management much more _______ .',
+        question: 'The newly introduced automated scheduling platform makes shift management much more _______.',
         options: [
           { label: 'A', text: 'efficient' },
           { label: 'B', text: 'efficiently' },
@@ -2045,7 +2045,7 @@ const baseGrammarTopics: GrammarTopic[] = [
       },
       {
         id: 3,
-        question: 'Of all the branch proposals submitted this quarter, Mr. Lee\'s plan was by far the _______ .',
+        question: 'Of all the branch proposals submitted this quarter, Mr. Lee\'s plan was by far the _______.',
         options: [
           { label: 'A', text: 'innovative' },
           { label: 'B', text: 'more innovative' },
