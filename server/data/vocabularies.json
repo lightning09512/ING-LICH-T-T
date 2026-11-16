@@ -1,0 +1,112 @@
+[
+  {
+    "_id": "vocab_1",
+    "word": "negotiate",
+    "type": "verb",
+    "ipa": "/nɪˈɡoʊʃieɪt/",
+    "meaning": "Đàm phán, thương lượng",
+    "exampleEn": "She tried to negotiate with her boyfriend for extra trà sữa.",
+    "exampleVi": "Cô ấy cố đàm phán với bạn trai để được thêm một ly trà sữa.",
+    "topic": "Business & Contract",
+    "level": "Intermediate"
+  },
+  {
+    "_id": "vocab_2",
+    "word": "mandatory",
+    "type": "adjective",
+    "ipa": "/ˈmændətɔːri/",
+    "meaning": "Bắt buộc, có tính cưỡng chế",
+    "exampleEn": "Doing TOEIC test everyday is mandatory for Mập địch.",
+    "exampleVi": "Làm đề TOEIC mỗi ngày là bắt buộc đối với Mập địch.",
+    "topic": "Office & Rules",
+    "level": "Intermediate"
+  },
+  {
+    "_id": "vocab_3",
+    "word": "procrastinate",
+    "type": "verb",
+    "ipa": "/prəˈkræstɪneɪt/",
+    "meaning": "Trì hoãn, chần chừ",
+    "exampleEn": "Don't procrastinate your study to scroll TikTok!",
+    "exampleVi": "Đừng có chần chừ học bài để lướt tóp tóp nữa!",
+    "topic": "Life & Study",
+    "level": "Advanced"
+  },
+  {
+    "_id": "vocab_4",
+    "word": "accommodate",
+    "type": "verb",
+    "ipa": "/əˈkɑːmədeɪt/",
+    "meaning": "Cung cấp chỗ ở, đáp ứng nhu cầu",
+    "exampleEn": "The hotel can accommodate up to 300 guests.",
+    "exampleVi": "Khách sạn có thể đáp ứng chỗ nghỉ cho tối đa 300 khách.",
+    "topic": "Travel & Hospitality",
+    "level": "Intermediate"
+  },
+  {
+    "_id": "vocab_5",
+    "word": "reimburse",
+    "type": "verb",
+    "ipa": "/ˌriːɪmˈbɜːrs/",
+    "meaning": "Hoàn lại tiền, bồi hoàn",
+    "exampleEn": "The company will reimburse you for travel expenses.",
+    "exampleVi": "Công ty sẽ hoàn trả chi phí công tác cho bạn.",
+    "topic": "Finance & Accounting",
+    "level": "Advanced"
+  },
+  {
+    "_id": "vocab_6",
+    "word": "implement",
+    "type": "verb",
+    "ipa": "/ˈɪmplɪment/",
+    "meaning": "Triển khai, thực hiện",
+    "exampleEn": "We must implement the new diet plan immediately!",
+    "exampleVi": "Chúng ta phải triển khai ngay kế hoạch ăn kiêng thôi!",
+    "topic": "Management",
+    "level": "Intermediate"
+  },
+  {
+    "_id": "vocab_7",
+    "word": "confidential",
+    "type": "adjective",
+    "ipa": "/ˌkɑːnfɪˈdenʃl/",
+    "meaning": "Bảo mật, tuyệt mật",
+    "exampleEn": "Her true weight is strictly confidential information.",
+    "exampleVi": "Cân nặng thực tế của cô ấy là thông tin tuyệt mật.",
+    "topic": "Office & Security",
+    "level": "Advanced"
+  },
+  {
+    "_id": "vocab_8",
+    "word": "complimentary",
+    "type": "adjective",
+    "ipa": "/ˌkɑːmplɪˈmentri/",
+    "meaning": "Miễn phí (quà tặng kèm)",
+    "exampleEn": "Enjoy complimentary snacks while taking the test.",
+    "exampleVi": "Thưởng thức đồ ăn nhẹ miễn phí trong lúc làm bài nhé.",
+    "topic": "Customer Service",
+    "level": "Intermediate"
+  },
+  {
+    "_id": "vocab_9",
+    "word": "collaborate",
+    "type": "verb",
+    "ipa": "/kəˈlæbəreɪt/",
+    "meaning": "Hợp tác, làm việc chung",
+    "exampleEn": "We need to collaborate closely to pass TOEIC 800+.",
+    "exampleVi": "Chúng ta cần hợp tác chặt chẽ để cùng đạt TOEIC 800+.",
+    "topic": "Teamwork",
+    "level": "Intermediate"
+  },
+  {
+    "_id": "vocab_10",
+    "word": "eligible",
+    "type": "adjective",
+    "ipa": "/ˈelɪdʒəbl/",
+    "meaning": "Đủ điều kiện, xứng đáng",
+    "exampleEn": "She is eligible to receive a giant teddy bear after getting 900 TOEIC.",
+    "exampleVi": "Cô ấy đủ điều kiện nhận gấu bông khổng lồ sau khi đạt 900 TOEIC.",
+    "topic": "HR & Recruitment",
+    "level": "Intermediate"
+  }
+]

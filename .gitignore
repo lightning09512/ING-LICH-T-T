@@ -1,8 +1,6 @@
 node_modules/
 dist/
 dist-server/
-server/data/*.json
-!server/data/.gitkeep
 .env
 .DS_Store
 
@@ -14,3 +12,7 @@ scratch/
 *.rar
 *.zip
 ĐỀ THI TOEIC LISTENING/
+
+# Dynamic runtime user submissions and profile
+server/data/submissions.json
+server/data/profile.json
