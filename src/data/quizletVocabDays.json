@@ -7082,409 +7082,545 @@
         "id": 1,
         "word": "Rural",
         "meaning": "Nông thôn",
-        "ipa": "/ˈrʊrəl/"
+        "ipa": "/ˈrʊrəl/",
+        "exampleEn": "The word 'Rural' is commonly used in English.",
+        "exampleVi": "Từ 'Rural' (Nông thôn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 2,
         "word": "Urban",
         "meaning": "Đô thi",
-        "ipa": "/ˈərbən/"
+        "ipa": "/ˈərbən/",
+        "exampleEn": "The word 'Urban' is commonly used in English.",
+        "exampleVi": "Từ 'Urban' (Đô thi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 3,
         "word": "Set up",
         "meaning": "Thiết lập",
-        "ipa": "/sɛt əp/"
+        "ipa": "/sɛt əp/",
+        "exampleEn": "The word 'Set up' is commonly used in English.",
+        "exampleVi": "Từ 'Set up' (Thiết lập) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 4,
         "word": "Arrange",
         "meaning": "Sắp xếp",
-        "ipa": "/əreɪnʤ/"
+        "ipa": "/əreɪnʤ/",
+        "exampleEn": "The word 'Arrange' is commonly used in English.",
+        "exampleVi": "Từ 'Arrange' (Sắp xếp) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 5,
         "word": "Arrangement",
         "meaning": "Sự sắp xếp",
-        "ipa": "/ərˈeɪnʤmənt/"
+        "ipa": "/ərˈeɪnʤmənt/",
+        "exampleEn": "The word 'Arrangement' is commonly used in English.",
+        "exampleVi": "Từ 'Arrangement' (Sự sắp xếp) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 6,
         "word": "Countryside",
         "meaning": "Vùng quê",
-        "ipa": "/ˈkəntriˌsaɪd/"
+        "ipa": "/ˈkəntriˌsaɪd/",
+        "exampleEn": "The word 'Countryside' is commonly used in English.",
+        "exampleVi": "Từ 'Countryside' (Vùng quê) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 7,
         "word": "Total",
         "meaning": "Tổng cộng",
-        "ipa": "/ˈtoʊtəl/"
+        "ipa": "/ˈtoʊtəl/",
+        "exampleEn": "The word 'Total' is commonly used in English.",
+        "exampleVi": "Từ 'Total' (Tổng cộng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 8,
         "word": "Energy",
         "meaning": "Năng lượng",
-        "ipa": "/ˈɛnərʤi/"
+        "ipa": "/ˈɛnərʤi/",
+        "exampleEn": "The word 'Energy' is commonly used in English.",
+        "exampleVi": "Từ 'Energy' (Năng lượng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 9,
         "word": "Energetic",
         "meaning": "Tràn đầy năng lượng",
-        "ipa": "/ˌɛnərˈʤɛtɪk/"
+        "ipa": "/ˌɛnərˈʤɛtɪk/",
+        "exampleEn": "The word 'Energetic' is commonly used in English.",
+        "exampleVi": "Từ 'Energetic' (Tràn đầy năng lượng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 10,
         "word": "Energetically",
         "meaning": "Một cách tràn đầy năng lượng",
-        "ipa": "/ˌɛnərˈʤɛtɪkli/"
+        "ipa": "/ˌɛnərˈʤɛtɪkli/",
+        "exampleEn": "The word 'Energetically' is commonly used in English.",
+        "exampleVi": "Từ 'Energetically' (Một cách tràn đầy năng lượng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 11,
         "word": "Knowledge",
         "meaning": "Kiến thức",
-        "ipa": "/ˈnɑlɪʤ/"
+        "ipa": "/ˈnɑlɪʤ/",
+        "exampleEn": "The word 'Knowledge' is commonly used in English.",
+        "exampleVi": "Từ 'Knowledge' (Kiến thức) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 12,
         "word": "Knowledgeable",
         "meaning": "Hiểu biết",
-        "ipa": "/ˈnɑləʤəbəl/"
+        "ipa": "/ˈnɑləʤəbəl/",
+        "exampleEn": "The word 'Knowledgeable' is commonly used in English.",
+        "exampleVi": "Từ 'Knowledgeable' (Hiểu biết) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 13,
         "word": "Acknowledge",
         "meaning": "Thừa nhận",
-        "ipa": "/ækˈnɑlɪʤ/"
+        "ipa": "/ækˈnɑlɪʤ/",
+        "exampleEn": "The word 'Acknowledge' is commonly used in English.",
+        "exampleVi": "Từ 'Acknowledge' (Thừa nhận) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 14,
         "word": "Advise",
         "meaning": "Khuyên",
-        "ipa": "/ədˈvaɪz/"
+        "ipa": "/ədˈvaɪz/",
+        "exampleEn": "The word 'Advise' is commonly used in English.",
+        "exampleVi": "Từ 'Advise' (Khuyên) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 15,
         "word": "Advice",
         "meaning": "Lời khuyên",
-        "ipa": "/ədˈvaɪs/"
+        "ipa": "/ədˈvaɪs/",
+        "exampleEn": "The word 'Advice' is commonly used in English.",
+        "exampleVi": "Từ 'Advice' (Lời khuyên) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 16,
         "word": "Advisor",
         "meaning": "Cố vấn",
-        "ipa": "/ædˈvaɪzər/"
+        "ipa": "/ædˈvaɪzər/",
+        "exampleEn": "The word 'Advisor' is commonly used in English.",
+        "exampleVi": "Từ 'Advisor' (Cố vấn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 17,
         "word": "Exhibit",
         "meaning": "Triển lãm",
-        "ipa": "/ɪgˈzɪbɪt/"
+        "ipa": "/ɪgˈzɪbɪt/",
+        "exampleEn": "The word 'Exhibit' is commonly used in English.",
+        "exampleVi": "Từ 'Exhibit' (Triển lãm) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 18,
         "word": "Exhibition",
         "meaning": "Cuộc triển lãm",
-        "ipa": "/ˌɛksəˈbɪʃən/"
+        "ipa": "/ˌɛksəˈbɪʃən/",
+        "exampleEn": "The word 'Exhibition' is commonly used in English.",
+        "exampleVi": "Từ 'Exhibition' (Cuộc triển lãm) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 19,
         "word": "Display",
         "meaning": "Trưng bày",
-        "ipa": "/dɪˈspleɪ/"
+        "ipa": "/dɪˈspleɪ/",
+        "exampleEn": "The word 'Display' is commonly used in English.",
+        "exampleVi": "Từ 'Display' (Trưng bày) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 20,
         "word": "Generation",
         "meaning": "Thế hệ",
-        "ipa": "/ˌʤɛnərˈeɪʃən/"
+        "ipa": "/ˌʤɛnərˈeɪʃən/",
+        "exampleEn": "The word 'Generation' is commonly used in English.",
+        "exampleVi": "Từ 'Generation' (Thế hệ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 21,
         "word": "Consumer",
         "meaning": "Người tiêu dùng",
-        "ipa": "/kənˈsumər/"
+        "ipa": "/kənˈsumər/",
+        "exampleEn": "The word 'Consumer' is commonly used in English.",
+        "exampleVi": "Từ 'Consumer' (Người tiêu dùng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 22,
         "word": "Consume",
         "meaning": "Tiêu thu",
-        "ipa": "/kənˈsum/"
+        "ipa": "/kənˈsum/",
+        "exampleEn": "The word 'Consume' is commonly used in English.",
+        "exampleVi": "Từ 'Consume' (Tiêu thu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 23,
         "word": "Consumption",
         "meaning": "Sự tiêu thu",
-        "ipa": "/kənˈsəmʃən/"
+        "ipa": "/kənˈsəmʃən/",
+        "exampleEn": "The word 'Consumption' is commonly used in English.",
+        "exampleVi": "Từ 'Consumption' (Sự tiêu thu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 24,
         "word": "Thrilled",
         "meaning": "Vui mừng",
-        "ipa": "/θrɪld/"
+        "ipa": "/θrɪld/",
+        "exampleEn": "The word 'Thrilled' is commonly used in English.",
+        "exampleVi": "Từ 'Thrilled' (Vui mừng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 25,
         "word": "Touched",
         "meaning": "Cảm động",
-        "ipa": "/təʧt/"
+        "ipa": "/təʧt/",
+        "exampleEn": "The word 'Touched' is commonly used in English.",
+        "exampleVi": "Từ 'Touched' (Cảm động) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 26,
         "word": "Booth",
         "meaning": "Gian hàng",
-        "ipa": "/buθ/"
+        "ipa": "/buθ/",
+        "exampleEn": "The word 'Booth' is commonly used in English.",
+        "exampleVi": "Từ 'Booth' (Gian hàng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 27,
         "word": "Service",
         "meaning": "Dich vu",
-        "ipa": "/ˈsərvɪs/"
+        "ipa": "/ˈsərvɪs/",
+        "exampleEn": "The word 'Service' is commonly used in English.",
+        "exampleVi": "Từ 'Service' (Dich vu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 28,
         "word": "Satisfaction",
         "meaning": "Sự hài lòng",
-        "ipa": "/ˌsætɪsˈfækʃən/"
+        "ipa": "/ˌsætɪsˈfækʃən/",
+        "exampleEn": "The word 'Satisfaction' is commonly used in English.",
+        "exampleVi": "Từ 'Satisfaction' (Sự hài lòng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 29,
         "word": "Satisfied",
         "meaning": "Hài lòng",
-        "ipa": "/ˈsætɪsˌfaɪd/"
+        "ipa": "/ˈsætɪsˌfaɪd/",
+        "exampleEn": "The word 'Satisfied' is commonly used in English.",
+        "exampleVi": "Từ 'Satisfied' (Hài lòng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 30,
         "word": "Satisfy",
         "meaning": "Làm hài lòng",
-        "ipa": "/ˈsætɪsˌfaɪ/"
+        "ipa": "/ˈsætɪsˌfaɪ/",
+        "exampleEn": "The word 'Satisfy' is commonly used in English.",
+        "exampleVi": "Từ 'Satisfy' (Làm hài lòng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 31,
         "word": "Survey",
         "meaning": "Khảo sát",
-        "ipa": "/ˈsərˌveɪ/"
+        "ipa": "/ˈsərˌveɪ/",
+        "exampleEn": "The word 'Survey' is commonly used in English.",
+        "exampleVi": "Từ 'Survey' (Khảo sát) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 32,
         "word": "Form",
         "meaning": "Mẫu đơn",
-        "ipa": "/fɔrm/"
+        "ipa": "/fɔrm/",
+        "exampleEn": "The word 'Form' is commonly used in English.",
+        "exampleVi": "Từ 'Form' (Mẫu đơn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 33,
         "word": "Reform",
         "meaning": "Cải cách",
-        "ipa": "/rɪˈfɔrm/"
+        "ipa": "/rɪˈfɔrm/",
+        "exampleEn": "The word 'Reform' is commonly used in English.",
+        "exampleVi": "Từ 'Reform' (Cải cách) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 34,
         "word": "Insist on",
         "meaning": "Khăng khăng",
-        "ipa": "/ˌɪnˈsɪst ɔn/"
+        "ipa": "/ˌɪnˈsɪst ɔn/",
+        "exampleEn": "The word 'Insist on' is commonly used in English.",
+        "exampleVi": "Từ 'Insist on' (Khăng khăng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 35,
         "word": "Solicit",
         "meaning": "Kêu goi",
-        "ipa": "/səˈlɪsɪt/"
+        "ipa": "/səˈlɪsɪt/",
+        "exampleEn": "The word 'Solicit' is commonly used in English.",
+        "exampleVi": "Từ 'Solicit' (Kêu goi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 36,
         "word": "Electronic devices",
         "meaning": "Thiết bi điện tử",
-        "ipa": "/ˌɪˌlɛkˈtrɑnɪk dɪˈvaɪsɪz/"
+        "ipa": "/ˌɪˌlɛkˈtrɑnɪk dɪˈvaɪsɪz/",
+        "exampleEn": "The word 'Electronic devices' is commonly used in English.",
+        "exampleVi": "Từ 'Electronic devices' (Thiết bi điện tử) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 37,
         "word": "Battery",
         "meaning": "Pin",
-        "ipa": "/ˈbætəri/"
+        "ipa": "/ˈbætəri/",
+        "exampleEn": "The word 'Battery' is commonly used in English.",
+        "exampleVi": "Từ 'Battery' (Pin) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 38,
         "word": "Charger",
         "meaning": "Bộ sạc",
-        "ipa": "/ˈʧɑrʤər/"
+        "ipa": "/ˈʧɑrʤər/",
+        "exampleEn": "The word 'Charger' is commonly used in English.",
+        "exampleVi": "Từ 'Charger' (Bộ sạc) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 39,
         "word": "Charge",
         "meaning": "Sạc",
-        "ipa": "/ʧɑrʤ/"
+        "ipa": "/ʧɑrʤ/",
+        "exampleEn": "The word 'Charge' is commonly used in English.",
+        "exampleVi": "Từ 'Charge' (Sạc) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 40,
         "word": "Plug",
         "meaning": "Phích cắm",
-        "ipa": "/pləg/"
+        "ipa": "/pləg/",
+        "exampleEn": "The word 'Plug' is commonly used in English.",
+        "exampleVi": "Từ 'Plug' (Phích cắm) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 41,
         "word": "Plug-in",
         "meaning": "Cắm vào",
-        "ipa": "/plug-in/"
+        "ipa": "/plug-in/",
+        "exampleEn": "The word 'Plug-in' is commonly used in English.",
+        "exampleVi": "Từ 'Plug-in' (Cắm vào) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 42,
         "word": "Plug out",
         "meaning": "Rút ra",
-        "ipa": "/pləg aʊt/"
+        "ipa": "/pləg aʊt/",
+        "exampleEn": "The word 'Plug out' is commonly used in English.",
+        "exampleVi": "Từ 'Plug out' (Rút ra) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 43,
         "word": "Inventor",
         "meaning": "Nhà phát minh",
-        "ipa": "/ˌɪnˈvɛntər/"
+        "ipa": "/ˌɪnˈvɛntər/",
+        "exampleEn": "The word 'Inventor' is commonly used in English.",
+        "exampleVi": "Từ 'Inventor' (Nhà phát minh) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 44,
         "word": "Invent",
         "meaning": "Phát minh",
-        "ipa": "/ˌɪnˈvɛnt/"
+        "ipa": "/ˌɪnˈvɛnt/",
+        "exampleEn": "The word 'Invent' is commonly used in English.",
+        "exampleVi": "Từ 'Invent' (Phát minh) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 45,
         "word": "Invention",
         "meaning": "Phát minh",
-        "ipa": "/ˌɪnˈvɛnʃən/"
+        "ipa": "/ˌɪnˈvɛnʃən/",
+        "exampleEn": "The word 'Invention' is commonly used in English.",
+        "exampleVi": "Từ 'Invention' (Phát minh) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 46,
         "word": "Entrepreneur",
         "meaning": "Doanh nhân",
-        "ipa": "/ˌɑntrəprəˈnʊr/"
+        "ipa": "/ˌɑntrəprəˈnʊr/",
+        "exampleEn": "The word 'Entrepreneur' is commonly used in English.",
+        "exampleVi": "Từ 'Entrepreneur' (Doanh nhân) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 47,
         "word": "Billionaire",
         "meaning": "Tỷ phú",
-        "ipa": "/ˌbɪljəˈnɛr/"
+        "ipa": "/ˌbɪljəˈnɛr/",
+        "exampleEn": "The word 'Billionaire' is commonly used in English.",
+        "exampleVi": "Từ 'Billionaire' (Tỷ phú) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 48,
         "word": "Sponsor",
         "meaning": "Nhà tài trợ",
-        "ipa": "/ˈspɑnsər/"
+        "ipa": "/ˈspɑnsər/",
+        "exampleEn": "The word 'Sponsor' is commonly used in English.",
+        "exampleVi": "Từ 'Sponsor' (Nhà tài trợ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 49,
         "word": "Charity",
         "meaning": "Từ thiện",
-        "ipa": "/ˈʧɛrɪti/"
+        "ipa": "/ˈʧɛrɪti/",
+        "exampleEn": "The word 'Charity' is commonly used in English.",
+        "exampleVi": "Từ 'Charity' (Từ thiện) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 50,
         "word": "Fill out",
         "meaning": "Điền vào",
-        "ipa": "/fɪl aʊt/"
+        "ipa": "/fɪl aʊt/",
+        "exampleEn": "The word 'Fill out' is commonly used in English.",
+        "exampleVi": "Từ 'Fill out' (Điền vào) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 51,
         "word": "Assess",
         "meaning": "Đánh giá",
-        "ipa": "/əˈsɛs/"
+        "ipa": "/əˈsɛs/",
+        "exampleEn": "The word 'Assess' is commonly used in English.",
+        "exampleVi": "Từ 'Assess' (Đánh giá) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 52,
         "word": "Assessment",
         "meaning": "Sự đánh giá",
-        "ipa": "/əˈsɛsmənt/"
+        "ipa": "/əˈsɛsmənt/",
+        "exampleEn": "The word 'Assessment' is commonly used in English.",
+        "exampleVi": "Từ 'Assessment' (Sự đánh giá) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 53,
         "word": "Rate",
         "meaning": "Đánh giá",
-        "ipa": "/reɪt/"
+        "ipa": "/reɪt/",
+        "exampleEn": "The word 'Rate' is commonly used in English.",
+        "exampleVi": "Từ 'Rate' (Đánh giá) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 54,
         "word": "Provide",
         "meaning": "Cung cấp",
-        "ipa": "/prəˈvaɪd/"
+        "ipa": "/prəˈvaɪd/",
+        "exampleEn": "The word 'Provide' is commonly used in English.",
+        "exampleVi": "Từ 'Provide' (Cung cấp) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 55,
         "word": "Provider",
         "meaning": "Nhà cung cấp",
-        "ipa": "/prəˈvaɪdər/"
+        "ipa": "/prəˈvaɪdər/",
+        "exampleEn": "The word 'Provider' is commonly used in English.",
+        "exampleVi": "Từ 'Provider' (Nhà cung cấp) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 56,
         "word": "Provision",
         "meaning": "Sự cung cấp",
-        "ipa": "/prəˈvɪʒən/"
+        "ipa": "/prəˈvɪʒən/",
+        "exampleEn": "The word 'Provision' is commonly used in English.",
+        "exampleVi": "Từ 'Provision' (Sự cung cấp) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 57,
         "word": "Supply",
         "meaning": "Cung cấp",
-        "ipa": "/səˈplaɪ/"
+        "ipa": "/səˈplaɪ/",
+        "exampleEn": "The word 'Supply' is commonly used in English.",
+        "exampleVi": "Từ 'Supply' (Cung cấp) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 58,
         "word": "Supplier",
         "meaning": "Nhà cung cấp",
-        "ipa": "/səˈplaɪər/"
+        "ipa": "/səˈplaɪər/",
+        "exampleEn": "The word 'Supplier' is commonly used in English.",
+        "exampleVi": "Từ 'Supplier' (Nhà cung cấp) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 59,
         "word": "Compose",
         "meaning": "Soạn nhạc",
-        "ipa": "/kəmˈpoʊz/"
+        "ipa": "/kəmˈpoʊz/",
+        "exampleEn": "The word 'Compose' is commonly used in English.",
+        "exampleVi": "Từ 'Compose' (Soạn nhạc) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 60,
         "word": "Composer",
         "meaning": "Nhà soạn nhạc",
-        "ipa": "/kəmˈpoʊzər/"
+        "ipa": "/kəmˈpoʊzər/",
+        "exampleEn": "The word 'Composer' is commonly used in English.",
+        "exampleVi": "Từ 'Composer' (Nhà soạn nhạc) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 61,
         "word": "Compile",
         "meaning": "Biên soạn",
-        "ipa": "/kəmˈpaɪl/"
+        "ipa": "/kəmˈpaɪl/",
+        "exampleEn": "The word 'Compile' is commonly used in English.",
+        "exampleVi": "Từ 'Compile' (Biên soạn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 62,
         "word": "Poem",
         "meaning": "Bài thơ",
-        "ipa": "/poʊəm/"
+        "ipa": "/poʊəm/",
+        "exampleEn": "The word 'Poem' is commonly used in English.",
+        "exampleVi": "Từ 'Poem' (Bài thơ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 63,
         "word": "Dedicate",
         "meaning": "Cống hiến",
-        "ipa": "/ˈdɛdəˌkeɪt/"
+        "ipa": "/ˈdɛdəˌkeɪt/",
+        "exampleEn": "The word 'Dedicate' is commonly used in English.",
+        "exampleVi": "Từ 'Dedicate' (Cống hiến) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 64,
         "word": "Dedication",
         "meaning": "Sự cống hiến",
-        "ipa": "/ˌdɛdəˈkeɪʃən/"
+        "ipa": "/ˌdɛdəˈkeɪʃən/",
+        "exampleEn": "The word 'Dedication' is commonly used in English.",
+        "exampleVi": "Từ 'Dedication' (Sự cống hiến) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 65,
         "word": "Devote",
         "meaning": "Cống hiến",
-        "ipa": "/dɪˈvoʊt/"
+        "ipa": "/dɪˈvoʊt/",
+        "exampleEn": "The word 'Devote' is commonly used in English.",
+        "exampleVi": "Từ 'Devote' (Cống hiến) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 66,
         "word": "Devotion",
         "meaning": "Sự cống hiến",
-        "ipa": "/dɪˈvoʊʃən/"
+        "ipa": "/dɪˈvoʊʃən/",
+        "exampleEn": "The word 'Devotion' is commonly used in English.",
+        "exampleVi": "Từ 'Devotion' (Sự cống hiến) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 67,
         "word": "Develop",
         "meaning": "Phát triển",
-        "ipa": "/dɪˈvɛləp/"
+        "ipa": "/dɪˈvɛləp/",
+        "exampleEn": "The word 'Develop' is commonly used in English.",
+        "exampleVi": "Từ 'Develop' (Phát triển) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 68,
         "word": "Development",
         "meaning": "Sự phát triển",
-        "ipa": "/dɪˈvɛləpmənt/"
+        "ipa": "/dɪˈvɛləpmənt/",
+        "exampleEn": "The word 'Development' is commonly used in English.",
+        "exampleVi": "Từ 'Development' (Sự phát triển) được sử dụng phổ biến trong tiếng Anh."
       }
     ]
   },
@@ -7497,355 +7633,473 @@
         "id": 1,
         "word": "Retain",
         "meaning": "Giữ lại",
-        "ipa": "/rɪˈteɪn/"
+        "ipa": "/rɪˈteɪn/",
+        "exampleEn": "The word 'Retain' is commonly used in English.",
+        "exampleVi": "Từ 'Retain' (Giữ lại) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 2,
         "word": "Retention",
         "meaning": "Sự giữ lại",
-        "ipa": "/riˈtɛnʃən/"
+        "ipa": "/riˈtɛnʃən/",
+        "exampleEn": "The word 'Retention' is commonly used in English.",
+        "exampleVi": "Từ 'Retention' (Sự giữ lại) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 3,
         "word": "Broadcast",
         "meaning": "Phát sóng",
-        "ipa": "/ˈbrɔdˌkæst/"
+        "ipa": "/ˈbrɔdˌkæst/",
+        "exampleEn": "The word 'Broadcast' is commonly used in English.",
+        "exampleVi": "Từ 'Broadcast' (Phát sóng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 4,
         "word": "Broadcaster",
         "meaning": "Người phát sóng",
-        "ipa": "/ˈbrɔdˌkæstər/"
+        "ipa": "/ˈbrɔdˌkæstər/",
+        "exampleEn": "The word 'Broadcaster' is commonly used in English.",
+        "exampleVi": "Từ 'Broadcaster' (Người phát sóng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 5,
         "word": "Patron",
         "meaning": "Khách hàng quen",
-        "ipa": "/ˈpeɪtrən/"
+        "ipa": "/ˈpeɪtrən/",
+        "exampleEn": "The word 'Patron' is commonly used in English.",
+        "exampleVi": "Từ 'Patron' (Khách hàng quen) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 6,
         "word": "Attract",
         "meaning": "Thu hút",
-        "ipa": "/əˈtrækt/"
+        "ipa": "/əˈtrækt/",
+        "exampleEn": "The word 'Attract' is commonly used in English.",
+        "exampleVi": "Từ 'Attract' (Thu hút) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 7,
         "word": "Attractive",
         "meaning": "Hấp dẫn",
-        "ipa": "/əˈtræktɪv/"
+        "ipa": "/əˈtræktɪv/",
+        "exampleEn": "The word 'Attractive' is commonly used in English.",
+        "exampleVi": "Từ 'Attractive' (Hấp dẫn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 8,
         "word": "Appeal to",
         "meaning": "Thu hút",
-        "ipa": "/əˈpil tɪ/"
+        "ipa": "/əˈpil tɪ/",
+        "exampleEn": "The word 'Appeal to' is commonly used in English.",
+        "exampleVi": "Từ 'Appeal to' (Thu hút) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 9,
         "word": "Appealing",
         "meaning": "Hấp dẫn",
-        "ipa": "/əˈpilɪŋ/"
+        "ipa": "/əˈpilɪŋ/",
+        "exampleEn": "The word 'Appealing' is commonly used in English.",
+        "exampleVi": "Từ 'Appealing' (Hấp dẫn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 10,
         "word": "Emphasize",
         "meaning": "Nhấn mạnh",
-        "ipa": "/ˈɛmfəˌsaɪz/"
+        "ipa": "/ˈɛmfəˌsaɪz/",
+        "exampleEn": "The word 'Emphasize' is commonly used in English.",
+        "exampleVi": "Từ 'Emphasize' (Nhấn mạnh) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 11,
         "word": "Emphasis",
         "meaning": "Sự nhấn mạnh",
-        "ipa": "/ˈɛmfəsɪs/"
+        "ipa": "/ˈɛmfəsɪs/",
+        "exampleEn": "The word 'Emphasis' is commonly used in English.",
+        "exampleVi": "Từ 'Emphasis' (Sự nhấn mạnh) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 12,
         "word": "Risk",
         "meaning": "Rủi ro",
-        "ipa": "/rɪsk/"
+        "ipa": "/rɪsk/",
+        "exampleEn": "The word 'Risk' is commonly used in English.",
+        "exampleVi": "Từ 'Risk' (Rủi ro) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 13,
         "word": "Risky",
         "meaning": "Rủi ro",
-        "ipa": "/ˈrɪski/"
+        "ipa": "/ˈrɪski/",
+        "exampleEn": "The word 'Risky' is commonly used in English.",
+        "exampleVi": "Từ 'Risky' (Rủi ro) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 14,
         "word": "Reality",
         "meaning": "Thực tế",
-        "ipa": "/ˌriˈæləˌti/"
+        "ipa": "/ˌriˈæləˌti/",
+        "exampleEn": "The word 'Reality' is commonly used in English.",
+        "exampleVi": "Từ 'Reality' (Thực tế) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 15,
         "word": "Realistic",
         "meaning": "Thực tế",
-        "ipa": "/ˌriəˈlɪstɪk/"
+        "ipa": "/ˌriəˈlɪstɪk/",
+        "exampleEn": "The word 'Realistic' is commonly used in English.",
+        "exampleVi": "Từ 'Realistic' (Thực tế) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 16,
         "word": "Practicality",
         "meaning": "Tính thực tiễn",
-        "ipa": "/ˌpræktɪˈkæləti/"
+        "ipa": "/ˌpræktɪˈkæləti/",
+        "exampleEn": "The word 'Practicality' is commonly used in English.",
+        "exampleVi": "Từ 'Practicality' (Tính thực tiễn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 17,
         "word": "Practical",
         "meaning": "Thực tiễn",
-        "ipa": "/ˈpræktɪkəl/"
+        "ipa": "/ˈpræktɪkəl/",
+        "exampleEn": "The word 'Practical' is commonly used in English.",
+        "exampleVi": "Từ 'Practical' (Thực tiễn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 18,
         "word": "Practically",
         "meaning": "Hầu như",
-        "ipa": "/ˈpræktɪkəli/"
+        "ipa": "/ˈpræktɪkəli/",
+        "exampleEn": "The word 'Practically' is commonly used in English.",
+        "exampleVi": "Từ 'Practically' (Hầu như) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 19,
         "word": "Renowned",
         "meaning": "Nổi tiếng",
-        "ipa": "/rɪˈnaʊnd/"
+        "ipa": "/rɪˈnaʊnd/",
+        "exampleEn": "The word 'Renowned' is commonly used in English.",
+        "exampleVi": "Từ 'Renowned' (Nổi tiếng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 20,
         "word": "Insight",
         "meaning": "Sự hiểu biết sâu sắc",
-        "ipa": "/ˈɪnˌsaɪt/"
+        "ipa": "/ˈɪnˌsaɪt/",
+        "exampleEn": "The word 'Insight' is commonly used in English.",
+        "exampleVi": "Từ 'Insight' (Sự hiểu biết sâu sắc) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 21,
         "word": "Expert",
         "meaning": "Chuyên gia",
-        "ipa": "/ˈɛkspərt/"
+        "ipa": "/ˈɛkspərt/",
+        "exampleEn": "The word 'Expert' is commonly used in English.",
+        "exampleVi": "Từ 'Expert' (Chuyên gia) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 22,
         "word": "Mentor",
         "meaning": "Người cố vấn",
-        "ipa": "/ˈmɛnˌtɔr/"
+        "ipa": "/ˈmɛnˌtɔr/",
+        "exampleEn": "The word 'Mentor' is commonly used in English.",
+        "exampleVi": "Từ 'Mentor' (Người cố vấn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 23,
         "word": "Specialist",
         "meaning": "Chuyên gia",
-        "ipa": "/ˈspɛʃəlɪst/"
+        "ipa": "/ˈspɛʃəlɪst/",
+        "exampleEn": "The word 'Specialist' is commonly used in English.",
+        "exampleVi": "Từ 'Specialist' (Chuyên gia) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 24,
         "word": "Period",
         "meaning": "Thời kỳ",
-        "ipa": "/ˈpɪriəd/"
+        "ipa": "/ˈpɪriəd/",
+        "exampleEn": "The word 'Period' is commonly used in English.",
+        "exampleVi": "Từ 'Period' (Thời kỳ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 25,
         "word": "Periodic",
         "meaning": "Đinh kỳ",
-        "ipa": "/ˌpɪriˈɑdɪk/"
+        "ipa": "/ˌpɪriˈɑdɪk/",
+        "exampleEn": "The word 'Periodic' is commonly used in English.",
+        "exampleVi": "Từ 'Periodic' (Đinh kỳ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 26,
         "word": "Periodically",
         "meaning": "Đinh kỳ",
-        "ipa": "/ˌpiriˈɑdɪkəli/"
+        "ipa": "/ˌpiriˈɑdɪkəli/",
+        "exampleEn": "The word 'Periodically' is commonly used in English.",
+        "exampleVi": "Từ 'Periodically' (Đinh kỳ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 27,
         "word": "Profound",
         "meaning": "Sâu sắc",
-        "ipa": "/proʊˈfaʊnd/"
+        "ipa": "/proʊˈfaʊnd/",
+        "exampleEn": "The word 'Profound' is commonly used in English.",
+        "exampleVi": "Từ 'Profound' (Sâu sắc) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 28,
         "word": "Profoundly",
         "meaning": "Một cách sâu sắc",
-        "ipa": "/proʊˈfaʊndli/"
+        "ipa": "/proʊˈfaʊndli/",
+        "exampleEn": "The word 'Profoundly' is commonly used in English.",
+        "exampleVi": "Từ 'Profoundly' (Một cách sâu sắc) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 29,
         "word": "Avoid",
         "meaning": "Tránh",
-        "ipa": "/əˈvɔɪd/"
+        "ipa": "/əˈvɔɪd/",
+        "exampleEn": "The word 'Avoid' is commonly used in English.",
+        "exampleVi": "Từ 'Avoid' (Tránh) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 30,
         "word": "Avoidable",
         "meaning": "Có thể tránh",
-        "ipa": "/əˈvɔɪdəbəl/"
+        "ipa": "/əˈvɔɪdəbəl/",
+        "exampleEn": "The word 'Avoidable' is commonly used in English.",
+        "exampleVi": "Từ 'Avoidable' (Có thể tránh) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 31,
         "word": "Inquire",
         "meaning": "Hỏi",
-        "ipa": "/ˌɪnkˈwaɪr/"
+        "ipa": "/ˌɪnkˈwaɪr/",
+        "exampleEn": "The word 'Inquire' is commonly used in English.",
+        "exampleVi": "Từ 'Inquire' (Hỏi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 32,
         "word": "Inquiry",
         "meaning": "Cuộc điều tra",
-        "ipa": "/ˌɪnkˈwaɪˌri/"
+        "ipa": "/ˌɪnkˈwaɪˌri/",
+        "exampleEn": "The word 'Inquiry' is commonly used in English.",
+        "exampleVi": "Từ 'Inquiry' (Cuộc điều tra) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 33,
         "word": "As well as",
         "meaning": "Cũng như",
-        "ipa": "/ɛz wɛl ɛz/"
+        "ipa": "/ɛz wɛl ɛz/",
+        "exampleEn": "The word 'As well as' is commonly used in English.",
+        "exampleVi": "Từ 'As well as' (Cũng như) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 34,
         "word": "Enthusiasm",
         "meaning": "Sự nhiệt tình",
-        "ipa": "/ɪnˈθuziˌæzəm/"
+        "ipa": "/ɪnˈθuziˌæzəm/",
+        "exampleEn": "The word 'Enthusiasm' is commonly used in English.",
+        "exampleVi": "Từ 'Enthusiasm' (Sự nhiệt tình) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 35,
         "word": "Enthusiastic",
         "meaning": "Nhiệt tình",
-        "ipa": "/ɪnˌθuziˈæstɪk/"
+        "ipa": "/ɪnˌθuziˈæstɪk/",
+        "exampleEn": "The word 'Enthusiastic' is commonly used in English.",
+        "exampleVi": "Từ 'Enthusiastic' (Nhiệt tình) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 36,
         "word": "Priority",
         "meaning": "Sự ưu tiên",
-        "ipa": "/praɪˈɔrəti/"
+        "ipa": "/praɪˈɔrəti/",
+        "exampleEn": "The word 'Priority' is commonly used in English.",
+        "exampleVi": "Từ 'Priority' (Sự ưu tiên) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 37,
         "word": "Prioritize",
         "meaning": "Ưu tiên",
-        "ipa": "/praɪˈɔrəˌtaɪz/"
+        "ipa": "/praɪˈɔrəˌtaɪz/",
+        "exampleEn": "The word 'Prioritize' is commonly used in English.",
+        "exampleVi": "Từ 'Prioritize' (Ưu tiên) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 38,
         "word": "Praise",
         "meaning": "Khen ngợi",
-        "ipa": "/preɪz/"
+        "ipa": "/preɪz/",
+        "exampleEn": "The word 'Praise' is commonly used in English.",
+        "exampleVi": "Từ 'Praise' (Khen ngợi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 39,
         "word": "Compliment",
         "meaning": "Lời khen",
-        "ipa": "/ˈkɑmpləmɛnt/"
+        "ipa": "/ˈkɑmpləmɛnt/",
+        "exampleEn": "The word 'Compliment' is commonly used in English.",
+        "exampleVi": "Từ 'Compliment' (Lời khen) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 40,
         "word": "Complimentary",
         "meaning": "Khen tặng",
-        "ipa": "/ˌkɑmpləˈmɛntəri/"
+        "ipa": "/ˌkɑmpləˈmɛntəri/",
+        "exampleEn": "The word 'Complimentary' is commonly used in English.",
+        "exampleVi": "Từ 'Complimentary' (Khen tặng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 41,
         "word": "Journalist",
         "meaning": "Nhà báo",
-        "ipa": "/ˈʤərnəlɪst/"
+        "ipa": "/ˈʤərnəlɪst/",
+        "exampleEn": "The word 'Journalist' is commonly used in English.",
+        "exampleVi": "Từ 'Journalist' (Nhà báo) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 42,
         "word": "Editor",
         "meaning": "Biên tập viên",
-        "ipa": "/ˈɛdɪtər/"
+        "ipa": "/ˈɛdɪtər/",
+        "exampleEn": "The word 'Editor' is commonly used in English.",
+        "exampleVi": "Từ 'Editor' (Biên tập viên) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 43,
         "word": "Edit",
         "meaning": "Chỉnh sửa",
-        "ipa": "/ˈɛdət/"
+        "ipa": "/ˈɛdət/",
+        "exampleEn": "The word 'Edit' is commonly used in English.",
+        "exampleVi": "Từ 'Edit' (Chỉnh sửa) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 44,
         "word": "Edition",
         "meaning": "Phiên bản",
-        "ipa": "/ɪˈdɪʃən/"
+        "ipa": "/ɪˈdɪʃən/",
+        "exampleEn": "The word 'Edition' is commonly used in English.",
+        "exampleVi": "Từ 'Edition' (Phiên bản) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 45,
         "word": "Host",
         "meaning": "Người dẫn chương trình",
-        "ipa": "/hoʊst/"
+        "ipa": "/hoʊst/",
+        "exampleEn": "The word 'Host' is commonly used in English.",
+        "exampleVi": "Từ 'Host' (Người dẫn chương trình) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 46,
         "word": "Directly",
         "meaning": "Trực tiếp",
-        "ipa": "/dɪˈrɛkli/"
+        "ipa": "/dɪˈrɛkli/",
+        "exampleEn": "The word 'Directly' is commonly used in English.",
+        "exampleVi": "Từ 'Directly' (Trực tiếp) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 47,
         "word": "Guest",
         "meaning": "Khách",
-        "ipa": "/gɛst/"
+        "ipa": "/gɛst/",
+        "exampleEn": "The word 'Guest' is commonly used in English.",
+        "exampleVi": "Từ 'Guest' (Khách) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 48,
         "word": "Speaker",
         "meaning": "Diễn giả",
-        "ipa": "/ˈspikər/"
+        "ipa": "/ˈspikər/",
+        "exampleEn": "The word 'Speaker' is commonly used in English.",
+        "exampleVi": "Từ 'Speaker' (Diễn giả) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 49,
         "word": "Reporter",
         "meaning": "Phóng viên",
-        "ipa": "/rɪˈpɔrtər/"
+        "ipa": "/rɪˈpɔrtər/",
+        "exampleEn": "The word 'Reporter' is commonly used in English.",
+        "exampleVi": "Từ 'Reporter' (Phóng viên) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 50,
         "word": "Method",
         "meaning": "Phương pháp",
-        "ipa": "/ˈmɛθəd/"
+        "ipa": "/ˈmɛθəd/",
+        "exampleEn": "The word 'Method' is commonly used in English.",
+        "exampleVi": "Từ 'Method' (Phương pháp) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 51,
         "word": "Way",
         "meaning": "Cách thức",
-        "ipa": "/weɪ/"
+        "ipa": "/weɪ/",
+        "exampleEn": "The word 'Way' is commonly used in English.",
+        "exampleVi": "Từ 'Way' (Cách thức) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 52,
         "word": "Approach",
         "meaning": "Tiếp cận",
-        "ipa": "/əˈproʊʧ/"
+        "ipa": "/əˈproʊʧ/",
+        "exampleEn": "The word 'Approach' is commonly used in English.",
+        "exampleVi": "Từ 'Approach' (Tiếp cận) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 53,
         "word": "Economic recession",
         "meaning": "Suy thoái kinh tế",
-        "ipa": "/ˌɛkəˈnɑmɪk ˌriˈsɛʃən/"
+        "ipa": "/ˌɛkəˈnɑmɪk ˌriˈsɛʃən/",
+        "exampleEn": "The word 'Economic recession' is commonly used in English.",
+        "exampleVi": "Từ 'Economic recession' (Suy thoái kinh tế) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 54,
         "word": "Economy",
         "meaning": "Nền kinh tế",
-        "ipa": "/ɪˈkɑnəmi/"
+        "ipa": "/ɪˈkɑnəmi/",
+        "exampleEn": "The word 'Economy' is commonly used in English.",
+        "exampleVi": "Từ 'Economy' (Nền kinh tế) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 55,
         "word": "Several",
         "meaning": "Một vài",
-        "ipa": "/ˈsɛvərəl/"
+        "ipa": "/ˈsɛvərəl/",
+        "exampleEn": "The word 'Several' is commonly used in English.",
+        "exampleVi": "Từ 'Several' (Một vài) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 56,
         "word": "Helpful",
         "meaning": "Hữu ích",
-        "ipa": "/ˈhɛlpfəl/"
+        "ipa": "/ˈhɛlpfəl/",
+        "exampleEn": "The word 'Helpful' is commonly used in English.",
+        "exampleVi": "Từ 'Helpful' (Hữu ích) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 57,
         "word": "Tip",
         "meaning": "Meo",
-        "ipa": "/tɪp/"
+        "ipa": "/tɪp/",
+        "exampleEn": "The word 'Tip' is commonly used in English.",
+        "exampleVi": "Từ 'Tip' (Meo) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 58,
         "word": "Potential",
         "meaning": "Tiềm năng",
-        "ipa": "/pəˈtɛnʃəl/"
+        "ipa": "/pəˈtɛnʃəl/",
+        "exampleEn": "The word 'Potential' is commonly used in English.",
+        "exampleVi": "Từ 'Potential' (Tiềm năng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 59,
         "word": "Potentially",
         "meaning": "Có tiềm năng",
-        "ipa": "/pəˈtɛnʃəli/"
+        "ipa": "/pəˈtɛnʃəli/",
+        "exampleEn": "The word 'Potentially' is commonly used in English.",
+        "exampleVi": "Từ 'Potentially' (Có tiềm năng) được sử dụng phổ biến trong tiếng Anh."
       }
     ]
   },
@@ -7858,325 +8112,433 @@
         "id": 1,
         "word": "Remind",
         "meaning": "Nhắc nhở",
-        "ipa": "/riˈmaɪnd/"
+        "ipa": "/riˈmaɪnd/",
+        "exampleEn": "The word 'Remind' is commonly used in English.",
+        "exampleVi": "Từ 'Remind' (Nhắc nhở) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 2,
         "word": "Reminder",
         "meaning": "Lời nhắc",
-        "ipa": "/riˈmaɪndər/"
+        "ipa": "/riˈmaɪndər/",
+        "exampleEn": "The word 'Reminder' is commonly used in English.",
+        "exampleVi": "Từ 'Reminder' (Lời nhắc) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 3,
         "word": "Fasten",
         "meaning": "Thắt chặt",
-        "ipa": "/ˈfæsən/"
+        "ipa": "/ˈfæsən/",
+        "exampleEn": "The word 'Fasten' is commonly used in English.",
+        "exampleVi": "Từ 'Fasten' (Thắt chặt) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 4,
         "word": "Intern",
         "meaning": "Thực tập sinh",
-        "ipa": "/ˈɪntərn/"
+        "ipa": "/ˈɪntərn/",
+        "exampleEn": "The word 'Intern' is commonly used in English.",
+        "exampleVi": "Từ 'Intern' (Thực tập sinh) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 5,
         "word": "Internship",
         "meaning": "Kỳ thực tập",
-        "ipa": "/ˈɪntərnˌʃɪp/"
+        "ipa": "/ˈɪntərnˌʃɪp/",
+        "exampleEn": "The word 'Internship' is commonly used in English.",
+        "exampleVi": "Từ 'Internship' (Kỳ thực tập) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 6,
         "word": "Apprentice",
         "meaning": "Người hoc việc",
-        "ipa": "/əˈprɛntɪs/"
+        "ipa": "/əˈprɛntɪs/",
+        "exampleEn": "The word 'Apprentice' is commonly used in English.",
+        "exampleVi": "Từ 'Apprentice' (Người hoc việc) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 7,
         "word": "Serious",
         "meaning": "Nghiêm trong",
-        "ipa": "/ˈsɪriəs/"
+        "ipa": "/ˈsɪriəs/",
+        "exampleEn": "The word 'Serious' is commonly used in English.",
+        "exampleVi": "Từ 'Serious' (Nghiêm trong) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 8,
         "word": "Argument",
         "meaning": "Cuộc tranh cãi",
-        "ipa": "/ˈɑrgjəmənt/"
+        "ipa": "/ˈɑrgjəmənt/",
+        "exampleEn": "The word 'Argument' is commonly used in English.",
+        "exampleVi": "Từ 'Argument' (Cuộc tranh cãi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 9,
         "word": "Argue",
         "meaning": "Tranh cãi",
-        "ipa": "/ˈɑrgju/"
+        "ipa": "/ˈɑrgju/",
+        "exampleEn": "The word 'Argue' is commonly used in English.",
+        "exampleVi": "Từ 'Argue' (Tranh cãi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 10,
         "word": "Conflict",
         "meaning": "Xung đột",
-        "ipa": "/ˈkɑnflɪkt/"
+        "ipa": "/ˈkɑnflɪkt/",
+        "exampleEn": "The word 'Conflict' is commonly used in English.",
+        "exampleVi": "Từ 'Conflict' (Xung đột) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 11,
         "word": "Schedule conflict",
         "meaning": "Trùng lich",
-        "ipa": "/ˈskɛʤʊl ˈkɑnflɪkt/"
+        "ipa": "/ˈskɛʤʊl ˈkɑnflɪkt/",
+        "exampleEn": "The word 'Schedule conflict' is commonly used in English.",
+        "exampleVi": "Từ 'Schedule conflict' (Trùng lich) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 12,
         "word": "Event coordinator",
         "meaning": "Người điều phối sự kiện",
-        "ipa": "/ɪˈvɛnt koʊˈɔrdəˌneɪtər/"
+        "ipa": "/ɪˈvɛnt koʊˈɔrdəˌneɪtər/",
+        "exampleEn": "The word 'Event coordinator' is commonly used in English.",
+        "exampleVi": "Từ 'Event coordinator' (Người điều phối sự kiện) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 13,
         "word": "Coordinate with = cooperate",
         "meaning": "Hợp tác với",
-        "ipa": "/koʊˈɔrdəˌneɪt wɪθ  kˈwɑpərˌeɪt/"
+        "ipa": "/koʊˈɔrdəˌneɪt wɪθ  kˈwɑpərˌeɪt/",
+        "exampleEn": "The word 'Coordinate with = cooperate' is commonly used in English.",
+        "exampleVi": "Từ 'Coordinate with = cooperate' (Hợp tác với) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 14,
         "word": "Cooperation",
         "meaning": "Sự hợp tác",
-        "ipa": "/kˌwɔpərˈeɪʃən/"
+        "ipa": "/kˌwɔpərˈeɪʃən/",
+        "exampleEn": "The word 'Cooperation' is commonly used in English.",
+        "exampleVi": "Từ 'Cooperation' (Sự hợp tác) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 15,
         "word": "Unexpectedly",
         "meaning": "Một cách bất ngờ",
-        "ipa": "/ˌənɪkˈspɛktɪdli/"
+        "ipa": "/ˌənɪkˈspɛktɪdli/",
+        "exampleEn": "The word 'Unexpectedly' is commonly used in English.",
+        "exampleVi": "Từ 'Unexpectedly' (Một cách bất ngờ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 16,
         "word": "Expected",
         "meaning": "Được mong đợi",
-        "ipa": "/ɪkˈspɛktɪd/"
+        "ipa": "/ɪkˈspɛktɪd/",
+        "exampleEn": "The word 'Expected' is commonly used in English.",
+        "exampleVi": "Từ 'Expected' (Được mong đợi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 17,
         "word": "Expect",
         "meaning": "Mong đợi",
-        "ipa": "/ɪkˈspɛkt/"
+        "ipa": "/ɪkˈspɛkt/",
+        "exampleEn": "The word 'Expect' is commonly used in English.",
+        "exampleVi": "Từ 'Expect' (Mong đợi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 18,
         "word": "Expectation",
         "meaning": "Sự mong đợi",
-        "ipa": "/ˌɛkspɛkˈteɪʃən/"
+        "ipa": "/ˌɛkspɛkˈteɪʃən/",
+        "exampleEn": "The word 'Expectation' is commonly used in English.",
+        "exampleVi": "Từ 'Expectation' (Sự mong đợi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 19,
         "word": "Expectedly",
         "meaning": "Một cách mong đợi",
-        "ipa": "/expectedly/"
+        "ipa": "/expectedly/",
+        "exampleEn": "The word 'Expectedly' is commonly used in English.",
+        "exampleVi": "Từ 'Expectedly' (Một cách mong đợi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 20,
         "word": "Premier",
         "meaning": "Hàng đầu",
-        "ipa": "/prɛˈmɪr/"
+        "ipa": "/prɛˈmɪr/",
+        "exampleEn": "The word 'Premier' is commonly used in English.",
+        "exampleVi": "Từ 'Premier' (Hàng đầu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 21,
         "word": "Guarantee",
         "meaning": "Bảo đảm",
-        "ipa": "/ˌgɛrənˈti/"
+        "ipa": "/ˌgɛrənˈti/",
+        "exampleEn": "The word 'Guarantee' is commonly used in English.",
+        "exampleVi": "Từ 'Guarantee' (Bảo đảm) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 22,
         "word": "Warranty",
         "meaning": "Bảo hành",
-        "ipa": "/ˈwɔrənti/"
+        "ipa": "/ˈwɔrənti/",
+        "exampleEn": "The word 'Warranty' is commonly used in English.",
+        "exampleVi": "Từ 'Warranty' (Bảo hành) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 23,
         "word": "Quality",
         "meaning": "Chất lượng",
-        "ipa": "/kˈwɑləti/"
+        "ipa": "/kˈwɑləti/",
+        "exampleEn": "The word 'Quality' is commonly used in English.",
+        "exampleVi": "Từ 'Quality' (Chất lượng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 24,
         "word": "Oversees",
         "meaning": "Giám sát",
-        "ipa": "/ˈoʊvərˌsiz/"
+        "ipa": "/ˈoʊvərˌsiz/",
+        "exampleEn": "The word 'Oversees' is commonly used in English.",
+        "exampleVi": "Từ 'Oversees' (Giám sát) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 25,
         "word": "Abroad",
         "meaning": "Nước ngoài",
-        "ipa": "/əˈbrɔd/"
+        "ipa": "/əˈbrɔd/",
+        "exampleEn": "The word 'Abroad' is commonly used in English.",
+        "exampleVi": "Từ 'Abroad' (Nước ngoài) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 26,
         "word": "Wipe",
         "meaning": "Lau chùi",
-        "ipa": "/waɪp/"
+        "ipa": "/waɪp/",
+        "exampleEn": "The word 'Wipe' is commonly used in English.",
+        "exampleVi": "Từ 'Wipe' (Lau chùi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 27,
         "word": "Import",
         "meaning": "Nhập khẩu",
-        "ipa": "/ˌɪmˈpɔrt/"
+        "ipa": "/ˌɪmˈpɔrt/",
+        "exampleEn": "The word 'Import' is commonly used in English.",
+        "exampleVi": "Từ 'Import' (Nhập khẩu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 28,
         "word": "Export",
         "meaning": "Xuất khẩu",
-        "ipa": "/ˈɛkspɔrt/"
+        "ipa": "/ˈɛkspɔrt/",
+        "exampleEn": "The word 'Export' is commonly used in English.",
+        "exampleVi": "Từ 'Export' (Xuất khẩu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 29,
         "word": "Product",
         "meaning": "Sản phẩm",
-        "ipa": "/ˈprɑdəkt/"
+        "ipa": "/ˈprɑdəkt/",
+        "exampleEn": "The word 'Product' is commonly used in English.",
+        "exampleVi": "Từ 'Product' (Sản phẩm) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 30,
         "word": "Productive",
         "meaning": "Năng suất",
-        "ipa": "/pərˈdəktɪv/"
+        "ipa": "/pərˈdəktɪv/",
+        "exampleEn": "The word 'Productive' is commonly used in English.",
+        "exampleVi": "Từ 'Productive' (Năng suất) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 31,
         "word": "Work productivity",
         "meaning": "Năng suất làm việc",
-        "ipa": "/wərk ˌproʊdəkˈtɪvɪti/"
+        "ipa": "/wərk ˌproʊdəkˈtɪvɪti/",
+        "exampleEn": "The word 'Work productivity' is commonly used in English.",
+        "exampleVi": "Từ 'Work productivity' (Năng suất làm việc) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 32,
         "word": "Office supplies",
         "meaning": "Văn phòng phẩm",
-        "ipa": "/ˈɔfəs səˈplaɪz/"
+        "ipa": "/ˈɔfəs səˈplaɪz/",
+        "exampleEn": "The word 'Office supplies' is commonly used in English.",
+        "exampleVi": "Từ 'Office supplies' (Văn phòng phẩm) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 33,
         "word": "Office appliances",
         "meaning": "Thiết bi văn phòng",
-        "ipa": "/ˈɔfəs əˈplaɪənsɪz/"
+        "ipa": "/ˈɔfəs əˈplaɪənsɪz/",
+        "exampleEn": "The word 'Office appliances' is commonly used in English.",
+        "exampleVi": "Từ 'Office appliances' (Thiết bi văn phòng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 34,
         "word": "Scissors",
         "meaning": "Kéo",
-        "ipa": "/ˈsɪzərz/"
+        "ipa": "/ˈsɪzərz/",
+        "exampleEn": "The word 'Scissors' is commonly used in English.",
+        "exampleVi": "Từ 'Scissors' (Kéo) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 35,
         "word": "Stapler",
         "meaning": "Dập ghim",
-        "ipa": "/ˈsteɪpələr/"
+        "ipa": "/ˈsteɪpələr/",
+        "exampleEn": "The word 'Stapler' is commonly used in English.",
+        "exampleVi": "Từ 'Stapler' (Dập ghim) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 36,
         "word": "Envelope",
         "meaning": "Phong bì",
-        "ipa": "/ˈɛnvəˌloʊp/"
+        "ipa": "/ˈɛnvəˌloʊp/",
+        "exampleEn": "The word 'Envelope' is commonly used in English.",
+        "exampleVi": "Từ 'Envelope' (Phong bì) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 37,
         "word": "Silk fabric",
         "meaning": "Vải lua",
-        "ipa": "/sɪlk ˈfæbrɪk/"
+        "ipa": "/sɪlk ˈfæbrɪk/",
+        "exampleEn": "The word 'Silk fabric' is commonly used in English.",
+        "exampleVi": "Từ 'Silk fabric' (Vải lua) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 38,
         "word": "Suit",
         "meaning": "Bộ đồ vest",
-        "ipa": "/sut/"
+        "ipa": "/sut/",
+        "exampleEn": "The word 'Suit' is commonly used in English.",
+        "exampleVi": "Từ 'Suit' (Bộ đồ vest) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 39,
         "word": "Representative",
         "meaning": "Người đại diện",
-        "ipa": "/ˌrɛprɪˈzɛnətɪv/"
+        "ipa": "/ˌrɛprɪˈzɛnətɪv/",
+        "exampleEn": "The word 'Representative' is commonly used in English.",
+        "exampleVi": "Từ 'Representative' (Người đại diện) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 40,
         "word": "Represent",
         "meaning": "Đại diện",
-        "ipa": "/ˌrɛprɪˈzɛnt/"
+        "ipa": "/ˌrɛprɪˈzɛnt/",
+        "exampleEn": "The word 'Represent' is commonly used in English.",
+        "exampleVi": "Từ 'Represent' (Đại diện) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 41,
         "word": "On behalf of",
         "meaning": "Thay mặt cho",
-        "ipa": "/ɔn bɪˈhæf əv/"
+        "ipa": "/ɔn bɪˈhæf əv/",
+        "exampleEn": "The word 'On behalf of' is commonly used in English.",
+        "exampleVi": "Từ 'On behalf of' (Thay mặt cho) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 42,
         "word": "Tear",
         "meaning": "Xé",
-        "ipa": "/tɪr/"
+        "ipa": "/tɪr/",
+        "exampleEn": "The word 'Tear' is commonly used in English.",
+        "exampleVi": "Từ 'Tear' (Xé) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 43,
         "word": "Tear off",
         "meaning": "Xé bỏ",
-        "ipa": "/tɪr ɔf/"
+        "ipa": "/tɪr ɔf/",
+        "exampleEn": "The word 'Tear off' is commonly used in English.",
+        "exampleVi": "Từ 'Tear off' (Xé bỏ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 44,
         "word": "Reveal",
         "meaning": "Tiết lộ",
-        "ipa": "/rɪˈvil/"
+        "ipa": "/rɪˈvil/",
+        "exampleEn": "The word 'Reveal' is commonly used in English.",
+        "exampleVi": "Từ 'Reveal' (Tiết lộ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 45,
         "word": "Disclose",
         "meaning": "Tiết lộ",
-        "ipa": "/dɪˈskloʊz/"
+        "ipa": "/dɪˈskloʊz/",
+        "exampleEn": "The word 'Disclose' is commonly used in English.",
+        "exampleVi": "Từ 'Disclose' (Tiết lộ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 46,
         "word": "Unveil",
         "meaning": "Tiết lộ",
-        "ipa": "/ənˈveɪl/"
+        "ipa": "/ənˈveɪl/",
+        "exampleEn": "The word 'Unveil' is commonly used in English.",
+        "exampleVi": "Từ 'Unveil' (Tiết lộ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 47,
         "word": "So",
         "meaning": "Vì vậy",
-        "ipa": "/soʊ/"
+        "ipa": "/soʊ/",
+        "exampleEn": "The word 'So' is commonly used in English.",
+        "exampleVi": "Từ 'So' (Vì vậy) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 48,
         "word": "Thus",
         "meaning": "Do đó",
-        "ipa": "/ðəs/"
+        "ipa": "/ðəs/",
+        "exampleEn": "The word 'Thus' is commonly used in English.",
+        "exampleVi": "Từ 'Thus' (Do đó) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 49,
         "word": "Africa",
         "meaning": "Châu Phi",
-        "ipa": "/ˈæfrɪkɑ/"
+        "ipa": "/ˈæfrɪkɑ/",
+        "exampleEn": "The word 'Africa' is commonly used in English.",
+        "exampleVi": "Từ 'Africa' (Châu Phi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 50,
         "word": "Criticize",
         "meaning": "Chỉ trích",
-        "ipa": "/ˈkrɪtɪˌsaɪz/"
+        "ipa": "/ˈkrɪtɪˌsaɪz/",
+        "exampleEn": "The word 'Criticize' is commonly used in English.",
+        "exampleVi": "Từ 'Criticize' (Chỉ trích) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 51,
         "word": "Blame",
         "meaning": "Đổ lỗi",
-        "ipa": "/bleɪm/"
+        "ipa": "/bleɪm/",
+        "exampleEn": "The word 'Blame' is commonly used in English.",
+        "exampleVi": "Từ 'Blame' (Đổ lỗi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 52,
         "word": "Critic",
         "meaning": "Nhà phê bình",
-        "ipa": "/ˈkrɪtɪk/"
+        "ipa": "/ˈkrɪtɪk/",
+        "exampleEn": "The word 'Critic' is commonly used in English.",
+        "exampleVi": "Từ 'Critic' (Nhà phê bình) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 53,
         "word": "Criticism",
         "meaning": "Sự chỉ trích",
-        "ipa": "/ˈkrɪtɪˌsɪzəm/"
+        "ipa": "/ˈkrɪtɪˌsɪzəm/",
+        "exampleEn": "The word 'Criticism' is commonly used in English.",
+        "exampleVi": "Từ 'Criticism' (Sự chỉ trích) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 54,
         "word": "Deserve",
         "meaning": "Xứng đáng",
-        "ipa": "/dɪˈzərv/"
+        "ipa": "/dɪˈzərv/",
+        "exampleEn": "The word 'Deserve' is commonly used in English.",
+        "exampleVi": "Từ 'Deserve' (Xứng đáng) được sử dụng phổ biến trong tiếng Anh."
       }
     ]
   },
@@ -8189,325 +8551,433 @@
         "id": 1,
         "word": "Establish",
         "meaning": "Thành lập",
-        "ipa": "/ɪˈstæblɪʃ/"
+        "ipa": "/ɪˈstæblɪʃ/",
+        "exampleEn": "The word 'Establish' is commonly used in English.",
+        "exampleVi": "Từ 'Establish' (Thành lập) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 2,
         "word": "Establishment",
         "meaning": "Sự thành lập",
-        "ipa": "/ɪˈstæblɪʃmənt/"
+        "ipa": "/ɪˈstæblɪʃmənt/",
+        "exampleEn": "The word 'Establishment' is commonly used in English.",
+        "exampleVi": "Từ 'Establishment' (Sự thành lập) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 3,
         "word": "Qualified",
         "meaning": "Đủ điều kiện",
-        "ipa": "/kˈwɑləˌfaɪd/"
+        "ipa": "/kˈwɑləˌfaɪd/",
+        "exampleEn": "The word 'Qualified' is commonly used in English.",
+        "exampleVi": "Từ 'Qualified' (Đủ điều kiện) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 4,
         "word": "Qualification",
         "meaning": "Trình độ chuyên môn",
-        "ipa": "/kˌwɑləfəˈkeɪʃən/"
+        "ipa": "/kˌwɑləfəˈkeɪʃən/",
+        "exampleEn": "The word 'Qualification' is commonly used in English.",
+        "exampleVi": "Từ 'Qualification' (Trình độ chuyên môn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 5,
         "word": "Eligible",
         "meaning": "Đủ tư cách",
-        "ipa": "/ˈɛlɪʤəbəl/"
+        "ipa": "/ˈɛlɪʤəbəl/",
+        "exampleEn": "The word 'Eligible' is commonly used in English.",
+        "exampleVi": "Từ 'Eligible' (Đủ tư cách) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 6,
         "word": "Motivate",
         "meaning": "Thúc đẩy",
-        "ipa": "/ˈmoʊtəˌveɪt/"
+        "ipa": "/ˈmoʊtəˌveɪt/",
+        "exampleEn": "The word 'Motivate' is commonly used in English.",
+        "exampleVi": "Từ 'Motivate' (Thúc đẩy) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 7,
         "word": "Motivation",
         "meaning": "Động lực",
-        "ipa": "/ˌmoʊtəˈveɪʃən/"
+        "ipa": "/ˌmoʊtəˈveɪʃən/",
+        "exampleEn": "The word 'Motivation' is commonly used in English.",
+        "exampleVi": "Từ 'Motivation' (Động lực) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 8,
         "word": "Motivational",
         "meaning": "Tạo động lực",
-        "ipa": "/ˌmoʊtəˈveɪʃənəl/"
+        "ipa": "/ˌmoʊtəˈveɪʃənəl/",
+        "exampleEn": "The word 'Motivational' is commonly used in English.",
+        "exampleVi": "Từ 'Motivational' (Tạo động lực) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 9,
         "word": "Inspire",
         "meaning": "Truyền cảm hứng",
-        "ipa": "/ˌɪnˈspaɪr/"
+        "ipa": "/ˌɪnˈspaɪr/",
+        "exampleEn": "The word 'Inspire' is commonly used in English.",
+        "exampleVi": "Từ 'Inspire' (Truyền cảm hứng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 10,
         "word": "Inspiration",
         "meaning": "Cảm hứng",
-        "ipa": "/ˌɪnspərˈeɪʃən/"
+        "ipa": "/ˌɪnspərˈeɪʃən/",
+        "exampleEn": "The word 'Inspiration' is commonly used in English.",
+        "exampleVi": "Từ 'Inspiration' (Cảm hứng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 11,
         "word": "Platform",
         "meaning": "Nền tảng",
-        "ipa": "/ˈplætˌfɔrm/"
+        "ipa": "/ˈplætˌfɔrm/",
+        "exampleEn": "The word 'Platform' is commonly used in English.",
+        "exampleVi": "Từ 'Platform' (Nền tảng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 12,
         "word": "Familiar",
         "meaning": "Quen thuộc",
-        "ipa": "/fəˈmɪljər/"
+        "ipa": "/fəˈmɪljər/",
+        "exampleEn": "The word 'Familiar' is commonly used in English.",
+        "exampleVi": "Từ 'Familiar' (Quen thuộc) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 13,
         "word": "Candidate",
         "meaning": "Ứng viên",
-        "ipa": "/ˈkænədɪt/"
+        "ipa": "/ˈkænədɪt/",
+        "exampleEn": "The word 'Candidate' is commonly used in English.",
+        "exampleVi": "Từ 'Candidate' (Ứng viên) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 14,
         "word": "Provide",
         "meaning": "Cung cấp",
-        "ipa": "/prəˈvaɪd/"
+        "ipa": "/prəˈvaɪd/",
+        "exampleEn": "The word 'Provide' is commonly used in English.",
+        "exampleVi": "Từ 'Provide' (Cung cấp) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 15,
         "word": "Provision",
         "meaning": "Sự cung cấp",
-        "ipa": "/prəˈvɪʒən/"
+        "ipa": "/prəˈvɪʒən/",
+        "exampleEn": "The word 'Provision' is commonly used in English.",
+        "exampleVi": "Từ 'Provision' (Sự cung cấp) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 16,
         "word": "Accommodation",
         "meaning": "Chỗ ở",
-        "ipa": "/əˌkɑməˈdeɪʃən/"
+        "ipa": "/əˌkɑməˈdeɪʃən/",
+        "exampleEn": "The word 'Accommodation' is commonly used in English.",
+        "exampleVi": "Từ 'Accommodation' (Chỗ ở) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 17,
         "word": "Accommodate",
         "meaning": "Cung cấp chỗ ở",
-        "ipa": "/əˈkɑməˌdeɪt/"
+        "ipa": "/əˈkɑməˌdeɪt/",
+        "exampleEn": "The word 'Accommodate' is commonly used in English.",
+        "exampleVi": "Từ 'Accommodate' (Cung cấp chỗ ở) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 18,
         "word": "Research",
         "meaning": "Nghiên cứu",
-        "ipa": "/ˈrisərʧ/"
+        "ipa": "/ˈrisərʧ/",
+        "exampleEn": "The word 'Research' is commonly used in English.",
+        "exampleVi": "Từ 'Research' (Nghiên cứu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 19,
         "word": "Diligent",
         "meaning": "Siêng năng",
-        "ipa": "/ˈdɪlɪʤənt/"
+        "ipa": "/ˈdɪlɪʤənt/",
+        "exampleEn": "The word 'Diligent' is commonly used in English.",
+        "exampleVi": "Từ 'Diligent' (Siêng năng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 20,
         "word": "Diligently",
         "meaning": "Một cách siêng năng",
-        "ipa": "/ˈdɪləʤəntli/"
+        "ipa": "/ˈdɪləʤəntli/",
+        "exampleEn": "The word 'Diligently' is commonly used in English.",
+        "exampleVi": "Từ 'Diligently' (Một cách siêng năng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 21,
         "word": "Furniture",
         "meaning": "Đồ nội thất",
-        "ipa": "/ˈfərnɪʧər/"
+        "ipa": "/ˈfərnɪʧər/",
+        "exampleEn": "The word 'Furniture' is commonly used in English.",
+        "exampleVi": "Từ 'Furniture' (Đồ nội thất) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 22,
         "word": "Thorough",
         "meaning": "Kỹ lưỡng",
-        "ipa": "/θəroʊ/"
+        "ipa": "/θəroʊ/",
+        "exampleEn": "The word 'Thorough' is commonly used in English.",
+        "exampleVi": "Từ 'Thorough' (Kỹ lưỡng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 23,
         "word": "Thoroughly",
         "meaning": "Một cách kỹ lưỡng",
-        "ipa": "/ˈθəroʊli/"
+        "ipa": "/ˈθəroʊli/",
+        "exampleEn": "The word 'Thoroughly' is commonly used in English.",
+        "exampleVi": "Từ 'Thoroughly' (Một cách kỹ lưỡng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 24,
         "word": "Describe",
         "meaning": "Mô tả",
-        "ipa": "/dɪˈskraɪb/"
+        "ipa": "/dɪˈskraɪb/",
+        "exampleEn": "The word 'Describe' is commonly used in English.",
+        "exampleVi": "Từ 'Describe' (Mô tả) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 25,
         "word": "Description",
         "meaning": "Sự mô tả",
-        "ipa": "/dɪˈskrɪpʃən/"
+        "ipa": "/dɪˈskrɪpʃən/",
+        "exampleEn": "The word 'Description' is commonly used in English.",
+        "exampleVi": "Từ 'Description' (Sự mô tả) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 26,
         "word": "Fulfill",
         "meaning": "Hoàn thành",
-        "ipa": "/fʊlˈfɪl/"
+        "ipa": "/fʊlˈfɪl/",
+        "exampleEn": "The word 'Fulfill' is commonly used in English.",
+        "exampleVi": "Từ 'Fulfill' (Hoàn thành) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 27,
         "word": "Meet",
         "meaning": "Đáp ứng",
-        "ipa": "/mit/"
+        "ipa": "/mit/",
+        "exampleEn": "The word 'Meet' is commonly used in English.",
+        "exampleVi": "Từ 'Meet' (Đáp ứng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 28,
         "word": "Earn",
         "meaning": "Kiếm được",
-        "ipa": "/ərn/"
+        "ipa": "/ərn/",
+        "exampleEn": "The word 'Earn' is commonly used in English.",
+        "exampleVi": "Từ 'Earn' (Kiếm được) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 29,
         "word": "Job opening",
         "meaning": "Cơ hội việc làm",
-        "ipa": "/ʤɑb ˈoʊpənɪŋ/"
+        "ipa": "/ʤɑb ˈoʊpənɪŋ/",
+        "exampleEn": "The word 'Job opening' is commonly used in English.",
+        "exampleVi": "Từ 'Job opening' (Cơ hội việc làm) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 30,
         "word": "Job vacancy",
         "meaning": "Vi trí tuyển dung",
-        "ipa": "/ʤɑb ˈveɪkənsi/"
+        "ipa": "/ʤɑb ˈveɪkənsi/",
+        "exampleEn": "The word 'Job vacancy' is commonly used in English.",
+        "exampleVi": "Từ 'Job vacancy' (Vi trí tuyển dung) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 31,
         "word": "Supervisor",
         "meaning": "Người giám sát",
-        "ipa": "/ˈsupərˌvaɪzər/"
+        "ipa": "/ˈsupərˌvaɪzər/",
+        "exampleEn": "The word 'Supervisor' is commonly used in English.",
+        "exampleVi": "Từ 'Supervisor' (Người giám sát) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 32,
         "word": "Supervise",
         "meaning": "Giám sát",
-        "ipa": "/ˈsupərˌvaɪz/"
+        "ipa": "/ˈsupərˌvaɪz/",
+        "exampleEn": "The word 'Supervise' is commonly used in English.",
+        "exampleVi": "Từ 'Supervise' (Giám sát) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 33,
         "word": "Oversee",
         "meaning": "Giám sát",
-        "ipa": "/ˈoʊvərˌsi/"
+        "ipa": "/ˈoʊvərˌsi/",
+        "exampleEn": "The word 'Oversee' is commonly used in English.",
+        "exampleVi": "Từ 'Oversee' (Giám sát) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 34,
         "word": "Construction",
         "meaning": "Xây dựng",
-        "ipa": "/kənˈstrəkʃən/"
+        "ipa": "/kənˈstrəkʃən/",
+        "exampleEn": "The word 'Construction' is commonly used in English.",
+        "exampleVi": "Từ 'Construction' (Xây dựng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 35,
         "word": "Construct",
         "meaning": "Xây dựng",
-        "ipa": "/ˈkɑnstrəkt/"
+        "ipa": "/ˈkɑnstrəkt/",
+        "exampleEn": "The word 'Construct' is commonly used in English.",
+        "exampleVi": "Từ 'Construct' (Xây dựng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 36,
         "word": "Warehouse",
         "meaning": "Kho hàng",
-        "ipa": "/ˈwɛˌrhaʊs/"
+        "ipa": "/ˈwɛˌrhaʊs/",
+        "exampleEn": "The word 'Warehouse' is commonly used in English.",
+        "exampleVi": "Từ 'Warehouse' (Kho hàng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 37,
         "word": "Discuss",
         "meaning": "Thảo luận",
-        "ipa": "/dɪˈskəs/"
+        "ipa": "/dɪˈskəs/",
+        "exampleEn": "The word 'Discuss' is commonly used in English.",
+        "exampleVi": "Từ 'Discuss' (Thảo luận) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 38,
         "word": "Manual",
         "meaning": "Sổ tay hướng dẫn",
-        "ipa": "/ˈmænjuəl/"
+        "ipa": "/ˈmænjuəl/",
+        "exampleEn": "The word 'Manual' is commonly used in English.",
+        "exampleVi": "Từ 'Manual' (Sổ tay hướng dẫn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 39,
         "word": "User's guide",
         "meaning": "Hướng dẫn sử dung",
-        "ipa": "/ˈjuzərz gaɪd/"
+        "ipa": "/ˈjuzərz gaɪd/",
+        "exampleEn": "The word 'User's guide' is commonly used in English.",
+        "exampleVi": "Từ 'User's guide' (Hướng dẫn sử dung) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 40,
         "word": "Outstanding",
         "meaning": "Xuất sắc",
-        "ipa": "/ˌaʊtˈstændɪŋ/"
+        "ipa": "/ˌaʊtˈstændɪŋ/",
+        "exampleEn": "The word 'Outstanding' is commonly used in English.",
+        "exampleVi": "Từ 'Outstanding' (Xuất sắc) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 41,
         "word": "Business",
         "meaning": "Kinh doanh",
-        "ipa": "/ˈbɪznɪs/"
+        "ipa": "/ˈbɪznɪs/",
+        "exampleEn": "The word 'Business' is commonly used in English.",
+        "exampleVi": "Từ 'Business' (Kinh doanh) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 42,
         "word": "Businessman",
         "meaning": "Doanh nhân",
-        "ipa": "/ˈbɪznɪsˌmæn/"
+        "ipa": "/ˈbɪznɪsˌmæn/",
+        "exampleEn": "The word 'Businessman' is commonly used in English.",
+        "exampleVi": "Từ 'Businessman' (Doanh nhân) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 43,
         "word": "Microscope",
         "meaning": "Kính hiển vi",
-        "ipa": "/ˈmaɪkrəˌskoʊp/"
+        "ipa": "/ˈmaɪkrəˌskoʊp/",
+        "exampleEn": "The word 'Microscope' is commonly used in English.",
+        "exampleVi": "Từ 'Microscope' (Kính hiển vi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 44,
         "word": "Telescope",
         "meaning": "Kính viễn vong",
-        "ipa": "/ˈtɛləˌskoʊp/"
+        "ipa": "/ˈtɛləˌskoʊp/",
+        "exampleEn": "The word 'Telescope' is commonly used in English.",
+        "exampleVi": "Từ 'Telescope' (Kính viễn vong) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 45,
         "word": "Scope",
         "meaning": "Phạm vi",
-        "ipa": "/skoʊp/"
+        "ipa": "/skoʊp/",
+        "exampleEn": "The word 'Scope' is commonly used in English.",
+        "exampleVi": "Từ 'Scope' (Phạm vi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 46,
         "word": "Range",
         "meaning": "Phạm vi",
-        "ipa": "/reɪnʤ/"
+        "ipa": "/reɪnʤ/",
+        "exampleEn": "The word 'Range' is commonly used in English.",
+        "exampleVi": "Từ 'Range' (Phạm vi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 47,
         "word": "Factor",
         "meaning": "Nhân tố",
-        "ipa": "/ˈfæktər/"
+        "ipa": "/ˈfæktər/",
+        "exampleEn": "The word 'Factor' is commonly used in English.",
+        "exampleVi": "Từ 'Factor' (Nhân tố) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 48,
         "word": "Element",
         "meaning": "Yếu tố",
-        "ipa": "/ˈɛləmənt/"
+        "ipa": "/ˈɛləmənt/",
+        "exampleEn": "The word 'Element' is commonly used in English.",
+        "exampleVi": "Từ 'Element' (Yếu tố) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 49,
         "word": "Benefit",
         "meaning": "Lợi ích",
-        "ipa": "/ˈbɛnəfɪt/"
+        "ipa": "/ˈbɛnəfɪt/",
+        "exampleEn": "The word 'Benefit' is commonly used in English.",
+        "exampleVi": "Từ 'Benefit' (Lợi ích) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 50,
         "word": "Beneficial",
         "meaning": "Có lợi",
-        "ipa": "/ˌbɛnəˈfɪʃəl/"
+        "ipa": "/ˌbɛnəˈfɪʃəl/",
+        "exampleEn": "The word 'Beneficial' is commonly used in English.",
+        "exampleVi": "Từ 'Beneficial' (Có lợi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 51,
         "word": "Profit",
         "meaning": "Lợi nhuận",
-        "ipa": "/ˈprɑfɪt/"
+        "ipa": "/ˈprɑfɪt/",
+        "exampleEn": "The word 'Profit' is commonly used in English.",
+        "exampleVi": "Từ 'Profit' (Lợi nhuận) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 52,
         "word": "Profitable",
         "meaning": "Có lợi nhuận",
-        "ipa": "/ˈprɑfətəbəl/"
+        "ipa": "/ˈprɑfətəbəl/",
+        "exampleEn": "The word 'Profitable' is commonly used in English.",
+        "exampleVi": "Từ 'Profitable' (Có lợi nhuận) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 53,
         "word": "Revenue",
         "meaning": "Doanh thu",
-        "ipa": "/ˈrɛvəˌnu/"
+        "ipa": "/ˈrɛvəˌnu/",
+        "exampleEn": "The word 'Revenue' is commonly used in English.",
+        "exampleVi": "Từ 'Revenue' (Doanh thu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 54,
         "word": "Quit",
         "meaning": "Bỏ cuộc",
-        "ipa": "/kwɪt/"
+        "ipa": "/kwɪt/",
+        "exampleEn": "The word 'Quit' is commonly used in English.",
+        "exampleVi": "Từ 'Quit' (Bỏ cuộc) được sử dụng phổ biến trong tiếng Anh."
       }
     ]
   },
@@ -8520,373 +8990,497 @@
         "id": 1,
         "word": "Time-consuming",
         "meaning": "Tốn thời gian",
-        "ipa": "/time-consuming/"
+        "ipa": "/time-consuming/",
+        "exampleEn": "The word 'Time-consuming' is commonly used in English.",
+        "exampleVi": "Từ 'Time-consuming' (Tốn thời gian) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 2,
         "word": "Booth",
         "meaning": "Gian hàng",
-        "ipa": "/buθ/"
+        "ipa": "/buθ/",
+        "exampleEn": "The word 'Booth' is commonly used in English.",
+        "exampleVi": "Từ 'Booth' (Gian hàng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 3,
         "word": "Process",
         "meaning": "Quá trình",
-        "ipa": "/ˈprɔˌsɛs/"
+        "ipa": "/ˈprɔˌsɛs/",
+        "exampleEn": "The word 'Process' is commonly used in English.",
+        "exampleVi": "Từ 'Process' (Quá trình) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 4,
         "word": "Pollute",
         "meaning": "Gây ô nhiễm",
-        "ipa": "/pəˈlut/"
+        "ipa": "/pəˈlut/",
+        "exampleEn": "The word 'Pollute' is commonly used in English.",
+        "exampleVi": "Từ 'Pollute' (Gây ô nhiễm) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 5,
         "word": "Polluted",
         "meaning": "Bi ô nhiễm",
-        "ipa": "/pəˈlutɪd/"
+        "ipa": "/pəˈlutɪd/",
+        "exampleEn": "The word 'Polluted' is commonly used in English.",
+        "exampleVi": "Từ 'Polluted' (Bi ô nhiễm) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 6,
         "word": "Pollution",
         "meaning": "Sự ô nhiễm",
-        "ipa": "/pəˈluʃən/"
+        "ipa": "/pəˈluʃən/",
+        "exampleEn": "The word 'Pollution' is commonly used in English.",
+        "exampleVi": "Từ 'Pollution' (Sự ô nhiễm) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 7,
         "word": "Polish",
         "meaning": "Đánh bóng",
-        "ipa": "/ˈpɑlɪʃ/"
+        "ipa": "/ˈpɑlɪʃ/",
+        "exampleEn": "The word 'Polish' is commonly used in English.",
+        "exampleVi": "Từ 'Polish' (Đánh bóng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 8,
         "word": "Atmosphere",
         "meaning": "Bầu không khí",
-        "ipa": "/ˈætməsˌfɪr/"
+        "ipa": "/ˈætməsˌfɪr/",
+        "exampleEn": "The word 'Atmosphere' is commonly used in English.",
+        "exampleVi": "Từ 'Atmosphere' (Bầu không khí) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 9,
         "word": "Environment",
         "meaning": "Môi trường",
-        "ipa": "/ɪnˈvaɪrənmənt/"
+        "ipa": "/ɪnˈvaɪrənmənt/",
+        "exampleEn": "The word 'Environment' is commonly used in English.",
+        "exampleVi": "Từ 'Environment' (Môi trường) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 10,
         "word": "Recycle",
         "meaning": "Tái chế",
-        "ipa": "/riˈsaɪkəl/"
+        "ipa": "/riˈsaɪkəl/",
+        "exampleEn": "The word 'Recycle' is commonly used in English.",
+        "exampleVi": "Từ 'Recycle' (Tái chế) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 11,
         "word": "Dispose of",
         "meaning": "Vứt bỏ",
-        "ipa": "/dɪˈspoʊz əv/"
+        "ipa": "/dɪˈspoʊz əv/",
+        "exampleEn": "The word 'Dispose of' is commonly used in English.",
+        "exampleVi": "Từ 'Dispose of' (Vứt bỏ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 12,
         "word": "Disposal",
         "meaning": "Sự vứt bỏ",
-        "ipa": "/dɪˈspoʊzəl/"
+        "ipa": "/dɪˈspoʊzəl/",
+        "exampleEn": "The word 'Disposal' is commonly used in English.",
+        "exampleVi": "Từ 'Disposal' (Sự vứt bỏ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 13,
         "word": "Globe",
         "meaning": "Quả đia cầu",
-        "ipa": "/gloʊb/"
+        "ipa": "/gloʊb/",
+        "exampleEn": "The word 'Globe' is commonly used in English.",
+        "exampleVi": "Từ 'Globe' (Quả đia cầu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 14,
         "word": "Global",
         "meaning": "Toàn cầu",
-        "ipa": "/ˈgloʊbəl/"
+        "ipa": "/ˈgloʊbəl/",
+        "exampleEn": "The word 'Global' is commonly used in English.",
+        "exampleVi": "Từ 'Global' (Toàn cầu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 15,
         "word": "Planet",
         "meaning": "Hành tinh",
-        "ipa": "/ˈplænət/"
+        "ipa": "/ˈplænət/",
+        "exampleEn": "The word 'Planet' is commonly used in English.",
+        "exampleVi": "Từ 'Planet' (Hành tinh) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 16,
         "word": "Currently",
         "meaning": "Hiện tại",
-        "ipa": "/ˈkərəntli/"
+        "ipa": "/ˈkərəntli/",
+        "exampleEn": "The word 'Currently' is commonly used in English.",
+        "exampleVi": "Từ 'Currently' (Hiện tại) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 17,
         "word": "Current",
         "meaning": "Hiện tại",
-        "ipa": "/ˈkɑrənt/"
+        "ipa": "/ˈkɑrənt/",
+        "exampleEn": "The word 'Current' is commonly used in English.",
+        "exampleVi": "Từ 'Current' (Hiện tại) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 18,
         "word": "Nowadays",
         "meaning": "Ngày nay",
-        "ipa": "/ˈnaʊəˌdeɪz/"
+        "ipa": "/ˈnaʊəˌdeɪz/",
+        "exampleEn": "The word 'Nowadays' is commonly used in English.",
+        "exampleVi": "Từ 'Nowadays' (Ngày nay) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 19,
         "word": "Prevent",
         "meaning": "Ngăn chặn",
-        "ipa": "/prɪˈvɛnt/"
+        "ipa": "/prɪˈvɛnt/",
+        "exampleEn": "The word 'Prevent' is commonly used in English.",
+        "exampleVi": "Từ 'Prevent' (Ngăn chặn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 20,
         "word": "Prevention",
         "meaning": "Sự ngăn chặn",
-        "ipa": "/priˈvɛnʃən/"
+        "ipa": "/priˈvɛnʃən/",
+        "exampleEn": "The word 'Prevention' is commonly used in English.",
+        "exampleVi": "Từ 'Prevention' (Sự ngăn chặn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 21,
         "word": "Human being",
         "meaning": "Con người",
-        "ipa": "/ˈjumən biɪŋ/"
+        "ipa": "/ˈjumən biɪŋ/",
+        "exampleEn": "The word 'Human being' is commonly used in English.",
+        "exampleVi": "Từ 'Human being' (Con người) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 22,
         "word": "Challenge",
         "meaning": "Thách thức",
-        "ipa": "/ˈʧælənʤ/"
+        "ipa": "/ˈʧælənʤ/",
+        "exampleEn": "The word 'Challenge' is commonly used in English.",
+        "exampleVi": "Từ 'Challenge' (Thách thức) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 23,
         "word": "Challenging",
         "meaning": "Đầy thách thức",
-        "ipa": "/ˈʧælənʤɪŋ/"
+        "ipa": "/ˈʧælənʤɪŋ/",
+        "exampleEn": "The word 'Challenging' is commonly used in English.",
+        "exampleVi": "Từ 'Challenging' (Đầy thách thức) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 24,
         "word": "Advance",
         "meaning": "Tiến bộ",
-        "ipa": "/ədˈvæns/"
+        "ipa": "/ədˈvæns/",
+        "exampleEn": "The word 'Advance' is commonly used in English.",
+        "exampleVi": "Từ 'Advance' (Tiến bộ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 25,
         "word": "Advanced",
         "meaning": "Tiên tiến",
-        "ipa": "/ədˈvænst/"
+        "ipa": "/ədˈvænst/",
+        "exampleEn": "The word 'Advanced' is commonly used in English.",
+        "exampleVi": "Từ 'Advanced' (Tiên tiến) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 26,
         "word": "Advancement",
         "meaning": "Sự tiến bộ",
-        "ipa": "/ədˈvænsmənt/"
+        "ipa": "/ədˈvænsmənt/",
+        "exampleEn": "The word 'Advancement' is commonly used in English.",
+        "exampleVi": "Từ 'Advancement' (Sự tiến bộ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 27,
         "word": "Damage",
         "meaning": "Thiệt hại",
-        "ipa": "/ˈdæmɪʤ/"
+        "ipa": "/ˈdæmɪʤ/",
+        "exampleEn": "The word 'Damage' is commonly used in English.",
+        "exampleVi": "Từ 'Damage' (Thiệt hại) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 28,
         "word": "Destroy",
         "meaning": "Phá hủy",
-        "ipa": "/dɪˈstrɔɪ/"
+        "ipa": "/dɪˈstrɔɪ/",
+        "exampleEn": "The word 'Destroy' is commonly used in English.",
+        "exampleVi": "Từ 'Destroy' (Phá hủy) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 29,
         "word": "Ruin",
         "meaning": "Tàn phá",
-        "ipa": "/ruɪn/"
+        "ipa": "/ruɪn/",
+        "exampleEn": "The word 'Ruin' is commonly used in English.",
+        "exampleVi": "Từ 'Ruin' (Tàn phá) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 30,
         "word": "Predict",
         "meaning": "Dự đoán",
-        "ipa": "/prɪˈdɪkt/"
+        "ipa": "/prɪˈdɪkt/",
+        "exampleEn": "The word 'Predict' is commonly used in English.",
+        "exampleVi": "Từ 'Predict' (Dự đoán) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 31,
         "word": "Prediction",
         "meaning": "Sự dự đoán",
-        "ipa": "/priˈdɪkʃən/"
+        "ipa": "/priˈdɪkʃən/",
+        "exampleEn": "The word 'Prediction' is commonly used in English.",
+        "exampleVi": "Từ 'Prediction' (Sự dự đoán) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 32,
         "word": "Predictable",
         "meaning": "Có thể dự đoán",
-        "ipa": "/prɪˈdɪktəbəl/"
+        "ipa": "/prɪˈdɪktəbəl/",
+        "exampleEn": "The word 'Predictable' is commonly used in English.",
+        "exampleVi": "Từ 'Predictable' (Có thể dự đoán) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 33,
         "word": "Trash",
         "meaning": "Rác",
-        "ipa": "/træʃ/"
+        "ipa": "/træʃ/",
+        "exampleEn": "The word 'Trash' is commonly used in English.",
+        "exampleVi": "Từ 'Trash' (Rác) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 34,
         "word": "Rubbish",
         "meaning": "Rác",
-        "ipa": "/ˈrəbɪʃ/"
+        "ipa": "/ˈrəbɪʃ/",
+        "exampleEn": "The word 'Rubbish' is commonly used in English.",
+        "exampleVi": "Từ 'Rubbish' (Rác) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 35,
         "word": "Garbage",
         "meaning": "Rác",
-        "ipa": "/ˈgɑrbɪʤ/"
+        "ipa": "/ˈgɑrbɪʤ/",
+        "exampleEn": "The word 'Garbage' is commonly used in English.",
+        "exampleVi": "Từ 'Garbage' (Rác) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 36,
         "word": "Anticipate",
         "meaning": "Dự đoán",
-        "ipa": "/ænˈtɪsəˌpeɪt/"
+        "ipa": "/ænˈtɪsəˌpeɪt/",
+        "exampleEn": "The word 'Anticipate' is commonly used in English.",
+        "exampleVi": "Từ 'Anticipate' (Dự đoán) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 37,
         "word": "Anticipation",
         "meaning": "Sự dự đoán",
-        "ipa": "/ænˌtɪsəˈpeɪʃən/"
+        "ipa": "/ænˌtɪsəˈpeɪʃən/",
+        "exampleEn": "The word 'Anticipation' is commonly used in English.",
+        "exampleVi": "Từ 'Anticipation' (Sự dự đoán) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 38,
         "word": "Anticipated",
         "meaning": "Được dự đoán",
-        "ipa": "/ænˈtɪsəˌpeɪtɪd/"
+        "ipa": "/ænˈtɪsəˌpeɪtɪd/",
+        "exampleEn": "The word 'Anticipated' is commonly used in English.",
+        "exampleVi": "Từ 'Anticipated' (Được dự đoán) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 39,
         "word": "Guess",
         "meaning": "Đoán",
-        "ipa": "/gɛs/"
+        "ipa": "/gɛs/",
+        "exampleEn": "The word 'Guess' is commonly used in English.",
+        "exampleVi": "Từ 'Guess' (Đoán) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 40,
         "word": "Forecast",
         "meaning": "Dự báo",
-        "ipa": "/ˈfɔrˌkæst/"
+        "ipa": "/ˈfɔrˌkæst/",
+        "exampleEn": "The word 'Forecast' is commonly used in English.",
+        "exampleVi": "Từ 'Forecast' (Dự báo) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 41,
         "word": "Sculpture",
         "meaning": "Tượng điêu khắc",
-        "ipa": "/ˈskəlpʧər/"
+        "ipa": "/ˈskəlpʧər/",
+        "exampleEn": "The word 'Sculpture' is commonly used in English.",
+        "exampleVi": "Từ 'Sculpture' (Tượng điêu khắc) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 42,
         "word": "Statue",
         "meaning": "Tượng",
-        "ipa": "/ˈstæˌʧu/"
+        "ipa": "/ˈstæˌʧu/",
+        "exampleEn": "The word 'Statue' is commonly used in English.",
+        "exampleVi": "Từ 'Statue' (Tượng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 43,
         "word": "Advantage",
         "meaning": "Lợi thế",
-        "ipa": "/ædˈvæntɪʤ/"
+        "ipa": "/ædˈvæntɪʤ/",
+        "exampleEn": "The word 'Advantage' is commonly used in English.",
+        "exampleVi": "Từ 'Advantage' (Lợi thế) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 44,
         "word": "Disadvantage",
         "meaning": "Bất lợi",
-        "ipa": "/ˌdɪsədˈvænɪʤ/"
+        "ipa": "/ˌdɪsədˈvænɪʤ/",
+        "exampleEn": "The word 'Disadvantage' is commonly used in English.",
+        "exampleVi": "Từ 'Disadvantage' (Bất lợi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 45,
         "word": "Mysterious",
         "meaning": "Huyền bí",
-        "ipa": "/mɪˈstɪriəs/"
+        "ipa": "/mɪˈstɪriəs/",
+        "exampleEn": "The word 'Mysterious' is commonly used in English.",
+        "exampleVi": "Từ 'Mysterious' (Huyền bí) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 46,
         "word": "Figure",
         "meaning": "Nhân vật",
-        "ipa": "/ˈfɪgjər/"
+        "ipa": "/ˈfɪgjər/",
+        "exampleEn": "The word 'Figure' is commonly used in English.",
+        "exampleVi": "Từ 'Figure' (Nhân vật) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 47,
         "word": "Exceptional",
         "meaning": "Xuất sắc",
-        "ipa": "/ɪkˈsɛpʃənəl/"
+        "ipa": "/ɪkˈsɛpʃənəl/",
+        "exampleEn": "The word 'Exceptional' is commonly used in English.",
+        "exampleVi": "Từ 'Exceptional' (Xuất sắc) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 48,
         "word": "Scientist",
         "meaning": "Nhà khoa hoc",
-        "ipa": "/ˈsaɪəntɪst/"
+        "ipa": "/ˈsaɪəntɪst/",
+        "exampleEn": "The word 'Scientist' is commonly used in English.",
+        "exampleVi": "Từ 'Scientist' (Nhà khoa hoc) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 49,
         "word": "Science",
         "meaning": "Khoa hoc",
-        "ipa": "/saɪəns/"
+        "ipa": "/saɪəns/",
+        "exampleEn": "The word 'Science' is commonly used in English.",
+        "exampleVi": "Từ 'Science' (Khoa hoc) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 50,
         "word": "Nominate",
         "meaning": "Đề cử",
-        "ipa": "/ˈnɑməˌneɪt/"
+        "ipa": "/ˈnɑməˌneɪt/",
+        "exampleEn": "The word 'Nominate' is commonly used in English.",
+        "exampleVi": "Từ 'Nominate' (Đề cử) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 51,
         "word": "Prize",
         "meaning": "Giải thưởng",
-        "ipa": "/praɪz/"
+        "ipa": "/praɪz/",
+        "exampleEn": "She won the first prize in the annual sales competition.",
+        "exampleVi": "Cô ấy đã giành giải nhất trong cuộc thi bán hàng hàng năm."
       },
       {
         "id": 52,
         "word": "Industrial",
         "meaning": "Công nghiệp",
-        "ipa": "/ˌɪnˈdəstriəl/"
+        "ipa": "/ˌɪnˈdəstriəl/",
+        "exampleEn": "The city is planning to build a new industrial zone to attract investors.",
+        "exampleVi": "Thành phố đang lên kế hoạch xây dựng một khu công nghiệp mới để thu hút các nhà đầu tư."
       },
       {
         "id": 53,
         "word": "Industry",
         "meaning": "Ngành công nghiệp",
-        "ipa": "/ˈɪndəstri/"
+        "ipa": "/ˈɪndəstri/",
+        "exampleEn": "The tourism industry has seen significant growth over the past decade.",
+        "exampleVi": "Ngành công nghiệp du lịch đã có sự tăng trưởng đáng kể trong thập kỷ qua."
       },
       {
         "id": 54,
         "word": "Waste",
         "meaning": "Chất thải",
-        "ipa": "/weɪst/"
+        "ipa": "/weɪst/",
+        "exampleEn": "Proper disposal of industrial waste is essential for environmental protection.",
+        "exampleVi": "Việc xử lý chất thải công nghiệp đúng cách là rất cần thiết để bảo vệ môi trường."
       },
       {
         "id": 55,
         "word": "Disaster",
         "meaning": "Thảm hoa",
-        "ipa": "/dɪˈzæstər/"
+        "ipa": "/dɪˈzæstər/",
+        "exampleEn": "The earthquake was a major natural disaster that affected thousands of people.",
+        "exampleVi": "Trận động đất là một thảm họa thiên nhiên lớn ảnh hưởng đến hàng ngàn người."
       },
       {
         "id": 56,
         "word": "Solution",
         "meaning": "Giải pháp",
-        "ipa": "/səˈluʃən/"
+        "ipa": "/səˈluʃən/",
+        "exampleEn": "We need to find a cost-effective solution to our current budget problems.",
+        "exampleVi": "Chúng ta cần tìm một giải pháp hiệu quả về chi phí cho các vấn đề ngân sách hiện tại."
       },
       {
         "id": 57,
         "word": "Solve",
         "meaning": "Giải quyết",
-        "ipa": "/sɑlv/"
+        "ipa": "/sɑlv/",
+        "exampleEn": "The technical team is working hard to solve the software glitch.",
+        "exampleVi": "Đội ngũ kỹ thuật đang làm việc chăm chỉ để giải quyết lỗi phần mềm."
       },
       {
         "id": 58,
         "word": "Handle",
         "meaning": "Xử lý",
-        "ipa": "/ˈhændəl/"
+        "ipa": "/ˈhændəl/",
+        "exampleEn": "Our customer service representatives are trained to handle complaints professionally.",
+        "exampleVi": "Các đại diện dịch vụ khách hàng của chúng tôi được đào tạo để xử lý các khiếu nại một cách chuyên nghiệp."
       },
       {
         "id": 59,
         "word": "Deal with",
         "meaning": "Giải quyết",
-        "ipa": "/dil wɪθ/"
+        "ipa": "/dil wɪθ/",
+        "exampleEn": "The manager had to deal with several urgent issues this morning.",
+        "exampleVi": "Quản lý đã phải giải quyết một vài vấn đề khẩn cấp vào sáng nay."
       },
       {
         "id": 60,
         "word": "Address",
         "meaning": "Giải quyết",
-        "ipa": "/ˈæˌdrɛs/"
+        "ipa": "/ˈæˌdrɛs/",
+        "exampleEn": "The CEO will give a speech to address the concerns of the employees.",
+        "exampleVi": "Giám đốc điều hành sẽ có một bài phát biểu để giải quyết những lo ngại của nhân viên."
       },
       {
         "id": 61,
         "word": "Exhibition",
         "meaning": "Triển lãm",
-        "ipa": "/ˌɛksəˈbɪʃən/"
+        "ipa": "/ˌɛksəˈbɪʃən/",
+        "exampleEn": "The art exhibition will be held at the city gallery next month.",
+        "exampleVi": "Triển lãm nghệ thuật sẽ được tổ chức tại phòng trưng bày thành phố vào tháng tới."
       },
       {
         "id": 62,
         "word": "Exhibit",
         "meaning": "Trưng bày",
-        "ipa": "/ɪgˈzɪbɪt/"
+        "ipa": "/ɪgˈzɪbɪt/",
+        "exampleEn": "The museum will exhibit a collection of ancient artifacts starting next week.",
+        "exampleVi": "Bảo tàng sẽ trưng bày một bộ sưu tập các cổ vật bắt đầu từ tuần tới."
       }
     ]
   },
@@ -8899,337 +9493,449 @@
         "id": 1,
         "word": "Aircraft",
         "meaning": "Máy bay",
-        "ipa": "/ˈɛrˌkræft/"
+        "ipa": "/ˈɛrˌkræft/",
+        "exampleEn": "The aircraft is scheduled to depart at 10:00 AM.",
+        "exampleVi": "Máy bay dự kiến sẽ khởi hành vào lúc 10 giờ sáng."
       },
       {
         "id": 2,
         "word": "Approximately",
         "meaning": "Xấp xỉ",
-        "ipa": "/əˈprɑksəmətli/"
+        "ipa": "/əˈprɑksəmətli/",
+        "exampleEn": "The flight will take approximately three hours.",
+        "exampleVi": "Chuyến bay sẽ mất xấp xỉ ba tiếng đồng hồ."
       },
       {
         "id": 3,
         "word": "Approximate",
         "meaning": "Gần đúng",
-        "ipa": "/əˈprɑksəˌmeɪt/"
+        "ipa": "/əˈprɑksəˌmeɪt/",
+        "exampleEn": "Can you give me an approximate cost for the repairs?",
+        "exampleVi": "Bạn có thể cho tôi biết chi phí gần đúng cho việc sửa chữa không?"
       },
       {
         "id": 4,
         "word": "Owing to",
         "meaning": "Do, bởi vì",
-        "ipa": "/oʊɪŋ tɪ/"
+        "ipa": "/oʊɪŋ tɪ/",
+        "exampleEn": "Owing to heavy rain, the outdoor concert was canceled.",
+        "exampleVi": "Do mưa lớn, buổi hòa nhạc ngoài trời đã bị hủy."
       },
       {
         "id": 5,
         "word": "Due to",
         "meaning": "Do, bởi vì",
-        "ipa": "/du tɪ/"
+        "ipa": "/du tɪ/",
+        "exampleEn": "The delay was due to a technical problem with the engine.",
+        "exampleVi": "Sự chậm trễ là do vấn đề kỹ thuật ở động cơ."
       },
       {
         "id": 6,
         "word": "Council",
         "meaning": "Hội đồng",
-        "ipa": "/ˈkaʊnsəl/"
+        "ipa": "/ˈkaʊnsəl/",
+        "exampleEn": "The city council will meet tomorrow to discuss the new budget.",
+        "exampleVi": "Hội đồng thành phố sẽ họp vào ngày mai để thảo luận về ngân sách mới."
       },
       {
         "id": 7,
         "word": "Committee",
         "meaning": "Ủy ban",
-        "ipa": "/kəˈmɪti/"
+        "ipa": "/kəˈmɪti/",
+        "exampleEn": "The planning committee is reviewing the project proposal.",
+        "exampleVi": "Ủy ban kế hoạch đang xem xét đề xuất dự án."
       },
       {
         "id": 8,
         "word": "Speech",
         "meaning": "Bài phát biểu",
-        "ipa": "/spiʧ/"
+        "ipa": "/spiʧ/",
+        "exampleEn": "The CEO gave an inspiring speech at the annual conference.",
+        "exampleVi": "Giám đốc điều hành đã có một bài phát biểu đầy cảm hứng tại hội nghị thường niên."
       },
       {
         "id": 9,
         "word": "Extensive",
         "meaning": "Rộng rãi",
-        "ipa": "/ɪkˈstɛnsɪv/"
+        "ipa": "/ɪkˈstɛnsɪv/",
+        "exampleEn": "The company has extensive experience in international trade.",
+        "exampleVi": "Công ty có kinh nghiệm rộng rãi trong lĩnh vực thương mại quốc tế."
       },
       {
         "id": 10,
         "word": "Extend",
         "meaning": "Mở rộng",
-        "ipa": "/ɪkˈstɛnd/"
+        "ipa": "/ɪkˈstɛnd/",
+        "exampleEn": "We decided to extend the deadline for the application by one week.",
+        "exampleVi": "Chúng tôi đã quyết định gia hạn thời hạn nộp đơn thêm một tuần."
       },
       {
         "id": 11,
         "word": "Extension",
         "meaning": "Sự mở rộng",
-        "ipa": "/ɪkˈstɛnʃən/"
+        "ipa": "/ɪkˈstɛnʃən/",
+        "exampleEn": "If you need more time, you can request an extension.",
+        "exampleVi": "Nếu bạn cần thêm thời gian, bạn có thể yêu cầu gia hạn."
       },
       {
         "id": 12,
         "word": "Course",
         "meaning": "Khóa hoc",
-        "ipa": "/kɔrs/"
+        "ipa": "/kɔrs/",
+        "exampleEn": "I am taking an online course to improve my marketing skills.",
+        "exampleVi": "Tôi đang tham gia một khóa học trực tuyến để cải thiện kỹ năng tiếp thị của mình."
       },
       {
         "id": 13,
         "word": "Personal belongings",
         "meaning": "Đồ dùng cá nhân",
-        "ipa": "/ˈpərsɪnəl bɪˈlɔŋɪŋz/"
+        "ipa": "/ˈpərsɪnəl bɪˈlɔŋɪŋz/",
+        "exampleEn": "Please make sure to take all your personal belongings with you.",
+        "exampleVi": "Vui lòng đảm bảo mang theo tất cả đồ dùng cá nhân của bạn."
       },
       {
         "id": 14,
         "word": "Belong to",
         "meaning": "Thuộc về",
-        "ipa": "/bɪˈlɔŋ tɪ/"
+        "ipa": "/bɪˈlɔŋ tɪ/",
+        "exampleEn": "This laptop belongs to the IT department.",
+        "exampleVi": "Chiếc máy tính xách tay này thuộc về bộ phận CNTT."
       },
       {
         "id": 15,
         "word": "Tuition",
         "meaning": "Hoc phí",
-        "ipa": "/tjuˈɪʃən/"
+        "ipa": "/tjuˈɪʃən/",
+        "exampleEn": "The university has announced a slight increase in tuition fees.",
+        "exampleVi": "Trường đại học đã thông báo về việc tăng nhẹ học phí."
       },
       {
         "id": 16,
         "word": "Free of charge",
         "meaning": "Miễn phí",
-        "ipa": "/fri əv ʧɑrʤ/"
+        "ipa": "/fri əv ʧɑrʤ/",
+        "exampleEn": "The workshop is provided free of charge for all employees.",
+        "exampleVi": "Hội thảo được cung cấp miễn phí cho tất cả nhân viên."
       },
       {
         "id": 17,
         "word": "Complimentary",
         "meaning": "Miễn phí",
-        "ipa": "/ˌkɑmpləˈmɛntəri/"
+        "ipa": "/ˌkɑmpləˈmɛntəri/",
+        "exampleEn": "Guests are offered a complimentary breakfast at the hotel.",
+        "exampleVi": "Khách hàng được cung cấp bữa sáng miễn phí tại khách sạn."
       },
       {
         "id": 18,
         "word": "Free",
         "meaning": "Miễn phí",
-        "ipa": "/fri/"
+        "ipa": "/fri/",
+        "exampleEn": "You can download the software for free from our website.",
+        "exampleVi": "Bạn có thể tải phần mềm miễn phí từ trang web của chúng tôi."
       },
       {
         "id": 19,
         "word": "Entire",
         "meaning": "Toàn bộ",
-        "ipa": "/ɪnˈtaɪər/"
+        "ipa": "/ɪnˈtaɪər/",
+        "exampleEn": "The entire staff attended the safety training session.",
+        "exampleVi": "Toàn bộ nhân viên đã tham gia buổi đào tạo về an toàn."
       },
       {
         "id": 20,
         "word": "Whole",
         "meaning": "Toàn bộ",
-        "ipa": "/hoʊl/"
+        "ipa": "/hoʊl/",
+        "exampleEn": "I spent the whole day preparing for the presentation.",
+        "exampleVi": "Tôi đã dành toàn bộ ngày để chuẩn bị cho bài thuyết trình."
       },
       {
         "id": 21,
         "word": "Passenger",
         "meaning": "Hành khách",
-        "ipa": "/ˈpæsənʤər/"
+        "ipa": "/ˈpæsənʤər/",
+        "exampleEn": "All passengers must remain seated until the plane stops completely.",
+        "exampleVi": "Tất cả hành khách phải ngồi yên tại chỗ cho đến khi máy bay dừng hẳn."
       },
       {
         "id": 22,
         "word": "Climate",
         "meaning": "Khí hậu",
-        "ipa": "/ˈklaɪmɪt/"
+        "ipa": "/ˈklaɪmɪt/",
+        "exampleEn": "The region is known for its mild climate and beautiful scenery.",
+        "exampleVi": "Khu vực này nổi tiếng với khí hậu ôn hòa và phong cảnh đẹp."
       },
       {
         "id": 23,
         "word": "Departure",
         "meaning": "Sự khởi hành",
-        "ipa": "/dɪˈpɑrʧər/"
+        "ipa": "/dɪˈpɑrʧər/",
+        "exampleEn": "Please check the monitors for the latest departure times.",
+        "exampleVi": "Vui lòng kiểm tra màn hình để biết thời gian khởi hành mới nhất."
       },
       {
         "id": 24,
         "word": "Notify",
         "meaning": "Thông báo",
-        "ipa": "/ˈnoʊtəˌfaɪ/"
+        "ipa": "/ˈnoʊtəˌfaɪ/",
+        "exampleEn": "We will notify you as soon as your order is ready for pickup.",
+        "exampleVi": "Chúng tôi sẽ thông báo cho bạn ngay khi đơn hàng của bạn đã sẵn sàng để nhận."
       },
       {
         "id": 25,
         "word": "Notification",
         "meaning": "Sự thông báo",
-        "ipa": "/ˌnoʊtəfəˈkeɪʃən/"
+        "ipa": "/ˌnoʊtəfəˈkeɪʃən/",
+        "exampleEn": "You will receive a notification on your phone once the payment is processed.",
+        "exampleVi": "Bạn sẽ nhận được một thông báo trên điện thoại sau khi thanh toán được xử lý."
       },
       {
         "id": 26,
         "word": "Inform",
         "meaning": "Thông báo",
-        "ipa": "/ˌɪnˈfɔrm/"
+        "ipa": "/ˌɪnˈfɔrm/",
+        "exampleEn": "Please inform the manager of any changes to the schedule.",
+        "exampleVi": "Vui lòng thông báo cho quản lý về bất kỳ thay đổi nào trong lịch trình."
       },
       {
         "id": 27,
         "word": "Information",
         "meaning": "Thông tin",
-        "ipa": "/ˌɪnˌfɔrˈmeɪʃən/"
+        "ipa": "/ˌɪnˌfɔrˈmeɪʃən/",
+        "exampleEn": "You can find more information about the project on our website.",
+        "exampleVi": "Bạn có thể tìm thêm thông tin về dự án trên trang web của chúng tôi."
       },
       {
         "id": 28,
         "word": "Announce",
         "meaning": "Thông báo",
-        "ipa": "/əˈnaʊns/"
+        "ipa": "/əˈnaʊns/",
+        "exampleEn": "The company will announce the new CEO tomorrow morning.",
+        "exampleVi": "Công ty sẽ thông báo về giám đốc điều hành mới vào sáng mai."
       },
       {
         "id": 29,
         "word": "Announcement",
         "meaning": "Thông báo",
-        "ipa": "/əˈnaʊnsmɛnt/"
+        "ipa": "/əˈnaʊnsmɛnt/",
+        "exampleEn": "Please listen carefully to the flight announcement.",
+        "exampleVi": "Vui lòng lắng nghe kỹ thông báo chuyến bay."
       },
       {
         "id": 30,
         "word": "Air",
         "meaning": "Không khí",
-        "ipa": "/ɛr/"
+        "ipa": "/ɛr/",
+        "exampleEn": "The air in the countryside is much fresher than in the city.",
+        "exampleVi": "Không khí ở nông thôn trong lành hơn nhiều so với ở thành phố."
       },
       {
         "id": 31,
         "word": "Port",
         "meaning": "Cảng",
-        "ipa": "/pɔrt/"
+        "ipa": "/pɔrt/",
+        "exampleEn": "The ship is expected to arrive at the port by noon.",
+        "exampleVi": "Con tàu dự kiến sẽ cập cảng trước buổi trưa."
       },
       {
         "id": 32,
         "word": "Seaport",
         "meaning": "Cảng biển",
-        "ipa": "/ˈsiˌpɔrt/"
+        "ipa": "/ˈsiˌpɔrt/",
+        "exampleEn": "This city is home to one of the largest seaports in the region.",
+        "exampleVi": "Thành phố này là nơi có một trong những cảng biển lớn nhất khu vực."
       },
       {
         "id": 33,
         "word": "Duration",
         "meaning": "Khoảng thời gian",
-        "ipa": "/ˈdʊˈreɪʃən/"
+        "ipa": "/ˈdʊˈreɪʃən/",
+        "exampleEn": "The duration of the presentation will be approximately thirty minutes.",
+        "exampleVi": "Thời lượng của bài thuyết trình sẽ kéo dài khoảng 30 phút."
       },
       {
         "id": 34,
         "word": "Half",
         "meaning": "Một nửa",
-        "ipa": "/hæf/"
+        "ipa": "/hæf/",
+        "exampleEn": "More than half of the staff attended the training session.",
+        "exampleVi": "Hơn một nửa nhân viên đã tham gia buổi đào tạo."
       },
       {
         "id": 35,
         "word": "United States",
         "meaning": "Hoa Kỳ",
-        "ipa": "/juˈnaɪtɪd steɪts/"
+        "ipa": "/juˈnaɪtɪd steɪts/",
+        "exampleEn": "He is planning a business trip to the United States next month.",
+        "exampleVi": "Anh ấy đang lên kế hoạch cho một chuyến công tác đến Hoa Kỳ vào tháng tới."
       },
       {
         "id": 36,
         "word": "United",
         "meaning": "Đoàn kết",
-        "ipa": "/juˈnaɪtɪd/"
+        "ipa": "/juˈnaɪtɪd/",
+        "exampleEn": "We must remain united to overcome these challenges.",
+        "exampleVi": "Chúng ta phải giữ vững sự đoàn kết để vượt qua những thử thách này."
       },
       {
         "id": 37,
         "word": "Union",
         "meaning": "Liên minh",
-        "ipa": "/ˈjunjən/"
+        "ipa": "/ˈjunjən/",
+        "exampleEn": "The workers decided to join the labor union to protect their rights.",
+        "exampleVi": "Các công nhân đã quyết định gia nhập công đoàn để bảo vệ quyền lợi của mình."
       },
       {
         "id": 38,
         "word": "Reunite",
         "meaning": "Tái hợp",
-        "ipa": "/ˌriuˈnaɪt/"
+        "ipa": "/ˌriuˈnaɪt/",
+        "exampleEn": "The program helps families reunite after years of separation.",
+        "exampleVi": "Chương trình giúp các gia đình tái hợp sau nhiều năm xa cách."
       },
       {
         "id": 39,
         "word": "Reunion",
         "meaning": "Cuộc đoàn tu",
-        "ipa": "/riˈunjən/"
+        "ipa": "/riˈunjən/",
+        "exampleEn": "We are planning a high school reunion for this summer.",
+        "exampleVi": "Chúng tôi đang lên kế hoạch cho một buổi họp mặt lớp cấp ba vào mùa hè này."
       },
       {
         "id": 40,
         "word": "State",
         "meaning": "Bang",
-        "ipa": "/steɪt/"
+        "ipa": "/steɪt/",
+        "exampleEn": "California is the most populous state in the country.",
+        "exampleVi": "California là bang đông dân nhất cả nước."
       },
       {
         "id": 41,
         "word": "Grant",
         "meaning": "Trợ cấp",
-        "ipa": "/grænt/"
+        "ipa": "/grænt/",
+        "exampleEn": "The research team received a government grant to study renewable energy.",
+        "exampleVi": "Nhóm nghiên cứu đã nhận được một khoản trợ cấp của chính phủ để nghiên cứu về năng lượng tái tạo."
       },
       {
         "id": 42,
         "word": "Scholarship",
         "meaning": "Hoc bổng",
-        "ipa": "/ˈskɑlərˌʃɪp/"
+        "ipa": "/ˈskɑlərˌʃɪp/",
+        "exampleEn": "She was awarded a full scholarship to study abroad.",
+        "exampleVi": "Cô ấy đã được trao một suất học bổng toàn phần để đi du học."
       },
       {
         "id": 43,
         "word": "Semester",
         "meaning": "Hoc kỳ",
-        "ipa": "/səˈmɛstər/"
+        "ipa": "/səˈmɛstər/",
+        "exampleEn": "Students are busy preparing for their final exams this semester.",
+        "exampleVi": "Các sinh viên đang bận rộn chuẩn bị cho các kỳ thi cuối kỳ trong học kỳ này."
       },
       {
         "id": 44,
         "word": "Circumstance",
         "meaning": "Hoàn cảnh",
-        "ipa": "/ˈsərkəmˌstæns/"
+        "ipa": "/ˈsərkəmˌstæns/",
+        "exampleEn": "Under no circumstances should you share your password with anyone.",
+        "exampleVi": "Trong bất kỳ hoàn cảnh nào, bạn cũng không nên chia sẻ mật khẩu của mình với bất kỳ ai."
       },
       {
         "id": 45,
         "word": "Postpone",
         "meaning": "Hoãn lại",
-        "ipa": "/poʊstˈpoʊn/"
+        "ipa": "/poʊstˈpoʊn/",
+        "exampleEn": "The meeting has been postponed until next Friday.",
+        "exampleVi": "Cuộc họp đã bị hoãn lại cho đến thứ Sáu tới."
       },
       {
         "id": 46,
         "word": "Delay",
         "meaning": "Trì hoãn",
-        "ipa": "/dɪˈleɪ/"
+        "ipa": "/dɪˈleɪ/",
+        "exampleEn": "The heavy rain caused a long delay in the flight schedule.",
+        "exampleVi": "Cơn mưa lớn đã gây ra sự chậm trễ kéo dài trong lịch trình chuyến bay."
       },
       {
         "id": 47,
         "word": "General",
         "meaning": "Chung",
-        "ipa": "/ˈʤɛnərəl/"
+        "ipa": "/ˈʤɛnərəl/",
+        "exampleEn": "The general consensus is that we need to improve our customer service.",
+        "exampleVi": "Sự đồng thuận chung là chúng ta cần cải thiện dịch vụ khách hàng của mình."
       },
       {
         "id": 48,
         "word": "Generally",
         "meaning": "Nói chung",
-        "ipa": "/ˈʤɛnərəli/"
+        "ipa": "/ˈʤɛnərəli/",
+        "exampleEn": "Generally, the office is closed on weekends and public holidays.",
+        "exampleVi": "Nói chung, văn phòng đóng cửa vào cuối tuần và các ngày lễ."
       },
       {
         "id": 49,
         "word": "Air-hostess",
         "meaning": "Nữ tiếp viên hàng không",
-        "ipa": "/air-hostess/"
+        "ipa": "/air-hostess/",
+        "exampleEn": "The air-hostess served drinks and snacks to the passengers.",
+        "exampleVi": "Nữ tiếp viên hàng không đã phục vụ đồ uống và đồ ăn nhẹ cho hành khách."
       },
       {
         "id": 50,
         "word": "Flight attendant",
         "meaning": "Tiếp viên hàng không",
-        "ipa": "/flaɪt əˈtɛndənt/"
+        "ipa": "/flaɪt əˈtɛndənt/",
+        "exampleEn": "The flight attendant demonstrated how to use the oxygen mask.",
+        "exampleVi": "Tiếp viên hàng không đã hướng dẫn cách sử dụng mặt nạ dưỡng khí."
       },
       {
         "id": 51,
         "word": "Warn",
         "meaning": "Cảnh báo",
-        "ipa": "/wɔrn/"
+        "ipa": "/wɔrn/",
+        "exampleEn": "The word 'Warn' is commonly used in English.",
+        "exampleVi": "Từ 'Warn' (Cảnh báo) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 52,
         "word": "Take care of",
         "meaning": "Chăm sóc",
-        "ipa": "/teɪk kɛr əv/"
+        "ipa": "/teɪk kɛr əv/",
+        "exampleEn": "The word 'Take care of' is commonly used in English.",
+        "exampleVi": "Từ 'Take care of' (Chăm sóc) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 53,
         "word": "Care",
         "meaning": "Sự chăm sóc",
-        "ipa": "/kɛr/"
+        "ipa": "/kɛr/",
+        "exampleEn": "The word 'Care' is commonly used in English.",
+        "exampleVi": "Từ 'Care' (Sự chăm sóc) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 54,
         "word": "Careful",
         "meaning": "Cẩn thận",
-        "ipa": "/ˈkɛrfəl/"
+        "ipa": "/ˈkɛrfəl/",
+        "exampleEn": "The word 'Careful' is commonly used in English.",
+        "exampleVi": "Từ 'Careful' (Cẩn thận) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 55,
         "word": "Carefully",
         "meaning": "Một cách cẩn thận",
-        "ipa": "/ˈkɛrfəli/"
+        "ipa": "/ˈkɛrfəli/",
+        "exampleEn": "The word 'Carefully' is commonly used in English.",
+        "exampleVi": "Từ 'Carefully' (Một cách cẩn thận) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 56,
         "word": "Abroad",
         "meaning": "Ở nước ngoài",
-        "ipa": "/əˈbrɔd/"
+        "ipa": "/əˈbrɔd/",
+        "exampleEn": "The word 'Abroad' is commonly used in English.",
+        "exampleVi": "Từ 'Abroad' (Ở nước ngoài) được sử dụng phổ biến trong tiếng Anh."
       }
     ]
   },
@@ -9242,355 +9948,473 @@
         "id": 1,
         "word": "Rehearse",
         "meaning": "Tập dượt",
-        "ipa": "/riˈhərs/"
+        "ipa": "/riˈhərs/",
+        "exampleEn": "The team needs to rehearse the presentation before the meeting tomorrow.",
+        "exampleVi": "Nhóm cần tập dượt bài thuyết trình trước cuộc họp ngày mai."
       },
       {
         "id": 2,
         "word": "Rehearsal",
         "meaning": "Buổi tập dượt",
-        "ipa": "/rɪˈhərsəl/"
+        "ipa": "/rɪˈhərsəl/",
+        "exampleEn": "The final rehearsal for the play will take place this evening.",
+        "exampleVi": "Buổi tập dượt cuối cùng cho vở kịch sẽ diễn ra vào tối nay."
       },
       {
         "id": 3,
         "word": "Writer",
         "meaning": "Nhà văn",
-        "ipa": "/ˈraɪtər/"
+        "ipa": "/ˈraɪtər/",
+        "exampleEn": "She is a freelance writer for several business magazines.",
+        "exampleVi": "Cô ấy là một nhà văn tự do cho một vài tạp chí kinh doanh."
       },
       {
         "id": 4,
         "word": "Estimate",
         "meaning": "Ước tính",
-        "ipa": "/ˈɛstəˌmeɪt/"
+        "ipa": "/ˈɛstəˌmeɪt/",
+        "exampleEn": "We need to estimate the total cost of the renovation project.",
+        "exampleVi": "Chúng ta cần ước tính tổng chi phí của dự án cải tạo."
       },
       {
         "id": 5,
         "word": "Value",
         "meaning": "Giá tri",
-        "ipa": "/ˈvælju/"
+        "ipa": "/ˈvælju/",
+        "exampleEn": "The market value of the property has increased significantly.",
+        "exampleVi": "Giá trị thị trường của bất động sản đã tăng lên đáng kể."
       },
       {
         "id": 6,
         "word": "Valued",
         "meaning": "Được quý trong",
-        "ipa": "/ˈvæljud/"
+        "ipa": "/ˈvæljud/",
+        "exampleEn": "He is a valued member of our marketing department.",
+        "exampleVi": "Anh ấy là một thành viên được quý trọng trong bộ phận tiếp thị của chúng tôi."
       },
       {
         "id": 7,
         "word": "Valuable",
         "meaning": "Quý giá",
-        "ipa": "/ˈvæljəbəl/"
+        "ipa": "/ˈvæljəbəl/",
+        "exampleEn": "The seminar provided valuable information about investment strategies.",
+        "exampleVi": "Buổi hội thảo đã cung cấp những thông tin quý giá về các chiến lược đầu tư."
       },
       {
         "id": 8,
         "word": "Worth",
         "meaning": "Đáng giá",
-        "ipa": "/wərθ/"
+        "ipa": "/wərθ/",
+        "exampleEn": "This antique clock is worth thousands of dollars.",
+        "exampleVi": "Chiếc đồng hồ cổ này đáng giá hàng ngàn đô la."
       },
       {
         "id": 9,
         "word": "Author",
         "meaning": "Tác giả",
-        "ipa": "/ˈɔθər/"
+        "ipa": "/ˈɔθər/",
+        "exampleEn": "The author will be signing copies of her new book at the store.",
+        "exampleVi": "Tác giả sẽ ký tặng các bản sao cuốn sách mới của mình tại cửa hàng."
       },
       {
         "id": 10,
         "word": "Surprisingly",
         "meaning": "Một cách ngạc nhiên",
-        "ipa": "/səˈpraɪzɪŋli/"
+        "ipa": "/səˈpraɪzɪŋli/",
+        "exampleEn": "Surprisingly, the project was completed ahead of schedule.",
+        "exampleVi": "Một cách ngạc nhiên, dự án đã được hoàn thành trước thời hạn."
       },
       {
         "id": 11,
         "word": "Surprising",
         "meaning": "Đáng ngạc nhiên",
-        "ipa": "/səˈpraɪzɪŋ/"
+        "ipa": "/səˈpraɪzɪŋ/",
+        "exampleEn": "It is surprising that the company decided to cancel the merger.",
+        "exampleVi": "Thật đáng ngạc nhiên khi công ty quyết định hủy bỏ việc sáp nhập."
       },
       {
         "id": 12,
         "word": "Balcony",
         "meaning": "Ban công",
-        "ipa": "/ˈbælkəni/"
+        "ipa": "/ˈbælkəni/",
+        "exampleEn": "Our hotel room has a small balcony overlooking the ocean.",
+        "exampleVi": "Phòng khách sạn của chúng tôi có một ban công nhỏ nhìn ra đại dương."
       },
       {
         "id": 13,
         "word": "Return",
         "meaning": "Trả lại",
-        "ipa": "/rɪˈtərn/"
+        "ipa": "/rɪˈtərn/",
+        "exampleEn": "Please return the borrowed equipment to the storage room.",
+        "exampleVi": "Vui lòng trả lại thiết bị đã mượn vào phòng kho."
       },
       {
         "id": 14,
         "word": "Term",
         "meaning": "Hoc kỳ",
-        "ipa": "/tərm/"
+        "ipa": "/tərm/",
+        "exampleEn": "The students are busy preparing for the new school term.",
+        "exampleVi": "Các sinh viên đang bận rộn chuẩn bị cho học kỳ mới."
       },
       {
         "id": 15,
         "word": "Mid-term exam",
         "meaning": "Kỳ thi giữa kỳ",
-        "ipa": "/mid-term ɪgˈzæm/"
+        "ipa": "/mid-term ɪgˈzæm/",
+        "exampleEn": "I need to study hard for my mid-term exam next week.",
+        "exampleVi": "Tôi cần học tập chăm chỉ cho kỳ thi giữa kỳ vào tuần tới."
       },
       {
         "id": 16,
         "word": "Final-term exam",
         "meaning": "Kỳ thi cuối kỳ",
-        "ipa": "/final-term ɪgˈzæm/"
+        "ipa": "/final-term ɪgˈzæm/",
+        "exampleEn": "The final-term exam will cover all the topics discussed in class.",
+        "exampleVi": "Kỳ thi cuối kỳ sẽ bao gồm tất cả các chủ đề đã thảo luận trong lớp."
       },
       {
         "id": 17,
         "word": "Lease",
         "meaning": "Cho thuê",
-        "ipa": "/lis/"
+        "ipa": "/lis/",
+        "exampleEn": "The company signed a long-term lease for the office space.",
+        "exampleVi": "Công ty đã ký một hợp đồng thuê dài hạn cho không gian văn phòng."
       },
       {
         "id": 18,
         "word": "Possessor",
         "meaning": "Người sở hữu",
-        "ipa": "/pəˈzɛsər/"
+        "ipa": "/pəˈzɛsər/",
+        "exampleEn": "The possessor of the lost wallet can claim it at the front desk.",
+        "exampleVi": "Người sở hữu chiếc ví bị mất có thể nhận lại nó tại quầy lễ tân."
       },
       {
         "id": 19,
         "word": "Possess",
         "meaning": "Sở hữu",
-        "ipa": "/pəˈzɛs/"
+        "ipa": "/pəˈzɛs/",
+        "exampleEn": "Candidates must possess excellent communication skills.",
+        "exampleVi": "Các ứng viên phải sở hữu kỹ năng giao tiếp xuất sắc."
       },
       {
         "id": 20,
         "word": "Cabinet",
         "meaning": "Tủ",
-        "ipa": "/ˈkæbənət/"
+        "ipa": "/ˈkæbənət/",
+        "exampleEn": "The files are stored in the metal cabinet in the corner.",
+        "exampleVi": "Các hồ sơ được lưu trữ trong tủ kim loại ở góc phòng."
       },
       {
         "id": 21,
         "word": "Package",
         "meaning": "Gói hàng",
-        "ipa": "/ˈpækɪʤ/"
+        "ipa": "/ˈpækɪʤ/",
+        "exampleEn": "The courier delivered a large package to the office this morning.",
+        "exampleVi": "Nhân viên chuyển phát nhanh đã giao một gói hàng lớn đến văn phòng sáng nay."
       },
       {
         "id": 22,
         "word": "Pack up",
         "meaning": "Đóng gói",
-        "ipa": "/pæk əp/"
+        "ipa": "/pæk əp/",
+        "exampleEn": "It is time to pack up your things and head home.",
+        "exampleVi": "Đã đến lúc đóng gói đồ đạc của bạn và về nhà."
       },
       {
         "id": 23,
         "word": "Unpack",
         "meaning": "Mở gói",
-        "ipa": "/ənˈpæk/"
+        "ipa": "/ənˈpæk/",
+        "exampleEn": "I need some time to unpack my suitcase after the trip.",
+        "exampleVi": "Tôi cần một chút thời gian để mở gói hành lý sau chuyến đi."
       },
       {
         "id": 24,
         "word": "Acquire",
         "meaning": "Đạt được",
-        "ipa": "/əkˈwaɪər/"
+        "ipa": "/əkˈwaɪər/",
+        "exampleEn": "The corporation plans to acquire several smaller companies this year.",
+        "exampleVi": "Tập đoàn có kế hoạch đạt được một vài công ty nhỏ hơn trong năm nay."
       },
       {
         "id": 25,
         "word": "Acquisition",
         "meaning": "Sự đạt được",
-        "ipa": "/ˌækwəˈzɪʃən/"
+        "ipa": "/ˌækwəˈzɪʃən/",
+        "exampleEn": "The acquisition of the new technology will improve our efficiency.",
+        "exampleVi": "Sự đạt được công nghệ mới sẽ cải thiện hiệu quả của chúng tôi."
       },
       {
         "id": 26,
         "word": "Collector",
         "meaning": "Người sưu tầm",
-        "ipa": "/kəˈlɛktər/"
+        "ipa": "/kəˈlɛktər/",
+        "exampleEn": "The word 'Collector' is commonly used in English.",
+        "exampleVi": "Từ 'Collector' (Người sưu tầm) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 27,
         "word": "Collect",
         "meaning": "Sưu tầm",
-        "ipa": "/kəˈlɛkt/"
+        "ipa": "/kəˈlɛkt/",
+        "exampleEn": "The word 'Collect' is commonly used in English.",
+        "exampleVi": "Từ 'Collect' (Sưu tầm) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 28,
         "word": "Collection",
         "meaning": "Bộ sưu tập",
-        "ipa": "/kəˈlɛkʃən/"
+        "ipa": "/kəˈlɛkʃən/",
+        "exampleEn": "The word 'Collection' is commonly used in English.",
+        "exampleVi": "Từ 'Collection' (Bộ sưu tập) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 29,
         "word": "Seek",
         "meaning": "Tìm kiếm",
-        "ipa": "/sik/"
+        "ipa": "/sik/",
+        "exampleEn": "The word 'Seek' is commonly used in English.",
+        "exampleVi": "Từ 'Seek' (Tìm kiếm) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 30,
         "word": "Relevant",
         "meaning": "Liên quan",
-        "ipa": "/ˈrɛləvənt/"
+        "ipa": "/ˈrɛləvənt/",
+        "exampleEn": "The word 'Relevant' is commonly used in English.",
+        "exampleVi": "Từ 'Relevant' (Liên quan) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 31,
         "word": "Irrelevant",
         "meaning": "Không liên quan",
-        "ipa": "/ˌɪˈrɛləvənt/"
+        "ipa": "/ˌɪˈrɛləvənt/",
+        "exampleEn": "The word 'Irrelevant' is commonly used in English.",
+        "exampleVi": "Từ 'Irrelevant' (Không liên quan) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 32,
         "word": "Material",
         "meaning": "Vật liệu",
-        "ipa": "/məˈtɪriəl/"
+        "ipa": "/məˈtɪriəl/",
+        "exampleEn": "The word 'Material' is commonly used in English.",
+        "exampleVi": "Từ 'Material' (Vật liệu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 33,
         "word": "Amount",
         "meaning": "Số lượng",
-        "ipa": "/əˈmaʊnt/"
+        "ipa": "/əˈmaʊnt/",
+        "exampleEn": "The word 'Amount' is commonly used in English.",
+        "exampleVi": "Từ 'Amount' (Số lượng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 34,
         "word": "Adjacent",
         "meaning": "Liền kề",
-        "ipa": "/əˈʤeɪsənt/"
+        "ipa": "/əˈʤeɪsənt/",
+        "exampleEn": "The word 'Adjacent' is commonly used in English.",
+        "exampleVi": "Từ 'Adjacent' (Liền kề) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 35,
         "word": "Appreciate",
         "meaning": "Đánh giá cao",
-        "ipa": "/əˈpriʃiˌeɪt/"
+        "ipa": "/əˈpriʃiˌeɪt/",
+        "exampleEn": "The word 'Appreciate' is commonly used in English.",
+        "exampleVi": "Từ 'Appreciate' (Đánh giá cao) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 36,
         "word": "Appreciation",
         "meaning": "Sự đánh giá cao",
-        "ipa": "/əˌpriʃiˈeɪʃən/"
+        "ipa": "/əˌpriʃiˈeɪʃən/",
+        "exampleEn": "The word 'Appreciation' is commonly used in English.",
+        "exampleVi": "Từ 'Appreciation' (Sự đánh giá cao) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 37,
         "word": "Refuse",
         "meaning": "Từ chối",
-        "ipa": "/ˈrɛfˌjuz/"
+        "ipa": "/ˈrɛfˌjuz/",
+        "exampleEn": "The word 'Refuse' is commonly used in English.",
+        "exampleVi": "Từ 'Refuse' (Từ chối) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 38,
         "word": "Refusal",
         "meaning": "Sự từ chối",
-        "ipa": "/rɪfˈjuzəl/"
+        "ipa": "/rɪfˈjuzəl/",
+        "exampleEn": "The word 'Refusal' is commonly used in English.",
+        "exampleVi": "Từ 'Refusal' (Sự từ chối) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 39,
         "word": "Reject",
         "meaning": "Từ chối",
-        "ipa": "/ˈriʤɛkt/"
+        "ipa": "/ˈriʤɛkt/",
+        "exampleEn": "The word 'Reject' is commonly used in English.",
+        "exampleVi": "Từ 'Reject' (Từ chối) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 40,
         "word": "Turn down",
         "meaning": "Từ chối",
-        "ipa": "/tərn daʊn/"
+        "ipa": "/tərn daʊn/",
+        "exampleEn": "The word 'Turn down' is commonly used in English.",
+        "exampleVi": "Từ 'Turn down' (Từ chối) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 41,
         "word": "Decline",
         "meaning": "Từ chối",
-        "ipa": "/dɪˈklaɪn/"
+        "ipa": "/dɪˈklaɪn/",
+        "exampleEn": "The word 'Decline' is commonly used in English.",
+        "exampleVi": "Từ 'Decline' (Từ chối) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 42,
         "word": "Equal",
         "meaning": "Bằng",
-        "ipa": "/ˈikwəl/"
+        "ipa": "/ˈikwəl/",
+        "exampleEn": "The word 'Equal' is commonly used in English.",
+        "exampleVi": "Từ 'Equal' (Bằng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 43,
         "word": "Equality",
         "meaning": "Sự bình đẳng",
-        "ipa": "/ɪkˈwɑləti/"
+        "ipa": "/ɪkˈwɑləti/",
+        "exampleEn": "The word 'Equality' is commonly used in English.",
+        "exampleVi": "Từ 'Equality' (Sự bình đẳng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 44,
         "word": "Rental fee",
         "meaning": "Phí thuê",
-        "ipa": "/ˈrɛntəl fi/"
+        "ipa": "/ˈrɛntəl fi/",
+        "exampleEn": "The word 'Rental fee' is commonly used in English.",
+        "exampleVi": "Từ 'Rental fee' (Phí thuê) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 45,
         "word": "Tenant",
         "meaning": "Người thuê",
-        "ipa": "/ˈtɛnənt/"
+        "ipa": "/ˈtɛnənt/",
+        "exampleEn": "The word 'Tenant' is commonly used in English.",
+        "exampleVi": "Từ 'Tenant' (Người thuê) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 46,
         "word": "Grateful",
         "meaning": "Biết ơn",
-        "ipa": "/ˈgreɪtfəl/"
+        "ipa": "/ˈgreɪtfəl/",
+        "exampleEn": "The word 'Grateful' is commonly used in English.",
+        "exampleVi": "Từ 'Grateful' (Biết ơn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 47,
         "word": "To comply with",
         "meaning": "Tuân thủ",
-        "ipa": "/tɪ kəmˈplaɪ wɪθ/"
+        "ipa": "/tɪ kəmˈplaɪ wɪθ/",
+        "exampleEn": "The word 'To comply with' is commonly used in English.",
+        "exampleVi": "Từ 'To comply with' (Tuân thủ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 48,
         "word": "In compliance with",
         "meaning": "Tuân thủ",
-        "ipa": "/ɪn kəmˈplaɪəns wɪθ/"
+        "ipa": "/ɪn kəmˈplaɪəns wɪθ/",
+        "exampleEn": "The word 'In compliance with' is commonly used in English.",
+        "exampleVi": "Từ 'In compliance with' (Tuân thủ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 49,
         "word": "Rent",
         "meaning": "Thuê",
-        "ipa": "/rɛnt/"
+        "ipa": "/rɛnt/",
+        "exampleEn": "The word 'Rent' is commonly used in English.",
+        "exampleVi": "Từ 'Rent' (Thuê) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 50,
         "word": "Deposit",
         "meaning": "Tiền đặt coc",
-        "ipa": "/dɪˈpɑzət/"
+        "ipa": "/dɪˈpɑzət/",
+        "exampleEn": "The word 'Deposit' is commonly used in English.",
+        "exampleVi": "Từ 'Deposit' (Tiền đặt coc) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 51,
         "word": "In advance",
         "meaning": "Trước",
-        "ipa": "/ɪn ədˈvæns/"
+        "ipa": "/ɪn ədˈvæns/",
+        "exampleEn": "The word 'In advance' is commonly used in English.",
+        "exampleVi": "Từ 'In advance' (Trước) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 52,
         "word": "Prior to",
         "meaning": "Trước khi",
-        "ipa": "/praɪər tɪ/"
+        "ipa": "/praɪər tɪ/",
+        "exampleEn": "The word 'Prior to' is commonly used in English.",
+        "exampleVi": "Từ 'Prior to' (Trước khi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 53,
         "word": "Precious",
         "meaning": "Quý giá",
-        "ipa": "/ˈprɛʃəs/"
+        "ipa": "/ˈprɛʃəs/",
+        "exampleEn": "The word 'Precious' is commonly used in English.",
+        "exampleVi": "Từ 'Precious' (Quý giá) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 54,
         "word": "Pearl",
         "meaning": "Ngoc trai",
-        "ipa": "/pərl/"
+        "ipa": "/pərl/",
+        "exampleEn": "The word 'Pearl' is commonly used in English.",
+        "exampleVi": "Từ 'Pearl' (Ngoc trai) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 55,
         "word": "Chain",
         "meaning": "Chuỗi",
-        "ipa": "/ʧeɪn/"
+        "ipa": "/ʧeɪn/",
+        "exampleEn": "The word 'Chain' is commonly used in English.",
+        "exampleVi": "Từ 'Chain' (Chuỗi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 56,
         "word": "Desire",
         "meaning": "Khao khát",
-        "ipa": "/dɪˈzaɪər/"
+        "ipa": "/dɪˈzaɪər/",
+        "exampleEn": "The word 'Desire' is commonly used in English.",
+        "exampleVi": "Từ 'Desire' (Khao khát) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 57,
         "word": "Trim",
         "meaning": "Cắt tỉa",
-        "ipa": "/trɪm/"
+        "ipa": "/trɪm/",
+        "exampleEn": "The word 'Trim' is commonly used in English.",
+        "exampleVi": "Từ 'Trim' (Cắt tỉa) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 58,
         "word": "Recognize",
         "meaning": "Nhận ra",
-        "ipa": "/ˈrɛkəgˌnaɪz/"
+        "ipa": "/ˈrɛkəgˌnaɪz/",
+        "exampleEn": "The word 'Recognize' is commonly used in English.",
+        "exampleVi": "Từ 'Recognize' (Nhận ra) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 59,
         "word": "Recognition",
         "meaning": "Sự công nhận",
-        "ipa": "/ˌrɛkɪgˈnɪʃən/"
+        "ipa": "/ˌrɛkɪgˈnɪʃən/",
+        "exampleEn": "The word 'Recognition' is commonly used in English.",
+        "exampleVi": "Từ 'Recognition' (Sự công nhận) được sử dụng phổ biến trong tiếng Anh."
       }
     ]
   },
@@ -9603,319 +10427,425 @@
         "id": 1,
         "word": "Strength",
         "meaning": "Sức mạnh",
-        "ipa": "/strɛŋθ/"
+        "ipa": "/strɛŋθ/",
+        "exampleEn": "The word 'Strength' is commonly used in English.",
+        "exampleVi": "Từ 'Strength' (Sức mạnh) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 2,
         "word": "Army",
         "meaning": "Quân đội",
-        "ipa": "/ˈɑrmi/"
+        "ipa": "/ˈɑrmi/",
+        "exampleEn": "The word 'Army' is commonly used in English.",
+        "exampleVi": "Từ 'Army' (Quân đội) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 3,
         "word": "Weakness",
         "meaning": "Điểm yếu",
-        "ipa": "/ˈwiknəs/"
+        "ipa": "/ˈwiknəs/",
+        "exampleEn": "The word 'Weakness' is commonly used in English.",
+        "exampleVi": "Từ 'Weakness' (Điểm yếu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 4,
         "word": "Weak",
         "meaning": "Yếu",
-        "ipa": "/wik/"
+        "ipa": "/wik/",
+        "exampleEn": "The word 'Weak' is commonly used in English.",
+        "exampleVi": "Từ 'Weak' (Yếu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 5,
         "word": "Weakly",
         "meaning": "Một cách yếu ớt",
-        "ipa": "/ˈwikli/"
+        "ipa": "/ˈwikli/",
+        "exampleEn": "The word 'Weakly' is commonly used in English.",
+        "exampleVi": "Từ 'Weakly' (Một cách yếu ớt) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 6,
         "word": "Defense system",
         "meaning": "Hệ thống phòng thủ",
-        "ipa": "/dɪˈfɛns ˈsɪstəm/"
+        "ipa": "/dɪˈfɛns ˈsɪstəm/",
+        "exampleEn": "The word 'Defense system' is commonly used in English.",
+        "exampleVi": "Từ 'Defense system' (Hệ thống phòng thủ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 7,
         "word": "Duty",
         "meaning": "Nghĩa vu",
-        "ipa": "/ˈduti/"
+        "ipa": "/ˈduti/",
+        "exampleEn": "The word 'Duty' is commonly used in English.",
+        "exampleVi": "Từ 'Duty' (Nghĩa vu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 8,
         "word": "Task",
         "meaning": "Nhiệm vu",
-        "ipa": "/tæsk/"
+        "ipa": "/tæsk/",
+        "exampleEn": "The word 'Task' is commonly used in English.",
+        "exampleVi": "Từ 'Task' (Nhiệm vu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 9,
         "word": "Promise",
         "meaning": "Lời hứa",
-        "ipa": "/ˈprɑməs/"
+        "ipa": "/ˈprɑməs/",
+        "exampleEn": "The word 'Promise' is commonly used in English.",
+        "exampleVi": "Từ 'Promise' (Lời hứa) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 10,
         "word": "Yard",
         "meaning": "Sân",
-        "ipa": "/jɑrd/"
+        "ipa": "/jɑrd/",
+        "exampleEn": "The word 'Yard' is commonly used in English.",
+        "exampleVi": "Từ 'Yard' (Sân) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 11,
         "word": "Reception",
         "meaning": "Lễ tiếp nhận",
-        "ipa": "/rɪˈsɛpʃən/"
+        "ipa": "/rɪˈsɛpʃən/",
+        "exampleEn": "The word 'Reception' is commonly used in English.",
+        "exampleVi": "Từ 'Reception' (Lễ tiếp nhận) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 12,
         "word": "Ceremony",
         "meaning": "Lễ nghi",
-        "ipa": "/ˈsɛrəˌmoʊni/"
+        "ipa": "/ˈsɛrəˌmoʊni/",
+        "exampleEn": "The word 'Ceremony' is commonly used in English.",
+        "exampleVi": "Từ 'Ceremony' (Lễ nghi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 13,
         "word": "Preserve",
         "meaning": "Bảo tồn",
-        "ipa": "/prɪˈzərv/"
+        "ipa": "/prɪˈzərv/",
+        "exampleEn": "The word 'Preserve' is commonly used in English.",
+        "exampleVi": "Từ 'Preserve' (Bảo tồn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 14,
         "word": "Preservation",
         "meaning": "Sự bảo tồn",
-        "ipa": "/ˌprɛzərˈveɪʃən/"
+        "ipa": "/ˌprɛzərˈveɪʃən/",
+        "exampleEn": "The word 'Preservation' is commonly used in English.",
+        "exampleVi": "Từ 'Preservation' (Sự bảo tồn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 15,
         "word": "Conserve",
         "meaning": "Bảo tồn",
-        "ipa": "/kənˈsərv/"
+        "ipa": "/kənˈsərv/",
+        "exampleEn": "The word 'Conserve' is commonly used in English.",
+        "exampleVi": "Từ 'Conserve' (Bảo tồn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 16,
         "word": "Conservative",
         "meaning": "Bảo thủ",
-        "ipa": "/kənˈsərvətɪv/"
+        "ipa": "/kənˈsərvətɪv/",
+        "exampleEn": "The word 'Conservative' is commonly used in English.",
+        "exampleVi": "Từ 'Conservative' (Bảo thủ) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 17,
         "word": "Conservation",
         "meaning": "Sự bảo tồn",
-        "ipa": "/ˌkɑnsərˈveɪʃən/"
+        "ipa": "/ˌkɑnsərˈveɪʃən/",
+        "exampleEn": "The word 'Conservation' is commonly used in English.",
+        "exampleVi": "Từ 'Conservation' (Sự bảo tồn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 18,
         "word": "Exchange",
         "meaning": "Trao đổi",
-        "ipa": "/ɪksˈʧeɪnʤ/"
+        "ipa": "/ɪksˈʧeɪnʤ/",
+        "exampleEn": "The word 'Exchange' is commonly used in English.",
+        "exampleVi": "Từ 'Exchange' (Trao đổi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 19,
         "word": "Change",
         "meaning": "Thay đổi",
-        "ipa": "/ʧeɪnʤ/"
+        "ipa": "/ʧeɪnʤ/",
+        "exampleEn": "The word 'Change' is commonly used in English.",
+        "exampleVi": "Từ 'Change' (Thay đổi) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 20,
         "word": "Country",
         "meaning": "Quốc gia",
-        "ipa": "/ˈkəntri/"
+        "ipa": "/ˈkəntri/",
+        "exampleEn": "The word 'Country' is commonly used in English.",
+        "exampleVi": "Từ 'Country' (Quốc gia) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 21,
         "word": "Boost",
         "meaning": "Tăng cường",
-        "ipa": "/bust/"
+        "ipa": "/bust/",
+        "exampleEn": "The word 'Boost' is commonly used in English.",
+        "exampleVi": "Từ 'Boost' (Tăng cường) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 22,
         "word": "Enhance",
         "meaning": "Cải thiện",
-        "ipa": "/ɛnˈhæns/"
+        "ipa": "/ɛnˈhæns/",
+        "exampleEn": "The word 'Enhance' is commonly used in English.",
+        "exampleVi": "Từ 'Enhance' (Cải thiện) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 23,
         "word": "Enhancement",
         "meaning": "Sự cải thiện",
-        "ipa": "/ɛnˈhænsmənt/"
+        "ipa": "/ɛnˈhænsmənt/",
+        "exampleEn": "The word 'Enhancement' is commonly used in English.",
+        "exampleVi": "Từ 'Enhancement' (Sự cải thiện) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 24,
         "word": "Purpose",
         "meaning": "Muc đích",
-        "ipa": "/ˈpərpəs/"
+        "ipa": "/ˈpərpəs/",
+        "exampleEn": "The word 'Purpose' is commonly used in English.",
+        "exampleVi": "Từ 'Purpose' (Muc đích) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 25,
         "word": "Aim",
         "meaning": "Muc tiêu",
-        "ipa": "/eɪm/"
+        "ipa": "/eɪm/",
+        "exampleEn": "The word 'Aim' is commonly used in English.",
+        "exampleVi": "Từ 'Aim' (Muc tiêu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 26,
         "word": "Goal",
         "meaning": "Muc tiêu",
-        "ipa": "/goʊl/"
+        "ipa": "/goʊl/",
+        "exampleEn": "The word 'Goal' is commonly used in English.",
+        "exampleVi": "Từ 'Goal' (Muc tiêu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 27,
         "word": "Target",
         "meaning": "Muc tiêu",
-        "ipa": "/ˈtərgət/"
+        "ipa": "/ˈtərgət/",
+        "exampleEn": "The word 'Target' is commonly used in English.",
+        "exampleVi": "Từ 'Target' (Muc tiêu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 28,
         "word": "Speech",
         "meaning": "Bài phát biểu",
-        "ipa": "/spiʧ/"
+        "ipa": "/spiʧ/",
+        "exampleEn": "The word 'Speech' is commonly used in English.",
+        "exampleVi": "Từ 'Speech' (Bài phát biểu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 29,
         "word": "Base",
         "meaning": "Cơ sở",
-        "ipa": "/beɪs/"
+        "ipa": "/beɪs/",
+        "exampleEn": "The word 'Base' is commonly used in English.",
+        "exampleVi": "Từ 'Base' (Cơ sở) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 30,
         "word": "Based in",
         "meaning": "Có tru sở tại",
-        "ipa": "/beɪst ɪn/"
+        "ipa": "/beɪst ɪn/",
+        "exampleEn": "The word 'Based in' is commonly used in English.",
+        "exampleVi": "Từ 'Based in' (Có tru sở tại) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 31,
         "word": "Basement",
         "meaning": "Tầng hầm",
-        "ipa": "/ˈbeɪsmənt/"
+        "ipa": "/ˈbeɪsmənt/",
+        "exampleEn": "The word 'Basement' is commonly used in English.",
+        "exampleVi": "Từ 'Basement' (Tầng hầm) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 32,
         "word": "Express",
         "meaning": "Diễn tả",
-        "ipa": "/ɪkˈsprɛs/"
+        "ipa": "/ɪkˈsprɛs/",
+        "exampleEn": "The word 'Express' is commonly used in English.",
+        "exampleVi": "Từ 'Express' (Diễn tả) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 33,
         "word": "Address",
         "meaning": "Đia chỉ, phát biểu",
-        "ipa": "/ˈæˌdrɛs/"
+        "ipa": "/ˈæˌdrɛs/",
+        "exampleEn": "The word 'Address' is commonly used in English.",
+        "exampleVi": "Từ 'Address' (Đia chỉ, phát biểu) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 34,
         "word": "Private",
         "meaning": "Riêng tư",
-        "ipa": "/ˈpraɪvət/"
+        "ipa": "/ˈpraɪvət/",
+        "exampleEn": "The word 'Private' is commonly used in English.",
+        "exampleVi": "Từ 'Private' (Riêng tư) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 35,
         "word": "Privation",
         "meaning": "Sự thiếu thốn",
-        "ipa": "/praɪˈveɪʃən/"
+        "ipa": "/praɪˈveɪʃən/",
+        "exampleEn": "The word 'Privation' is commonly used in English.",
+        "exampleVi": "Từ 'Privation' (Sự thiếu thốn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 36,
         "word": "Privately",
         "meaning": "Một cách riêng tư",
-        "ipa": "/ˈpraɪvətli/"
+        "ipa": "/ˈpraɪvətli/",
+        "exampleEn": "The word 'Privately' is commonly used in English.",
+        "exampleVi": "Từ 'Privately' (Một cách riêng tư) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 37,
         "word": "Interpreter",
         "meaning": "Người phiên dich",
-        "ipa": "/ˌɪnˈtərprətər/"
+        "ipa": "/ˌɪnˈtərprətər/",
+        "exampleEn": "The word 'Interpreter' is commonly used in English.",
+        "exampleVi": "Từ 'Interpreter' (Người phiên dich) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 38,
         "word": "Interpret",
         "meaning": "Phiên dich",
-        "ipa": "/ˌɪnˈtərprət/"
+        "ipa": "/ˌɪnˈtərprət/",
+        "exampleEn": "The word 'Interpret' is commonly used in English.",
+        "exampleVi": "Từ 'Interpret' (Phiên dich) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 39,
         "word": "Permanent",
         "meaning": "Vĩnh viễn",
-        "ipa": "/ˈpərmɑˌnɛnt/"
+        "ipa": "/ˈpərmɑˌnɛnt/",
+        "exampleEn": "The word 'Permanent' is commonly used in English.",
+        "exampleVi": "Từ 'Permanent' (Vĩnh viễn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 40,
         "word": "Permanently",
         "meaning": "Một cách vĩnh viễn",
-        "ipa": "/ˈpərmɑˌnɛnˌtli/"
+        "ipa": "/ˈpərmɑˌnɛnˌtli/",
+        "exampleEn": "The word 'Permanently' is commonly used in English.",
+        "exampleVi": "Từ 'Permanently' (Một cách vĩnh viễn) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 41,
         "word": "Temporary",
         "meaning": "Tạm thời",
-        "ipa": "/ˈtɛmpərˌɛri/"
+        "ipa": "/ˈtɛmpərˌɛri/",
+        "exampleEn": "The word 'Temporary' is commonly used in English.",
+        "exampleVi": "Từ 'Temporary' (Tạm thời) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 42,
         "word": "Temporarily",
         "meaning": "Một cách tạm thời",
-        "ipa": "/ˌtɛmpərˈɛrəli/"
+        "ipa": "/ˌtɛmpərˈɛrəli/",
+        "exampleEn": "The word 'Temporarily' is commonly used in English.",
+        "exampleVi": "Từ 'Temporarily' (Một cách tạm thời) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 43,
         "word": "Refreshment",
         "meaning": "Đồ ăn nhe",
-        "ipa": "/rəˈfrɛʃmənt/"
+        "ipa": "/rəˈfrɛʃmənt/",
+        "exampleEn": "The word 'Refreshment' is commonly used in English.",
+        "exampleVi": "Từ 'Refreshment' (Đồ ăn nhe) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 44,
         "word": "Peace",
         "meaning": "Hòa bình",
-        "ipa": "/pis/"
+        "ipa": "/pis/",
+        "exampleEn": "The word 'Peace' is commonly used in English.",
+        "exampleVi": "Từ 'Peace' (Hòa bình) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 45,
         "word": "Peaceful",
         "meaning": "Yên bình",
-        "ipa": "/ˈpisfəl/"
+        "ipa": "/ˈpisfəl/",
+        "exampleEn": "The word 'Peaceful' is commonly used in English.",
+        "exampleVi": "Từ 'Peaceful' (Yên bình) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 46,
         "word": "Peacefully",
         "meaning": "Một cách yên bình",
-        "ipa": "/ˈpisfəli/"
+        "ipa": "/ˈpisfəli/",
+        "exampleEn": "The word 'Peacefully' is commonly used in English.",
+        "exampleVi": "Từ 'Peacefully' (Một cách yên bình) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 47,
         "word": "Upgrade",
         "meaning": "Nâng cấp",
-        "ipa": "/ˈəpˈgreɪd/"
+        "ipa": "/ˈəpˈgreɪd/",
+        "exampleEn": "The word 'Upgrade' is commonly used in English.",
+        "exampleVi": "Từ 'Upgrade' (Nâng cấp) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 48,
         "word": "Renovate",
         "meaning": "Cải tạo",
-        "ipa": "/ˈrɛnəˌveɪt/"
+        "ipa": "/ˈrɛnəˌveɪt/",
+        "exampleEn": "The word 'Renovate' is commonly used in English.",
+        "exampleVi": "Từ 'Renovate' (Cải tạo) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 49,
         "word": "Renovation",
         "meaning": "Sự cải tạo",
-        "ipa": "/ˌrɛnəˈveɪʃən/"
+        "ipa": "/ˌrɛnəˈveɪʃən/",
+        "exampleEn": "The word 'Renovation' is commonly used in English.",
+        "exampleVi": "Từ 'Renovation' (Sự cải tạo) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 50,
         "word": "Refurbish",
         "meaning": "Tân trang",
-        "ipa": "/riˈfərbɪʃ/"
+        "ipa": "/riˈfərbɪʃ/",
+        "exampleEn": "The word 'Refurbish' is commonly used in English.",
+        "exampleVi": "Từ 'Refurbish' (Tân trang) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 51,
         "word": "Refurbishment",
         "meaning": "Sự tân trang",
-        "ipa": "/riˈfərbɪʃmənt/"
+        "ipa": "/riˈfərbɪʃmənt/",
+        "exampleEn": "The word 'Refurbishment' is commonly used in English.",
+        "exampleVi": "Từ 'Refurbishment' (Sự tân trang) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 52,
         "word": "Improve",
         "meaning": "Cải thiện",
-        "ipa": "/ˌɪmˈpruv/"
+        "ipa": "/ˌɪmˈpruv/",
+        "exampleEn": "The word 'Improve' is commonly used in English.",
+        "exampleVi": "Từ 'Improve' (Cải thiện) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 53,
         "word": "Improvement",
         "meaning": "Sự cải thiện",
-        "ipa": "/ˌɪmˈpruvmənt/"
+        "ipa": "/ˌɪmˈpruvmənt/",
+        "exampleEn": "The word 'Improvement' is commonly used in English.",
+        "exampleVi": "Từ 'Improvement' (Sự cải thiện) được sử dụng phổ biến trong tiếng Anh."
       }
     ]
   },
@@ -9928,391 +10858,521 @@
         "id": 1,
         "word": "Public",
         "meaning": "công khai, công cộng.",
-        "ipa": "/ˈpəblɪk/"
+        "ipa": "/ˈpəblɪk/",
+        "exampleEn": "The word 'Public' is commonly used in English.",
+        "exampleVi": "Từ 'Public' (công khai, công cộng.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 2,
         "word": "Publish",
         "meaning": "xuất bản.",
-        "ipa": "/ˈpəblɪʃ/"
+        "ipa": "/ˈpəblɪʃ/",
+        "exampleEn": "The word 'Publish' is commonly used in English.",
+        "exampleVi": "Từ 'Publish' (xuất bản.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 3,
         "word": "Explain",
         "meaning": "giải thích.",
-        "ipa": "/ɪkˈspleɪn/"
+        "ipa": "/ɪkˈspleɪn/",
+        "exampleEn": "The word 'Explain' is commonly used in English.",
+        "exampleVi": "Từ 'Explain' (giải thích.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 4,
         "word": "Explanation",
         "meaning": "sự giải thích.",
-        "ipa": "/ˌɛkspləˈneɪʃən/"
+        "ipa": "/ˌɛkspləˈneɪʃən/",
+        "exampleEn": "The word 'Explanation' is commonly used in English.",
+        "exampleVi": "Từ 'Explanation' (sự giải thích.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 5,
         "word": "Straightforward",
         "meaning": "đơn giản, thẳng thắn.",
-        "ipa": "/ˈstreɪtˈfɔrwərd/"
+        "ipa": "/ˈstreɪtˈfɔrwərd/",
+        "exampleEn": "The word 'Straightforward' is commonly used in English.",
+        "exampleVi": "Từ 'Straightforward' (đơn giản, thẳng thắn.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 6,
         "word": "Straightforwardly",
         "meaning": "một cách rõ ràng, thẳng thắn.",
-        "ipa": "/ˌstreɪtˈfɔrwərdli/"
+        "ipa": "/ˌstreɪtˈfɔrwərdli/",
+        "exampleEn": "The word 'Straightforwardly' is commonly used in English.",
+        "exampleVi": "Từ 'Straightforwardly' (một cách rõ ràng, thẳng thắn.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 7,
         "word": "Implement",
         "meaning": "thực hiện, triển khai.",
-        "ipa": "/ˈɪmpləmənt/"
+        "ipa": "/ˈɪmpləmənt/",
+        "exampleEn": "The word 'Implement' is commonly used in English.",
+        "exampleVi": "Từ 'Implement' (thực hiện, triển khai.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 8,
         "word": "Convince",
         "meaning": "thuyết phuc.",
-        "ipa": "/kənˈvɪns/"
+        "ipa": "/kənˈvɪns/",
+        "exampleEn": "The word 'Convince' is commonly used in English.",
+        "exampleVi": "Từ 'Convince' (thuyết phuc.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 9,
         "word": "Convincing",
         "meaning": "có sức thuyết phuc.",
-        "ipa": "/kənˈvɪnsɪŋ/"
+        "ipa": "/kənˈvɪnsɪŋ/",
+        "exampleEn": "The word 'Convincing' is commonly used in English.",
+        "exampleVi": "Từ 'Convincing' (có sức thuyết phuc.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 10,
         "word": "Persuade",
         "meaning": "thuyết phuc (hành động).",
-        "ipa": "/pərsˈweɪd/"
+        "ipa": "/pərsˈweɪd/",
+        "exampleEn": "The word 'Persuade' is commonly used in English.",
+        "exampleVi": "Từ 'Persuade' (thuyết phuc (hành động).) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 11,
         "word": "Persuasion",
         "meaning": "sự thuyết phuc.",
-        "ipa": "/pərsˈweɪʒən/"
+        "ipa": "/pərsˈweɪʒən/",
+        "exampleEn": "The word 'Persuasion' is commonly used in English.",
+        "exampleVi": "Từ 'Persuasion' (sự thuyết phuc.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 12,
         "word": "Delivery",
         "meaning": "sự giao hàng, sự truyền đạt.",
-        "ipa": "/dɪˈlɪvəri/"
+        "ipa": "/dɪˈlɪvəri/",
+        "exampleEn": "The word 'Delivery' is commonly used in English.",
+        "exampleVi": "Từ 'Delivery' (sự giao hàng, sự truyền đạt.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 13,
         "word": "Deliver",
         "meaning": "giao hàng, truyền tải.",
-        "ipa": "/dɪˈlɪvər/"
+        "ipa": "/dɪˈlɪvər/",
+        "exampleEn": "The word 'Deliver' is commonly used in English.",
+        "exampleVi": "Từ 'Deliver' (giao hàng, truyền tải.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 14,
         "word": "Impact",
         "meaning": "tác động.",
-        "ipa": "/ˌɪmˈpækt/"
+        "ipa": "/ˌɪmˈpækt/",
+        "exampleEn": "The word 'Impact' is commonly used in English.",
+        "exampleVi": "Từ 'Impact' (tác động.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 15,
         "word": "Influence",
         "meaning": "ảnh hưởng.",
-        "ipa": "/ˈɪnfluəns/"
+        "ipa": "/ˈɪnfluəns/",
+        "exampleEn": "The word 'Influence' is commonly used in English.",
+        "exampleVi": "Từ 'Influence' (ảnh hưởng.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 16,
         "word": "Affect",
         "meaning": "ảnh hưởng đến.",
-        "ipa": "/əˈfɛkt/"
+        "ipa": "/əˈfɛkt/",
+        "exampleEn": "The word 'Affect' is commonly used in English.",
+        "exampleVi": "Từ 'Affect' (ảnh hưởng đến.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 17,
         "word": "Effect",
         "meaning": "ảnh hưởng",
-        "ipa": "/ˈifɛkt/"
+        "ipa": "/ˈifɛkt/",
+        "exampleEn": "The word 'Effect' is commonly used in English.",
+        "exampleVi": "Từ 'Effect' (ảnh hưởng) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 18,
         "word": "Prime Minister",
         "meaning": "thủ tướng.",
-        "ipa": "/praɪm ˈmɪnɪstər/"
+        "ipa": "/praɪm ˈmɪnɪstər/",
+        "exampleEn": "The word 'Prime Minister' is commonly used in English.",
+        "exampleVi": "Từ 'Prime Minister' (thủ tướng.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 19,
         "word": "Suitable",
         "meaning": "phù hợp.",
-        "ipa": "/ˈsutəbəl/"
+        "ipa": "/ˈsutəbəl/",
+        "exampleEn": "The word 'Suitable' is commonly used in English.",
+        "exampleVi": "Từ 'Suitable' (phù hợp.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 20,
         "word": "Suitably",
         "meaning": "một cách phù hợp.",
-        "ipa": "/ˈsutəbli/"
+        "ipa": "/ˈsutəbli/",
+        "exampleEn": "The word 'Suitably' is commonly used in English.",
+        "exampleVi": "Từ 'Suitably' (một cách phù hợp.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 21,
         "word": "Appropriate",
         "meaning": "thích hợp.",
-        "ipa": "/əˈproʊpriˌeɪt/"
+        "ipa": "/əˈproʊpriˌeɪt/",
+        "exampleEn": "The word 'Appropriate' is commonly used in English.",
+        "exampleVi": "Từ 'Appropriate' (thích hợp.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 22,
         "word": "Appropriately",
         "meaning": "một cách thích hợp.",
-        "ipa": "/əˈproʊpriɪtli/"
+        "ipa": "/əˈproʊpriɪtli/",
+        "exampleEn": "The word 'Appropriately' is commonly used in English.",
+        "exampleVi": "Từ 'Appropriately' (một cách thích hợp.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 23,
         "word": "Offer",
         "meaning": "đề nghi, cung cấp.",
-        "ipa": "/ˈɔfər/"
+        "ipa": "/ˈɔfər/",
+        "exampleEn": "The word 'Offer' is commonly used in English.",
+        "exampleVi": "Từ 'Offer' (đề nghi, cung cấp.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 24,
         "word": "Opinion",
         "meaning": "ý kiến.",
-        "ipa": "/əˈpɪnjən/"
+        "ipa": "/əˈpɪnjən/",
+        "exampleEn": "The word 'Opinion' is commonly used in English.",
+        "exampleVi": "Từ 'Opinion' (ý kiến.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 25,
         "word": "Perspective",
         "meaning": "quan điểm.",
-        "ipa": "/pərˈspɛktɪv/"
+        "ipa": "/pərˈspɛktɪv/",
+        "exampleEn": "The word 'Perspective' is commonly used in English.",
+        "exampleVi": "Từ 'Perspective' (quan điểm.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 26,
         "word": "Society",
         "meaning": "xã hội.",
-        "ipa": "/soʊˈsaɪɪti/"
+        "ipa": "/soʊˈsaɪɪti/",
+        "exampleEn": "The word 'Society' is commonly used in English.",
+        "exampleVi": "Từ 'Society' (xã hội.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 27,
         "word": "Social",
         "meaning": "thuộc về xã hội.",
-        "ipa": "/ˈsoʊʃəl/"
+        "ipa": "/ˈsoʊʃəl/",
+        "exampleEn": "The word 'Social' is commonly used in English.",
+        "exampleVi": "Từ 'Social' (thuộc về xã hội.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 28,
         "word": "Negative",
         "meaning": "tiêu cực.",
-        "ipa": "/ˈnɛgətɪv/"
+        "ipa": "/ˈnɛgətɪv/",
+        "exampleEn": "The word 'Negative' is commonly used in English.",
+        "exampleVi": "Từ 'Negative' (tiêu cực.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 29,
         "word": "Negatively",
         "meaning": "một cách tiêu cực.",
-        "ipa": "/ˈnɛgətɪvli/"
+        "ipa": "/ˈnɛgətɪvli/",
+        "exampleEn": "The word 'Negatively' is commonly used in English.",
+        "exampleVi": "Từ 'Negatively' (một cách tiêu cực.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 30,
         "word": "Positive",
         "meaning": "tích cực.",
-        "ipa": "/ˈpɑzətɪv/"
+        "ipa": "/ˈpɑzətɪv/",
+        "exampleEn": "The word 'Positive' is commonly used in English.",
+        "exampleVi": "Từ 'Positive' (tích cực.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 31,
         "word": "Positively",
         "meaning": "một cách tích cực.",
-        "ipa": "/ˈpɑzətɪvli/"
+        "ipa": "/ˈpɑzətɪvli/",
+        "exampleEn": "The word 'Positively' is commonly used in English.",
+        "exampleVi": "Từ 'Positively' (một cách tích cực.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 32,
         "word": "Issue",
         "meaning": "vấn đề.",
-        "ipa": "/ˈɪʃu/"
+        "ipa": "/ˈɪʃu/",
+        "exampleEn": "The word 'Issue' is commonly used in English.",
+        "exampleVi": "Từ 'Issue' (vấn đề.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 33,
         "word": "General Secretary",
         "meaning": "tổng bí thư.",
-        "ipa": "/ˈʤɛnərəl ˈsɛkrəˌtɛri/"
+        "ipa": "/ˈʤɛnərəl ˈsɛkrəˌtɛri/",
+        "exampleEn": "The word 'General Secretary' is commonly used in English.",
+        "exampleVi": "Từ 'General Secretary' (tổng bí thư.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 34,
         "word": "General",
         "meaning": "chung, tổng quát.",
-        "ipa": "/ˈʤɛnərəl/"
+        "ipa": "/ˈʤɛnərəl/",
+        "exampleEn": "The word 'General' is commonly used in English.",
+        "exampleVi": "Từ 'General' (chung, tổng quát.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 35,
         "word": "Generally",
         "meaning": "nói chung, thông thường.",
-        "ipa": "/ˈʤɛnərəli/"
+        "ipa": "/ˈʤɛnərəli/",
+        "exampleEn": "The word 'Generally' is commonly used in English.",
+        "exampleVi": "Từ 'Generally' (nói chung, thông thường.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 36,
         "word": "Disciplined",
         "meaning": "có kỷ luật.",
-        "ipa": "/ˈdɪsəplənd/"
+        "ipa": "/ˈdɪsəplənd/",
+        "exampleEn": "The word 'Disciplined' is commonly used in English.",
+        "exampleVi": "Từ 'Disciplined' (có kỷ luật.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 37,
         "word": "Politic",
         "meaning": "thận trong, khôn ngoan (trong cách ứng xử).",
-        "ipa": "/ˈpɑləˌtɪk/"
+        "ipa": "/ˈpɑləˌtɪk/",
+        "exampleEn": "The word 'Politic' is commonly used in English.",
+        "exampleVi": "Từ 'Politic' (thận trong, khôn ngoan (trong cách ứng xử).) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 38,
         "word": "Politician",
         "meaning": "chính tri gia.",
-        "ipa": "/ˌpɑləˈtɪʃən/"
+        "ipa": "/ˌpɑləˈtɪʃən/",
+        "exampleEn": "The word 'Politician' is commonly used in English.",
+        "exampleVi": "Từ 'Politician' (chính tri gia.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 39,
         "word": "Annual",
         "meaning": "hàng năm.",
-        "ipa": "/ˈænjuəl/"
+        "ipa": "/ˈænjuəl/",
+        "exampleEn": "The word 'Annual' is commonly used in English.",
+        "exampleVi": "Từ 'Annual' (hàng năm.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 40,
         "word": "Government",
         "meaning": "chính phủ.",
-        "ipa": "/ˈgəvərnmənt/"
+        "ipa": "/ˈgəvərnmənt/",
+        "exampleEn": "The word 'Government' is commonly used in English.",
+        "exampleVi": "Từ 'Government' (chính phủ.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 41,
         "word": "Conference",
         "meaning": "hội nghi.",
-        "ipa": "/ˈkɑnfərəns/"
+        "ipa": "/ˈkɑnfərəns/",
+        "exampleEn": "The word 'Conference' is commonly used in English.",
+        "exampleVi": "Từ 'Conference' (hội nghi.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 42,
         "word": "Convention",
         "meaning": "đại hội, hội nghi.",
-        "ipa": "/kənˈvɛnʃən/"
+        "ipa": "/kənˈvɛnʃən/",
+        "exampleEn": "The word 'Convention' is commonly used in English.",
+        "exampleVi": "Từ 'Convention' (đại hội, hội nghi.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 43,
         "word": "Ban",
         "meaning": "cấm.",
-        "ipa": "/bæn/"
+        "ipa": "/bæn/",
+        "exampleEn": "The word 'Ban' is commonly used in English.",
+        "exampleVi": "Từ 'Ban' (cấm.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 44,
         "word": "Prohibit",
         "meaning": "ngăn cấm.",
-        "ipa": "/proʊˈhɪbət/"
+        "ipa": "/proʊˈhɪbət/",
+        "exampleEn": "The word 'Prohibit' is commonly used in English.",
+        "exampleVi": "Từ 'Prohibit' (ngăn cấm.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 45,
         "word": "Prohibition",
         "meaning": "sự ngăn cấm.",
-        "ipa": "/ˌproʊəˈbɪʃən/"
+        "ipa": "/ˌproʊəˈbɪʃən/",
+        "exampleEn": "The word 'Prohibition' is commonly used in English.",
+        "exampleVi": "Từ 'Prohibition' (sự ngăn cấm.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 46,
         "word": "Allow",
         "meaning": "cho phép.",
-        "ipa": "/əˈlaʊ/"
+        "ipa": "/əˈlaʊ/",
+        "exampleEn": "The word 'Allow' is commonly used in English.",
+        "exampleVi": "Từ 'Allow' (cho phép.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 47,
         "word": "Permit",
         "meaning": "cho phép.",
-        "ipa": "/ˈpərˌmɪt/"
+        "ipa": "/ˈpərˌmɪt/",
+        "exampleEn": "The word 'Permit' is commonly used in English.",
+        "exampleVi": "Từ 'Permit' (cho phép.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 48,
         "word": "Permission",
         "meaning": "sự cho phép.",
-        "ipa": "/pərˈmɪʃən/"
+        "ipa": "/pərˈmɪʃən/",
+        "exampleEn": "The word 'Permission' is commonly used in English.",
+        "exampleVi": "Từ 'Permission' (sự cho phép.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 49,
         "word": "Minister of Justice",
         "meaning": "bộ trưởng bộ tư pháp.",
-        "ipa": "/ˈmɪnɪstər əv ˈʤəstɪs/"
+        "ipa": "/ˈmɪnɪstər əv ˈʤəstɪs/",
+        "exampleEn": "The word 'Minister of Justice' is commonly used in English.",
+        "exampleVi": "Từ 'Minister of Justice' (bộ trưởng bộ tư pháp.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 50,
         "word": "Justice",
         "meaning": "công lý.",
-        "ipa": "/ˈʤəstɪs/"
+        "ipa": "/ˈʤəstɪs/",
+        "exampleEn": "The word 'Justice' is commonly used in English.",
+        "exampleVi": "Từ 'Justice' (công lý.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 51,
         "word": "Global",
         "meaning": "toàn cầu.",
-        "ipa": "/ˈgloʊbəl/"
+        "ipa": "/ˈgloʊbəl/",
+        "exampleEn": "The word 'Global' is commonly used in English.",
+        "exampleVi": "Từ 'Global' (toàn cầu.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 52,
         "word": "E-commerce",
         "meaning": "thương mại điện tử.",
-        "ipa": "/e-commerce/"
+        "ipa": "/e-commerce/",
+        "exampleEn": "The word 'E-commerce' is commonly used in English.",
+        "exampleVi": "Từ 'E-commerce' (thương mại điện tử.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 53,
         "word": "Commerce",
         "meaning": "thương mại.",
-        "ipa": "/ˈkɑmərs/"
+        "ipa": "/ˈkɑmərs/",
+        "exampleEn": "The word 'Commerce' is commonly used in English.",
+        "exampleVi": "Từ 'Commerce' (thương mại.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 54,
         "word": "Domestic",
         "meaning": "trong nước.",
-        "ipa": "/dəˈmɛstɪk/"
+        "ipa": "/dəˈmɛstɪk/",
+        "exampleEn": "The word 'Domestic' is commonly used in English.",
+        "exampleVi": "Từ 'Domestic' (trong nước.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 55,
         "word": "Replace",
         "meaning": "thay thế.",
-        "ipa": "/ˌriˈpleɪs/"
+        "ipa": "/ˌriˈpleɪs/",
+        "exampleEn": "The word 'Replace' is commonly used in English.",
+        "exampleVi": "Từ 'Replace' (thay thế.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 56,
         "word": "Replacement",
         "meaning": "sự thay thế.",
-        "ipa": "/rɪˈpleɪsmənt/"
+        "ipa": "/rɪˈpleɪsmənt/",
+        "exampleEn": "The word 'Replacement' is commonly used in English.",
+        "exampleVi": "Từ 'Replacement' (sự thay thế.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 57,
         "word": "Concerning",
         "meaning": "liên quan đến.",
-        "ipa": "/kənˈsərnɪŋ/"
+        "ipa": "/kənˈsərnɪŋ/",
+        "exampleEn": "The word 'Concerning' is commonly used in English.",
+        "exampleVi": "Từ 'Concerning' (liên quan đến.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 58,
         "word": "Recently",
         "meaning": "gần đây.",
-        "ipa": "/ˈrisəntli/"
+        "ipa": "/ˈrisəntli/",
+        "exampleEn": "The word 'Recently' is commonly used in English.",
+        "exampleVi": "Từ 'Recently' (gần đây.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 59,
         "word": "Recent",
         "meaning": "gần đây (tính từ).",
-        "ipa": "/ˈrisənt/"
+        "ipa": "/ˈrisənt/",
+        "exampleEn": "The word 'Recent' is commonly used in English.",
+        "exampleVi": "Từ 'Recent' (gần đây (tính từ).) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 60,
         "word": "Occur",
         "meaning": "xảy ra.",
-        "ipa": "/əˈkər/"
+        "ipa": "/əˈkər/",
+        "exampleEn": "The word 'Occur' is commonly used in English.",
+        "exampleVi": "Từ 'Occur' (xảy ra.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 61,
         "word": "Happen",
         "meaning": "xảy ra.",
-        "ipa": "/ˈhæpən/"
+        "ipa": "/ˈhæpən/",
+        "exampleEn": "The word 'Happen' is commonly used in English.",
+        "exampleVi": "Từ 'Happen' (xảy ra.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 62,
         "word": "Summarize",
         "meaning": "tóm tắt.",
-        "ipa": "/ˈsəmərˌaɪz/"
+        "ipa": "/ˈsəmərˌaɪz/",
+        "exampleEn": "The word 'Summarize' is commonly used in English.",
+        "exampleVi": "Từ 'Summarize' (tóm tắt.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 63,
         "word": "Brief",
         "meaning": "ngắn gon.",
-        "ipa": "/brif/"
+        "ipa": "/brif/",
+        "exampleEn": "The word 'Brief' is commonly used in English.",
+        "exampleVi": "Từ 'Brief' (ngắn gon.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 64,
         "word": "Briefly",
         "meaning": "một cách ngắn gon.",
-        "ipa": "/ˈbrifli/"
+        "ipa": "/ˈbrifli/",
+        "exampleEn": "The word 'Briefly' is commonly used in English.",
+        "exampleVi": "Từ 'Briefly' (một cách ngắn gon.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 65,
         "word": "Summary",
         "meaning": "bản tóm tắt.",
-        "ipa": "/ˈsəməri/"
+        "ipa": "/ˈsəməri/",
+        "exampleEn": "The word 'Summary' is commonly used in English.",
+        "exampleVi": "Từ 'Summary' (bản tóm tắt.) được sử dụng phổ biến trong tiếng Anh."
       }
     ]
   },
@@ -10325,295 +11385,393 @@
         "id": 1,
         "word": "Expectation",
         "meaning": "kỳ vong.",
-        "ipa": "/ˌɛkspɛkˈteɪʃən/"
+        "ipa": "/ˌɛkspɛkˈteɪʃən/",
+        "exampleEn": "The word 'Expectation' is commonly used in English.",
+        "exampleVi": "Từ 'Expectation' (kỳ vong.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 2,
         "word": "Expect",
         "meaning": "mong đợi.",
-        "ipa": "/ɪkˈspɛkt/"
+        "ipa": "/ɪkˈspɛkt/",
+        "exampleEn": "The word 'Expect' is commonly used in English.",
+        "exampleVi": "Từ 'Expect' (mong đợi.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 3,
         "word": "Initial",
         "meaning": "ban đầu.",
-        "ipa": "/ˌɪˈnɪʃəl/"
+        "ipa": "/ˌɪˈnɪʃəl/",
+        "exampleEn": "The word 'Initial' is commonly used in English.",
+        "exampleVi": "Từ 'Initial' (ban đầu.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 4,
         "word": "Initially",
         "meaning": "lúc đầu.",
-        "ipa": "/ˌɪˈnɪʃəli/"
+        "ipa": "/ˌɪˈnɪʃəli/",
+        "exampleEn": "The word 'Initially' is commonly used in English.",
+        "exampleVi": "Từ 'Initially' (lúc đầu.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 5,
         "word": "Phase",
         "meaning": "giai đoạn.",
-        "ipa": "/feɪz/"
+        "ipa": "/feɪz/",
+        "exampleEn": "The word 'Phase' is commonly used in English.",
+        "exampleVi": "Từ 'Phase' (giai đoạn.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 6,
         "word": "Launch",
         "meaning": "ra mắt, khởi động.",
-        "ipa": "/lɔnʧ/"
+        "ipa": "/lɔnʧ/",
+        "exampleEn": "The word 'Launch' is commonly used in English.",
+        "exampleVi": "Từ 'Launch' (ra mắt, khởi động.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 7,
         "word": "Negotiate",
         "meaning": "đàm phán.",
-        "ipa": "/nɪˈgoʊʃiˌeɪt/"
+        "ipa": "/nɪˈgoʊʃiˌeɪt/",
+        "exampleEn": "The word 'Negotiate' is commonly used in English.",
+        "exampleVi": "Từ 'Negotiate' (đàm phán.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 8,
         "word": "Negotiation",
         "meaning": "cuộc đàm phán.",
-        "ipa": "/nɪˌgoʊʃiˈeɪʃən/"
+        "ipa": "/nɪˌgoʊʃiˈeɪʃən/",
+        "exampleEn": "The word 'Negotiation' is commonly used in English.",
+        "exampleVi": "Từ 'Negotiation' (cuộc đàm phán.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 9,
         "word": "Expand",
         "meaning": "mở rộng.",
-        "ipa": "/ɪkˈspænd/"
+        "ipa": "/ɪkˈspænd/",
+        "exampleEn": "The word 'Expand' is commonly used in English.",
+        "exampleVi": "Từ 'Expand' (mở rộng.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 10,
         "word": "Expansion",
         "meaning": "sự mở rộng.",
-        "ipa": "/ɪkˈspænʧən/"
+        "ipa": "/ɪkˈspænʧən/",
+        "exampleEn": "The word 'Expansion' is commonly used in English.",
+        "exampleVi": "Từ 'Expansion' (sự mở rộng.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 11,
         "word": "Believe",
         "meaning": "tin tưởng.",
-        "ipa": "/bɪˈliv/"
+        "ipa": "/bɪˈliv/",
+        "exampleEn": "The word 'Believe' is commonly used in English.",
+        "exampleVi": "Từ 'Believe' (tin tưởng.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 12,
         "word": "Rely on",
         "meaning": "dựa vào.",
-        "ipa": "/rɪˈlaɪ ɔn/"
+        "ipa": "/rɪˈlaɪ ɔn/",
+        "exampleEn": "The word 'Rely on' is commonly used in English.",
+        "exampleVi": "Từ 'Rely on' (dựa vào.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 13,
         "word": "Convince",
         "meaning": "thuyết phuc.",
-        "ipa": "/kənˈvɪns/"
+        "ipa": "/kənˈvɪns/",
+        "exampleEn": "The word 'Convince' is commonly used in English.",
+        "exampleVi": "Từ 'Convince' (thuyết phuc.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 14,
         "word": "Persuade",
         "meaning": "thuyết phuc (hành động).",
-        "ipa": "/pərsˈweɪd/"
+        "ipa": "/pərsˈweɪd/",
+        "exampleEn": "The word 'Persuade' is commonly used in English.",
+        "exampleVi": "Từ 'Persuade' (thuyết phuc (hành động).) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 15,
         "word": "Persuasion",
         "meaning": "sự thuyết phuc.",
-        "ipa": "/pərsˈweɪʒən/"
+        "ipa": "/pərsˈweɪʒən/",
+        "exampleEn": "The word 'Persuasion' is commonly used in English.",
+        "exampleVi": "Từ 'Persuasion' (sự thuyết phuc.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 16,
         "word": "Disappear",
         "meaning": "biến mất.",
-        "ipa": "/ˌdɪsəˈpɪr/"
+        "ipa": "/ˌdɪsəˈpɪr/",
+        "exampleEn": "The word 'Disappear' is commonly used in English.",
+        "exampleVi": "Từ 'Disappear' (biến mất.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 17,
         "word": "Transform",
         "meaning": "biến đổi.",
-        "ipa": "/ˈtrænsfɔrm/"
+        "ipa": "/ˈtrænsfɔrm/",
+        "exampleEn": "The word 'Transform' is commonly used in English.",
+        "exampleVi": "Từ 'Transform' (biến đổi.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 18,
         "word": "Similar",
         "meaning": "tương tự.",
-        "ipa": "/ˈsɪmələr/"
+        "ipa": "/ˈsɪmələr/",
+        "exampleEn": "The word 'Similar' is commonly used in English.",
+        "exampleVi": "Từ 'Similar' (tương tự.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 19,
         "word": "Poison",
         "meaning": "chất độc.",
-        "ipa": "/ˈpɔɪzən/"
+        "ipa": "/ˈpɔɪzən/",
+        "exampleEn": "The word 'Poison' is commonly used in English.",
+        "exampleVi": "Từ 'Poison' (chất độc.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 20,
         "word": "Poisonous",
         "meaning": "độc hại.",
-        "ipa": "/ˈpɔɪzənəs/"
+        "ipa": "/ˈpɔɪzənəs/",
+        "exampleEn": "The word 'Poisonous' is commonly used in English.",
+        "exampleVi": "Từ 'Poisonous' (độc hại.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 21,
         "word": "Toxic",
         "meaning": "độc hại.",
-        "ipa": "/ˈtɑksɪk/"
+        "ipa": "/ˈtɑksɪk/",
+        "exampleEn": "The word 'Toxic' is commonly used in English.",
+        "exampleVi": "Từ 'Toxic' (độc hại.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 22,
         "word": "Smooth",
         "meaning": "mượt mà, trơn tru.",
-        "ipa": "/smuð/"
+        "ipa": "/smuð/",
+        "exampleEn": "The word 'Smooth' is commonly used in English.",
+        "exampleVi": "Từ 'Smooth' (mượt mà, trơn tru.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 23,
         "word": "Smoothly",
         "meaning": "một cách trơn tru.",
-        "ipa": "/sˈmuðli/"
+        "ipa": "/sˈmuðli/",
+        "exampleEn": "The word 'Smoothly' is commonly used in English.",
+        "exampleVi": "Từ 'Smoothly' (một cách trơn tru.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 24,
         "word": "Flexible",
         "meaning": "linh hoạt.",
-        "ipa": "/ˈflɛksəbəl/"
+        "ipa": "/ˈflɛksəbəl/",
+        "exampleEn": "The word 'Flexible' is commonly used in English.",
+        "exampleVi": "Từ 'Flexible' (linh hoạt.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 25,
         "word": "Flexibly",
         "meaning": "một cách linh hoạt.",
-        "ipa": "/ˈflɛksəbli/"
+        "ipa": "/ˈflɛksəbli/",
+        "exampleEn": "The word 'Flexibly' is commonly used in English.",
+        "exampleVi": "Từ 'Flexibly' (một cách linh hoạt.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 26,
         "word": "Dragon",
         "meaning": "con rồng.",
-        "ipa": "/ˈdrægən/"
+        "ipa": "/ˈdrægən/",
+        "exampleEn": "The word 'Dragon' is commonly used in English.",
+        "exampleVi": "Từ 'Dragon' (con rồng.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 27,
         "word": "Discover",
         "meaning": "khám phá.",
-        "ipa": "/dɪˈskəvər/"
+        "ipa": "/dɪˈskəvər/",
+        "exampleEn": "The word 'Discover' is commonly used in English.",
+        "exampleVi": "Từ 'Discover' (khám phá.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 28,
         "word": "Discovery",
         "meaning": "sự khám phá.",
-        "ipa": "/ˌdɪˈskəvri/"
+        "ipa": "/ˌdɪˈskəvri/",
+        "exampleEn": "The word 'Discovery' is commonly used in English.",
+        "exampleVi": "Từ 'Discovery' (sự khám phá.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 29,
         "word": "Explore",
         "meaning": "thăm dò, khám phá.",
-        "ipa": "/ɪkˈsplɔr/"
+        "ipa": "/ɪkˈsplɔr/",
+        "exampleEn": "The word 'Explore' is commonly used in English.",
+        "exampleVi": "Từ 'Explore' (thăm dò, khám phá.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 30,
         "word": "Exploration",
         "meaning": "sự thám hiểm.",
-        "ipa": "/ˌɛksplərˈeɪʃən/"
+        "ipa": "/ˌɛksplərˈeɪʃən/",
+        "exampleEn": "The word 'Exploration' is commonly used in English.",
+        "exampleVi": "Từ 'Exploration' (sự thám hiểm.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 31,
         "word": "Exceed",
         "meaning": "vượt quá.",
-        "ipa": "/ɪkˈsid/"
+        "ipa": "/ɪkˈsid/",
+        "exampleEn": "The word 'Exceed' is commonly used in English.",
+        "exampleVi": "Từ 'Exceed' (vượt quá.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 32,
         "word": "Exceeding",
         "meaning": "vượt trội.",
-        "ipa": "/ɪkˈsidɪŋ/"
+        "ipa": "/ɪkˈsidɪŋ/",
+        "exampleEn": "The word 'Exceeding' is commonly used in English.",
+        "exampleVi": "Từ 'Exceeding' (vượt trội.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 33,
         "word": "Exceedingly",
         "meaning": "cực kỳ, vô cùng.",
-        "ipa": "/ɪkˈsidɪŋli/"
+        "ipa": "/ɪkˈsidɪŋli/",
+        "exampleEn": "The word 'Exceedingly' is commonly used in English.",
+        "exampleVi": "Từ 'Exceedingly' (cực kỳ, vô cùng.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 34,
         "word": "A new line of dessert",
         "meaning": "dòng sản phẩm tráng miệng mới.",
-        "ipa": "/ə nu laɪn əv dɪˈzərt/"
+        "ipa": "/ə nu laɪn əv dɪˈzərt/",
+        "exampleEn": "The word 'A new line of dessert' is commonly used in English.",
+        "exampleVi": "Từ 'A new line of dessert' (dòng sản phẩm tráng miệng mới.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 35,
         "word": "Associate",
         "meaning": "liên kết, cộng tác.",
-        "ipa": "/əˈsoʊʃiˌeɪt/"
+        "ipa": "/əˈsoʊʃiˌeɪt/",
+        "exampleEn": "The word 'Associate' is commonly used in English.",
+        "exampleVi": "Từ 'Associate' (liên kết, cộng tác.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 36,
         "word": "Cosmetic",
         "meaning": "mỹ phẩm.",
-        "ipa": "/kɑzˈmɛtɪk/"
+        "ipa": "/kɑzˈmɛtɪk/",
+        "exampleEn": "The word 'Cosmetic' is commonly used in English.",
+        "exampleVi": "Từ 'Cosmetic' (mỹ phẩm.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 37,
         "word": "Initiative",
         "meaning": "sáng kiến.",
-        "ipa": "/ˌɪˈnɪʃətɪv/"
+        "ipa": "/ˌɪˈnɪʃətɪv/",
+        "exampleEn": "The word 'Initiative' is commonly used in English.",
+        "exampleVi": "Từ 'Initiative' (sáng kiến.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 38,
         "word": "Founder",
         "meaning": "người sáng lập.",
-        "ipa": "/ˈfaʊndər/"
+        "ipa": "/ˈfaʊndər/",
+        "exampleEn": "The word 'Founder' is commonly used in English.",
+        "exampleVi": "Từ 'Founder' (người sáng lập.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 39,
         "word": "Trade",
         "meaning": "thương mại, buôn bán.",
-        "ipa": "/treɪd/"
+        "ipa": "/treɪd/",
+        "exampleEn": "The word 'Trade' is commonly used in English.",
+        "exampleVi": "Từ 'Trade' (thương mại, buôn bán.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 40,
         "word": "Forum",
         "meaning": "diễn đàn.",
-        "ipa": "/ˈfɔrəm/"
+        "ipa": "/ˈfɔrəm/",
+        "exampleEn": "The word 'Forum' is commonly used in English.",
+        "exampleVi": "Từ 'Forum' (diễn đàn.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 41,
         "word": "Cloud",
         "meaning": "đám mây.",
-        "ipa": "/klaʊd/"
+        "ipa": "/klaʊd/",
+        "exampleEn": "The word 'Cloud' is commonly used in English.",
+        "exampleVi": "Từ 'Cloud' (đám mây.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 42,
         "word": "Soil",
         "meaning": "đất.",
-        "ipa": "/sɔɪl/"
+        "ipa": "/sɔɪl/",
+        "exampleEn": "The word 'Soil' is commonly used in English.",
+        "exampleVi": "Từ 'Soil' (đất.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 43,
         "word": "Flavor",
         "meaning": "hương vi.",
-        "ipa": "/ˈfleɪvər/"
+        "ipa": "/ˈfleɪvər/",
+        "exampleEn": "The word 'Flavor' is commonly used in English.",
+        "exampleVi": "Từ 'Flavor' (hương vi.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 44,
         "word": "Release",
         "meaning": "phát hành, giải phóng.",
-        "ipa": "/riˈlis/"
+        "ipa": "/riˈlis/",
+        "exampleEn": "The word 'Release' is commonly used in English.",
+        "exampleVi": "Từ 'Release' (phát hành, giải phóng.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 45,
         "word": "Expose",
         "meaning": "phơi bày, lộ ra.",
-        "ipa": "/ɪkˈspoʊz/"
+        "ipa": "/ɪkˈspoʊz/",
+        "exampleEn": "The word 'Expose' is commonly used in English.",
+        "exampleVi": "Từ 'Expose' (phơi bày, lộ ra.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 46,
         "word": "Exist",
         "meaning": "tồn tại.",
-        "ipa": "/ɪgˈzɪst/"
+        "ipa": "/ɪgˈzɪst/",
+        "exampleEn": "The word 'Exist' is commonly used in English.",
+        "exampleVi": "Từ 'Exist' (tồn tại.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 47,
         "word": "Existing",
         "meaning": "hiện có.",
-        "ipa": "/ɪgˈzɪstɪŋ/"
+        "ipa": "/ɪgˈzɪstɪŋ/",
+        "exampleEn": "The word 'Existing' is commonly used in English.",
+        "exampleVi": "Từ 'Existing' (hiện có.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 48,
         "word": "Heritage site",
         "meaning": "di sản văn hóa.",
-        "ipa": "/ˈhɛrɪtɪʤ saɪt/"
+        "ipa": "/ˈhɛrɪtɪʤ saɪt/",
+        "exampleEn": "The word 'Heritage site' is commonly used in English.",
+        "exampleVi": "Từ 'Heritage site' (di sản văn hóa.) được sử dụng phổ biến trong tiếng Anh."
       },
       {
         "id": 49,
         "word": "Site",
         "meaning": "đia điểm, khu vực.",
-        "ipa": "/saɪt/"
+        "ipa": "/saɪt/",
+        "exampleEn": "The word 'Site' is commonly used in English.",
+        "exampleVi": "Từ 'Site' (đia điểm, khu vực.) được sử dụng phổ biến trong tiếng Anh."
       }
     ]
   }

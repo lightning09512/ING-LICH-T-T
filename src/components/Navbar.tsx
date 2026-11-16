@@ -37,35 +37,35 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="relative z-10 w-full px-4 py-3 bg-white border-b-4 border-black flex items-center justify-between shadow-neo-sm">
+    <header className="relative z-10 w-full px-2.5 sm:px-4 py-2 sm:py-3 bg-white border-b-4 border-black flex items-center justify-between shadow-neo-sm">
       <div 
         onClick={() => { sounds.playClick(); onGoHome(); }}
-        className="flex items-center gap-3 cursor-pointer group"
+        className="flex items-center gap-2 sm:gap-3 cursor-pointer group min-h-[44px]"
       >
         <img 
           src="/trollface.png" 
           alt="Trollface" 
-          className="w-9 h-9 object-contain group-hover:rotate-12 transition-transform" 
+          className="w-8 h-8 sm:w-10 sm:h-10 object-contain group-hover:rotate-12 transition-transform shrink-0" 
         />
-        <div className="flex flex-col">
-          <span className="font-heading text-lg md:text-xl font-black tracking-wide uppercase">
+        <div className="flex flex-col min-w-0">
+          <span className="font-heading text-base sm:text-lg md:text-xl font-black tracking-wide uppercase truncate">
             Ing Lịch Tét
           </span>
-          <span className="text-xs text-pink-600 font-bold -mt-1">
-            Dành riêng cho {nickname} ❤️
+          <span className="text-[11px] sm:text-xs text-pink-600 font-bold -mt-0.5 truncate">
+            Dành cho {nickname} ❤️
           </span>
         </div>
       </div>
 
-      <div className="flex items-center gap-2 md:gap-4">
+      <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 shrink-0">
         {/* Streak Indicator */}
-        <div className="hidden sm:flex items-center gap-1.5 px-3 py-1 bg-orange-100 border-2 border-black rounded shadow-neo-sm font-bold text-sm">
+        <div className="hidden md:flex items-center gap-1.5 px-3 py-1 bg-orange-100 border-2 border-black rounded shadow-neo-sm font-bold text-xs sm:text-sm min-h-[40px]">
           <Flame className="w-4 h-4 text-orange-500 fill-orange-500" />
           <span>{streakDays} ngày</span>
         </div>
 
         {/* 3 Hearts indicator */}
-        <div className="flex items-center gap-1 px-3 py-1 bg-pink-100 border-2 border-black rounded shadow-neo-sm">
+        <div className="hidden sm:flex items-center gap-1 px-2.5 py-1 bg-pink-100 border-2 border-black rounded shadow-neo-sm min-h-[40px]">
           <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
           <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
           <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
@@ -74,8 +74,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Fullscreen Toggle */}
         <button
           onClick={toggleFullscreen}
-          className="p-2 border-2 border-black bg-neoPurple rounded hover:bg-purple-300 active:translate-x-0.5 active:translate-y-0.5 shadow-neo-sm"
+          className="w-10 h-10 sm:w-11 sm:h-11 border-2 border-black bg-neoPurple rounded hover:bg-purple-300 active:scale-95 shadow-neo-sm flex items-center justify-center cursor-pointer transition-transform"
           title={isFullscreen ? "Thu nhỏ màn hình" : "Toàn màn hình"}
+          aria-label="Toàn màn hình"
         >
           {isFullscreen ? <Minimize className="w-5 h-5" /> : <Maximize className="w-5 h-5" />}
         </button>
@@ -86,8 +87,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             sounds.playClick();
             onToggleSound();
           }}
-          className="p-2 border-2 border-black bg-neoYellow rounded hover:bg-yellow-400 active:translate-x-0.5 active:translate-y-0.5 shadow-neo-sm"
+          className="w-10 h-10 sm:w-11 sm:h-11 border-2 border-black bg-neoYellow rounded hover:bg-yellow-400 active:scale-95 shadow-neo-sm flex items-center justify-center cursor-pointer transition-transform"
           title={soundEnabled ? "Tắt âm thanh" : "Bật âm thanh"}
+          aria-label="Bật tắt âm thanh"
         >
           {soundEnabled ? <Volume2 className="w-5 h-5" /> : <VolumeX className="w-5 h-5 text-red-600" />}
         </button>
@@ -98,8 +100,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             sounds.playClick();
             onGoHome();
           }}
-          className="p-2 border-2 border-black bg-neoCyan rounded hover:bg-cyan-300 active:translate-x-0.5 active:translate-y-0.5 shadow-neo-sm"
+          className="w-10 h-10 sm:w-11 sm:h-11 border-2 border-black bg-neoCyan rounded hover:bg-cyan-300 active:scale-95 shadow-neo-sm flex items-center justify-center cursor-pointer transition-transform"
           title="Về Trang Chủ"
+          aria-label="Về Trang Chủ"
         >
           <Home className="w-5 h-5" />
         </button>

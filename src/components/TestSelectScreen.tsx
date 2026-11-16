@@ -59,31 +59,31 @@ export const TestSelectScreen: React.FC<TestSelectScreenProps> = ({
   }, []);
 
   return (
-    <div className="relative z-10 w-full max-w-5xl mx-auto px-4 py-6 md:py-10 pb-24">
+    <div className="relative z-10 w-full max-w-5xl mx-auto px-3 sm:px-4 py-4 sm:py-6 md:py-10 pb-28 sm:pb-24">
       {/* Top Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 md:mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-5 sm:mb-8">
         <div>
           <button
             onClick={() => {
               sounds.playClick();
               onBack();
             }}
-            className="flex items-center gap-2 px-4 py-2 bg-white border-2 border-black font-black text-sm uppercase shadow-neo-sm hover:bg-gray-100 active:translate-x-0.5 active:translate-y-0.5 cursor-pointer mb-2"
+            className="flex items-center gap-2 px-3.5 sm:px-4 py-2 bg-white border-2 border-black font-black text-xs sm:text-sm uppercase shadow-neo-sm hover:bg-gray-100 active:scale-95 cursor-pointer mb-2 min-h-[44px]"
           >
             <ArrowLeft className="w-4 h-4" /> Quay lại Menu
           </button>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading text-black flex items-center gap-3">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-black font-heading text-black flex flex-wrap items-center gap-2 sm:gap-3">
             <span>📚 Kho Đề Thi TOEIC</span>
-            <span className="text-base font-bold bg-neoYellow border-2 border-black px-3 py-1 shadow-neo-sm rotate-2">
+            <span className="text-sm sm:text-base font-bold bg-neoYellow border-2 border-black px-2.5 sm:px-3 py-0.5 sm:py-1 shadow-neo-sm rotate-2">
               {tests.length} đề thi
             </span>
           </h1>
-          <p className="text-sm sm:text-base font-bold text-gray-700 mt-1">
+          <p className="text-xs sm:text-sm md:text-base font-bold text-gray-700 mt-1">
             Chọn đề thi để thử thách bản thân nào {nickname}! Đầy đủ Audio Listening + Đáp án chi tiết.
           </p>
         </div>
 
-        <div className="shrink-0 bg-neoPink text-white px-3 py-1.5 border-2 border-black font-black text-xs uppercase shadow-neo-sm">
+        <div className="self-start sm:self-auto shrink-0 bg-neoPink text-white px-3 py-1.5 border-2 border-black font-black text-xs uppercase shadow-neo-sm">
           🔥 Chuẩn Quốc Tế 200 Câu
         </div>
       </div>

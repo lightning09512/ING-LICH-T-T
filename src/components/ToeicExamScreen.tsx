@@ -47,6 +47,7 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
   const [showTranscript, setShowTranscript] = useState<{ [questionId: number]: boolean }>({});
   const [showMobilePalette, setShowMobilePalette] = useState(false);
   const [highlightedQId, setHighlightedQId] = useState<number | null>(null);
+  const [activePassageModal, setActivePassageModal] = useState<{ title: string; passage: string } | null>(null);
 
   const activeAudioUrl = test.audioUrl || test.questions[0]?.audioUrl;
   const isListeningPart = activePart <= 4;
@@ -339,37 +340,40 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
       )}
 
       {/* TOP HEADER BAR */}
-      <div className="bg-white border-4 border-black p-3 sm:p-4 mb-3 shadow-neo-sm flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-4">
-        <div className="flex items-center justify-between md:justify-start gap-3">
+      <div className="bg-white border-4 border-black p-2.5 sm:p-4 mb-2 sm:mb-3 shadow-neo-sm flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4">
+        <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
           <button
             onClick={() => { 
               sounds.playClick(); 
               if (audioRef.current) audioRef.current.pause();
               onBack(); 
             }}
-            className="flex items-center gap-1.5 px-3 py-2 bg-gray-100 border-2 border-black font-bold text-xs sm:text-sm shadow-neo-sm hover:bg-gray-200 active:translate-x-0.5 active:translate-y-0.5 min-h-[44px] cursor-pointer"
+            className="flex items-center justify-center gap-1.5 px-3 py-2 bg-gray-100 border-2 border-black font-black text-xs sm:text-sm shadow-neo-sm hover:bg-gray-200 active:scale-95 min-h-[44px] cursor-pointer shrink-0"
+            title="Đổi sang đề thi khác"
           >
             <ArrowLeft className="w-4 h-4" /> Đổi Đề
           </button>
-          <div>
-            <h2 className="font-heading font-black text-base sm:text-lg md:text-xl uppercase leading-tight line-clamp-1">
+          <div className="min-w-0">
+            <h2 className="font-heading font-black text-sm sm:text-base md:text-xl uppercase leading-tight truncate">
               {test.title}
             </h2>
-            <p className="text-xs font-bold text-gray-500">
-              Mã đề: {test.code} • 200 câu • 120 phút
+            <p className="text-[11px] sm:text-xs font-bold text-gray-500 truncate">
+              Mã: {test.code} • 200 câu • 120 phút
             </p>
           </div>
         </div>
 
         {/* Quick Submit & Status */}
-        <div className="flex items-center gap-2.5">
-          <div className="bg-amber-100 border-2 border-black px-3 py-1.5 text-xs font-black shadow-neo-sm">
-            Đã làm: <span className="text-neoPink font-mono text-sm">{Object.keys(answers).length}</span>/200
+        <div className="flex items-center justify-between sm:justify-end gap-2 shrink-0">
+          <div className="bg-amber-100 border-2 border-black px-2.5 sm:px-3 py-1.5 text-xs font-black shadow-neo-sm flex items-center gap-1 min-h-[44px]">
+            <span>Đã làm:</span>
+            <span className="text-neoPink font-mono text-sm sm:text-base font-black">{Object.keys(answers).length}</span>
+            <span>/200</span>
           </div>
           {!isSubmitted && (
             <button
               onClick={handleSubmit}
-              className="px-4 py-2 bg-neoPink text-white border-2 border-black font-heading font-black text-xs sm:text-sm uppercase shadow-neo-sm hover:bg-pink-600 active:translate-x-0.5 active:translate-y-0.5 cursor-pointer flex items-center gap-1.5"
+              className="px-3.5 sm:px-4 py-2 bg-neoPink text-white border-2 border-black font-heading font-black text-xs sm:text-sm uppercase shadow-neo-sm hover:bg-pink-600 active:scale-95 cursor-pointer flex items-center justify-center gap-1.5 min-h-[44px]"
             >
               <Send className="w-4 h-4" /> Nộp Bài
             </button>
@@ -378,7 +382,7 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
       </div>
 
       {/* STICKY PART TABS BAR (7 PARTS) */}
-      <div className="sticky top-2 z-30 bg-white border-4 border-black p-2 mb-4 shadow-neo flex items-center gap-1.5 sm:gap-2 overflow-x-auto scrollbar-none">
+      <div className="sticky top-0 z-30 bg-white border-4 border-black p-1.5 sm:p-2 mb-2 sm:mb-4 shadow-neo flex items-center gap-1.5 sm:gap-2 overflow-x-auto scrollbar-none touch-pan-x">
         {[1, 2, 3, 4, 5, 6, 7].map(part => {
           const isActive = activePart === part;
           const stat = partQuestionCounts[part] || { total: 0, done: 0 };
@@ -390,9 +394,9 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
               onClick={() => {
                 sounds.playClick();
                 setActivePart(part);
-                window.scrollTo({ top: 120, behavior: 'smooth' });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className={`flex items-center gap-1.5 px-3 sm:px-4 py-2 border-2 border-black font-black text-xs sm:text-sm uppercase shadow-neo-sm whitespace-nowrap min-h-[42px] cursor-pointer transition-all active:translate-x-0.5 active:translate-y-0.5 ${
+              className={`flex items-center gap-1.5 px-3 sm:px-4 py-2 border-2 border-black font-black text-xs sm:text-sm uppercase shadow-neo-sm whitespace-nowrap min-h-[44px] cursor-pointer transition-all active:scale-95 shrink-0 ${
                 isActive 
                   ? 'bg-neoYellow text-black -translate-y-0.5 shadow-neo' 
                   : isDone
@@ -401,7 +405,7 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
               }`}
             >
               <span>Part {part}</span>
-              <span className={`text-[11px] font-mono px-1.5 py-0.2 rounded border ${
+              <span className={`text-[11px] font-mono px-1.5 py-0.5 rounded border ${
                 isActive ? 'bg-black text-white border-black' : 'bg-gray-100 text-gray-700 border-gray-400'
               }`}>
                 {stat.done}/{stat.total}
@@ -413,47 +417,51 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
 
       {/* STICKY AUDIO BAR FOR LISTENING PARTS (PARTS 1 to 4) */}
       {isListeningPart && activeAudioUrl && (
-        <div className="sticky top-[68px] z-20 bg-amber-200 border-4 border-black p-3 mb-4 shadow-neo flex flex-col gap-2 animate-fadeIn">
-          <div className="flex flex-wrap items-center justify-between gap-2.5">
-            <div className="flex items-center gap-2">
+        <div className="sticky top-[54px] sm:top-[62px] z-20 bg-amber-200 border-4 border-black p-2 sm:p-3 mb-3 sm:mb-4 shadow-neo flex flex-col gap-1.5 sm:gap-2 animate-fadeIn">
+          {/* Main Controls Row */}
+          <div className="flex flex-wrap items-center justify-between gap-1.5 sm:gap-2.5">
+            <div className="flex items-center gap-1.5 sm:gap-2 flex-1 min-w-0">
               <button
                 onClick={toggleAudio}
-                className={`flex items-center gap-2 px-4 py-2 border-2 border-black font-black text-xs sm:text-sm uppercase shadow-neo-sm min-h-[44px] cursor-pointer transition-all active:translate-x-0.5 active:translate-y-0.5 ${
+                className={`flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 border-2 border-black font-black text-xs sm:text-sm uppercase shadow-neo-sm min-h-[44px] cursor-pointer transition-all active:scale-95 shrink-0 ${
                   audioPlaying ? 'bg-red-500 text-white animate-pulse' : 'bg-neoGreen text-black hover:bg-emerald-400'
                 }`}
+                aria-label={audioPlaying ? "Tạm dừng audio" : "Phát audio"}
               >
-                {audioPlaying ? <Pause className="w-5 h-5 fill-white" /> : <Play className="w-5 h-5 fill-black" />}
-                <span>{audioPlaying ? "Tạm Dừng" : "Phát Audio Nghe"}</span>
+                {audioPlaying ? <Pause className="w-4 h-4 sm:w-5 sm:h-5 fill-white" /> : <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-black" />}
+                <span className="font-heading">{audioPlaying ? "Tạm Dừng" : "Phát Audio"}</span>
               </button>
 
               <button
                 onClick={() => seekAudio(-5)}
-                className="px-2.5 py-2 bg-white border-2 border-black font-black text-xs shadow-neo-sm hover:bg-gray-100 min-h-[44px] cursor-pointer"
+                className="w-10 sm:w-11 min-h-[44px] bg-white border-2 border-black font-black text-xs shadow-neo-sm hover:bg-gray-100 flex items-center justify-center cursor-pointer active:scale-95 shrink-0"
                 title="Lùi 5 giây"
+                aria-label="Lùi 5 giây"
               >
                 -5s
               </button>
               <button
                 onClick={() => seekAudio(5)}
-                className="px-2.5 py-2 bg-white border-2 border-black font-black text-xs shadow-neo-sm hover:bg-gray-100 min-h-[44px] cursor-pointer"
+                className="w-10 sm:w-11 min-h-[44px] bg-white border-2 border-black font-black text-xs shadow-neo-sm hover:bg-gray-100 flex items-center justify-center cursor-pointer active:scale-95 shrink-0"
                 title="Tới 5 giây"
+                aria-label="Tới 5 giây"
               >
                 +5s
               </button>
 
-              <span className="text-xs sm:text-sm font-black font-mono bg-white border-2 border-black px-2.5 py-2 shadow-neo-sm">
+              <span className="text-[11px] sm:text-sm font-black font-mono bg-white border-2 border-black px-2 sm:px-2.5 py-1.5 shadow-neo-sm whitespace-nowrap min-h-[44px] flex items-center justify-center">
                 {formatAudioTime(audioCurrentTime)} / {formatAudioTime(audioDuration)}
               </span>
             </div>
 
             {/* Speed Controls */}
-            <div className="flex items-center gap-1">
-              <span className="text-xs font-bold mr-1">Tốc độ:</span>
+            <div className="flex items-center gap-1 shrink-0">
+              <span className="hidden sm:inline text-xs font-bold mr-1">Tốc độ:</span>
               {[0.8, 1.0, 1.25].map(speed => (
                 <button
                   key={speed}
                   onClick={() => { sounds.playClick(); setAudioSpeed(speed); }}
-                  className={`px-2 py-1 text-xs font-black border-2 border-black min-h-[32px] min-w-[34px] cursor-pointer transition-all ${
+                  className={`px-1.5 sm:px-2 py-1 text-xs font-black border-2 border-black min-h-[38px] sm:min-h-[40px] min-w-[34px] sm:min-w-[38px] cursor-pointer transition-all active:scale-95 ${
                     audioSpeed === speed ? 'bg-black text-white shadow-neo-sm' : 'bg-white text-black hover:bg-gray-100'
                   }`}
                 >
@@ -476,7 +484,8 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
                 setAudioCurrentTime(val);
                 if (audioRef.current) audioRef.current.currentTime = val;
               }}
-              className="w-full accent-black cursor-pointer h-2.5 bg-white rounded border border-black"
+              className="w-full accent-black cursor-pointer h-3 bg-white rounded border border-black"
+              aria-label="Thanh trượt audio"
             />
           </div>
         </div>
@@ -541,16 +550,25 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
 
               {/* Shared Reading Passage (Part 6 & Part 7) */}
               {group.passage && (
-                <div className="bg-amber-50/90 border-3 border-black p-4 sm:p-6 text-sm sm:text-base font-serif leading-relaxed whitespace-pre-line shadow-neo-sm max-h-[500px] overflow-y-auto">
-                  <div className="font-sans font-black text-xs uppercase text-pink-700 mb-2 border-b-2 border-pink-300 pb-1 flex items-center gap-2">
-                    📖 Đọc văn bản sau để trả lời các câu hỏi:
+                <div className="bg-amber-50/90 border-3 border-black p-3.5 sm:p-6 text-sm sm:text-base font-serif leading-relaxed whitespace-pre-line shadow-neo-sm max-h-[360px] sm:max-h-[500px] overflow-y-auto">
+                  <div className="flex items-center justify-between border-b-2 border-pink-300 pb-1.5 mb-2.5">
+                    <div className="font-sans font-black text-xs uppercase text-pink-700 flex items-center gap-1.5">
+                      📖 Đọc văn bản sau để trả lời các câu hỏi:
+                    </div>
+                    <button
+                      onClick={() => setActivePassageModal({ title: group.title, passage: group.passage || '' })}
+                      className="px-2.5 py-1 bg-neoYellow border border-black font-sans font-black text-xs uppercase shadow-neo-sm hover:bg-yellow-300 active:scale-95 cursor-pointer flex items-center gap-1 shrink-0"
+                      title="Mở toàn màn hình bài đọc"
+                    >
+                      <span>Toàn màn hình 🔍</span>
+                    </button>
                   </div>
                   {group.passage}
                 </div>
               )}
 
               {/* QUESTIONS LIST INSIDE THIS GROUP */}
-              <div className="flex flex-col gap-8">
+              <div className="flex flex-col gap-6 sm:gap-8">
                 {group.questions.map((q) => {
                   const isSelected = answers[q.id];
                   const isFlagged = flagged[q.id];
@@ -565,7 +583,7 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
                       }`}
                     >
                       {/* Individual Question Meta Header */}
-                      <div className="flex items-center justify-between mb-3">
+                      <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <div className="flex items-center gap-2">
                           <span className="px-3 py-1 bg-black text-white font-black text-xs sm:text-sm uppercase rounded shadow-neo-sm">
                             Câu #{q.id}
@@ -577,15 +595,28 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
                           )}
                         </div>
 
-                        <button
-                          onClick={() => toggleFlag(q.id)}
-                          className={`flex items-center gap-1.5 px-3 py-1 border-2 border-black text-xs font-bold shadow-neo-sm min-h-[34px] transition-all cursor-pointer ${
-                            isFlagged ? 'bg-yellow-300 text-black font-black' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                          }`}
-                        >
-                          <Flag className="w-3.5 h-3.5 fill-current" />
-                          <span>{isFlagged ? "Đã cờ" : "Gắn cờ"}</span>
-                        </button>
+                        <div className="flex items-center gap-2">
+                          {/* Quick Passage Peek for Mobile/Tablet */}
+                          {group.passage && (
+                            <button
+                              onClick={() => setActivePassageModal({ title: group.title, passage: group.passage || '' })}
+                              className="flex items-center gap-1 px-2.5 py-1 bg-pink-100 hover:bg-pink-200 border-2 border-black text-xs font-black text-pink-800 shadow-neo-sm min-h-[36px] active:scale-95 cursor-pointer"
+                              title="Xem đoạn văn bài đọc mà không cần cuộn lên"
+                            >
+                              <span>📖 Xem bài đọc</span>
+                            </button>
+                          )}
+
+                          <button
+                            onClick={() => toggleFlag(q.id)}
+                            className={`flex items-center gap-1.5 px-3 py-1 border-2 border-black text-xs font-bold shadow-neo-sm min-h-[36px] transition-all cursor-pointer active:scale-95 ${
+                              isFlagged ? 'bg-yellow-300 text-black font-black' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                            }`}
+                          >
+                            <Flag className="w-3.5 h-3.5 fill-current" />
+                            <span>{isFlagged ? "Đã cờ" : "Gắn cờ"}</span>
+                          </button>
+                        </div>
                       </div>
 
                       {/* Part 1 Individual Photograph */}
@@ -594,7 +625,7 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
                           <img
                             src={q.imageUrl}
                             alt={`Photo No. ${q.id}`}
-                            className="max-h-72 w-auto object-contain border border-black bg-white rounded"
+                            className="max-h-64 sm:max-h-80 w-auto object-contain border border-black bg-white rounded"
                             loading="lazy"
                           />
                         </div>
@@ -606,7 +637,7 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
                       </div>
 
                       {/* Options List */}
-                      <div className="grid grid-cols-1 gap-2.5">
+                      <div className="grid grid-cols-1 gap-2.5 sm:gap-3">
                         {q.options.map(opt => {
                           const isOptionSelected = answers[q.id] === opt.label;
                           const isCorrect = q.correctAnswer === opt.label;
@@ -624,14 +655,14 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
                               key={opt.label}
                               onClick={() => handleSelectOption(q.id, opt.label)}
                               disabled={isSubmitted}
-                              className={`w-full p-3 sm:p-4 text-left transition-all flex items-center gap-3.5 cursor-pointer select-none min-h-[52px] active:scale-[0.99] ${optionStyle}`}
+                              className={`w-full p-3 sm:p-4 text-left transition-all flex items-center gap-3 sm:gap-3.5 cursor-pointer select-none min-h-[52px] sm:min-h-[56px] active:scale-[0.98] ${optionStyle}`}
                             >
-                              <span className={`w-8 h-8 rounded-full border-2 border-black flex items-center justify-center font-black shrink-0 text-sm ${
+                              <span className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-black flex items-center justify-center font-black shrink-0 text-sm sm:text-base ${
                                 isOptionSelected ? 'bg-black text-white' : 'bg-gray-100 text-black'
                               }`}>
                                 {opt.label}
                               </span>
-                              <span className="font-bold text-sm sm:text-base">
+                              <span className="font-bold text-sm sm:text-base leading-snug">
                                 {opt.text}
                               </span>
                             </button>
@@ -833,49 +864,57 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
       </div>
 
       {/* MOBILE QUICK BAR */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t-4 border-black p-2 flex items-center justify-between gap-2 shadow-neo-lg">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t-4 border-black p-2 sm:p-2.5 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))] flex items-center justify-between gap-2 shadow-neo-lg">
         <button
           disabled={activePart === 1}
           onClick={() => { sounds.playClick(); setActivePart(prev => Math.max(1, prev - 1)); }}
-          className="flex-1 py-2.5 px-2 bg-white border-2 border-black font-black text-xs uppercase disabled:opacity-30 active:scale-95 text-center cursor-pointer"
+          className="flex-1 py-3 px-2 bg-white border-2 border-black font-black text-xs sm:text-sm uppercase disabled:opacity-30 active:scale-95 text-center cursor-pointer min-h-[48px]"
         >
           ← Part {activePart - 1}
         </button>
 
         <button
           onClick={() => { sounds.playClick(); setShowMobilePalette(true); }}
-          className="flex-1 py-2.5 px-2 bg-neoCyan border-2 border-black font-black text-xs uppercase active:scale-95 shadow-neo-sm text-center cursor-pointer"
+          className="flex-[1.4] py-3 px-2 bg-neoCyan border-2 border-black font-black text-xs sm:text-sm uppercase active:scale-95 shadow-neo-sm text-center cursor-pointer min-h-[48px] flex items-center justify-center gap-1.5"
         >
-          Bảng 200 Câu 📋
+          <span>Bảng 200 Câu</span>
+          <span className="bg-black text-white font-mono px-1.5 py-0.5 rounded text-[11px]">
+            {Object.keys(answers).length}/200
+          </span>
         </button>
 
         <button
           disabled={activePart === 7}
           onClick={() => { sounds.playClick(); setActivePart(prev => Math.min(7, prev + 1)); }}
-          className="flex-1 py-2.5 px-2 bg-neoYellow border-2 border-black font-black text-xs uppercase disabled:opacity-30 active:scale-95 text-center cursor-pointer"
+          className="flex-1 py-3 px-2 bg-neoYellow border-2 border-black font-black text-xs sm:text-sm uppercase disabled:opacity-30 active:scale-95 text-center cursor-pointer min-h-[48px]"
         >
           Part {activePart + 1} →
         </button>
       </div>
 
-      {/* MOBILE PALETTE MODAL */}
+      {/* MOBILE & TABLET PALETTE MODAL */}
       {showMobilePalette && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-2 sm:p-4">
-          <div className="w-full max-w-lg bg-white border-4 border-black p-5 shadow-neo-lg flex flex-col gap-4 max-h-[85vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-end sm:items-center justify-center p-2 sm:p-4 animate-fadeIn">
+          <div className="w-full max-w-2xl bg-white border-4 border-black p-4 sm:p-6 shadow-neo-lg flex flex-col gap-3 sm:gap-4 max-h-[90vh] overflow-y-auto rounded-t-2xl sm:rounded-none">
             <div className="flex items-center justify-between pb-2 border-b-2 border-black">
-              <h3 className="font-heading font-black text-base uppercase">
-                Bảng 200 Câu Hỏi ({Object.keys(answers).length}/200)
-              </h3>
+              <div>
+                <h3 className="font-heading font-black text-base sm:text-lg uppercase">
+                  Bảng 200 Câu Hỏi
+                </h3>
+                <span className="text-xs font-bold text-gray-600">
+                  Đã làm: <strong className="text-pink-600 font-mono text-sm">{Object.keys(answers).length}</strong>/200 câu
+                </span>
+              </div>
               <button
                 onClick={() => setShowMobilePalette(false)}
-                className="w-8 h-8 bg-neoPink text-white border-2 border-black font-black flex items-center justify-center cursor-pointer"
+                className="w-10 h-10 bg-neoPink text-white border-2 border-black font-black flex items-center justify-center cursor-pointer active:scale-95 text-lg shadow-neo-sm"
               >
                 ✕
               </button>
             </div>
 
-            {/* Quick Part Jumper */}
-            <div className="grid grid-cols-7 gap-1">
+            {/* Quick Part Jumper Tabs */}
+            <div className="grid grid-cols-7 gap-1 sm:gap-1.5">
               {[1, 2, 3, 4, 5, 6, 7].map(p => (
                 <button
                   key={p}
@@ -883,8 +922,8 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
                     sounds.playClick();
                     setActivePart(p);
                   }}
-                  className={`py-1.5 text-xs font-black border border-black ${
-                    activePart === p ? 'bg-black text-white' : 'bg-gray-100 text-black'
+                  className={`py-2 text-xs sm:text-sm font-black border-2 border-black transition-all cursor-pointer min-h-[40px] active:scale-95 ${
+                    activePart === p ? 'bg-black text-white shadow-neo-sm' : 'bg-gray-100 text-black hover:bg-yellow-200'
                   }`}
                 >
                   P{p}
@@ -892,15 +931,38 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
               ))}
             </div>
 
-            {/* Grid */}
-            <div className="grid grid-cols-5 gap-1.5 max-h-60 overflow-y-auto p-1">
+            {/* Legend */}
+            <div className="flex items-center justify-around text-xs font-bold text-gray-700 py-1.5 border-y border-gray-200">
+              <div className="flex items-center gap-1.5">
+                <span className="w-3.5 h-3.5 bg-gray-100 border border-black inline-block"></span>
+                <span>Chưa làm</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-3.5 h-3.5 bg-neoGreen border border-black inline-block"></span>
+                <span>Đã làm</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-3.5 h-3.5 bg-yellow-300 border border-black inline-block"></span>
+                <span>Cờ</span>
+              </div>
+            </div>
+
+            {/* Responsive Grid: 5 cols on mobile, 10 cols on tablet/desktop */}
+            <div className="grid grid-cols-5 sm:grid-cols-10 gap-1.5 max-h-[50vh] overflow-y-auto p-1.5 border border-gray-300">
               {test.questions.map(q => {
                 const isAnswered = !!answers[q.id];
                 const isFlagged = !!flagged[q.id];
+                const isInActivePart = q.part === activePart;
 
                 let boxClass = "bg-gray-100 border border-black";
-                if (isFlagged) boxClass = "bg-yellow-300 border-2 border-black font-black";
-                else if (isAnswered) boxClass = "bg-neoGreen border-2 border-black font-black";
+                if (isSubmitted) {
+                  const isCorrect = answers[q.id] === q.correctAnswer;
+                  boxClass = isCorrect ? "bg-neoGreen border-2 border-black font-black" : "bg-red-300 border-2 border-black font-black";
+                } else if (isFlagged) {
+                  boxClass = "bg-yellow-300 border-2 border-black font-black";
+                } else if (isAnswered) {
+                  boxClass = "bg-neoGreen border-2 border-black font-black";
+                }
 
                 return (
                   <button
@@ -909,22 +971,68 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
                       setShowMobilePalette(false);
                       scrollToQuestion(q.id, q.part);
                     }}
-                    className={`h-10 text-xs font-bold flex items-center justify-center relative cursor-pointer ${boxClass}`}
+                    className={`h-10 text-xs sm:text-sm font-black flex items-center justify-center relative cursor-pointer active:scale-95 shadow-neo-sm ${boxClass} ${
+                      isInActivePart ? 'ring-2 ring-black' : 'opacity-80'
+                    }`}
                   >
                     <span>{q.id}</span>
+                    {isFlagged && (
+                      <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-600 rounded-full border border-black"></span>
+                    )}
                   </button>
                 );
               })}
             </div>
 
+            {/* Submit button in modal */}
+            {!isSubmitted ? (
+              <button
+                onClick={() => {
+                  setShowMobilePalette(false);
+                  handleSubmit();
+                }}
+                className="w-full py-3.5 bg-neoPink text-white border-3 border-black font-heading font-black uppercase text-sm sm:text-base shadow-neo hover:bg-pink-600 active:scale-95 cursor-pointer min-h-[48px]"
+              >
+                Nộp Toàn Bộ Bài Thi
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  setShowMobilePalette(false);
+                  setShowResultModal(true);
+                }}
+                className="w-full py-3.5 bg-neoYellow border-3 border-black font-heading font-black uppercase text-sm shadow-neo active:scale-95 cursor-pointer min-h-[48px]"
+              >
+                🏆 Xem Bảng Điểm & Xếp Hạng
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* READING PASSAGE POPUP / BOTTOM SHEET FOR MOBILE & TABLET */}
+      {activePassageModal && (
+        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-end sm:items-center justify-center p-2 sm:p-4 animate-fadeIn">
+          <div className="w-full max-w-3xl bg-amber-50 border-4 border-black p-4 sm:p-6 shadow-neo-lg flex flex-col gap-3 max-h-[85vh] rounded-t-2xl sm:rounded-none">
+            <div className="flex items-center justify-between pb-2 border-b-2 border-black">
+              <h3 className="font-heading font-black text-sm sm:text-base md:text-lg uppercase text-black flex items-center gap-2 truncate">
+                📖 {activePassageModal.title}
+              </h3>
+              <button
+                onClick={() => setActivePassageModal(null)}
+                className="w-10 h-10 bg-neoPink text-white border-2 border-black font-black flex items-center justify-center cursor-pointer shadow-neo-sm active:scale-95 shrink-0 text-lg"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="overflow-y-auto p-3 sm:p-4 text-sm sm:text-base font-serif leading-relaxed whitespace-pre-line bg-white border-3 border-black max-h-[60vh] select-text shadow-neo-sm">
+              {activePassageModal.passage}
+            </div>
             <button
-              onClick={() => {
-                setShowMobilePalette(false);
-                handleSubmit();
-              }}
-              className="w-full py-3 bg-neoPink text-white border-3 border-black font-black uppercase text-sm cursor-pointer"
+              onClick={() => setActivePassageModal(null)}
+              className="w-full py-3 bg-neoYellow border-3 border-black font-heading font-black uppercase text-sm sm:text-base shadow-neo-sm active:scale-95 cursor-pointer min-h-[48px]"
             >
-              Nộp Toàn Bộ Bài Thi
+              Đã Xem Xong - Tiếp Tục Làm Bài
             </button>
           </div>
         </div>

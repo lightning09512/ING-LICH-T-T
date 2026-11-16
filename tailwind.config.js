@@ -22,7 +22,8 @@ export default {
         'neo-sm': '2px 2px 0px 0px #000000',
       },
       fontFamily: {
-        comic: ['"Comic Neue"', '"Fredoka"', 'cursive', 'sans-serif'],
+        comic: ['"Nunito"', '"Baloo 2"', 'system-ui', 'sans-serif'],
+        heading: ['"Baloo 2"', '"Nunito"', 'system-ui', 'sans-serif'],
         pixel: ['"VT323"', 'monospace'],
       },
       keyframes: {
