@@ -19,15 +19,18 @@
 
 ## 🚀 Hướng Dẫn Khởi Chạy
 
-### Tài khoản tên đăng nhập và đồng bộ tiến trình
+### Tạo tài khoản email và đồng bộ tiến trình
 
-Người học tạo tài khoản bằng tên đăng nhập và mật khẩu; tiến trình từ vựng và ngữ pháp được đồng bộ vào PostgreSQL. Tên đăng nhập không cần email. Mật khẩu được băm bằng `scrypt`; ứng dụng chỉ giữ phiên đăng nhập trong cookie bảo mật.
+Người học tạo tài khoản bằng email và mật khẩu qua Firebase Authentication. Tiến trình từ vựng và ngữ pháp được đồng bộ vào Cloud Firestore theo tài khoản.
 
-1. Tạo PostgreSQL database trong Vercel Marketplace (ví dụ Neon) và kết nối nó với project Vercel.
-2. Sao chép `.env.example` thành `.env` khi chạy local, rồi điền `DATABASE_URL` từ database. Vercel sẽ cung cấp biến này khi kết nối database.
-3. Khởi động bằng `npm run dev`. Các bảng tài khoản, phiên đăng nhập và tiến trình sẽ tự tạo khi API được gọi lần đầu.
+1. Tạo dự án tại [Firebase Console](https://console.firebase.google.com/), rồi thêm ứng dụng Web (biểu tượng `</>`).
+2. Trong **Project settings → General → Your apps**, sao chép cấu hình Web App vào `.env` theo các tên biến trong `.env.example`.
+3. Vào **Authentication → Sign-in method**, bật **Email/Password**.
+4. Vào **Firestore Database → Create database** để tạo cơ sở dữ liệu.
+5. Trong tab **Firestore Database → Rules**, dán nội dung file `firestore.rules` rồi bấm **Publish**. Quy tắc chỉ cho phép người dùng đọc/ghi tiến trình theo UID của chính tài khoản đó.
+6. Khi chạy local, khởi động lại bằng `npm run dev`. Trên Vercel, thêm cùng các biến `VITE_FIREBASE_*` ở **Project → Settings → Environment Variables**, rồi deploy lại. Nếu domain production chưa được Firebase chấp nhận, thêm domain đó trong **Authentication → Settings → Authorized domains**.
 
-Người chưa đăng nhập vẫn lưu tiến trình trên thiết bị. Khi tạo tài khoản hoặc đăng nhập lần đầu trên thiết bị đó, tiến trình cũ được gộp vào tài khoản. Tài khoản chỉ dùng cho việc lưu tiến trình; nếu quên mật khẩu thì không có email để đặt lại.
+Người chưa đăng nhập vẫn lưu tiến trình trên thiết bị. Khi đăng ký hoặc đăng nhập lần đầu, tiến trình cục bộ được gộp vào tài khoản Firebase để dùng trên thiết bị khác. Mật khẩu do Firebase Authentication quản lý; ứng dụng cũng hỗ trợ gửi email đặt lại mật khẩu.
 
 ### Cách 1: Chạy cả Frontend & Backend đồng thời (Khuyên dùng)
 ```bash

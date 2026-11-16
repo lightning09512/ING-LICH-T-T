@@ -14,12 +14,12 @@
     "start": "node dist-server/index.js"
   },
   "dependencies": {
-    "@neondatabase/serverless": "^1.2.1",
     "canvas-confetti": "^1.9.4",
     "clsx": "^2.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "firebase": "^13.3.0",
     "lucide-react": "^1.16.0",
     "node-edge-tts": "^1.2.12",
     "react": "^18.3.1",
