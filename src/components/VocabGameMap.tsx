@@ -113,32 +113,29 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
     setTouchStartX(null);
   };
 
-  // Start Cumulative Quiz for selectedDay
+  // Start Cumulative Quiz for selectedDay: ~20 words from current lesson + 10 random words from past lessons
   const startQuiz = () => {
     sounds.playClick();
     const cumulativePool = getCumulativeWords(selectedDay, chapter);
     const currentDayWords = currentLesson?.words || [];
 
-    // Calculate number of questions: Day 1: 10, scales up to 25
-    const questionCount = Math.min(25, 10 + Math.floor(selectedDay * 0.7));
-
-    // Sample half from today, half from past days (if available)
+    // Shuffle current day words and past words
     const shuffledCurrent = [...currentDayWords].sort(() => 0.5 - Math.random());
     const pastWords = cumulativePool.filter(w => !currentDayWords.some(cw => cw.id === w.id));
     const shuffledPast = [...pastWords].sort(() => 0.5 - Math.random());
 
-    const targetWords: VocabWord[] = [];
-    const currentPickCount = Math.min(shuffledCurrent.length, Math.ceil(questionCount * 0.6));
-    targetWords.push(...shuffledCurrent.slice(0, currentPickCount));
+    // 1. Pick 20 words from current day's lesson (or all if lesson has fewer than 20)
+    const currentPickCount = Math.min(20, shuffledCurrent.length);
+    const currentPicked = shuffledCurrent.slice(0, currentPickCount);
 
-    const pastPickCount = questionCount - targetWords.length;
-    if (shuffledPast.length > 0) {
-      targetWords.push(...shuffledPast.slice(0, pastPickCount));
-    } else {
-      targetWords.push(...shuffledCurrent.slice(currentPickCount, questionCount));
-    }
+    // 2. Pick 10 random words from previous lessons
+    const pastPickCount = Math.min(10, shuffledPast.length);
+    const pastPicked = shuffledPast.slice(0, pastPickCount);
 
-    // Shuffle final target words
+    // Combine: 20 current + 10 past (for Day 1: 20 questions)
+    const targetWords: VocabWord[] = [...currentPicked, ...pastPicked];
+
+    // Shuffle all target words so current and past questions appear randomly mixed
     const finalWords = targetWords.sort(() => 0.5 - Math.random());
 
     // Generate 4 multiple choices for each
@@ -294,8 +291,8 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
           </h2>
           <p className="text-sm font-bold text-gray-600 mt-1 max-w-lg mx-auto">
             {isChap2
-              ? `Bộ từ vựng trọng điểm trích trực tiếp từ đề ETS 2019 và New Economy! Bài test chỉ dồn từ riêng của Chương 2 để ${nickname} học đâu chắc đó!`
-              : `Học flashcard rồi làm bài test để mở khóa màn tiếp theo! Bài kiểm tra sẽ dồn từ của tất cả các bài trước đó để ${nickname} không bao giờ bị quên từ!`}
+              ? `Bộ từ vựng trọng điểm trích trực tiếp từ đề ETS 2019 và New Economy! Mỗi bài test gồm 20 từ bài đó + 10 câu ngẫu nhiên dồn từ các bài trước!`
+              : `Học flashcard rồi làm bài test để mở khóa màn tiếp theo! Mỗi bài test gồm 20 từ bài hiện tại + 10 câu ngẫu nhiên từ các bài trước!`}
           </p>
         </div>
 
@@ -374,11 +371,11 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
           })}
         </div>
 
-        {/* Bottom Troll Hint */}
+        {/* Bottom Hint */}
         <div className="mt-6 text-center text-xs sm:text-sm font-bold text-gray-600 bg-amber-50 border-2 border-dashed border-black p-3">
           {isChap2
-            ? `💡 Mẹo Chương 2: Mỗi bài gồm từ vựng sát đề thi thực chiến (Part 1, Part 2, Test 1 - 10). Kiểm tra chỉ dồn từ của Chương 2 thôi nha ${nickname}!`
-            : `💡 Mẹo: Ở các bài sau (ví dụ Bài 15), bài kiểm tra sẽ bao gồm cả từ của Bài 1 đến Bài 15. Hãy học thật kỹ trước khi ấn làm test nha ${nickname}!`}
+            ? `💡 Mẹo Chương 2: Mỗi bài test gồm 20 từ mới + 10 câu ôn tập ngẫu nhiên từ các bài trước để nhớ sâu từ vựng nha ${nickname}!`
+            : `💡 Mẹo: Mỗi bài test gồm 20 từ của bài hiện tại + 10 câu ngẫu nhiên từ các bài trước giúp ${nickname} không bao giờ bị quên từ cũ!`}
         </div>
       </div>
     );
@@ -609,7 +606,9 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
               <Sparkles className="w-5 h-5 text-yellow-300" />
             </button>
             <p className="text-center text-xs font-bold text-gray-500 mt-2">
-              (Bài test sẽ gồm các từ của Bài {selectedDay} + dồn từ của các bài trước đó)
+              {selectedDay === 1
+                ? `(Bài test gồm 20 câu hỏi trọng tâm của Bài 1)`
+                : `(Bài test gồm 20 từ trọng tâm của Bài ${selectedDay} + 10 câu ngẫu nhiên từ các bài trước)`}
             </p>
           </div>
         </div>
@@ -707,7 +706,9 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
           </button>
 
           <div className="px-4 py-1.5 bg-neoPurple border-2 border-black font-black text-xs uppercase shadow-neo-sm">
-            Bài Test Vượt Màn {selectedDay} (Dồn Bài 1 → {selectedDay})
+            {selectedDay === 1
+              ? `Bài Test Bài 1 (20 câu)`
+              : `Bài Test Bài ${selectedDay} (30 câu: 20 từ bài này + 10 từ dồn)`}
           </div>
 
           <span className="font-bold text-xs text-gray-600">
