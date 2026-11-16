@@ -49,20 +49,20 @@ export const FloatingTrollfaces: React.FC = () => {
     window.addEventListener('touchmove', onTouchMove, { passive: true });
     window.addEventListener('touchend', onTouchEnd, { passive: true });
 
-    // Initialize 10-14 troll particles
-    const particleCount = Math.min(14, Math.max(8, Math.floor(window.innerWidth / 120)));
+    // Initialize 6-10 troll particles (subtle, peaceful background)
+    const particleCount = Math.min(10, Math.max(6, Math.floor(window.innerWidth / 160)));
     const particles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
-        vx: (Math.random() - 0.5) * 1.5,
-        vy: (Math.random() - 0.5) * 1.5,
-        size: Math.floor(Math.random() * 35) + 55, // 55px - 90px
-        rotation: (Math.random() - 0.5) * 0.5,
-        vRot: (Math.random() - 0.5) * 0.02,
-        opacity: 0.25 + Math.random() * 0.35
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        size: Math.floor(Math.random() * 25) + 48, // 48px - 73px
+        rotation: (Math.random() - 0.5) * 0.4,
+        vRot: (Math.random() - 0.5) * 0.005,
+        opacity: 0.12 + Math.random() * 0.16
       });
     }
 
@@ -70,7 +70,7 @@ export const FloatingTrollfaces: React.FC = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((p) => {
-        // Move particle
+        // Move particle gently
         p.x += p.vx;
         p.y += p.vy;
         p.rotation += p.vRot;
@@ -82,15 +82,15 @@ export const FloatingTrollfaces: React.FC = () => {
         if (p.y < -p.size) p.y = canvas.height + p.size;
         else if (p.y > canvas.height + p.size) p.y = -p.size;
 
-        // Mouse repelling interaction
+        // Mouse repelling interaction (soft & gentle)
         const dx = p.x - mouseRef.current.x;
         const dy = p.y - mouseRef.current.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 120 && dist > 0) {
-          const force = (120 - dist) / 120;
-          p.x += (dx / dist) * force * 4;
-          p.y += (dy / dist) * force * 4;
-          p.rotation += 0.05;
+        if (dist < 100 && dist > 0) {
+          const force = (100 - dist) / 100;
+          p.x += (dx / dist) * force * 1.2;
+          p.y += (dy / dist) * force * 1.2;
+          p.rotation += 0.01;
         }
 
         // Draw trollface

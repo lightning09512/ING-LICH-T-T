@@ -28,12 +28,12 @@ export default {
       },
       keyframes: {
         wiggle: {
-          '0%, 100%': { transform: 'rotate(-3deg)' },
-          '50%': { transform: 'rotate(3deg)' },
+          '0%, 100%': { transform: 'rotate(-1.5deg)' },
+          '50%': { transform: 'rotate(1.5deg)' },
         },
         bounceSlow: {
-          '0%, 100%': { transform: 'translateY(-4%)' },
-          '50%': { transform: 'translateY(4%)' },
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-4px)' },
         },
         shake: {
           '0%, 100%': { transform: 'translateX(0)' },
@@ -42,8 +42,8 @@ export default {
         }
       },
       animation: {
-        wiggle: 'wiggle 1s ease-in-out infinite',
-        bounceSlow: 'bounceSlow 2s ease-in-out infinite',
+        wiggle: 'wiggle 3s ease-in-out infinite',
+        bounceSlow: 'bounceSlow 5s ease-in-out infinite',
         shake: 'shake 0.4s ease-in-out',
       }
     },
