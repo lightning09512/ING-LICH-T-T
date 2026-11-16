@@ -838,5 +838,425 @@
     "explanation": "Động từ 'launching' (ra mắt/triển khai) thường đi kèm với các danh từ như 'program', 'product', 'campaign'.",
     "translation": "Tập đoàn bán lẻ Marlowe, Inc., sẽ ra mắt chương trình khách hàng thân thiết đầu tiên vào tháng Sáu.",
     "topic": "Từ vựng công sở (Vocabulary)"
+  },
+  {
+    "uniqueId": "test_2_q_101",
+    "testIndex": 2,
+    "questionNumber": 101,
+    "question": "All monthly storage payments must be submitted to the site office _______ the posted due date.",
+    "options": [
+      {
+        "label": "A",
+        "text": "beforehand"
+      },
+      {
+        "label": "B",
+        "text": "because"
+      },
+      {
+        "label": "C",
+        "text": "ahead of"
+      },
+      {
+        "label": "D",
+        "text": "aside from"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Đáp án đúng là (C). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "All monthly storage payments must be submitted to the site office _______ the posted due date.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_102",
+    "testIndex": 2,
+    "questionNumber": 102,
+    "question": "Throughout the Elmgrove Park summer festival, visitors are invited to stroll _______ the tree-lined promenade at their own pace.",
+    "options": [
+      {
+        "label": "A",
+        "text": "above"
+      },
+      {
+        "label": "B",
+        "text": "across"
+      },
+      {
+        "label": "C",
+        "text": "between"
+      },
+      {
+        "label": "D",
+        "text": "along"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Đáp án đúng là (D). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "Throughout the Elmgrove Park summer festival, visitors are invited to stroll _______ the tree-lined promenade at their own pace.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_103",
+    "testIndex": 2,
+    "questionNumber": 103,
+    "question": "_______ on the results of the employee satisfaction survey, Ms. Delphine Carraway assured staff that improvements would be introduced shortly.",
+    "options": [
+      {
+        "label": "A",
+        "text": "commented"
+      },
+      {
+        "label": "B",
+        "text": "commenting"
+      },
+      {
+        "label": "C",
+        "text": "comment"
+      },
+      {
+        "label": "D",
+        "text": "comments"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Đáp án đúng là (B). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "_______ on the results of the employee satisfaction survey, Ms. Delphine Carraway assured staff that improvements would be introduced shortly.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_104",
+    "testIndex": 2,
+    "questionNumber": 104,
+    "question": "Guests who wish to avoid the front desk can submit their checkout requests _______ through the Bellcourt Hotel's mobile application.",
+    "options": [
+      {
+        "label": "A",
+        "text": "directing"
+      },
+      {
+        "label": "B",
+        "text": "direction"
+      },
+      {
+        "label": "C",
+        "text": "directs"
+      },
+      {
+        "label": "D",
+        "text": "directly"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Đáp án đúng là (D). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "Guests who wish to avoid the front desk can submit their checkout requests _______ through the Bellcourt Hotel's mobile application.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_105",
+    "testIndex": 2,
+    "questionNumber": 105,
+    "question": "Ms. Coretta Vance accepted the innovation award _______ the product team and read a brief message from its members.",
+    "options": [
+      {
+        "label": "A",
+        "text": "on behalf of"
+      },
+      {
+        "label": "B",
+        "text": "instead of"
+      },
+      {
+        "label": "C",
+        "text": "except"
+      },
+      {
+        "label": "D",
+        "text": "aside from"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Đáp án đúng là (A). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "Ms. Coretta Vance accepted the innovation award _______ the product team and read a brief message from its members.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_106",
+    "testIndex": 2,
+    "questionNumber": 106,
+    "question": "The renovation dragged on for months, but the community library _______ reopened its doors to visitors last week.",
+    "options": [
+      {
+        "label": "A",
+        "text": "finally"
+      },
+      {
+        "label": "B",
+        "text": "promptly"
+      },
+      {
+        "label": "C",
+        "text": "narrowly"
+      },
+      {
+        "label": "D",
+        "text": "thoroughly"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Đáp án đúng là (A). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "The renovation dragged on for months, but the community library _______ reopened its doors to visitors last week.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_107",
+    "testIndex": 2,
+    "questionNumber": 107,
+    "question": "The completed enrollment form must be returned _______ the Larkhill Driving School office before the first lesson begins.",
+    "options": [
+      {
+        "label": "A",
+        "text": "at"
+      },
+      {
+        "label": "B",
+        "text": "to"
+      },
+      {
+        "label": "C",
+        "text": "in"
+      },
+      {
+        "label": "D",
+        "text": "on"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Đáp án đúng là (B). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "The completed enrollment form must be returned _______ the Larkhill Driving School office before the first lesson begins.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_108",
+    "testIndex": 2,
+    "questionNumber": 108,
+    "question": "Ms. Corwin _______ all supplier orders placed at the downtown branch during the store manager's absence next week.",
+    "options": [
+      {
+        "label": "A",
+        "text": "to review"
+      },
+      {
+        "label": "B",
+        "text": "reviewed"
+      },
+      {
+        "label": "C",
+        "text": "will review"
+      },
+      {
+        "label": "D",
+        "text": "is reviewed"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Đáp án đúng là (C). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "Ms. Corwin _______ all supplier orders placed at the downtown branch during the store manager's absence next week.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_109",
+    "testIndex": 2,
+    "questionNumber": 109,
+    "question": "Throughout her eight years _______ a store manager, Ms. Castellano developed a strong reputation for fairness.",
+    "options": [
+      {
+        "label": "A",
+        "text": "as"
+      },
+      {
+        "label": "B",
+        "text": "in"
+      },
+      {
+        "label": "C",
+        "text": "at"
+      },
+      {
+        "label": "D",
+        "text": "on"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Đáp án đúng là (A). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "Throughout her eight years _______ a store manager, Ms. Castellano developed a strong reputation for fairness.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_110",
+    "testIndex": 2,
+    "questionNumber": 110,
+    "question": "Visitors to Thornbury Ceramics Studio may exchange their passes _______ a guided tour at the main desk before noon.",
+    "options": [
+      {
+        "label": "A",
+        "text": "for"
+      },
+      {
+        "label": "B",
+        "text": "from"
+      },
+      {
+        "label": "C",
+        "text": "toward"
+      },
+      {
+        "label": "D",
+        "text": "on"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Đáp án đúng là (A). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "Visitors to Thornbury Ceramics Studio may exchange their passes _______ a guided tour at the main desk before noon.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_111",
+    "testIndex": 2,
+    "questionNumber": 111,
+    "question": "Patients who provide a mobile number will receive automatic _______ the day before each scheduled visit.",
+    "options": [
+      {
+        "label": "A",
+        "text": "reminders"
+      },
+      {
+        "label": "B",
+        "text": "schedules"
+      },
+      {
+        "label": "C",
+        "text": "responses"
+      },
+      {
+        "label": "D",
+        "text": "referrals"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Đáp án đúng là (A). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "Patients who provide a mobile number will receive automatic _______ the day before each scheduled visit.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_112",
+    "testIndex": 2,
+    "questionNumber": 112,
+    "question": "Following the software update, the developers noted several _______ reviews from users worldwide.",
+    "options": [
+      {
+        "label": "A",
+        "text": "loyal"
+      },
+      {
+        "label": "B",
+        "text": "positive"
+      },
+      {
+        "label": "C",
+        "text": "spacious"
+      },
+      {
+        "label": "D",
+        "text": "durable"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Đáp án đúng là (B). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "Following the software update, the developers noted several _______ reviews from users worldwide.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_113",
+    "testIndex": 2,
+    "questionNumber": 113,
+    "question": "Because seating is limited, participants must confirm their _______ at Copperpot Cooking Studio no later than three days before each class.",
+    "options": [
+      {
+        "label": "A",
+        "text": "presence"
+      },
+      {
+        "label": "B",
+        "text": "appearance"
+      },
+      {
+        "label": "C",
+        "text": "arrival"
+      },
+      {
+        "label": "D",
+        "text": "attendance"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Đáp án đúng là (D). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "Because seating is limited, participants must confirm their _______ at Copperpot Cooking Studio no later than three days before each class.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_114",
+    "testIndex": 2,
+    "questionNumber": 114,
+    "question": "The Ashbourne Events Center offers a _______ layout because guests need room to move freely between the display tables.",
+    "options": [
+      {
+        "label": "A",
+        "text": "crowded"
+      },
+      {
+        "label": "B",
+        "text": "spacious"
+      },
+      {
+        "label": "C",
+        "text": "narrow"
+      },
+      {
+        "label": "D",
+        "text": "cramped"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Đáp án đúng là (B). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "The Ashbourne Events Center offers a _______ layout because guests need room to move freely between the display tables.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
+  },
+  {
+    "uniqueId": "test_2_q_115",
+    "testIndex": 2,
+    "questionNumber": 115,
+    "question": "Your temporary parking permit _______ at midnight tonight, so please renew it at the front office before you leave.",
+    "options": [
+      {
+        "label": "A",
+        "text": "expiration"
+      },
+      {
+        "label": "B",
+        "text": "to expire"
+      },
+      {
+        "label": "C",
+        "text": "expires"
+      },
+      {
+        "label": "D",
+        "text": "expiring"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Đáp án đúng là (C). Căn cứ theo ngữ cảnh và quy tắc ngữ pháp TOEIC.",
+    "translation": "Your temporary parking permit _______ at midnight tonight, so please renew it at the front office before you leave.",
+    "topic": "Ngữ pháp TOEIC tổng hợp"
   }
 ]
