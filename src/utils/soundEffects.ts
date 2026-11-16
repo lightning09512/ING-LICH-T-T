@@ -151,7 +151,7 @@ class SoundEngine {
     }
   }
 
-  // Gentle soft button tap (soothing bubble pop, non-intrusive)
+  // Button tap sound (punchy, crisp bubble pop)
   public playClick() {
     if (!this.soundEnabled) return;
     const ctx = this.getContext();
@@ -162,24 +162,24 @@ class SoundEngine {
       const gain = ctx.createGain();
 
       osc.type = 'sine';
-      // Subtle downward bubble pop: 520Hz -> 340Hz
-      osc.frequency.setValueAtTime(520, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(340, ctx.currentTime + 0.04);
+      // Crisp bubble pop: 540Hz -> 320Hz
+      osc.frequency.setValueAtTime(540, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(320, ctx.currentTime + 0.05);
 
-      gain.gain.setValueAtTime(0.035, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
+      gain.gain.setValueAtTime(0.14, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
 
       osc.connect(gain);
       gain.connect(ctx.destination);
 
       osc.start(ctx.currentTime);
-      osc.stop(ctx.currentTime + 0.04);
+      osc.stop(ctx.currentTime + 0.05);
     } catch {
       // AudioContext failure handling
     }
   }
 
-  // Soothing warm chime (gentle marimba / glass bell C5-E5-G5)
+  // Rewarding warm chime (vibrant marimba / glass bell C5-E5-G5)
   public playCorrect() {
     if (!this.soundEnabled) return;
     const ctx = this.getContext();
@@ -193,12 +193,12 @@ class SoundEngine {
 
         osc.type = 'sine';
         const startTime = ctx.currentTime + idx * 0.07;
-        const duration = 0.16;
+        const duration = 0.18;
 
         osc.frequency.setValueAtTime(freq, startTime);
 
         gain.gain.setValueAtTime(0.001, startTime);
-        gain.gain.linearRampToValueAtTime(0.045, startTime + 0.02);
+        gain.gain.linearRampToValueAtTime(0.20, startTime + 0.02);
         gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
 
         osc.connect(gain);
@@ -212,7 +212,7 @@ class SoundEngine {
     }
   }
 
-  // Gentle soft reminder (warm soft 2-tone tap, never harsh or loud)
+  // Clear 2-tone reminder tap (D4 -> B3)
   public playWrong() {
     if (!this.soundEnabled) return;
     const ctx = this.getContext();
@@ -226,13 +226,13 @@ class SoundEngine {
 
         osc.type = 'sine';
         const startTime = ctx.currentTime + idx * 0.09;
-        const duration = 0.14;
+        const duration = 0.16;
 
         osc.frequency.setValueAtTime(freq, startTime);
         osc.frequency.exponentialRampToValueAtTime(freq * 0.92, startTime + duration);
 
         gain.gain.setValueAtTime(0.001, startTime);
-        gain.gain.linearRampToValueAtTime(0.04, startTime + 0.02);
+        gain.gain.linearRampToValueAtTime(0.18, startTime + 0.02);
         gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
 
         osc.connect(gain);
@@ -246,7 +246,7 @@ class SoundEngine {
     }
   }
 
-  // Gentle music-box victory arpeggio
+  // Celebratory victory arpeggio
   public playVictory() {
     if (!this.soundEnabled) return;
     const ctx = this.getContext();
@@ -260,12 +260,12 @@ class SoundEngine {
 
         osc.type = 'sine';
         const startTime = ctx.currentTime + idx * 0.08;
-        const duration = 0.22;
+        const duration = 0.24;
 
         osc.frequency.setValueAtTime(freq, startTime);
 
         gain.gain.setValueAtTime(0.001, startTime);
-        gain.gain.linearRampToValueAtTime(0.04, startTime + 0.02);
+        gain.gain.linearRampToValueAtTime(0.22, startTime + 0.02);
         gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
 
         osc.connect(gain);
@@ -323,7 +323,7 @@ class SoundEngine {
       const cached = this.audioCache.get(cacheKey);
       if (cached && cached.readyState >= 2) {
         cached.currentTime = 0;
-        cached.volume = 0.95;
+        cached.volume = 1.0;
         this.currentAudio = cached;
 
         cached.onended = () => {
@@ -366,7 +366,7 @@ class SoundEngine {
         const audioUrl = `/api/tts?text=${encodeURIComponent(cleanText)}`;
         const audio = new Audio();
         audio.preload = 'auto';
-        audio.volume = 0.95;
+        audio.volume = 1.0;
         this.currentAudio = audio;
 
         audio.oncanplaythrough = () => {
@@ -410,7 +410,7 @@ class SoundEngine {
       // Try human studio recording from dictionaryapi
       const humanAudioUrl = `https://api.dictionaryapi.dev/media/pronunciations/en/${cleanText.toLowerCase()}-us.mp3`;
       const humanAudio = new Audio(humanAudioUrl);
-      humanAudio.volume = 0.95;
+      humanAudio.volume = 1.0;
       this.currentAudio = humanAudio;
 
       humanAudio.onended = () => {
