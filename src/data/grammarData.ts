@@ -1,3 +1,7 @@
+import { tenseExercisesMap } from './tenseExercisesData';
+import { wordOrderExercisesMap } from './wordOrderExercisesData';
+import { extraTopicExercisesMap } from './extraTopicExercisesData';
+
 export interface GrammarExercise {
   id: number;
   question: string;
@@ -58,9 +62,10 @@ export interface TenseItem {
   toeicTrap: string;
   isHighFrequency?: boolean;
   examBadge?: string;
+  exercises: GrammarExercise[];
 }
 
-export const fullTwelveTenses: TenseItem[] = [
+const baseTwelveTenses: Omit<TenseItem, 'exercises'>[] = [
   // 1. PRESENT SIMPLE
   {
     id: 'present-simple',
@@ -663,6 +668,11 @@ export const fullTwelveTenses: TenseItem[] = [
   }
 ];
 
+export const fullTwelveTenses: TenseItem[] = baseTwelveTenses.map(t => ({
+  ...t,
+  exercises: tenseExercisesMap[t.id] || []
+}));
+
 // ----------------------------------------------------
 // WORD ORDER & PARTS OF SPEECH (VISUAL CHAIN FLOW)
 // ----------------------------------------------------
@@ -687,9 +697,10 @@ export interface WordOrderRule {
   etsTip: string;
   isHighFrequency?: boolean;
   examBadge?: string;
+  exercises: GrammarExercise[];
 }
 
-export const wordOrderRules: WordOrderRule[] = [
+const baseWordOrderRules: Omit<WordOrderRule, 'exercises'>[] = [
   {
     id: 'adv-before-verb',
     ruleName: 'Trạng Từ Đứng Trước Động Từ Thường (Adv + Verb)',
@@ -894,10 +905,15 @@ export const wordOrderRules: WordOrderRule[] = [
   }
 ];
 
+export const wordOrderRules: WordOrderRule[] = baseWordOrderRules.map(r => ({
+  ...r,
+  exercises: wordOrderExercisesMap[r.id] || []
+}));
+
 // ----------------------------------------------------
 // 10 COMPREHENSIVE GRAMMAR TOPICS FOR TOEIC
 // ----------------------------------------------------
-export const grammarTopics: GrammarTopic[] = [
+const baseGrammarTopics: GrammarTopic[] = [
   {
     id: 'tenses',
     title: 'Full 12 Thì Trong Tiếng Anh & Phối Thì TOEIC',
@@ -2185,8 +2201,18 @@ export const grammarTopics: GrammarTopic[] = [
   }
 ];
 
+export const grammarTopics: GrammarTopic[] = baseGrammarTopics.map(topic => ({
+  ...topic,
+  exercises: [
+    ...topic.exercises,
+    ...(extraTopicExercisesMap[topic.id] || [])
+  ]
+}));
+
 export const getAllGrammarExercises = (): (GrammarExercise & { topicTitle: string })[] => {
   const all: (GrammarExercise & { topicTitle: string })[] = [];
+
+  // 1. Topics (100 questions)
   grammarTopics.forEach(topic => {
     topic.exercises.forEach(ex => {
       all.push({
@@ -2195,5 +2221,26 @@ export const getAllGrammarExercises = (): (GrammarExercise & { topicTitle: strin
       });
     });
   });
+
+  // 2. 12 Tenses (60 questions)
+  fullTwelveTenses.forEach(tense => {
+    tense.exercises.forEach(ex => {
+      all.push({
+        ...ex,
+        topicTitle: `Thì ${tense.nameVi} (${tense.nameEn})`
+      });
+    });
+  });
+
+  // 3. Word Order (30 questions)
+  wordOrderRules.forEach(rule => {
+    rule.exercises.forEach(ex => {
+      all.push({
+        ...ex,
+        topicTitle: `Trật tự từ: ${rule.ruleName}`
+      });
+    });
+  });
+
   return all;
 };
