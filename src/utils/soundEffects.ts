@@ -1,12 +1,56 @@
-// Web Audio API effects and online speech playback.
+// Web Audio API sound effects and high-performance, zero-latency English pronunciation engine.
 
 class SoundEngine {
   private ctx: AudioContext | null = null;
   private soundEnabled: boolean = true;
   private currentAudio: HTMLAudioElement | null = null;
-  private speechController: AbortController | null = null;
   private activeSpeechResolve: (() => void) | null = null;
-  private preloadedAudio = new Map<string, HTMLAudioElement>();
+  private audioCache = new Map<string, HTMLAudioElement>();
+  private cachedVoice: SpeechSynthesisVoice | null = null;
+  private networkTimeoutId: any = null;
+
+  constructor() {
+    this.initVoices();
+  }
+
+  private initVoices() {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+
+    const selectBestVoice = () => {
+      try {
+        const voices = window.speechSynthesis.getVoices();
+        if (!voices || voices.length === 0) return;
+
+        // Priority 1: High-fidelity Natural / Neural American English voices
+        const priorityVoice = voices.find(v => 
+          (v.lang === 'en-US' || v.lang === 'en_US') && (
+            v.name.includes('Natural') || 
+            v.name.includes('Neural') || 
+            v.name.includes('Google') || 
+            v.name.includes('Jenny') || 
+            v.name.includes('Samantha') || 
+            v.name.includes('Aria') ||
+            v.name.includes('Ava')
+          )
+        ) 
+        // Priority 2: Standard US English voice
+        || voices.find(v => v.lang === 'en-US' || v.lang === 'en_US')
+        // Priority 3: Any English voice (en-GB, en-AU, etc.)
+        || voices.find(v => v.lang.startsWith('en'));
+
+        if (priorityVoice) {
+          this.cachedVoice = priorityVoice;
+        }
+      } catch {
+        // Ignore voice selection errors
+      }
+    };
+
+    selectBestVoice();
+    if (typeof window.speechSynthesis.onvoiceschanged !== 'undefined') {
+      window.speechSynthesis.onvoiceschanged = selectBestVoice;
+    }
+  }
 
   private getContext(): AudioContext | null {
     if (!this.ctx && typeof window !== 'undefined') {
@@ -16,7 +60,7 @@ class SoundEngine {
       }
     }
     if (this.ctx && this.ctx.state === 'suspended') {
-      this.ctx.resume();
+      this.ctx.resume().catch(() => {});
     }
     return this.ctx;
   }
@@ -30,26 +74,50 @@ class SoundEngine {
     return this.soundEnabled;
   }
 
+  // Pre-caches the authentic native pronunciation audio in memory for instant playback on click
   public prefetchEnglish(text: string) {
-    const cleanText = text.trim();
-    if (!this.soundEnabled || !cleanText || cleanText.length > 800 || this.preloadedAudio.has(cleanText)) return;
+    if (!this.soundEnabled || !text || typeof window === 'undefined') return;
 
-    const audio = new Audio();
-    audio.preload = 'auto';
-    audio.src = `/api/tts?text=${encodeURIComponent(cleanText)}`;
-    audio.addEventListener('error', () => {
-      if (this.preloadedAudio.get(cleanText) === audio) this.preloadedAudio.delete(cleanText);
-    }, { once: true });
-    audio.load();
-    this.preloadedAudio.set(cleanText, audio);
+    const cleanText = this.cleanSpeechText(text);
+    if (!cleanText || cleanText.length > 200) return;
 
-    if (this.preloadedAudio.size > 4) {
-      const oldestEntry = this.preloadedAudio.entries().next().value as [string, HTMLAudioElement] | undefined;
-      if (oldestEntry) {
-        oldestEntry[1].pause();
-        oldestEntry[1].removeAttribute('src');
-        oldestEntry[1].load();
-        this.preloadedAudio.delete(oldestEntry[0]);
+    const cacheKey = cleanText.toLowerCase();
+    if (this.audioCache.has(cacheKey)) return;
+
+    const wordCount = cleanText.split(/\s+/).length;
+    // Only prefetch single words or very short phrases (up to 4 words)
+    if (wordCount <= 4) {
+      try {
+        const audio = new Audio();
+        audio.preload = 'auto';
+        audio.src = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(cleanText)}&type=2`;
+        
+        audio.addEventListener('canplaythrough', () => {
+          this.audioCache.set(cacheKey, audio);
+        }, { once: true });
+
+        audio.addEventListener('error', () => {
+          if (this.audioCache.get(cacheKey) === audio) {
+            this.audioCache.delete(cacheKey);
+          }
+        }, { once: true });
+
+        audio.load();
+
+        // Keep cache bounded to 60 items
+        if (this.audioCache.size > 60) {
+          const oldest = this.audioCache.keys().next().value;
+          if (oldest) {
+            const oldAudio = this.audioCache.get(oldest);
+            if (oldAudio) {
+              oldAudio.removeAttribute('src');
+              oldAudio.load();
+            }
+            this.audioCache.delete(oldest);
+          }
+        }
+      } catch {
+        // Preload failure is silent
       }
     }
   }
@@ -182,100 +250,216 @@ class SoundEngine {
     }
   }
 
-  // Neural US English voice, with Google TTS as a fallback if the API is unavailable.
+  public playLevelUp() {
+    this.playVictory();
+  }
+
+  private cleanSpeechText(text: string): string {
+    return text
+      .replace(/\/[^\/]+\//g, '')     // Strip IPA phonetic transcription like /əˈkɑː.mə.deɪt/
+      .replace(/\([^)]*\)/g, '')       // Strip (v), (n), (adj) annotations
+      .replace(/\[[^\]]*\]/g, '')      // Strip [v], [n]
+      .replace(/•.*$/g, '')            // Strip bullet comments
+      .replace(/[\r\n\t]+/g, ' ')      // Normalize linebreaks
+      .trim();
+  }
+
+  /**
+   * Ultra-fast English Speech Synthesis with Zero-Lag Multi-Tier Fallback:
+   * 1. Check in-memory audio cache -> Instant play (0ms).
+   * 2. For single words & short phrases: Try high-quality native US studio pronunciation with strict 650ms timeout.
+   * 3. Instant fallback to Native Web Speech API (window.speechSynthesis) -> 0ms latency, 100% offline, guaranteed to speak.
+   * 4. For long sentences: Directly use Native Web Speech API for natural intonation and zero network latency.
+   */
   public speakEnglish(text: string): Promise<void> {
     return new Promise((resolve) => {
-      if (!this.soundEnabled) {
+      if (!this.soundEnabled || !text || typeof window === 'undefined') {
         resolve();
         return;
       }
 
-      const cleanText = text.trim();
+      const cleanText = this.cleanSpeechText(text);
       if (!cleanText) {
         resolve();
         return;
       }
 
       this.stopSpeaking();
-      const controller = new AbortController();
-      this.speechController = controller;
       this.activeSpeechResolve = resolve;
-      void this.speakWithNeuralTts(cleanText, controller, resolve);
+
+      const wordCount = cleanText.split(/\s+/).length;
+
+      // Single word or short phrase (<= 4 words)
+      if (wordCount <= 4) {
+        const cacheKey = cleanText.toLowerCase();
+
+        // 1. Instant Play from In-Memory Cache
+        const cached = this.audioCache.get(cacheKey);
+        if (cached && cached.readyState >= 2) {
+          cached.currentTime = 0;
+          cached.volume = 0.95;
+          this.currentAudio = cached;
+
+          cached.onended = () => {
+            if (this.currentAudio === cached) this.currentAudio = null;
+            this.finishSpeech();
+          };
+          cached.onerror = () => {
+            if (this.currentAudio === cached) this.currentAudio = null;
+            this.speakWithSpeechSynthesis(cleanText);
+          };
+
+          cached.play().catch(() => {
+            this.speakWithSpeechSynthesis(cleanText);
+          });
+          return;
+        }
+
+        // 2. Fetch authentic US Native Studio human recording with strict 650ms timeout
+        let hasFallenBack = false;
+        const fallbackToSpeechSynthesis = () => {
+          if (hasFallenBack) return;
+          hasFallenBack = true;
+          if (this.networkTimeoutId) {
+            clearTimeout(this.networkTimeoutId);
+            this.networkTimeoutId = null;
+          }
+          if (this.currentAudio) {
+            this.currentAudio.pause();
+            this.currentAudio = null;
+          }
+          this.speakWithSpeechSynthesis(cleanText);
+        };
+
+        // Strict 650ms timer: if network is lagging or offline, fall back instantly to Web Speech API
+        this.networkTimeoutId = setTimeout(() => {
+          fallbackToSpeechSynthesis();
+        }, 650);
+
+        try {
+          const audioUrl = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(cleanText)}&type=2`;
+          const audio = new Audio();
+          audio.preload = 'auto';
+          audio.volume = 0.95;
+          this.currentAudio = audio;
+
+          audio.oncanplaythrough = () => {
+            if (hasFallenBack) return;
+            if (this.networkTimeoutId) {
+              clearTimeout(this.networkTimeoutId);
+              this.networkTimeoutId = null;
+            }
+            this.audioCache.set(cacheKey, audio);
+          };
+
+          audio.onended = () => {
+            if (this.networkTimeoutId) {
+              clearTimeout(this.networkTimeoutId);
+              this.networkTimeoutId = null;
+            }
+            if (this.currentAudio === audio) this.currentAudio = null;
+            this.finishSpeech();
+          };
+
+          audio.onerror = () => {
+            fallbackToSpeechSynthesis();
+          };
+
+          audio.src = audioUrl;
+          audio.load();
+          audio.play().catch(() => {
+            fallbackToSpeechSynthesis();
+          });
+        } catch {
+          fallbackToSpeechSynthesis();
+        }
+      } else {
+        // For full sentences / examples: Native Web Speech API is instantaneous, natural, and requires no network
+        this.speakWithSpeechSynthesis(cleanText);
+      }
     });
   }
 
-  private speakWithNeuralTts(text: string, controller: AbortController, resolve: () => void) {
-    if (controller.signal.aborted) {
-      this.finishSpeech(controller, resolve);
+  // Built-in OS/Browser Speech Synthesis: 0ms latency, zero bandwidth, 100% reliable
+  private speakWithSpeechSynthesis(text: string) {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+      this.finishSpeech();
       return;
     }
 
-    const audioUrl = `/api/tts?text=${encodeURIComponent(text)}`;
-    const preparedAudio = this.preloadedAudio.get(text);
-    this.preloadedAudio.delete(text);
-    this.playAudio(audioUrl, controller, resolve, true, text, preparedAudio);
-  }
-
-  private speakWithGoogleTts(text: string, controller: AbortController, resolve: () => void) {
-    if (text.length > 200 || controller.signal.aborted) {
-      this.finishSpeech(controller, resolve);
-      return;
-    }
-
-    const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en-US&client=tw-ob&q=${encodeURIComponent(text)}`;
-    this.playAudio(audioUrl, controller, resolve, false, text);
-  }
-
-  private playAudio(
-    audioUrl: string,
-    controller: AbortController,
-    resolve: () => void,
-    fallbackToGoogle: boolean,
-    text: string,
-    preparedAudio?: HTMLAudioElement,
-  ) {
-    const audio = preparedAudio ?? new Audio(audioUrl);
-    audio.volume = 0.85;
-    if (preparedAudio) audio.currentTime = 0;
-    this.currentAudio = audio;
-
-    const finish = (played: boolean) => {
-      if (this.currentAudio !== audio) return;
-
-      this.currentAudio = null;
-
-      if (!played && fallbackToGoogle && !controller.signal.aborted) {
-        this.speakWithGoogleTts(text, controller, resolve);
-        return;
+    try {
+      window.speechSynthesis.cancel();
+      // Workaround for Chrome/Android where speech can get stuck in paused state
+      if (window.speechSynthesis.paused) {
+        window.speechSynthesis.resume();
       }
 
-      this.finishSpeech(controller, resolve);
-    };
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-US';
+      utterance.rate = 0.92; // Slightly articulated rate, ideal for TOEIC learners
+      utterance.pitch = 1.0;
+      utterance.volume = 1.0;
 
-    audio.onended = () => finish(true);
-    audio.onerror = () => finish(false);
-    audio.play().catch(() => finish(false));
+      if (this.cachedVoice) {
+        utterance.voice = this.cachedVoice;
+      } else {
+        const voices = window.speechSynthesis.getVoices();
+        const best = voices.find(v => (v.lang === 'en-US' || v.lang === 'en_US') && (
+          v.name.includes('Natural') || 
+          v.name.includes('Neural') || 
+          v.name.includes('Google') || 
+          v.name.includes('Jenny') || 
+          v.name.includes('Samantha') || 
+          v.name.includes('Aria')
+        )) || voices.find(v => v.lang.startsWith('en'));
+
+        if (best) {
+          this.cachedVoice = best;
+          utterance.voice = best;
+        }
+      }
+
+      utterance.onend = () => {
+        this.finishSpeech();
+      };
+
+      utterance.onerror = () => {
+        this.finishSpeech();
+      };
+
+      window.speechSynthesis.speak(utterance);
+    } catch (err) {
+      console.warn('[SoundEngine] SpeechSynthesis error:', err);
+      this.finishSpeech();
+    }
   }
 
   public stopSpeaking() {
-    const controller = this.speechController;
-    this.speechController = null;
-    controller?.abort();
+    if (this.networkTimeoutId) {
+      clearTimeout(this.networkTimeoutId);
+      this.networkTimeoutId = null;
+    }
+
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      try {
+        window.speechSynthesis.cancel();
+      } catch {}
+    }
 
     if (this.currentAudio) {
       this.currentAudio.pause();
       this.currentAudio = null;
     }
 
-    const resolve = this.activeSpeechResolve;
-    this.activeSpeechResolve = null;
-    resolve?.();
+    this.finishSpeech();
   }
 
-  private finishSpeech(controller: AbortController, resolve: () => void) {
-    if (this.speechController === controller) this.speechController = null;
-    if (this.activeSpeechResolve === resolve) this.activeSpeechResolve = null;
-    resolve();
+  private finishSpeech() {
+    if (this.activeSpeechResolve) {
+      const resolve = this.activeSpeechResolve;
+      this.activeSpeechResolve = null;
+      resolve();
+    }
   }
 }
 
