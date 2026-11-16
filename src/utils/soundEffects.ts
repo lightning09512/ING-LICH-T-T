@@ -1,50 +1,12 @@
-// Web Audio API Synthesizer - 100% offline, zero external audio file dependencies
+// Web Audio API effects and online speech playback.
 
 class SoundEngine {
   private ctx: AudioContext | null = null;
   private soundEnabled: boolean = true;
   private currentAudio: HTMLAudioElement | null = null;
-  private englishVoice: SpeechSynthesisVoice | null = null;
-
-  constructor() {
-    this.initVoices();
-  }
-
-  // Prefer high-quality English voices exposed by the browser/operating system.
-  private initVoices() {
-    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
-
-    const selectFemaleVoice = () => {
-      const voices = window.speechSynthesis.getVoices();
-      if (!voices || voices.length === 0) return;
-
-      const rankVoice = (voice: SpeechSynthesisVoice) => {
-        if (!voice.lang.toLowerCase().startsWith('en')) return -1;
-
-        const name = voice.name.toLowerCase();
-        const lang = voice.lang.toLowerCase();
-        let score = lang === 'en-us' ? 20 : 0;
-
-        // These are typically cloud-backed neural voices and sound less synthetic.
-        if (/natural|neural|online/.test(name)) score += 100;
-        if (/jenny|aria|ava|samantha|zira|victoria|karen|moira|tessa|fiona/.test(name)) score += 30;
-        if (/google us english/.test(name)) score += 25;
-        if (/desktop|compact/.test(name)) score -= 20;
-
-        return score;
-      };
-
-      this.englishVoice = voices
-        .map(voice => ({ voice, score: rankVoice(voice) }))
-        .filter(candidate => candidate.score >= 0)
-        .sort((a, b) => b.score - a.score)[0]?.voice ?? null;
-    };
-
-    selectFemaleVoice();
-    if (window.speechSynthesis.onvoiceschanged !== undefined) {
-      window.speechSynthesis.onvoiceschanged = selectFemaleVoice;
-    }
-  }
+  private currentAudioUrl: string | null = null;
+  private speechController: AbortController | null = null;
+  private activeSpeechResolve: (() => void) | null = null;
 
   private getContext(): AudioContext | null {
     if (!this.ctx && typeof window !== 'undefined') {
@@ -164,8 +126,8 @@ class SoundEngine {
     });
   }
 
-  // Use the best natural voice available in the browser, then fall back to Google TTS.
-  public speakEnglish(text: string, rate: number = 0.95): Promise<void> {
+  // Neural US English voice, with Google TTS as a fallback if the API is unavailable.
+  public speakEnglish(text: string): Promise<void> {
     return new Promise((resolve) => {
       if (!this.soundEnabled) {
         resolve();
@@ -178,90 +140,108 @@ class SoundEngine {
         return;
       }
 
-      // Stop any currently playing audio or speech
       this.stopSpeaking();
-
-      this.speakWithSpeechSynthesis(cleanText, rate, (spoken, cancelled) => {
-        if (spoken) {
-          resolve();
-          return;
-        }
-
-        if (cancelled) {
-          resolve();
-          return;
-        }
-
-        this.speakWithGoogleTts(cleanText, resolve);
-      });
+      const controller = new AbortController();
+      this.speechController = controller;
+      this.activeSpeechResolve = resolve;
+      void this.speakWithNeuralTts(cleanText, controller, resolve);
     });
   }
 
-  private speakWithGoogleTts(text: string, resolve: () => void) {
-    if (text.length > 200) {
-      resolve();
-      return;
-    }
-
+  private async speakWithNeuralTts(text: string, controller: AbortController, resolve: () => void) {
     try {
-      const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en-US&client=tw-ob&q=${encodeURIComponent(text)}`;
-      const audio = new Audio(audioUrl);
-      this.currentAudio = audio;
+      const response = await fetch('/api/tts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text }),
+        signal: controller.signal,
+      });
 
-      const finish = () => {
-        if (this.currentAudio === audio) this.currentAudio = null;
-        resolve();
-      };
+      if (!response.ok) throw new Error('Neural TTS request failed');
+      const audioBlob = await response.blob();
+      if (audioBlob.size === 0) throw new Error('Neural TTS returned empty audio');
 
-      audio.onended = finish;
-      audio.onerror = finish;
-      audio.play().catch(finish);
+      const audioUrl = URL.createObjectURL(audioBlob);
+      if (controller.signal.aborted) {
+        URL.revokeObjectURL(audioUrl);
+        this.finishSpeech(controller, resolve);
+        return;
+      }
+
+      this.playAudio(audioUrl, true, controller, resolve, true, text);
     } catch {
-      resolve();
+      if (controller.signal.aborted) {
+        this.finishSpeech(controller, resolve);
+        return;
+      }
+
+      this.speakWithGoogleTts(text, controller, resolve);
     }
   }
 
-  private speakWithSpeechSynthesis(
-    text: string,
-    rate: number,
-    resolve: (spoken: boolean, cancelled?: boolean) => void,
-  ) {
-    if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
-      resolve(false);
+  private speakWithGoogleTts(text: string, controller: AbortController, resolve: () => void) {
+    if (text.length > 200 || controller.signal.aborted) {
+      this.finishSpeech(controller, resolve);
       return;
     }
 
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'en-US';
-    utterance.rate = rate;
-    utterance.pitch = 1;
+    const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en-US&client=tw-ob&q=${encodeURIComponent(text)}`;
+    this.playAudio(audioUrl, false, controller, resolve, false, text);
+  }
 
-    utterance.onend = () => resolve(true);
-    utterance.onerror = (event) => {
-      const cancelled = event.error === 'canceled' || event.error === 'interrupted';
-      resolve(false, cancelled);
+  private playAudio(
+    audioUrl: string,
+    isObjectUrl: boolean,
+    controller: AbortController,
+    resolve: () => void,
+    fallbackToGoogle: boolean,
+    text: string,
+  ) {
+    const audio = new Audio(audioUrl);
+    this.currentAudio = audio;
+    this.currentAudioUrl = isObjectUrl ? audioUrl : null;
+
+    const finish = (played: boolean) => {
+      if (this.currentAudio !== audio) return;
+
+      this.currentAudio = null;
+      if (this.currentAudioUrl) URL.revokeObjectURL(this.currentAudioUrl);
+      this.currentAudioUrl = null;
+
+      if (!played && fallbackToGoogle && !controller.signal.aborted) {
+        this.speakWithGoogleTts(text, controller, resolve);
+        return;
+      }
+
+      this.finishSpeech(controller, resolve);
     };
 
-    if (!this.englishVoice) {
-      this.initVoices();
-    }
-
-    if (this.englishVoice) {
-      utterance.voice = this.englishVoice;
-    }
-
-    window.speechSynthesis.speak(utterance);
+    audio.onended = () => finish(true);
+    audio.onerror = () => finish(false);
+    audio.play().catch(() => finish(false));
   }
 
   public stopSpeaking() {
+    const controller = this.speechController;
+    this.speechController = null;
+    controller?.abort();
+
     if (this.currentAudio) {
       this.currentAudio.pause();
       this.currentAudio = null;
     }
-    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-    }
+    if (this.currentAudioUrl) URL.revokeObjectURL(this.currentAudioUrl);
+    this.currentAudioUrl = null;
+
+    const resolve = this.activeSpeechResolve;
+    this.activeSpeechResolve = null;
+    resolve?.();
+  }
+
+  private finishSpeech(controller: AbortController, resolve: () => void) {
+    if (this.speechController === controller) this.speechController = null;
+    if (this.activeSpeechResolve === resolve) this.activeSpeechResolve = null;
+    resolve();
   }
 }
 

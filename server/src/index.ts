@@ -14,6 +14,7 @@ import {
 import { createVocabRouter } from './routes/vocab.routes.js';
 import { createTestRouter, SubmissionDoc } from './routes/test.routes.js';
 import { createProfileRouter } from './routes/profile.routes.js';
+import { createTtsRouter } from './routes/tts.routes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -37,6 +38,7 @@ const profileCol = db.collection<UserProfileDoc>('profile', [defaultProfile]);
 app.use('/api/vocab', createVocabRouter(vocabCol));
 app.use('/api/tests', createTestRouter(testCol, submissionCol));
 app.use('/api/profile', createProfileRouter(profileCol));
+app.use('/api/tts', createTtsRouter());
 
 // Healthcheck
 app.get('/api/health', (req, res) => {
