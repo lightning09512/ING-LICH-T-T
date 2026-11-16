@@ -2,10 +2,11 @@ import React, { createContext, useCallback, useContext, useEffect, useRef, useSt
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
+  getRedirectResult,
   onAuthStateChanged,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
-  signInWithPopup,
+  signInWithRedirect,
   signOut as firebaseSignOut,
 } from 'firebase/auth';
 import type { User } from 'firebase/auth';
@@ -169,64 +170,83 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
   }, [progress]);
 
   useEffect(() => {
+    const auth = firebaseAuth;
     const db = firestore;
-    if (!firebaseAuth || !db) {
+    if (!auth || !db) {
       setAuthLoading(false);
       return;
     }
 
-    return onAuthStateChanged(firebaseAuth, nextUser => {
-      const requestId = ++authRequestRef.current;
-      userRef.current = nextUser;
-      setUser(nextUser);
-      setAuthError(null);
+    let unsubscribe: (() => void) | undefined;
+    let disposed = false;
 
-      if (!nextUser) {
-        progressRef.current = guestProgressRef.current;
-        setProgress(guestProgressRef.current);
-        setSyncStatus('local');
-        setAuthLoading(false);
-        return;
-      }
+    // Resolve a pending Google redirect before subscribing so redirect errors
+    // remain visible after returning to the app.
+    void getRedirectResult(auth)
+      .catch(error => {
+        if (!disposed) setAuthError(getErrorMessage(error));
+      })
+      .finally(() => {
+        if (disposed) return;
 
-      setAuthLoading(true);
-      setSyncStatus('syncing');
-      const cachedProgress = readUserCache(nextUser.uid);
-      const initialProgress = mergeProgress(cachedProgress ?? DEFAULT_PROGRESS, guestProgressRef.current);
-      progressRef.current = initialProgress;
-      setProgress(initialProgress);
+        unsubscribe = onAuthStateChanged(auth, nextUser => {
+          const requestId = ++authRequestRef.current;
+          userRef.current = nextUser;
+          setUser(nextUser);
+          if (nextUser) setAuthError(null);
 
-      void (async () => {
-        try {
-          const progressDoc = doc(db, 'users', nextUser.uid, 'progress', 'learning');
-          const remoteSnapshot = await getDoc(progressDoc);
-          if (requestId !== authRequestRef.current) return;
+          if (!nextUser) {
+            progressRef.current = guestProgressRef.current;
+            setProgress(guestProgressRef.current);
+            setSyncStatus('local');
+            setAuthLoading(false);
+            return;
+          }
 
-          const latestCache = readUserCache(nextUser.uid) ?? initialProgress;
-          const remoteProgress = remoteSnapshot.exists()
-            ? normalizeProgress(remoteSnapshot.data())
-            : DEFAULT_PROGRESS;
-          const merged = mergeProgress(remoteProgress, latestCache, guestProgressRef.current);
+          setAuthLoading(true);
+          setSyncStatus('syncing');
+          const cachedProgress = readUserCache(nextUser.uid);
+          const initialProgress = mergeProgress(cachedProgress ?? DEFAULT_PROGRESS, guestProgressRef.current);
+          progressRef.current = initialProgress;
+          setProgress(initialProgress);
 
-          await setDoc(progressDoc, { ...merged, updatedAt: serverTimestamp() }, { merge: true });
-          if (requestId !== authRequestRef.current) return;
+          void (async () => {
+            try {
+              const progressDoc = doc(db, 'users', nextUser.uid, 'progress', 'learning');
+              const remoteSnapshot = await getDoc(progressDoc);
+              if (requestId !== authRequestRef.current) return;
 
-          progressRef.current = merged;
-          setProgress(merged);
-          writeLocalProgress(merged, nextUser.uid);
-          clearGuestProgress();
-          guestProgressRef.current = { ...DEFAULT_PROGRESS };
-          setSyncStatus('saved');
-        } catch (error) {
-          if (requestId !== authRequestRef.current) return;
-          console.error('Could not sync learning progress:', error);
-          setSyncStatus('error');
-          setAuthError('Đã đăng nhập, nhưng chưa đồng bộ được tiến trình. Kiểm tra cấu hình Firestore và quyền truy cập.');
-        } finally {
-          if (requestId === authRequestRef.current) setAuthLoading(false);
-        }
-      })();
-    });
+              const latestCache = readUserCache(nextUser.uid) ?? initialProgress;
+              const remoteProgress = remoteSnapshot.exists()
+                ? normalizeProgress(remoteSnapshot.data())
+                : DEFAULT_PROGRESS;
+              const merged = mergeProgress(remoteProgress, latestCache, guestProgressRef.current);
+
+              await setDoc(progressDoc, { ...merged, updatedAt: serverTimestamp() }, { merge: true });
+              if (requestId !== authRequestRef.current) return;
+
+              progressRef.current = merged;
+              setProgress(merged);
+              writeLocalProgress(merged, nextUser.uid);
+              clearGuestProgress();
+              guestProgressRef.current = { ...DEFAULT_PROGRESS };
+              setSyncStatus('saved');
+            } catch (error) {
+              if (requestId !== authRequestRef.current) return;
+              console.error('Could not sync learning progress:', error);
+              setSyncStatus('error');
+              setAuthError('Đã đăng nhập, nhưng chưa đồng bộ được tiến trình. Kiểm tra cấu hình Firestore và quyền truy cập.');
+            } finally {
+              if (requestId === authRequestRef.current) setAuthLoading(false);
+            }
+          })();
+        });
+      });
+
+    return () => {
+      disposed = true;
+      unsubscribe?.();
+    };
   }, []);
 
   const signInWithEmail = useCallback(async (email: string, password: string) => {
@@ -253,7 +273,7 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     }
 
     try {
-      await signInWithPopup(firebaseAuth, new GoogleAuthProvider());
+      await signInWithRedirect(firebaseAuth, new GoogleAuthProvider());
       return true;
     } catch (error) {
       setAuthError(getErrorMessage(error));

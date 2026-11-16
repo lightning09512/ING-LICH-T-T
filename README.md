@@ -30,6 +30,17 @@ Người học có thể đăng nhập bằng tài khoản Google hoặc email v
 5. Trong tab **Firestore Database → Rules**, dán nội dung file `firestore.rules` rồi bấm **Publish**. Quy tắc chỉ cho phép người dùng đọc/ghi tiến trình theo UID của chính tài khoản đó.
 6. Khi chạy local, khởi động lại bằng `npm run dev`. Trên Vercel, thêm cùng các biến `VITE_FIREBASE_*` ở **Project → Settings → Environment Variables**, rồi deploy lại. Nếu domain production chưa được Firebase chấp nhận, thêm domain đó trong **Authentication → Settings → Authorized domains**.
 
+#### Đăng nhập Google bằng chuyển hướng trên Vercel
+
+Nút Google dùng chuyển hướng toàn trang, không mở popup. Để Firebase hoàn tất chuyển hướng trên domain Vercel:
+
+1. Trong **Firebase → Authentication → Settings → Authorized domains**, thêm `ing-lich-tet.vercel.app`.
+2. Trong **Vercel → Project → Settings → Environment Variables**, đặt `VITE_FIREBASE_AUTH_DOMAIN` thành `ing-lich-tet.vercel.app` cho Production.
+3. Trong **Google Cloud Console → APIs & Services → Credentials**, mở OAuth Web client đang dùng cho Firebase Google sign-in và thêm URI này vào **Authorized redirect URIs**: `https://ing-lich-tet.vercel.app/__/auth/handler`.
+4. Deploy lại. `vercel.json` đã chuyển tiếp đường dẫn `/__/auth/*` tới Firebase để luồng chuyển hướng hoạt động cùng domain.
+
+Với domain production khác, thay `ing-lich-tet.vercel.app` bằng domain đó ở cả ba nơi.
+
 Người chưa đăng nhập vẫn lưu tiến trình trên thiết bị. Khi đăng ký hoặc đăng nhập lần đầu, tiến trình cục bộ được gộp vào tài khoản Firebase để dùng trên thiết bị khác. Mật khẩu do Firebase Authentication quản lý; ứng dụng cũng hỗ trợ gửi email đặt lại mật khẩu.
 
 ### Cách 1: Chạy cả Frontend & Backend đồng thời (Khuyên dùng)

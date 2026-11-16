@@ -9,6 +9,10 @@
   },
   "rewrites": [
     {
+      "source": "/__/auth/:path*",
+      "destination": "https://ing-lich-tet.firebaseapp.com/__/auth/:path*"
+    },
+    {
       "source": "/api/tests/:id",
       "destination": "/data/tests/:id.json"
     },
