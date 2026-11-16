@@ -2,6 +2,11 @@
   "framework": "vite",
   "buildCommand": "npm run client:build",
   "outputDirectory": "dist",
+  "functions": {
+    "api/tts.ts": {
+      "maxDuration": 30
+    }
+  },
   "rewrites": [
     {
       "source": "/api/tests/:id",
@@ -20,7 +25,7 @@
       "destination": "/data/profile.json"
     },
     {
-      "source": "/((?!data/|assets/).*)",
+      "source": "/((?!api/|data/|assets/).*)",
       "destination": "/index.html"
     }
   ]

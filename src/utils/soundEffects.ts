@@ -158,6 +158,9 @@ class SoundEngine {
       });
 
       if (!response.ok) throw new Error('Neural TTS request failed');
+      const contentType = response.headers.get('content-type')?.toLowerCase() ?? '';
+      if (!contentType.startsWith('audio/')) throw new Error('Neural TTS returned a non-audio response');
+
       const audioBlob = await response.blob();
       if (audioBlob.size === 0) throw new Error('Neural TTS returned empty audio');
 
