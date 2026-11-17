@@ -87,7 +87,7 @@ export const TOEIC_SPEAKING_QUESTIONS: SpeakingQuestion[] = [
     imageUrl: "/images/part1/p1_01.jpg",
     modelAnswer: "This picture was taken in a modern open-plan office. In the center, a man wearing a crisp white dress shirt is actively typing on his computer keyboard while looking at two monitors. Next to him, a female colleague in a dark blazer is reviewing paperwork with a blue pen. In the background, large glass windows let in plenty of natural sunlight. Overall, the atmosphere seems quiet, highly focused, and productive.",
     tipsVi: [
-      "Áp dụng Công thức 4 bước Ms Hoa: 1. Địa điểm (open-plan office) -> 2. Người ở trung tâm -> 3. Người/vật bên cạnh -> 4. Bầu không khí (Overall... productive).",
+      "Áp dụng Công thức 4 bước chuẩn ETS: 1. Địa điểm (open-plan office) -> 2. Người ở trung tâm -> 3. Người/vật bên cạnh -> 4. Bầu không khí (Overall... productive).",
       "Dùng thì Hiện tại tiếp diễn: 'is actively typing', 'is reviewing paperwork'."
     ]
   },

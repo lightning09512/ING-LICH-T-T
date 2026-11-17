@@ -32,7 +32,7 @@ export interface RevisionUnit {
 export const TOEIC_REVISION_ROADMAP: RevisionUnit[] = [
   // ==========================================
   // TOEIC SPEAKING REVISION (LEVEL 0 - 100+)
-  // Nguồn: Lộ trình Anh Ngữ Ms Hoa
+  // Lộ trình ôn tập trọng điểm chuẩn ETS
   // ==========================================
   {
     id: "sp-unit-01",
@@ -286,7 +286,7 @@ export const TOEIC_REVISION_ROADMAP: RevisionUnit[] = [
     title: "Unit 15: Công Thức Vàng 4 Bước Miêu Tả Tranh (Hot Training Recipe)",
     subtitle: "Bí quyết nói trọn vẹn trong 30 giây không bao giờ bị bí từ",
     badge: "Công Thức 4 Bước",
-    overviewVi: "Công thức độc quyền 4 bước từ Ms Hoa giúp thí sinh xử lý mọi bức tranh Part 2 chỉ trong 30 giây một cách mượt mà và tự tin.",
+    overviewVi: "Công thức độc quyền 4 bước chuẩn ETS giúp thí sinh xử lý mọi bức tranh Part 2 chỉ trong 30 giây một cách mượt mà và tự tin.",
     contentSections: [
       {
         heading: "Quy Trình 4 Bước Chuẩn Điểm Cao",
@@ -353,7 +353,7 @@ export const TOEIC_REVISION_ROADMAP: RevisionUnit[] = [
 
   // ==========================================
   // TOEIC WRITING REVISION (LEVEL 0 - 100+)
-  // Nguồn: Lộ trình Anh Ngữ Ms Hoa
+  // Lộ trình ôn tập trọng điểm chuẩn ETS
   // ==========================================
   {
     id: "wr-unit-01",
