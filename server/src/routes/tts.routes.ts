@@ -30,7 +30,7 @@ export function createTtsRouter(): Router {
     const text = typeof req.query.text === 'string' ? req.query.text.trim() : '';
 
     if (!text || text.length > MAX_TTS_TEXT_LENGTH) {
-      return res.status(400).json({ success: false, message: 'Text must be between 1 and 800 characters.' });
+      return res.status(400).json({ success: false, message: 'Text must be between 1 and 1500 characters.' });
     }
 
     if (isRateLimited(req.ip ?? req.socket.remoteAddress ?? 'unknown', Date.now())) {
@@ -58,7 +58,7 @@ export function createTtsRouter(): Router {
     const text = typeof req.body?.text === 'string' ? req.body.text.trim() : '';
 
     if (!text || text.length > MAX_TTS_TEXT_LENGTH) {
-      return res.status(400).json({ success: false, message: 'Text must be between 1 and 800 characters.' });
+      return res.status(400).json({ success: false, message: 'Text must be between 1 and 1500 characters.' });
     }
 
     if (isRateLimited(req.ip ?? req.socket.remoteAddress ?? 'unknown', Date.now())) {

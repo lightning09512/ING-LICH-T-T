@@ -1,8 +1,8 @@
 import { EdgeTTS } from 'node-edge-tts';
 
-export const MAX_TTS_TEXT_LENGTH = 800;
+export const MAX_TTS_TEXT_LENGTH = 1500;
 
-const CACHE_LIMIT = 100;
+const CACHE_LIMIT = 250;
 const audioCache = new Map<string, Buffer>();
 
 export async function* streamSpeech(text: string, rate?: string): AsyncGenerator<Buffer> {

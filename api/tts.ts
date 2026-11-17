@@ -4,38 +4,51 @@ export const config = {
   maxDuration: 30,
 };
 
+const MAX_TTS_LENGTH = 1500;
+const CACHE_LIMIT = 300;
 const audioCache = new Map<string, Buffer>();
 
-async function getSpeechAudio(text: string, rate: string = '+0%'): Promise<Buffer> {
+function storeInCache(cacheKey: string, audio: Buffer) {
+  if (audioCache.has(cacheKey)) {
+    audioCache.delete(cacheKey);
+  } else if (audioCache.size >= CACHE_LIMIT) {
+    const oldestKey = audioCache.keys().next().value;
+    if (oldestKey) audioCache.delete(oldestKey);
+  }
+  audioCache.set(cacheKey, audio);
+}
+
+export async function* streamSpeechChunks(text: string, rate: string = '+0%'): AsyncGenerator<Buffer> {
   const cacheKey = `${text}__${rate}`;
   const cached = audioCache.get(cacheKey);
-  if (cached) return cached;
+  if (cached) {
+    storeInCache(cacheKey, cached);
+    yield cached;
+    return;
+  }
 
-  // Use Microsoft Edge's most natural, warm, human female voice (JennyNeural)
+  // Use Microsoft Edge's warm, natural American female voice (JennyNeural)
   const tts = new EdgeTTS({
     voice: 'en-US-JennyNeural',
     lang: 'en-US',
     outputFormat: 'audio-24khz-48kbitrate-mono-mp3',
     rate,
-    timeout: 8_000,
+    timeout: 10_000,
   });
 
   const chunks: Buffer[] = [];
   for await (const chunk of tts.streamAudio(text)) {
-    if (Buffer.isBuffer(chunk)) chunks.push(chunk);
+    if (Buffer.isBuffer(chunk) && chunk.length > 0) {
+      chunks.push(chunk);
+      yield chunk;
+    }
   }
 
   if (chunks.length === 0) {
     throw new Error('No audio generated');
   }
 
-  const audio = Buffer.concat(chunks);
-  if (audioCache.size > 300) {
-    const oldestKey = audioCache.keys().next().value;
-    if (oldestKey) audioCache.delete(oldestKey);
-  }
-  audioCache.set(cacheKey, audio);
-  return audio;
+  storeInCache(cacheKey, Buffer.concat(chunks));
 }
 
 export default async function handler(req: any, res?: any) {
@@ -47,20 +60,53 @@ export default async function handler(req: any, res?: any) {
     if (req.method === 'OPTIONS') return res.status(200).end();
 
     const text = (req.query?.text || req.body?.text || '').trim();
-    if (!text || text.length > 800) {
-      return res.status(400).json({ error: 'Text required (max 800 chars)' });
+    if (!text || text.length > MAX_TTS_LENGTH) {
+      return res.status(400).json({ error: `Text required (max ${MAX_TTS_LENGTH} chars)` });
     }
 
     const rate = (req.query?.rate as string) || '+0%';
+    const cacheKey = `${text}__${rate}`;
+    const cached = audioCache.get(cacheKey);
 
-    try {
-      const audioBuffer = await getSpeechAudio(text, rate);
+    if (cached) {
+      storeInCache(cacheKey, cached);
       res.setHeader('Content-Type', 'audio/mpeg');
       res.setHeader('Cache-Control', 'public, max-age=31536000, s-maxage=31536000, immutable');
-      return res.send(audioBuffer);
+      return res.send(cached);
+    }
+
+    try {
+      const iterator = streamSpeechChunks(text, rate)[Symbol.asyncIterator]();
+      const first = await iterator.next();
+      if (first.done || !first.value) {
+        throw new Error('No audio generated');
+      }
+
+      res.setHeader('Content-Type', 'audio/mpeg');
+      res.setHeader('Cache-Control', 'public, max-age=31536000, s-maxage=31536000, immutable');
+      if (typeof res.write === 'function') {
+        res.write(first.value);
+        while (true) {
+          const next = await iterator.next();
+          if (next.done) break;
+          if (next.value) res.write(next.value);
+        }
+        return res.end();
+      } else {
+        const rest: Buffer[] = [first.value];
+        while (true) {
+          const next = await iterator.next();
+          if (next.done) break;
+          if (next.value) rest.push(next.value);
+        }
+        return res.send(Buffer.concat(rest));
+      }
     } catch (e: any) {
       console.error('[TTS Error]', e);
-      return res.status(500).json({ error: e.message || 'TTS Error' });
+      if (!res.headersSent) {
+        return res.status(500).json({ error: e.message || 'TTS Error' });
+      }
+      return res.end();
     }
   }
 
@@ -87,22 +133,49 @@ export default async function handler(req: any, res?: any) {
     rateParam = body.rate || '';
   }
 
-  if (!text || text.length > 800) {
-    return new Response(JSON.stringify({ error: 'Text required' }), { status: 400 });
+  if (!text || text.length > MAX_TTS_LENGTH) {
+    return new Response(JSON.stringify({ error: `Text required (max ${MAX_TTS_LENGTH} chars)` }), { status: 400 });
   }
 
   const rate = rateParam || '+0%';
+  const cacheKey = `${text}__${rate}`;
+  const cached = audioCache.get(cacheKey);
+  const responseHeaders = {
+    'Content-Type': 'audio/mpeg',
+    'Cache-Control': 'public, max-age=31536000, s-maxage=31536000, immutable',
+    'Access-Control-Allow-Origin': '*',
+  };
+
+  if (cached) {
+    storeInCache(cacheKey, cached);
+    return new Response(cached, { headers: responseHeaders });
+  }
 
   try {
-    const audioBuffer = await getSpeechAudio(text, rate);
-    return new Response(audioBuffer, {
-      headers: {
-        'Content-Type': 'audio/mpeg',
-        'Cache-Control': 'public, max-age=31536000, s-maxage=31536000, immutable',
-        'Access-Control-Allow-Origin': '*',
+    const iterator = streamSpeechChunks(text, rate)[Symbol.asyncIterator]();
+    const first = await iterator.next();
+    if (first.done || !first.value) {
+      throw new Error('No audio generated');
+    }
+
+    const stream = new ReadableStream<Uint8Array>({
+      async start(controller) {
+        controller.enqueue(new Uint8Array(first.value));
+        try {
+          while (true) {
+            const next = await iterator.next();
+            if (next.done) break;
+            if (next.value) controller.enqueue(new Uint8Array(next.value));
+          }
+          controller.close();
+        } catch (err) {
+          controller.error(err);
+        }
       },
     });
+
+    return new Response(stream, { headers: responseHeaders });
   } catch (e: any) {
-    return new Response(JSON.stringify({ error: e.message }), { status: 500 });
+    return new Response(JSON.stringify({ error: e.message || 'TTS Error' }), { status: 500 });
   }
 }
