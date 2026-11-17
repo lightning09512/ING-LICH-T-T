@@ -8,6 +8,7 @@ import {
   ChevronLeft, ChevronRight, CheckCircle2, AlertCircle, Trophy
 } from 'lucide-react';
 import { useLearningProgress } from '../contexts/ProgressContext';
+import { calculateToeicScore } from '../utils/toeicScoring';
 
 interface ToeicExamScreenProps {
   test: ToeicTest;
@@ -201,11 +202,12 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
     }
   });
 
-  const listeningTotal = test.questions.filter(q => q.part <= 4).length || 1;
-  const readingTotal = test.questions.filter(q => q.part >= 5).length || 1;
-  const listeningScore = Math.round((listeningCorrect / listeningTotal) * 495);
-  const readingScore = Math.round((readingCorrect / readingTotal) * 495);
-  const totalToeicScore = listeningScore + readingScore;
+  const listeningTotal = test.questions.filter(q => q.part <= 4).length || 100;
+  const readingTotal = test.questions.filter(q => q.part >= 5).length || 100;
+  const toeicResult = calculateToeicScore(listeningCorrect, listeningTotal, readingCorrect, readingTotal);
+  const listeningScore = toeicResult.listeningScore;
+  const readingScore = toeicResult.readingScore;
+  const totalToeicScore = toeicResult.totalScore;
 
   let rankBadge = "Chiến Thần Đỉnh Nóc";
   let roastComment = "Nóc nhà mãi đỉnh! Tối nay được bạn trai khao lẩu và trà sữa ngập mồm!";
@@ -1083,25 +1085,43 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
             </div>
 
             {/* Score Cards */}
-            <div className="grid grid-cols-3 gap-3 w-full">
-              <div className="bg-blue-50 border-3 border-black p-3 shadow-neo-sm">
-                <span className="text-xs font-bold text-gray-500 block">Listening</span>
-                <span className="text-2xl font-black text-blue-700 font-mono">{listeningScore}</span>
-                <span className="text-[10px] font-bold text-gray-400 block">/ 495</span>
+            <div className="grid grid-cols-3 gap-2.5 sm:gap-3 w-full">
+              <div className="bg-blue-50 border-3 border-black p-2.5 sm:p-3 shadow-neo-sm">
+                <span className="text-[11px] sm:text-xs font-bold text-gray-500 block">Listening</span>
+                <span className="text-xl sm:text-2xl font-black text-blue-700 font-mono">{listeningScore}</span>
+                <span className="text-[10px] sm:text-[11px] font-bold text-blue-600 block">{listeningCorrect}/{listeningTotal} câu</span>
               </div>
-              <div className="bg-emerald-50 border-3 border-black p-3 shadow-neo-sm">
-                <span className="text-xs font-bold text-gray-500 block">Reading</span>
-                <span className="text-2xl font-black text-emerald-700 font-mono">{readingScore}</span>
-                <span className="text-[10px] font-bold text-gray-400 block">/ 495</span>
+              <div className="bg-emerald-50 border-3 border-black p-2.5 sm:p-3 shadow-neo-sm">
+                <span className="text-[11px] sm:text-xs font-bold text-gray-500 block">Reading</span>
+                <span className="text-xl sm:text-2xl font-black text-emerald-700 font-mono">{readingScore}</span>
+                <span className="text-[10px] sm:text-[11px] font-bold text-emerald-600 block">{readingCorrect}/{readingTotal} câu</span>
               </div>
-              <div className="bg-neoYellow border-3 border-black p-3 shadow-neo-sm">
-                <span className="text-xs font-bold text-gray-700 block">Tổng Điểm</span>
-                <span className="text-3xl font-black text-black font-mono">{totalToeicScore}</span>
-                <span className="text-[10px] font-bold text-gray-600 block">/ 990</span>
+              <div className="bg-neoYellow border-3 border-black p-2.5 sm:p-3 shadow-neo-sm">
+                <span className="text-[11px] sm:text-xs font-bold text-gray-700 block">Tổng Điểm</span>
+                <span className="text-2xl sm:text-3xl font-black text-black font-mono">{totalToeicScore}</span>
+                <span className="text-[10px] sm:text-[11px] font-bold text-gray-600 block">/ 990</span>
               </div>
             </div>
 
-            {/* Roast Feedback for girlfriend */}
+            {/* Official ETS Standard Certificate Level */}
+            <div className="w-full bg-white border-3 border-black p-3 shadow-neo-sm flex flex-wrap items-center justify-between gap-2 text-left">
+              <div className="flex items-center gap-2">
+                <span className="text-xl">🎖️</span>
+                <div>
+                  <span className="text-xs font-black text-black uppercase block">
+                    Chuẩn Quy Đổi ETS: Trình Độ CEFR {toeicResult.cefrLevel}
+                  </span>
+                  <span className="text-[11px] font-bold text-gray-600">
+                    Bằng {toeicResult.certificateColor} • {toeicResult.titleVi}
+                  </span>
+                </div>
+              </div>
+              <span className="text-xs font-mono font-black bg-black text-white px-2 py-0.5 rounded">
+                ETS Scale
+              </span>
+            </div>
+
+            {/* Roast Feedback & Professional Evaluation */}
             <div className="bg-yellow-50 border-3 border-black p-4 w-full shadow-neo-sm text-left">
               <strong className="text-xs font-black text-pink-600 uppercase block">
                 💌 Lời nhắn từ Trollface & Bạn trai:
@@ -1109,9 +1129,10 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
               <p className="font-bold text-gray-800 text-sm mt-1">
                 "{roastComment}"
               </p>
-              <p className="text-xs text-gray-500 font-bold mt-2">
-                Đúng: {correctCount}/{totalQuestions} câu ({Math.round((correctCount/totalQuestions)*100)}%)
-              </p>
+              <div className="mt-2.5 pt-2 border-t border-dashed border-gray-300 text-xs text-gray-700 font-bold leading-relaxed">
+                <span className="text-black font-black">💡 Đánh giá học thuật: </span>
+                {toeicResult.evaluationVi}
+              </div>
             </div>
 
             {/* Actions */}
