@@ -12,6 +12,9 @@ class SoundEngine {
 
   constructor() {
     this.initFemaleVoices();
+    if (typeof window !== 'undefined') {
+      setTimeout(() => this.prefetchEnglish('welcome'), 1000);
+    }
   }
 
   // Pre-load and strictly lock to a pleasant, natural American female voice
@@ -121,7 +124,7 @@ class SoundEngine {
     try {
       const audio = new Audio();
       audio.preload = 'auto';
-      audio.playbackRate = 1.15;
+      audio.playbackRate = 1.0;
       audio.src = `/api/tts?text=${encodeURIComponent(cleanText)}`;
       this.audioCache.set(cacheKey, audio);
 
@@ -329,7 +332,7 @@ class SoundEngine {
       // 1. Instant Play from in-memory cache
       const cached = this.audioCache.get(cacheKey);
       if (cached) {
-        cached.playbackRate = 1.15;
+        cached.playbackRate = 1.0;
         this.currentAudio = cached;
 
         cached.onended = () => {
@@ -367,7 +370,7 @@ class SoundEngine {
               started = true;
               this.fallbackSpeech(cleanText, requestId);
             }
-          }, 850);
+          }, 600);
           return;
         }
       }
@@ -390,13 +393,13 @@ class SoundEngine {
         this.fallbackSpeech(cleanText, requestId);
       };
 
-      this.networkTimeoutId = setTimeout(triggerFallback, 850);
+      this.networkTimeoutId = setTimeout(triggerFallback, 600);
 
       try {
         const audio = new Audio();
         audio.preload = 'auto';
         audio.volume = 1.0;
-        audio.playbackRate = 1.15;
+        audio.playbackRate = 1.0;
         this.currentAudio = audio;
         this.audioCache.set(cacheKey, audio);
 
@@ -440,12 +443,16 @@ class SoundEngine {
     }
 
     try {
-      window.speechSynthesis.cancel();
-      if (window.speechSynthesis.paused) window.speechSynthesis.resume();
+      if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
+        window.speechSynthesis.cancel();
+      }
+      if (window.speechSynthesis.paused) {
+        window.speechSynthesis.resume();
+      }
 
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'en-US';
-      utterance.rate = 1.15; // Crisp, lively, brisk speed (not dragging)
+      utterance.rate = 1.0; // Standard natural conversational speaking speed
       utterance.pitch = 1.0;
       utterance.volume = 1.0;
       if (!this.femaleVoice) this.initFemaleVoices();
@@ -457,6 +464,13 @@ class SoundEngine {
         if (requestId === this.speechRequestId) this.finishSpeech();
       };
       window.speechSynthesis.speak(utterance);
+
+      // Chromium queue watchdog
+      setTimeout(() => {
+        if (window.speechSynthesis.paused) {
+          window.speechSynthesis.resume();
+        }
+      }, 50);
     } catch {
       this.finishSpeech();
     }
