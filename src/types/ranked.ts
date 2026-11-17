@@ -182,6 +182,8 @@ export interface MatchRecord {
 export interface RankedQuestionOption {
   label: 'A' | 'B' | 'C' | 'D';
   text: string;
+  transcriptText?: string;
+  vietnamese?: string;
 }
 
 export interface RankedQuestion {
@@ -193,6 +195,8 @@ export interface RankedQuestion {
   imageUrl?: string;
   audioUrl?: string;
   audioScript?: string; // Spoken script for speech synthesis
+  spokenPrompt?: string;
+  spokenPromptVi?: string;
   options: RankedQuestionOption[];
   correctAnswer: 'A' | 'B' | 'C' | 'D';
   explanation: string;
