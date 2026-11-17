@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { ChevronLeft, Trophy, Users, X } from 'lucide-react';
 import { collection, limit, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { firestore } from '../firebase';
-import { RankStanding, RankTier, RANK_ORDER, RANK_TIERS_CONFIG } from '../types/ranked';
+import { RankStanding, RankTier, RANK_ORDER, RANK_TIERS_CONFIG, RANK_THRESHOLDS } from '../types/ranked';
 import { useLearningProgress } from '../contexts/ProgressContext';
 
 type StandingDoc = {
@@ -56,14 +56,18 @@ export const LeaderboardRail: React.FC = () => {
 
   const personal = useMemo<RankStanding | null>(() => {
     if (!user) return null;
+    const currentPoints = Math.max(
+      progress.rankCareerPoints ?? 0,
+      RANK_THRESHOLDS[progress.rankTier || 'BRONZE'] + (progress.rankLp ?? 0),
+    );
     return {
       uid: user.uid,
       displayName: user.displayName || user.email?.split('@')[0] || 'Bạn',
       photoURL: user.photoURL,
-      rankPoints: (progress.rankTier ? RANK_ORDER.indexOf(progress.rankTier) : 0) * 100 + (progress.rankLp ?? 0),
-      tier: progress.rankTier || 'IRON',
+      rankPoints: currentPoints,
+      tier: progress.rankTier || 'BRONZE',
     };
-  }, [user, progress.rankTier, progress.rankLp]);
+  }, [user, progress.rankTier, progress.rankLp, progress.rankCareerPoints]);
 
   const visibleStandings = useMemo(() => {
     const byUid = new Map(standings.map(row => [row.uid, row]));
