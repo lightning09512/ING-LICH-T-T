@@ -167,7 +167,21 @@ export const ToeicSpeakingExamScreen: React.FC<ToeicSpeakingExamScreenProps> = (
       setPrepSeconds(currentQuestion.prepTimeSeconds);
       setSpeakSeconds(currentQuestion.speakTimeSeconds);
     }
+    const nextQuestion = questionsInTest[currentQuestionIndex + 1];
+    sounds.enqueuePrefetch([
+      currentQuestion?.targetScript,
+      currentQuestion?.modelAnswer,
+      currentQuestion?.promptText,
+      nextQuestion?.targetScript,
+      nextQuestion?.modelAnswer,
+    ]);
   }, [selectedTestId, currentQuestionIndex, partFilter]);
+
+  useEffect(() => {
+    return () => {
+      sounds.stopSpeaking();
+    };
+  }, []);
 
   // Prep Timer Countdown
   useEffect(() => {
@@ -319,21 +333,16 @@ export const ToeicSpeakingExamScreen: React.FC<ToeicSpeakingExamScreenProps> = (
   };
 
   const playModelTts = (text: string) => {
-    if (!('speechSynthesis' in window)) return;
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'en-US';
-    utterance.rate = 0.94;
+    if (!text) return;
+    sounds.playClick();
     setIsSpeakingModelTts(true);
-    utterance.onend = () => setIsSpeakingModelTts(false);
-    utterance.onerror = () => setIsSpeakingModelTts(false);
-    window.speechSynthesis.speak(utterance);
+    sounds.speakEnglish(text).finally(() => {
+      setIsSpeakingModelTts(false);
+    });
   };
 
   const stopModelTts = () => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-    }
+    sounds.stopSpeaking();
     setIsSpeakingModelTts(false);
   };
 
@@ -872,6 +881,10 @@ export const ToeicSpeakingExamScreen: React.FC<ToeicSpeakingExamScreenProps> = (
               </button>
 
               <button
+                onPointerEnter={() => {
+                  const sample = currentQuestion.targetScript || currentQuestion.modelAnswer;
+                  if (sample) sounds.prefetchEnglish(sample);
+                }}
                 onClick={() => {
                   if (isSpeakingModelTts) {
                     stopModelTts();

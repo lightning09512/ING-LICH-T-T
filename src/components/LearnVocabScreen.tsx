@@ -28,20 +28,18 @@ export const LearnVocabScreen: React.FC<LearnVocabScreenProps> = ({
   const currentWord = filteredList[currentIndex] || vocabList[0];
 
   useEffect(() => {
-    if (currentWord) {
+    if (currentWord?.word) {
       sounds.prefetchEnglish(currentWord.word);
       if (currentWord.exampleEn) sounds.prefetchEnglish(currentWord.exampleEn);
     }
-    // Proactively prefetch the next 2 words so moving forward has 0ms audio lag
-    const next1 = filteredList[currentIndex + 1];
-    if (next1) {
-      sounds.prefetchEnglish(next1.word);
-      if (next1.exampleEn) sounds.prefetchEnglish(next1.exampleEn);
+    const upcoming: (string | undefined)[] = [];
+    for (let offset = 1; offset <= 4; offset++) {
+      const nextItem = filteredList[currentIndex + offset];
+      if (nextItem) {
+        upcoming.push(nextItem.word, nextItem.exampleEn);
+      }
     }
-    const next2 = filteredList[currentIndex + 2];
-    if (next2) {
-      sounds.prefetchEnglish(next2.word);
-    }
+    sounds.enqueuePrefetch(upcoming);
   }, [currentIndex, currentWord, filteredList]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -106,19 +104,6 @@ export const LearnVocabScreen: React.FC<LearnVocabScreenProps> = ({
   };
 
   const isCurrentLearned = learnedIds.includes(currentWord._id);
-
-  // Proactively prefetch native audio for instant 0ms playback
-  useEffect(() => {
-    if (currentWord?.word) {
-      sounds.prefetchEnglish(currentWord.word);
-      if (currentWord.exampleEn) sounds.prefetchEnglish(currentWord.exampleEn);
-      const nextWord = filteredList[currentIndex + 1];
-      if (nextWord?.word) {
-        sounds.prefetchEnglish(nextWord.word);
-        if (nextWord.exampleEn) sounds.prefetchEnglish(nextWord.exampleEn);
-      }
-    }
-  }, [currentIndex, currentWord, filteredList]);
 
   return (
     <div className="relative z-10 w-full max-w-4xl mx-auto px-3 sm:px-4 py-4 sm:py-6">

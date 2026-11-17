@@ -123,11 +123,18 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
     };
   }, [phase]);
 
-  // Stop speaking when question changes
+  // Stop speaking when question changes & proactively prefetch current + upcoming listening scripts
   useEffect(() => {
     sounds.stopSpeaking();
     setIsPlayingAudio(false);
-  }, [currentIndex]);
+    if (phase === 'EXAM' && questions.length > 0) {
+      sounds.enqueuePrefetch([
+        questions[currentIndex]?.audioScript,
+        questions[currentIndex + 1]?.audioScript,
+        questions[currentIndex + 2]?.audioScript,
+      ]);
+    }
+  }, [phase, currentIndex, questions]);
 
   const currentQ = questions[currentIndex];
 
@@ -492,6 +499,7 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
                     </div>
 
                     <button
+                      onPointerEnter={() => currentQ.audioScript && sounds.prefetchEnglish(currentQ.audioScript)}
                       onClick={() => handlePlayScript(currentQ.audioScript!)}
                       className="px-4 py-2 bg-[#FFE500] border-2 border-black font-black text-xs shadow-neo hover:translate-x-0.5 active:translate-y-0.5 cursor-pointer flex items-center justify-center gap-2 flex-shrink-0"
                     >
@@ -789,6 +797,7 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
                           </span>
                           {isAudioPart && q.audioScript && (
                             <button
+                              onPointerEnter={() => q.audioScript && sounds.prefetchEnglish(q.audioScript)}
                               onClick={() => sounds.speakEnglish(q.audioScript!)}
                               className="px-2.5 py-1 bg-amber-200 hover:bg-amber-300 border border-black font-black text-xs flex items-center gap-1 cursor-pointer"
                               title="Nghe lại phát âm câu này"

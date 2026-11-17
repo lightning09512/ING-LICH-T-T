@@ -96,16 +96,15 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
     if (view === 'STUDY' && currentWord?.word) {
       sounds.prefetchEnglish(currentWord.word);
       if (currentWord.exampleEn) sounds.prefetchEnglish(currentWord.exampleEn);
-      // Proactively prefetch next words
-      const nextWord = currentLesson?.words[flashcardIndex + 1];
-      if (nextWord) {
-        sounds.prefetchEnglish(nextWord.word);
-        if (nextWord.exampleEn) sounds.prefetchEnglish(nextWord.exampleEn);
+      // Queue background prefetch for next 4 flashcards (words + example sentences)
+      const upcoming: (string | undefined)[] = [];
+      for (let offset = 1; offset <= 4; offset++) {
+        const nextW = currentLesson?.words[flashcardIndex + offset];
+        if (nextW) {
+          upcoming.push(nextW.word, nextW.exampleEn);
+        }
       }
-      const nextWord2 = currentLesson?.words[flashcardIndex + 2];
-      if (nextWord2) {
-        sounds.prefetchEnglish(nextWord2.word);
-      }
+      sounds.enqueuePrefetch(upcoming);
     }
   }, [view, flashcardIndex, currentWord, currentLesson]);
 
@@ -113,8 +112,11 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
     const currentQuizWord = quizQuestions[quizIndex]?.word.word;
     if (view === 'QUIZ' && currentQuizWord) {
       sounds.prefetchEnglish(currentQuizWord);
-      const nextQuizWord = quizQuestions[quizIndex + 1]?.word.word;
-      if (nextQuizWord) sounds.prefetchEnglish(nextQuizWord);
+      sounds.enqueuePrefetch([
+        quizQuestions[quizIndex + 1]?.word.word,
+        quizQuestions[quizIndex + 2]?.word.word,
+        quizQuestions[quizIndex + 3]?.word.word,
+      ]);
     }
   }, [view, quizIndex, quizQuestions]);
 
@@ -781,6 +783,7 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
                     </div>
 
                     <button
+                      onPointerEnter={() => sounds.prefetchEnglish(w.word)}
                       onClick={() => { sounds.playClick(); sounds.speakEnglish(w.word); }}
                       className="p-2 border-2 border-black bg-white hover:bg-yellow-100 rounded shadow-neo-sm"
                       title="Phát âm"

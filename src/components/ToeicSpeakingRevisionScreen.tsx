@@ -41,16 +41,24 @@ export const ToeicSpeakingRevisionScreen: React.FC<ToeicSpeakingRevisionScreenPr
 
   const currentUnit: RevisionUnit = speakingUnits.find(u => u.id === selectedUnitId) || speakingUnits[0];
 
+  React.useEffect(() => {
+    sounds.stopSpeaking();
+    setIsSpeakingExample(false);
+    if (currentUnit?.keyFormulas?.length) {
+      sounds.enqueuePrefetch(currentUnit.keyFormulas.map(f => f.exampleEn));
+    }
+    return () => {
+      sounds.stopSpeaking();
+    };
+  }, [currentUnit]);
+
   const handleSpeakText = (text: string) => {
-    if (!('speechSynthesis' in window)) return;
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'en-US';
-    utterance.rate = 0.9;
+    if (!text) return;
+    sounds.playClick();
     setIsSpeakingExample(true);
-    utterance.onend = () => setIsSpeakingExample(false);
-    utterance.onerror = () => setIsSpeakingExample(false);
-    window.speechSynthesis.speak(utterance);
+    sounds.speakEnglish(text).finally(() => {
+      setIsSpeakingExample(false);
+    });
   };
 
   const handleSelectQuizOption = (quizIdx: number, optionIdx: number) => {
@@ -276,6 +284,7 @@ export const ToeicSpeakingRevisionScreen: React.FC<ToeicSpeakingRevisionScreenPr
                       <div className="flex items-center justify-between gap-2 text-gray-700 italic">
                         <span>Ví dụ: "{f.exampleEn}"</span>
                         <button
+                          onPointerEnter={() => sounds.prefetchEnglish(f.exampleEn)}
                           onClick={() => handleSpeakText(f.exampleEn)}
                           className="p-1 rounded bg-white hover:bg-purple-100 border border-purple-300 cursor-pointer shrink-0"
                           title="Phát âm mẫu"
