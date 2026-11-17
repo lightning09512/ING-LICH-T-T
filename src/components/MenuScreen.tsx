@@ -7,7 +7,7 @@ import { useLearningProgress } from '../contexts/ProgressContext';
 import { RANK_TIERS_CONFIG } from '../types/ranked';
 
 interface MenuScreenProps {
-  onSelectMode: (mode: 'LEARN' | 'GRAMMAR' | 'EXAM' | 'RANKED' | 'SPEAKING' | 'WRITING', chapter?: 1 | 2) => void;
+  onSelectMode: (mode: 'LEARN' | 'GRAMMAR' | 'EXAM' | 'RANKED' | 'SPEAKING' | 'WRITING' | 'REVISION', chapter?: 1 | 2) => void;
   onBack: () => void;
   nickname: string;
   user?: User | null;
@@ -299,6 +299,36 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
             </div>
             <span className="text-lg sm:text-2xl md:text-3xl font-black font-heading group-hover:translate-x-1 transition-transform shrink-0 ml-2">
               ✍️
+            </span>
+          </button>
+
+          {/* Button 7: Ôn Tập Kỹ Năng (Lộ Trình Ms Hoa 0 - 100+) */}
+          <button
+            onClick={() => {
+              sounds.playClick();
+              onSelectMode('REVISION');
+            }}
+            className="w-full bg-[#EDE7F6] hover:bg-[#d1c4e9] border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group relative overflow-hidden min-h-[76px] sm:min-h-[96px] cursor-pointer"
+          >
+            <div className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 bg-[#512DA8] text-white text-[9px] sm:text-[11px] font-black px-2 py-0.5 border border-black uppercase rotate-2 sm:rotate-3 shadow-neo-sm z-10 flex items-center gap-1">
+              <GraduationCap className="w-3 h-3 text-white" />
+              <span>Lộ Trình 24 Unit Ms Hoa</span>
+            </div>
+            <div className="flex items-center gap-3 sm:gap-4 md:gap-5 text-left min-w-0">
+              <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#673AB7] border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:scale-110 transition-transform shrink-0">
+                <BookOpen className="w-5 h-5 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
+              </div>
+              <div className="min-w-0 pr-16 sm:pr-0">
+                <h3 className="text-lg sm:text-2xl md:text-3xl font-black uppercase font-heading text-black leading-tight flex items-center gap-2">
+                  <span>Ôn Tập Kỹ Năng (Ms Hoa 0-100+)</span>
+                </h3>
+                <p className="text-[11px] sm:text-sm md:text-base font-bold text-gray-700 mt-0.5 line-clamp-2">
+                  Toàn bộ lý thuyết, phát âm IPA, công thức 4 bước miêu tả tranh & dàn bài 300 từ + Mini Quiz củng cố!
+                </p>
+              </div>
+            </div>
+            <span className="text-lg sm:text-2xl md:text-3xl font-black font-heading group-hover:translate-x-1 transition-transform shrink-0 ml-2">
+              📚
             </span>
           </button>
         </div>

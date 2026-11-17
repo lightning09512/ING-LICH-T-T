@@ -1,7 +1,10 @@
 export interface SpeakingQuestion {
   id: string;
+  testId: string;
+  testName: string;
   part: 1 | 2 | 3 | 4 | 5;
   partTitle: string;
+  questionNumber: number; // 1 to 11
   directionsVi: string;
   prepTimeSeconds: number;
   speakTimeSeconds: number;
@@ -14,6 +17,12 @@ export interface SpeakingQuestion {
   tipsVi: string[];
 }
 
+export const TOEIC_SPEAKING_TESTS = [
+  { id: "study4-sp-01", name: "STUDY4 Practice Test 01 (ETS Authentic)", desc: "11 câu chuẩn format thi thật ETS 20 phút", badge: "Đề Hot" },
+  { id: "study4-sp-02", name: "STUDY4 Practice Test 02 (ETS Công Sở)", desc: "Chủ đề hội họp, giao tiếp khách hàng & lịch trình", badge: "Mới Cập Nhật" },
+  { id: "study4-sp-03", name: "STUDY4 Practice Test 03 (ETS Nâng Cao)", desc: "Thử thách phản xạ nhanh & lập luận thuyết phục", badge: "Mục Tiêu 180+" },
+];
+
 export const TOEIC_SPEAKING_PARTS = [
   { id: 1, name: "Part 1: Đọc to đoạn văn", desc: "Read a text aloud (Câu 1 - 2)", icon: "📢" },
   { id: 2, name: "Part 2: Miêu tả bức tranh", desc: "Describe a picture (Câu 3 - 4)", icon: "🖼️" },
@@ -23,11 +32,16 @@ export const TOEIC_SPEAKING_PARTS = [
 ];
 
 export const TOEIC_SPEAKING_QUESTIONS: SpeakingQuestion[] = [
-  // PART 1: READ A TEXT ALOUD
+  // ==========================================
+  // STUDY4 PRACTICE TEST 01 (11 CÂU CHUẨN ETS)
+  // ==========================================
   {
-    id: "sp-p1-01",
+    id: "sp-t1-q1",
+    testId: "study4-sp-01",
+    testName: "STUDY4 Practice Test 01",
     part: 1,
-    partTitle: "Part 1: Read a text aloud (Đoạn thông báo chuyến bay)",
+    partTitle: "Part 1: Read a text aloud (Thông báo sân bay)",
+    questionNumber: 1,
     directionsVi: "Đọc to đoạn văn sau đây thật rõ ràng và tự nhiên. Chú ý ngắt nghỉ đúng dấu câu, phát âm chuẩn các âm đuôi /s/, /t/, /d/.",
     prepTimeSeconds: 45,
     speakTimeSeconds: 45,
@@ -41,9 +55,12 @@ export const TOEIC_SPEAKING_QUESTIONS: SpeakingQuestion[] = [
     ]
   },
   {
-    id: "sp-p1-02",
+    id: "sp-t1-q2",
+    testId: "study4-sp-01",
+    testName: "STUDY4 Practice Test 01",
     part: 1,
-    partTitle: "Part 1: Read a text aloud (Quảng cáo khuyến mãi cửa hàng)",
+    partTitle: "Part 1: Read a text aloud (Quảng cáo khuyến mãi)",
+    questionNumber: 2,
     directionsVi: "Đọc to đoạn quảng cáo cửa hàng với ngữ điệu hào hứng, thân thiện và chào đón khách hàng.",
     prepTimeSeconds: 45,
     speakTimeSeconds: 45,
@@ -57,121 +74,371 @@ export const TOEIC_SPEAKING_QUESTIONS: SpeakingQuestion[] = [
     ]
   },
   {
-    id: "sp-p1-03",
-    part: 1,
-    partTitle: "Part 1: Read a text aloud (Hướng dẫn viên du lịch)",
-    directionsVi: "Đọc to đoạn giới thiệu bảo tàng nghệ thuật với phong thái lịch thiệp của hướng dẫn viên.",
-    prepTimeSeconds: 45,
-    speakTimeSeconds: 45,
-    promptText: "Read the museum tour announcement aloud.",
-    targetScript: "Good morning, everyone. Welcome to the Royal Heritage Museum. During our two-hour guided tour, you will discover ancient sculptures, classical oil paintings, and rare historical manuscripts. Photography with flash is strictly prohibited inside the main gallery. Please follow me towards the entrance.",
-    modelAnswer: "Good morning, everyone. Welcome to the Royal Heritage Museum. During our two-hour guided tour, you will discover ancient sculptures, classical oil paintings, and rare historical manuscripts. Photography with flash is strictly prohibited inside the main gallery. Please follow me towards the entrance.",
-    tipsVi: [
-      "Nhấn mạnh từ 'strictly prohibited' để nhấn mạnh lệnh cấm chụp ảnh có đèn flash",
-      "Đọc rõ các từ ghép: 'two-hour guided tour', 'oil paintings'",
-      "Hạ giọng dứt khoát ở câu kết: 'Please follow me towards the entrance ↘'"
-    ]
-  },
-
-  // PART 2: DESCRIBE A PICTURE
-  {
-    id: "sp-p2-01",
+    id: "sp-t1-q3",
+    testId: "study4-sp-01",
+    testName: "STUDY4 Practice Test 01",
     part: 2,
-    partTitle: "Part 2: Describe a picture (Cuộc họp công sở)",
-    directionsVi: "Quan sát bức ảnh và miêu tả càng chi tiết càng tốt trong 30 giây: địa điểm, người, hành động chính, trang phục và đồ vật xung quanh.",
+    partTitle: "Part 2: Describe a picture (Văn phòng làm việc)",
+    questionNumber: 3,
+    directionsVi: "Quan sát bức tranh văn phòng làm việc. Miêu tả chi tiết trong 30 giây: địa điểm, nhân vật trung tâm, hành động và hậu cảnh.",
     prepTimeSeconds: 45,
     speakTimeSeconds: 30,
-    promptText: "Describe the picture on your screen in as much detail as you can.",
+    promptText: "Describe the picture on your screen in as much detail as possible.",
     imageUrl: "/images/part1/p1_01.jpg",
-    keywords: ["meeting room", "discussing", "conference table", "presentation", "documents"],
-    modelAnswer: "This picture was taken in a brightly lit modern office meeting room. In the center of the image, several colleagues are gathered around a wooden conference table, actively discussing a business project. The woman on the left is holding some printed documents and smiling, while the man across from her is gesturing with his hands. In the background, there is a large window with sunlight streaming through. Overall, the atmosphere appears productive and collaborative.",
+    modelAnswer: "This picture was taken in a modern open-plan office. In the center, a man wearing a crisp white dress shirt is actively typing on his computer keyboard while looking at two monitors. Next to him, a female colleague in a dark blazer is reviewing paperwork with a blue pen. In the background, large glass windows let in plenty of natural sunlight. Overall, the atmosphere seems quiet, highly focused, and productive.",
     tipsVi: [
-      "Cấu trúc ăn điểm: Tổng quan (Where) -> Chi tiết người và hành động chính (Who is doing what) -> Hậu cảnh (Background) -> Cảm nhận chung (Overall impression)",
-      "Sử dụng thì Hiện tại tiếp diễn: 'are gathered', 'is holding', 'is gesturing'",
-      "Dùng từ nối không gian: 'In the foreground', 'On the left', 'In the background'"
+      "Áp dụng Công thức 4 bước Ms Hoa: 1. Địa điểm (open-plan office) -> 2. Người ở trung tâm -> 3. Người/vật bên cạnh -> 4. Bầu không khí (Overall... productive).",
+      "Dùng thì Hiện tại tiếp diễn: 'is actively typing', 'is reviewing paperwork'."
     ]
   },
   {
-    id: "sp-p2-02",
+    id: "sp-t1-q4",
+    testId: "study4-sp-01",
+    testName: "STUDY4 Practice Test 01",
     part: 2,
-    partTitle: "Part 2: Describe a picture (Quán cà phê làm việc)",
-    directionsVi: "Miêu tả không gian quán cà phê nơi mọi người đang sử dụng máy tính xách tay.",
+    partTitle: "Part 2: Describe a picture (Phòng họp thảo luận)",
+    questionNumber: 4,
+    directionsVi: "Miêu tả buổi thảo luận nhóm quanh bàn tròn. Chú ý tư thế, đồ vật trên bàn và sự tương tác giữa các đồng nghiệp.",
     prepTimeSeconds: 45,
     speakTimeSeconds: 30,
-    promptText: "Describe the picture on your screen in detail.",
-    imageUrl: "/images/part1/p1_04.jpg",
-    keywords: ["coffee shop", "laptop", "typing", "mug", "wooden table"],
-    modelAnswer: "This photograph shows a cozy and stylish cafe setting. In the foreground, a young professional is sitting at a wooden table, typing diligently on a silver laptop. Next to the keyboard, there is a white ceramic coffee mug and a pair of eyeglasses. In the background, other customers can be seen reading books and enjoying their beverages. The warm lighting creates a very relaxed and focused working environment.",
+    promptText: "Describe the picture on your screen in as much detail as possible.",
+    imageUrl: "/images/part1/p1_02.jpg",
+    modelAnswer: "This picture shows a group of business professionals having a meeting around a conference table. In the foreground, a woman with long hair is gesturing with her hands as she explains an idea, and the others are listening attentively. On the wooden table, there are several open laptops, notebooks, and ceramic coffee mugs. The room is brightly illuminated, and everyone appears very engaged in the discussion.",
     tipsVi: [
-      "Nhớ miêu tả các đồ vật nhỏ: 'ceramic coffee mug', 'pair of eyeglasses'",
-      "Từ vựng đắt giá: 'cozy and stylish cafe', 'typing diligently', 'relaxed working environment'"
+      "Dùng cụm vị trí: 'In the foreground', 'On the wooden table', 'In the center'.",
+      "Dùng tính từ đắt giá: 'brightly illuminated', 'engaged in the discussion'."
     ]
   },
-
-  // PART 3: RESPOND TO QUESTIONS
   {
-    id: "sp-p3-01",
+    id: "sp-t1-q5",
+    testId: "study4-sp-01",
+    testName: "STUDY4 Practice Test 01",
     part: 3,
-    partTitle: "Part 3: Respond to Questions (Thói quen mua sắm trực tuyến)",
-    directionsVi: "Bạn đang tham gia một cuộc khảo sát qua điện thoại về thói quen mua sắm online. Hãy trả lời câu hỏi tự nhiên trong 15 giây.",
+    partTitle: "Part 3: Respond to questions (Mua sắm cá nhân)",
+    questionNumber: 5,
+    directionsVi: "Trả lời câu hỏi trong 15 giây: Bạn thường mua sắm quần áo ở đâu và tần suất như thế nào?",
     prepTimeSeconds: 3,
     speakTimeSeconds: 15,
-    promptText: "How often do you shop online, and what kinds of items do you usually purchase?",
-    modelAnswer: "I shop online about twice a week, mostly for clothes, household essentials, and books. It saves me a lot of time compared to going to physical shopping centers.",
+    promptText: "Where do you usually go shopping for clothes, and how often do you go?",
+    modelAnswer: "I usually shop for clothes at local shopping malls like Vincom about once or twice a month, especially when they have seasonal sales.",
     tipsVi: [
-      "Trả lời trực tiếp 2 vế: Tần suất (twice a week) + Mặt hàng (clothes, essentials)",
-      "Bổ sung 1 câu lý do: 'It saves me a lot of time...'"
+      "Trả lời trực tiếp 2 vế: Địa điểm (local shopping malls) + Tần suất (once or twice a month)."
     ]
   },
   {
-    id: "sp-p3-02",
+    id: "sp-t1-q6",
+    testId: "study4-sp-01",
+    testName: "STUDY4 Practice Test 01",
     part: 3,
-    partTitle: "Part 3: Respond to Questions (Ưu điểm của mua sắm online)",
-    directionsVi: "Trả lời câu hỏi chi tiết trong 30 giây: Bạn thích mua sắm online hay trực tiếp tại cửa hàng hơn và tại sao?",
+    partTitle: "Part 3: Respond to questions (Người đi mua sắm cùng)",
+    questionNumber: 6,
+    directionsVi: "Trả lời câu hỏi trong 15 giây: Bạn thích đi mua sắm một mình hay đi cùng bạn bè?",
+    prepTimeSeconds: 3,
+    speakTimeSeconds: 15,
+    promptText: "Do you prefer to shop alone or with friends? Why?",
+    modelAnswer: "I prefer shopping with friends because they can give me honest feedback on what looks best on me, and it makes the whole experience much more fun and relaxing.",
+    tipsVi: [
+      "Nêu rõ sở thích + 1 lý do thuyết phục: 'gives me honest feedback', 'makes the experience fun'."
+    ]
+  },
+  {
+    id: "sp-t1-q7",
+    testId: "study4-sp-01",
+    testName: "STUDY4 Practice Test 01",
+    part: 3,
+    partTitle: "Part 3: Respond to questions (Mua sắm Online vs Trực tiếp)",
+    questionNumber: 7,
+    directionsVi: "Trả lời câu hỏi chi tiết trong 30 giây: Theo bạn, yếu tố quan trọng nhất khi chọn một trang mua sắm trực tuyến là gì?",
     prepTimeSeconds: 3,
     speakTimeSeconds: 30,
-    promptText: "Do you prefer shopping online or in physical stores? Why?",
-    modelAnswer: "Personally, I definitely prefer shopping online for two primary reasons. First and foremost, convenience is unbeatable because I can place orders from the comfort of my home at any time. Second, online platforms frequently offer fantastic discount vouchers and free shipping, which helps me save a significant amount of money.",
+    promptText: "What is the most important factor for you when choosing an online shopping website? Explain why.",
+    modelAnswer: "For me, the most crucial factor is definitely fast and reliable shipping, combined with authentic customer reviews. When I order items online, I want to receive them quickly without damage, and reading honest reviews from other verified buyers helps me ensure the product quality matches the description.",
     tipsVi: [
-      "Mở đầu rõ ràng: 'Personally, I definitely prefer... for two primary reasons'",
-      "Dùng liên từ phân tầng: 'First and foremost...', 'Second,...'"
+      "Mở đầu chuẩn: 'For me, the most crucial factor is definitely...'",
+      "Phân tích 2 góc độ: Giao hàng nhanh (reliable shipping) + Đánh giá chân thực (authentic reviews)."
     ]
   },
-
-  // PART 4: RESPOND TO QUESTIONS USING INFORMATION PROVIDED
   {
-    id: "sp-p4-01",
+    id: "sp-t1-q8",
+    testId: "study4-sp-01",
+    testName: "STUDY4 Practice Test 01",
     part: 4,
-    partTitle: "Part 4: Respond using information (Lịch trình hội nghị kinh doanh)",
-    directionsVi: "Dựa vào bảng thông tin lịch trình hội thảo công nghệ, trả lời câu hỏi của khách tham dự.",
+    partTitle: "Part 4: Using Information (Lịch trình hội nghị - Khai mạc)",
+    questionNumber: 8,
+    directionsVi: "Đọc lịch trình hội thảo công nghệ. Trả lời câu hỏi 15s qua điện thoại của người tham dự.",
     prepTimeSeconds: 45,
     speakTimeSeconds: 15,
-    promptText: "What time does the keynote speech begin, and who will be the main speaker?",
+    promptText: "Could you tell me what time the conference starts and what the first session will be about?",
     imageUrl: "/images/part1/p1_07.jpg",
     tableData: [
-      { "Thời gian": "09:00 AM - 10:30 AM", "Nội dung": "Keynote: Artificial Intelligence in Modern Business", "Diễn giả": "Dr. Sarah Jenkins (Room A)" },
-      { "Thời gian": "10:45 AM - 12:00 PM", "Nội dung": "Panel Discussion: Future of Cloud Computing", "Diễn giả": "Tech Leaders Panel (Room B)" },
-      { "Thời gian": "12:00 PM - 01:30 PM", "Nội dung": "Networking Lunch & Exhibition", "Diễn giả": "Grand Ballroom" }
+      { "Thời gian": "09:00 AM - 10:15 AM", "Nội dung": "Opening Keynote: Next-Gen AI in E-commerce", "Diễn giả / Địa điểm": "Dr. Sarah Jenkins • Grand Ballroom" },
+      { "Thời gian": "10:30 AM - 12:00 PM", "Nội dung": "Workshop: Cloud Infrastructure Scalability", "Diễn giả / Địa điểm": "Mark Evans • Room 204" },
+      { "Thời gian": "12:00 PM - 01:30 PM", "Nội dung": "Networking Lunch & Exhibition Booths", "Diễn giả / Địa điểm": "Dining Hall (Level 2)" },
+      { "Thời gian": "01:30 PM - 03:00 PM", "Nội dung": "Panel: Cybersecurity in Modern FinTech", "Diễn giả / Địa điểm": "Expert Panel • Room 301" }
     ],
-    modelAnswer: "The keynote speech is scheduled to begin at 9:00 AM, and it will be delivered by Dr. Sarah Jenkins in Room A.",
+    modelAnswer: "Certainly! The conference starts at 9:00 AM with the opening keynote on 'Next-Gen AI in E-commerce', delivered by Dr. Sarah Jenkins in the Grand Ballroom.",
     tipsVi: [
-      "Mẫu câu chuẩn xác: 'The keynote speech is scheduled to begin at [Time], and it will be presented/delivered by [Name].'"
+      "Bắt đầu lịch sự: 'Certainly!' hoặc 'Sure!'",
+      "Nêu rõ giờ (9:00 AM) + chủ đề + người thuyết trình."
     ]
   },
-
-  // PART 5: EXPRESS AN OPINION
   {
-    id: "sp-p5-01",
+    id: "sp-t1-q9",
+    testId: "study4-sp-01",
+    testName: "STUDY4 Practice Test 01",
+    part: 4,
+    partTitle: "Part 4: Using Information (Xác nhận thông tin sai)",
+    questionNumber: 9,
+    directionsVi: "Trả lời câu hỏi 15s để đính chính lại thông tin mà người gọi đang hiểu lầm.",
+    prepTimeSeconds: 3,
+    speakTimeSeconds: 15,
+    promptText: "I heard that lunch is scheduled for 1:30 PM, is that right?",
+    imageUrl: "/images/part1/p1_07.jpg",
+    tableData: [
+      { "Thời gian": "09:00 AM - 10:15 AM", "Nội dung": "Opening Keynote: Next-Gen AI in E-commerce", "Diễn giả / Địa điểm": "Dr. Sarah Jenkins • Grand Ballroom" },
+      { "Thời gian": "10:30 AM - 12:00 PM", "Nội dung": "Workshop: Cloud Infrastructure Scalability", "Diễn giả / Địa điểm": "Mark Evans • Room 204" },
+      { "Thời gian": "12:00 PM - 01:30 PM", "Nội dung": "Networking Lunch & Exhibition Booths", "Diễn giả / Địa điểm": "Dining Hall (Level 2)" }
+    ],
+    modelAnswer: "No, actually that information is incorrect. The networking lunch is scheduled from 12:00 PM to 1:30 PM in the Dining Hall on Level 2.",
+    tipsVi: [
+      "Đính chính nhẹ nhàng: 'No, actually that information is incorrect. The lunch is from 12:00 PM to 1:30 PM...'"
+    ]
+  },
+  {
+    id: "sp-t1-q10",
+    testId: "study4-sp-01",
+    testName: "STUDY4 Practice Test 01",
+    part: 4,
+    partTitle: "Part 4: Using Information (Liệt kê tất cả các buổi chiều)",
+    questionNumber: 10,
+    directionsVi: "Trả lời câu hỏi trong 30 giây: Liệt kê chi tiết các hoạt động diễn ra sau buổi trưa.",
+    prepTimeSeconds: 3,
+    speakTimeSeconds: 30,
+    promptText: "Could you give me all the details about the sessions scheduled in the afternoon?",
+    imageUrl: "/images/part1/p1_07.jpg",
+    tableData: [
+      { "Thời gian": "01:30 PM - 03:00 PM", "Nội dung": "Panel: Cybersecurity in Modern FinTech", "Diễn giả / Địa điểm": "Expert Panel • Room 301" },
+      { "Thời gian": "03:15 PM - 04:30 PM", "Nội dung": "Closing Q&A and Certificate Awarding", "Diễn giả / Địa điểm": "Organizing Committee • Grand Ballroom" }
+    ],
+    modelAnswer: "Yes, there are two sessions scheduled for the afternoon. First, from 1:30 PM to 3:00 PM, there is a panel discussion on Cybersecurity in Modern FinTech held in Room 301. Second, from 3:15 PM to 4:30 PM, the Closing Q&A and Certificate Awarding session will take place in the Grand Ballroom.",
+    tipsVi: [
+      "Dùng cấu trúc đếm: 'Yes, there are two sessions scheduled... First,... Second,...'"
+    ]
+  },
+  {
+    id: "sp-t1-q11",
+    testId: "study4-sp-01",
+    testName: "STUDY4 Practice Test 01",
     part: 5,
-    partTitle: "Part 5: Express an opinion (Làm việc từ xa vs Văn phòng)",
-    directionsVi: "Bày tỏ quan điểm của bạn trong 60 giây: Theo bạn, làm việc từ xa (Work from home) hay làm việc tại văn phòng truyền thống mang lại nhiều lợi ích hơn?",
+    partTitle: "Part 5: Express an Opinion (Làm việc từ xa vs Văn phòng)",
+    questionNumber: 11,
+    directionsVi: "Bày tỏ quan điểm của bạn trong 60 giây (45s chuẩn bị): Làm việc từ xa (Work from home) hay làm tại văn phòng có lợi hơn?",
     prepTimeSeconds: 45,
     speakTimeSeconds: 60,
     promptText: "Do you think working from home offers more benefits than working in a traditional office? Give specific reasons and examples to support your opinion.",
     modelAnswer: "In my opinion, working from home provides significantly more benefits than working in a traditional office. Firstly, it eliminates the daily commute, allowing employees to save considerable time, energy, and transportation expenses. For instance, rather than spending two hours stuck in traffic every day, workers can allocate that time to family, exercise, or completing urgent tasks. Secondly, remote work offers greater flexibility and autonomy, which often leads to higher job satisfaction and improved mental well-being. Although office interactions are valuable, modern digital tools like Zoom and Slack make communication seamless. Therefore, I strongly believe that remote work is a far more advantageous model.",
     tipsVi: [
-      "Dàn bài 4 phần: 1. Khẳng định lập trường (1 câu) -> 2. Lý do 1 + Ví dụ (2-3 câu) -> 3. Lý do 2 + Phân tích (2-3 câu) -> 4. Kết luận ngắn (1 câu).",
-      "Từ nối quan điểm: 'In my opinion...', 'Firstly,...', 'For instance,...', 'Secondly,...', 'Therefore, I strongly believe that...'"
+      "Dàn bài 4 phần: 1. Khẳng định lập trường (1 câu) -> 2. Lý do 1 + Ví dụ (2-3 câu) -> 3. Lý do 2 + Phân tích (2-3 câu) -> 4. Kết luận ngắn (1 câu)."
+    ]
+  },
+
+  // ==========================================
+  // STUDY4 PRACTICE TEST 02 (11 CÂU)
+  // ==========================================
+  {
+    id: "sp-t2-q1",
+    testId: "study4-sp-02",
+    testName: "STUDY4 Practice Test 02",
+    part: 1,
+    partTitle: "Part 1: Read a text aloud (Thông báo công ty)",
+    questionNumber: 1,
+    directionsVi: "Đọc to thông báo nội bộ công ty về việc nâng cấp phần mềm an ninh mạng.",
+    prepTimeSeconds: 45,
+    speakTimeSeconds: 45,
+    promptText: "Read the corporate announcement aloud with clarity and accurate pauses.",
+    targetScript: "Good morning team. This is a reminder that our IT department will be performing critical server upgrades tonight between 10 PM and 2 AM. During this period, remote access to email, internal files, and database servers will be temporarily unavailable. Please make sure to save all work-in-progress before 9:30 PM.",
+    modelAnswer: "Good morning team. This is a reminder that our IT department will be performing critical server upgrades tonight between 10 PM and 2 AM. During this period, remote access to email, internal files, and database servers will be temporarily unavailable. Please make sure to save all work-in-progress before 9:30 PM.",
+    tipsVi: [
+      "Ngắt nghỉ rõ ràng: 'Good morning team.', 'between 10 PM and 2 AM.'",
+      "Liệt kê lên xuống giọng: 'email ↗, internal files ↗, and database servers ↘'."
+    ]
+  },
+  {
+    id: "sp-t2-q2",
+    testId: "study4-sp-02",
+    testName: "STUDY4 Practice Test 02",
+    part: 1,
+    partTitle: "Part 1: Read a text aloud (Hướng dẫn du lịch bảo tàng)",
+    questionNumber: 2,
+    directionsVi: "Đọc to đoạn chào mừng khách tham quan tại bảo tàng nghệ thuật.",
+    prepTimeSeconds: 45,
+    speakTimeSeconds: 45,
+    promptText: "Read the museum tour guide introduction aloud with a friendly and clear tone.",
+    targetScript: "Welcome to the Metropolitan Art Center. Today's guided tour will showcase our renowned collection of nineteenth-century European paintings, modern sculptures, and historical ceramics. Flash photography and food are strictly prohibited inside the main exhibition halls.",
+    modelAnswer: "Welcome to the Metropolitan Art Center. Today's guided tour will showcase our renowned collection of nineteenth-century European paintings, modern sculptures, and historical ceramics. Flash photography and food are strictly prohibited inside the main exhibition halls.",
+    tipsVi: [
+      "Nhấn đúng trọng âm các từ: 'renowned', 'nineteenth-century', 'exhibition'."
+    ]
+  },
+  {
+    id: "sp-t2-q3",
+    testId: "study4-sp-02",
+    testName: "STUDY4 Practice Test 02",
+    part: 2,
+    partTitle: "Part 2: Describe a picture (Cửa hàng / Siêu thị)",
+    questionNumber: 3,
+    directionsVi: "Miêu tả cảnh khách hàng đang mua đồ tại quầy thanh toán cửa hàng.",
+    prepTimeSeconds: 45,
+    speakTimeSeconds: 30,
+    promptText: "Describe the picture on your screen in as much detail as possible.",
+    imageUrl: "/images/part1/p1_05.jpg",
+    modelAnswer: "This picture shows the checkout area of a bustling grocery store. In the foreground, a female customer in a beige coat is handing her credit card to the cashier behind the counter. On the conveyor belt, various grocery items like fruits, vegetables, and boxed cereals are placed neatly. In the background, brightly lit display shelves are stocked with assorted merchandise.",
+    tipsVi: [
+      "Từ vựng đắt giá: 'cashier behind the counter', 'conveyor belt', 'stocked with merchandise'."
+    ]
+  },
+  {
+    id: "sp-t2-q4",
+    testId: "study4-sp-02",
+    testName: "STUDY4 Practice Test 02",
+    part: 2,
+    partTitle: "Part 2: Describe a picture (Thư viện / Kệ sách)",
+    questionNumber: 4,
+    directionsVi: "Miêu tả không gian thư viện yên tĩnh và kệ sách gỗ cao tầng.",
+    prepTimeSeconds: 45,
+    speakTimeSeconds: 30,
+    promptText: "Describe the picture on your screen in as much detail as possible.",
+    imageUrl: "/images/part1/p1_04.jpg",
+    modelAnswer: "This photo depicts an indoor library with tall wooden bookshelves. In the center, a student with glasses is reaching up to pull a thick hardcover book from a high shelf. Surrounding him are neatly organized rows of reference books and catalogs. The ambient lighting is warm and quiet, creating an ideal studying environment.",
+    tipsVi: [
+      "Miêu tả hành động: 'is reaching up to pull a hardcover book from a high shelf'."
+    ]
+  },
+  {
+    id: "sp-t2-q5",
+    testId: "study4-sp-02",
+    testName: "STUDY4 Practice Test 02",
+    part: 3,
+    partTitle: "Part 3: Respond to questions (Thói quen ăn uống)",
+    questionNumber: 5,
+    directionsVi: "Trả lời câu hỏi 15s: Bạn thường nấu ăn ở nhà hay đi ăn ngoài?",
+    prepTimeSeconds: 3,
+    speakTimeSeconds: 15,
+    promptText: "Do you usually cook meals at home or eat out at restaurants? How often?",
+    modelAnswer: "I usually cook meals at home about four to five times a week because home-cooked food is healthier, fresher, and much more economical.",
+    tipsVi: [
+      "Nêu tần suất (4-5 times a week) + 3 tính từ khen ngợi (healthier, fresher, economical)."
+    ]
+  },
+  {
+    id: "sp-t2-q6",
+    testId: "study4-sp-02",
+    testName: "STUDY4 Practice Test 02",
+    part: 3,
+    partTitle: "Part 3: Respond to questions (Chọn nhà hàng)",
+    questionNumber: 6,
+    directionsVi: "Trả lời 15s: Điều gì quan trọng nhất khi bạn chọn một nhà hàng mới?",
+    prepTimeSeconds: 3,
+    speakTimeSeconds: 15,
+    promptText: "What do you consider most when picking a new restaurant to visit?",
+    modelAnswer: "The most important factor for me is food quality and hygiene, followed closely by friendly customer service and positive online customer reviews.",
+    tipsVi: [
+      "Dùng cụm: 'The most important factor is... followed closely by...'"
+    ]
+  },
+  {
+    id: "sp-t2-q7",
+    testId: "study4-sp-02",
+    testName: "STUDY4 Practice Test 02",
+    part: 3,
+    partTitle: "Part 3: Respond to questions (Ứng dụng đặt đồ ăn)",
+    questionNumber: 7,
+    directionsVi: "Trả lời 30s: Lợi ích của việc sử dụng ứng dụng đặt đồ ăn công nghệ?",
+    prepTimeSeconds: 3,
+    speakTimeSeconds: 30,
+    promptText: "In your opinion, what are the advantages of using food delivery mobile apps?",
+    modelAnswer: "In my opinion, food delivery apps offer tremendous convenience and variety. Firstly, they save valuable time since I do not have to cook or travel in bad weather. Secondly, these apps often provide real-time order tracking, digital payments, and exclusive discount vouchers, making ordering delicious meals effortless and cost-effective.",
+    tipsVi: [
+      "Phân 2 ý rõ ràng: Tiết kiệm thời gian (saves valuable time) + Tiện ích số (real-time tracking, discount vouchers)."
+    ]
+  },
+  {
+    id: "sp-t2-q8",
+    testId: "study4-sp-02",
+    testName: "STUDY4 Practice Test 02",
+    part: 4,
+    partTitle: "Part 4: Using Information (Lịch phỏng vấn tuyển dụng)",
+    questionNumber: 8,
+    directionsVi: "Đọc lịch phỏng vấn và trả lời câu hỏi 15s của ứng viên qua điện thoại.",
+    prepTimeSeconds: 45,
+    speakTimeSeconds: 15,
+    promptText: "Can you tell me who the first candidate being interviewed is and for what role?",
+    imageUrl: "/images/part1/p1_03.jpg",
+    tableData: [
+      { "Thời gian": "09:30 AM - 10:15 AM", "Ứng viên": "David Kim", "Vị trí ứng tuyển": "Senior Front-End Developer (Meeting Room 1)" },
+      { "Thời gian": "10:30 AM - 11:15 AM", "Ứng viên": "Laura Martinez", "Vị trí ứng tuyển": "UI/UX Product Designer (Meeting Room 2)" },
+      { "Thời gian": "02:00 PM - 02:45 PM", "Ứng viên": "Michael Nguyen", "Vị trí ứng tuyển": "Data Analyst (Meeting Room 1)" }
+    ],
+    modelAnswer: "Sure! The first candidate is David Kim, and he will be interviewed for the Senior Front-End Developer position at 9:30 AM in Meeting Room 1.",
+    tipsVi: [
+      "Nêu tên (David Kim) + vị trí (Senior Front-End Developer) + thời gian và phòng họp."
+    ]
+  },
+  {
+    id: "sp-t2-q9",
+    testId: "study4-sp-02",
+    testName: "STUDY4 Practice Test 02",
+    part: 4,
+    partTitle: "Part 4: Using Information (Kiểm tra lịch buổi chiều)",
+    questionNumber: 9,
+    directionsVi: "Trả lời câu hỏi 15s để làm rõ lịch phỏng vấn vào buổi chiều.",
+    prepTimeSeconds: 3,
+    speakTimeSeconds: 15,
+    promptText: "Are there any interviews scheduled after 12:00 PM?",
+    imageUrl: "/images/part1/p1_03.jpg",
+    tableData: [
+      { "Thời gian": "02:00 PM - 02:45 PM", "Ứng viên": "Michael Nguyen", "Vị trí ứng tuyển": "Data Analyst (Meeting Room 1)" }
+    ],
+    modelAnswer: "Yes, there is one interview scheduled in the afternoon. Michael Nguyen is being interviewed for the Data Analyst role from 2:00 PM to 2:45 PM in Meeting Room 1.",
+    tipsVi: [
+      "Khẳng định 'Yes, there is one interview...' + chi tiết đầy đủ."
+    ]
+  },
+  {
+    id: "sp-t2-q10",
+    testId: "study4-sp-02",
+    testName: "STUDY4 Practice Test 02",
+    part: 4,
+    partTitle: "Part 4: Using Information (Tất cả ứng viên buổi sáng)",
+    questionNumber: 10,
+    directionsVi: "Trả lời câu hỏi 30s: Liệt kê chi tiết các cuộc phỏng vấn diễn ra trong buổi sáng.",
+    prepTimeSeconds: 3,
+    speakTimeSeconds: 30,
+    promptText: "Could you please give me full details about all interviews scheduled in the morning?",
+    imageUrl: "/images/part1/p1_03.jpg",
+    tableData: [
+      { "Thời gian": "09:30 AM - 10:15 AM", "Ứng viên": "David Kim", "Vị trí ứng tuyển": "Senior Front-End Developer (Meeting Room 1)" },
+      { "Thời gian": "10:30 AM - 11:15 AM", "Ứng viên": "Laura Martinez", "Vị trí ứng tuyển": "UI/UX Product Designer (Meeting Room 2)" }
+    ],
+    modelAnswer: "Certainly, there are two morning interviews. First, at 9:30 AM, David Kim will interview for Senior Front-End Developer in Meeting Room 1. Second, at 10:30 AM, Laura Martinez will interview for UI/UX Product Designer in Meeting Room 2.",
+    tipsVi: [
+      "Cấu trúc liệt kê: 'First, at 9:30 AM... Second, at 10:30 AM...'"
+    ]
+  },
+  {
+    id: "sp-t2-q11",
+    testId: "study4-sp-02",
+    testName: "STUDY4 Practice Test 02",
+    part: 5,
+    partTitle: "Part 5: Express an Opinion (Làm việc nhóm hay Độc lập)",
+    questionNumber: 11,
+    directionsVi: "Bày tỏ quan điểm trong 60 giây (45s chuẩn bị): Bạn thích làm việc độc lập hay theo nhóm trong môi trường công sở?",
+    prepTimeSeconds: 45,
+    speakTimeSeconds: 60,
+    promptText: "Some people prefer working independently, while others prefer collaborating in a team. Which working style do you find more effective and why?",
+    modelAnswer: "I firmly believe that collaborating in a team is significantly more effective than working purely independently. First, teamwork allows diverse talents and perspectives to combine, resulting in superior creative problem-solving and higher quality outcomes. For instance, when designing complex products, developers, designers, and marketers must collaborate to identify blind spots that an individual might overlook. Second, working in a supportive team distributes massive workloads equitably and reduces personal stress. Therefore, team collaboration is essential for long-term organizational success.",
+    tipsVi: [
+      "Khẳng định rõ quan điểm -> Nêu 2 lý do mạnh mẽ (diverse perspectives, distributes workloads) -> Kết luận."
     ]
   }
 ];

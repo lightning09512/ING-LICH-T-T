@@ -11,6 +11,7 @@ import { TestSelectScreen } from './components/TestSelectScreen';
 import { RankedExamScreen } from './components/RankedExamScreen';
 import { ToeicSpeakingScreen } from './components/ToeicSpeakingScreen';
 import { ToeicWritingScreen } from './components/ToeicWritingScreen';
+import { ToeicRevisionScreen } from './components/ToeicRevisionScreen';
 import { LofiPlayer } from './components/LofiPlayer';
 import { AccountModal } from './components/AccountModal';
 import { StreakModal } from './components/StreakModal';
@@ -19,7 +20,7 @@ import { initialVocabList, initialTest, VocabItem, ToeicTest } from './data/init
 import { sounds } from './utils/soundEffects';
 import { useLearningProgress } from './contexts/ProgressContext';
 
-type ScreenState = 'TITLE' | 'MENU' | 'LEARN' | 'GRAMMAR' | 'REVIEW' | 'SELECT_TEST' | 'EXAM' | 'RANKED' | 'SPEAKING' | 'WRITING';
+type ScreenState = 'TITLE' | 'MENU' | 'LEARN' | 'GRAMMAR' | 'REVIEW' | 'SELECT_TEST' | 'EXAM' | 'RANKED' | 'SPEAKING' | 'WRITING' | 'REVISION';
 
 export function App() {
   const {
@@ -312,6 +313,7 @@ export function App() {
           <ToeicSpeakingScreen
             onBack={() => setScreen('MENU')}
             nickname={nickname}
+            onOpenRevision={() => setScreen('REVISION')}
           />
         )}
 
@@ -319,6 +321,15 @@ export function App() {
           <ToeicWritingScreen
             onBack={() => setScreen('MENU')}
             nickname={nickname}
+            onOpenRevision={() => setScreen('REVISION')}
+          />
+        )}
+
+        {screen === 'REVISION' && (
+          <ToeicRevisionScreen
+            onBack={() => setScreen('MENU')}
+            nickname={nickname}
+            onNavigateToPractice={(skill) => setScreen(skill)}
           />
         )}
       </main>

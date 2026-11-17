@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   TOEIC_WRITING_PARTS, 
   TOEIC_WRITING_QUESTIONS, 
+  TOEIC_WRITING_TESTS,
   WritingQuestion 
 } from '../data/toeicWritingData';
 import { 
@@ -26,16 +27,19 @@ import {
   TrendingUp,
   FileText,
   ChevronRight,
-  ChevronLeft
+  ChevronLeft,
+  Trophy
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 interface ToeicWritingScreenProps {
   onBack: () => void;
   nickname: string;
+  onOpenRevision?: () => void;
 }
 
-export const ToeicWritingScreen: React.FC<ToeicWritingScreenProps> = ({ onBack, nickname }) => {
+export const ToeicWritingScreen: React.FC<ToeicWritingScreenProps> = ({ onBack, nickname, onOpenRevision }) => {
+  const [selectedTestId, setSelectedTestId] = useState<string>('study4-wr-01');
   const [selectedPart, setSelectedPart] = useState<1 | 2 | 3>(1);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userText, setUserText] = useState('');
@@ -55,9 +59,10 @@ export const ToeicWritingScreen: React.FC<ToeicWritingScreenProps> = ({ onBack, 
   const [isGrading, setIsGrading] = useState(false);
   const [evaluationResult, setEvaluationResult] = useState<AiEvaluationResult | null>(null);
 
-  // Filter questions for the selected part
-  const questionsInPart = TOEIC_WRITING_QUESTIONS.filter(q => q.part === selectedPart);
-  const currentQuestion: WritingQuestion = questionsInPart[currentQuestionIndex] || questionsInPart[0];
+  // Filter questions for the selected test and part
+  const questionsInTest = TOEIC_WRITING_QUESTIONS.filter(q => q.testId === selectedTestId);
+  const questionsInPart = questionsInTest.filter(q => q.part === selectedPart);
+  const currentQuestion: WritingQuestion = questionsInPart[currentQuestionIndex] || questionsInTest[0] || TOEIC_WRITING_QUESTIONS[0];
 
   // Reset state when switching question
   useEffect(() => {
@@ -195,6 +200,45 @@ export const ToeicWritingScreen: React.FC<ToeicWritingScreenProps> = ({ onBack, 
             {hasApiKey ? 'Gemini 2.5 AI: Hoạt Động' : 'Cài Đặt Gemini Key'}
           </button>
         </div>
+      </div>
+
+      {/* Study4 Test Selector & Revision Shortcut */}
+      <div className="max-w-6xl w-full mx-auto flex flex-wrap items-center justify-between gap-3 mb-4 bg-white p-3 rounded-2xl border-3 border-black shadow-neo">
+        <div className="flex items-center gap-2 overflow-x-auto py-1">
+          <span className="text-xs font-black uppercase text-gray-500 mr-1 flex items-center gap-1 shrink-0">
+            <Trophy className="w-3.5 h-3.5 text-amber-500" />
+            Bộ Đề STUDY4:
+          </span>
+          {TOEIC_WRITING_TESTS.map(test => (
+            <button
+              key={test.id}
+              onClick={() => {
+                setSelectedTestId(test.id);
+                setCurrentQuestionIndex(0);
+              }}
+              className={`px-3 py-1.5 rounded-xl border-2 border-black font-black text-xs transition-all cursor-pointer flex items-center gap-1.5 shrink-0 ${
+                selectedTestId === test.id
+                  ? 'bg-black text-[#FFDE59] shadow-none'
+                  : 'bg-gray-100 hover:bg-orange-100 text-black shadow-[2px_2px_0px_#000]'
+              }`}
+            >
+              <span>{test.name}</span>
+              <span className="text-[9px] bg-white text-black px-1.5 py-0.5 rounded border border-black font-bold">
+                {test.badge}
+              </span>
+            </button>
+          ))}
+        </div>
+
+        {onOpenRevision && (
+          <button
+            onClick={onOpenRevision}
+            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl border-2 border-black bg-[#FFDE59] text-xs font-black shadow-neo-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none cursor-pointer shrink-0"
+          >
+            <BookOpen className="w-3.5 h-3.5 text-black" />
+            Lộ Trình Ôn Tập (Ms Hoa)
+          </button>
+        )}
       </div>
 
       {/* Part Navigation Tabs */}
