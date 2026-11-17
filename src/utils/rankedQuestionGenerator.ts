@@ -19,7 +19,7 @@ export async function generateRankedMatchQuestions(tier: RankTier): Promise<Rank
   // 2. Fetch full test pool for Part 3, 4, 5, 6, 7
   let fullTest: any = null;
   try {
-    const testNum = Math.floor(Math.random() * 11) + 1; // 1 to 11
+    const testNum = Math.floor(Math.random() * 20) + 1; // 1 to 20 (Full 20 Tests available)
     const res = await fetch(`/data/tests/test-${testNum}.json`);
     if (res.ok) {
       fullTest = await res.json();
@@ -46,21 +46,38 @@ export async function generateRankedMatchQuestions(tier: RankTier): Promise<Rank
   const result: RankedQuestion[] = [];
 
   // Helper to map listening bank question to RankedQuestion
-  const mapListening = (q: typeof LISTENING_BANK[0]): RankedQuestion => ({
-    id: q.id,
-    part: q.part,
-    direction: q.direction,
-    questionText: q.questionText,
-    imageUrl: q.imageUrl,
-    audioScript: q.audioScript,
-    options: q.options.map(o => ({
-      label: o.label,
-      text: o.text + (o.vietnamese ? ` (${o.vietnamese})` : '')
-    })),
-    correctAnswer: q.correctAnswer,
-    explanation: q.explanation,
-    testOrigin: 'Listening Bank'
-  });
+  const mapListening = (q: typeof LISTENING_BANK[0]): RankedQuestion => {
+    const isP1 = q.part === 1;
+    const isP2 = q.part === 2;
+
+    return {
+      id: q.id,
+      part: q.part,
+      direction: isP1
+        ? 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.'
+        : 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
+      // Trong đề thi TOEIC thật:
+      // Part 1: Chỉ nhìn ảnh và nghe 4 câu, đề thi không in nội dung câu nói!
+      // Part 2: Chỉ nghe câu hỏi và 3 câu đáp, đề thi không in câu hỏi lẫn đáp án!
+      questionText: isP1
+        ? 'Look at the photograph and choose the best statement describing what you see.'
+        : 'Listen to the question or statement and three responses. Select the best response.',
+      imageUrl: q.imageUrl,
+      audioScript: q.audioScript,
+      spokenPrompt: isP2 ? q.questionText : undefined,
+      spokenPromptVi: isP2 ? q.questionVi : undefined,
+      options: q.options.map(o => ({
+        label: o.label,
+        // Khi thi: Chỉ hiển thị ký tự (A), (B), (C), (D) như phiếu trả lời TOEIC chuẩn
+        text: `Phương án (${o.label})`,
+        transcriptText: o.text,
+        vietnamese: o.vietnamese,
+      })),
+      correctAnswer: q.correctAnswer,
+      explanation: q.explanation,
+      testOrigin: 'Listening Bank'
+    };
+  };
 
   if (tier === 'BRONZE' || tier === 'SILVER') {
     // 10 QUESTIONS: 2 Part 1, 4 Part 2, 4 Part 5
@@ -89,37 +106,12 @@ export async function generateRankedMatchQuestions(tier: RankTier): Promise<Rank
       shuffleArray(fallbackP5Pool).slice(0, 4).forEach(q => result.push(q));
     }
   } else if (tier === 'GOLD' || tier === 'PLATINUM') {
-    // Mid tiers get dialogue + text-completion sets.
+    // 16 QUESTIONS: 3 Part 1, 5 Part 2, 4 Part 5, 4 Part 6
+    // Part 1 (3 questions)
+    p1Pool.slice(0, 3).forEach(q => result.push(mapListening(q)));
 
-    // 16 QUESTIONS: 2 Part 1, 3 Part 2, 3 Part 3, 4 Part 5, 4 Part 6
-    // Part 1 (2 questions)
-    p1Pool.slice(0, 2).forEach(q => result.push(mapListening(q)));
-
-    // Part 2 (3 questions)
-    p2Pool.slice(0, 3).forEach(q => result.push(mapListening(q)));
-
-    // Part 3 (3 questions - 1 dialogue set)
-    if (fullTest && fullTest.questions) {
-      const p3Questions = fullTest.questions.filter((q: any) => q.part === 3);
-      if (p3Questions.length >= 3) {
-        // Pick a block of 3 (e.g. 32-34, 35-37, etc.)
-        const blockStart = Math.floor(Math.random() * (p3Questions.length / 3)) * 3;
-        p3Questions.slice(blockStart, blockStart + 3).forEach((q: any) => {
-          result.push({
-            id: `R-P3-${q.id}`,
-            part: 3,
-            direction: q.direction || 'Part 3: Conversations.',
-            questionText: q.questionText,
-            imageUrl: q.imageUrl,
-            audioUrl: q.audioUrl,
-            options: q.options,
-            correctAnswer: q.correctAnswer,
-            explanation: q.explanation,
-            testOrigin: fullTest.code || 'Study4 TOEIC'
-          });
-        });
-      }
-    }
+    // Part 2 (5 questions)
+    p2Pool.slice(0, 5).forEach(q => result.push(mapListening(q)));
 
     // Part 5 (4 questions)
     if (fullTest && fullTest.questions) {
@@ -128,7 +120,7 @@ export async function generateRankedMatchQuestions(tier: RankTier): Promise<Rank
         result.push({
           id: `R-P5-${q.id}`,
           part: 5,
-          direction: q.direction,
+          direction: q.direction || 'Part 5: Incomplete Sentences.',
           questionText: q.questionText,
           options: q.options,
           correctAnswer: q.correctAnswer,
@@ -144,8 +136,7 @@ export async function generateRankedMatchQuestions(tier: RankTier): Promise<Rank
     if (fullTest && fullTest.questions) {
       const p6Questions = fullTest.questions.filter((q: any) => q.part === 6);
       if (p6Questions.length >= 4) {
-        // Pick 1 passage set of 4 (e.g. 131-134, 135-138)
-        const passageStart = Math.floor(Math.random() * 4) * 4;
+        const passageStart = Math.floor(Math.random() * (p6Questions.length / 4)) * 4;
         p6Questions.slice(passageStart, passageStart + 4).forEach((q: any) => {
           result.push({
             id: `R-P6-${q.id}`,
@@ -162,57 +153,12 @@ export async function generateRankedMatchQuestions(tier: RankTier): Promise<Rank
       }
     }
   } else if (tier === 'DIAMOND' || tier === 'MASTER' || tier === 'CHALLENGER') {
-    // Highest tiers cover all 7 Parts.
+    // 20 QUESTIONS: 3 Part 1, 5 Part 2, 4 Part 5, 4 Part 6, 4 Part 7
+    // Part 1 (3 questions)
+    p1Pool.slice(0, 3).forEach(q => result.push(mapListening(q)));
 
-    // Part 1 (1 question)
-    p1Pool.slice(0, 1).forEach(q => result.push(mapListening(q)));
-
-    // Part 2 (2 questions)
-    p2Pool.slice(0, 2).forEach(q => result.push(mapListening(q)));
-
-    // Part 3 (3 questions - 1 conversation)
-    if (fullTest && fullTest.questions) {
-      const p3Questions = fullTest.questions.filter((q: any) => q.part === 3);
-      if (p3Questions.length >= 3) {
-        const blockStart = Math.floor(Math.random() * (p3Questions.length / 3)) * 3;
-        p3Questions.slice(blockStart, blockStart + 3).forEach((q: any) => {
-          result.push({
-            id: `R-P3-${q.id}`,
-            part: 3,
-            direction: q.direction,
-            questionText: q.questionText,
-            imageUrl: q.imageUrl,
-            audioUrl: q.audioUrl,
-            options: q.options,
-            correctAnswer: q.correctAnswer,
-            explanation: q.explanation,
-            testOrigin: fullTest.code || 'Study4 TOEIC'
-          });
-        });
-      }
-    }
-
-    // Part 4 (3 questions - 1 short talk)
-    if (fullTest && fullTest.questions) {
-      const p4Questions = fullTest.questions.filter((q: any) => q.part === 4);
-      if (p4Questions.length >= 3) {
-        const blockStart = Math.floor(Math.random() * (p4Questions.length / 3)) * 3;
-        p4Questions.slice(blockStart, blockStart + 3).forEach((q: any) => {
-          result.push({
-            id: `R-P4-${q.id}`,
-            part: 4,
-            direction: q.direction,
-            questionText: q.questionText,
-            imageUrl: q.imageUrl,
-            audioUrl: q.audioUrl,
-            options: q.options,
-            correctAnswer: q.correctAnswer,
-            explanation: q.explanation,
-            testOrigin: fullTest.code || 'Study4 TOEIC'
-          });
-        });
-      }
-    }
+    // Part 2 (5 questions)
+    p2Pool.slice(0, 5).forEach(q => result.push(mapListening(q)));
 
     // Part 5 (4 questions)
     if (fullTest && fullTest.questions) {
@@ -221,7 +167,7 @@ export async function generateRankedMatchQuestions(tier: RankTier): Promise<Rank
         result.push({
           id: `R-P5-${q.id}`,
           part: 5,
-          direction: q.direction,
+          direction: q.direction || 'Part 5: Incomplete Sentences.',
           questionText: q.questionText,
           options: q.options,
           correctAnswer: q.correctAnswer,
@@ -233,16 +179,16 @@ export async function generateRankedMatchQuestions(tier: RankTier): Promise<Rank
       shuffleArray(fallbackP5Pool).slice(0, 4).forEach(q => result.push(q));
     }
 
-    // Part 6 (4 questions)
+    // Part 6 (4 questions - 1 cloze passage)
     if (fullTest && fullTest.questions) {
       const p6Questions = fullTest.questions.filter((q: any) => q.part === 6);
       if (p6Questions.length >= 4) {
-        const passageStart = Math.floor(Math.random() * 4) * 4;
+        const passageStart = Math.floor(Math.random() * (p6Questions.length / 4)) * 4;
         p6Questions.slice(passageStart, passageStart + 4).forEach((q: any) => {
           result.push({
             id: `R-P6-${q.id}`,
             part: 6,
-            direction: q.direction,
+            direction: q.direction || 'Part 6: Text Completion.',
             passageText: q.passage,
             questionText: q.questionText,
             options: q.options,
@@ -254,13 +200,12 @@ export async function generateRankedMatchQuestions(tier: RankTier): Promise<Rank
       }
     }
 
-    // Part 7 (5 questions - 1 reading passage)
+    // Part 7 (4 questions - 1 reading passage)
     if (fullTest && fullTest.questions) {
       const p7Questions = fullTest.questions.filter((q: any) => q.part === 7);
-      // Group by passage or pick 5 consecutive questions sharing passage
-      if (p7Questions.length >= 5) {
-        const p7Start = Math.floor(Math.random() * (p7Questions.length - 5));
-        p7Questions.slice(p7Start, p7Start + 5).forEach((q: any) => {
+      if (p7Questions.length >= 4) {
+        const p7Start = Math.floor(Math.random() * (p7Questions.length - 4));
+        p7Questions.slice(p7Start, p7Start + 4).forEach((q: any) => {
           result.push({
             id: `R-P7-${q.id}`,
             part: 7,

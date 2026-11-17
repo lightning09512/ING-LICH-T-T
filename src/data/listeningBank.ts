@@ -3,6 +3,7 @@ export interface ListeningQuestion {
   part: 1 | 2;
   direction: string;
   questionText: string;
+  questionVi?: string;
   imageUrl?: string;
   audioScript?: string;
   options: {
@@ -223,6 +224,210 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     explanation: 'Ảnh chụp ngoại cảnh khuôn viên với bóng cây râm mát đổ dài trên khoảng sân lát gạch (trees casting shadows).',
     topic: 'Cảnh quan / Ngoài trời'
   },
+  {
+    id: 'L-P1-13',
+    part: 1,
+    direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
+    questionText: 'Look at the photograph and choose the best statement describing the image.',
+    imageUrl: '/images/part1/p1_13.jpg',
+    audioScript: '(A) Some dishes are drying on a rack. (B) A chef is slicing vegetables on a cutting board. (C) Pots and pans are hanging from a ceiling rack. (D) A sink is being filled with water.',
+    options: [
+      { label: 'A', text: 'Some dishes are drying on a rack.', vietnamese: 'Vài chiếc đĩa đang ráo nước trên giá phơi.' },
+      { label: 'B', text: 'A chef is slicing vegetables on a cutting board.', vietnamese: 'Một đầu bếp đang thái rau củ trên thớt.' },
+      { label: 'C', text: 'Pots and pans are hanging from a ceiling rack.', vietnamese: 'Xoong nồi đang được treo trên giá móc trần nhà.' },
+      { label: 'D', text: 'A sink is being filled with water.', vietnamese: 'Bồn rửa đang được xả đầy nước.' }
+    ],
+    correctAnswer: 'C',
+    explanation: 'Quan sát gian bếp: Dãy xoong nồi đang được treo từ giá trần (pots and pans are hanging from a ceiling rack).',
+    topic: 'Nhà bếp / Dụng cụ'
+  },
+  {
+    id: 'L-P1-14',
+    part: 1,
+    direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
+    questionText: 'Look at the photograph and choose the best statement describing the image.',
+    imageUrl: '/images/part1/p1_14.jpg',
+    audioScript: '(A) Passengers are waiting in a train carriage. (B) Some commuters are walking up a flight of stairs. (C) A train conductor is checking tickets. (D) People are standing on an outdoor balcony.',
+    options: [
+      { label: 'A', text: 'Passengers are waiting in a train carriage.', vietnamese: 'Hành khách đang chờ trong toa tàu.' },
+      { label: 'B', text: 'Some commuters are walking up a flight of stairs.', vietnamese: 'Một số người đi làm đang bước lên cầu thang bộ.' },
+      { label: 'C', text: 'A train conductor is checking tickets.', vietnamese: 'Nhân viên soát vé đang kiểm tra vé tàu.' },
+      { label: 'D', text: 'People are standing on an outdoor balcony.', vietnamese: 'Mọi người đang đứng trên ban công ngoài trời.' }
+    ],
+    correctAnswer: 'B',
+    explanation: 'Hình ảnh cho thấy người đi bộ đang đi lên các bậc cầu thang (walking up a flight of stairs).',
+    topic: 'Giao thông / Di chuyển'
+  },
+  {
+    id: 'L-P1-15',
+    part: 1,
+    direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
+    questionText: 'Look at the photograph and choose the best statement describing the image.',
+    imageUrl: '/images/part1/p1_15.jpg',
+    audioScript: '(A) A painter is working on a canvas. (B) Framed artwork is hanging on a gallery wall. (C) Visitors are admiring sculptures in a museum. (D) An artist is cleaning paintbrushes.',
+    options: [
+      { label: 'A', text: 'A painter is working on a canvas.', vietnamese: 'Họa sĩ đang vẽ tranh trên vải bạt.' },
+      { label: 'B', text: 'Framed artwork is hanging on a gallery wall.', vietnamese: 'Các bức tranh có khung đang treo trên tường phòng tranh.' },
+      { label: 'C', text: 'Visitors are admiring sculptures in a museum.', vietnamese: 'Khách tham quan đang chiêm ngưỡng các bức tượng.' },
+      { label: 'D', text: 'An artist is cleaning paintbrushes.', vietnamese: 'Nghệ sĩ đang rửa cọ vẽ.' }
+    ],
+    correctAnswer: 'D',
+    explanation: 'Họa sĩ đang dọn dẹp và làm sạch cọ vẽ bên bồn rửa (cleaning paintbrushes).',
+    topic: 'Nghệ thuật / Hội họa'
+  },
+  {
+    id: 'L-P1-16',
+    part: 1,
+    direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
+    questionText: 'Look at the photograph and choose the best statement describing the image.',
+    imageUrl: '/images/part1/p1_16.jpg',
+    audioScript: '(A) Some clothing is being folded on a table. (B) Garments are hanging on a retail clothing rack. (C) A customer is trying on a winter jacket. (D) A salesperson is adjusting a store mannequin.',
+    options: [
+      { label: 'A', text: 'Some clothing is being folded on a table.', vietnamese: 'Quần áo đang được gấp trên bàn.' },
+      { label: 'B', text: 'Garments are hanging on a retail clothing rack.', vietnamese: 'Quần áo đang được treo trên giá treo đồ.' },
+      { label: 'C', text: 'A customer is trying on a winter jacket.', vietnamese: 'Khách hàng đang mặc thử áo khoác mùa đông.' },
+      { label: 'D', text: 'A salesperson is adjusting a store mannequin.', vietnamese: 'Nhân viên bán hàng đang chỉnh sửa ma-nơ-canh.' }
+    ],
+    correctAnswer: 'B',
+    explanation: 'Các trang phục được treo ngay ngắn trên giá treo đồ (garments are hanging on a clothing rack).',
+    topic: 'Thời trang / Cửa hàng'
+  },
+  {
+    id: 'L-P1-17',
+    part: 1,
+    direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
+    questionText: 'Look at the photograph and choose the best statement describing the image.',
+    imageUrl: '/images/part1/p1_17.jpg',
+    audioScript: '(A) A road is being paved with asphalt. (B) Construction vehicles are parked near a building site. (C) Workers are digging a trench along a street. (D) Traffic cones are marking a detour route.',
+    options: [
+      { label: 'A', text: 'A road is being paved with asphalt.', vietnamese: 'Con đường đang được rải nhựa đường.' },
+      { label: 'B', text: 'Construction vehicles are parked near a building site.', vietnamese: 'Các xe thi công công trình đang đỗ gần công trường xây dựng.' },
+      { label: 'C', text: 'Workers are digging a trench along a street.', vietnamese: 'Công nhân đang đào rãnh dọc theo con phố.' },
+      { label: 'D', text: 'Traffic cones are marking a detour route.', vietnamese: 'Cọc tiêu giao thông đang đánh dấu đường vòng.' }
+    ],
+    correctAnswer: 'B',
+    explanation: 'Các phương tiện xe máy công trình hạng nặng đang đỗ cạnh khu vực thi công (construction vehicles are parked).',
+    topic: 'Xây dựng / Công trường'
+  },
+  {
+    id: 'L-P1-18',
+    part: 1,
+    direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
+    questionText: 'Look at the photograph and choose the best statement describing the image.',
+    imageUrl: '/images/part1/p1_18.jpg',
+    audioScript: '(A) A musician is playing an acoustic guitar. (B) An audience is cheering at a music concert. (C) Microphones are being set up on a stage. (D) Sound equipment has been arranged on the floor.',
+    options: [
+      { label: 'A', text: 'A musician is playing an acoustic guitar.', vietnamese: 'Một nhạc sĩ đang chơi đàn guitar mộc.' },
+      { label: 'B', text: 'An audience is cheering at a music concert.', vietnamese: 'Khán giả đang reo hò tại một buổi hòa nhạc.' },
+      { label: 'C', text: 'Microphones are being set up on a stage.', vietnamese: 'Microphone đang được lắp đặt trên sân khấu.' },
+      { label: 'D', text: 'Sound equipment has been arranged on the floor.', vietnamese: 'Thiết bị âm thanh đã được sắp xếp trên sàn.' }
+    ],
+    correctAnswer: 'D',
+    explanation: 'Hệ thống thiết bị âm thanh, dây cáp và loa đài được bố trí cẩn thận trên mặt sàn sân khấu (sound equipment has been arranged).',
+    topic: 'Sự kiện / Âm thanh'
+  },
+  {
+    id: 'L-P1-19',
+    part: 1,
+    direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
+    questionText: 'Look at the photograph and choose the best statement describing the image.',
+    imageUrl: '/images/part1/p1_19.jpg',
+    audioScript: '(A) A group of colleagues is gathered around a conference table. (B) A presenter is pointing at a projection screen. (C) Handouts are being distributed to meeting attendees. (D) Office chairs are stacked in a storage room.',
+    options: [
+      { label: 'A', text: 'A group of colleagues is gathered around a conference table.', vietnamese: 'Một nhóm đồng nghiệp đang ngồi quây quần quanh bàn họp.' },
+      { label: 'B', text: 'A presenter is pointing at a projection screen.', vietnamese: 'Người thuyết trình đang chỉ vào màn hình máy chiếu.' },
+      { label: 'C', text: 'Handouts are being distributed to meeting attendees.', vietnamese: 'Tài liệu phát tay đang được phát cho người dự họp.' },
+      { label: 'D', text: 'Office chairs are stacked in a storage room.', vietnamese: 'Ghế văn phòng đang được xếp chồng trong kho.' }
+    ],
+    correctAnswer: 'B',
+    explanation: 'Người thuyết trình đang đứng cạnh màn hình chiếu và chỉ tay vào biểu đồ (pointing at a projection screen).',
+    topic: 'Họp hành / Thuyết trình'
+  },
+  {
+    id: 'L-P1-20',
+    part: 1,
+    direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
+    questionText: 'Look at the photograph and choose the best statement describing the image.',
+    imageUrl: '/images/part1/p1_20.jpg',
+    audioScript: '(A) A delivery person is handing a parcel to a resident. (B) Cardboard boxes are loaded onto a hand truck. (C) A warehouse door has been pulled shut. (D) Packages are scattered on an office floor.',
+    options: [
+      { label: 'A', text: 'A delivery person is handing a parcel to a resident.', vietnamese: 'Người giao hàng đang đưa bưu kiện cho cư dân.' },
+      { label: 'B', text: 'Cardboard boxes are loaded onto a hand truck.', vietnamese: 'Các thùng các-tông được chất lên xe đẩy hàng bằng tay.' },
+      { label: 'C', text: 'A warehouse door has been pulled shut.', vietnamese: 'Cửa nhà kho đã được kéo đóng lại.' },
+      { label: 'D', text: 'Packages are scattered on an office floor.', vietnamese: 'Các gói bưu kiện vương vãi trên sàn văn phòng.' }
+    ],
+    correctAnswer: 'D',
+    explanation: 'Trong văn phòng, nhiều kiện hàng và phong bì bưu điện trải đều trên sàn nhà chuẩn bị phân loại.',
+    topic: 'Văn phòng / Bưu phẩm'
+  },
+  {
+    id: 'L-P1-21',
+    part: 1,
+    direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
+    questionText: 'Look at the photograph and choose the best statement describing the image.',
+    imageUrl: '/images/part1/p1_21.jpg',
+    audioScript: '(A) Bicycles are parked in an outdoor rack. (B) Pedestrians are jogging on a park footpath. (C) Boats are cruising down a scenic canal. (D) Park benches are lined along a tree-lined walkway.',
+    options: [
+      { label: 'A', text: 'Bicycles are parked in an outdoor rack.', vietnamese: 'Xe đạp đang đỗ trong giá để xe ngoài trời.' },
+      { label: 'B', text: 'Pedestrians are jogging on a park footpath.', vietnamese: 'Người đi bộ đang chạy bộ trên đường dạo công viên.' },
+      { label: 'C', text: 'Boats are cruising down a scenic canal.', vietnamese: 'Thuyền bè đang dạo trên kênh nước danh lam.' },
+      { label: 'D', text: 'Park benches are lined along a tree-lined walkway.', vietnamese: 'Ghế đá công viên xếp dọc con đường rợp bóng cây.' }
+    ],
+    correctAnswer: 'B',
+    explanation: 'Những người chạy bộ thể dục buổi sáng trên lối đi trong công viên (pedestrians are jogging on a footpath).',
+    topic: 'Công viên / Thể thao'
+  },
+  {
+    id: 'L-P1-22',
+    part: 1,
+    direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
+    questionText: 'Look at the photograph and choose the best statement describing the image.',
+    imageUrl: '/images/part1/p1_22.jpg',
+    audioScript: '(A) A cashier is scanning groceries at a register. (B) Fresh produce is neatly displayed in wooden crates. (C) Customers are waiting in line at a deli counter. (D) Empty shopping carts are stored outside an entrance.',
+    options: [
+      { label: 'A', text: 'A cashier is scanning groceries at a register.', vietnamese: 'Thu ngân đang quét mã vạch hàng hóa tại quầy tính tiền.' },
+      { label: 'B', text: 'Fresh produce is neatly displayed in wooden crates.', vietnamese: 'Rau củ quả tươi được trưng bày ngăn nắp trong thùng gỗ.' },
+      { label: 'C', text: 'Customers are waiting in line at a deli counter.', vietnamese: 'Khách hàng đang xếp hàng chờ ở quầy thực phẩm.' },
+      { label: 'D', text: 'Empty shopping carts are stored outside an entrance.', vietnamese: 'Xe đẩy hàng trống được cất bên ngoài lối vào.' }
+    ],
+    correctAnswer: 'B',
+    explanation: 'Các thùng gỗ đựng rau củ tươi được bài trí đẹp mắt ở khu chợ nông sản (fresh produce is neatly displayed in wooden crates).',
+    topic: 'Chợ / Thực phẩm'
+  },
+  {
+    id: 'L-P1-23',
+    part: 1,
+    direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
+    questionText: 'Look at the photograph and choose the best statement describing the image.',
+    imageUrl: '/images/part1/p1_23.jpg',
+    audioScript: '(A) A woman is typing on a keyboard while wearing headphones. (B) A technician is replacing a desktop computer component. (C) Documents are being scanned through a copying machine. (D) Office workers are having lunch together.',
+    options: [
+      { label: 'A', text: 'A woman is typing on a keyboard while wearing headphones.', vietnamese: 'Một phụ nữ đang gõ bàn phím trong khi đeo tai nghe.' },
+      { label: 'B', text: 'A technician is replacing a desktop computer component.', vietnamese: 'Kỹ thuật viên đang thay thế linh kiện máy tính bàn.' },
+      { label: 'C', text: 'Documents are being scanned through a copying machine.', vietnamese: 'Tài liệu đang được quét qua máy sao chép.' },
+      { label: 'D', text: 'Office workers are having lunch together.', vietnamese: 'Nhân viên văn phòng đang ăn trưa cùng nhau.' }
+    ],
+    correctAnswer: 'B',
+    explanation: 'Kỹ thuật viên công nghệ đang thao tác tháo lắp, kiểm tra phần cứng của máy tính để bàn (replacing a desktop computer component).',
+    topic: 'Kỹ thuật / Công nghệ'
+  },
+  {
+    id: 'L-P1-24',
+    part: 1,
+    direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
+    questionText: 'Look at the photograph and choose the best statement describing the image.',
+    imageUrl: '/images/part1/p1_24.jpg',
+    audioScript: '(A) Airplanes are parked at boarding gates. (B) Travelers are carrying their luggage across a terminal. (C) An airport announcement board displays departure times. (D) Ground crew members are loading cargo into an aircraft.',
+    options: [
+      { label: 'A', text: 'Airplanes are parked at boarding gates.', vietnamese: 'Máy bay đang đậu tại các cửa lên máy bay.' },
+      { label: 'B', text: 'Travelers are carrying their luggage across a terminal.', vietnamese: 'Hành khách đang kéo vali hành lý qua sảnh nhà ga.' },
+      { label: 'C', text: 'An airport announcement board displays departure times.', vietnamese: 'Bảng thông báo sân bay hiển thị giờ khởi hành các chuyến bay.' },
+      { label: 'D', text: 'Ground crew members are loading cargo into an aircraft.', vietnamese: 'Nhân viên mặt đất đang bốc dỡ hàng hóa vào khoang máy bay.' }
+    ],
+    correctAnswer: 'D',
+    explanation: 'Đội ngũ phục vụ mặt đất đang vận chuyển kiện hàng vào hầm hàng máy bay trên đường băng (loading cargo into an aircraft).',
+    topic: 'Hàng không / Vận chuyển'
+  },
 
   // ==========================================
   // PART 2: QUESTION - RESPONSE (Hỏi - Đáp)
@@ -232,6 +437,7 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     part: 2,
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'Where is the monthly sales meeting being held?',
+    questionVi: 'Cuộc họp bán hàng hàng tháng được tổ chức ở đâu?',
     audioScript: 'Where is the monthly sales meeting being held? (A) In conference room B on the third floor. (B) Yes, every Tuesday morning. (C) About fifty thousand dollars.',
     options: [
       { label: 'A', text: 'In conference room B on the third floor.', vietnamese: 'Ở phòng hội thảo B trên tầng ba.' },
@@ -247,6 +453,7 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     part: 2,
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'When will the new software update be installed?',
+    questionVi: 'Khi nào bản cập nhật phần mềm mới sẽ được cài đặt?',
     audioScript: 'When will the new software update be installed? (A) The IT department is doing it on Friday night. (B) No, I haven\'t seen the new monitor. (C) It cost more than expected.',
     options: [
       { label: 'A', text: 'The IT department is doing it on Friday night.', vietnamese: 'Phòng IT sẽ thực hiện vào tối thứ Sáu.' },
@@ -262,6 +469,7 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     part: 2,
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'Who authorized the budget for the advertising campaign?',
+    questionVi: 'Ai đã phê duyệt ngân sách cho chiến dịch quảng cáo?',
     audioScript: 'Who authorized the budget for the advertising campaign? (A) Vice President Miller approved it yesterday. (B) It will appear on local television. (C) Yes, we reached our annual target.',
     options: [
       { label: 'A', text: 'Vice President Miller approved it yesterday.', vietnamese: 'Phó chủ tịch Miller đã phê duyệt hôm qua.' },
@@ -277,6 +485,7 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     part: 2,
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'Why was the shipment to Vancouver delayed?',
+    questionVi: 'Tại sao chuyến hàng gửi đến Vancouver lại bị hoãn?',
     audioScript: 'Why was the shipment to Vancouver delayed? (A) Because of severe winter snowstorms. (B) Three hundred units in total. (C) Yes, it arrived this morning.',
     options: [
       { label: 'A', text: 'Because of severe winter snowstorms.', vietnamese: 'Bởi vì những cơn bão tuyết mùa đông nghiêm trọng.' },
@@ -292,6 +501,7 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     part: 2,
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'Could you give me a hand unloading these boxes?',
+    questionVi: 'Bạn có thể giúp tôi một tay dỡ những chiếc hộp này được không?',
     audioScript: 'Could you give me a hand unloading these boxes? (A) Sure, let me put my jacket down first. (B) Two pairs of work gloves. (C) No, the box was completely empty.',
     options: [
       { label: 'A', text: 'Sure, let me put my jacket down first.', vietnamese: 'Chắc chắn rồi, để tôi cởi áo khoác xuống trước đã.' },
@@ -307,6 +517,7 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     part: 2,
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'How often do the shuttle buses run between the hotels and the convention center?',
+    questionVi: 'Xe buýt đưa đón giữa khách sạn và trung tâm hội nghị chạy bao lâu một chuyến?',
     audioScript: 'How often do the shuttle buses run between the hotels and the convention center? (A) Every fifteen minutes during peak hours. (B) It takes around twenty minutes. (C) At the central bus terminal.',
     options: [
       { label: 'A', text: 'Every fifteen minutes during peak hours.', vietnamese: 'Cứ mỗi 15 phút vào giờ cao điểm.' },
@@ -322,6 +533,7 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     part: 2,
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'Would you prefer to fly directly or take a connecting flight with a layover?',
+    questionVi: 'Bạn thích bay thẳng hay bay chuyến quá cảnh?',
     audioScript: 'Would you prefer to fly directly or take a connecting flight with a layover? (A) The non-stop flight would save us valuable time. (B) Yes, flying is much faster than the train. (C) Gate 14 is on the left.',
     options: [
       { label: 'A', text: 'The non-stop flight would save us valuable time.', vietnamese: 'Chuyến bay thẳng sẽ giúp chúng ta tiết kiệm thời gian quý báu.' },
@@ -337,6 +549,7 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     part: 2,
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'The catering order for the banquet hasn\'t been confirmed yet, has it?',
+    questionVi: 'Đơn đặt tiệc vẫn chưa được xác nhận, phải không?',
     audioScript: 'The catering order for the banquet hasn\'t been confirmed yet, has it? (A) Actually, Sarah finalized it this morning. (B) Chicken and vegetarian pasta. (C) It was held at the Grand Hotel.',
     options: [
       { label: 'A', text: 'Actually, Sarah finalized it this morning.', vietnamese: 'Thực ra, Sarah đã chốt nó sáng nay rồi.' },
@@ -352,6 +565,7 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     part: 2,
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'Should we print handouts for all attendees or just send them a digital link?',
+    questionVi: 'Chúng ta nên in tài liệu phát tay cho mọi người hay chỉ gửi link điện tử?',
     audioScript: 'Should we print handouts for all attendees or just send them a digital link? (A) A digital link will save on paper and printing costs. (B) In the auditorium at noon. (C) Yes, I attended the session.',
     options: [
       { label: 'A', text: 'A digital link will save on paper and printing costs.', vietnamese: 'Gửi link kỹ thuật số sẽ tiết kiệm giấy và chi phí in ấn.' },
@@ -367,6 +581,7 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     part: 2,
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'Who will be delivering the opening keynote speech at the conference?',
+    questionVi: 'Ai sẽ là người đọc bài phát biểu khai mạc tại hội nghị?',
     audioScript: 'Who will be delivering the opening keynote speech at the conference? (A) Dr. Tanaka from our Tokyo research branch. (B) It starts promptly at nine o\'clock. (C) No, I haven\'t registered yet.',
     options: [
       { label: 'A', text: 'Dr. Tanaka from our Tokyo research branch.', vietnamese: 'Tiến sĩ Tanaka từ chi nhánh nghiên cứu Tokyo của chúng ta.' },
@@ -382,6 +597,7 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     part: 2,
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'Isn\'t the client supposed to sign the service contract today?',
+    questionVi: 'Chẳng phải hôm nay khách hàng sẽ ký hợp đồng dịch vụ sao?',
     audioScript: 'Isn\'t the client supposed to sign the service contract today? (A) Their legal team asked for a two-day extension. (B) Yes, the sign is outside the main entrance. (C) Five copies were printed.',
     options: [
       { label: 'A', text: 'Their legal team asked for a two-day extension.', vietnamese: 'Đội ngũ pháp lý của họ đã xin gia hạn thêm hai ngày.' },
@@ -397,6 +613,7 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     part: 2,
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'Have you reserved a table at the Italian bistro for tonight\'s dinner?',
+    questionVi: 'Bạn đã đặt bàn ở quán ăn Ý cho bữa tối nay chưa?',
     audioScript: 'Have you reserved a table at the Italian bistro for tonight\'s dinner? (A) They don\'t take reservations on weekends, so we should go early. (B) A seafood pizza and salad, please. (C) Yes, it is located on Maple Street.',
     options: [
       { label: 'A', text: 'They don\'t take reservations on weekends, so we should go early.', vietnamese: 'Họ không nhận đặt bàn vào cuối tuần, nên chúng ta nên đi sớm.' },
@@ -406,5 +623,133 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     correctAnswer: 'A',
     explanation: 'Câu hỏi xác nhận đặt bàn. (A) trả lời tình huống thực tế nhà hàng không nhận đặt bàn và đề xuất giải pháp đi sớm.',
     topic: 'Câu Hỏi Yes/No & Trả Lời Gián Tiếp'
+  },
+  {
+    id: 'L-P2-13',
+    part: 2,
+    direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
+    questionText: 'How much does the annual parking permit cost?',
+    questionVi: 'Giấy phép đỗ xe hàng năm có giá bao nhiêu?',
+    audioScript: 'How much does the annual parking permit cost? (A) It is seventy-five dollars per year. (B) In the underground parking garage. (C) Yes, I have a valid driver\'s license.',
+    options: [
+      { label: 'A', text: 'It is seventy-five dollars per year.', vietnamese: 'Nó có giá bảy mươi lăm đô la mỗi năm.' },
+      { label: 'B', text: 'In the underground parking garage.', vietnamese: 'Ở trong hầm để xe ngầm.' },
+      { label: 'C', text: 'Yes, I have a valid driver\'s license.', vietnamese: 'Vâng, tôi có bằng lái xe hợp lệ.' }
+    ],
+    correctAnswer: 'A',
+    explanation: 'Câu hỏi "How much" hỏi về số tiền. (A) nêu chính xác mức giá "seventy-five dollars".',
+    topic: 'Hỏi Giá Tiền (How much)'
+  },
+  {
+    id: 'L-P2-14',
+    part: 2,
+    direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
+    questionText: 'Would you mind reviewing this quarterly financial report before the board meeting?',
+    questionVi: 'Bạn có phiền xem qua báo cáo tài chính quý này trước cuộc họp hội đồng quản trị không?',
+    audioScript: 'Would you mind reviewing this quarterly financial report before the board meeting? (A) Not at all, I will read through it after lunch. (B) The board room is on the fifth floor. (C) About twenty-five percent increase.',
+    options: [
+      { label: 'A', text: 'Not at all, I will read through it after lunch.', vietnamese: 'Không phiền chút nào, tôi sẽ đọc kỹ sau bữa trưa.' },
+      { label: 'B', text: 'The board room is on the fifth floor.', vietnamese: 'Phòng hội đồng quản trị ở tầng năm.' },
+      { label: 'C', text: 'About twenty-five percent increase.', vietnamese: 'Tăng khoảng hai mươi lăm phần trăm.' }
+    ],
+    correctAnswer: 'A',
+    explanation: '"Would you mind..." là lời nhờ vả lịch sự. Trả lời đồng ý bằng "Not at all" (Không phiền gì cả) kèm mốc thời gian thực hiện.',
+    topic: 'Yêu Cầu Lịch Sự (Would you mind)'
+  },
+  {
+    id: 'L-P2-15',
+    part: 2,
+    direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
+    questionText: 'Where can I find the extra toner cartridges for the color printer?',
+    questionVi: 'Tôi có thể tìm hộp mực dự phòng cho máy in màu ở đâu?',
+    audioScript: 'Where can I find the extra toner cartridges for the color printer? (A) Check the top shelf of the supply closet. (B) Printing in full color. (C) Yes, it is out of paper.',
+    options: [
+      { label: 'A', text: 'Check the top shelf of the supply closet.', vietnamese: 'Hãy kiểm tra ngăn trên cùng của tủ đựng đồ dùng.' },
+      { label: 'B', text: 'Printing in full color.', vietnamese: 'In ấn đầy đủ màu sắc.' },
+      { label: 'C', text: 'Yes, it is out of paper.', vietnamese: 'Vâng, nó đã hết giấy.' }
+    ],
+    correctAnswer: 'A',
+    explanation: 'Câu hỏi "Where" hỏi địa điểm cất giữ đồ đạc. (A) chỉ rõ vị trí "the top shelf of the supply closet".',
+    topic: 'Hỏi Địa Điểm (Where)'
+  },
+  {
+    id: 'L-P2-16',
+    part: 2,
+    direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
+    questionText: 'Why hasn\'t the renovation of the customer lounge started yet?',
+    questionVi: 'Tại sao việc cải tạo phòng chờ của khách hàng vẫn chưa được bắt đầu?',
+    audioScript: 'Why hasn\'t the renovation of the customer lounge started yet? (A) We are still waiting for municipal building permits. (B) New comfortable leather sofas. (C) It will take three weeks.',
+    options: [
+      { label: 'A', text: 'We are still waiting for municipal building permits.', vietnamese: 'Chúng ta vẫn đang chờ giấy phép xây dựng của thành phố.' },
+      { label: 'B', text: 'New comfortable leather sofas.', vietnamese: 'Những chiếc ghế bọc da mới êm ái.' },
+      { label: 'C', text: 'It will take three weeks.', vietnamese: 'Nó sẽ mất ba tuần.' }
+    ],
+    correctAnswer: 'A',
+    explanation: 'Câu hỏi "Why" hỏi lý do chậm trễ. (A) giải thích nguyên nhân khách quan: chờ cấp phép từ chính quyền địa phương.',
+    topic: 'Hỏi Lý Do (Why)'
+  },
+  {
+    id: 'L-P2-17',
+    part: 2,
+    direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
+    questionText: 'Do you want to take the company shuttle or should we share a taxi?',
+    questionVi: 'Bạn muốn đi xe đưa đón công ty hay chúng ta đi chung một chuyến taxi?',
+    audioScript: 'Do you want to take the company shuttle or should we share a taxi? (A) Taking a taxi will get us to the airport much faster. (B) Yes, the shuttle has twenty seats. (C) At terminal number two.',
+    options: [
+      { label: 'A', text: 'Taking a taxi will get us to the airport much faster.', vietnamese: 'Đi taxi sẽ đưa chúng ta đến sân bay nhanh hơn nhiều.' },
+      { label: 'B', text: 'Yes, the shuttle has twenty seats.', vietnamese: 'Vâng, xe đưa đón có hai mươi chỗ.' },
+      { label: 'C', text: 'At terminal number two.', vietnamese: 'Ở nhà ga số hai.' }
+    ],
+    correctAnswer: 'A',
+    explanation: 'Câu hỏi lựa chọn "A or B". (A) lựa chọn đi taxi và giải thích lý do nhanh hơn. Bẫy Yes/No ở câu (B).',
+    topic: 'Câu Hỏi Lựa Chọn (Or)'
+  },
+  {
+    id: 'L-P2-18',
+    part: 2,
+    direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
+    questionText: 'Mr. Henderson submitted the revised marketing proposal, didn\'t he?',
+    questionVi: 'Ông Henderson đã nộp bản đề xuất tiếp thị sửa đổi rồi, đúng không?',
+    audioScript: 'Mr. Henderson submitted the revised marketing proposal, didn\'t he? (A) Yes, he sent it to the committee this morning. (B) A ten percent discount on selected products. (C) The meeting was rescheduled.',
+    options: [
+      { label: 'A', text: 'Yes, he sent it to the committee this morning.', vietnamese: 'Vâng, ông ấy đã gửi nó cho hội đồng sáng nay.' },
+      { label: 'B', text: 'A ten percent discount on selected products.', vietnamese: 'Giảm giá mười phần trăm cho các sản phẩm chọn lọc.' },
+      { label: 'C', text: 'The meeting was rescheduled.', vietnamese: 'Cuộc họp đã được dời lịch.' }
+    ],
+    correctAnswer: 'A',
+    explanation: 'Câu hỏi đuôi xác nhận sự việc đã diễn ra. (A) xác nhận đã nộp và bổ sung thời điểm nộp sáng nay.',
+    topic: 'Câu Hỏi Đuôi (Tag Question)'
+  },
+  {
+    id: 'L-P2-19',
+    part: 2,
+    direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
+    questionText: 'Which venue did the event planners choose for the annual gala dinner?',
+    questionVi: 'Đơn vị tổ chức sự kiện đã chọn địa điểm nào cho dạ tiệc hàng năm?',
+    audioScript: 'Which venue did the event planners choose for the annual gala dinner? (A) The waterfront ballroom at the Grand Hotel. (B) Around two hundred guests. (C) On Saturday evening at seven.',
+    options: [
+      { label: 'A', text: 'The waterfront ballroom at the Grand Hotel.', vietnamese: 'Phòng đại tiệc ven sông ở khách sạn Grand.' },
+      { label: 'B', text: 'Around two hundred guests.', vietnamese: 'Khoảng hai trăm khách mời.' },
+      { label: 'C', text: 'On Saturday evening at seven.', vietnamese: 'Vào tối thứ Bảy lúc bảy giờ.' }
+    ],
+    correctAnswer: 'A',
+    explanation: 'Câu hỏi "Which venue" hỏi địa điểm cụ thể. (A) nêu tên phòng đại tiệc của khách sạn Grand.',
+    topic: 'Hỏi Lựa Chọn Địa Điểm (Which)'
+  },
+  {
+    id: 'L-P2-20',
+    part: 2,
+    direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
+    questionText: 'Have you received the tracking number for the international shipment?',
+    questionVi: 'Bạn đã nhận được mã vận đơn theo dõi cho lô hàng quốc tế chưa?',
+    audioScript: 'Have you received the tracking number for the international shipment? (A) The supplier just emailed it five minutes ago. (B) Three heavy crates of machinery. (C) Yes, it operates worldwide.',
+    options: [
+      { label: 'A', text: 'The supplier just emailed it five minutes ago.', vietnamese: 'Nhà cung cấp vừa gửi email cách đây năm phút.' },
+      { label: 'B', text: 'Three heavy crates of machinery.', vietnamese: 'Ba thùng máy móc hạng nặng.' },
+      { label: 'C', text: 'Yes, it operates worldwide.', vietnamese: 'Vâng, nó hoạt động trên toàn thế giới.' }
+    ],
+    correctAnswer: 'A',
+    explanation: 'Câu hỏi xác nhận việc nhận thông tin. (A) trả lời tình huống thực tế nhà cung ứng vừa gửi email.',
+    topic: 'Câu Hỏi Yes/No & Tình Huống Thực Tế'
   }
 ];

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { 
   Trophy, ArrowLeft, Volume2, Clock, CheckCircle2, XCircle, 
   Sparkles, AlertTriangle, ChevronRight, RotateCcw, Award, Shield, 
-  HelpCircle, Play, Pause, ChevronLeft, Target, Flame
+  HelpCircle, Play, Pause, ChevronLeft, Target, Flame, FileText
 } from 'lucide-react';
 import { useLearningProgress } from '../contexts/ProgressContext';
 import { RankTier, RANK_TIERS_CONFIG, RankedQuestion, PromoSeries } from '../types/ranked';
@@ -400,15 +400,26 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
 
                 {/* Part 1: Photograph Image */}
                 {currentQ.imageUrl && currentQ.part === 1 && (
-                  <div className="mb-4 flex flex-col items-center">
-                    <div className="border-3 border-black shadow-neo overflow-hidden max-h-72 max-w-md bg-gray-50">
+                  <div className="mb-5 flex flex-col items-center">
+                    <div className="border-3 border-black shadow-neo overflow-hidden max-h-72 max-w-md bg-gray-50 flex items-center justify-center min-h-[160px]">
                       <img 
                         src={currentQ.imageUrl} 
-                        alt="Photograph" 
-                        className="w-full h-auto object-contain"
+                        alt="TOEIC Part 1 Photograph" 
+                        className="w-full h-auto object-contain max-h-72"
                         loading="eager"
+                        onError={(e) => {
+                          const target = e.currentTarget;
+                          const fallbackNum = ((currentIndex % 24) + 1).toString().padStart(2, '0');
+                          const fallbackSrc = `/images/part1/p1_${fallbackNum}.jpg`;
+                          if (target.src !== fallbackSrc && !target.src.endsWith(fallbackSrc)) {
+                            target.src = fallbackSrc;
+                          }
+                        }}
                       />
                     </div>
+                    <span className="text-[11px] font-bold text-gray-500 mt-1.5 flex items-center gap-1">
+                      📷 Quan sát bức tranh và nghe 4 phương án mô tả để chọn đáp án đúng
+                    </span>
                   </div>
                 )}
 
@@ -427,25 +438,32 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
 
                 {/* Audio Controls for Listening Parts */}
                 {(currentQ.part === 1 || currentQ.part === 2) && currentQ.audioScript && (
-                  <div className="mb-5 bg-amber-50 border-3 border-black p-3.5 shadow-neo flex items-center justify-between">
+                  <div className="mb-5 bg-amber-50 border-3 border-black p-3.5 shadow-neo flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div className="flex items-center gap-2">
-                      <Volume2 className="w-5 h-5 text-amber-700" />
-                      <span className="text-xs sm:text-sm font-black text-black">
-                        {currentQ.part === 1 ? 'Nghe 4 câu mô tả bức tranh:' : 'Nghe câu hỏi và 3 câu trả lời:'}
-                      </span>
+                      <Volume2 className="w-5 h-5 text-amber-700 flex-shrink-0" />
+                      <div>
+                        <span className="text-xs sm:text-sm font-black text-black block">
+                          {currentQ.part === 1 ? 'Nghe 4 câu mô tả bức tranh (A, B, C, D):' : 'Nghe câu hỏi và 3 câu trả lời (A, B, C):'}
+                        </span>
+                        <span className="text-[11px] text-gray-600 font-bold">
+                          {currentQ.part === 1 
+                            ? 'Chuẩn TOEIC ETS: Đề thi không in câu mô tả — hãy tập trung nghe' 
+                            : 'Chuẩn TOEIC ETS: Đề thi không in câu hỏi & phương án — lắng nghe và chọn'}
+                        </span>
+                      </div>
                     </div>
 
                     <button
                       onClick={() => handlePlayScript(currentQ.audioScript!)}
-                      className="px-3.5 py-1.5 bg-[#FFE500] border-2 border-black font-black text-xs shadow-neo hover:translate-x-0.5 cursor-pointer flex items-center gap-1.5"
+                      className="px-4 py-2 bg-[#FFE500] border-2 border-black font-black text-xs shadow-neo hover:translate-x-0.5 active:translate-y-0.5 cursor-pointer flex items-center justify-center gap-2 flex-shrink-0"
                     >
                       {isPlayingAudio ? (
                         <>
-                          <Pause className="w-3.5 h-3.5" /> Dừng phát
+                          <Pause className="w-4 h-4 fill-black" /> Dừng phát
                         </>
                       ) : (
                         <>
-                          <Play className="w-3.5 h-3.5 fill-black" /> Phát âm thanh
+                          <Play className="w-4 h-4 fill-black" /> Phát âm thanh
                         </>
                       )}
                     </button>
@@ -454,8 +472,13 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
 
                 {/* Part 6 & 7: Reading Passage Text */}
                 {currentQ.passageText && (
-                  <div className="mb-4 bg-gray-50 border-2 border-gray-300 p-4 text-xs sm:text-sm font-medium leading-relaxed max-h-64 overflow-y-auto whitespace-pre-line text-gray-800">
-                    {currentQ.passageText}
+                  <div className="mb-5 bg-gray-50 border-3 border-black p-4 shadow-neo">
+                    <div className="text-xs font-black uppercase text-indigo-700 mb-2 flex items-center gap-1.5 pb-1 border-b border-gray-300">
+                      <FileText className="w-4 h-4" /> Đoạn Văn Đọc Hiểu (Reading Passage)
+                    </div>
+                    <div className="text-xs sm:text-sm font-medium leading-relaxed max-h-72 overflow-y-auto whitespace-pre-line text-gray-800 pr-2">
+                      {currentQ.passageText}
+                    </div>
                   </div>
                 )}
 
@@ -468,23 +491,27 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
                 <div className="space-y-3 mb-6">
                   {currentQ.options.map(opt => {
                     const isSelected = selectedAnswers[currentIndex] === opt.label;
+                    const isAudioOnly = currentQ.part === 1 || currentQ.part === 2;
+                    // Chuẩn đề thi TOEIC: Part 1 & 2 chỉ hiển thị ký tự chọn A, B, C, D
+                    const optionDisplayText = isAudioOnly ? `Phương án (${opt.label})` : opt.text;
+
                     return (
                       <button
                         key={opt.label}
                         onClick={() => handleSelectOption(opt.label)}
-                        className={`w-full text-left p-3.5 sm:p-4 border-3 border-black font-bold text-sm sm:text-base flex items-start gap-3 transition-all cursor-pointer ${
+                        className={`w-full text-left p-3.5 sm:p-4 border-3 border-black font-bold text-sm sm:text-base flex items-center gap-3.5 transition-all cursor-pointer ${
                           isSelected 
                             ? 'bg-[#FFE500] shadow-neo translate-x-1' 
                             : 'bg-white hover:bg-amber-50'
                         }`}
                       >
-                        <span className={`w-7 h-7 rounded-full border-2 border-black flex items-center justify-center font-black text-xs flex-shrink-0 ${
+                        <span className={`w-8 h-8 rounded-full border-2 border-black flex items-center justify-center font-black text-sm flex-shrink-0 ${
                           isSelected ? 'bg-black text-white' : 'bg-gray-100 text-black'
                         }`}>
                           {opt.label}
                         </span>
-                        <span className="flex-1 leading-normal text-black">
-                          {opt.text}
+                        <span className="flex-1 leading-normal text-black font-extrabold">
+                          {optionDisplayText}
                         </span>
                       </button>
                     );
@@ -691,57 +718,151 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
               <span>{showReview ? 'ẨN LỜI GIẢI CHI TIẾT' : 'XEM LẠI LỜI GIẢI TỪNG CÂU'}</span>
             </button>
 
-            {/* Danh sách câu hỏi kèm lời giải */}
+            {/* Danh sách câu hỏi kèm lời giải chi tiết */}
             {showReview && (
-              <div className="mt-4 space-y-4">
+              <div className="mt-5 space-y-5">
                 {questions.map((q, idx) => {
                   const userAns = selectedAnswers[idx];
                   const isCorrect = userAns === q.correctAnswer;
+                  const isAudioPart = q.part === 1 || q.part === 2;
+
                   return (
                     <div 
                       key={q.id}
-                      className={`border-3 border-black p-4 shadow-neo bg-white ${
+                      className={`border-3 border-black p-4 sm:p-5 shadow-neo bg-white ${
                         isCorrect ? 'border-l-8 border-l-emerald-500' : 'border-l-8 border-l-rose-500'
                       }`}
                     >
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="font-black text-sm">
-                          Câu {idx + 1} (Part {q.part})
-                        </span>
-                        <span className={`text-xs font-black px-2 py-0.5 border border-black ${
-                          isCorrect ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'
-                        }`}>
-                          {isCorrect ? '✓ Đúng' : `✗ Sai (Chọn: ${userAns || 'Bỏ trống'})`}
-                        </span>
+                      {/* Header */}
+                      <div className="flex flex-wrap items-center justify-between gap-2 mb-3 pb-2 border-b border-gray-200">
+                        <div className="flex items-center gap-2">
+                          <span className="font-black text-sm sm:text-base">
+                            Câu {idx + 1} (Part {q.part})
+                          </span>
+                          <span className="text-xs font-bold text-gray-500">
+                            • {q.testOrigin || 'TOEIC Bank'}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className={`text-xs font-black px-2.5 py-1 border border-black ${
+                            isCorrect ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'
+                          }`}>
+                            {isCorrect ? '✓ Đúng (+1)' : `✗ Sai (Bạn chọn: ${userAns || 'Bỏ trống'} | Đáp án đúng: ${q.correctAnswer})`}
+                          </span>
+                          {isAudioPart && q.audioScript && (
+                            <button
+                              onClick={() => sounds.speakEnglish(q.audioScript!)}
+                              className="px-2.5 py-1 bg-amber-200 hover:bg-amber-300 border border-black font-black text-xs flex items-center gap-1 cursor-pointer"
+                              title="Nghe lại phát âm câu này"
+                            >
+                              <Volume2 className="w-3.5 h-3.5" /> Nghe lại
+                            </button>
+                          )}
+                        </div>
                       </div>
 
-                      {q.imageUrl && (
-                        <div className="mb-2 max-h-44 overflow-hidden border border-gray-300">
-                          <img src={q.imageUrl} alt="Ref" className="h-44 object-contain mx-auto" />
+                      {/* Part 1 Photograph */}
+                      {q.imageUrl && q.part === 1 && (
+                        <div className="mb-3 max-h-56 max-w-sm mx-auto overflow-hidden border-2 border-black shadow-neo bg-gray-50 flex items-center justify-center">
+                          <img 
+                            src={q.imageUrl} 
+                            alt="Photograph" 
+                            className="w-full h-auto object-contain max-h-56 mx-auto" 
+                            onError={(e) => {
+                              const target = e.currentTarget;
+                              const fallbackNum = ((idx % 24) + 1).toString().padStart(2, '0');
+                              target.src = `/images/part1/p1_${fallbackNum}.jpg`;
+                            }}
+                          />
                         </div>
                       )}
 
-                      <p className="text-sm font-bold text-black mb-2">{q.questionText}</p>
-
-                      <div className="text-xs space-y-1 mb-2">
-                        {q.options.map(opt => (
-                          <div 
-                            key={opt.label}
-                            className={`p-1.5 border ${
-                              opt.label === q.correctAnswer 
-                                ? 'bg-emerald-50 border-emerald-400 font-bold text-emerald-900' 
-                                : opt.label === userAns 
-                                ? 'bg-rose-50 border-rose-300 font-bold text-rose-900' 
-                                : 'border-gray-200 text-gray-700'
-                            }`}
-                          >
-                            <strong>({opt.label})</strong> {opt.text}
+                      {/* Part 6 / 7 Passage */}
+                      {q.passageText && (
+                        <div className="mb-3 bg-gray-50 border-2 border-gray-300 p-3 text-xs sm:text-sm font-medium leading-relaxed max-h-48 overflow-y-auto whitespace-pre-line text-gray-800">
+                          <div className="text-[11px] font-black uppercase text-indigo-700 mb-1 flex items-center gap-1">
+                            <FileText className="w-3.5 h-3.5" /> Đoạn văn tham chiếu:
                           </div>
-                        ))}
+                          {q.passageText}
+                        </div>
+                      )}
+
+                      {/* Part 2 Spoken Prompt */}
+                      {q.part === 2 && q.spokenPrompt && (
+                        <div className="mb-3 bg-indigo-50 border-2 border-indigo-300 p-3">
+                          <div className="text-[11px] font-black uppercase text-indigo-700 mb-0.5">
+                            🎧 Câu hỏi đã phát âm thanh:
+                          </div>
+                          <p className="text-sm font-bold text-black">
+                            "{q.spokenPrompt}"
+                          </p>
+                          {q.spokenPromptVi && (
+                            <p className="text-xs text-indigo-800 italic mt-0.5">
+                              ({q.spokenPromptVi})
+                            </p>
+                          )}
+                        </div>
+                      )}
+
+                      {/* Question Text */}
+                      {q.part !== 2 && (
+                        <p className="text-sm font-bold text-black mb-3">
+                          {q.questionText}
+                        </p>
+                      )}
+
+                      {/* Options List with Transcripts & Translations */}
+                      <div className="space-y-2 mb-3">
+                        {q.options.map(opt => {
+                          const isCorrectOpt = opt.label === q.correctAnswer;
+                          const isUserChoice = opt.label === userAns;
+                          const optTextToDisplay = opt.transcriptText || opt.text;
+
+                          return (
+                            <div 
+                              key={opt.label}
+                              className={`p-2.5 border-2 text-xs sm:text-sm flex flex-col gap-0.5 ${
+                                isCorrectOpt 
+                                  ? 'bg-emerald-50 border-emerald-500 font-bold text-emerald-950' 
+                                  : isUserChoice 
+                                  ? 'bg-rose-50 border-rose-400 font-bold text-rose-950' 
+                                  : 'bg-white border-gray-200 text-gray-700'
+                              }`}
+                            >
+                              <div className="flex items-center gap-2">
+                                <span className={`w-5 h-5 rounded-full border flex items-center justify-center font-black text-[11px] flex-shrink-0 ${
+                                  isCorrectOpt ? 'bg-emerald-600 text-white border-emerald-700' : isUserChoice ? 'bg-rose-600 text-white border-rose-700' : 'bg-gray-100 text-black border-gray-400'
+                                }`}>
+                                  {opt.label}
+                                </span>
+                                <span className="flex-1 font-bold">
+                                  {optTextToDisplay}
+                                </span>
+                                {isCorrectOpt && (
+                                  <span className="text-[11px] font-black text-emerald-700 bg-emerald-100 px-1.5 py-0.5 border border-emerald-300">
+                                    ĐÁP ÁN ĐÚNG
+                                  </span>
+                                )}
+                                {isUserChoice && !isCorrectOpt && (
+                                  <span className="text-[11px] font-black text-rose-700 bg-rose-100 px-1.5 py-0.5 border border-rose-300">
+                                    BẠN ĐÃ CHỌN
+                                  </span>
+                                )}
+                              </div>
+                              {opt.vietnamese && (
+                                <div className="pl-7 text-xs text-gray-500 italic">
+                                  ↳ {opt.vietnamese}
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })}
                       </div>
 
-                      <div className="bg-amber-50 border border-amber-300 p-2 text-xs font-medium text-amber-900">
-                        <strong>Giải thích:</strong> {q.explanation}
+                      {/* Explanation */}
+                      <div className="bg-amber-50 border-2 border-amber-300 p-3 text-xs sm:text-sm font-medium text-amber-950 leading-relaxed">
+                        <strong className="font-black text-amber-900 block mb-0.5">💡 Giải thích chi tiết:</strong>
+                        {q.explanation}
                       </div>
                     </div>
                   );
