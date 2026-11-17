@@ -78,9 +78,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         className="flex items-center gap-1.5 sm:gap-2.5 cursor-pointer group min-h-[40px] shrink-0"
       >
         <img 
-          src="/trollface.png" 
-          alt="Trollface" 
-          className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 object-contain group-hover:rotate-12 transition-transform shrink-0" 
+          src="/app-icon.png" 
+          alt="Ing Lịch Tét Logo" 
+          className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full border-2 border-black object-cover shadow-neo-sm group-hover:rotate-12 transition-transform shrink-0" 
         />
         <div className="flex flex-col min-w-0">
           <span className="font-heading text-sm sm:text-lg md:text-xl font-black tracking-wide uppercase truncate max-w-[100px] xs:max-w-[130px] sm:max-w-none">

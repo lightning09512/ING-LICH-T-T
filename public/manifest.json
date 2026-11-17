@@ -1,0 +1,25 @@
+{
+  "short_name": "Ing Lịch Tét",
+  "name": "Ing Lịch Tét - TOEIC Master Game",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "type": "image/png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "/favicon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/app-icon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#FFDE59",
+  "theme_color": "#FFDE59",
+  "display": "standalone"
+}

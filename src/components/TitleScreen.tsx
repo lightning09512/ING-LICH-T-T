@@ -58,9 +58,9 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
             ✨ {nickname} ✨
           </span>
           <img
-            src="/trollface.png"
-            alt="troll"
-            className="w-9 h-9 sm:w-12 sm:h-12 object-contain animate-wiggle inline-block shrink-0"
+            src="/app-icon.png"
+            alt={nickname}
+            className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-3 border-black shadow-neo object-cover animate-wiggle inline-block shrink-0"
           />
         </div>
 

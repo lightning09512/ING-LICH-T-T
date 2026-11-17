@@ -137,8 +137,8 @@ export const LofiPlayer: React.FC<LofiPlayerProps> = ({
         artist: 'Ing Lịch Tét Lofi Chill',
         album: 'Nhạc Học Bài TOEIC',
         artwork: [
-          { src: '/trollface.png', sizes: '96x96', type: 'image/png' },
-          { src: '/trollface.png', sizes: '256x256', type: 'image/png' }
+          { src: '/favicon-192.png', sizes: '192x192', type: 'image/png' },
+          { src: '/app-icon.png', sizes: '512x512', type: 'image/png' }
         ]
       });
 
