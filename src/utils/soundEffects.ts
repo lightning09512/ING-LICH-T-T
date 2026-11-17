@@ -6,9 +6,11 @@ class SoundEngine {
   private currentAudio: HTMLAudioElement | null = null;
   private activeSpeechResolve: (() => void) | null = null;
   private speechRequestId = 0;
-  private audioCache = new Map<string, HTMLAudioElement>();
+  private blobUrlCache = new Map<string, string>();
+  private inFlightFetches = new Map<string, Promise<string | null>>();
   private femaleVoice: SpeechSynthesisVoice | null = null;
-  private networkTimeoutId: ReturnType<typeof setTimeout> | null = null;
+  private watchdogTimeoutId: ReturnType<typeof setTimeout> | null = null;
+  private maxCacheSize = 150;
 
   constructor() {
     this.initFemaleVoices();
@@ -111,47 +113,41 @@ class SoundEngine {
     return this.soundEnabled;
   }
 
-  // Pre-caches the pleasant female native voice in memory for instant playback on click
-  public prefetchEnglish(text: string) {
+  // Pre-caches the pleasant female native voice in memory as Blob URL for instant 0ms playback
+  public prefetchEnglish(text: string): void {
     if (!this.soundEnabled || !text || typeof window === 'undefined') return;
 
     const cleanText = this.cleanSpeechText(text);
-    if (!cleanText || cleanText.length > 300) return;
+    if (!cleanText || cleanText.length > 500) return;
 
-    const isSentence = cleanText.includes(' ') || cleanText.length > 25;
-    const targetRate = isSentence ? '-14%' : '-4%';
-    const cacheKey = `${cleanText.toLowerCase()}__${targetRate}`;
-    if (this.audioCache.has(cacheKey)) return;
+    const cacheKey = cleanText.toLowerCase();
+    if (this.blobUrlCache.has(cacheKey) || this.inFlightFetches.has(cacheKey)) return;
 
-    try {
-      const audio = new Audio();
-      audio.preload = 'auto';
-      audio.playbackRate = isSentence ? 0.85 : 0.95;
-      audio.src = `/api/tts?text=${encodeURIComponent(cleanText)}&rate=${encodeURIComponent(targetRate)}`;
-      this.audioCache.set(cacheKey, audio);
+    const fetchPromise = fetch(`/api/tts?text=${encodeURIComponent(cleanText)}`)
+      .then(async (res) => {
+        if (!res.ok) throw new Error(`TTS HTTP error: ${res.status}`);
+        const blob = await res.blob();
+        const blobUrl = URL.createObjectURL(blob);
 
-      audio.addEventListener('error', () => {
-        if (this.audioCache.get(cacheKey) === audio) {
-          this.audioCache.delete(cacheKey);
-        }
-      }, { once: true });
-
-      audio.load();
-
-      // Keep cache bounded to 100 items
-      if (this.audioCache.size > 100) {
-        const oldest = this.audioCache.keys().next().value;
-        if (oldest) {
-          const oldAudio = this.audioCache.get(oldest);
-          if (oldAudio) {
-            try { oldAudio.pause(); } catch {}
+        if (this.blobUrlCache.size >= this.maxCacheSize) {
+          const oldestKey = this.blobUrlCache.keys().next().value;
+          if (oldestKey) {
+            const oldUrl = this.blobUrlCache.get(oldestKey);
+            if (oldUrl) URL.revokeObjectURL(oldUrl);
+            this.blobUrlCache.delete(oldestKey);
           }
-          this.audioCache.delete(oldest);
         }
-      }
-    } catch {
-      // Preload failure is silent
-    }
+
+        this.blobUrlCache.set(cacheKey, blobUrl);
+        this.inFlightFetches.delete(cacheKey);
+        return blobUrl;
+      })
+      .catch(() => {
+        this.inFlightFetches.delete(cacheKey);
+        return null;
+      });
+
+    this.inFlightFetches.set(cacheKey, fetchPromise);
   }
 
   // Button tap sound (punchy, crisp bubble pop)
@@ -288,21 +284,26 @@ class SoundEngine {
 
   private cleanSpeechText(text: string): string {
     return text
-      .replace(/\/[^\/]+\//g, '')     // Strip IPA phonetic transcription like /əˈkɑː.mə.deɪt/
-      .replace(/\([^)]*\)/g, '')       // Strip (v), (n), (adj) annotations
-      .replace(/\[[^\]]*\]/g, '')      // Strip [v], [n]
-      .replace(/•.*$/g, '')            // Strip bullet comments
-      .replace(/[\r\n\t]+/g, ' ')      // Normalize linebreaks
+      .replace(/\/[^\/]+\//g, '')               // Strip IPA phonetic transcription like /əˈkɑː.mə.deɪt/
+      .replace(/\([^)]*\)/g, '')                 // Strip (v), (n), (adj) annotations
+      .replace(/\[[^\]]*\]/g, '')                // Strip [v], [n]
+      .replace(/•.*$/g, '')                      // Strip bullet comments
+      .replace(/^["'“”‘«»]+|["'“”’»«]+$/g, '')   // Strip enclosing quotes
+      .replace(/_{2,}/g, 'blank')                // Replace blanks like ___ with "blank"
+      .replace(/[\r\n\t]+/g, ' ')                // Normalize linebreaks
+      .replace(/\s+/g, ' ')                      // Collapse spaces
       .trim();
   }
 
   /**
    * High-fidelity, natural American FEMALE pronunciation:
-   * 1. Check in-memory audio cache -> Instant play (0ms).
-   * 2. Primary: Natural Microsoft Jenny Neural Voice (/api/tts) with 1000ms timeout.
-   * 3. Secondary: Real Human Studio Voice from Dictionary API for single words.
-   * 4. Fallback: Strictly filtered Female Web SpeechSynthesis (Jenny, Aria, Google US English, Samantha, Ava).
-   * Strictly avoids robotic voices.
+   * 1. Primary: Microsoft Jenny Neural EdgeTTS (/api/tts)
+   * 2. Instant Play from in-memory Blob URL cache (0ms delay for 1st, 2nd, 100th replay)
+   * 3. Synchronous .play() call stack ensures 100% compliance with mobile/browser autoplay policies
+   * 4. Unified consistent pacing:
+   *    - Words: 0.96x (crisp, natural, clear articulation)
+   *    - Example sentences: 0.85x (relaxed, learner-friendly, comfortable pace)
+   * 5. Resilient fallback: Female Web SpeechSynthesis if network is unavailable
    */
   public speakEnglish(text: string): Promise<void> {
     return new Promise((resolve) => {
@@ -322,120 +323,124 @@ class SoundEngine {
       this.activeSpeechResolve = resolve;
 
       const isSentence = cleanText.includes(' ') || cleanText.length > 25;
-      const targetRate = isSentence ? '-14%' : '-4%';
-      const playbackRate = isSentence ? 0.85 : 0.95;
+      const playbackRate = isSentence ? 0.85 : 0.96;
+      const cacheKey = cleanText.toLowerCase();
 
-      // 0. If the browser natively has Microsoft Jenny Online (Natural) available,
-      // play immediately with 0ms latency using the exact same Jenny voice model!
-      if (this.femaleVoice && this.femaleVoice.name.toLowerCase().includes('jenny')) {
-        this.speakWithFemaleSpeechSynthesis(cleanText, requestId, isSentence);
+      // 1. Instant Play from in-memory Blob URL (0ms latency, 100% reliable repeated clicks)
+      const cachedBlobUrl = this.blobUrlCache.get(cacheKey);
+      if (cachedBlobUrl) {
+        this.playAudioSource(cachedBlobUrl, playbackRate, requestId, cleanText, isSentence, false);
         return;
       }
 
-      const cacheKey = `${cleanText.toLowerCase()}__${targetRate}`;
+      // 2. If prefetch is in-flight, wait briefly for it
+      const inFlight = this.inFlightFetches.get(cacheKey);
+      if (inFlight) {
+        let hasTimedOut = false;
+        const inFlightTimeout = setTimeout(() => {
+          if (!hasTimedOut && requestId === this.speechRequestId) {
+            hasTimedOut = true;
+            const directUrl = `/api/tts?text=${encodeURIComponent(cleanText)}`;
+            this.playAudioSource(directUrl, playbackRate, requestId, cleanText, isSentence, true);
+          }
+        }, 800);
 
-      // 1. Instant Play from in-memory cache (reliable replay for 1st, 2nd, 3rd time!)
-      const cached = this.audioCache.get(cacheKey);
-      if (cached) {
-        cached.playbackRate = playbackRate;
-        this.currentAudio = cached;
-
-        cached.onended = () => {
-          if (this.currentAudio === cached) this.currentAudio = null;
-          this.finishSpeech();
-        };
-
-        if (cached.readyState >= 2) {
-          cached.currentTime = 0;
-          cached.volume = 1.0;
-          cached.play().catch(() => this.fallbackSpeech(cleanText, requestId, isSentence));
-          return;
-        } else {
-          // Already in-flight! Start playing as soon as the first chunk is buffered
-          let started = false;
-          const playWhenReady = () => {
-            if (started || requestId !== this.speechRequestId) return;
-            started = true;
-            if (this.networkTimeoutId) {
-              clearTimeout(this.networkTimeoutId);
-              this.networkTimeoutId = null;
-            }
-            cached.currentTime = 0;
-            cached.volume = 1.0;
-            cached.play().catch(() => this.fallbackSpeech(cleanText, requestId, isSentence));
-          };
-
-          cached.addEventListener('canplay', playWhenReady, { once: true });
-          cached.addEventListener('error', () => {
-            if (!started) this.fallbackSpeech(cleanText, requestId, isSentence);
-          }, { once: true });
-
-          this.networkTimeoutId = setTimeout(() => {
-            if (!started) {
-              started = true;
-              this.fallbackSpeech(cleanText, requestId, isSentence);
-            }
-          }, 600);
-          return;
-        }
+        inFlight.then((blobUrl) => {
+          clearTimeout(inFlightTimeout);
+          if (hasTimedOut || requestId !== this.speechRequestId) return;
+          if (blobUrl) {
+            this.playAudioSource(blobUrl, playbackRate, requestId, cleanText, isSentence, false);
+          } else {
+            const directUrl = `/api/tts?text=${encodeURIComponent(cleanText)}`;
+            this.playAudioSource(directUrl, playbackRate, requestId, cleanText, isSentence, true);
+          }
+        });
+        return;
       }
 
-      // 2. Fetch from Neural Edge TTS with quick fallback
-      let hasFallenBack = false;
-      const triggerFallback = () => {
-        if (hasFallenBack || requestId !== this.speechRequestId) return;
-        hasFallenBack = true;
-        if (this.networkTimeoutId) {
-          clearTimeout(this.networkTimeoutId);
-          this.networkTimeoutId = null;
-        }
-        if (this.currentAudio) {
-          try {
-            this.currentAudio.pause();
-            this.currentAudio.currentTime = 0;
-          } catch {}
-          this.currentAudio = null;
-        }
-        this.fallbackSpeech(cleanText, requestId, isSentence);
-      };
+      // 3. Not in cache: Play directly via streaming Audio element in the user gesture stack
+      const directUrl = `/api/tts?text=${encodeURIComponent(cleanText)}`;
+      this.playAudioSource(directUrl, playbackRate, requestId, cleanText, isSentence, true);
 
-      this.networkTimeoutId = setTimeout(triggerFallback, 600);
-
-      try {
-        const audio = new Audio();
-        audio.preload = 'auto';
-        audio.volume = 1.0;
-        audio.playbackRate = playbackRate;
-        this.currentAudio = audio;
-        this.audioCache.set(cacheKey, audio);
-
-        audio.oncanplay = () => {
-          if (hasFallenBack || requestId !== this.speechRequestId) return;
-          if (this.networkTimeoutId) {
-            clearTimeout(this.networkTimeoutId);
-            this.networkTimeoutId = null;
-          }
-          audio.currentTime = 0;
-          audio.play().catch(triggerFallback);
-        };
-        audio.onended = () => {
-          if (this.networkTimeoutId) {
-            clearTimeout(this.networkTimeoutId);
-            this.networkTimeoutId = null;
-          }
-          if (this.currentAudio === audio) this.currentAudio = null;
-          this.finishSpeech();
-        };
-        audio.onerror = triggerFallback;
-        audio.src = `/api/tts?text=${encodeURIComponent(cleanText)}&rate=${encodeURIComponent(targetRate)}`;
-        audio.load();
-      } catch {
-        triggerFallback();
-      }
+      // Proactively prefetch and cache as Blob for instant replay on 2nd and subsequent clicks
+      this.prefetchEnglish(cleanText);
     });
   }
 
-  // Instant fallback to the browser's preferred pleasant natural female voice (0ms delay)
+  private playAudioSource(
+    src: string,
+    playbackRate: number,
+    requestId: number,
+    cleanText: string,
+    isSentence: boolean,
+    isDirectStream: boolean
+  ) {
+    let hasEndedOrFailed = false;
+
+    const cleanup = () => {
+      if (this.watchdogTimeoutId) {
+        clearTimeout(this.watchdogTimeoutId);
+        this.watchdogTimeoutId = null;
+      }
+    };
+
+    const triggerFallbackOnce = () => {
+      if (hasEndedOrFailed || requestId !== this.speechRequestId) return;
+      hasEndedOrFailed = true;
+      cleanup();
+      if (this.currentAudio) {
+        try {
+          this.currentAudio.pause();
+          this.currentAudio.currentTime = 0;
+        } catch {}
+        this.currentAudio = null;
+      }
+      this.fallbackSpeech(cleanText, requestId, isSentence);
+    };
+
+    try {
+      const audio = new Audio();
+      audio.preload = 'auto';
+      audio.volume = 1.0;
+      audio.playbackRate = playbackRate;
+      this.currentAudio = audio;
+
+      // Watchdog for direct streaming: if no sound starts within 2200ms, fallback to browser synthesis
+      if (isDirectStream) {
+        this.watchdogTimeoutId = setTimeout(triggerFallbackOnce, 2200);
+      }
+
+      audio.addEventListener('playing', () => {
+        cleanup();
+      }, { once: true });
+
+      audio.addEventListener('ended', () => {
+        if (hasEndedOrFailed || requestId !== this.speechRequestId) return;
+        hasEndedOrFailed = true;
+        cleanup();
+        if (this.currentAudio === audio) {
+          this.currentAudio = null;
+        }
+        this.finishSpeech();
+      }, { once: true });
+
+      audio.addEventListener('error', () => {
+        triggerFallbackOnce();
+      }, { once: true });
+
+      audio.src = src;
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          triggerFallbackOnce();
+        });
+      }
+    } catch {
+      triggerFallbackOnce();
+    }
+  }
+
+  // Fallback to browser's natural female voice if server is unreachable
   private fallbackSpeech(cleanText: string, requestId: number, isSentence: boolean) {
     if (requestId !== this.speechRequestId) return;
     this.speakWithFemaleSpeechSynthesis(cleanText, requestId, isSentence);
@@ -462,8 +467,8 @@ class SoundEngine {
 
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = 'en-US';
-        // Sentences: 0.82 (slow, clear, gentle); Words: 0.92 (natural, clear)
-        utterance.rate = isSentence ? 0.82 : 0.92;
+        // Sentences: 0.85; Words: 0.95 (unified with EdgeTTS speeds)
+        utterance.rate = isSentence ? 0.85 : 0.95;
         utterance.pitch = 1.0;
         utterance.volume = 1.0;
         if (!this.femaleVoice) this.initFemaleVoices();
@@ -484,7 +489,7 @@ class SoundEngine {
             window.speechSynthesis.resume();
           }
         }, 50);
-      }, 25);
+      }, 40);
     } catch {
       this.finishSpeech();
     }
@@ -493,9 +498,9 @@ class SoundEngine {
   public stopSpeaking() {
     ++this.speechRequestId;
 
-    if (this.networkTimeoutId) {
-      clearTimeout(this.networkTimeoutId);
-      this.networkTimeoutId = null;
+    if (this.watchdogTimeoutId) {
+      clearTimeout(this.watchdogTimeoutId);
+      this.watchdogTimeoutId = null;
     }
 
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {

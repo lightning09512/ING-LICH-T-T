@@ -51,8 +51,7 @@ export default async function handler(req: any, res?: any) {
       return res.status(400).json({ error: 'Text required (max 800 chars)' });
     }
 
-    const isSentence = text.includes(' ') || text.length > 25;
-    const rate = (req.query?.rate as string) || (isSentence ? '-14%' : '-4%');
+    const rate = (req.query?.rate as string) || '+0%';
 
     try {
       const audioBuffer = await getSpeechAudio(text, rate);
@@ -92,8 +91,7 @@ export default async function handler(req: any, res?: any) {
     return new Response(JSON.stringify({ error: 'Text required' }), { status: 400 });
   }
 
-  const isSentence = text.includes(' ') || text.length > 25;
-  const rate = rateParam || (isSentence ? '-14%' : '-4%');
+  const rate = rateParam || '+0%';
 
   try {
     const audioBuffer = await getSpeechAudio(text, rate);

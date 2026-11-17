@@ -107,6 +107,19 @@ export const LearnVocabScreen: React.FC<LearnVocabScreenProps> = ({
 
   const isCurrentLearned = learnedIds.includes(currentWord._id);
 
+  // Proactively prefetch native audio for instant 0ms playback
+  useEffect(() => {
+    if (currentWord?.word) {
+      sounds.prefetchEnglish(currentWord.word);
+      if (currentWord.exampleEn) sounds.prefetchEnglish(currentWord.exampleEn);
+      const nextWord = filteredList[currentIndex + 1];
+      if (nextWord?.word) {
+        sounds.prefetchEnglish(nextWord.word);
+        if (nextWord.exampleEn) sounds.prefetchEnglish(nextWord.exampleEn);
+      }
+    }
+  }, [currentIndex, currentWord, filteredList]);
+
   return (
     <div className="relative z-10 w-full max-w-4xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
       {/* Top action header */}
@@ -213,13 +226,31 @@ export const LearnVocabScreen: React.FC<LearnVocabScreenProps> = ({
                 {currentWord.meaning}
               </h3>
 
-              <div className="w-full bg-yellow-50 border-3 border-black p-4 text-left shadow-neo-sm mt-2">
-                <p className="font-bold text-gray-800 text-sm sm:text-base">
-                  🇬🇧 "{currentWord.exampleEn}"
-                </p>
-                <p className="font-bold text-pink-700 text-sm sm:text-base mt-1">
-                  🇻🇳 "{currentWord.exampleVi}"
-                </p>
+              <div 
+                onClick={(e) => e.stopPropagation()}
+                className="w-full bg-yellow-50 border-3 border-black p-4 text-left shadow-neo-sm mt-2 flex items-start justify-between gap-2"
+              >
+                <div className="flex-1">
+                  <p className="font-bold text-gray-800 text-sm sm:text-base">
+                    🇬🇧 "{currentWord.exampleEn}"
+                  </p>
+                  <p className="font-bold text-pink-700 text-sm sm:text-base mt-1">
+                    🇻🇳 "{currentWord.exampleVi}"
+                  </p>
+                </div>
+                {currentWord.exampleEn && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      sounds.playClick();
+                      sounds.speakEnglish(currentWord.exampleEn);
+                    }}
+                    className="p-1.5 bg-white border-2 border-black rounded shadow-neo-sm hover:bg-yellow-200 active:translate-x-0.5 active:translate-y-0.5 shrink-0 transition-all cursor-pointer"
+                    title="Nghe câu ví dụ"
+                  >
+                    <Volume2 className="w-4 h-4 text-black" />
+                  </button>
+                )}
               </div>
 
               <p className="text-xs text-gray-400 font-bold mt-2">

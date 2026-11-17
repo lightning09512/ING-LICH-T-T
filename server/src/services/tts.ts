@@ -6,8 +6,7 @@ const CACHE_LIMIT = 100;
 const audioCache = new Map<string, Buffer>();
 
 export async function* streamSpeech(text: string, rate?: string): AsyncGenerator<Buffer> {
-  const isSentence = text.includes(' ') || text.length > 25;
-  const targetRate = rate || (isSentence ? '-14%' : '-4%');
+  const targetRate = rate || '+0%';
   const cacheKey = `${text}__${targetRate}`;
   const cachedAudio = audioCache.get(cacheKey);
   if (cachedAudio) {

@@ -630,9 +630,20 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
                 ) : currentWord.exampleEn ? (
                   <div
                     onClick={(e) => e.stopPropagation()}
-                    className="w-full max-w-lg bg-yellow-50 border-2 border-black px-3.5 py-2 rounded-xl shadow-neo-sm text-left mt-1 text-xs text-gray-700 font-bold"
+                    className="w-full max-w-lg bg-yellow-50 border-2 border-black px-3.5 py-2 rounded-xl shadow-neo-sm text-left mt-1 flex items-center justify-between gap-2"
                   >
-                    🇬🇧 "{currentWord.exampleEn}"
+                    <span className="text-xs text-gray-700 font-bold flex-1">🇬🇧 "{currentWord.exampleEn}"</span>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        sounds.playClick();
+                        sounds.speakEnglish(currentWord.exampleEn!);
+                      }}
+                      className="p-1 bg-white border border-black rounded shadow-neo-sm hover:bg-yellow-200 active:translate-x-0.5 active:translate-y-0.5 shrink-0 transition-all cursor-pointer"
+                      title="Nghe câu ví dụ"
+                    >
+                      <Volume2 className="w-3.5 h-3.5 text-black" />
+                    </button>
                   </div>
                 ) : null}
 
@@ -741,8 +752,16 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
                         </div>
                         <p className="text-sm font-bold text-emerald-800">{w.meaning}</p>
                         {w.exampleEn && (
-                          <p className="text-xs text-gray-700 font-medium italic mt-0.5">
-                            "{w.exampleEn}"
+                          <p 
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              sounds.playClick();
+                              sounds.speakEnglish(w.exampleEn!);
+                            }}
+                            className="text-xs text-gray-700 font-medium italic mt-0.5 cursor-pointer hover:text-indigo-600 transition-colors"
+                            title="Nhấn để nghe câu ví dụ"
+                          >
+                            "{w.exampleEn}" 🔊
                           </p>
                         )}
                         {w.exampleVi && (
