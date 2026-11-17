@@ -26,6 +26,22 @@ export const LOFI_TRACKS: LofiTrack[] = [
     emoji: '📻'
   },
   {
+    id: 'bts_lofi_1h',
+    title: 'BTS Lofi Chill & Study Mix',
+    tag: '1 Tiếng • Giai Điệu BTS Bản Lofi Acoustic Siêu Thư Giãn',
+    youtubeId: 'sQzJYJN62QM',
+    durationText: '1 Giờ',
+    emoji: '💜'
+  },
+  {
+    id: 'bts_jungkook_chill',
+    title: 'BTS Jungkook - Midnight Chill Mix',
+    tag: '1 Tiếng • Still With You, Euphoria, Seven Lofi Piano',
+    youtubeId: 'XOaE8Plxh24',
+    durationText: '1 Giờ',
+    emoji: '✨'
+  },
+  {
     id: 'lofi_girl_study',
     title: 'Lofi Girl - Beats to Relax/Study',
     tag: 'Live Stream • #1 Học Tập & Thư Giãn Toàn Cầu',
