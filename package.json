@@ -8,6 +8,7 @@
     "client:dev": "vite",
     "client:build": "tsc && vite build",
     "client:preview": "vite preview",
+    "audit": "tsx scripts/deep_audit.ts",
     "server:dev": "tsx watch server/src/index.ts",
     "server:build": "tsc -p server/tsconfig.json",
     "build": "npm run client:build && npm run server:build",

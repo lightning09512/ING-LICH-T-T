@@ -40,13 +40,11 @@ export const ReviewSurvivalScreen: React.FC<ReviewSurvivalScreenProps> = ({
   const initGame = () => {
     const shuffled = [...vocabList].sort(() => 0.5 - Math.random());
     const generated: QuizItem[] = shuffled.slice(0, 8).map(v => {
-      // 3 wrong distractors
-      const wrong = vocabList
-        .filter(w => w._id !== v._id)
-        .sort(() => 0.5 - Math.random())
-        .slice(0, 3)
-        .map(w => w.meaning);
-      
+      // 3 unique wrong distractors with distinct meanings
+      const otherMeanings = Array.from(
+        new Set(vocabList.map(w => w.meaning).filter(m => m && m.trim() !== v.meaning.trim()))
+      );
+      const wrong = otherMeanings.sort(() => 0.5 - Math.random()).slice(0, 3);
       const options = [...wrong, v.meaning].sort(() => 0.5 - Math.random());
 
       return {
