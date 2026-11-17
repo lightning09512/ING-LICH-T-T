@@ -57,26 +57,36 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
   // Audio timer ref
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Start a new match: Pre-fetch questions & pop LoL Match Found dialog!
-  const handleStartMatch = async () => {
+  // Pre-load sounds on mount
+  useEffect(() => {
+    sounds.preloadLolSounds();
+  }, []);
+
+  // Start a new match: Pop LoL Match Found dialog IMMEDIATELY (0ms delay) and pre-fetch questions in parallel!
+  const handleStartMatch = () => {
     sounds.playClick();
-    setLoadingQuestions(true);
     setDeclineToast(null);
-    try {
-      const generated = await generateRankedMatchQuestions(rankTier);
-      setQuestions(generated);
-      setCurrentIndex(0);
-      setSelectedAnswers({});
-      setTimeLeft(tierConfig.timeMinutes * 60);
-      setShowReview(false);
-      setMatchResult(null);
-      // Trigger LoL Match Found Modal
-      setShowMatchFoundModal(true);
-    } catch (e) {
-      console.error('Failed to generate match questions', e);
-    } finally {
-      setLoadingQuestions(false);
-    }
+    setSelectedAnswers({});
+    setCurrentIndex(0);
+    setTimeLeft(tierConfig.timeMinutes * 60);
+    setShowReview(false);
+    setMatchResult(null);
+
+    // 1. Hiện bảng Match Found và kích hoạt âm thanh ngay lập tức (0ms delay)
+    setShowMatchFoundModal(true);
+
+    // 2. Tải song song bộ đề thi trong lúc đồng hồ 10s đang đếm ngược
+    setLoadingQuestions(true);
+    generateRankedMatchQuestions(rankTier)
+      .then(generated => {
+        setQuestions(generated);
+      })
+      .catch(e => {
+        console.error('Failed to generate match questions', e);
+      })
+      .finally(() => {
+        setLoadingQuestions(false);
+      });
   };
 
   const handleAcceptMatch = () => {

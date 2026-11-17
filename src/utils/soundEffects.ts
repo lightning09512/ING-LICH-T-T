@@ -15,7 +15,10 @@ class SoundEngine {
   constructor() {
     this.initFemaleVoices();
     if (typeof window !== 'undefined') {
-      setTimeout(() => this.prefetchEnglish('welcome'), 1000);
+      setTimeout(() => {
+        this.prefetchEnglish('welcome');
+        this.preloadLolSounds();
+      }, 300);
     }
   }
 
@@ -291,45 +294,81 @@ class SoundEngine {
   // ==========================================
 
   /**
-   * 1. Âm thanh Tìm thấy trận (Match Found) - Chuẩn LMHT
+   * Khởi tạo và nạp sẵn âm thanh vào bộ nhớ để khi bấm là phát ngay lập tức (0ms độ trễ)
+   */
+  public preloadLolSounds() {
+    if (typeof window === 'undefined') return;
+    try {
+      if (!this.lolMatchFoundAudio) {
+        this.lolMatchFoundAudio = new Audio('/sounds/lol_match_found.mp3');
+        this.lolMatchFoundAudio.preload = 'auto';
+        this.lolMatchFoundAudio.load();
+      }
+      if (!this.lolAcceptAudio) {
+        this.lolAcceptAudio = new Audio('/sounds/lol_match_accept.mp3');
+        this.lolAcceptAudio.preload = 'auto';
+        this.lolAcceptAudio.load();
+      }
+      if (!this.lolDeclineAudio) {
+        this.lolDeclineAudio = new Audio('/sounds/lol_match_decline.mp3');
+        this.lolDeclineAudio.preload = 'auto';
+        this.lolDeclineAudio.load();
+      }
+    } catch {}
+  }
+
+  /**
+   * 1. Âm thanh Tìm thấy trận (Match Found) - Chuẩn LMHT (0ms latency)
    */
   public playLolMatchFound() {
     if (!this.soundEnabled) return;
     this.stopLolAudio();
     try {
-      this.lolMatchFoundAudio = new Audio('/sounds/lol_match_found.mp3');
+      if (!this.lolMatchFoundAudio) {
+        this.lolMatchFoundAudio = new Audio('/sounds/lol_match_found.mp3');
+      }
+      this.lolMatchFoundAudio.currentTime = 0;
       this.lolMatchFoundAudio.volume = 0.95;
-      this.lolMatchFoundAudio.play().catch(e => console.warn('LoL match found audio error:', e));
+      const p = this.lolMatchFoundAudio.play();
+      if (p !== undefined) p.catch(() => {});
     } catch (e) {
       console.warn('LoL match found error:', e);
     }
   }
 
   /**
-   * 2. Âm thanh Chấp nhận trận (Match Accept) - Chuẩn LMHT
+   * 2. Âm thanh Chấp nhận trận (Match Accept) - Chuẩn LMHT (0ms latency)
    */
   public playLolAccept() {
     if (!this.soundEnabled) return;
     this.stopLolAudio();
     try {
-      this.lolAcceptAudio = new Audio('/sounds/lol_match_accept.mp3');
+      if (!this.lolAcceptAudio) {
+        this.lolAcceptAudio = new Audio('/sounds/lol_match_accept.mp3');
+      }
+      this.lolAcceptAudio.currentTime = 0;
       this.lolAcceptAudio.volume = 1.0;
-      this.lolAcceptAudio.play().catch(e => console.warn('LoL accept audio error:', e));
+      const p = this.lolAcceptAudio.play();
+      if (p !== undefined) p.catch(() => {});
     } catch (e) {
       console.warn('LoL accept error:', e);
     }
   }
 
   /**
-   * 3. Âm thanh Từ chối / Hủy trận (Match Decline) - Chuẩn LMHT
+   * 3. Âm thanh Từ chối / Hủy trận (Match Decline) - Chuẩn LMHT (0ms latency)
    */
   public playLolDecline() {
     if (!this.soundEnabled) return;
     this.stopLolAudio();
     try {
-      this.lolDeclineAudio = new Audio('/sounds/lol_match_decline.mp3');
+      if (!this.lolDeclineAudio) {
+        this.lolDeclineAudio = new Audio('/sounds/lol_match_decline.mp3');
+      }
+      this.lolDeclineAudio.currentTime = 0;
       this.lolDeclineAudio.volume = 1.0;
-      this.lolDeclineAudio.play().catch(e => console.warn('LoL decline audio error:', e));
+      const p = this.lolDeclineAudio.play();
+      if (p !== undefined) p.catch(() => {});
     } catch (e) {
       console.warn('LoL decline error:', e);
     }
@@ -344,7 +383,6 @@ class SoundEngine {
         this.lolMatchFoundAudio.pause();
         this.lolMatchFoundAudio.currentTime = 0;
       } catch {}
-      this.lolMatchFoundAudio = null;
     }
   }
 
