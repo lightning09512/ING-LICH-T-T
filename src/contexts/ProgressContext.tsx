@@ -71,7 +71,6 @@ interface ProgressContextValue {
   recordStudyActivity: () => void;
   loseHeart: () => boolean;
   refillHearts: () => void;
-  resetStreak: () => void;
   saveRankMatchResult: (match: {
     tier: RankTier;
     score: number;
@@ -832,15 +831,6 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     });
   }, [commitProgress]);
 
-  const resetStreak = useCallback(() => {
-    commitProgress(current => ({
-      ...current,
-      streakDays: 0,
-      lastStudyDate: '',
-      studyDates: [],
-    }));
-  }, [commitProgress]);
-
   // Proactively check and expire streak if user missed a day or if cached streak was inaccurate
   useEffect(() => {
     const checkAndExpireStreak = () => {
@@ -1099,7 +1089,6 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     recordStudyActivity,
     loseHeart,
     refillHearts,
-    resetStreak,
     saveRankMatchResult,
   };
 

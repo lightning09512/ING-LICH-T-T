@@ -34,7 +34,6 @@ export function App() {
     signOut,
     clearAuthError,
     refillHearts,
-    resetStreak,
   } = useLearningProgress();
   const [screen, setScreen] = useState<ScreenState>('TITLE');
   const [soundEnabled, setSoundEnabled] = useState(true);
@@ -344,7 +343,6 @@ export function App() {
           setIsStreakModalOpen(false);
           setScreen('LEARN');
         }}
-        onResetStreak={resetStreak}
       />
 
       {/* Hearts / Lives Modal */}
