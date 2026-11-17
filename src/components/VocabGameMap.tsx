@@ -578,7 +578,11 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
                   )}
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-emerald-700 font-heading tracking-wide">
+                <h3 className={`font-black text-emerald-700 font-heading tracking-wide transition-all ${
+                  currentWord.imageUrl 
+                    ? 'text-2xl sm:text-3xl md:text-4xl' 
+                    : 'text-3xl sm:text-4xl md:text-5xl my-1.5 sm:my-2.5'
+                }`}>
                   {currentWord.meaning}
                 </h3>
 
@@ -598,7 +602,11 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
                 {currentWord.exampleVi ? (
                   <div
                     onClick={(e) => e.stopPropagation()}
-                    className="w-full max-w-lg bg-emerald-50 border-2 sm:border-3 border-black px-3.5 py-2 sm:px-5 sm:py-2.5 rounded-xl shadow-neo-sm text-left mt-1 sm:mt-2 transition-all cursor-default"
+                    className={`w-full max-w-lg bg-emerald-50 border-2 sm:border-3 border-black px-3.5 rounded-xl shadow-neo-sm text-left transition-all cursor-default ${
+                      currentWord.imageUrl 
+                        ? 'mt-1 sm:mt-2 py-2 sm:py-2.5' 
+                        : 'mt-2 sm:mt-4 py-2.5 sm:py-3.5'
+                    }`}
                   >
                     <div className="flex items-center justify-between gap-2 mb-1">
                       <span className="text-[10px] sm:text-xs font-black uppercase text-emerald-800 tracking-wider flex items-center gap-1">
