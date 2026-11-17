@@ -8,7 +8,12 @@ import { RANK_TIERS_CONFIG } from '../types/ranked';
 import { TOEIC_SW_TEST_COMBOS } from '../data/toeicSpeakingData';
 
 interface MenuScreenProps {
-  onSelectMode: (mode: 'LEARN' | 'GRAMMAR' | 'EXAM' | 'RANKED' | 'SPEAKING' | 'WRITING', chapter?: 1 | 2, testId?: string) => void;
+  onSelectMode: (
+    mode: 'LEARN' | 'GRAMMAR' | 'EXAM' | 'RANKED' | 'SPEAKING' | 'WRITING' | 'SW_EXAM', 
+    chapter?: 1 | 2, 
+    testId?: string,
+    swSkill?: 'SPEAKING' | 'WRITING'
+  ) => void;
   onBack: () => void;
   nickname: string;
   user?: User | null;
@@ -110,9 +115,6 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
                   </p>
                 </div>
               </div>
-              <span className="text-lg sm:text-2xl md:text-3xl font-black font-heading group-hover:translate-x-1 transition-transform shrink-0 ml-2">
-                👉
-              </span>
             </div>
 
             {/* Quick Chapter Selector Pills */}
@@ -169,9 +171,6 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
                 </p>
               </div>
             </div>
-            <span className="text-lg sm:text-2xl md:text-3xl font-black font-heading group-hover:translate-x-1 transition-transform shrink-0 ml-2">
-              📝
-            </span>
           </button>
 
           {/* Button 3: Đấu Xếp Hạng (Ranked Mode) */}
@@ -199,9 +198,6 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
                 </p>
               </div>
             </div>
-            <span className="text-lg sm:text-2xl md:text-3xl font-black font-heading group-hover:translate-x-1 transition-transform shrink-0 ml-2">
-              🏆
-            </span>
           </button>
 
           {/* Button 4: Luyện đề (Study4 style) */}
@@ -228,9 +224,6 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
                 </p>
               </div>
             </div>
-            <span className="text-lg sm:text-2xl md:text-3xl font-black font-heading group-hover:translate-x-1 transition-transform shrink-0 ml-2">
-              🎯
-            </span>
           </button>
 
           {/* SECTION HEADER: TOEIC 4 KỸ NĂNG (SPEAKING & WRITING) */}
@@ -238,74 +231,95 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
             <div className="h-[2px] bg-black/20 flex-1" />
             <span className="text-[11px] sm:text-xs font-black uppercase tracking-wider text-black bg-[#FFDE59] px-3 py-1 rounded-full border-2 border-black shadow-neo-sm flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-amber-600 fill-amber-500" />
-              Ôn Luyện 2 Kỹ Năng Mới • Tích Hợp AI Chấm Điểm
+              TOEIC 4 Kỹ Năng • Speaking & Writing
             </span>
             <div className="h-[2px] bg-black/20 flex-1" />
           </div>
 
-          {/* Button 5: TOEIC Speaking (Luyện Nói & Chấm Điểm AI) */}
+          {/* HÌNH 1: TOEIC Speaking (Ôn tập thuần túy: mẹo, từ, cách luyện tập) */}
           <button
             onClick={() => {
               sounds.playClick();
               onSelectMode('SPEAKING');
             }}
-            className="w-full bg-[#E0F7FA] hover:bg-[#b2ebf2] border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group relative overflow-hidden min-h-[76px] sm:min-h-[96px] cursor-pointer"
+            className="w-full bg-[#E0F7FA] hover:bg-[#b2ebf2] border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group relative overflow-hidden min-h-[76px] sm:min-h-[96px] cursor-pointer text-left"
           >
             <div className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 bg-[#00838F] text-white text-[9px] sm:text-[11px] font-black px-2 py-0.5 border border-black uppercase rotate-3 sm:rotate-6 shadow-neo-sm z-10 flex items-center gap-1">
-              <Sparkles className="w-3 h-3 fill-yellow-300 text-yellow-300" />
-              <span>AI Voice • Band 200</span>
+              <BookOpen className="w-3 h-3 text-yellow-300" />
+              <span>Ôn Tập • Cẩm Nang 5 Part</span>
             </div>
             <div className="flex items-center gap-3 sm:gap-4 md:gap-5 text-left min-w-0">
               <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#00BCD4] border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:-rotate-6 transition-transform shrink-0">
                 <Mic className="w-5 h-5 sm:w-7 sm:h-7 md:w-8 md:h-8 text-black" />
               </div>
-              <div className="min-w-0 pr-16 sm:pr-0">
+              <div className="min-w-0 pr-20 sm:pr-0">
                 <h3 className="text-lg sm:text-2xl md:text-3xl font-black uppercase font-heading text-black leading-tight flex items-center gap-2">
                   <span>TOEIC Speaking</span>
                 </h3>
                 <p className="text-[11px] sm:text-sm md:text-base font-bold text-gray-700 mt-0.5 line-clamp-2">
-                  Luyện nói 5 Part chuẩn ETS: Thu âm giọng nói, nhận diện từ, chấm điểm phát âm & ngữ điệu qua AI!
+                  Cẩm nang 16 bài học 5 Part: Mẹo phát âm, ngắt nghỉ, ngữ điệu, mẫu câu & cách luyện tập như phần ngữ pháp!
                 </p>
               </div>
             </div>
-            <span className="text-lg sm:text-2xl md:text-3xl font-black font-heading group-hover:translate-x-1 transition-transform shrink-0 ml-2">
-              🎙️
-            </span>
           </button>
 
-          {/* Button 6: TOEIC Writing (Luyện Viết & Sửa Văn AI) */}
+          {/* HÌNH 2: TOEIC Writing (Ôn tập thuần túy: mẹo, từ, cấu trúc câu) */}
           <button
             onClick={() => {
               sounds.playClick();
               onSelectMode('WRITING');
             }}
-            className="w-full bg-[#FFF3E0] hover:bg-[#ffe0b2] border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group relative overflow-hidden min-h-[76px] sm:min-h-[96px] cursor-pointer"
+            className="w-full bg-[#FFF3E0] hover:bg-[#ffe0b2] border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group relative overflow-hidden min-h-[76px] sm:min-h-[96px] cursor-pointer text-left"
           >
             <div className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 bg-[#E65100] text-white text-[9px] sm:text-[11px] font-black px-2 py-0.5 border border-black uppercase -rotate-2 sm:-rotate-3 shadow-neo-sm z-10 flex items-center gap-1">
-              <Sparkles className="w-3 h-3 fill-yellow-300 text-yellow-300" />
-              <span>AI Sửa Câu & Nhận Xét</span>
+              <BookOpen className="w-3 h-3 text-yellow-300" />
+              <span>Ôn Tập • Dàn Bài & Cấu Trúc</span>
             </div>
             <div className="flex items-center gap-3 sm:gap-4 md:gap-5 text-left min-w-0">
               <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#FF9800] border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:rotate-6 transition-transform shrink-0">
                 <PenTool className="w-5 h-5 sm:w-7 sm:h-7 md:w-8 md:h-8 text-black" />
               </div>
-              <div className="min-w-0 pr-16 sm:pr-0">
+              <div className="min-w-0 pr-20 sm:pr-0">
                 <h3 className="text-lg sm:text-2xl md:text-3xl font-black uppercase font-heading text-black leading-tight flex items-center gap-2">
                   <span>TOEIC Writing</span>
                 </h3>
                 <p className="text-[11px] sm:text-sm md:text-base font-bold text-gray-700 mt-0.5 line-clamp-2">
-                  Viết câu theo tranh, phản hồi Email & Viết luận 300 từ + AI chỉ lỗi sai ngữ pháp, nâng cấp từ vựng C1!
+                  Cẩm nang 8 bài học 3 Part: Mẹo viết câu theo tranh, cấu trúc Email công sở & dàn ý bài luận 300 từ!
                 </p>
               </div>
             </div>
-            <span className="text-lg sm:text-2xl md:text-3xl font-black font-heading group-hover:translate-x-1 transition-transform shrink-0 ml-2">
-              ✍️
-            </span>
+          </button>
+
+          {/* BẢNG 3: Luyện Đề Speaking & Writing (Như phần Luyện Đề của LR ở trên!) */}
+          <button
+            onClick={() => {
+              sounds.playClick();
+              onSelectMode('SW_EXAM');
+            }}
+            className="w-full bg-[#F3E8FF] hover:bg-[#e9d5ff] border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group relative overflow-hidden min-h-[76px] sm:min-h-[96px] cursor-pointer text-left"
+          >
+            <div className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 bg-purple-700 text-white text-[9px] sm:text-[11px] font-black px-2 py-0.5 border border-black uppercase rotate-2 sm:rotate-3 shadow-neo-sm z-10 flex items-center gap-1">
+              <Target className="w-3 h-3 text-yellow-300" />
+              <span>Chuẩn Study4 • 5 Bộ Đề</span>
+            </div>
+            <div className="flex items-center gap-3 sm:gap-4 md:gap-5 text-left min-w-0">
+              <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-purple-500 border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:scale-110 transition-transform shrink-0 text-white">
+                <Target className="w-5 h-5 sm:w-7 sm:h-7 md:w-8 md:h-8 text-black" />
+              </div>
+              <div className="min-w-0 pr-20 sm:pr-0">
+                <h3 className="text-lg sm:text-2xl md:text-3xl font-black uppercase font-heading text-black leading-tight flex items-center gap-2">
+                  <span>Luyện Đề Speaking & Writing</span>
+                </h3>
+                <p className="text-[11px] sm:text-sm md:text-base font-bold text-gray-700 mt-0.5 line-clamp-2">
+                  Trọn bộ 5 đề thi Study4 mô phỏng thi thật ETS: Làm đề Speaking (11 câu) & Writing (8 câu) kèm AI chấm điểm!
+                </p>
+              </div>
+            </div>
           </button>
         </div>
 
         {/* ======================================================== */}
-        {/* BẢNG LUYỆN ĐỀ THI TOEIC SPEAKING & WRITING (STUDY4)      */}
+        {/* BẢNG TÓM TẮT 5 BỘ ĐỀ SW STUDY4 (CHỌN NHANH)             */}
         {/* ======================================================== */}
         <div className="w-full bg-white border-3 sm:border-4 border-black p-4 sm:p-5 shadow-neo sm:shadow-neo-lg rounded-2xl flex flex-col gap-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b-3 border-black">
@@ -317,12 +331,18 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
                 </h3>
               </div>
               <p className="text-xs sm:text-sm font-bold text-gray-600 mt-0.5">
-                Trọn bộ 5 đề thi Study4 chuẩn format ETS quốc tế • Luyện Nói (11 câu) & Luyện Viết (8 câu) kèm AI chấm điểm
+                5 Bộ đề Study4 chuẩn ETS • Bấm để vào thẳng phòng thi Speaking (11 câu) hoặc Writing (8 câu)
               </p>
             </div>
-            <span className="self-start sm:self-auto text-[10px] sm:text-xs font-black bg-[#FFDE59] border-2 border-black px-2.5 py-1 rounded-lg shadow-neo-sm">
-              5 Bộ Đề Đầy Đủ
-            </span>
+            <button
+              onClick={() => {
+                sounds.playClick();
+                onSelectMode('SW_EXAM');
+              }}
+              className="self-start sm:self-auto text-xs font-black bg-[#FFDE59] hover:bg-yellow-400 border-2 border-black px-3 py-1.5 rounded-lg shadow-neo-sm cursor-pointer transition-all"
+            >
+              Xem Toàn Bộ 5 Đề ➔
+            </button>
           </div>
 
           <div className="flex flex-col gap-3">
@@ -354,7 +374,7 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
                   <button
                     onClick={() => {
                       sounds.playClick();
-                      onSelectMode('SPEAKING', undefined, combo.speakingTestId);
+                      onSelectMode('SW_EXAM', undefined, combo.speakingTestId, 'SPEAKING');
                     }}
                     className="flex-1 md:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2.5 bg-[#E0F7FA] hover:bg-[#b2ebf2] border-2 border-black font-black text-xs uppercase shadow-neo-sm hover:translate-x-0.5 hover:translate-y-0.5 active:scale-95 transition-all cursor-pointer whitespace-nowrap"
                     title="Luyện Nói 11 câu hỏi chuẩn ETS"
@@ -366,7 +386,7 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
                   <button
                     onClick={() => {
                       sounds.playClick();
-                      onSelectMode('WRITING', undefined, combo.writingTestId);
+                      onSelectMode('SW_EXAM', undefined, combo.writingTestId, 'WRITING');
                     }}
                     className="flex-1 md:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2.5 bg-[#FFF3E0] hover:bg-[#ffe0b2] border-2 border-black font-black text-xs uppercase shadow-neo-sm hover:translate-x-0.5 hover:translate-y-0.5 active:scale-95 transition-all cursor-pointer whitespace-nowrap"
                     title="Luyện Viết 8 câu hỏi chuẩn ETS"

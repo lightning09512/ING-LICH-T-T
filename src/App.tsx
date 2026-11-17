@@ -9,8 +9,11 @@ import { GrammarScreen } from './components/GrammarScreen';
 import { ToeicExamScreen } from './components/ToeicExamScreen';
 import { TestSelectScreen } from './components/TestSelectScreen';
 import { RankedExamScreen } from './components/RankedExamScreen';
-import { ToeicSpeakingScreen } from './components/ToeicSpeakingScreen';
-import { ToeicWritingScreen } from './components/ToeicWritingScreen';
+import { ToeicSpeakingRevisionScreen } from './components/ToeicSpeakingRevisionScreen';
+import { ToeicWritingRevisionScreen } from './components/ToeicWritingRevisionScreen';
+import { ToeicSwSelectScreen } from './components/ToeicSwSelectScreen';
+import { ToeicSpeakingExamScreen } from './components/ToeicSpeakingExamScreen';
+import { ToeicWritingExamScreen } from './components/ToeicWritingExamScreen';
 import { LofiPlayer } from './components/LofiPlayer';
 import { AccountModal } from './components/AccountModal';
 import { StreakModal } from './components/StreakModal';
@@ -19,7 +22,20 @@ import { initialVocabList, initialTest, VocabItem, ToeicTest } from './data/init
 import { sounds } from './utils/soundEffects';
 import { useLearningProgress } from './contexts/ProgressContext';
 
-type ScreenState = 'TITLE' | 'MENU' | 'LEARN' | 'GRAMMAR' | 'REVIEW' | 'SELECT_TEST' | 'EXAM' | 'RANKED' | 'SPEAKING' | 'WRITING';
+type ScreenState = 
+  | 'TITLE' 
+  | 'MENU' 
+  | 'LEARN' 
+  | 'GRAMMAR' 
+  | 'REVIEW' 
+  | 'SELECT_TEST' 
+  | 'EXAM' 
+  | 'RANKED' 
+  | 'SPEAKING' 
+  | 'WRITING'
+  | 'SW_SELECT_TEST'
+  | 'SW_SPEAKING_EXAM'
+  | 'SW_WRITING_EXAM';
 
 export function App() {
   const {
@@ -48,7 +64,8 @@ export function App() {
   const [isAccountModalOpen, setIsAccountModalOpen] = useState(false);
   const [isStreakModalOpen, setIsStreakModalOpen] = useState(false);
   const [isHeartsModalOpen, setIsHeartsModalOpen] = useState(false);
-  const [selectedSwTestId, setSelectedSwTestId] = useState<string | undefined>(undefined);
+  const [selectedSwSpeakingTestId, setSelectedSwSpeakingTestId] = useState<string>('study4-sp-01');
+  const [selectedSwWritingTestId, setSelectedSwWritingTestId] = useState<string>('study4-wr-01');
 
 
   // Chỉ tự động vào MENU nếu người dùng vừa hoàn tất đăng nhập bằng Google Redirect
@@ -246,15 +263,28 @@ export function App() {
             user={user}
             syncStatus={syncStatus}
             onOpenAccount={() => setIsAccountModalOpen(true)}
-            onSelectMode={(mode, chapter, testId) => {
+            onSelectMode={(mode, chapter, testId, swSkill) => {
               if (chapter) {
                 setVocabChapter(chapter);
               }
-              setSelectedSwTestId(testId);
               if (mode === 'EXAM') {
                 setScreen('SELECT_TEST');
               } else if (mode === 'RANKED') {
                 setScreen('RANKED');
+              } else if (mode === 'SPEAKING') {
+                setScreen('SPEAKING');
+              } else if (mode === 'WRITING') {
+                setScreen('WRITING');
+              } else if (mode === 'SW_EXAM') {
+                if (testId && swSkill === 'SPEAKING') {
+                  setSelectedSwSpeakingTestId(testId);
+                  setScreen('SW_SPEAKING_EXAM');
+                } else if (testId && swSkill === 'WRITING') {
+                  setSelectedSwWritingTestId(testId);
+                  setScreen('SW_WRITING_EXAM');
+                } else {
+                  setScreen('SW_SELECT_TEST');
+                }
               } else {
                 setScreen(mode);
               }
@@ -311,18 +341,47 @@ export function App() {
         )}
 
         {screen === 'SPEAKING' && (
-          <ToeicSpeakingScreen
+          <ToeicSpeakingRevisionScreen
             onBack={() => setScreen('MENU')}
             nickname={nickname}
-            initialTestId={selectedSwTestId}
           />
         )}
 
         {screen === 'WRITING' && (
-          <ToeicWritingScreen
+          <ToeicWritingRevisionScreen
             onBack={() => setScreen('MENU')}
             nickname={nickname}
-            initialTestId={selectedSwTestId}
+          />
+        )}
+
+        {screen === 'SW_SELECT_TEST' && (
+          <ToeicSwSelectScreen
+            onSelectSpeakingTest={(testId) => {
+              setSelectedSwSpeakingTestId(testId);
+              setScreen('SW_SPEAKING_EXAM');
+            }}
+            onSelectWritingTest={(testId) => {
+              setSelectedSwWritingTestId(testId);
+              setScreen('SW_WRITING_EXAM');
+            }}
+            onBack={() => setScreen('MENU')}
+            nickname={nickname}
+          />
+        )}
+
+        {screen === 'SW_SPEAKING_EXAM' && (
+          <ToeicSpeakingExamScreen
+            testId={selectedSwSpeakingTestId}
+            onBack={() => setScreen('SW_SELECT_TEST')}
+            nickname={nickname}
+          />
+        )}
+
+        {screen === 'SW_WRITING_EXAM' && (
+          <ToeicWritingExamScreen
+            testId={selectedSwWritingTestId}
+            onBack={() => setScreen('SW_SELECT_TEST')}
+            nickname={nickname}
           />
         )}
       </main>
