@@ -38,7 +38,7 @@ export const LolMatchFoundModal: React.FC<LolMatchFoundModalProps> = ({
     // Play iconic League of Legends Match Found queue pop gong sound
     sounds.playLolMatchFound();
 
-    // Start 10-second countdown
+    // Start 10-second countdown (dùng sound gốc của file MP3, không phát tiếng bíp/tích nhân tạo)
     timerRef.current = setInterval(() => {
       setSecondsLeft(prev => {
         if (prev <= 1) {
@@ -46,13 +46,13 @@ export const LolMatchFoundModal: React.FC<LolMatchFoundModalProps> = ({
           handleDeclineOrTimeout();
           return 0;
         }
-        sounds.playLolTick();
         return prev - 1;
       });
     }, 1000);
 
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
+      sounds.stopLolAudio();
     };
   }, [isOpen]);
 
