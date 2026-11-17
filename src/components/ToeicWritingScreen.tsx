@@ -39,16 +39,26 @@ import confetti from 'canvas-confetti';
 interface ToeicWritingScreenProps {
   onBack: () => void;
   nickname: string;
+  initialTestId?: string;
 }
 
-export const ToeicWritingScreen: React.FC<ToeicWritingScreenProps> = ({ onBack, nickname }) => {
+export const ToeicWritingScreen: React.FC<ToeicWritingScreenProps> = ({ onBack, nickname, initialTestId }) => {
   // Top Level Mode: 'TEST_PRACTICE' vs 'REVISION'
   const [activeTab, setActiveTab] = useState<'TEST_PRACTICE' | 'REVISION'>('TEST_PRACTICE');
 
   // Test Practice State
-  const [selectedTestId, setSelectedTestId] = useState<string>('study4-wr-01');
+  const [selectedTestId, setSelectedTestId] = useState<string>(initialTestId || 'study4-wr-01');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userText, setUserText] = useState('');
+
+  // Sync initialTestId if changed
+  useEffect(() => {
+    if (initialTestId) {
+      setSelectedTestId(initialTestId);
+      setCurrentQuestionIndex(0);
+      setActiveTab('TEST_PRACTICE');
+    }
+  }, [initialTestId]);
   
   // Settings & Helpers
   const [apiKeyModalOpen, setApiKeyModalOpen] = useState(false);
@@ -67,6 +77,11 @@ export const ToeicWritingScreen: React.FC<ToeicWritingScreenProps> = ({ onBack, 
 
   // Revision / Theory State (Writing Units)
   const writingUnits = TOEIC_REVISION_ROADMAP.filter(u => u.skill === 'WRITING');
+  const [selectedPartFilter, setSelectedPartFilter] = useState<number | 'ALL'>('ALL');
+  const filteredWritingUnits = selectedPartFilter === 'ALL'
+    ? writingUnits
+    : writingUnits.filter(u => u.partNumber === selectedPartFilter);
+
   const [selectedUnitId, setSelectedUnitId] = useState<string>(writingUnits[0]?.id || 'wr-unit-01');
   const currentUnit: RevisionUnit = writingUnits.find(u => u.id === selectedUnitId) || writingUnits[0];
   const [quizAnswers, setQuizAnswers] = useState<{ [quizIdx: number]: number }>({});
@@ -647,17 +662,61 @@ export const ToeicWritingScreen: React.FC<ToeicWritingScreenProps> = ({ onBack, 
           {/* Left Column: 8 Units Sidebar (4 cols) */}
           <div className="lg:col-span-4 flex flex-col gap-2.5">
             <div className="bg-white p-4 rounded-2xl border-3 border-black shadow-neo">
-              <div className="flex items-center justify-between mb-3 pb-2 border-b-2 border-gray-100">
+              <div className="flex items-center justify-between mb-2 pb-2 border-b-2 border-gray-100">
                 <span className="font-black text-xs uppercase tracking-wider text-gray-500">
-                  8 Bài Học Writing:
+                  Lộ Trình 8 Bài Học:
                 </span>
                 <span className="text-[10px] font-bold bg-amber-100 text-amber-900 px-2 py-0.5 rounded-full border border-black">
                   Level 0 - 100+
                 </span>
               </div>
 
+              {/* Part Filter Buttons */}
+              <div className="flex flex-wrap gap-1 mb-3 pb-2 border-b-2 border-gray-100">
+                <button
+                  onClick={() => setSelectedPartFilter('ALL')}
+                  className={`px-2 py-1 rounded text-[11px] font-black border border-black cursor-pointer transition-all ${
+                    selectedPartFilter === 'ALL'
+                      ? 'bg-black text-[#FFDE59] shadow-neo-sm'
+                      : 'bg-white text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  Tất cả ({writingUnits.length})
+                </button>
+                <button
+                  onClick={() => setSelectedPartFilter(1)}
+                  className={`px-2 py-1 rounded text-[11px] font-black border border-black cursor-pointer transition-all ${
+                    selectedPartFilter === 1
+                      ? 'bg-black text-[#FFDE59] shadow-neo-sm'
+                      : 'bg-white text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  Part 1 (Q1-5)
+                </button>
+                <button
+                  onClick={() => setSelectedPartFilter(2)}
+                  className={`px-2 py-1 rounded text-[11px] font-black border border-black cursor-pointer transition-all ${
+                    selectedPartFilter === 2
+                      ? 'bg-black text-[#FFDE59] shadow-neo-sm'
+                      : 'bg-white text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  Part 2 (Q6-7)
+                </button>
+                <button
+                  onClick={() => setSelectedPartFilter(3)}
+                  className={`px-2 py-1 rounded text-[11px] font-black border border-black cursor-pointer transition-all ${
+                    selectedPartFilter === 3
+                      ? 'bg-black text-[#FFDE59] shadow-neo-sm'
+                      : 'bg-white text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  Part 3 (Q8)
+                </button>
+              </div>
+
               <div className="space-y-2 max-h-[620px] overflow-y-auto pr-1">
-                {writingUnits.map(unit => {
+                {filteredWritingUnits.map(unit => {
                   const isSelected = unit.id === selectedUnitId;
                   return (
                     <button
@@ -668,22 +727,28 @@ export const ToeicWritingScreen: React.FC<ToeicWritingScreenProps> = ({ onBack, 
                         setQuizAnswers({});
                         setQuizSubmitted({});
                       }}
-                      className={`w-full p-3 rounded-xl border-2 border-black text-left transition-all cursor-pointer flex flex-col gap-1 ${
+                      className={`w-full p-3 rounded-xl border-2 border-black text-left transition-all cursor-pointer flex flex-col gap-1.5 ${
                         isSelected 
                           ? 'bg-[#FFDE59] text-black shadow-neo-sm translate-x-1 font-bold' 
                           : 'bg-gray-50 hover:bg-orange-50 text-gray-800'
                       }`}
                     >
-                      <div className="flex items-center justify-between">
-                        <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-md bg-white border border-black">
-                          {unit.badge}
+                      <div className="flex items-center justify-between gap-1 flex-wrap">
+                        <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-md bg-black text-[#FFDE59] border border-black font-mono">
+                          PART {unit.partNumber}
                         </span>
-                        <span className="text-[10px] text-gray-500 font-bold">
+                        <span className="text-[10px] font-bold bg-amber-100 text-amber-900 px-1.5 py-0.5 rounded border border-black/30">
+                          {unit.questionCoverageVi}
+                        </span>
+                        <span className="text-[10px] text-gray-500 font-bold ml-auto">
                           Unit {unit.unitNumber}
                         </span>
                       </div>
-                      <div className="font-black text-xs leading-snug line-clamp-2 mt-0.5">
+                      <div className="font-black text-xs leading-snug line-clamp-2">
                         {unit.title}
+                      </div>
+                      <div className="text-[10px] text-gray-500 font-bold truncate">
+                        {unit.partNameVi}
                       </div>
                     </button>
                   );
@@ -695,18 +760,27 @@ export const ToeicWritingScreen: React.FC<ToeicWritingScreenProps> = ({ onBack, 
           {/* Right Column: Clean Formatted Lesson Reader (8 cols) */}
           <div className="lg:col-span-8 flex flex-col gap-4">
             
-            {/* Unit Header */}
+            {/* Unit Header with prominent Part Badge */}
             <div className="bg-white p-6 rounded-2xl border-4 border-black shadow-neo flex flex-col gap-3">
-              <div className="flex items-center justify-between flex-wrap gap-2">
-                <span className="text-xs font-black uppercase px-3 py-1 rounded-full bg-black text-[#FFDE59] border border-black">
-                  {currentUnit.badge}
-                </span>
-                <span className="text-xs font-black text-gray-500">
-                  Cẩm Nang Writing Chuẩn ETS
+              {/* Part & Questions Indicator Bar */}
+              <div className="bg-[#FFFDE7] p-3 rounded-xl border-2 border-black flex items-center justify-between flex-wrap gap-2">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="px-3 py-1 bg-black text-[#FFDE59] font-black text-xs uppercase rounded-lg border border-black shadow-neo-sm font-mono">
+                    🎯 PART {currentUnit.partNumber}: {currentUnit.partNameVi}
+                  </span>
+                  <span className="px-2.5 py-1 bg-white text-black font-black text-xs rounded-lg border-2 border-black">
+                    📌 Phạm vi: {currentUnit.questionCoverageVi}
+                  </span>
+                  <span className="px-2 py-0.5 bg-yellow-200 text-yellow-950 font-bold text-xs rounded-md border border-black/40">
+                    {currentUnit.badge}
+                  </span>
+                </div>
+                <span className="text-xs font-bold text-gray-600">
+                  Unit {currentUnit.unitNumber} / 8
                 </span>
               </div>
 
-              <h2 className="text-xl sm:text-2xl font-black uppercase leading-tight font-heading">
+              <h2 className="text-xl sm:text-2xl font-black uppercase leading-tight font-heading mt-1">
                 {currentUnit.title}
               </h2>
               <p className="text-xs sm:text-sm font-bold text-gray-600">

@@ -31,6 +31,9 @@ export interface WritingQuestion {
 export const TOEIC_WRITING_TESTS = [
   { id: "study4-wr-01", name: "STUDY4 Practice Test 01 (ETS Chuẩn)", desc: "8 câu: Viết câu theo tranh, 2 Email & Bài luận 300 từ", badge: "Đề Hot" },
   { id: "study4-wr-02", name: "STUDY4 Practice Test 02 (Thư Tín Công Sở)", desc: "Xử lý khiếu nại khách hàng, đề xuất dự án & Luận quản lý", badge: "Mới Cập Nhật" },
+  { id: "study4-wr-03", name: "STUDY4 Practice Test 03 (Dịch Vụ & Logistics)", desc: "Bồi thường hư hại vận chuyển, tư vấn ERP & Luận đào tạo nội bộ", badge: "Mục Tiêu 180+" },
+  { id: "study4-wr-04", name: "STUDY4 Practice Test 04 (Marketing & Dự Án)", desc: "Chiến dịch quảng bá số, di dời văn phòng & Luận gắn kết nhân sự", badge: "ETS Chuẩn" },
+  { id: "study4-wr-05", name: "STUDY4 Practice Test 05 (Đàm Phán & Nhân Sự)", desc: "Thương lượng hợp đồng đối tác, phân bổ nguồn lực & Luận đánh giá KPI", badge: "Thử Thách 200" },
 ];
 
 export const TOEIC_WRITING_PARTS = [
@@ -372,6 +375,506 @@ export const TOEIC_WRITING_QUESTIONS: WritingQuestion[] = [
     tipsVi: [
       "Luôn có ví dụ thực tế minh họa trong các đoạn thân bài (For instance, in launching a new tech product...).",
       "Giữ giọng điệu khách quan, trang trọng (tránh viết tắt như don't, can't - hãy viết do not, cannot)."
+    ]
+  }
+,
+
+  // ==========================================
+  // STUDY4 PRACTICE TEST 03 (8 CÂU)
+  // ==========================================
+  {
+    id: "wr-t3-q1",
+    testId: "study4-wr-03",
+    testName: "STUDY4 Practice Test 03",
+    part: 1,
+    partTitle: "Part 1: Write a sentence based on a picture (Câu 1)",
+    questionNumber: 1,
+    directionsVi: "Viết MỘT CÂU miêu tả các chuyên gia đang nghiên cứu bản vẽ/tài liệu, sử dụng: 'review' và 'document'.",
+    timeLimitMinutes: 2,
+    promptText: "Write ONE sentence that is based on the picture and uses the TWO given words.",
+    imageUrl: "/images/part1/p1_11.jpg",
+    keywords: ["review", "document"],
+    modelAnswer: "The architects are carefully reviewing the project documents spread out on the conference table.",
+    tipsVi: [
+      "Dùng thì Hiện tại tiếp diễn: 'are reviewing the documents'."
+    ]
+  },
+  {
+    id: "wr-t3-q2",
+    testId: "study4-wr-03",
+    testName: "STUDY4 Practice Test 03",
+    part: 1,
+    partTitle: "Part 1: Write a sentence based on a picture (Câu 2)",
+    questionNumber: 2,
+    directionsVi: "Viết MỘT CÂU miêu tả nhân viên giao hàng đang khiêng kiện hàng, sử dụng: 'package' và 'deliver'.",
+    timeLimitMinutes: 2,
+    promptText: "Write ONE sentence that is based on the picture and uses the TWO given words.",
+    imageUrl: "/images/part1/p1_12.jpg",
+    keywords: ["package", "deliver"],
+    modelAnswer: "A courier is delivering a cardboard package to the reception desk.",
+    tipsVi: [
+      "Dùng cụm 'is delivering a package to...'."
+    ]
+  },
+  {
+    id: "wr-t3-q3",
+    testId: "study4-wr-03",
+    testName: "STUDY4 Practice Test 03",
+    part: 1,
+    partTitle: "Part 1: Write a sentence based on a picture (Câu 3)",
+    questionNumber: 3,
+    directionsVi: "Viết MỘT CÂU miêu tả kỹ thuật viên đang lắp ráp linh kiện, sử dụng: 'assemble' và 'component'.",
+    timeLimitMinutes: 2,
+    promptText: "Write ONE sentence that is based on the picture and uses the TWO given words.",
+    imageUrl: "/images/part1/p1_13.jpg",
+    keywords: ["assemble", "component"],
+    modelAnswer: "The assembly line worker is assembling electronic components using precision tools.",
+    tipsVi: [
+      "Dùng 'is assembling electronic components'."
+    ]
+  },
+  {
+    id: "wr-t3-q4",
+    testId: "study4-wr-03",
+    testName: "STUDY4 Practice Test 03",
+    part: 1,
+    partTitle: "Part 1: Write a sentence based on a picture (Câu 4)",
+    questionNumber: 4,
+    directionsVi: "Viết MỘT CÂU miêu tả nhân viên vệ sinh đang lau sàn nhà, sử dụng: 'clean' và 'floor'.",
+    timeLimitMinutes: 2,
+    promptText: "Write ONE sentence that is based on the picture and uses the TWO given words.",
+    imageUrl: "/images/part1/p1_14.jpg",
+    keywords: ["clean", "floor"],
+    modelAnswer: "A janitor is cleaning the hallway floor with a mop near the office entrance.",
+    tipsVi: [
+      "Dùng 'is cleaning the floor with a mop'."
+    ]
+  },
+  {
+    id: "wr-t3-q5",
+    testId: "study4-wr-03",
+    testName: "STUDY4 Practice Test 03",
+    part: 1,
+    partTitle: "Part 1: Write a sentence based on a picture (Câu 5)",
+    questionNumber: 5,
+    directionsVi: "Viết MỘT CÂU miêu tả hai đối tác bắt tay nhau ký kết, sử dụng: 'shake' và 'agreement'.",
+    timeLimitMinutes: 2,
+    promptText: "Write ONE sentence that is based on the picture and uses the TWO given words.",
+    imageUrl: "/images/part1/p1_15.jpg",
+    keywords: ["shake", "agreement"],
+    modelAnswer: "The business executives are shaking hands after reaching a mutual partnership agreement.",
+    tipsVi: [
+      "Dùng 'are shaking hands after reaching an agreement'."
+    ]
+  },
+  {
+    id: "wr-t3-q6",
+    testId: "study4-wr-03",
+    testName: "STUDY4 Practice Test 03",
+    part: 2,
+    partTitle: "Part 2: Respond to an Email (Bồi thường kiện hàng gốm sứ bị vỡ)",
+    questionNumber: 6,
+    directionsVi: "Đọc khiếu nại của khách hàng về kiện hàng gốm sứ bị vỡ trong lúc vận chuyển. Viết thư phản hồi: xin lỗi, giải thích thủ tục bồi thường và đề xuất gửi hàng thay thế hỏa tốc.",
+    timeLimitMinutes: 10,
+    promptText: "Respond to the customer's damage complaint. Express sincere apologies, explain the warranty claim process, and offer to ship an immediate replacement at no cost.",
+    emailContext: {
+      from: "Helena Rostova <h.rostova@interiordesign.com>",
+      to: "Customer Support <support@ceramicslux.com>",
+      date: "September 18, 2026 03:45 PM",
+      subject: "Damaged Items in Order #CL-4412",
+      body: "Dear Customer Support,\n\nUpon opening shipment #CL-4412 delivered today, I was disappointed to find that three out of ten ceramic vases were completely shattered during transit. We need these centerpieces for a private gala dinner this coming Saturday.\n\nPlease advise immediately on how you will resolve this situation.\n\nSincerely,\nHelena Rostova",
+      requirementsVi: [
+        "Xin lỗi chân thành về sự cố hàng hóa hư hại trong quá trình vận chuyển",
+        "Đề xuất gửi ngay 3 bình hoa mới thay thế qua đường chuyển phát hỏa tốc (Express 24h) miễn phí",
+        "Tặng mã giảm giá 25% cho đơn hàng tiếp theo để thể hiện thiện chí"
+      ]
+    },
+    templateVi: `Dear Ms. Rostova,\n\nThank you for bringing this issue to our attention. We sincerely apologize for the damaged ceramic vases in order #CL-4412...\n\nTo resolve this immediately before your Saturday event:\n1. We have already dispatched three replacement vases via 24-hour priority air express at no charge.\n2. We have issued a 25% discount voucher for your next order.\n\nSincerely,\nCustomer Support Team`,
+    modelAnswer: `Dear Ms. Rostova,\n\nThank you for reaching out to Ceramics Lux regarding order #CL-4412. Please accept our deepest apologies for the damaged ceramic vases you discovered upon unpacking your delivery. We completely understand how critical these centerpieces are for your upcoming gala dinner this Saturday.\n\nTo rectify this situation immediately, we have taken the following steps:\n1. Our warehouse has already prepared and dispatched three brand new replacement vases via 24-hour priority express courier at our own expense. They are guaranteed to arrive at your office by tomorrow afternoon, Friday, September 19th.\n2. There is no need to return the broken items; please safely dispose of them.\n3. Additionally, we have credited a 25% courtesy voucher (code: LUXRESOLVE25) to your account for future purchases.\n\nA tracking link will be emailed to you as soon as the courier scans the package. Please do not hesitate to contact us directly if you need any additional assistance.\n\nWarm regards,\nLiam Henderson\nClient Support Specialist\nCeramics Lux`,
+    tipsVi: [
+      "Thể hiện tinh thần trách nhiệm cao: không bắt khách hàng gửi lại đồ vỡ, gửi hỏa tốc ngay trong ngày."
+    ]
+  },
+  {
+    id: "wr-t3-q7",
+    testId: "study4-wr-03",
+    testName: "STUDY4 Practice Test 03",
+    part: 2,
+    partTitle: "Part 2: Respond to an Email (Tư vấn triển khai hệ thống ERP)",
+    questionNumber: 7,
+    directionsVi: "Đọc email từ giám đốc doanh nghiệp vừa và nhỏ hỏi về phần mềm quản trị doanh nghiệp. Phản hồi thư: giới thiệu 2 gói dịch vụ và đặt lịch demo trực tuyến.",
+    timeLimitMinutes: 10,
+    promptText: "Respond to the inquiry regarding ERP software implementation for SMEs. Introduce TWO package options and propose a schedule for a live online demonstration.",
+    emailContext: {
+      from: "Marcus Vance <m.vance@vancemanufacturing.com>",
+      to: "Sales Solutions <solutions@cloudflowerp.com>",
+      date: "July 22, 2026 10:15 AM",
+      subject: "Inquiry: Cloud ERP Solution for 50-person Manufacturing Plant",
+      body: "Hello Sales Team,\n\nOur manufacturing company has expanded to 50 employees, and our existing manual inventory and accounting systems are becoming inadequate. We are looking for an integrated cloud-based ERP solution that is easy to deploy.\n\nCould you send information about your software tiers and let us know if a product demo is possible?\n\nBest regards,\nMarcus Vance\nManaging Director",
+      requirementsVi: [
+        "Cảm ơn và giới thiệu 2 gói giải pháp (Standard Cloud cho 50 user và Advanced Manufacturing)",
+        "Đề xuất lịch demo trực tiếp 45 phút qua video call (thứ Ba hoặc thứ Năm tuần tới)",
+        "Gửi kèm tài liệu case-study tham khảo"
+      ]
+    },
+    templateVi: `Dear Mr. Vance,\n\nThank you for contacting CloudFlow ERP. Congratulations on your company's impressive expansion!\n\nTo address your requirements, we offer two suitable solutions:\n1. Standard Business Tier: Designed for growing teams up to 60 users with automated inventory and billing.\n2. Advanced Manufacturing Tier: Includes real-time shop floor scheduling and supply chain forecasting.\n\nWe would love to demonstrate these features live. Are you available next Tuesday at 10:00 AM or Thursday at 2:00 PM for a 45-minute interactive walkthrough?\n\nBest regards,\nCloudFlow Sales Team`,
+    modelAnswer: `Dear Mr. Vance,\n\nThank you for your interest in CloudFlow ERP, and congratulations on your company's substantial business growth!\n\nTo support your 50-person manufacturing plant, we recommend two tailored ERP options:\n1. Standard Cloud Suite: Ideal for growing enterprises, offering centralized inventory tracking, automated accounting, and vendor management with rapid 2-week implementation.\n2. Advanced Manufacturing Tier: Specially equipped with shop-floor job tracking, machine capacity scheduling, and automated bill-of-materials (BOM) calculation.\n\nTo help you determine the best fit, we would be delighted to host a 45-minute personalized demonstration for you and your key managers. Would next Tuesday, July 27th at 10:00 AM or next Thursday, July 29th at 2:00 PM work for your schedule?\n\nI have also attached our recent case study featuring an industrial client who reduced inventory holding costs by 32% within six months of deployment.\n\nLooking forward to your reply.\n\nSincerely,\nSophia Martinez\nEnterprise Solutions Consultant\nCloudFlow ERP`,
+    tipsVi: [
+      "Trình bày rõ ràng 2 gói giải pháp và đưa ra 2 mốc thời gian cụ thể cho buổi demo."
+    ]
+  },
+  {
+    id: "wr-t3-q8",
+    testId: "study4-wr-03",
+    testName: "STUDY4 Practice Test 03",
+    part: 3,
+    partTitle: "Part 3: Opinion Essay (Đào tạo nhân viên nội bộ vs Tuyển dụng bên ngoài)",
+    questionNumber: 8,
+    directionsVi: "Hãy viết bài luận 300 từ: Doanh nghiệp nên ưu tiên đầu tư ngân sách để đào tạo và nâng cao kỹ năng cho nhân viên hiện tại (Internal Training) hay tuyển dụng chuyên gia giàu kinh nghiệm từ bên ngoài (Hiring External Experts)? Nêu lý do và ví dụ.",
+    timeLimitMinutes: 30,
+    promptText: "When companies face new technological challenges, some prefer to invest heavily in training their existing workforce, while others choose to hire experienced external talent. Which strategy do you think is more beneficial for long-term organizational success? Give reasons and examples to justify your opinion.",
+    essayPrompt: {
+      topic: "Internal Employee Training vs. External Hiring",
+      background: "Rapid technological disruption forces organizations to constantly rethink workforce competency strategies.",
+      recommendedWords: 300
+    },
+    templateVi: `DÀN BÀI 4 ĐOẠN LUẬN 300 TỪ:\n1. Introduction: Giới thiệu cuộc tranh luận giữa upskilling nội bộ và hiring bên ngoài. Khẳng định: Đầu tư đào tạo nội bộ mang lại lợi ích dài hạn bền vững hơn.\n2. Body 1: Tăng lòng trung thành (retention), giảm chi phí tuyển dụng đắt đỏ và nhân viên đã hiểu rõ văn hóa công ty.\n3. Body 2: Tạo động lực phát triển cho toàn bộ nhân sự, duy trì sự gắn kết và tinh thần làm việc.\n4. Conclusion: Khẳng định đào tạo nội bộ là nền tảng cốt lõi, kết hợp tuyển dụng bên ngoài khi thật sự cấp bách.`,
+    modelAnswer: `In today's fast-evolving business landscape, organizations constantly face technological disruptions and shifting market demands. When seeking to bridge skill gaps, corporate leaders frequently debate whether to upskill existing personnel or recruit seasoned external specialists. While hiring outside experts can offer immediate proficiency, I firmly believe that investing in internal employee training yields far greater advantages for sustainable long-term organizational growth.\n\nFirst and foremost, comprehensive internal training fosters high employee loyalty and substantially decreases costly staff turnover. When an enterprise actively invests in professional development programs, employees feel genuinely valued and recognized by leadership. This sense of psychological safety and career progression encourages top performers to remain with the company rather than seeking opportunities elsewhere. Furthermore, existing staff already possess invaluable institutional knowledge—they thoroughly understand company culture, internal operational procedures, and client relationships. Consequently, when existing staff acquire new technical competencies, they can implement them with zero onboarding friction, avoiding the extensive culture shock and high recruitment commissions often associated with outside executive hires.\n\nMoreover, prioritizing continuous learning cultivates an inspiring corporate climate of innovation and motivation. When junior and mid-level employees witness their colleagues being promoted after completing rigorous training bootcamps, it creates a powerful meritocratic atmosphere where diligence is visibly rewarded. For instance, global tech leaders like Google and Toyota allocate substantial portions of their budgets to ongoing employee upskilling. These organizations have demonstrated that internally developed leaders exhibit higher dedication during corporate crises compared to imported external executives who might depart when challenges arise.\n\nIn conclusion, although recruiting outside talent is occasionally necessary for emerging specialized niches, dedicating resources to training existing employees remains the superior long-term corporate strategy. Upskilling enhances organizational loyalty, leverages institutional familiarity, and builds an adaptable workforce prepared for future disruptions.`,
+    tipsVi: [
+      "Sử dụng từ vựng nâng cao: 'upskill', 'bridge skill gaps', 'institutional knowledge', 'costly staff turnover', 'meritocratic atmosphere'.",
+      "Đảm bảo dung lượng bài viết từ 310 đến 350 từ."
+    ]
+  },
+
+  // ==========================================
+  // STUDY4 PRACTICE TEST 04 (8 CÂU)
+  // ==========================================
+  {
+    id: "wr-t4-q1",
+    testId: "study4-wr-04",
+    testName: "STUDY4 Practice Test 04",
+    part: 1,
+    partTitle: "Part 1: Write a sentence based on a picture (Câu 1)",
+    questionNumber: 1,
+    directionsVi: "Viết MỘT CÂU miêu tả hàng hóa trưng bày trên kệ, sử dụng 2 từ khóa: 'display' và 'shelf'.",
+    timeLimitMinutes: 2,
+    promptText: "Write ONE sentence that is based on the picture and uses the TWO given words.",
+    imageUrl: "/images/part1/p1_16.jpg",
+    keywords: ["display", "shelf"],
+    modelAnswer: "A wide variety of organic products is attractively displayed on the supermarket shelves.",
+    tipsVi: [
+      "Dùng bị động 'is displayed on the shelves'."
+    ]
+  },
+  {
+    id: "wr-t4-q2",
+    testId: "study4-wr-04",
+    testName: "STUDY4 Practice Test 04",
+    part: 1,
+    partTitle: "Part 1: Write a sentence based on a picture (Câu 2)",
+    questionNumber: 2,
+    directionsVi: "Viết MỘT CÂU miêu tả người lái xe nâng trong nhà kho, sử dụng: 'operate' và 'forklift'.",
+    timeLimitMinutes: 2,
+    promptText: "Write ONE sentence that is based on the picture and uses the TWO given words.",
+    imageUrl: "/images/part1/p1_17.jpg",
+    keywords: ["operate", "forklift"],
+    modelAnswer: "A certified warehouse operator is operating a yellow forklift to move wooden pallets.",
+    tipsVi: [
+      "Dùng 'is operating a forklift'."
+    ]
+  },
+  {
+    id: "wr-t4-q3",
+    testId: "study4-wr-04",
+    testName: "STUDY4 Practice Test 04",
+    part: 1,
+    partTitle: "Part 1: Write a sentence based on a picture (Câu 3)",
+    questionNumber: 3,
+    directionsVi: "Viết MỘT CÂU miêu tả khán giả tập trung trong khán phòng, sử dụng: 'gather' và 'auditorium'.",
+    timeLimitMinutes: 2,
+    promptText: "Write ONE sentence that is based on the picture and uses the TWO given words.",
+    imageUrl: "/images/part1/p1_18.jpg",
+    keywords: ["gather", "auditorium"],
+    modelAnswer: "A large audience has gathered inside the spacious auditorium for the annual keynote address.",
+    tipsVi: [
+      "Dùng 'has gathered inside the auditorium'."
+    ]
+  },
+  {
+    id: "wr-t4-q4",
+    testId: "study4-wr-04",
+    testName: "STUDY4 Practice Test 04",
+    part: 1,
+    partTitle: "Part 1: Write a sentence based on a picture (Câu 4)",
+    questionNumber: 4,
+    directionsVi: "Viết MỘT CÂU miêu tả người ký kết hợp đồng, sử dụng: 'sign' và 'contract'.",
+    timeLimitMinutes: 2,
+    promptText: "Write ONE sentence that is based on the picture and uses the TWO given words.",
+    imageUrl: "/images/part1/p1_19.jpg",
+    keywords: ["sign", "contract"],
+    modelAnswer: "The client is using a black fountain pen to sign the commercial lease contract.",
+    tipsVi: [
+      "Dùng 'to sign the contract'."
+    ]
+  },
+  {
+    id: "wr-t4-q5",
+    testId: "study4-wr-04",
+    testName: "STUDY4 Practice Test 04",
+    part: 1,
+    partTitle: "Part 1: Write a sentence based on a picture (Câu 5)",
+    questionNumber: 5,
+    directionsVi: "Viết MỘT CÂU miêu tả hành khách lên máy bay, sử dụng: 'board' và 'airplane'.",
+    timeLimitMinutes: 2,
+    promptText: "Write ONE sentence that is based on the picture and uses the TWO given words.",
+    imageUrl: "/images/part1/p1_20.jpg",
+    keywords: ["board", "airplane"],
+    modelAnswer: "Passengers holding their boarding passes are boarding the commercial airplane via the jet bridge.",
+    tipsVi: [
+      "Dùng 'are boarding the airplane'."
+    ]
+  },
+  {
+    id: "wr-t4-q6",
+    testId: "study4-wr-04",
+    testName: "STUDY4 Practice Test 04",
+    part: 2,
+    partTitle: "Part 2: Respond to an Email (Kế hoạch chiến dịch Digital Marketing)",
+    questionNumber: 6,
+    directionsVi: "Viết email cho Giám đốc Marketing đề xuất kế hoạch tung sản phẩm mới: Đề xuất 2 kênh truyền thông hiệu quả và nêu dự toán ngân sách sơ bộ.",
+    timeLimitMinutes: 10,
+    promptText: "Respond to the CMO's inquiry by proposing TWO digital marketing channels for the new smart-home device launch and providing a preliminary budget estimate.",
+    emailContext: {
+      from: "Eleanor Sterling <e.sterling@lumitech.com>",
+      to: "Marketing Strategy Team <strategy@lumitech.com>",
+      date: "August 12, 2026 11:20 AM",
+      subject: "Request: Launch Campaign Proposal for LumiHub Gen 3",
+      body: "Hi Team,\n\nWith the upcoming launch of our LumiHub Gen 3 smart assistant next quarter, we need to finalize our primary advertising channels to reach tech-savvy millennials and young homeowners.\n\nPlease submit your recommendations regarding marketing channels and an estimated budget breakdown by tomorrow.\n\nRegards,\nEleanor Sterling\nChief Marketing Officer",
+      requirementsVi: [
+        "Đề xuất 2 kênh tiếp thị số cụ thể (KOL/Influencer tech review trên YouTube/TikTok + Quảng cáo tìm kiếm Google Ads)",
+        "Nêu dự toán ngân sách phân bổ sơ bộ (ví dụ: $30,000 cho Influencer và $20,000 cho Search Ads)",
+        "Đề xuất tổ chức buổi họp thảo luận chi tiết vào sáng thứ Năm"
+      ]
+    },
+    templateVi: `Dear Ms. Sterling,\n\nThank you for the prompt regarding the LumiHub Gen 3 launch.\n\nTo target millennials and smart homeowners effectively, we propose focusing on two major channels:\n1. Tech Influencer Partnerships (YouTube & TikTok): Sponsoring reputable tech reviewers.\n2. Targeted Search & Social Ads (Google & Meta): Capturing active purchase-intent searches.\n\nRegarding the budget, we suggest an initial allocation of $50,000...\n\nBest regards,\nMarketing Strategy Team`,
+    modelAnswer: `Dear Ms. Sterling,\n\nThank you for your guidance regarding the upcoming LumiHub Gen 3 launch. Based on our latest demographic data on smart-home buyers, we strongly recommend deploying the following two primary digital marketing channels:\n\n1. Tech Influencer Sponsorships (YouTube & TikTok): Collaborating with prominent tech creators for hands-on unboxing and integration tutorials. This builds instant consumer trust and authentic product demonstration.\n2. Intent-Based Search & Retargeting Ads (Google & Instagram): Running high-converting search keywords coupled with video remarketing ads to convert visitors who engaged with the influencer content.\n\nFor the preliminary budget, we recommend an initial capital allocation of $50,000, divided into $30,000 for influencer contracts and $20,000 for paid performance advertising over the launch month.\n\nWould you be open to a 30-minute sync this Thursday at 10:30 AM to review our creative mockups?\n\nBest regards,\nNathan Drake\nSenior Marketing Strategist\nLumiTech`,
+    tipsVi: [
+      "Phân bổ rõ ràng 2 kênh truyền thông và số liệu ngân sách thuyết phục."
+    ]
+  },
+  {
+    id: "wr-t4-q7",
+    testId: "study4-wr-04",
+    testName: "STUDY4 Practice Test 04",
+    part: 2,
+    partTitle: "Part 2: Respond to an Email (Yêu cầu di dời văn phòng sang tầng mới)",
+    questionNumber: 7,
+    directionsVi: "Đọc email từ Trưởng ban Quản trị tòa nhà hỏi về tiến độ bàn giao mặt bằng văn phòng tầng 8. Viết email phản hồi xác nhận ngày chuyển, đề xuất 2 yêu cầu kỹ thuật cần hỗ trợ.",
+    timeLimitMinutes: 10,
+    promptText: "Respond to the building facilities manager confirming the office relocation schedule and requesting TWO specific technical setup accommodations.",
+    emailContext: {
+      from: "Gregory Hayes <g.hayes@metrotowerfacilities.com>",
+      to: "Design Department <design@studiozenith.com>",
+      date: "November 08, 2026 04:00 PM",
+      subject: "Relocation Coordination - Floor 8 Renovation Completion",
+      body: "Dear Studio Zenith Design Team,\n\nThe interior renovations on Floor 8 are now finalized, and the space is ready for handover. We need to confirm when your department intends to execute the physical move from Floor 4 to Floor 8.\n\nPlease let us know your planned moving date and any specific facility requirements you need from our maintenance crew.\n\nBest regards,\nGregory Hayes\nFacilities Manager",
+      requirementsVi: [
+        "Xác nhận ngày chuyển văn phòng chính thức (thứ Bảy tuần sau để tránh gián đoạn công việc)",
+        "Đưa ra 2 yêu cầu kỹ thuật: mở khóa thang máy chở hàng từ 8:00 AM đến 2:00 PM và kiểm tra hệ thống dây cáp mạng LAN tốc độ cao",
+        "Cảm ơn đội ngũ quản trị tòa nhà đã hoàn thiện mặt bằng đúng hạn"
+      ]
+    },
+    templateVi: `Dear Mr. Hayes,\n\nThank you for notifying us regarding the completion of Floor 8 renovations.\n\nWe plan to carry out our departmental move this coming Saturday, November 14th...\n\nTo ensure a smooth transition, we kindly request two accommodations:\n1. Dedicated access to the freight elevator from 8:00 AM to 2:00 PM.\n2. A pre-move inspection of the high-speed Ethernet ports in the main design bay.\n\nSincerely,\nStudio Zenith Team`,
+    modelAnswer: `Dear Mr. Hayes,\n\nThank you very much for notifying us that the Floor 8 renovations have been successfully completed. Our team is excited about transitioning into this new creative space.\n\nTo avoid disrupting our day-to-day client deliverables, we have scheduled our departmental move for this coming Saturday, November 14th, beginning at 8:30 AM.\n\nTo ensure an efficient moving process, we would greatly appreciate your assistance with two specific requirements:\n1. Freight Elevator Reservation: Granting our designated moving contractors exclusive access to freight elevator B between 8:00 AM and 2:00 PM on Saturday.\n2. Network Cabling Verification: Having an on-duty technician verify the high-speed optical fiber ports and wall LAN sockets in the central workstation area prior to Saturday morning.\n\nThank you again for your outstanding cooperation throughout this facility expansion.\n\nSincerely,\nChloe Bennett\nOperations Director\nStudio Zenith`,
+    tipsVi: [
+      "Ngôn từ lịch thiệp và chuyên nghiệp: 'greatly appreciate your assistance with two specific requirements'."
+    ]
+  },
+  {
+    id: "wr-t4-q8",
+    testId: "study4-wr-04",
+    testName: "STUDY4 Practice Test 04",
+    part: 3,
+    partTitle: "Part 3: Opinion Essay (Hoạt động ngoại khóa công ty cuối tuần)",
+    questionNumber: 8,
+    directionsVi: "Hãy viết bài luận 300 từ: Nhiều công ty tổ chức các hoạt động ngoại khóa / teambuilding vào cuối tuần. Bạn nghĩ các hoạt động này nên là tự nguyện (Voluntary) hay bắt buộc (Mandatory) đối với nhân viên? Nêu lý do và ví dụ minh họa.",
+    timeLimitMinutes: 30,
+    promptText: "Many organizations organize company retreats, social dinners, and team-building events on weekends. Do you believe employee participation in weekend corporate activities should be completely voluntary, or should it be mandatory? Support your perspective with specific reasons and examples.",
+    essayPrompt: {
+      topic: "Voluntary vs. Mandatory Weekend Company Activities",
+      background: "The boundary between personal time and corporate engagement is a growing consideration for modern professionals.",
+      recommendedWords: 300
+    },
+    templateVi: `DÀN BÀI 4 ĐOẠN LUẬN 300 TỪ:\n1. Introduction: Giới thiệu xu hướng teambuilding cuối tuần. Nêu quan điểm rõ ràng: Tham gia bắt buộc gây phản tác dụng, do đó các hoạt động này TUYỆT ĐỐI NÊN LÀ TỰ NGUYỆN (Strictly Voluntary).\n2. Body 1: Tôn trọng quyền riêng tư và cân bằng cuộc sống (work-life balance), phục hồi năng lượng thể chất và tinh thần.\n3. Body 2: Sự ép buộc tạo ra tâm lý ức chế, làm giảm tinh thần đoàn kết thực chất; chỉ khi tự nguyện thì nhân viên mới hào hứng.\n4. Conclusion: Tóm lược và đề xuất công ty nên tổ chức teambuilding trong giờ làm việc thay vì xâm phạm ngày nghỉ.`,
+    modelAnswer: `In an effort to cultivate corporate camaraderie and boost morale, many modern enterprises arrange team-building retreats, sports festivals, and dinners during weekends. However, whether attendance should be mandatory or voluntary has sparked heated discussions. In my opinion, weekend corporate activities must be strictly voluntary, as enforcing compulsory participation infringes on personal boundaries and inadvertently diminishes employee satisfaction.\n\nFirst and foremost, weekends represent essential recovery time for employees to rejuvenate mentally and physically, as well as fulfill family commitments. Throughout a grueling forty-hour workweek, staff members expend substantial cognitive energy meeting tight deadlines and managing client demands. The weekend serves as an indispensable window to rest, engage in personal hobbies, and spend quality time with children or elderly parents. When companies mandate weekend attendance, they effectively eliminate this recovery period, leading to chronic fatigue and eventual workplace burnout. Studies consistently demonstrate that well-rested employees exhibit superior cognitive alertness and higher productivity during standard working hours compared to exhausted workers deprived of leisure.\n\nFurthermore, compelling employees to participate in mandatory weekend socializing often breeds resentment and defeats the very purpose of team building. Authentic interpersonal bonds cannot be manufactured through coercion. When reluctant employees are forced to attend under unspoken threats of professional disadvantage or poor performance reviews, the resulting atmosphere is characterized by tension and artificial compliance rather than genuine friendship. Conversely, when events are optional, individuals attend with enthusiastic and open mindsets, fostering authentic networking. If organizations genuinely desire universal participation, they should schedule team-bonding exercises during regular working hours rather than encroaching upon personal weekends.\n\nIn conclusion, while fostering team unity is undeniably beneficial, forcing employees to sacrifice their private weekend time is counterproductive. By maintaining voluntary attendance, organizations demonstrate respect for work-life balance and build a healthier, more loyal corporate workforce.`,
+    tipsVi: [
+      "Luận điểm rõ ràng, sử dụng các thuật ngữ như 'essential recovery time', 'chronic fatigue', 'artificial compliance', 'infringes on personal boundaries'."
+    ]
+  },
+
+  // ==========================================
+  // STUDY4 PRACTICE TEST 05 (8 CÂU)
+  // ==========================================
+  {
+    id: "wr-t5-q1",
+    testId: "study4-wr-05",
+    testName: "STUDY4 Practice Test 05",
+    part: 1,
+    partTitle: "Part 1: Write a sentence based on a picture (Câu 1)",
+    questionNumber: 1,
+    directionsVi: "Viết MỘT CÂU miêu tả các kỹ sư thảo luận bản thiết kế, sử dụng: 'discuss' và 'blueprints'.",
+    timeLimitMinutes: 2,
+    promptText: "Write ONE sentence that is based on the picture and uses the TWO given words.",
+    imageUrl: "/images/part1/p1_21.jpg",
+    keywords: ["discuss", "blueprints"],
+    modelAnswer: "The civil engineers wearing hard hats are discussing the architectural blueprints at the job site.",
+    tipsVi: [
+      "Dùng 'are discussing the architectural blueprints'."
+    ]
+  },
+  {
+    id: "wr-t5-q2",
+    testId: "study4-wr-05",
+    testName: "STUDY4 Practice Test 05",
+    part: 1,
+    partTitle: "Part 1: Write a sentence based on a picture (Câu 2)",
+    questionNumber: 2,
+    directionsVi: "Viết MỘT CÂU miêu tả người phục vụ mang đồ uống cho khách, sử dụng: 'serve' và 'beverage'.",
+    timeLimitMinutes: 2,
+    promptText: "Write ONE sentence that is based on the picture and uses the TWO given words.",
+    imageUrl: "/images/part1/p1_22.jpg",
+    keywords: ["serve", "beverage"],
+    modelAnswer: "The friendly waitress is serving refreshing beverages to the patrons seated on the outdoor patio.",
+    tipsVi: [
+      "Dùng 'is serving beverages to...'."
+    ]
+  },
+  {
+    id: "wr-t5-q3",
+    testId: "study4-wr-05",
+    testName: "STUDY4 Practice Test 05",
+    part: 1,
+    partTitle: "Part 1: Write a sentence based on a picture (Câu 3)",
+    questionNumber: 3,
+    directionsVi: "Viết MỘT CÂU miêu tả kỹ thuật viên điều chỉnh thiết bị phòng thí nghiệm, sử dụng: 'adjust' và 'equipment'.",
+    timeLimitMinutes: 2,
+    promptText: "Write ONE sentence that is based on the picture and uses the TWO given words.",
+    imageUrl: "/images/part1/p1_23.jpg",
+    keywords: ["adjust", "equipment"],
+    modelAnswer: "A laboratory researcher is adjusting the scientific equipment before initiating the chemical trial.",
+    tipsVi: [
+      "Dùng 'is adjusting the scientific equipment'."
+    ]
+  },
+  {
+    id: "wr-t5-q4",
+    testId: "study4-wr-05",
+    testName: "STUDY4 Practice Test 05",
+    part: 1,
+    partTitle: "Part 1: Write a sentence based on a picture (Câu 4)",
+    questionNumber: 4,
+    directionsVi: "Viết MỘT CÂU miêu tả diễn giả đứng tại bục phát biểu, sử dụng: 'stand' và 'podium'.",
+    timeLimitMinutes: 2,
+    promptText: "Write ONE sentence that is based on the picture and uses the TWO given words.",
+    imageUrl: "/images/part1/p1_24.jpg",
+    keywords: ["stand", "podium"],
+    modelAnswer: "The guest speaker is standing at the podium while addressing the international conference attendees.",
+    tipsVi: [
+      "Dùng 'is standing at the podium while addressing...'."
+    ]
+  },
+  {
+    id: "wr-t5-q5",
+    testId: "study4-wr-05",
+    testName: "STUDY4 Practice Test 05",
+    part: 1,
+    partTitle: "Part 1: Write a sentence based on a picture (Câu 5)",
+    questionNumber: 5,
+    directionsVi: "Viết MỘT CÂU miêu tả người đang xách cặp tài liệu trên phố, sử dụng: 'carry' và 'briefcase'.",
+    timeLimitMinutes: 2,
+    promptText: "Write ONE sentence that is based on the picture and uses the TWO given words.",
+    imageUrl: "/images/part1/p1_01.jpg",
+    keywords: ["carry", "briefcase"],
+    modelAnswer: "A businessman in a navy suit is carrying a leather briefcase as he walks down the metropolitan avenue.",
+    tipsVi: [
+      "Dùng 'is carrying a leather briefcase'."
+    ]
+  },
+  {
+    id: "wr-t5-q6",
+    testId: "study4-wr-05",
+    testName: "STUDY4 Practice Test 05",
+    part: 2,
+    partTitle: "Part 2: Respond to an Email (Đàm phán gia hạn hợp đồng cung cấp vật tư)",
+    questionNumber: 6,
+    directionsVi: "Viết email phản hồi nhà cung cấp nguyên vật liệu: Thương lượng về việc tăng giá 8%, đề xuất cam kết hợp đồng 2 năm để giữ nguyên đơn giá cũ.",
+    timeLimitMinutes: 10,
+    promptText: "Respond to the raw materials supplier regarding their notice of an 8% price increase. Propose a 2-year contract commitment in exchange for retaining the current price schedule.",
+    emailContext: {
+      from: "Victor Krum <v.krum@globalmetalsupply.com>",
+      to: "Procurement Division <procurement@apexmanufacturing.com>",
+      date: "October 05, 2026 09:00 AM",
+      subject: "Annual Contract Renewal & Price Adjustment Notice",
+      body: "Dear Apex Procurement Team,\n\nAs our current annual supply agreement expires on November 30th, we are writing to propose renewal terms. Due to rising raw material extraction costs and international shipping freight rates, we must implement an 8% price adjustment across all aluminum alloys starting next contract period.\n\nPlease let us know if you accept these renewal terms.\n\nBest regards,\nVictor Krum\nCommercial Accounts Director",
+      requirementsVi: [
+        "Thừa nhận áp lực lạm phát và chi phí vận tải quốc tế",
+        "Đề xuất ký hợp đồng dài hạn 2 năm với cam kết giữ nguyên đơn giá hiện tại",
+        "Đề nghị tổ chức buổi đàm phán trực tiếp vào đầu tuần tới"
+      ]
+    },
+    templateVi: `Dear Mr. Krum,\n\nThank you for reaching out regarding our annual supply agreement renewal.\n\nWe fully understand the macroeconomic pressures and rising logistics costs impacting the global metal industry. However, an immediate 8% price increase would significantly impact our production budget...\n\nTo establish a win-win partnership, we would like to propose a 2-year long-term volume commitment in exchange for maintaining our existing price structure.\n\nSincerely,\nProcurement Manager`,
+    modelAnswer: `Dear Mr. Krum,\n\nThank you for reaching out regarding the renewal of our supply agreement for aluminum alloys. We truly appreciate the outstanding delivery reliability and material quality Global Metal Supply has provided over the past three years.\n\nWe fully recognize the macroeconomic inflationary pressures and soaring international shipping rates your industry is currently facing. Nevertheless, absorbing an immediate 8% price hike would severely impact our operating margins and render our finished automotive components less competitive.\n\nIn order to achieve a mutually advantageous resolution, we would like to offer the following counter-proposal:\n1. Apex Manufacturing is prepared to commit to a 24-month extended supply contract with a guaranteed 15% increase in total purchase volume.\n2. In return, we request that Global Metal Supply maintain our current unit price structure for the first 12 months, with an agreed price cap of no more than 3% in year two.\n\nWe believe this extended volume security will provide your manufacturing operations with stable demand and reliable forecasting. Could we arrange a meeting next Monday at 2:00 PM to finalize the details?\n\nSincerely,\nJonathan Wu\nChief Procurement Officer\nApex Manufacturing`,
+    tipsVi: [
+      "Thương lượng thông minh: Đổi thời hạn hợp đồng dài hơn (24 months) và sản lượng lớn hơn (+15%) để giữ nguyên đơn giá."
+    ]
+  },
+  {
+    id: "wr-t5-q7",
+    testId: "study4-wr-05",
+    testName: "STUDY4 Practice Test 05",
+    part: 2,
+    partTitle: "Part 2: Respond to an Email (Khảo sát nhu cầu đào tạo phần mềm quản trị)",
+    questionNumber: 7,
+    directionsVi: "Đọc email từ Trưởng phòng Đào tạo nội bộ. Phản hồi email nêu 2 kỹ năng phần mềm mà phòng ban của bạn muốn được đào tạo và đề xuất thời gian học thích hợp.",
+    timeLimitMinutes: 10,
+    promptText: "Respond to the Corporate Training Director indicating TWO specific business intelligence software skills your department needs and suggesting a suitable weekly training time.",
+    emailContext: {
+      from: "Rachel Adams <r.adams@corporatehub.com>",
+      to: "Department Heads <heads@corporatehub.com>",
+      date: "September 02, 2026 11:45 AM",
+      subject: "Survey: Q4 Internal Software & Tech Upskilling Program",
+      body: "Dear Department Managers,\n\nAs part of our continuous professional development initiatives, HR is organizing quarterly technical upskilling courses. We want to align the curriculum with your team's immediate operational needs.\n\nPlease reply with the specific data analysis software or workflow tools your team requires training on, and recommend a day/time that minimizes work disruption.\n\nBest regards,\nRachel Adams\nDirector of Talent Development",
+      requirementsVi: [
+        "Nêu rõ 2 kỹ năng phần mềm phân tích dữ liệu cần thiết (Power BI Dashboard và Advanced SQL Querying)",
+        "Đề xuất khung giờ học lý tưởng (thứ Sáu từ 2:00 PM - 4:00 PM khi khối lượng việc giảm bớt)",
+        "Ước tính số lượng nhân viên tham gia khóa học (khoảng 8 người)"
+      ]
+    },
+    templateVi: `Dear Ms. Adams,\n\nThank you for organizing the Q4 technical upskilling program.\n\nFor the Finance and Operations team, we would like to request training on two critical tools:\n1. Microsoft Power BI: Designing automated real-time financial reporting dashboards.\n2. Advanced SQL: Querying relational databases directly for ad-hoc reports.\n\nWe recommend hosting the sessions on Friday afternoons from 2:00 PM to 4:00 PM...\n\nBest regards,\nOperations Head`,
+    modelAnswer: `Dear Ms. Adams,\n\nThank you for reaching out regarding the upcoming Q4 technical upskilling initiatives. This program comes at a perfect time as our department seeks to enhance its data analytics capabilities.\n\nTo optimize our team's operational efficiency, we would like to request dedicated training on the following two competencies:\n1. Advanced Microsoft Power BI: Training on building dynamic data models and automated executive dashboards to replace manual spreadsheets.\n2. SQL Database Querying: Enabling our financial analysts to extract and query transaction data directly from our central servers without relying on IT assistance.\n\nWe estimate that 8 members from our team will actively participate. To minimize disruption to daily operations, we recommend scheduling two-hour training workshops on Friday afternoons, from 2:00 PM to 4:00 PM, when operational workloads are typically lighter.\n\nPlease let me know once the instructor schedules are confirmed.\n\nWarm regards,\nSamantha Reed\nHead of Business Operations`,
+    tipsVi: [
+      "Trả lời đầy đủ 3 yêu cầu: 2 công cụ (Power BI & SQL), khung giờ (Friday afternoon), số người tham gia (8 members)."
+    ]
+  },
+  {
+    id: "wr-t5-q8",
+    testId: "study4-wr-05",
+    testName: "STUDY4 Practice Test 05",
+    part: 3,
+    partTitle: "Part 3: Opinion Essay (Đánh giá hiệu suất: Kết quả vs Thái độ & Nỗ lực)",
+    questionNumber: 8,
+    directionsVi: "Hãy viết bài luận 300 từ: Khi đánh giá hiệu suất nhân viên (Employee Performance Evaluation), doanh nghiệp nên chỉ căn cứ vào kết quả công việc cuối cùng (Results) hay nên tính đến cả thái độ làm việc và sự nỗ lực (Attitude and Effort)? Nêu quan điểm và ví dụ.",
+    timeLimitMinutes: 30,
+    promptText: "When evaluating an employee's annual performance, some business leaders argue that only tangible business results should matter, while others believe that an employee's daily attitude, work ethic, and effort are equally critical. Which approach do you consider more effective for sustainable organizational success? Give reasons and examples.",
+    essayPrompt: {
+      topic: "Performance Evaluation: Results vs. Attitude & Effort",
+      background: "Modern human resources management actively reevaluates holistic performance metrics versus pure numerical KPIs.",
+      recommendedWords: 300
+    },
+    templateVi: `DÀN BÀI 4 ĐOẠN LUẬN 300 TỪ:\n1. Introduction: Nêu vấn đề đánh giá hiệu suất giữa pure results (KPI) và holistic approach (kết quả + nỗ lực/thái độ). Khẳng định: Đánh giá toàn diện cả kết quả lẫn thái độ là chiến lược vượt trội.\n2. Body 1: Nguy cơ nếu chỉ nhìn vào kết quả thuần túy: tạo ra văn hóa độc hại 'bất chấp thủ đoạn', làm hỏng tinh thần đồng đội.\n3. Body 2: Đánh giá thái độ và nỗ lực giúp nhận diện những nhân viên bền bỉ, hỗ trợ đồng đội, sẵn sàng gánh vác việc khó và có tiềm năng lãnh đạo dài hạn.\n4. Conclusion: Tái khẳng định một hệ thống đánh giá cân bằng (Balanced Assessment) sẽ giúp doanh nghiệp phát triển bền vững.`,
+    modelAnswer: `In modern human resources management, establishing an equitable and effective employee evaluation system is essential for organizational health. While proponents of strict meritocracy argue that only tangible, quantifiable results should govern performance reviews, others contend that work ethic, attitude, and personal effort must carry equal weight. In my view, a holistic evaluation framework that balances measurable outcomes with attitude and diligence is far more effective in fostering sustainable long-term corporate success.\n\nTo begin with, relying exclusively on numerical KPIs can incentivize harmful behaviors and degrade corporate culture. When an organization signals that only bottom-line results matter, ambitious employees may prioritize immediate individual metrics at the expense of teamwork, ethics, and regulatory compliance. For instance, in high-pressure sales environments, salespeople might employ aggressive or deceptive tactics to hit quarterly quotas, damaging client relationships and corporate reputation. Furthermore, an overemphasis on pure results overlooks external market volatility, such as supply chain breakdowns or economic downturns, which can negatively impact outcomes despite an employee's exemplary effort and dedication.\n\nConversely, integrating work ethic and positive attitude into appraisals nurtures a collaborative and resilient organizational climate. High-performing companies depend heavily on intangible contributions, such as mentoring junior staff, resolving cross-departmental conflicts, and maintaining optimism during corporate crises. An employee who consistently demonstrates integrity, teamwork, and continuous learning often serves as the cultural glue holding an organization together. Rewarding these qualities ensures that diligent contributors feel appreciated, preventing demoralization and talent loss while cultivating future ethical leaders.\n\nIn conclusion, while tangible business results remain vital for financial viability, an effective appraisal system must never ignore character, effort, and team collaboration. By adopting a balanced evaluation methodology that honors both quantitative achievements and qualitative dedication, enterprises can inspire sustainable excellence and foster an enduring culture of integrity.`,
+    tipsVi: [
+      "Luận cứ sâu sắc, sử dụng các thuật ngữ chuyên ngành: 'strict meritocracy', 'quantifiable results', 'bottom-line results', 'holistic evaluation framework', 'intangible contributions'."
     ]
   }
 ];

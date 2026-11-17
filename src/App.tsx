@@ -48,6 +48,7 @@ export function App() {
   const [isAccountModalOpen, setIsAccountModalOpen] = useState(false);
   const [isStreakModalOpen, setIsStreakModalOpen] = useState(false);
   const [isHeartsModalOpen, setIsHeartsModalOpen] = useState(false);
+  const [selectedSwTestId, setSelectedSwTestId] = useState<string | undefined>(undefined);
 
 
   // Chỉ tự động vào MENU nếu người dùng vừa hoàn tất đăng nhập bằng Google Redirect
@@ -245,10 +246,11 @@ export function App() {
             user={user}
             syncStatus={syncStatus}
             onOpenAccount={() => setIsAccountModalOpen(true)}
-            onSelectMode={(mode, chapter) => {
+            onSelectMode={(mode, chapter, testId) => {
               if (chapter) {
                 setVocabChapter(chapter);
               }
+              setSelectedSwTestId(testId);
               if (mode === 'EXAM') {
                 setScreen('SELECT_TEST');
               } else if (mode === 'RANKED') {
@@ -312,6 +314,7 @@ export function App() {
           <ToeicSpeakingScreen
             onBack={() => setScreen('MENU')}
             nickname={nickname}
+            initialTestId={selectedSwTestId}
           />
         )}
 
@@ -319,6 +322,7 @@ export function App() {
           <ToeicWritingScreen
             onBack={() => setScreen('MENU')}
             nickname={nickname}
+            initialTestId={selectedSwTestId}
           />
         )}
       </main>

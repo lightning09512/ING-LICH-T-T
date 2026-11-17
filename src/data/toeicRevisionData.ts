@@ -2,6 +2,9 @@ export interface RevisionUnit {
   id: string;
   skill: 'SPEAKING' | 'WRITING';
   unitNumber: number;
+  partNumber: 1 | 2 | 3 | 4 | 5;
+  partNameVi: string;
+  questionCoverageVi: string;
   title: string;
   subtitle: string;
   badge: string;
@@ -32,15 +35,17 @@ export interface RevisionUnit {
 export const TOEIC_REVISION_ROADMAP: RevisionUnit[] = [
   // ==========================================
   // TOEIC SPEAKING REVISION (LEVEL 0 - 100+)
-  // Lộ trình ôn tập trọng điểm chuẩn ETS
   // ==========================================
   {
     id: "sp-unit-01",
     skill: "SPEAKING",
     unitNumber: 1,
-    title: "Unit 1: Tiêu Chí Chấm Điểm Part 1 (Read a Text Aloud)",
+    partNumber: 1,
+    partNameVi: "Part 1: Read a Text Aloud",
+    questionCoverageVi: "Câu 1 & 2",
+    title: "Unit 1: Tiêu Chí Chấm Điểm & Ngắt Nghỉ Part 1",
     subtitle: "Nắm vững bảng điểm ETS, 3 tiêu chí cốt lõi: Phát âm, Trọng âm, Ngữ điệu",
-    badge: "Tiêu Chí Chấm",
+    badge: "Part 1 • Tiêu Chí",
     overviewVi: "Phần thi Part 1 yêu cầu đọc to 2 đoạn văn ngắn trong 45 giây chuẩn bị và 45 giây nói. Giám khảo chấm điểm dựa trên 3 tiêu chí chính: Pronunciation, Intonation, và Stress.",
     contentSections: [
       {
@@ -53,8 +58,8 @@ export const TOEIC_REVISION_ROADMAP: RevisionUnit[] = [
       {
         heading: "2. Quy Tắc Ngắt Hơi (Pausing / Chunking)",
         bodyMarkdown: `Không đọc một mạch từ đầu đến cuối câu mà phải chia câu thành các cụm nghĩa (thought groups):
-- Ngắt ngắn (0.3s) tại: Dấu phẩy (,), trước giới từ (in, at, on), trước liên từ (and, but, because).
-- Ngắt dài (0.6s) tại: Dấu chấm (.), dấu chấm hỏi (?), dấu chấm than (!).`,
+- **Ngắt ngắn (0.3s):** Tại dấu phẩy (,), trước giới từ (in, at, on), trước liên từ (and, but, because).
+- **Ngắt dài (0.6s):** Tại dấu chấm (.), dấu chấm hỏi (?), dấu chấm than (!).`,
         highlightBox: {
           type: "tip",
           title: "Mẹo Thực Chiến Cho Nóc Nhà",
@@ -88,30 +93,30 @@ export const TOEIC_REVISION_ROADMAP: RevisionUnit[] = [
     id: "sp-unit-02",
     skill: "SPEAKING",
     unitNumber: 2,
+    partNumber: 1,
+    partNameVi: "Part 1: Read a Text Aloud",
+    questionCoverageVi: "Câu 1 & 2",
     title: "Unit 2 & 3: Bảng Phiên Âm IPA, Trọng Âm & Ngữ Điệu",
     subtitle: "Chinh phục âm đuôi /s/, /ed/, nối âm (Linking) và quy tắc lên/xuống giọng",
-    badge: "Phát Âm & Ngữ Điệu",
+    badge: "Part 1 • Phát Âm",
     overviewVi: "Muốn đạt điểm tối đa Part 1 và nói tự nhiên ở các Part sau, việc làm chủ các âm đuôi khó, trọng âm từ và ngữ điệu lên xuống giọng là chìa khóa then chốt.",
     contentSections: [
       {
         heading: "1. Quy Tắc Ngữ Điệu (Intonation) Thần Thánh",
         bodyMarkdown: `- **Xuống giọng cuối câu (Falling Intonation ↘):** Dùng cho câu trần thuật, câu mệnh lệnh và câu hỏi có từ để hỏi (Wh-questions).
-  *Ví dụ:* *The store opens at nine AM ↘.*
 - **Lên giọng cuối câu (Rising Intonation ↗):** Dùng cho câu hỏi Yes/No question.
-  *Ví dụ:* *Are you ready to order ↗?*
-- **Ngữ điệu liệt kê (Listing):** Lên giọng ở các mục phía trước và hạ giọng ở mục cuối cùng:
-  *A ↗, B ↗, and C ↘.*`
+- **Ngữ điệu liệt kê (Listing):** Lên giọng ở các mục phía trước và hạ giọng ở mục cuối cùng: Item 1 ↗, Item 2 ↗, and Item 3 ↘.`
       },
       {
         heading: "2. Phát Âm Âm Đuôi /s/, /es/ và /ed/",
         bodyMarkdown: `- **Đuôi /s, es/:**
-  * /s/: Sau phụ âm vô thanh: /p/, /t/, /k/, /f/, /θ/ (ví dụ: *tickets*, *desks*).
-  * /ɪz/: Sau âm gió: /s/, /z/, /ʃ/, /tʃ/, /dʒ/ (ví dụ: *passes*, *changes*).
-  * /z/: Các trường hợp còn lại (ví dụ: *passengers*, *stores*).
+  * /s/: Sau phụ âm vô thanh: /p/, /t/, /k/, /f/, /θ/ (tickets, desks).
+  * /ɪz/: Sau âm gió: /s/, /z/, /ʃ/, /tʃ/, /dʒ/ (passes, changes).
+  * /z/: Các trường hợp còn lại (passengers, stores).
 - **Đuôi /ed/:**
-  * /ɪd/: Sau /t/, /d/ (*visited*, *decided*).
-  * /t/: Sau âm vô thanh /p, k, f, s, ʃ, tʃ/ (*booked*, *watched*).
-  * /d/: Còn lại (*delayed*, *confirmed*).`
+  * /ɪd/: Sau /t/, /d/ (visited, decided).
+  * /t/: Sau âm vô thanh /p, k, f, s, ʃ, tʃ/ (booked, watched).
+  * /d/: Còn lại (delayed, confirmed).`
       }
     ],
     keyFormulas: [
@@ -140,23 +145,26 @@ export const TOEIC_REVISION_ROADMAP: RevisionUnit[] = [
     id: "sp-unit-04",
     skill: "SPEAKING",
     unitNumber: 4,
-    title: "Unit 4 & 5: Danh Từ, Tính Từ & Trạng Từ Trong Miêu Tả Tranh",
+    partNumber: 2,
+    partNameVi: "Part 2: Describe a Picture",
+    questionCoverageVi: "Câu 3 & 4",
+    title: "Unit 4 & 5: Danh Từ, Tính Từ & Trạng Từ Miêu Tả Tranh",
     subtitle: "Vốn từ vựng mô tả con người, đồ vật và không gian trong Part 2",
-    badge: "Từ Vựng Tranh",
+    badge: "Part 2 • Từ Vựng Tranh",
     overviewVi: "Part 2 yêu cầu mô tả một bức tranh trong 30 giây. Trang bị các danh từ chỉ vật dụng văn phòng, tính từ chỉ trạng thái và trạng từ chỉ cách thức sẽ giúp câu nói sinh động và đạt điểm cao.",
     contentSections: [
       {
         heading: "1. Danh Từ Văn Phòng & Địa Điểm Phổ Biến",
-        bodyMarkdown: `- **Văn phòng:** *colleagues, cubicle, projector screen, swivel chair, document, laptop, whiteboard.*
-- **Đường phố / Ngoài trời:** *pedestrian, crosswalk, sidewalk, intersection, storefront, bench, vehicle.*
-- **Nhà hàng / Siêu thị:** *cash register, customer, shopping cart, shelf / shelves, grocery, waitress.*`
+        bodyMarkdown: `- **Văn phòng:** colleagues, cubicle, projector screen, swivel chair, document, laptop, whiteboard.
+- **Đường phố / Ngoài trời:** pedestrian, crosswalk, sidewalk, intersection, storefront, bench, vehicle.
+- **Nhà hàng / Siêu thị:** cash register, customer, shopping cart, shelf / shelves, grocery, waitress.`
       },
       {
         heading: "2. Tính Từ & Trạng Từ Đắt Giá",
-        bodyMarkdown: `- *neatly arranged* (được sắp xếp gọn gàng)
-- *crowded / packed with people* (đông đúc người)
-- *attentively listening* (đang chăm chú lắng nghe)
-- *facing each other* (đang đối diện nhau)`
+        bodyMarkdown: `- **neatly arranged:** được sắp xếp gọn gàng, ngăn nắp.
+- **crowded / packed with people:** đông đúc người qua lại.
+- **attentively listening:** đang chăm chú lắng nghe đồng nghiệp phát biểu.
+- **facing each other:** đang ngồi đối diện nhau qua bàn tròn.`
       }
     ],
     quickQuiz: [
@@ -177,9 +185,12 @@ export const TOEIC_REVISION_ROADMAP: RevisionUnit[] = [
     id: "sp-unit-06",
     skill: "SPEAKING",
     unitNumber: 6,
+    partNumber: 2,
+    partNameVi: "Part 2: Describe a Picture",
+    questionCoverageVi: "Câu 3 & 4",
     title: "Unit 6: Giới Từ Chỉ Vị Trí (Prepositions of Place)",
     subtitle: "Bí quyết định vị không gian: tiền cảnh, hậu cảnh, bên trái, bên phải",
-    badge: "Ngữ Pháp Tranh",
+    badge: "Part 2 • Vị Trí Không Gian",
     overviewVi: "Để miêu tả tranh có trật tự logic, học viên cần dùng thành thạo các cụm giới từ xác định vị trí các đối tượng trong bức ảnh.",
     contentSections: [
       {
@@ -217,22 +228,25 @@ export const TOEIC_REVISION_ROADMAP: RevisionUnit[] = [
     id: "sp-unit-08",
     skill: "SPEAKING",
     unitNumber: 8,
-    title: "Unit 8 & 9: Thì Động Từ Trong Miêu Tả Tranh (Thì Hiện Tại & Bị Động)",
+    partNumber: 2,
+    partNameVi: "Part 2: Describe a Picture",
+    questionCoverageVi: "Câu 3 & 4",
+    title: "Unit 8 & 9: Thì Động Từ Trong Miêu Tả Tranh (Tiếp Diễn & Bị Động)",
     subtitle: "Dùng thì Hiện tại tiếp diễn cho người và Bị động cho đồ vật",
-    badge: "Ngữ Pháp Thì",
+    badge: "Part 2 • Ngữ Pháp Thì",
     overviewVi: "Hai cấu trúc ngữ pháp ghi điểm cao nhất trong Part 2 là: Hiện tại tiếp diễn (diễn tả hành động của người) và Hiện tại hoàn thành bị động (diễn tả trạng thái của đồ vật).",
     contentSections: [
       {
         heading: "1. Công Thức Miêu Tả Người: Hiện Tại Tiếp Diễn",
-        bodyMarkdown: `- *Cấu trúc:* **S + is/are + V-ing + Object**
-- *Ví dụ:* *Two businesspeople are shaking hands.*
-- *Ví dụ:* *A man is pouring coffee into a cup.*`
+        bodyMarkdown: `- **Cấu trúc:** S + is/are + V-ing + Object
+- **Ví dụ người:** Two businesspeople are shaking hands in front of the window.
+- **Ví dụ hành động:** A man is pouring coffee into a white ceramic cup.`
       },
       {
         heading: "2. Công Thức Miêu Tả Đồ Vật: Thể Bị Động",
-        bodyMarkdown: `- Khi đồ vật đã được xếp đặt sẵn, dùng: **S + has/have been + V3/ed** hoặc **S + is/are + V3/ed**
-- *Ví dụ:* *Several files have been placed on the table.*
-- *Ví dụ:* *The bookshelves are filled with novels.*`
+        bodyMarkdown: `- **Cấu trúc trạng thái:** S + has/have been + V3/ed hoặc S + is/are + V3/ed
+- **Ví dụ sắp đặt:** Several files have been placed on the wooden meeting table.
+- **Ví dụ đồ vật:** The bookshelves are filled with colorful reference manuals.`
       }
     ],
     quickQuiz: [
@@ -253,16 +267,19 @@ export const TOEIC_REVISION_ROADMAP: RevisionUnit[] = [
     id: "sp-unit-11",
     skill: "SPEAKING",
     unitNumber: 11,
+    partNumber: 2,
+    partNameVi: "Part 2: Describe a Picture",
+    questionCoverageVi: "Câu 3 & 4",
     title: "Unit 11: Phân Biệt One, Another, Other, Others, The Other",
     subtitle: "Chỉ nhóm người và đối tượng khác nhau trong tranh không bị lặp từ",
-    badge: "Từ Nối Phân Biệt",
+    badge: "Part 2 • Phân Biệt Nhóm Người",
     overviewVi: "Khi tranh có nhiều người làm các hoạt động khác nhau, dùng 'one... another... others' giúp câu nói lưu loát và thể hiện vốn ngữ pháp phong phú.",
     contentSections: [
       {
         heading: "1. Bảng Quy Tắc Phân Biệt",
         bodyMarkdown: `- **One person is... while another person is...:** Một người đang... trong khi một người khác đang...
 - **Some people are... while others are...:** Một số người đang... trong khi những người còn lại đang...
-- **The other person:** Người còn lại (trong tổng số 2 người xác định).`
+- **The other person:** Người còn lại (trong tổng số 2 người xác định trong tranh).`
       }
     ],
     quickQuiz: [
@@ -283,21 +300,20 @@ export const TOEIC_REVISION_ROADMAP: RevisionUnit[] = [
     id: "sp-unit-15",
     skill: "SPEAKING",
     unitNumber: 15,
+    partNumber: 2,
+    partNameVi: "Part 2: Describe a Picture",
+    questionCoverageVi: "Câu 3 & 4",
     title: "Unit 15: Công Thức Vàng 4 Bước Miêu Tả Tranh (Hot Training Recipe)",
     subtitle: "Bí quyết nói trọn vẹn trong 30 giây không bao giờ bị bí từ",
-    badge: "Công Thức 4 Bước",
+    badge: "Part 2 • Công Thức 4 Bước",
     overviewVi: "Công thức độc quyền 4 bước chuẩn ETS giúp thí sinh xử lý mọi bức tranh Part 2 chỉ trong 30 giây một cách mượt mà và tự tin.",
     contentSections: [
       {
         heading: "Quy Trình 4 Bước Chuẩn Điểm Cao",
-        bodyMarkdown: `1. **Bước 1 (0-5s) - Tổng quan:** Nói bức tranh chụp ở đâu.
-   *This picture was taken in an office / a restaurant / outdoors.*
-2. **Bước 2 (5-18s) - Nhân vật trung tâm:** Ai là người nổi bật nhất, họ đang làm gì, mặc gì?
-   *In the center of the picture, a man in a white shirt is giving a presentation.*
-3. **Bước 3 (18-25s) - Chi tiết xung quanh & Hậu cảnh:** Đồ vật hoặc những người xung quanh.
-   *On the desk, there are some laptops and folders. In the background, some colleagues are listening attentively.*
-4. **Bước 4 (25-30s) - Cảm nhận / Dự đoán chung:**
-   *Overall, the atmosphere seems very productive and professional.*`
+        bodyMarkdown: `- **Bước 1 (0-5s) - Tổng quan bối cảnh:** Bức tranh chụp ở đâu: This picture was taken in an office / a restaurant / outdoors.
+- **Bước 2 (5-18s) - Nhân vật trung tâm:** Ai nổi bật nhất, họ đang làm gì: In the center of the picture, a man in a white shirt is giving a presentation.
+- **Bước 3 (18-25s) - Đồ vật & Hậu cảnh:** On the desk, there are some laptops. In the background, colleagues are listening attentively.
+- **Bước 4 (25-30s) - Cảm nhận / Bầu không khí:** Overall, the atmosphere seems very productive and professional.`
       }
     ],
     quickQuiz: [
@@ -318,22 +334,25 @@ export const TOEIC_REVISION_ROADMAP: RevisionUnit[] = [
     id: "sp-unit-16",
     skill: "SPEAKING",
     unitNumber: 16,
+    partNumber: 3,
+    partNameVi: "Part 3 & 4: Response to Questions",
+    questionCoverageVi: "Câu 5 - 10",
     title: "Unit 16: Phản Xạ Trả Lời Part 3 & 4 (Response to Questions)",
     subtitle: "Nguyên tắc 'Trả lời trực tiếp + 2 câu mở rộng chi tiết (Reason + Example)'",
-    badge: "Phản Xạ Câu Hỏi",
+    badge: "Part 3 & 4 • Phản Xạ",
     overviewVi: "Part 3 kiểm tra phản xạ trả lời tức thì (15 giây cho Q5, Q6 và 30 giây cho Q7). Part 4 yêu cầu đọc lịch trình/bảng biểu và trả lời qua điện thoại.",
     contentSections: [
       {
         heading: "1. Nguyên Tắc 'Direct Answer + Expand' Cho Part 3",
-        bodyMarkdown: `- **Câu 1:** Trả lời trực tiếp câu hỏi đề bài đưa ra (không chần chừ).
-- **Câu 2:** Nêu lý do (Because / Since / The main reason is that...).
-- **Câu 3:** Đưa ra ví dụ thực tế của bản thân (For instance, I usually...).`
+        bodyMarkdown: `- **Câu 1 - Trả lời trực tiếp:** Nêu câu trả lời thẳng vào trọng tâm câu hỏi, không ậm ừ kéo dài thời gian.
+- **Câu 2 - Nêu lý do (Because / Since):** Giải thích tại sao mình lại chọn hoặc làm như vậy.
+- **Câu 3 - Đưa ra ví dụ cá nhân (For instance):** Kể ngắn gọn 1 thói quen hoặc trải nghiệm thực tế.`
       },
       {
         heading: "2. Mẹo Xử Lý Part 4 (Lịch Trình Hội Thảo)",
-        bodyMarkdown: `- Luôn đọc kỹ phần thời gian, địa điểm, tên diễn giả và các dấu sao (*) lưu ý ở cuối bảng.
-- Bắt đầu câu trả lời bằng lời chào điện thoại chuyên nghiệp:
-  *Certainly! According to the schedule, the presentation will start at 10 AM in Room 204.*`
+        bodyMarkdown: `- **Xem kỹ các mốc thời gian và địa điểm:** Phòng họp, tên diễn giả, chủ đề bài thuyết trình.
+- **Mở đầu lịch sự qua điện thoại:** Certainly! According to the schedule, the presentation will start at 10 AM in Room 204.
+- **Xử lý thông tin bị hủy hoặc thay đổi:** Look for cancellation asterisks (*) at the bottom of the table.`
       }
     ],
     quickQuiz: [
@@ -353,15 +372,17 @@ export const TOEIC_REVISION_ROADMAP: RevisionUnit[] = [
 
   // ==========================================
   // TOEIC WRITING REVISION (LEVEL 0 - 100+)
-  // Lộ trình ôn tập trọng điểm chuẩn ETS
   // ==========================================
   {
     id: "wr-unit-01",
     skill: "WRITING",
     unitNumber: 1,
+    partNumber: 1,
+    partNameVi: "Tổng Quan Đề Thi Writing",
+    questionCoverageVi: "Câu 1 - 8",
     title: "Unit 1: Tổng Quan Bài Thi TOEIC Writing & Tiêu Chí Chấm",
     subtitle: "8 câu hỏi trong 60 phút, thang điểm 200 và các lỗi trừ điểm phổ biến",
-    badge: "Tổng Quan Writing",
+    badge: "Writing • Tổng Quan",
     overviewVi: "Bài thi TOEIC Writing gồm 3 phần: Part 1 (5 câu miêu tả tranh), Part 2 (2 email phản hồi), Part 3 (1 bài luận quan điểm 300 từ).",
     contentSections: [
       {
@@ -372,10 +393,10 @@ export const TOEIC_REVISION_ROADMAP: RevisionUnit[] = [
       },
       {
         heading: "2. Các Lỗi Bị Trừ Điểm Nặng Nhất",
-        bodyMarkdown: `- Viết thành 2 câu ở Part 1 (yêu cầu chỉ viết ĐÚNG 1 CÂU).
-- Quên không dùng đủ 2 từ khóa bắt buộc hoặc dùng sai nghĩa.
-- Thiếu các ý yêu cầu trong Part 2 (ví dụ: đề yêu cầu đưa ra 2 gợi ý nhưng chỉ nêu 1).
-- Bài luận Part 3 dưới 250 từ hoặc không chia đoạn rõ ràng.`
+        bodyMarkdown: `- **Viết thành 2 câu ở Part 1:** Yêu cầu bắt buộc chỉ viết ĐÚNG 1 CÂU duy nhất (kết thúc bằng 1 dấu chấm).
+- **Quên không dùng đủ 2 từ khóa bắt buộc:** Thiếu từ hoặc thay đổi sai nghĩa gốc của từ khóa.
+- **Thiếu ý yêu cầu ở Part 2:** Đề yêu cầu nêu 2 giải pháp nhưng chỉ trả lời 1 giải pháp.
+- **Bài luận Part 3 dưới 250 từ:** Không đủ số lượng từ tối thiểu để phát triển luận điểm trọn vẹn.`
       }
     ],
     quickQuiz: [
@@ -396,26 +417,26 @@ export const TOEIC_REVISION_ROADMAP: RevisionUnit[] = [
     id: "wr-unit-02",
     skill: "WRITING",
     unitNumber: 2,
+    partNumber: 1,
+    partNameVi: "Part 1: Write a Sentence",
+    questionCoverageVi: "Câu 1 - 5",
     title: "Unit 2: Chiến Thuật Viết Câu Theo Tranh Part 1",
     subtitle: "Kỹ thuật biến đổi từ và ghép câu phức với liên từ (while, because, so, although)",
-    badge: "Kỹ Thuật Ghép Câu",
+    badge: "Part 1 • Ghép Câu Tranh",
     overviewVi: "Để đạt điểm tối đa 3/3 cho mỗi câu Part 1, bạn không nên chỉ viết câu đơn sơ sài mà hãy ghép câu bằng các liên từ phụ thuộc hoặc thì hoàn thành.",
     contentSections: [
       {
         heading: "1. Kỹ Thuật Biến Đổi Dạng Từ (Word Form)",
         bodyMarkdown: `Đề bài cho phép thay đổi dạng từ:
-- Động từ nguyên thể có thể chia thì: *walk ➔ is walking / walked*.
-- Danh từ có thể chuyển số nhiều: *shelf ➔ shelves, customer ➔ customers*.
-- Đổi từ loại: *organize (V) ➔ organized (Adj) / organization (N)*.`
+- **Động từ nguyên thể có thể chia thì:** walk ➔ is walking / walked / walks.
+- **Danh từ có thể chuyển số nhiều:** shelf ➔ shelves, customer ➔ customers.
+- **Đổi từ loại:** organize (V) ➔ organized (Adj) / organization (N).`
       },
       {
         heading: "2. Các Công Thức Ghép Câu Bất Bại",
-        bodyMarkdown: `- **Dùng liên từ 'while' (trong khi):**
-  *A woman is typing on a keyboard while talking on the phone.*
-- **Dùng mệnh đề quan hệ 'who / which':**
-  *The doctor who is wearing a white coat is examining a patient.*
-- **Dùng liên từ chỉ mục đích 'in order to / to':**
-  *The colleagues are gathering around the table to discuss the budget.*`
+        bodyMarkdown: `- **Dùng liên từ 'while' (trong khi):** A woman is typing on a keyboard while talking on the phone.
+- **Dùng mệnh đề quan hệ 'who / which':** The doctor who is wearing a white coat is examining a patient.
+- **Dùng liên từ chỉ mục đích 'in order to / to':** The colleagues are gathering around the table to discuss the budget.`
       }
     ],
     keyFormulas: [
@@ -444,22 +465,20 @@ export const TOEIC_REVISION_ROADMAP: RevisionUnit[] = [
     id: "wr-unit-03",
     skill: "WRITING",
     unitNumber: 3,
+    partNumber: 2,
+    partNameVi: "Part 2: Respond to an Email",
+    questionCoverageVi: "Câu 6 & 7",
     title: "Unit 3: Cấu Trúc Viết Email Chuẩn Công Sở Part 2",
     subtitle: "Bố cục 4 phần của email thương mại chuyên nghiệp: Chào hỏi, Thấu hiểu, Giải quyết, Lời kết",
-    badge: "Email Format",
+    badge: "Part 2 • Email Format",
     overviewVi: "Part 2 yêu cầu trả lời email trong 10 phút. Bố cục rõ ràng, văn phong lịch sự và giải quyết đầy đủ tất cả các yêu cầu trong đề là chìa khóa đạt 4/4 điểm.",
     contentSections: [
       {
         heading: "Bố Cục 4 Phần Của Email Chuẩn",
-        bodyMarkdown: `1. **Salutation (Lời chào):** *Dear Mr./Ms. [Họ]*, hoặc *Dear Hiring Committee*,
-2. **Opening (Mở đầu & Cảm ơn/Xin lỗi):**
-   *Thank you for reaching out to us regarding...*
-   *Please accept our sincere apologies for the inconvenience caused by...*
-3. **Body (Nội dung chính - Giải quyết yêu cầu đề bài):**
-   * Sử dụng bullet points (1, 2) hoặc các từ nối (*First, Additionally*) để trả lời đủ các câu hỏi.
-4. **Closing & Sign-off (Lời kết & Ký tên):**
-   *If you have any further questions, please do not hesitate to contact me.*
-   *Sincerely, / Best regards,*`
+        bodyMarkdown: `- **1. Salutation (Lời chào trang trọng):** Dear Mr./Ms. [Họ], hoặc Dear Hiring Committee,
+- **2. Opening (Cảm ơn & Thấu hiểu vấn đề):** Thank you for reaching out to us regarding your recent order. Please accept our sincere apologies for any inconvenience caused.
+- **3. Body (Giải quyết từng yêu cầu bằng bullet points):** Sử dụng các số thứ tự (1, 2) hoặc liên từ (First, Additionally) để trả lời đủ 100% các ý đề bài hỏi.
+- **4. Closing & Sign-off (Lời kết lịch sự & Chữ ký):** If you have any further questions, please do not hesitate to contact me. Sincerely, [Tên / Chức vụ].`
       }
     ],
     quickQuiz: [
@@ -480,17 +499,20 @@ export const TOEIC_REVISION_ROADMAP: RevisionUnit[] = [
     id: "wr-unit-04",
     skill: "WRITING",
     unitNumber: 4,
+    partNumber: 3,
+    partNameVi: "Part 3: Opinion Essay (300 Words)",
+    questionCoverageVi: "Câu 8",
     title: "Unit 4: Dàn Bài Bài Luận Quan Điểm 300 Từ Part 3",
     subtitle: "Cấu trúc 4 đoạn: Mở bài (Hook + Thesis) ➔ 2 Đoạn thân bài (PEEL) ➔ Kết bài",
-    badge: "Bài Luận 300 Từ",
+    badge: "Part 3 • Luận 300 Từ",
     overviewVi: "Bài luận Part 3 có thời gian 30 phút. Học sinh cần viết tối thiểu 300 từ với lập luận chặt chẽ và ví dụ thực tế để thuyết phục giám khảo.",
     contentSections: [
       {
         heading: "Cấu Trúc Mô Hình PEEL Cho Đoạn Thân Bài",
-        bodyMarkdown: `- **P - Point (Câu chủ đề):** Nêu luận điểm chính của đoạn (*First and foremost, remote work saves commuting time.*)
-- **E - Explanation (Giải thích):** Giải thích chi tiết tại sao lại như vậy (*Without traveling during rush hours, employees feel less stressed.*)
-- **E - Example (Ví dụ minh họa):** Đưa ra dẫn chứng hoặc số liệu (*For example, a survey showed that workers saved two hours daily.*)
-- **L - Link (Câu liên kết):** Chốt lại luận điểm gắn với chủ đề bài viết (*Consequently, this boosts their overall job satisfaction.*)`
+        bodyMarkdown: `- **P - Point (Câu chủ đề mở đoạn):** Nêu luận điểm chính của đoạn (First and foremost, remote work substantially reduces daily commuting stress.)
+- **E - Explanation (Giải thích chi tiết):** Giải thích tại sao lại như vậy (Without spending hours stuck in rush-hour traffic, employees preserve energy for cognitive tasks.)
+- **E - Example (Ví dụ minh họa cụ thể):** Đưa ra dẫn chứng thực tế (For instance, a recent survey showed that remote tech workers reported 30% higher job satisfaction.)
+- **L - Link (Câu liên kết kết đoạn):** Chốt lại luận điểm gắn với đề bài (Consequently, this leads to lower burnout rates and higher company productivity.)`
       }
     ],
     quickQuiz: [
@@ -511,27 +533,30 @@ export const TOEIC_REVISION_ROADMAP: RevisionUnit[] = [
     id: "wr-unit-06",
     skill: "WRITING",
     unitNumber: 6,
+    partNumber: 2,
+    partNameVi: "Part 2: Respond to an Email",
+    questionCoverageVi: "Câu 6 & 7",
     title: "Unit 6, 7 & 8: Bộ Mẫu Câu Giao Tiếp Công Việc (Cung Cấp & Hỏi Thông Tin)",
     subtitle: "Cung cấp thông tin, hỏi thăm lịch sự và đề xuất giải pháp trong văn bản",
-    badge: "Mẫu Câu Văn Phòng",
+    badge: "Part 2 • Mẫu Câu Email",
     overviewVi: "Kho mẫu câu giao tiếp công sở giúp bạn viết email Part 2 nhanh chóng và tự nhiên như người đi làm chuyên nghiệp.",
     contentSections: [
       {
         heading: "1. Cung Cấp Thông Tin (Providing Information)",
-        bodyMarkdown: `- *I am writing to inform you that our office will be relocated next Monday.*
-- *We are pleased to announce that your application has been approved.*
-- *Please be advised that the maintenance work is scheduled for Friday.*`
+        bodyMarkdown: `- **I am writing to inform you that:** Tôi viết thư này để thông báo rằng...
+- **We are pleased to announce that:** Chúng tôi rất vui mừng thông báo rằng...
+- **Please be advised that:** Xin lưu ý rằng công việc bảo trì được lên lịch vào thứ Sáu.`
       },
       {
         heading: "2. Hỏi Thông Tin Lịch Sự (Asking for Information)",
-        bodyMarkdown: `- *Could you please provide more details regarding the workshop schedule?*
-- *I would appreciate it if you could confirm the exact delivery date.*
-- *Could you let me know whether the conference room is available?*`
+        bodyMarkdown: `- **Could you please provide more details regarding:** Bạn có thể cung cấp thêm chi tiết về...
+- **I would appreciate it if you could confirm:** Tôi rất cảm kích nếu bạn có thể xác nhận...
+- **Could you let me know whether:** Bạn có thể cho tôi biết liệu phòng hội nghị có sẵn không?`
       },
       {
         heading: "3. Đề Xuất Giải Pháp (Proposing Solutions)",
-        bodyMarkdown: `- *To resolve this issue promptly, we would like to offer you a full refund.*
-- *I suggest that we reschedule the interview to Friday at 2:00 PM.*`
+        bodyMarkdown: `- **To resolve this issue promptly, we would like to offer:** Để giải quyết vấn đề nhanh chóng, chúng tôi muốn đề xuất...
+- **I suggest that we reschedule the interview to:** Tôi đề xuất chúng ta dời lịch phỏng vấn sang...`
       }
     ],
     quickQuiz: [

@@ -1,13 +1,14 @@
 import React from 'react';
 import { sounds } from '../utils/soundEffects';
-import { BookOpen, GraduationCap, Target, Cloud, LogIn, ArrowLeft, Trophy, Flame, Mic, PenTool, Sparkles } from 'lucide-react';
+import { BookOpen, GraduationCap, Target, Cloud, LogIn, ArrowLeft, Trophy, Flame, Mic, PenTool, Sparkles, ClipboardList } from 'lucide-react';
 import type { User } from 'firebase/auth';
 import type { SyncStatus } from '../contexts/ProgressContext';
 import { useLearningProgress } from '../contexts/ProgressContext';
 import { RANK_TIERS_CONFIG } from '../types/ranked';
+import { TOEIC_SW_TEST_COMBOS } from '../data/toeicSpeakingData';
 
 interface MenuScreenProps {
-  onSelectMode: (mode: 'LEARN' | 'GRAMMAR' | 'EXAM' | 'RANKED' | 'SPEAKING' | 'WRITING', chapter?: 1 | 2) => void;
+  onSelectMode: (mode: 'LEARN' | 'GRAMMAR' | 'EXAM' | 'RANKED' | 'SPEAKING' | 'WRITING', chapter?: 1 | 2, testId?: string) => void;
   onBack: () => void;
   nickname: string;
   user?: User | null;
@@ -27,7 +28,7 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
   const currentTierConfig = RANK_TIERS_CONFIG[rankTier] || RANK_TIERS_CONFIG.BRONZE;
   return (
     <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100dvh-70px)] px-3 sm:px-4 py-4 sm:py-6 md:py-10">
-      <div className="w-full max-w-xl md:max-w-2xl flex flex-col items-center gap-3.5 sm:gap-5 md:gap-6">
+      <div className="w-full max-w-xl md:max-w-3xl flex flex-col items-center gap-3.5 sm:gap-5 md:gap-6">
         
         {/* User Account Status Banner */}
         {user ? (
@@ -301,6 +302,82 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
               ✍️
             </span>
           </button>
+        </div>
+
+        {/* ======================================================== */}
+        {/* BẢNG LUYỆN ĐỀ THI TOEIC SPEAKING & WRITING (STUDY4)      */}
+        {/* ======================================================== */}
+        <div className="w-full bg-white border-3 sm:border-4 border-black p-4 sm:p-5 shadow-neo sm:shadow-neo-lg rounded-2xl flex flex-col gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b-3 border-black">
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-xl sm:text-2xl">📋</span>
+                <h3 className="font-heading font-black text-base sm:text-xl uppercase tracking-wide">
+                  Bảng Luyện Đề Thi TOEIC Speaking & Writing
+                </h3>
+              </div>
+              <p className="text-xs sm:text-sm font-bold text-gray-600 mt-0.5">
+                Trọn bộ 5 đề thi Study4 chuẩn format ETS quốc tế • Luyện Nói (11 câu) & Luyện Viết (8 câu) kèm AI chấm điểm
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[10px] sm:text-xs font-black bg-[#FFDE59] border-2 border-black px-2.5 py-1 rounded-lg shadow-neo-sm">
+              5 Bộ Đề Đầy Đủ
+            </span>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            {TOEIC_SW_TEST_COMBOS.map((combo) => (
+              <div 
+                key={combo.id}
+                className="bg-[#FAFAFA] hover:bg-[#F0FDF4] p-3.5 sm:p-4 rounded-xl border-2 sm:border-3 border-black shadow-neo-sm hover:shadow-neo transition-all flex flex-col md:flex-row md:items-center justify-between gap-3"
+              >
+                <div className="flex flex-col gap-1 min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="font-black text-xs px-2 py-0.5 rounded-md bg-black text-[#5CE1E6] font-mono">
+                      {combo.code}
+                    </span>
+                    <h4 className="font-black text-sm sm:text-base text-gray-900">
+                      {combo.name}
+                    </h4>
+                    <span className={`text-[10px] font-black px-2 py-0.5 rounded-full border border-black ${
+                      combo.difficulty === 'Nâng Cao' ? 'bg-rose-200 text-rose-900' : 'bg-emerald-200 text-emerald-900'
+                    }`}>
+                      {combo.badge} • {combo.difficulty}
+                    </span>
+                  </div>
+                  <p className="text-xs text-gray-600 font-bold line-clamp-2">
+                    {combo.description}
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-2 shrink-0 pt-2 md:pt-0 border-t md:border-t-0 border-gray-200">
+                  <button
+                    onClick={() => {
+                      sounds.playClick();
+                      onSelectMode('SPEAKING', undefined, combo.speakingTestId);
+                    }}
+                    className="flex-1 md:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2.5 bg-[#E0F7FA] hover:bg-[#b2ebf2] border-2 border-black font-black text-xs uppercase shadow-neo-sm hover:translate-x-0.5 hover:translate-y-0.5 active:scale-95 transition-all cursor-pointer whitespace-nowrap"
+                    title="Luyện Nói 11 câu hỏi chuẩn ETS"
+                  >
+                    <span>🎙️ Luyện Nói</span>
+                    <span className="text-[10px] text-cyan-900 font-bold opacity-80">(11 Câu)</span>
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      sounds.playClick();
+                      onSelectMode('WRITING', undefined, combo.writingTestId);
+                    }}
+                    className="flex-1 md:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2.5 bg-[#FFF3E0] hover:bg-[#ffe0b2] border-2 border-black font-black text-xs uppercase shadow-neo-sm hover:translate-x-0.5 hover:translate-y-0.5 active:scale-95 transition-all cursor-pointer whitespace-nowrap"
+                    title="Luyện Viết 8 câu hỏi chuẩn ETS"
+                  >
+                    <span>✍️ Luyện Viết</span>
+                    <span className="text-[10px] text-amber-900 font-bold opacity-80">(8 Câu)</span>
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Back button */}
