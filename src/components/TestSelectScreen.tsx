@@ -181,6 +181,86 @@ const fallbackTests: TestSummary[] = [
     durationMinutes: 120,
     totalQuestions: 200,
     description: "Đề thi TOEIC Quốc tế 200 câu số 10 từ Collection 2 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-3-test-1",
+    title: "TOEIC LR Collection 3 - Test 1 (Full 200 Questions)",
+    code: "S4-COL3-T1",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 1 từ Collection 3 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-3-test-2",
+    title: "TOEIC LR Collection 3 - Test 2 (Full 200 Questions)",
+    code: "S4-COL3-T2",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 2 từ Collection 3 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-3-test-3",
+    title: "TOEIC LR Collection 3 - Test 3 (Full 200 Questions)",
+    code: "S4-COL3-T3",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 3 từ Collection 3 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-3-test-4",
+    title: "TOEIC LR Collection 3 - Test 4 (Full 200 Questions)",
+    code: "S4-COL3-T4",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 4 từ Collection 3 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-3-test-5",
+    title: "TOEIC LR Collection 3 - Test 5 (Full 200 Questions)",
+    code: "S4-COL3-T5",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 5 từ Collection 3 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-3-test-6",
+    title: "TOEIC LR Collection 3 - Test 6 (Full 200 Questions)",
+    code: "S4-COL3-T6",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 6 từ Collection 3 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-3-test-7",
+    title: "TOEIC LR Collection 3 - Test 7 (Full 200 Questions)",
+    code: "S4-COL3-T7",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 7 từ Collection 3 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-3-test-8",
+    title: "TOEIC LR Collection 3 - Test 8 (Full 200 Questions)",
+    code: "S4-COL3-T8",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 8 từ Collection 3 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-3-test-9",
+    title: "TOEIC LR Collection 3 - Test 9 (Full 200 Questions)",
+    code: "S4-COL3-T9",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 9 từ Collection 3 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-3-test-10",
+    title: "TOEIC LR Collection 3 - Test 10 (Full 200 Questions)",
+    code: "S4-COL3-T10",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 10 từ Collection 3 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
   }
 ];
 
@@ -192,7 +272,7 @@ export const TestSelectScreen: React.FC<TestSelectScreenProps> = ({
 }) => {
   const [tests, setTests] = useState<TestSummary[]>(fallbackTests);
   const [loading, setLoading] = useState(false);
-  const [selectedTab, setSelectedTab] = useState<'ALL' | 'COL1' | 'COL2'>('ALL');
+  const [selectedTab, setSelectedTab] = useState<'ALL' | 'COL1' | 'COL2' | 'COL3'>('ALL');
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
@@ -234,14 +314,17 @@ export const TestSelectScreen: React.FC<TestSelectScreenProps> = ({
 
   const col1Count = useMemo(() => tests.filter(t => t._id.includes('collection-1') || t.code.includes('COL1')).length, [tests]);
   const col2Count = useMemo(() => tests.filter(t => t._id.includes('collection-2') || t.code.includes('COL2')).length, [tests]);
+  const col3Count = useMemo(() => tests.filter(t => t._id.includes('collection-3') || t.code.includes('COL3')).length, [tests]);
 
   const filteredTests = useMemo(() => {
     return tests.filter(t => {
       const isCol1 = t._id.includes('collection-1') || t.code.includes('COL1');
       const isCol2 = t._id.includes('collection-2') || t.code.includes('COL2');
+      const isCol3 = t._id.includes('collection-3') || t.code.includes('COL3');
       const matchesTab = 
         selectedTab === 'ALL' ? true :
-        selectedTab === 'COL1' ? isCol1 : isCol2;
+        selectedTab === 'COL1' ? isCol1 :
+        selectedTab === 'COL2' ? isCol2 : isCol3;
       const matchesSearch = searchQuery === '' || 
         t.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
         t.code.toLowerCase().includes(searchQuery.toLowerCase());
@@ -349,7 +432,18 @@ export const TestSelectScreen: React.FC<TestSelectScreenProps> = ({
               selectedTab === 'COL2' ? 'bg-purple-600 text-white' : 'bg-white text-black hover:bg-purple-50'
             }`}
           >
-            🚀 Collection 2 - Mới ({col2Count})
+            🚀 Collection 2 ({col2Count})
+          </button>
+          <button
+            onClick={() => {
+              sounds.playClick();
+              setSelectedTab('COL3');
+            }}
+            className={`px-3.5 py-2 border-2 border-black font-black text-xs sm:text-sm shadow-neo-sm whitespace-nowrap cursor-pointer transition-all ${
+              selectedTab === 'COL3' ? 'bg-emerald-600 text-white' : 'bg-white text-black hover:bg-emerald-50'
+            }`}
+          >
+            🔥 Collection 3 - Mới Nhất ({col3Count})
           </button>
         </div>
 

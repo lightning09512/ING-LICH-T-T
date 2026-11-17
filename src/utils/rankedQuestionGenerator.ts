@@ -19,7 +19,7 @@ export async function generateRankedMatchQuestions(tier: RankTier): Promise<Rank
   // 2. Fetch full test pool for Part 3, 4, 5, 6, 7
   let fullTest: any = null;
   try {
-    const testNum = Math.floor(Math.random() * 20) + 1; // 1 to 20 (Full 20 Tests available)
+    const testNum = Math.floor(Math.random() * 30) + 1; // 1 to 30 (Full 30 Tests available)
     const res = await fetch(`/data/tests/test-${testNum}.json`);
     if (res.ok) {
       fullTest = await res.json();
