@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, Flame, CheckCircle2, Sparkles, BookOpen, RotateCcw } from 'lucide-react';
+import { X, Flame, CheckCircle2, Sparkles, BookOpen } from 'lucide-react';
 import { sounds } from '../utils/soundEffects';
 
 interface StreakModalProps {
@@ -10,7 +10,6 @@ interface StreakModalProps {
   studyDates?: string[];
   nickname: string;
   onStartLearning?: () => void;
-  onResetStreak?: () => void;
 }
 
 export const StreakModal: React.FC<StreakModalProps> = ({
@@ -21,7 +20,6 @@ export const StreakModal: React.FC<StreakModalProps> = ({
   studyDates = [],
   nickname,
   onStartLearning,
-  onResetStreak,
 }) => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -187,24 +185,6 @@ export const StreakModal: React.FC<StreakModalProps> = ({
             </button>
           )}
         </div>
-
-        {/* Reset streak option */}
-        {onResetStreak && (
-          <div className="mt-3 text-center">
-            <button
-              onClick={() => {
-                if (window.confirm('Bạn có muốn đặt lại chuỗi học tập về 0 ngày để bắt đầu chuỗi mới không?')) {
-                  sounds.playClick();
-                  onResetStreak();
-                }
-              }}
-              className="inline-flex items-center gap-1 text-[11px] font-bold text-gray-400 hover:text-rose-600 underline cursor-pointer transition-colors"
-              title="Bấm để đặt lại chuỗi về 0 ngày"
-            >
-              <RotateCcw className="w-3 h-3 inline" /> Đặt lại chuỗi học tập (về 0 ngày)
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );
