@@ -9,7 +9,6 @@ import { GrammarScreen } from './components/GrammarScreen';
 import { ToeicExamScreen } from './components/ToeicExamScreen';
 import { TestSelectScreen } from './components/TestSelectScreen';
 import { RankedExamScreen } from './components/RankedExamScreen';
-import { LeaderboardRail } from './components/LeaderboardRail';
 import { LofiPlayer } from './components/LofiPlayer';
 import { AccountModal } from './components/AccountModal';
 import { StreakModal } from './components/StreakModal';
@@ -311,9 +310,6 @@ export function App() {
       <footer className="relative z-10 py-3 text-center text-xs font-bold text-gray-500 border-t border-black/10 mt-10">
         © 2026 Ing Lịch Tét • Dành trọn tình yêu & tiếng cười cho Nóc Nhà
       </footer>
-
-      {/* Real-time Rank Leaderboard Side Rail */}
-      <LeaderboardRail />
 
       {/* Persistent Background Lofi Chill Music Player */}
       <LofiPlayer
