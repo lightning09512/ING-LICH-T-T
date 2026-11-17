@@ -28,8 +28,21 @@ export const LearnVocabScreen: React.FC<LearnVocabScreenProps> = ({
   const currentWord = filteredList[currentIndex] || vocabList[0];
 
   useEffect(() => {
-    if (currentWord) sounds.prefetchEnglish(currentWord.word);
-  }, [currentWord?.word]);
+    if (currentWord) {
+      sounds.prefetchEnglish(currentWord.word);
+      if (currentWord.exampleEn) sounds.prefetchEnglish(currentWord.exampleEn);
+    }
+    // Proactively prefetch the next 2 words so moving forward has 0ms audio lag
+    const next1 = filteredList[currentIndex + 1];
+    if (next1) {
+      sounds.prefetchEnglish(next1.word);
+      if (next1.exampleEn) sounds.prefetchEnglish(next1.exampleEn);
+    }
+    const next2 = filteredList[currentIndex + 2];
+    if (next2) {
+      sounds.prefetchEnglish(next2.word);
+    }
+  }, [currentIndex, currentWord, filteredList]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStartX(e.touches[0].clientX);

@@ -15,8 +15,8 @@ async function getSpeechAudio(text: string): Promise<Buffer> {
     voice: 'en-US-JennyNeural',
     lang: 'en-US',
     outputFormat: 'audio-24khz-96kbitrate-mono-mp3',
-    rate: '-2%',
-    timeout: 12_000,
+    rate: '+15%',
+    timeout: 10_000,
   });
 
   const chunks: Buffer[] = [];
@@ -53,7 +53,7 @@ export default async function handler(req: any, res?: any) {
     try {
       const audioBuffer = await getSpeechAudio(text);
       res.setHeader('Content-Type', 'audio/mpeg');
-      res.setHeader('Cache-Control', 'public, max-age=604800, immutable');
+      res.setHeader('Cache-Control', 'public, max-age=31536000, s-maxage=31536000, immutable');
       return res.send(audioBuffer);
     } catch (e: any) {
       console.error('[TTS Error]', e);
@@ -89,7 +89,7 @@ export default async function handler(req: any, res?: any) {
     return new Response(audioBuffer, {
       headers: {
         'Content-Type': 'audio/mpeg',
-        'Cache-Control': 'public, max-age=604800, immutable',
+        'Cache-Control': 'public, max-age=31536000, s-maxage=31536000, immutable',
         'Access-Control-Allow-Origin': '*',
       },
     });

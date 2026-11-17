@@ -18,8 +18,8 @@ export async function* streamSpeech(text: string): AsyncGenerator<Buffer> {
     voice: 'en-US-JennyNeural',
     lang: 'en-US',
     outputFormat: 'audio-24khz-96kbitrate-mono-mp3',
-    rate: '-2%',
-    timeout: 15_000,
+    rate: '+15%',
+    timeout: 10_000,
   });
   const chunks: Buffer[] = [];
 

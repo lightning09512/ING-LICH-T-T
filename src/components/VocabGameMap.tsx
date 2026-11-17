@@ -93,12 +93,29 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
   const currentWord: VocabWord | undefined = currentLesson?.words[flashcardIndex];
 
   useEffect(() => {
-    if (view === 'STUDY' && currentWord?.word) sounds.prefetchEnglish(currentWord.word);
-  }, [view, currentWord?.word]);
+    if (view === 'STUDY' && currentWord?.word) {
+      sounds.prefetchEnglish(currentWord.word);
+      if (currentWord.exampleEn) sounds.prefetchEnglish(currentWord.exampleEn);
+      // Proactively prefetch next words
+      const nextWord = currentLesson?.words[flashcardIndex + 1];
+      if (nextWord) {
+        sounds.prefetchEnglish(nextWord.word);
+        if (nextWord.exampleEn) sounds.prefetchEnglish(nextWord.exampleEn);
+      }
+      const nextWord2 = currentLesson?.words[flashcardIndex + 2];
+      if (nextWord2) {
+        sounds.prefetchEnglish(nextWord2.word);
+      }
+    }
+  }, [view, flashcardIndex, currentWord, currentLesson]);
 
   useEffect(() => {
     const currentQuizWord = quizQuestions[quizIndex]?.word.word;
-    if (view === 'QUIZ' && currentQuizWord) sounds.prefetchEnglish(currentQuizWord);
+    if (view === 'QUIZ' && currentQuizWord) {
+      sounds.prefetchEnglish(currentQuizWord);
+      const nextQuizWord = quizQuestions[quizIndex + 1]?.word.word;
+      if (nextQuizWord) sounds.prefetchEnglish(nextQuizWord);
+    }
   }, [view, quizIndex, quizQuestions]);
 
   // Touch Swipe for Flashcard
