@@ -6,8 +6,9 @@ export const config = {
 
 const audioCache = new Map<string, Buffer>();
 
-async function getSpeechAudio(text: string): Promise<Buffer> {
-  const cached = audioCache.get(text);
+async function getSpeechAudio(text: string, rate: string = '+0%'): Promise<Buffer> {
+  const cacheKey = `${text}__${rate}`;
+  const cached = audioCache.get(cacheKey);
   if (cached) return cached;
 
   // Use Microsoft Edge's most natural, warm, human female voice (JennyNeural)
@@ -15,7 +16,7 @@ async function getSpeechAudio(text: string): Promise<Buffer> {
     voice: 'en-US-JennyNeural',
     lang: 'en-US',
     outputFormat: 'audio-24khz-48kbitrate-mono-mp3',
-    rate: '+0%',
+    rate,
     timeout: 8_000,
   });
 
@@ -33,7 +34,7 @@ async function getSpeechAudio(text: string): Promise<Buffer> {
     const oldestKey = audioCache.keys().next().value;
     if (oldestKey) audioCache.delete(oldestKey);
   }
-  audioCache.set(text, audio);
+  audioCache.set(cacheKey, audio);
   return audio;
 }
 
@@ -50,8 +51,11 @@ export default async function handler(req: any, res?: any) {
       return res.status(400).json({ error: 'Text required (max 800 chars)' });
     }
 
+    const isSentence = text.includes(' ') || text.length > 25;
+    const rate = (req.query?.rate as string) || (isSentence ? '-14%' : '-4%');
+
     try {
-      const audioBuffer = await getSpeechAudio(text);
+      const audioBuffer = await getSpeechAudio(text, rate);
       res.setHeader('Content-Type', 'audio/mpeg');
       res.setHeader('Cache-Control', 'public, max-age=31536000, s-maxage=31536000, immutable');
       return res.send(audioBuffer);
@@ -73,19 +77,26 @@ export default async function handler(req: any, res?: any) {
   }
 
   let text = '';
+  let rateParam = '';
   if (request.method === 'GET') {
-    text = new URL(request.url).searchParams.get('text')?.trim() ?? '';
+    const url = new URL(request.url);
+    text = url.searchParams.get('text')?.trim() ?? '';
+    rateParam = url.searchParams.get('rate') ?? '';
   } else if (request.method === 'POST') {
     const body: any = await request.json().catch(() => ({}));
     text = (body.text || '').trim();
+    rateParam = body.rate || '';
   }
 
   if (!text || text.length > 800) {
     return new Response(JSON.stringify({ error: 'Text required' }), { status: 400 });
   }
 
+  const isSentence = text.includes(' ') || text.length > 25;
+  const rate = rateParam || (isSentence ? '-14%' : '-4%');
+
   try {
-    const audioBuffer = await getSpeechAudio(text);
+    const audioBuffer = await getSpeechAudio(text, rate);
     return new Response(audioBuffer, {
       headers: {
         'Content-Type': 'audio/mpeg',

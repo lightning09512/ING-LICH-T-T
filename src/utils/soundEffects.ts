@@ -118,14 +118,16 @@ class SoundEngine {
     const cleanText = this.cleanSpeechText(text);
     if (!cleanText || cleanText.length > 300) return;
 
-    const cacheKey = cleanText.toLowerCase();
+    const isSentence = cleanText.includes(' ') || cleanText.length > 25;
+    const targetRate = isSentence ? '-14%' : '-4%';
+    const cacheKey = `${cleanText.toLowerCase()}__${targetRate}`;
     if (this.audioCache.has(cacheKey)) return;
 
     try {
       const audio = new Audio();
       audio.preload = 'auto';
-      audio.playbackRate = 1.0;
-      audio.src = `/api/tts?text=${encodeURIComponent(cleanText)}`;
+      audio.playbackRate = isSentence ? 0.85 : 0.95;
+      audio.src = `/api/tts?text=${encodeURIComponent(cleanText)}&rate=${encodeURIComponent(targetRate)}`;
       this.audioCache.set(cacheKey, audio);
 
       audio.addEventListener('error', () => {
@@ -142,8 +144,7 @@ class SoundEngine {
         if (oldest) {
           const oldAudio = this.audioCache.get(oldest);
           if (oldAudio) {
-            oldAudio.removeAttribute('src');
-            oldAudio.load();
+            try { oldAudio.pause(); } catch {}
           }
           this.audioCache.delete(oldest);
         }
@@ -320,19 +321,23 @@ class SoundEngine {
       this.stopSpeaking();
       this.activeSpeechResolve = resolve;
 
-      const cacheKey = cleanText.toLowerCase();
+      const isSentence = cleanText.includes(' ') || cleanText.length > 25;
+      const targetRate = isSentence ? '-14%' : '-4%';
+      const playbackRate = isSentence ? 0.85 : 0.95;
 
       // 0. If the browser natively has Microsoft Jenny Online (Natural) available,
       // play immediately with 0ms latency using the exact same Jenny voice model!
       if (this.femaleVoice && this.femaleVoice.name.toLowerCase().includes('jenny')) {
-        this.speakWithFemaleSpeechSynthesis(cleanText, requestId);
+        this.speakWithFemaleSpeechSynthesis(cleanText, requestId, isSentence);
         return;
       }
 
-      // 1. Instant Play from in-memory cache
+      const cacheKey = `${cleanText.toLowerCase()}__${targetRate}`;
+
+      // 1. Instant Play from in-memory cache (reliable replay for 1st, 2nd, 3rd time!)
       const cached = this.audioCache.get(cacheKey);
       if (cached) {
-        cached.playbackRate = 1.0;
+        cached.playbackRate = playbackRate;
         this.currentAudio = cached;
 
         cached.onended = () => {
@@ -343,7 +348,7 @@ class SoundEngine {
         if (cached.readyState >= 2) {
           cached.currentTime = 0;
           cached.volume = 1.0;
-          cached.play().catch(() => this.fallbackSpeech(cleanText, requestId));
+          cached.play().catch(() => this.fallbackSpeech(cleanText, requestId, isSentence));
           return;
         } else {
           // Already in-flight! Start playing as soon as the first chunk is buffered
@@ -357,18 +362,18 @@ class SoundEngine {
             }
             cached.currentTime = 0;
             cached.volume = 1.0;
-            cached.play().catch(() => this.fallbackSpeech(cleanText, requestId));
+            cached.play().catch(() => this.fallbackSpeech(cleanText, requestId, isSentence));
           };
 
           cached.addEventListener('canplay', playWhenReady, { once: true });
           cached.addEventListener('error', () => {
-            if (!started) this.fallbackSpeech(cleanText, requestId);
+            if (!started) this.fallbackSpeech(cleanText, requestId, isSentence);
           }, { once: true });
 
           this.networkTimeoutId = setTimeout(() => {
             if (!started) {
               started = true;
-              this.fallbackSpeech(cleanText, requestId);
+              this.fallbackSpeech(cleanText, requestId, isSentence);
             }
           }, 600);
           return;
@@ -385,12 +390,13 @@ class SoundEngine {
           this.networkTimeoutId = null;
         }
         if (this.currentAudio) {
-          this.currentAudio.pause();
-          this.currentAudio.removeAttribute('src');
-          this.currentAudio.load();
+          try {
+            this.currentAudio.pause();
+            this.currentAudio.currentTime = 0;
+          } catch {}
           this.currentAudio = null;
         }
-        this.fallbackSpeech(cleanText, requestId);
+        this.fallbackSpeech(cleanText, requestId, isSentence);
       };
 
       this.networkTimeoutId = setTimeout(triggerFallback, 600);
@@ -399,7 +405,7 @@ class SoundEngine {
         const audio = new Audio();
         audio.preload = 'auto';
         audio.volume = 1.0;
-        audio.playbackRate = 1.0;
+        audio.playbackRate = playbackRate;
         this.currentAudio = audio;
         this.audioCache.set(cacheKey, audio);
 
@@ -421,7 +427,7 @@ class SoundEngine {
           this.finishSpeech();
         };
         audio.onerror = triggerFallback;
-        audio.src = `/api/tts?text=${encodeURIComponent(cleanText)}`;
+        audio.src = `/api/tts?text=${encodeURIComponent(cleanText)}&rate=${encodeURIComponent(targetRate)}`;
         audio.load();
       } catch {
         triggerFallback();
@@ -430,12 +436,12 @@ class SoundEngine {
   }
 
   // Instant fallback to the browser's preferred pleasant natural female voice (0ms delay)
-  private fallbackSpeech(cleanText: string, requestId: number) {
+  private fallbackSpeech(cleanText: string, requestId: number, isSentence: boolean) {
     if (requestId !== this.speechRequestId) return;
-    this.speakWithFemaleSpeechSynthesis(cleanText, requestId);
+    this.speakWithFemaleSpeechSynthesis(cleanText, requestId, isSentence);
   }
 
-  private speakWithFemaleSpeechSynthesis(text: string, requestId: number) {
+  private speakWithFemaleSpeechSynthesis(text: string, requestId: number, isSentence: boolean) {
     if (requestId !== this.speechRequestId) return;
     if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
       this.finishSpeech();
@@ -446,31 +452,39 @@ class SoundEngine {
       if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
         window.speechSynthesis.cancel();
       }
-      if (window.speechSynthesis.paused) {
-        window.speechSynthesis.resume();
-      }
 
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'en-US';
-      utterance.rate = 1.0; // Standard natural conversational speaking speed
-      utterance.pitch = 1.0;
-      utterance.volume = 1.0;
-      if (!this.femaleVoice) this.initFemaleVoices();
-      if (this.femaleVoice) utterance.voice = this.femaleVoice;
-      utterance.onend = () => {
-        if (requestId === this.speechRequestId) this.finishSpeech();
-      };
-      utterance.onerror = () => {
-        if (requestId === this.speechRequestId) this.finishSpeech();
-      };
-      window.speechSynthesis.speak(utterance);
-
-      // Chromium queue watchdog
       setTimeout(() => {
+        if (requestId !== this.speechRequestId) return;
+
         if (window.speechSynthesis.paused) {
           window.speechSynthesis.resume();
         }
-      }, 50);
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        // Sentences: 0.82 (slow, clear, gentle); Words: 0.92 (natural, clear)
+        utterance.rate = isSentence ? 0.82 : 0.92;
+        utterance.pitch = 1.0;
+        utterance.volume = 1.0;
+        if (!this.femaleVoice) this.initFemaleVoices();
+        if (this.femaleVoice) utterance.voice = this.femaleVoice;
+
+        utterance.onend = () => {
+          if (requestId === this.speechRequestId) this.finishSpeech();
+        };
+        utterance.onerror = () => {
+          if (requestId === this.speechRequestId) this.finishSpeech();
+        };
+
+        window.speechSynthesis.speak(utterance);
+
+        // Chromium queue watchdog
+        setTimeout(() => {
+          if (window.speechSynthesis.paused) {
+            window.speechSynthesis.resume();
+          }
+        }, 50);
+      }, 25);
     } catch {
       this.finishSpeech();
     }
@@ -491,9 +505,10 @@ class SoundEngine {
     }
 
     if (this.currentAudio) {
-      this.currentAudio.pause();
-      this.currentAudio.removeAttribute('src');
-      this.currentAudio.load();
+      try {
+        this.currentAudio.pause();
+        this.currentAudio.currentTime = 0;
+      } catch {}
       this.currentAudio = null;
     }
 

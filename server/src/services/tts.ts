@@ -5,11 +5,14 @@ export const MAX_TTS_TEXT_LENGTH = 800;
 const CACHE_LIMIT = 100;
 const audioCache = new Map<string, Buffer>();
 
-export async function* streamSpeech(text: string): AsyncGenerator<Buffer> {
-  const cachedAudio = audioCache.get(text);
+export async function* streamSpeech(text: string, rate?: string): AsyncGenerator<Buffer> {
+  const isSentence = text.includes(' ') || text.length > 25;
+  const targetRate = rate || (isSentence ? '-14%' : '-4%');
+  const cacheKey = `${text}__${targetRate}`;
+  const cachedAudio = audioCache.get(cacheKey);
   if (cachedAudio) {
-    audioCache.delete(text);
-    audioCache.set(text, cachedAudio);
+    audioCache.delete(cacheKey);
+    audioCache.set(cacheKey, cachedAudio);
     yield cachedAudio;
     return;
   }
@@ -18,7 +21,7 @@ export async function* streamSpeech(text: string): AsyncGenerator<Buffer> {
     voice: 'en-US-JennyNeural',
     lang: 'en-US',
     outputFormat: 'audio-24khz-48kbitrate-mono-mp3',
-    rate: '+0%',
+    rate: targetRate,
     timeout: 8_000,
   });
   const chunks: Buffer[] = [];
@@ -37,7 +40,7 @@ export async function* streamSpeech(text: string): AsyncGenerator<Buffer> {
     const oldestKey = audioCache.keys().next().value;
     if (oldestKey) audioCache.delete(oldestKey);
   }
-  audioCache.set(text, audio);
+  audioCache.set(cacheKey, audio);
 }
 
 export async function synthesizeSpeech(text: string): Promise<Buffer> {
