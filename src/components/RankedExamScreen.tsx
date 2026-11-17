@@ -301,23 +301,18 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
                 <span className="text-xs font-bold text-gray-500 block">Thời gian</span>
                 <span className="text-xl font-black text-black">{tierConfig.timeMinutes} phút</span>
               </div>
-              <div className="border-2 border-black p-3 bg-emerald-50">
-                <span className="text-xs font-bold text-gray-500 block">Điểm Thắng (+LP)</span>
-                <span className="text-xl font-black text-emerald-600">
-                  {rankTier === 'BRONZE' ? '+40 LP' : rankTier === 'SILVER' ? '+35 LP' : rankTier === 'GOLD' ? '+28 LP' : '+20 LP'}
-                </span>
+              <div className="border-2 border-black p-3 bg-indigo-50">
+                <span className="text-xs font-bold text-gray-500 block">Phần thi</span>
+                <span className="text-xl font-black text-indigo-700">Part {tierConfig.requiredParts.join(', ')}</span>
               </div>
-              <div className="border-2 border-black p-3 bg-rose-50">
-                <span className="text-xs font-bold text-gray-500 block">Điểm Thua (-LP)</span>
-                <span className="text-xl font-black text-rose-600">
-                  {rankTier === 'BRONZE' ? '-5 LP' : rankTier === 'SILVER' ? '-8 LP' : rankTier === 'GOLD' ? '-14 LP' : '-18 LP'}
-                </span>
+              <div className="border-2 border-black p-3 bg-emerald-50">
+                <span className="text-xs font-bold text-gray-500 block">Chuẩn đạt</span>
+                <span className="text-xl font-black text-emerald-700">≥ 70%</span>
               </div>
             </div>
 
             <div className="text-xs font-bold text-gray-600 space-y-1.5">
-              <p>• <strong>Điều kiện THẮNG TRẬN:</strong> Đạt độ chính xác từ <strong>70% trở lên</strong>.</p>
-              <p>• <strong>Bảo vệ Rank thấp:</strong> Ở bậc Đồng & Bạc, điểm cộng khi thắng rất cao (+40 LP) trong khi điểm trừ rất thấp (-5 LP) để leo rank nhanh.</p>
+              <p>• <strong>Điều kiện THẮNG TRẬN:</strong> Đạt độ chính xác từ <strong>70% trở lên</strong> để nhận điểm LP thăng hạng.</p>
               <p>• <strong>Chuỗi Thăng Hạng:</strong> Đạt đủ 100 LP sẽ mở chuỗi Bo3 (thắng 2/3 trận để lên bậc Rank tiếp theo).</p>
             </div>
           </div>
