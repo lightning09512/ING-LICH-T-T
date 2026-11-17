@@ -1,6 +1,7 @@
 import React, { FormEvent, useEffect, useState } from 'react';
-import { X, Mail, LockKeyhole, LoaderCircle, Cloud, LogOut } from 'lucide-react';
+import { X, Mail, LockKeyhole, LoaderCircle, Cloud, LogOut, ExternalLink, AlertCircle } from 'lucide-react';
 import { useLearningProgress } from '../contexts/ProgressContext';
+import { DoodleCheck } from './DoodleIcons';
 
 interface AccountModalProps {
   onClose: () => void;
@@ -124,8 +125,23 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose, onSuccess }
               )}
               <div className="flex flex-col text-left min-w-0">
                 <span className="font-black text-sm text-black">{user.displayName || user.email}</span>
-                <span className="text-xs text-emerald-700 font-bold">
-                  {syncStatus === 'saved' ? '✅ Đã đồng bộ tiến trình' : syncStatus === 'error' ? '❌ Lỗi đồng bộ đám mây' : '🔄 Đang đồng bộ...'}
+                <span className="text-xs text-emerald-700 font-bold flex items-center gap-1 mt-0.5">
+                  {syncStatus === 'saved' ? (
+                    <>
+                      <DoodleCheck size={14} />
+                      <span>Đã đồng bộ tiến trình</span>
+                    </>
+                  ) : syncStatus === 'error' ? (
+                    <>
+                      <AlertCircle className="w-3.5 h-3.5 text-red-600 shrink-0" />
+                      <span className="text-red-700">Lỗi đồng bộ đám mây</span>
+                    </>
+                  ) : (
+                    <>
+                      <LoaderCircle className="w-3.5 h-3.5 animate-spin text-cyan-700 shrink-0" />
+                      <span>Đang đồng bộ...</span>
+                    </>
+                  )}
                 </span>
               </div>
             </div>
@@ -164,7 +180,8 @@ export const AccountModal: React.FC<AccountModalProps> = ({ onClose, onSuccess }
               disabled={busy || authLoading}
               className="mt-2 w-full py-2 px-3 bg-cyan-100 hover:bg-cyan-200 border-2 border-black font-black text-xs flex items-center justify-center gap-2 cursor-pointer shadow-neo-sm active:scale-95 transition-all"
             >
-              <span>🌐 Trình duyệt chặn popup? Chuyển thẳng trang Google</span>
+              <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+              <span>Trình duyệt chặn popup? Chuyển thẳng trang Google</span>
             </button>
 
             <div className="mt-4 flex items-center gap-3 text-xs font-bold text-gray-500">

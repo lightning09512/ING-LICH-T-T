@@ -1,8 +1,15 @@
 import React from 'react';
 import { sounds } from '../utils/soundEffects';
-import { Play, Sparkles, Cloud, LogIn, LogOut, LoaderCircle } from 'lucide-react';
+import { Play, Cloud, LoaderCircle, ExternalLink, AlertCircle } from 'lucide-react';
 import type { User } from 'firebase/auth';
 import type { SyncStatus } from '../contexts/ProgressContext';
+import {
+  DoodleBoba,
+  DoodleStar,
+  DoodleUnderline,
+  MascotSticker,
+  WashiTapeBadge,
+} from './DoodleIcons';
 
 interface TitleScreenProps {
   onStart: () => void;
@@ -22,12 +29,11 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
   nickname,
   user,
   authLoading,
-  syncStatus,
-  authError,
   onOpenAccount,
   onSignOut,
   onGoogleSignIn,
-  onGoogleRedirectSignIn
+  onGoogleRedirectSignIn,
+  authError,
 }) => {
   const handleStart = () => {
     sounds.playCorrect();
@@ -36,43 +42,60 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
 
   return (
     <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100dvh-64px)] px-3 sm:px-4 py-4 sm:py-6 text-center">
-      {/* Container simulating the exact sketch 1 */}
-      <div className="w-full max-w-2xl flex flex-col items-center gap-4 sm:gap-6 animate-bounceSlow">
-        {/* Top Box: ing lich tet */}
-        <div className="w-full bg-white border-4 border-black p-4 sm:p-6 md:p-8 shadow-neo-lg relative">
-          <div className="absolute -top-3 -right-2 sm:-top-4 sm:-right-4 bg-neoPink text-white text-[10px] sm:text-xs font-black px-2 sm:px-3 py-0.5 sm:py-1 border-2 border-black rotate-6 sm:rotate-12 shadow-neo-sm">
-            EDITION BẠN GÁI 2026
-          </div>
+      <div className="w-full max-w-2xl flex flex-col items-center gap-4 sm:gap-5">
+        {/* Hand-drawn study cat mascot perched on top of the notebook cover */}
+        <div className="relative w-full mt-2 sm:mt-4">
+          <MascotSticker
+            src="/doodles/mascot-study.png"
+            alt="Mèo đội mũ xanh đọc sách cùng trà sữa"
+            size={96}
+            className="w-20 h-20 sm:w-24 sm:h-24 -mb-5 sm:-mb-6 mx-auto relative z-20 drop-shadow-sm animate-wiggle"
+          />
 
-          <h1 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-wider font-heading text-black break-words mt-1 sm:mt-0">
-            ing lịch tét
-          </h1>
-          <p className="text-xs sm:text-sm md:text-base font-bold text-gray-600 mt-1.5 sm:mt-2 font-comic">
-            (giải cứu bạn gái khỏi nỗi sợ TOEIC)
-          </p>
+          <div className="w-full bg-white border-4 border-black p-4 pt-6 sm:p-6 sm:pt-8 md:p-8 shadow-neo-lg relative">
+            <WashiTapeBadge
+              tone="pink"
+              rotate="right"
+              className="absolute -top-3 right-2 sm:-top-3.5 sm:right-4 uppercase"
+            >
+              <DoodleStar size={14} />
+              <span>Edition Bạn Gái 2026</span>
+            </WashiTapeBadge>
+
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-wider font-heading text-black break-words mt-1 sm:mt-0">
+              ing lịch tét
+            </h1>
+            <p className="text-xs sm:text-sm md:text-base font-bold text-gray-600 mt-1.5 sm:mt-2 font-comic">
+              (giải cứu bạn gái khỏi nỗi sợ TOEIC)
+            </p>
+          </div>
         </div>
 
-        {/* Subtitle: Mập địch (Doodle handwriting style) */}
-        <div className="relative py-1 sm:py-2 flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
-          <span className="text-3xl sm:text-5xl md:text-6xl font-black text-red-600 font-comic tracking-tight rotate-[-3deg] hover:scale-110 transition-transform cursor-pointer">
-            ✨ {nickname} ✨
-          </span>
+        {/* Subtitle: Nickname with hand-drawn brush underline + personal avatar */}
+        <div className="relative py-1 sm:py-2 flex items-center justify-center gap-2.5 sm:gap-3.5 flex-wrap">
+          <div className="inline-flex flex-col items-center rotate-[-2deg] hover:scale-105 transition-transform">
+            <span className="text-3xl sm:text-5xl md:text-6xl font-black text-rose-600 font-comic tracking-tight flex items-center gap-1.5">
+              <DoodleStar size={24} className="-mt-2" />
+              <span>{nickname}</span>
+            </span>
+            <DoodleUnderline color="#FF94B9" className="max-w-[200px] sm:max-w-[260px] -mt-1" />
+          </div>
           <img
             src="/app-icon.png"
             alt={nickname}
-            className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-3 border-black shadow-neo object-cover animate-wiggle inline-block shrink-0"
+            className="w-11 h-11 sm:w-14 sm:h-14 rounded-full border-3 border-black shadow-neo object-cover animate-wiggle inline-block shrink-0"
           />
         </div>
 
-        {/* Start Button: [ Bắt đầu ] */}
+        {/* Start Button */}
         <div className="w-full max-w-sm px-2">
           <button
             onClick={handleStart}
             className="w-full py-3.5 sm:py-5 px-6 sm:px-8 bg-neoYellow border-4 border-black text-xl sm:text-2xl md:text-3xl font-black font-heading uppercase shadow-neo-lg hover:bg-yellow-300 hover:shadow-neo active:scale-95 transition-all flex items-center justify-center gap-3 group min-h-[54px] sm:min-h-[58px] cursor-pointer"
           >
-            <Play className="w-5 h-5 sm:w-7 sm:h-7 fill-black group-hover:scale-125 transition-transform" />
-            <span>Bắt đầu</span>
-            <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-pink-500 fill-pink-500 group-hover:rotate-45 transition-transform" />
+            <Play className="w-5 h-5 sm:w-7 sm:h-7 fill-black group-hover:scale-110 transition-transform" />
+            <span>Bắt đầu học</span>
+            <DoodleStar size={24} className="group-hover:rotate-12 transition-transform" />
           </button>
         </div>
 
@@ -120,7 +143,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
                   }
                 }}
                 disabled={authLoading}
-                className="w-full min-h-12 px-4 py-2.5 bg-white border-3 border-black shadow-neo hover:bg-yellow-100 active:scale-95 transition-all flex items-center justify-center gap-2.5 font-black text-sm cursor-pointer disabled:opacity-60"
+                className="w-full min-h-12 px-4 py-2.5 bg-white border-3 border-black shadow-neo hover:bg-yellow-50 active:scale-95 transition-all flex items-center justify-center gap-2.5 font-black text-sm cursor-pointer disabled:opacity-60"
               >
                 {authLoading ? (
                   <>
@@ -139,10 +162,11 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
                   type="button"
                   onClick={() => { void onGoogleRedirectSignIn(); }}
                   disabled={authLoading}
-                  className="w-full min-h-10 px-3 py-1.5 bg-cyan-100 hover:bg-cyan-200 border-2 border-black font-black text-xs flex items-center justify-center gap-2 cursor-pointer shadow-neo-sm active:scale-95 transition-all"
+                  className="w-full min-h-10 px-3 py-1.5 bg-[#CCF2FF] hover:bg-cyan-200 border-2 border-black font-black text-xs flex items-center justify-center gap-1.5 cursor-pointer shadow-neo-sm active:scale-95 transition-all"
                   title="Không cần mở popup, chuyển thẳng sang trang đăng nhập Google"
                 >
-                  <span>🌐 Bị chặn popup? Bấm vào đây để chuyển sang Google</span>
+                  <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                  <span>Bị chặn popup? Bấm để chuyển sang Google</span>
                 </button>
               )}
 
@@ -156,7 +180,8 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
               {authError && (
                 <div role="alert" className="w-full bg-red-50 border-2 border-red-500 p-3 mt-1 text-xs sm:text-sm font-bold text-red-800 text-left shadow-neo-sm animate-shake">
                   <p className="font-black text-red-900 mb-1 flex items-center gap-1.5">
-                    ⚠️ Chưa đăng nhập được:
+                    <AlertCircle className="w-4 h-4 shrink-0" />
+                    <span>Chưa đăng nhập được:</span>
                   </p>
                   <p>{authError}</p>
                 </div>
@@ -165,9 +190,10 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
           )}
         </div>
 
-        {/* Troll Disclaimer */}
-        <div className="bg-neoBg/90 border-2 border-dashed border-black px-3.5 sm:px-4 py-2 mt-2 sm:mt-4 text-xs sm:text-sm font-bold text-gray-700 max-w-md">
-          ⚠️ Cảnh báo: Làm sai quá 3 câu sẽ bị cười vào mặt và trừ 1 ly trà sữa!
+        {/* Hand-drawn Boba Sticky Note */}
+        <div className="bg-[#FFF9DB] border-2 border-dashed border-black px-3.5 sm:px-4 py-2 mt-1 sm:mt-2 text-xs sm:text-sm font-bold text-gray-800 max-w-md flex items-center justify-center gap-2">
+          <DoodleBoba size={22} />
+          <span>Nhắc nhẹ: Làm sai quá 3 câu sẽ bị ghi sổ trừ 1 ly trà sữa!</span>
         </div>
       </div>
     </div>

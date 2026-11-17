@@ -1,15 +1,27 @@
 import React from 'react';
 import { sounds } from '../utils/soundEffects';
-import { BookOpen, GraduationCap, Target, Cloud, LogIn, ArrowLeft, Flame, Mic, PenTool, Sparkles } from 'lucide-react';
+import { Cloud, LogIn, ArrowLeft } from 'lucide-react';
 import type { User } from 'firebase/auth';
 import type { SyncStatus } from '../contexts/ProgressContext';
 import { useLearningProgress } from '../contexts/ProgressContext';
 import { RANK_TIERS_CONFIG } from '../types/ranked';
+import {
+  DoodleBook,
+  DoodleCheck,
+  DoodleFire,
+  DoodleMic,
+  DoodlePencil,
+  DoodleStar,
+  DoodleTarget,
+  DoodleTrophy,
+  MascotSticker,
+  WashiTapeBadge,
+} from './DoodleIcons';
 
 interface MenuScreenProps {
   onSelectMode: (
-    mode: 'LEARN' | 'GRAMMAR' | 'EXAM' | 'RANKED' | 'SPEAKING' | 'WRITING' | 'SW_EXAM', 
-    chapter?: 1 | 2, 
+    mode: 'LEARN' | 'GRAMMAR' | 'EXAM' | 'RANKED' | 'SPEAKING' | 'WRITING' | 'SW_EXAM',
+    chapter?: 1 | 2,
     testId?: string,
     swSkill?: 'SPEAKING' | 'WRITING'
   ) => void;
@@ -26,19 +38,19 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
   nickname,
   user,
   syncStatus,
-  onOpenAccount
+  onOpenAccount,
 }) => {
   const { rankTier, rankLp, rankPromo } = useLearningProgress();
   const currentTierConfig = RANK_TIERS_CONFIG[rankTier] || RANK_TIERS_CONFIG.BRONZE;
+
   return (
     <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100dvh-70px)] px-3 sm:px-4 py-4 sm:py-6 md:py-10">
       <div className="w-full max-w-xl md:max-w-3xl flex flex-col items-center gap-3.5 sm:gap-5 md:gap-6">
-        
         {/* User Account Status Banner */}
         {user ? (
-          <div 
+          <div
             onClick={onOpenAccount}
-            className="w-full bg-white border-3 border-black p-2.5 sm:p-3.5 shadow-neo flex items-center justify-between gap-2.5 cursor-pointer hover:bg-cyan-50/50 transition-colors"
+            className="w-full bg-white border-3 border-black p-2.5 sm:p-3.5 shadow-neo flex items-center justify-between gap-2.5 cursor-pointer hover:bg-cyan-50/40 transition-colors"
           >
             <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
               {user.photoURL ? (
@@ -53,8 +65,9 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
                   <span className="font-heading font-black text-sm sm:text-lg text-black truncate max-w-[150px] sm:max-w-[220px]">
                     {user.displayName || user.email}
                   </span>
-                  <span className="text-[9px] sm:text-[10px] bg-neoGreen text-black border border-black font-black px-1.5 py-0.5 rounded shadow-neo-sm">
-                    ✅ Đã đăng nhập
+                  <span className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] bg-[#C6F6DF] text-[#0B3B28] border border-black font-black px-1.5 py-0.5 rounded shadow-neo-sm">
+                    <DoodleCheck size={12} />
+                    <span>Đã đăng nhập</span>
                   </span>
                 </div>
                 <span className="text-[11px] sm:text-xs text-gray-600 font-bold flex items-center gap-1 truncate">
@@ -68,28 +81,37 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
         ) : (
           <button
             onClick={onOpenAccount}
-            className="w-full bg-neoYellow border-3 border-black p-2.5 sm:p-3 shadow-neo-sm hover:bg-yellow-300 transition-colors flex items-center justify-center gap-2 font-black text-xs sm:text-sm cursor-pointer"
+            className="w-full bg-[#FFF099] border-3 border-black p-2.5 sm:p-3 shadow-neo-sm hover:bg-yellow-200 transition-colors flex items-center justify-center gap-2 font-black text-xs sm:text-sm cursor-pointer"
           >
             <LogIn className="w-4 h-4 text-black shrink-0" />
             <span>Đăng nhập tài khoản Google để lưu tiến trình của bạn</span>
           </button>
         )}
 
-        {/* Header badge */}
-        <div className="text-center">
-          <span className="inline-block px-3 sm:px-4 py-1 sm:py-2 bg-neoPurple border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo-sm rotate-[-2deg]">
-            🎮 Chọn Chế Độ Chơi
-          </span>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black mt-2 font-heading leading-tight">
-            Hôm nay {nickname} muốn làm gì nào?
-          </h2>
+        {/* Header greeting with cozy hand-drawn mascot */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center sm:text-left">
+          <MascotSticker
+            src="/doodles/mascot-study.png"
+            alt="Bé mèo học bài"
+            size={76}
+            className="w-16 h-16 sm:w-20 sm:h-20 shrink-0"
+          />
+          <div>
+            <WashiTapeBadge tone="lavender" rotate="left" className="uppercase">
+              <DoodleBook size={14} />
+              <span>Sổ Tay Ôn Luyện</span>
+            </WashiTapeBadge>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black mt-2 font-heading leading-tight">
+              Hôm nay {nickname} muốn học gì nào?
+            </h2>
+          </div>
         </div>
 
-        {/* 3 Buttons matching sketch 2 */}
+        {/* Mode Cards */}
         <div className="w-full flex flex-col gap-3 sm:gap-4 md:gap-5">
-          {/* Button 1: Học bài (Gồm Chương 1 và Chương 2) */}
+          {/* Card 1: Học bài (Chương 1 & Chương 2) */}
           <div className="w-full bg-white border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg flex flex-col gap-3 group">
-            <div 
+            <div
               onClick={() => {
                 sounds.playClick();
                 onSelectMode('LEARN', 1);
@@ -97,37 +119,38 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
               className="flex items-center justify-between cursor-pointer"
             >
               <div className="flex items-center gap-3 sm:gap-4 md:gap-5 text-left min-w-0">
-                <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-neoGreen border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:rotate-6 transition-transform shrink-0">
-                  <BookOpen className="w-5 h-5 sm:w-7 sm:h-7 md:w-8 md:h-8 text-black" />
+                <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#C6F6DF] border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:rotate-3 transition-transform shrink-0">
+                  <DoodleBook size={32} />
                 </div>
                 <div className="min-w-0">
                   <div className="flex items-center gap-2 flex-wrap">
                     <h3 className="text-lg sm:text-2xl md:text-3xl font-black uppercase font-heading leading-tight">
-                      Học bài
+                      Học từ vựng
                     </h3>
-                    <span className="bg-neoYellow text-black text-[10px] sm:text-xs font-black px-2 py-0.5 border border-black shadow-neo-sm">
-                      2 Chương
-                    </span>
+                    <WashiTapeBadge tone="yellow">2 Chương</WashiTapeBadge>
                   </div>
                   <p className="text-[11px] sm:text-sm md:text-base font-bold text-gray-600 mt-0.5 line-clamp-2">
-                    Từ vựng TOEIC trọng điểm + Flashcard + Phát âm chuẩn Mỹ
+                    Từ vựng TOEIC trọng điểm, thẻ lật Flashcard & giọng đọc chuẩn Mỹ
                   </p>
                 </div>
               </div>
             </div>
 
             {/* Quick Chapter Selector Pills */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t-2 border-black/10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t-2 border-dashed border-black/15">
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   sounds.playClick();
                   onSelectMode('LEARN', 1);
                 }}
-                className="flex items-center justify-between px-3 py-2 bg-yellow-50 hover:bg-yellow-100 border-2 border-black font-black text-xs shadow-neo-sm hover:-translate-y-0.5 active:scale-[0.98] transition-all cursor-pointer text-left"
+                className="flex items-center justify-between px-3 py-2 bg-[#FFFBEB] hover:bg-yellow-100 border-2 border-black font-black text-xs shadow-neo-sm hover:-translate-y-0.5 active:scale-[0.98] transition-all cursor-pointer text-left gap-2"
               >
-                <span>📘 <strong>Chương 1:</strong> 26 Ngày Cơ Bản</span>
-                <span className="text-[10px] bg-white px-1.5 py-0.5 border border-black">26 Màn</span>
+                <span className="flex items-center gap-1.5 min-w-0 truncate">
+                  <DoodleBook size={16} />
+                  <span className="truncate"><strong>Chương 1:</strong> 26 Ngày Cơ Bản</span>
+                </span>
+                <span className="text-[10px] bg-white px-1.5 py-0.5 border border-black shrink-0">26 Màn</span>
               </button>
               <button
                 onClick={(e) => {
@@ -135,188 +158,182 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
                   sounds.playClick();
                   onSelectMode('LEARN', 2);
                 }}
-                className="flex items-center justify-between px-3 py-2 bg-cyan-50 hover:bg-cyan-100 border-2 border-black font-black text-xs shadow-neo-sm hover:-translate-y-0.5 active:scale-[0.98] transition-all cursor-pointer text-left relative overflow-hidden"
+                className="flex items-center justify-between px-3 py-2 bg-[#ECFEFF] hover:bg-cyan-100 border-2 border-black font-black text-xs shadow-neo-sm hover:-translate-y-0.5 active:scale-[0.98] transition-all cursor-pointer text-left gap-2"
               >
-                <div className="flex items-center gap-1.5 min-w-0">
-                  <span className="bg-neoPink text-white text-[8px] font-black px-1 border border-black animate-pulse shrink-0">MỚI</span>
-                  <span className="truncate">🚀 <strong>Chương 2:</strong> ETS 2019 & New Economy</span>
-                </div>
+                <span className="flex items-center gap-1.5 min-w-0 truncate">
+                  <DoodleStar size={16} />
+                  <span className="truncate"><strong>Chương 2:</strong> ETS 2019 & New Economy</span>
+                </span>
                 <span className="text-[10px] bg-white px-1.5 py-0.5 border border-black shrink-0">13 Bộ</span>
               </button>
             </div>
           </div>
 
-          {/* Button 2: Ngữ pháp */}
+          {/* Card 2: Ngữ pháp */}
           <button
             onClick={() => {
               sounds.playClick();
               onSelectMode('GRAMMAR');
             }}
-            className="w-full bg-white hover:bg-amber-50 border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group min-h-[76px] sm:min-h-[96px] cursor-pointer relative overflow-hidden"
+            className="w-full bg-white hover:bg-amber-50/70 border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group min-h-[76px] sm:min-h-[96px] cursor-pointer relative overflow-hidden"
           >
-            <div className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 bg-red-600 text-white text-[9px] sm:text-[11px] font-black px-1.5 sm:px-2 py-0.5 border border-black uppercase rotate-3 sm:rotate-6 shadow-neo-sm z-10">
-              🔥 Trọng Điểm Part 5
-            </div>
+            <WashiTapeBadge tone="peach" rotate="right" className="absolute top-2 right-2 z-10">
+              <span>Trọng điểm Part 5 & 6</span>
+            </WashiTapeBadge>
             <div className="flex items-center gap-3 sm:gap-4 md:gap-5 text-left min-w-0">
-              <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-neoYellow border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:-rotate-6 transition-transform shrink-0">
-                <GraduationCap className="w-5 h-5 sm:w-7 sm:h-7 md:w-8 md:h-8 text-black" />
+              <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#FFF099] border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:-rotate-3 transition-transform shrink-0">
+                <DoodlePencil size={30} />
               </div>
-              <div className="min-w-0 pr-12 sm:pr-0">
+              <div className="min-w-0 pr-24 sm:pr-32">
                 <h3 className="text-lg sm:text-2xl md:text-3xl font-black uppercase font-heading leading-tight">
                   Ngữ pháp
                 </h3>
                 <p className="text-[11px] sm:text-sm md:text-base font-bold text-gray-600 mt-0.5 line-clamp-2">
-                  10 chủ điểm then chốt Part 5 & 6 + Công thức, Mẹo diệt bẫy ETS & Mini Quiz!
+                  10 chủ điểm cốt lõi Part 5 & 6, công thức ngắn gọn, mẹo tránh bẫy & bài tập nhanh
                 </p>
               </div>
             </div>
           </button>
 
-          {/* Button 3: Đấu Xếp Hạng (Ranked Mode) */}
+          {/* Card 3: Đấu Xếp Hạng */}
           <button
             onClick={() => {
               sounds.playClick();
               onSelectMode('RANKED');
             }}
-            className="w-full bg-[#FEF9C3] hover:bg-yellow-100 border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group relative overflow-hidden min-h-[76px] sm:min-h-[96px] cursor-pointer"
+            className="w-full bg-[#FFFBEB] hover:bg-yellow-100/80 border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group relative overflow-hidden min-h-[76px] sm:min-h-[96px] cursor-pointer"
           >
-            <div className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[9px] sm:text-[11px] font-black px-2 py-0.5 border border-black uppercase rotate-3 sm:rotate-6 shadow-neo-sm z-10 flex items-center gap-1">
-              <Flame className="w-3 h-3 fill-white" />
-              <span>{rankPromo?.active ? 'Bo3 Thăng Hạng!' : `${currentTierConfig.nameVi} • ${rankLp} LP`}</span>
-            </div>
+            <WashiTapeBadge tone="yellow" rotate="right" className="absolute top-2 right-2 z-10">
+              <DoodleFire size={14} />
+              <span>{rankPromo?.active ? 'Bo3 Thăng Hạng' : `${currentTierConfig.nameVi} • ${rankLp} LP`}</span>
+            </WashiTapeBadge>
             <div className="flex items-center gap-3 sm:gap-4 md:gap-5 text-left min-w-0">
-              <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-white border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:scale-110 transition-transform shrink-0 text-2xl sm:text-3xl">
-                <span>{currentTierConfig.badge}</span>
+              <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-white border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:scale-105 transition-transform shrink-0">
+                <DoodleTrophy size={32} />
               </div>
-              <div className="min-w-0 pr-12 sm:pr-0">
-                <h3 className="text-lg sm:text-2xl md:text-3xl font-black uppercase font-heading text-black leading-tight flex items-center gap-2">
-                  <span>Đấu Xếp Hạng</span>
+              <div className="min-w-0 pr-24 sm:pr-32">
+                <h3 className="text-lg sm:text-2xl md:text-3xl font-black uppercase font-heading text-black leading-tight">
+                  Đấu Xếp Hạng
                 </h3>
                 <p className="text-[11px] sm:text-sm md:text-base font-bold text-gray-700 mt-0.5 line-clamp-2">
-                  Leo rank Đồng ➔ Thách Đấu, tính điểm LP + Thăng hạng Bo3, phân tầng độ khó chuẩn ETS!
+                  Leo bậc Đồng đến Thách Đấu, tính điểm LP & chuỗi thăng hạng Bo3 theo độ khó ETS
                 </p>
               </div>
             </div>
           </button>
 
-          {/* Button 4: Luyện đề (Study4 style) */}
+          {/* Card 4: Luyện đề 200 câu */}
           <button
             onClick={() => {
               sounds.playClick();
               onSelectMode('EXAM');
             }}
-            className="w-full bg-white hover:bg-rose-50 border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group relative overflow-hidden min-h-[76px] sm:min-h-[96px] cursor-pointer"
+            className="w-full bg-white hover:bg-rose-50/60 border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group relative overflow-hidden min-h-[76px] sm:min-h-[96px] cursor-pointer"
           >
-            <div className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 bg-neoPink text-white text-[9px] sm:text-[11px] font-black px-1.5 sm:px-2 py-0.5 border border-black uppercase rotate-3 sm:rotate-6 shadow-neo-sm z-10">
-              Chuẩn Study4
-            </div>
+            <WashiTapeBadge tone="pink" rotate="right" className="absolute top-2 right-2 z-10">
+              <span>Đề 200 câu</span>
+            </WashiTapeBadge>
             <div className="flex items-center gap-3 sm:gap-4 md:gap-5 text-left min-w-0">
-              <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-neoPink border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:scale-110 transition-transform shrink-0">
-                <Target className="w-5 h-5 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
+              <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#FFD6E5] border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:scale-105 transition-transform shrink-0">
+                <DoodleTarget size={30} />
               </div>
-              <div className="min-w-0 pr-12 sm:pr-0">
+              <div className="min-w-0 pr-20 sm:pr-28">
                 <h3 className="text-lg sm:text-2xl md:text-3xl font-black uppercase font-heading text-black leading-tight">
-                  Luyện đề
+                  Luyện đề Nghe & Đọc
                 </h3>
                 <p className="text-[11px] sm:text-sm md:text-base font-bold text-gray-600 mt-0.5 line-clamp-2">
-                  Đầy đủ Part 1 - 7 Nghe & Đọc, audio player, bảng câu hỏi, tính điểm 990
+                  Trọn bộ Part 1 – 7, trình phát audio chuẩn phòng thi, bảng câu hỏi & chấm điểm 990
                 </p>
               </div>
             </div>
           </button>
 
-          {/* SECTION HEADER: TOEIC 4 KỸ NĂNG (SPEAKING & WRITING) */}
+          {/* SECTION DIVIDER: TOEIC SPEAKING & WRITING */}
           <div className="w-full flex items-center gap-2 pt-2 pb-1">
-            <div className="h-[2px] bg-black/20 flex-1" />
-            <span className="text-[11px] sm:text-xs font-black uppercase tracking-wider text-black bg-[#FFDE59] px-3 py-1 rounded-full border-2 border-black shadow-neo-sm flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-amber-600 fill-amber-500" />
-              TOEIC 4 Kỹ Năng • Speaking & Writing
-            </span>
-            <div className="h-[2px] bg-black/20 flex-1" />
+            <div className="h-[2px] bg-black/15 flex-1" />
+            <WashiTapeBadge tone="yellow" className="rounded-full px-3.5 py-1">
+              <DoodleStar size={14} />
+              <span>TOEIC 4 Kỹ Năng • Speaking & Writing</span>
+            </WashiTapeBadge>
+            <div className="h-[2px] bg-black/15 flex-1" />
           </div>
 
-          {/* HÌNH 1: TOEIC Speaking (Ôn tập thuần túy: mẹo, từ, cách luyện tập) */}
+          {/* Card 5: TOEIC Speaking Revision */}
           <button
             onClick={() => {
               sounds.playClick();
               onSelectMode('SPEAKING');
             }}
-            className="w-full bg-[#E0F7FA] hover:bg-[#b2ebf2] border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group relative overflow-hidden min-h-[76px] sm:min-h-[96px] cursor-pointer text-left"
+            className="w-full bg-[#ECFEFF] hover:bg-cyan-100/80 border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group relative overflow-hidden min-h-[76px] sm:min-h-[96px] cursor-pointer text-left"
           >
-            <div className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 bg-[#00838F] text-white text-[9px] sm:text-[11px] font-black px-2 py-0.5 border border-black uppercase rotate-3 sm:rotate-6 shadow-neo-sm z-10 flex items-center gap-1">
-              <BookOpen className="w-3 h-3 text-yellow-300" />
-              <span>Ôn Tập • Cẩm Nang 5 Part</span>
-            </div>
+            <WashiTapeBadge tone="sky" rotate="right" className="absolute top-2 right-2 z-10">
+              <span>Cẩm nang 5 Part</span>
+            </WashiTapeBadge>
             <div className="flex items-center gap-3 sm:gap-4 md:gap-5 text-left min-w-0">
-              <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#00BCD4] border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:-rotate-6 transition-transform shrink-0">
-                <Mic className="w-5 h-5 sm:w-7 sm:h-7 md:w-8 md:h-8 text-black" />
+              <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#CCF2FF] border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:-rotate-3 transition-transform shrink-0">
+                <DoodleMic size={30} />
               </div>
-              <div className="min-w-0 pr-20 sm:pr-0">
-                <h3 className="text-lg sm:text-2xl md:text-3xl font-black uppercase font-heading text-black leading-tight flex items-center gap-2">
-                  <span>TOEIC Speaking</span>
+              <div className="min-w-0 pr-24 sm:pr-32">
+                <h3 className="text-lg sm:text-2xl md:text-3xl font-black uppercase font-heading text-black leading-tight">
+                  TOEIC Speaking
                 </h3>
                 <p className="text-[11px] sm:text-sm md:text-base font-bold text-gray-700 mt-0.5 line-clamp-2">
-                  Cẩm nang 16 bài học 5 Part: Mẹo phát âm, ngắt nghỉ, ngữ điệu, mẫu câu & cách luyện tập như phần ngữ pháp!
+                  16 bài ôn luyện 5 Part: cách ngắt nghỉ, ngữ điệu, mẫu câu ăn điểm & nghe phát âm mẫu
                 </p>
               </div>
             </div>
           </button>
 
-          {/* HÌNH 2: TOEIC Writing (Ôn tập thuần túy: mẹo, từ, cấu trúc câu) */}
+          {/* Card 6: TOEIC Writing Revision */}
           <button
             onClick={() => {
               sounds.playClick();
               onSelectMode('WRITING');
             }}
-            className="w-full bg-[#FFF3E0] hover:bg-[#ffe0b2] border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group relative overflow-hidden min-h-[76px] sm:min-h-[96px] cursor-pointer text-left"
+            className="w-full bg-[#FFF7ED] hover:bg-orange-100/80 border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group relative overflow-hidden min-h-[76px] sm:min-h-[96px] cursor-pointer text-left"
           >
-            <div className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 bg-[#E65100] text-white text-[9px] sm:text-[11px] font-black px-2 py-0.5 border border-black uppercase -rotate-2 sm:-rotate-3 shadow-neo-sm z-10 flex items-center gap-1">
-              <BookOpen className="w-3 h-3 text-yellow-300" />
-              <span>Ôn Tập • Dàn Bài & Cấu Trúc</span>
-            </div>
+            <WashiTapeBadge tone="peach" rotate="left" className="absolute top-2 right-2 z-10">
+              <span>Dàn bài & Cấu trúc</span>
+            </WashiTapeBadge>
             <div className="flex items-center gap-3 sm:gap-4 md:gap-5 text-left min-w-0">
-              <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#FF9800] border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:rotate-6 transition-transform shrink-0">
-                <PenTool className="w-5 h-5 sm:w-7 sm:h-7 md:w-8 md:h-8 text-black" />
+              <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#FFE2C2] border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:rotate-3 transition-transform shrink-0">
+                <DoodlePencil size={30} />
               </div>
-              <div className="min-w-0 pr-20 sm:pr-0">
-                <h3 className="text-lg sm:text-2xl md:text-3xl font-black uppercase font-heading text-black leading-tight flex items-center gap-2">
-                  <span>TOEIC Writing</span>
+              <div className="min-w-0 pr-28 sm:pr-36">
+                <h3 className="text-lg sm:text-2xl md:text-3xl font-black uppercase font-heading text-black leading-tight">
+                  TOEIC Writing
                 </h3>
                 <p className="text-[11px] sm:text-sm md:text-base font-bold text-gray-700 mt-0.5 line-clamp-2">
-                  Cẩm nang 8 bài học 3 Part: Mẹo viết câu theo tranh, cấu trúc Email công sở & dàn ý bài luận 300 từ!
+                  8 bài học 3 Part: mẹo đặt câu theo tranh, khung Email công sở & dàn ý luận 300 từ
                 </p>
               </div>
             </div>
           </button>
 
-          {/* BẢNG 3: Luyện Đề Speaking & Writing (Như phần Luyện Đề của LR ở trên!) */}
+          {/* Card 7: Luyện Đề Speaking & Writing */}
           <button
             onClick={() => {
               sounds.playClick();
               onSelectMode('SW_EXAM');
             }}
-            className="w-full bg-[#F3E8FF] hover:bg-[#e9d5ff] border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group relative overflow-hidden min-h-[76px] sm:min-h-[96px] cursor-pointer text-left"
+            className="w-full bg-[#F5F3FF] hover:bg-purple-100/80 border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group relative overflow-hidden min-h-[76px] sm:min-h-[96px] cursor-pointer text-left"
           >
-            <div className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 bg-purple-700 text-white text-[9px] sm:text-[11px] font-black px-2 py-0.5 border border-black uppercase rotate-2 sm:rotate-3 shadow-neo-sm z-10 flex items-center gap-1">
-              <Target className="w-3 h-3 text-yellow-300" />
-              <span>Chuẩn Study4 • 20 Đề Gốc</span>
-            </div>
+            <WashiTapeBadge tone="lavender" rotate="right" className="absolute top-2 right-2 z-10">
+              <span>20 Đề thực chiến</span>
+            </WashiTapeBadge>
             <div className="flex items-center gap-3 sm:gap-4 md:gap-5 text-left min-w-0">
-              <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-purple-500 border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:scale-110 transition-transform shrink-0 text-white">
-                <Target className="w-5 h-5 sm:w-7 sm:h-7 md:w-8 md:h-8 text-black" />
+              <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#E5DCFF] border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:scale-105 transition-transform shrink-0">
+                <DoodleTarget size={30} />
               </div>
-              <div className="min-w-0 pr-20 sm:pr-0">
-                <h3 className="text-lg sm:text-2xl md:text-3xl font-black uppercase font-heading text-black leading-tight flex items-center gap-2">
-                  <span>Luyện Đề Speaking & Writing</span>
+              <div className="min-w-0 pr-24 sm:pr-32">
+                <h3 className="text-lg sm:text-2xl md:text-3xl font-black uppercase font-heading text-black leading-tight">
+                  Phòng Thi Speaking & Writing
                 </h3>
                 <p className="text-[11px] sm:text-sm md:text-base font-bold text-gray-700 mt-0.5 line-clamp-2">
-                  Trọn bộ 20 đề gốc Study4 (10 Speaking • 10 Writing): MP3 gốc, tranh gốc, đồng hồ IIG & AI chấm điểm Band 200!
+                  Trọn bộ 20 đề gốc (10 Speaking • 10 Writing): audio & tranh đề thi, đồng hồ đếm giờ và chấm bài chi tiết
                 </p>
               </div>
             </div>
-            <span className="text-lg sm:text-2xl md:text-3xl font-black font-heading group-hover:translate-x-1 transition-transform shrink-0 ml-2">
-              🎯
-            </span>
           </button>
         </div>
 
@@ -326,11 +343,10 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
             sounds.playClick();
             onBack();
           }}
-          className="mt-1 sm:mt-3 flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 bg-gray-200 border-2 border-black font-black text-xs sm:text-sm shadow-neo-sm hover:bg-gray-300 active:scale-95 min-h-[42px] sm:min-h-[44px] cursor-pointer"
+          className="mt-1 sm:mt-3 flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 bg-white border-2 border-black font-black text-xs sm:text-sm shadow-neo-sm hover:bg-gray-100 active:scale-95 min-h-[42px] sm:min-h-[44px] cursor-pointer"
         >
           <ArrowLeft className="w-4 h-4" /> Quay lại Màn Hình Chính
         </button>
-
       </div>
     </div>
   );
