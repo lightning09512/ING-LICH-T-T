@@ -1,13 +1,13 @@
 import React from 'react';
 import { sounds } from '../utils/soundEffects';
-import { BookOpen, GraduationCap, Target, Cloud, LogIn, ArrowLeft, Trophy, Flame } from 'lucide-react';
+import { BookOpen, GraduationCap, Target, Cloud, LogIn, ArrowLeft, Trophy, Flame, Mic, PenTool, Sparkles } from 'lucide-react';
 import type { User } from 'firebase/auth';
 import type { SyncStatus } from '../contexts/ProgressContext';
 import { useLearningProgress } from '../contexts/ProgressContext';
 import { RANK_TIERS_CONFIG } from '../types/ranked';
 
 interface MenuScreenProps {
-  onSelectMode: (mode: 'LEARN' | 'GRAMMAR' | 'EXAM' | 'RANKED', chapter?: 1 | 2) => void;
+  onSelectMode: (mode: 'LEARN' | 'GRAMMAR' | 'EXAM' | 'RANKED' | 'SPEAKING' | 'WRITING', chapter?: 1 | 2) => void;
   onBack: () => void;
   nickname: string;
   user?: User | null;
@@ -229,6 +229,76 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
             </div>
             <span className="text-lg sm:text-2xl md:text-3xl font-black font-heading group-hover:translate-x-1 transition-transform shrink-0 ml-2">
               🎯
+            </span>
+          </button>
+
+          {/* SECTION HEADER: TOEIC 4 KỸ NĂNG (SPEAKING & WRITING) */}
+          <div className="w-full flex items-center gap-2 pt-2 pb-1">
+            <div className="h-[2px] bg-black/20 flex-1" />
+            <span className="text-[11px] sm:text-xs font-black uppercase tracking-wider text-black bg-[#FFDE59] px-3 py-1 rounded-full border-2 border-black shadow-neo-sm flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-amber-600 fill-amber-500" />
+              Ôn Luyện 2 Kỹ Năng Mới • Tích Hợp AI Chấm Điểm
+            </span>
+            <div className="h-[2px] bg-black/20 flex-1" />
+          </div>
+
+          {/* Button 5: TOEIC Speaking (Luyện Nói & Chấm Điểm AI) */}
+          <button
+            onClick={() => {
+              sounds.playClick();
+              onSelectMode('SPEAKING');
+            }}
+            className="w-full bg-[#E0F7FA] hover:bg-[#b2ebf2] border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group relative overflow-hidden min-h-[76px] sm:min-h-[96px] cursor-pointer"
+          >
+            <div className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 bg-[#00838F] text-white text-[9px] sm:text-[11px] font-black px-2 py-0.5 border border-black uppercase rotate-3 sm:rotate-6 shadow-neo-sm z-10 flex items-center gap-1">
+              <Sparkles className="w-3 h-3 fill-yellow-300 text-yellow-300" />
+              <span>AI Voice • Band 200</span>
+            </div>
+            <div className="flex items-center gap-3 sm:gap-4 md:gap-5 text-left min-w-0">
+              <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#00BCD4] border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:-rotate-6 transition-transform shrink-0">
+                <Mic className="w-5 h-5 sm:w-7 sm:h-7 md:w-8 md:h-8 text-black" />
+              </div>
+              <div className="min-w-0 pr-16 sm:pr-0">
+                <h3 className="text-lg sm:text-2xl md:text-3xl font-black uppercase font-heading text-black leading-tight flex items-center gap-2">
+                  <span>TOEIC Speaking</span>
+                </h3>
+                <p className="text-[11px] sm:text-sm md:text-base font-bold text-gray-700 mt-0.5 line-clamp-2">
+                  Luyện nói 5 Part chuẩn ETS: Thu âm giọng nói, nhận diện từ, chấm điểm phát âm & ngữ điệu qua AI!
+                </p>
+              </div>
+            </div>
+            <span className="text-lg sm:text-2xl md:text-3xl font-black font-heading group-hover:translate-x-1 transition-transform shrink-0 ml-2">
+              🎙️
+            </span>
+          </button>
+
+          {/* Button 6: TOEIC Writing (Luyện Viết & Sửa Văn AI) */}
+          <button
+            onClick={() => {
+              sounds.playClick();
+              onSelectMode('WRITING');
+            }}
+            className="w-full bg-[#FFF3E0] hover:bg-[#ffe0b2] border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group relative overflow-hidden min-h-[76px] sm:min-h-[96px] cursor-pointer"
+          >
+            <div className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 bg-[#E65100] text-white text-[9px] sm:text-[11px] font-black px-2 py-0.5 border border-black uppercase -rotate-2 sm:-rotate-3 shadow-neo-sm z-10 flex items-center gap-1">
+              <Sparkles className="w-3 h-3 fill-yellow-300 text-yellow-300" />
+              <span>AI Sửa Câu & Nhận Xét</span>
+            </div>
+            <div className="flex items-center gap-3 sm:gap-4 md:gap-5 text-left min-w-0">
+              <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#FF9800] border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:rotate-6 transition-transform shrink-0">
+                <PenTool className="w-5 h-5 sm:w-7 sm:h-7 md:w-8 md:h-8 text-black" />
+              </div>
+              <div className="min-w-0 pr-16 sm:pr-0">
+                <h3 className="text-lg sm:text-2xl md:text-3xl font-black uppercase font-heading text-black leading-tight flex items-center gap-2">
+                  <span>TOEIC Writing</span>
+                </h3>
+                <p className="text-[11px] sm:text-sm md:text-base font-bold text-gray-700 mt-0.5 line-clamp-2">
+                  Viết câu theo tranh, phản hồi Email & Viết luận 300 từ + AI chỉ lỗi sai ngữ pháp, nâng cấp từ vựng C1!
+                </p>
+              </div>
+            </div>
+            <span className="text-lg sm:text-2xl md:text-3xl font-black font-heading group-hover:translate-x-1 transition-transform shrink-0 ml-2">
+              ✍️
             </span>
           </button>
         </div>
