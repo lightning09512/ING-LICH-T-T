@@ -123,6 +123,12 @@ export const LofiPlayer: React.FC<LofiPlayerProps> = ({
   const currentTrack = LOFI_TRACKS[currentTrackIndex];
   const isDirectAudio = !!currentTrack.streamUrl;
 
+  const isPlayingRef = useRef(isPlaying);
+  useEffect(() => { isPlayingRef.current = isPlaying; }, [isPlaying]);
+
+  const volumeRef = useRef(volume);
+  useEffect(() => { volumeRef.current = volume; }, [volume]);
+
   // MediaSession API setup for Lockscreen & Notification playback on phones
   useEffect(() => {
     if ('mediaSession' in navigator) {
@@ -146,16 +152,73 @@ export const LofiPlayer: React.FC<LofiPlayerProps> = ({
   // Send postMessage to YouTube IFrame API
   const sendIframeCommand = (command: string, args: any[] = []) => {
     if (iframeRef.current && iframeRef.current.contentWindow) {
-      iframeRef.current.contentWindow.postMessage(
-        JSON.stringify({
-          event: 'command',
-          func: command,
-          args: args
-        }),
-        '*'
-      );
+      try {
+        iframeRef.current.contentWindow.postMessage(
+          JSON.stringify({
+            event: 'command',
+            func: command,
+            args: args
+          }),
+          '*'
+        );
+      } catch (e) {
+        // Ignore cross-origin errors
+      }
     }
   };
+
+  // Robust YouTube play with retries for asynchronous iframe load
+  const playYouTubeWithRetries = () => {
+    sendIframeCommand('unMute');
+    sendIframeCommand('setVolume', [volumeRef.current || 70]);
+    sendIframeCommand('playVideo');
+
+    // YouTube iframe script might take 100-1000ms to initialize its message handler
+    const delays = [150, 400, 800, 1500, 2500];
+    delays.forEach(delay => {
+      setTimeout(() => {
+        if (isPlayingRef.current) {
+          sendIframeCommand('unMute');
+          sendIframeCommand('setVolume', [volumeRef.current || 70]);
+          sendIframeCommand('playVideo');
+        }
+      }, delay);
+    });
+  };
+
+  // Listen to postMessage from YouTube IFrame to sync playing state and fire immediate play upon onReady
+  useEffect(() => {
+    const handleWindowMessage = (event: MessageEvent) => {
+      try {
+        if (typeof event.data !== 'string') return;
+        const data = JSON.parse(event.data);
+
+        // When YouTube iframe completes initialization
+        if (data.event === 'onReady' || data.event === 'initialDelivery') {
+          if (isPlayingRef.current) {
+            sendIframeCommand('unMute');
+            sendIframeCommand('setVolume', [volumeRef.current || 70]);
+            sendIframeCommand('playVideo');
+          }
+        }
+
+        // When user plays/pauses directly inside the YouTube video controls
+        if (data.event === 'infoDelivery' && data.info) {
+          if (data.info.playerState === 1) { // 1 = PLAYING
+            setIsPlaying(true);
+            setIsPillDismissed(false);
+          } else if (data.info.playerState === 2) { // 2 = PAUSED
+            setIsPlaying(false);
+          }
+        }
+      } catch (e) {
+        // Ignore non-JSON postMessage from other extensions
+      }
+    };
+
+    window.addEventListener('message', handleWindowMessage);
+    return () => window.removeEventListener('message', handleWindowMessage);
+  }, []);
 
   const handlePlay = () => {
     setIsPlaying(true);
@@ -167,7 +230,7 @@ export const LofiPlayer: React.FC<LofiPlayerProps> = ({
     } else {
       // Pause Direct Audio if playing
       audioRef.current?.pause();
-      sendIframeCommand('playVideo');
+      playYouTubeWithRetries();
     }
   };
 
@@ -193,6 +256,8 @@ export const LofiPlayer: React.FC<LofiPlayerProps> = ({
   const handleSelectTrack = (index: number) => {
     sounds.playClick();
     const targetTrack = LOFI_TRACKS[index];
+    const isNewTrack = index !== currentTrackIndex;
+
     setCurrentTrackIndex(index);
     setIsPlaying(true);
     setIsPillDismissed(false);
@@ -207,10 +272,13 @@ export const LofiPlayer: React.FC<LofiPlayerProps> = ({
       if (audioRef.current) {
         audioRef.current.pause();
       }
-      // Wait next tick for iframe to update key/src
-      setTimeout(() => {
-        sendIframeCommand('playVideo');
-      }, 300);
+      if (targetTrack.youtubeId) {
+        // If iframe is already active and we're switching YouTube videos, use loadVideoById for zero latency
+        if (isNewTrack && currentTrack.youtubeId) {
+          sendIframeCommand('loadVideoById', [targetTrack.youtubeId]);
+        }
+        playYouTubeWithRetries();
+      }
     }
   };
 
@@ -383,11 +451,17 @@ export const LofiPlayer: React.FC<LofiPlayerProps> = ({
           {/* YouTube IFrame (Always mounted when track has youtubeId) */}
           <iframe
             ref={iframeRef}
-            src={currentTrack.youtubeId ? `https://www.youtube-nocookie.com/embed/${currentTrack.youtubeId}?enablejsapi=1&autoplay=0&loop=1&playlist=${currentTrack.youtubeId}&playsinline=1` : undefined}
+            key={currentTrack.youtubeId || 'direct-audio'}
+            src={currentTrack.youtubeId ? `https://www.youtube-nocookie.com/embed/${currentTrack.youtubeId}?enablejsapi=1&autoplay=${isPlaying ? 1 : 0}&loop=1&playlist=${currentTrack.youtubeId}&playsinline=1${typeof window !== 'undefined' && window.location.origin ? `&origin=${encodeURIComponent(window.location.origin)}` : ''}` : undefined}
             title={currentTrack.title}
             className={`w-full h-full border-none ${isDirectAudio ? 'hidden' : 'block'}`}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
+            onLoad={() => {
+              if (isPlaying && currentTrack.youtubeId) {
+                playYouTubeWithRetries();
+              }
+            }}
           />
 
           {/* Radio Animated Poster for Direct Audio Stream */}
