@@ -27,6 +27,7 @@ export function App() {
     authError,
     streakDays,
     lastStudyDate,
+    studyDates,
     hearts,
     signInWithGoogle,
     signInWithGoogleRedirect,
@@ -336,6 +337,7 @@ export function App() {
         onClose={() => setIsStreakModalOpen(false)}
         streakDays={streakDays}
         lastStudyDate={lastStudyDate}
+        studyDates={studyDates}
         nickname={nickname}
         onStartLearning={() => {
           setIsStreakModalOpen(false);

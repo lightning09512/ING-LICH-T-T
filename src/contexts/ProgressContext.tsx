@@ -24,6 +24,7 @@ export interface LearningProgress {
   vocabChapter2DayStars: Record<number, number>;
   streakDays: number;
   lastStudyDate: string;
+  studyDates?: string[];
   hearts: number;
   lastHeartRefillTime: number;
   // Ranked mode
@@ -48,6 +49,7 @@ interface ProgressContextValue {
   firebaseConfigured: boolean;
   streakDays: number;
   lastStudyDate: string;
+  studyDates: string[];
   hearts: number;
   rankTier: RankTier;
   rankLp: number;
@@ -91,8 +93,9 @@ const DEFAULT_PROGRESS: LearningProgress = {
   vocabDayStars: {},
   vocabChapter2UnlockedDay: 1,
   vocabChapter2DayStars: {},
-  streakDays: 5,
+  streakDays: 0,
   lastStudyDate: '',
+  studyDates: [],
   hearts: 3,
   lastHeartRefillTime: Date.now(),
   rankTier: 'BRONZE',
@@ -113,6 +116,7 @@ const LEGACY_KEYS = {
   chapter2DayStars: 'ing_lich_v2_day_stars',
   streak: 'ing_lich_streak_days',
   lastStudyDate: 'ing_lich_last_study_date',
+  studyDates: 'ing_lich_study_dates',
   hearts: 'ing_lich_hearts',
   lastHeartRefillTime: 'ing_lich_heart_refill_time',
   rankTier: 'ing_rank_tier',
@@ -157,8 +161,26 @@ function normalizeProgress(value: unknown): LearningProgress {
     Object.entries(raw.vocabChapter2DayStars ?? {}).filter(([, stars]) => Number.isFinite(stars) && stars >= 0)
   );
   const rawStreak = Number(raw.streakDays);
-  const streakDays = Number.isFinite(rawStreak) && rawStreak >= 0 ? rawStreak : 5;
+  const baseStreak = Number.isFinite(rawStreak) && rawStreak >= 0 ? rawStreak : 0;
   const lastStudyDate = typeof raw.lastStudyDate === 'string' ? raw.lastStudyDate : '';
+
+  // VALIDATE STREAK:
+  // If no lastStudyDate or if last study date is older than yesterday, user missed at least 1 day -> streak resets to 0!
+  const today = getLocalDateString();
+  const yesterday = getYesterdayDateString();
+  let streakDays = 0;
+  if (lastStudyDate === today || lastStudyDate === yesterday) {
+    streakDays = baseStreak;
+  } else {
+    streakDays = 0;
+  }
+
+  const rawDates = Array.isArray(raw.studyDates) ? raw.studyDates : [];
+  const studyDates = rawDates.filter(d => typeof d === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(d));
+  if (lastStudyDate && !studyDates.includes(lastStudyDate)) {
+    studyDates.push(lastStudyDate);
+  }
+
   const rawHearts = Number(raw.hearts);
   const hearts = Number.isFinite(rawHearts) ? Math.max(0, Math.min(3, rawHearts)) : 3;
   const rawRefill = Number(raw.lastHeartRefillTime);
@@ -185,6 +207,7 @@ function normalizeProgress(value: unknown): LearningProgress {
     vocabChapter2DayStars,
     streakDays,
     lastStudyDate,
+    studyDates,
     hearts,
     lastHeartRefillTime,
     rankTier,
@@ -218,9 +241,25 @@ function mergeProgress(...items: LearningProgress[]): LearningProgress {
         result.vocabChapter2DayStars[numericDay] = Math.max(result.vocabChapter2DayStars[numericDay] ?? 0, stars);
       }
     }
-    result.streakDays = Math.max(result.streakDays, item.streakDays);
+    const today = getLocalDateString();
+    const yesterday = getYesterdayDateString();
+    const isItemValid = item.lastStudyDate === today || item.lastStudyDate === yesterday;
+    const isResultValid = result.lastStudyDate === today || result.lastStudyDate === yesterday;
+    const validItemStreak = isItemValid ? item.streakDays : 0;
+    const validResultStreak = isResultValid ? result.streakDays : 0;
+    result.streakDays = Math.max(validResultStreak, validItemStreak);
+
     if (item.lastStudyDate && (!result.lastStudyDate || item.lastStudyDate > result.lastStudyDate)) {
       result.lastStudyDate = item.lastStudyDate;
+    }
+    if (item.studyDates && Array.isArray(item.studyDates)) {
+      result.studyDates = Array.from(new Set([...(result.studyDates || []), ...item.studyDates]));
+    }
+    if (typeof item.hearts === 'number') {
+      result.hearts = item.hearts;
+    }
+    if (typeof item.lastHeartRefillTime === 'number') {
+      result.lastHeartRefillTime = item.lastHeartRefillTime;
     }
     if (typeof item.hearts === 'number') {
       result.hearts = item.hearts;
@@ -268,6 +307,11 @@ function readGuestProgress(): LearningProgress {
     const chapter2Stars = localStorage.getItem(LEGACY_KEYS.chapter2DayStars);
     const streak = localStorage.getItem(LEGACY_KEYS.streak);
     const lastDate = localStorage.getItem(LEGACY_KEYS.lastStudyDate);
+    const rawStudyDates = localStorage.getItem(LEGACY_KEYS.studyDates);
+    let parsedStudyDates: string[] = [];
+    try {
+      if (rawStudyDates) parsedStudyDates = JSON.parse(rawStudyDates);
+    } catch {}
     const hearts = localStorage.getItem(LEGACY_KEYS.hearts);
     const refill = localStorage.getItem(LEGACY_KEYS.lastHeartRefillTime);
     const rankTier = localStorage.getItem(LEGACY_KEYS.rankTier) as RankTier | null;
@@ -285,8 +329,9 @@ function readGuestProgress(): LearningProgress {
       vocabDayStars: dayStars ? JSON.parse(dayStars) : {},
       vocabChapter2UnlockedDay: chapter2Unlocked ? Number.parseInt(chapter2Unlocked, 10) : 1,
       vocabChapter2DayStars: chapter2Stars ? JSON.parse(chapter2Stars) : {},
-      streakDays: streak ? Number.parseInt(streak, 10) : 5,
+      streakDays: streak ? Number.parseInt(streak, 10) : 0,
       lastStudyDate: lastDate || '',
+      studyDates: parsedStudyDates,
       hearts: hearts ? Number.parseInt(hearts, 10) : 3,
       lastHeartRefillTime: refill ? Number.parseInt(refill, 10) : Date.now(),
       rankTier: rankTier || 'BRONZE',
@@ -326,6 +371,7 @@ function writeLocalProgress(progress: LearningProgress, uid: string | null) {
     localStorage.setItem(LEGACY_KEYS.chapter2DayStars, JSON.stringify(progress.vocabChapter2DayStars ?? {}));
     localStorage.setItem(LEGACY_KEYS.streak, String(progress.streakDays));
     localStorage.setItem(LEGACY_KEYS.lastStudyDate, progress.lastStudyDate);
+    localStorage.setItem(LEGACY_KEYS.studyDates, JSON.stringify(progress.studyDates || []));
     localStorage.setItem(LEGACY_KEYS.hearts, String(progress.hearts));
     localStorage.setItem(LEGACY_KEYS.lastHeartRefillTime, String(progress.lastHeartRefillTime));
     localStorage.setItem(LEGACY_KEYS.rankTier, progress.rankTier);
@@ -737,26 +783,76 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     const yesterday = getYesterdayDateString();
 
     commitProgress(current => {
+      // If already studied today, ensure today is in studyDates
       if (current.lastStudyDate === today) {
+        if (!current.studyDates?.includes(today)) {
+          return {
+            ...current,
+            studyDates: [...(current.studyDates || []), today]
+          };
+        }
         return current;
       }
 
-      let nextStreak = current.streakDays;
-      if (current.lastStudyDate === yesterday) {
+      let nextStreak = 1;
+      // Consecutive streak: only if studied yesterday!
+      if (current.lastStudyDate === yesterday && (current.streakDays || 0) > 0) {
         nextStreak = (current.streakDays || 0) + 1;
-      } else if (!current.lastStudyDate) {
-        nextStreak = Math.max(1, current.streakDays || 1);
       } else {
-        // Missed at least one day
+        // Missed at least one day or first study: streak starts at 1
         nextStreak = 1;
       }
+
+      const updatedDates = Array.from(new Set([...(current.studyDates || []), today]));
 
       return {
         ...current,
         streakDays: nextStreak,
         lastStudyDate: today,
+        studyDates: updatedDates,
       };
     });
+  }, [commitProgress]);
+
+  // Proactively check and expire streak if user missed a day
+  useEffect(() => {
+    const checkAndExpireStreak = () => {
+      const today = getLocalDateString();
+      const yesterday = getYesterdayDateString();
+
+      commitProgress(current => {
+        if (!current.lastStudyDate) {
+          if (current.streakDays !== 0) {
+            return { ...current, streakDays: 0 };
+          }
+          return current;
+        }
+
+        // If user missed yesterday and today -> streak is completely broken and lost!
+        if (current.lastStudyDate !== today && current.lastStudyDate !== yesterday) {
+          if (current.streakDays !== 0) {
+            return { ...current, streakDays: 0 };
+          }
+        }
+        return current;
+      });
+    };
+
+    checkAndExpireStreak();
+
+    const onVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        checkAndExpireStreak();
+      }
+    };
+
+    document.addEventListener('visibilitychange', onVisibilityChange);
+    window.addEventListener('focus', checkAndExpireStreak);
+
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+      window.removeEventListener('focus', checkAndExpireStreak);
+    };
   }, [commitProgress]);
 
   const loseHeart = useCallback(() => {
@@ -961,8 +1057,9 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     syncStatus,
     authError,
     firebaseConfigured,
-    streakDays: progress.streakDays ?? 5,
+    streakDays: progress.streakDays ?? 0,
     lastStudyDate: progress.lastStudyDate ?? '',
+    studyDates: progress.studyDates || [],
     hearts: progress.hearts ?? 3,
     rankTier: progress.rankTier || 'BRONZE',
     rankLp: progress.rankLp ?? 0,

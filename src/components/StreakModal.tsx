@@ -7,6 +7,7 @@ interface StreakModalProps {
   onClose: () => void;
   streakDays: number;
   lastStudyDate: string;
+  studyDates?: string[];
   nickname: string;
   onStartLearning?: () => void;
 }
@@ -16,6 +17,7 @@ export const StreakModal: React.FC<StreakModalProps> = ({
   onClose,
   streakDays,
   lastStudyDate,
+  studyDates = [],
   nickname,
   onStartLearning,
 }) => {
@@ -51,6 +53,17 @@ export const StreakModal: React.FC<StreakModalProps> = ({
     { label: 'T7', dayIdx: 6 },
   ];
 
+  // Calculate exact YYYY-MM-DD for each day of the current week
+  const getWeekDateString = (targetDayIdx: number): string => {
+    const d = new Date();
+    const diff = targetDayIdx - todayDayOfWeek;
+    d.setDate(d.getDate() + diff);
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
   return (
     <div
       className="fixed inset-0 z-[70] bg-black/50 p-2.5 sm:p-4 flex items-center justify-center animate-fadeIn"
@@ -68,26 +81,36 @@ export const StreakModal: React.FC<StreakModalProps> = ({
 
         {/* Modal Header */}
         <div className="flex flex-col items-center text-center">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 bg-orange-100 border-3 border-black rounded-full flex items-center justify-center shadow-neo-sm mb-3">
-            <Flame className="w-10 h-10 sm:w-12 sm:h-12 text-orange-500 fill-orange-500 animate-bounceSlow" />
+          <div className={`w-16 h-16 sm:w-20 sm:h-20 border-3 border-black rounded-full flex items-center justify-center shadow-neo-sm mb-3 ${
+            streakDays > 0 ? 'bg-orange-100' : 'bg-gray-100'
+          }`}>
+            <Flame className={`w-10 h-10 sm:w-12 sm:h-12 ${
+              streakDays > 0 ? 'text-orange-500 fill-orange-500 animate-bounceSlow' : 'text-gray-400 fill-gray-300'
+            }`} />
           </div>
 
-          <span className="text-xs uppercase font-black px-2.5 py-1 bg-neoYellow border-2 border-black rotate-[-2deg] shadow-neo-sm">
-            🔥 Chuỗi học tập
+          <span className={`text-xs uppercase font-black px-2.5 py-1 border-2 border-black rotate-[-2deg] shadow-neo-sm ${
+            streakDays > 0 ? 'bg-neoYellow text-black' : 'bg-gray-200 text-gray-700'
+          }`}>
+            {streakDays > 0 ? '🔥 Chuỗi học tập' : '❄️ Chuỗi đã tắt'}
           </span>
 
           <h2 className="text-3xl sm:text-4xl font-black font-heading mt-2">
-            {streakDays} ngày liên tiếp!
+            {streakDays > 0 ? `${streakDays} ngày liên tiếp!` : '0 ngày liên tiếp'}
           </h2>
 
           <p className="text-xs sm:text-sm font-bold text-gray-700 mt-1 max-w-xs">
-            {isStudiedToday ? (
+            {streakDays === 0 ? (
+              <span className="text-rose-600 font-bold block">
+                Ngọn lửa đã tắt vì không học bài liên tục! Học 1 bài ngay để bắt đầu chuỗi ngày mới nhé!
+              </span>
+            ) : isStudiedToday ? (
               <span className="text-emerald-700 font-black flex items-center justify-center gap-1">
                 <CheckCircle2 className="w-4 h-4 inline" /> Hôm nay đã học bài, ngọn lửa vẫn rực cháy!
               </span>
             ) : (
               <span className="text-amber-800 font-bold">
-                ⏳ Hôm nay chưa học bài nào. Hãy học 1 bài bất kỳ để duy trì ngọn lửa nhé!
+                ⏳ Hôm nay chưa học bài nào. Hãy học 1 bài bất kỳ để duy trì chuỗi {streakDays} ngày nhé!
               </span>
             )}
           </p>
@@ -95,14 +118,21 @@ export const StreakModal: React.FC<StreakModalProps> = ({
 
         {/* 7-Day Weekly Streak Tracker */}
         <div className="mt-5 p-3.5 bg-neoBg border-2 border-black shadow-neo-sm">
-          <p className="text-xs font-black uppercase text-gray-700 text-center mb-2.5">
-            Lịch tuần này
-          </p>
+          <div className="flex items-center justify-between mb-2.5">
+            <p className="text-xs font-black uppercase text-gray-700">
+              Lịch tuần này
+            </p>
+            <span className="text-[10px] font-bold text-gray-500">
+              {streakDays > 0 ? `Đang duy trì: ${streakDays} ngày` : 'Nghỉ 1 ngày là mất chuỗi'}
+            </span>
+          </div>
+
           <div className="grid grid-cols-7 gap-1.5 text-center">
             {dayNames.map(({ label, dayIdx }) => {
+              const dateStr = getWeekDateString(dayIdx);
               const isToday = dayIdx === todayDayOfWeek;
-              const isPastOrToday = (todayDayOfWeek === 0 ? 7 : todayDayOfWeek) >= (dayIdx === 0 ? 7 : dayIdx);
-              const isActive = (isToday && isStudiedToday) || (!isToday && isPastOrToday && streakDays > 1);
+              const isStudiedOnDate = (studyDates && studyDates.includes(dateStr)) || (isToday && isStudiedToday);
+              const isActive = isStudiedOnDate;
 
               return (
                 <div
@@ -114,6 +144,7 @@ export const StreakModal: React.FC<StreakModalProps> = ({
                       ? 'bg-orange-100 text-orange-900'
                       : 'bg-white text-gray-400'
                   }`}
+                  title={`${label}: ${dateStr} - ${isActive ? 'Đã học' : 'Chưa học'}`}
                 >
                   <span className="text-[10px] text-gray-600 mb-1">{label}</span>
                   {isActive ? (
