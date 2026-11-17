@@ -8,6 +8,7 @@ import { useLearningProgress } from '../contexts/ProgressContext';
 import { RankTier, RANK_TIERS_CONFIG, RankedQuestion, PromoSeries } from '../types/ranked';
 import { generateRankedMatchQuestions } from '../utils/rankedQuestionGenerator';
 import { sounds } from '../utils/soundEffects';
+import { LolMatchFoundModal } from './LolMatchFoundModal';
 
 interface RankedExamScreenProps {
   onBack: () => void;
@@ -37,6 +38,8 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
   const [showExitConfirm, setShowExitConfirm] = useState(false);
   const [showReview, setShowReview] = useState(false);
+  const [showMatchFoundModal, setShowMatchFoundModal] = useState(false);
+  const [declineToast, setDeclineToast] = useState<string | null>(null);
 
   // Result state
   const [matchResult, setMatchResult] = useState<{
@@ -54,24 +57,37 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
   // Audio timer ref
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Start a new match
+  // Start a new match: Pre-fetch questions & pop LoL Match Found dialog!
   const handleStartMatch = async () => {
     sounds.playClick();
     setLoadingQuestions(true);
+    setDeclineToast(null);
     try {
       const generated = await generateRankedMatchQuestions(rankTier);
       setQuestions(generated);
       setCurrentIndex(0);
       setSelectedAnswers({});
       setTimeLeft(tierConfig.timeMinutes * 60);
-      setPhase('EXAM');
       setShowReview(false);
       setMatchResult(null);
+      // Trigger LoL Match Found Modal
+      setShowMatchFoundModal(true);
     } catch (e) {
       console.error('Failed to generate match questions', e);
     } finally {
       setLoadingQuestions(false);
     }
+  };
+
+  const handleAcceptMatch = () => {
+    setShowMatchFoundModal(false);
+    setPhase('EXAM');
+  };
+
+  const handleDeclineMatch = () => {
+    setShowMatchFoundModal(false);
+    setDeclineToast("Bạn đã từ chối trận đấu hoặc quá giờ! Hãy chuẩn bị tâm lý rồi bấm tìm trận lại nhé Mập địch! ⚔️");
+    setTimeout(() => setDeclineToast(null), 6000);
   };
 
   // Timer countdown
@@ -318,6 +334,14 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
           </div>
         </div>
 
+        {/* Thông báo từ chối trận nếu có */}
+        {declineToast && (
+          <div className="mb-4 p-3 bg-rose-100 border-3 border-black font-black text-xs sm:text-sm text-rose-800 shadow-neo-sm animate-bounce flex items-center gap-2">
+            <span>⚠️</span>
+            <span>{declineToast}</span>
+          </div>
+        )}
+
         {/* Nút Vào Trận */}
         <div className="pt-4">
           <button
@@ -326,7 +350,7 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
             className="w-full py-4 bg-[#FFE500] border-4 border-black shadow-neo-lg text-lg sm:text-xl font-black text-black hover:-translate-y-1 active:translate-y-0.5 transition-all flex items-center justify-center gap-3 cursor-pointer disabled:opacity-50"
           >
             {loadingQuestions ? (
-              <span>Đang chuẩn bị đề thi...</span>
+              <span>Đang tìm kiếm đối thủ & đề thi...</span>
             ) : (
               <>
                 <Trophy className="w-6 h-6 text-black" />
@@ -336,6 +360,15 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
             )}
           </button>
         </div>
+
+        {/* Modal MATCH FOUND phong cách League of Legends Hextech */}
+        <LolMatchFoundModal
+          isOpen={showMatchFoundModal}
+          tierName={tierConfig.nameVi}
+          nickname={nickname}
+          onAccept={handleAcceptMatch}
+          onDecline={handleDeclineMatch}
+        />
       </div>
     );
   }

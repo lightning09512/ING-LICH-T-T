@@ -282,6 +282,163 @@ class SoundEngine {
     this.playVictory();
   }
 
+  // ==========================================
+  // LEAGUE OF LEGENDS (HEX-TECH) SOUND EFFECTS
+  // ==========================================
+
+  /**
+   * League of Legends Match Found Sound (Queue Pop)
+   * Tries authentic MP3, falls back to Web Audio API gong & golden chord synthesis.
+   */
+  public playLolMatchFound() {
+    if (!this.soundEnabled) return;
+    try {
+      const audio = new Audio('/sounds/lol_match_found.mp3');
+      audio.volume = 0.9;
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          this.synthesizeLolMatchFound();
+        });
+      }
+    } catch {
+      this.synthesizeLolMatchFound();
+    }
+  }
+
+  private synthesizeLolMatchFound() {
+    const ctx = this.getContext();
+    if (!ctx) return;
+    try {
+      const now = ctx.currentTime;
+      // 1. Deep gong fundamental
+      const gongOsc = ctx.createOscillator();
+      const gongGain = ctx.createGain();
+      gongOsc.type = 'triangle';
+      gongOsc.frequency.setValueAtTime(130.81, now); // C3
+      gongOsc.frequency.exponentialRampToValueAtTime(110.0, now + 1.8);
+      gongGain.gain.setValueAtTime(0.4, now);
+      gongGain.gain.exponentialRampToValueAtTime(0.001, now + 2.0);
+      gongOsc.connect(gongGain);
+      gongGain.connect(ctx.destination);
+      gongOsc.start(now);
+      gongOsc.stop(now + 2.0);
+
+      // 2. Golden chord sheen
+      const chord = [261.63, 392.00, 523.25, 659.25, 1046.50];
+      chord.forEach((freq, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now + i * 0.03);
+        gain.gain.setValueAtTime(0.001, now + i * 0.03);
+        gain.gain.linearRampToValueAtTime(0.18, now + i * 0.03 + 0.08);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 2.2);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now + i * 0.03);
+        osc.stop(now + 2.2);
+      });
+    } catch {}
+  }
+
+  /**
+   * League of Legends Match Accept / Lock-In Sound
+   */
+  public playLolAccept() {
+    if (!this.soundEnabled) return;
+    const ctx = this.getContext();
+    if (!ctx) return;
+    try {
+      const now = ctx.currentTime;
+      // Metallic anvil strike
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(880, now);
+      osc.frequency.exponentialRampToValueAtTime(180, now + 0.15);
+      gain.gain.setValueAtTime(0.45, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.35);
+
+      // Low bass thump
+      const bass = ctx.createOscillator();
+      const bassGain = ctx.createGain();
+      bass.type = 'sine';
+      bass.frequency.setValueAtTime(120, now);
+      bass.frequency.exponentialRampToValueAtTime(45, now + 0.4);
+      bassGain.gain.setValueAtTime(0.5, now);
+      bassGain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+      bass.connect(bassGain);
+      bassGain.connect(ctx.destination);
+      bass.start(now);
+      bass.stop(now + 0.5);
+
+      // Shimmer fanfare
+      [523.25, 659.25, 783.99, 1046.50].forEach((f, idx) => {
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
+        o.type = 'triangle';
+        o.frequency.setValueAtTime(f, now + 0.08 + idx * 0.04);
+        g.gain.setValueAtTime(0.001, now + 0.08 + idx * 0.04);
+        g.gain.linearRampToValueAtTime(0.15, now + 0.08 + idx * 0.04 + 0.03);
+        g.gain.exponentialRampToValueAtTime(0.001, now + 0.8);
+        o.connect(g);
+        g.connect(ctx.destination);
+        o.start(now + 0.08 + idx * 0.04);
+        o.stop(now + 0.8);
+      });
+    } catch {}
+  }
+
+  /**
+   * League of Legends Match Decline / Cancel Sound
+   */
+  public playLolDecline() {
+    if (!this.soundEnabled) return;
+    const ctx = this.getContext();
+    if (!ctx) return;
+    try {
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(180, now);
+      osc.frequency.exponentialRampToValueAtTime(60, now + 0.3);
+      gain.gain.setValueAtTime(0.35, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.35);
+    } catch {}
+  }
+
+  /**
+   * League of Legends Countdown Tick Sound
+   */
+  public playLolTick() {
+    if (!this.soundEnabled) return;
+    const ctx = this.getContext();
+    if (!ctx) return;
+    try {
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(1800, now);
+      gain.gain.setValueAtTime(0.08, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.04);
+    } catch {}
+  }
+
   private cleanSpeechText(text: string): string {
     return text
       .replace(/\/[^\/]+\//g, '')               // Strip IPA phonetic transcription like /əˈkɑː.mə.deɪt/

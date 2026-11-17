@@ -58,3 +58,65 @@
   }
 }
 
+/* HEXTECH CSS FONT & THEME */
+@font-face {
+  font-family: 'Beaufort';
+  src: url('/fonts/Beaufort-Regular.woff') format('woff'), url('/fonts/Beaufort-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Beaufort';
+  src: url('/fonts/Beaufort-Bold.woff') format('woff'), url('/fonts/Beaufort-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Spiegel';
+  src: url('/fonts/Spiegel-Regular.woff') format('woff'), url('/fonts/Spiegel-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+.hextech-font {
+  font-family: 'Beaufort', serif, system-ui;
+  letter-spacing: 0.08em;
+}
+
+.hextech-button {
+  font-family: 'Beaufort', serif, system-ui;
+  text-transform: uppercase;
+  color: #f0e6d2;
+  border: 3px solid transparent;
+  background: #1e2328;
+  border-image: linear-gradient(to bottom, #08abac, #01698b) 1;
+  transition: all ease 0.3s;
+  letter-spacing: 0.1em;
+}
+
+.hextech-button:hover:not(:disabled) {
+  background-image: url('/img/btn.jpg');
+  background-position: center center;
+  background-size: cover;
+  box-shadow: 0 0 15px 4px rgba(192, 252, 253, 0.4), inset 0 0 8px 2px rgba(192, 252, 253, 0.3);
+  border: 3px solid rgba(192, 252, 253, 0.85);
+  cursor: pointer;
+}
+
+.hextech-button-secondary {
+  font-family: 'Beaufort', serif, system-ui;
+  text-transform: uppercase;
+  color: #c8aa6e;
+  border: 2px solid;
+  border-image: linear-gradient(to bottom, #f6c97f, #ca9d4b) 1;
+  background: #111721;
+  transition: all ease 0.25s;
+  letter-spacing: 0.08em;
+}
+
+.hextech-button-secondary:hover:not(:disabled) {
+  box-shadow: 0 0 10px 2px rgba(200, 170, 110, 0.4), inset 0 0 6px 1px rgba(200, 170, 110, 0.2);
+  border-color: #f0e6d2;
+  color: #fff;
+  cursor: pointer;
+}
+
