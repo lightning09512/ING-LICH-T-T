@@ -49,20 +49,20 @@ export const FloatingTrollfaces: React.FC = () => {
     window.addEventListener('touchmove', onTouchMove, { passive: true });
     window.addEventListener('touchend', onTouchEnd, { passive: true });
 
-    // Initialize 14-26 troll particles (increased count for more lively troll background)
-    const particleCount = Math.min(26, Math.max(14, Math.floor(window.innerWidth / 60)));
+    // Gentle subtle background doodles so foreground hand-drawn stickers remain clean
+    const particleCount = Math.min(14, Math.max(8, Math.floor(window.innerWidth / 95)));
     const particles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
-        vx: (Math.random() - 0.5) * 0.45,
-        vy: (Math.random() - 0.5) * 0.45,
-        size: Math.floor(Math.random() * 32) + 36, // 36px - 68px (varied sizes for depth)
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        size: Math.floor(Math.random() * 24) + 32, // 32px - 56px
         rotation: (Math.random() - 0.5) * 0.5,
-        vRot: (Math.random() - 0.5) * 0.006,
-        opacity: 0.12 + Math.random() * 0.18 // 0.12 - 0.30
+        vRot: (Math.random() - 0.5) * 0.005,
+        opacity: 0.06 + Math.random() * 0.08 // 0.06 - 0.14 subtle stationery watermark
       });
     }
 
