@@ -333,7 +333,7 @@ export const defaultProfile: UserProfileDoc = {
   _id: "profile_gf",
   nickname: "Mập địch",
   avatar: "/trollface.png",
-  streakDays: 5,
+  streakDays: 0,
   totalPoints: 1250,
   highestScore: 780,
   currentRank: "Nóc Nhà Đỉnh Nóc",

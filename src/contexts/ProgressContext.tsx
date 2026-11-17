@@ -71,6 +71,7 @@ interface ProgressContextValue {
   recordStudyActivity: () => void;
   loseHeart: () => boolean;
   refillHearts: () => void;
+  resetStreak: () => void;
   saveRankMatchResult: (match: {
     tier: RankTier;
     score: number;
@@ -144,6 +145,63 @@ function getYesterdayDateString(): string {
 
 const ProgressContext = createContext<ProgressContextValue | null>(null);
 
+export function calculateConsecutiveStreak(
+  studyDates: string[] | undefined,
+  lastStudyDate: string,
+  today: string = getLocalDateString(),
+  yesterday: string = getYesterdayDateString()
+): number {
+  // If user didn't study today and didn't study yesterday, streak is completely broken -> 0!
+  if (lastStudyDate !== today && lastStudyDate !== yesterday) {
+    return 0;
+  }
+
+  // Gather unique valid date strings
+  const validDates = new Set(
+    (studyDates || []).filter(d => typeof d === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(d))
+  );
+  if (lastStudyDate && /^\d{4}-\d{2}-\d{2}$/.test(lastStudyDate)) {
+    validDates.add(lastStudyDate);
+  }
+
+  if (validDates.size === 0) {
+    return 0;
+  }
+
+  // Determine starting point:
+  // If studied today, start counting backwards from today.
+  // If not studied today, but studied yesterday, start counting backwards from yesterday (streak preserved).
+  let currentDateStr: string | null = null;
+  if (validDates.has(today)) {
+    currentDateStr = today;
+  } else if (validDates.has(yesterday)) {
+    currentDateStr = yesterday;
+  } else {
+    return 0;
+  }
+
+  let streak = 0;
+  const [startY, startM, startD] = currentDateStr.split('-').map(Number);
+  // Noon prevents DST/timezone shifting bugs
+  const cursor = new Date(startY, startM - 1, startD, 12, 0, 0);
+
+  while (true) {
+    const y = cursor.getFullYear();
+    const m = String(cursor.getMonth() + 1).padStart(2, '0');
+    const d = String(cursor.getDate()).padStart(2, '0');
+    const formatted = `${y}-${m}-${d}`;
+
+    if (validDates.has(formatted)) {
+      streak++;
+      cursor.setDate(cursor.getDate() - 1);
+    } else {
+      break;
+    }
+  }
+
+  return streak;
+}
+
 function normalizeProgress(value: unknown): LearningProgress {
   if (!value || typeof value !== 'object') return { ...DEFAULT_PROGRESS };
 
@@ -160,26 +218,17 @@ function normalizeProgress(value: unknown): LearningProgress {
   const vocabChapter2DayStars = Object.fromEntries(
     Object.entries(raw.vocabChapter2DayStars ?? {}).filter(([, stars]) => Number.isFinite(stars) && stars >= 0)
   );
-  const rawStreak = Number(raw.streakDays);
-  const baseStreak = Number.isFinite(rawStreak) && rawStreak >= 0 ? rawStreak : 0;
+
   const lastStudyDate = typeof raw.lastStudyDate === 'string' ? raw.lastStudyDate : '';
-
-  // VALIDATE STREAK:
-  // If no lastStudyDate or if last study date is older than yesterday, user missed at least 1 day -> streak resets to 0!
-  const today = getLocalDateString();
-  const yesterday = getYesterdayDateString();
-  let streakDays = 0;
-  if (lastStudyDate === today || lastStudyDate === yesterday) {
-    streakDays = baseStreak;
-  } else {
-    streakDays = 0;
-  }
-
   const rawDates = Array.isArray(raw.studyDates) ? raw.studyDates : [];
   const studyDates = rawDates.filter(d => typeof d === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(d));
-  if (lastStudyDate && !studyDates.includes(lastStudyDate)) {
+  if (lastStudyDate && /^\d{4}-\d{2}-\d{2}$/.test(lastStudyDate) && !studyDates.includes(lastStudyDate)) {
     studyDates.push(lastStudyDate);
   }
+
+  // Calculate real consecutive streak based on actual study dates
+  // (Wipes out any legacy hardcoded default "5" from stale cache/Firestore)
+  const streakDays = calculateConsecutiveStreak(studyDates, lastStudyDate);
 
   const rawHearts = Number(raw.hearts);
   const hearts = Number.isFinite(rawHearts) ? Math.max(0, Math.min(3, rawHearts)) : 3;
@@ -241,26 +290,15 @@ function mergeProgress(...items: LearningProgress[]): LearningProgress {
         result.vocabChapter2DayStars[numericDay] = Math.max(result.vocabChapter2DayStars[numericDay] ?? 0, stars);
       }
     }
-    const today = getLocalDateString();
-    const yesterday = getYesterdayDateString();
-    const isItemValid = item.lastStudyDate === today || item.lastStudyDate === yesterday;
-    const isResultValid = result.lastStudyDate === today || result.lastStudyDate === yesterday;
-    const validItemStreak = isItemValid ? item.streakDays : 0;
-    const validResultStreak = isResultValid ? result.streakDays : 0;
-    result.streakDays = Math.max(validResultStreak, validItemStreak);
-
     if (item.lastStudyDate && (!result.lastStudyDate || item.lastStudyDate > result.lastStudyDate)) {
       result.lastStudyDate = item.lastStudyDate;
     }
     if (item.studyDates && Array.isArray(item.studyDates)) {
       result.studyDates = Array.from(new Set([...(result.studyDates || []), ...item.studyDates]));
     }
-    if (typeof item.hearts === 'number') {
-      result.hearts = item.hearts;
-    }
-    if (typeof item.lastHeartRefillTime === 'number') {
-      result.lastHeartRefillTime = item.lastHeartRefillTime;
-    }
+    // Calculate streak from merged studyDates & lastStudyDate (never restore stale legacy streak numbers)
+    result.streakDays = calculateConsecutiveStreak(result.studyDates, result.lastStudyDate);
+
     if (typeof item.hearts === 'number') {
       result.hearts = item.hearts;
     }
@@ -780,30 +818,10 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
 
   const recordStudyActivity = useCallback(() => {
     const today = getLocalDateString();
-    const yesterday = getYesterdayDateString();
 
     commitProgress(current => {
-      // If already studied today, ensure today is in studyDates
-      if (current.lastStudyDate === today) {
-        if (!current.studyDates?.includes(today)) {
-          return {
-            ...current,
-            studyDates: [...(current.studyDates || []), today]
-          };
-        }
-        return current;
-      }
-
-      let nextStreak = 1;
-      // Consecutive streak: only if studied yesterday!
-      if (current.lastStudyDate === yesterday && (current.streakDays || 0) > 0) {
-        nextStreak = (current.streakDays || 0) + 1;
-      } else {
-        // Missed at least one day or first study: streak starts at 1
-        nextStreak = 1;
-      }
-
       const updatedDates = Array.from(new Set([...(current.studyDates || []), today]));
+      const nextStreak = calculateConsecutiveStreak(updatedDates, today);
 
       return {
         ...current,
@@ -814,25 +832,25 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     });
   }, [commitProgress]);
 
-  // Proactively check and expire streak if user missed a day
+  const resetStreak = useCallback(() => {
+    commitProgress(current => ({
+      ...current,
+      streakDays: 0,
+      lastStudyDate: '',
+      studyDates: [],
+    }));
+  }, [commitProgress]);
+
+  // Proactively check and expire streak if user missed a day or if cached streak was inaccurate
   useEffect(() => {
     const checkAndExpireStreak = () => {
-      const today = getLocalDateString();
-      const yesterday = getYesterdayDateString();
-
       commitProgress(current => {
-        if (!current.lastStudyDate) {
-          if (current.streakDays !== 0) {
-            return { ...current, streakDays: 0 };
-          }
-          return current;
-        }
-
-        // If user missed yesterday and today -> streak is completely broken and lost!
-        if (current.lastStudyDate !== today && current.lastStudyDate !== yesterday) {
-          if (current.streakDays !== 0) {
-            return { ...current, streakDays: 0 };
-          }
+        const accurateStreak = calculateConsecutiveStreak(current.studyDates, current.lastStudyDate);
+        if (current.streakDays !== accurateStreak) {
+          return {
+            ...current,
+            streakDays: accurateStreak,
+          };
         }
         return current;
       });
@@ -1081,6 +1099,7 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     recordStudyActivity,
     loseHeart,
     refillHearts,
+    resetStreak,
     saveRankMatchResult,
   };
 
