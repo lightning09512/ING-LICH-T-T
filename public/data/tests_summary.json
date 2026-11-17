@@ -110,5 +110,53 @@
     "durationMinutes": 120,
     "totalQuestions": 200,
     "description": "Đề thi TOEIC Quốc tế 200 câu số 4 từ Collection 2 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    "_id": "toeic-lr-collection-2-test-5",
+    "title": "TOEIC LR Collection 2 - Test 5 (Full 200 Questions)",
+    "code": "S4-COL2-T5",
+    "durationMinutes": 120,
+    "totalQuestions": 200,
+    "description": "Đề thi TOEIC Quốc tế 200 câu số 5 từ Collection 2 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    "_id": "toeic-lr-collection-2-test-6",
+    "title": "TOEIC LR Collection 2 - Test 6 (Full 200 Questions)",
+    "code": "S4-COL2-T6",
+    "durationMinutes": 120,
+    "totalQuestions": 200,
+    "description": "Đề thi TOEIC Quốc tế 200 câu số 6 từ Collection 2 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    "_id": "toeic-lr-collection-2-test-7",
+    "title": "TOEIC LR Collection 2 - Test 7 (Full 200 Questions)",
+    "code": "S4-COL2-T7",
+    "durationMinutes": 120,
+    "totalQuestions": 200,
+    "description": "Đề thi TOEIC Quốc tế 200 câu số 7 từ Collection 2 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    "_id": "toeic-lr-collection-2-test-8",
+    "title": "TOEIC LR Collection 2 - Test 8 (Full 200 Questions)",
+    "code": "S4-COL2-T8",
+    "durationMinutes": 120,
+    "totalQuestions": 200,
+    "description": "Đề thi TOEIC Quốc tế 200 câu số 8 từ Collection 2 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    "_id": "toeic-lr-collection-2-test-9",
+    "title": "TOEIC LR Collection 2 - Test 9 (Full 200 Questions)",
+    "code": "S4-COL2-T9",
+    "durationMinutes": 120,
+    "totalQuestions": 200,
+    "description": "Đề thi TOEIC Quốc tế 200 câu số 9 từ Collection 2 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    "_id": "toeic-lr-collection-2-test-10",
+    "title": "TOEIC LR Collection 2 - Test 10 (Full 200 Questions)",
+    "code": "S4-COL2-T10",
+    "durationMinutes": 120,
+    "totalQuestions": 200,
+    "description": "Đề thi TOEIC Quốc tế 200 câu số 10 từ Collection 2 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
   }
 ]

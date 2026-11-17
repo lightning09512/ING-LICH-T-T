@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { sounds } from '../utils/soundEffects';
 import { 
   ArrowLeft, Clock, Target, Volume2, Award, Sparkles, 
-  BookOpen, ChevronRight, CheckCircle2, AlertCircle 
+  BookOpen, ChevronRight, CheckCircle2, AlertCircle, Search, Trophy, Flame
 } from 'lucide-react';
 
 interface TestSummary {
@@ -18,6 +18,7 @@ interface TestSelectScreenProps {
   onSelectTest: (testId: string) => void;
   onBack: () => void;
   nickname: string;
+  onGoToRanked?: () => void;
 }
 
 const fallbackTests: TestSummary[] = [
@@ -132,16 +133,67 @@ const fallbackTests: TestSummary[] = [
     durationMinutes: 120,
     totalQuestions: 200,
     description: "Đề thi TOEIC Quốc tế 200 câu số 4 từ Collection 2 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-2-test-5",
+    title: "TOEIC LR Collection 2 - Test 5 (Full 200 Questions)",
+    code: "S4-COL2-T5",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 5 từ Collection 2 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-2-test-6",
+    title: "TOEIC LR Collection 2 - Test 6 (Full 200 Questions)",
+    code: "S4-COL2-T6",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 6 từ Collection 2 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-2-test-7",
+    title: "TOEIC LR Collection 2 - Test 7 (Full 200 Questions)",
+    code: "S4-COL2-T7",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 7 từ Collection 2 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-2-test-8",
+    title: "TOEIC LR Collection 2 - Test 8 (Full 200 Questions)",
+    code: "S4-COL2-T8",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 8 từ Collection 2 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-2-test-9",
+    title: "TOEIC LR Collection 2 - Test 9 (Full 200 Questions)",
+    code: "S4-COL2-T9",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 9 từ Collection 2 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-2-test-10",
+    title: "TOEIC LR Collection 2 - Test 10 (Full 200 Questions)",
+    code: "S4-COL2-T10",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 10 từ Collection 2 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
   }
 ];
 
 export const TestSelectScreen: React.FC<TestSelectScreenProps> = ({
   onSelectTest,
   onBack,
-  nickname
+  nickname,
+  onGoToRanked
 }) => {
   const [tests, setTests] = useState<TestSummary[]>(fallbackTests);
   const [loading, setLoading] = useState(false);
+  const [selectedTab, setSelectedTab] = useState<'ALL' | 'COL1' | 'COL2'>('ALL');
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     // 1. Try fetching from /api/tests (Express NoSQL Backend)
@@ -180,10 +232,27 @@ export const TestSelectScreen: React.FC<TestSelectScreenProps> = ({
       });
   }, []);
 
+  const col1Count = useMemo(() => tests.filter(t => t._id.includes('collection-1') || t.code.includes('COL1')).length, [tests]);
+  const col2Count = useMemo(() => tests.filter(t => t._id.includes('collection-2') || t.code.includes('COL2')).length, [tests]);
+
+  const filteredTests = useMemo(() => {
+    return tests.filter(t => {
+      const isCol1 = t._id.includes('collection-1') || t.code.includes('COL1');
+      const isCol2 = t._id.includes('collection-2') || t.code.includes('COL2');
+      const matchesTab = 
+        selectedTab === 'ALL' ? true :
+        selectedTab === 'COL1' ? isCol1 : isCol2;
+      const matchesSearch = searchQuery === '' || 
+        t.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+        t.code.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesTab && matchesSearch;
+    });
+  }, [tests, selectedTab, searchQuery]);
+
   return (
     <div className="relative z-10 w-full max-w-5xl mx-auto px-3 sm:px-4 py-4 sm:py-6 md:py-10 pb-28 sm:pb-24">
       {/* Top Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-5 sm:mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-5 sm:mb-6">
         <div>
           <button
             onClick={() => {
@@ -210,20 +279,112 @@ export const TestSelectScreen: React.FC<TestSelectScreenProps> = ({
         </div>
       </div>
 
+      {/* Quick Ranked Practice Banner */}
+      {onGoToRanked && (
+        <div 
+          onClick={() => {
+            sounds.playClick();
+            onGoToRanked();
+          }}
+          className="w-full bg-[#FEF9C3] hover:bg-yellow-100 border-4 border-black p-4 sm:p-5 shadow-neo hover:shadow-neo-lg transition-all cursor-pointer mb-6 flex flex-col sm:flex-row items-center justify-between gap-4"
+        >
+          <div className="flex items-center gap-3 sm:gap-4">
+            <div className="w-12 h-12 bg-white border-3 border-black flex items-center justify-center text-3xl shadow-neo-sm shrink-0">
+              🏆
+            </div>
+            <div>
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="bg-red-500 text-white text-[10px] font-black px-2 py-0.5 border border-black uppercase flex items-center gap-1">
+                  <Flame className="w-3 h-3 fill-white" />
+                  MỚI • LEO RANK
+                </span>
+                <h3 className="font-heading font-black text-lg sm:text-xl text-black">
+                  Đấu Xếp Hạng TOEIC (7 - 18 phút)
+                </h3>
+              </div>
+              <p className="text-xs sm:text-sm font-bold text-gray-700 mt-0.5">
+                Không có đủ 120 phút làm full đề? Hãy chơi Leo Rank: 10 - 22 câu, tích điểm LP, lên rank Thách Đấu!
+              </p>
+            </div>
+          </div>
+          <button className="px-5 py-2.5 bg-black text-white font-black text-xs sm:text-sm border-2 border-black shadow-neo-sm hover:bg-gray-800 shrink-0 flex items-center gap-1.5">
+            <span>Vào Đấu Xếp Hạng</span>
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        </div>
+      )}
+
+      {/* Tabs Filter & Search Bar */}
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-6">
+        {/* Category Tabs */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-1">
+          <button
+            onClick={() => {
+              sounds.playClick();
+              setSelectedTab('ALL');
+            }}
+            className={`px-3.5 py-2 border-2 border-black font-black text-xs sm:text-sm shadow-neo-sm whitespace-nowrap cursor-pointer transition-all ${
+              selectedTab === 'ALL' ? 'bg-black text-white' : 'bg-white text-black hover:bg-gray-100'
+            }`}
+          >
+            🌟 Tất cả ({tests.length})
+          </button>
+          <button
+            onClick={() => {
+              sounds.playClick();
+              setSelectedTab('COL1');
+            }}
+            className={`px-3.5 py-2 border-2 border-black font-black text-xs sm:text-sm shadow-neo-sm whitespace-nowrap cursor-pointer transition-all ${
+              selectedTab === 'COL1' ? 'bg-blue-600 text-white' : 'bg-white text-black hover:bg-blue-50'
+            }`}
+          >
+            📘 Collection 1 ({col1Count})
+          </button>
+          <button
+            onClick={() => {
+              sounds.playClick();
+              setSelectedTab('COL2');
+            }}
+            className={`px-3.5 py-2 border-2 border-black font-black text-xs sm:text-sm shadow-neo-sm whitespace-nowrap cursor-pointer transition-all ${
+              selectedTab === 'COL2' ? 'bg-purple-600 text-white' : 'bg-white text-black hover:bg-purple-50'
+            }`}
+          >
+            🚀 Collection 2 - Mới ({col2Count})
+          </button>
+        </div>
+
+        {/* Search Input */}
+        <div className="relative sm:w-64">
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Tìm theo tên hoặc mã đề..."
+            className="w-full px-3 py-2 pl-9 bg-white border-2 border-black font-bold text-xs sm:text-sm shadow-neo-sm outline-none"
+          />
+          <Search className="w-4 h-4 text-gray-400 absolute left-3 top-2.5" />
+        </div>
+      </div>
+
       {/* Tests Grid */}
       {loading ? (
         <div className="bg-white border-4 border-black p-12 text-center shadow-neo-lg">
           <div className="inline-block animate-spin text-4xl mb-3">🌀</div>
           <p className="text-xl font-black font-heading">Đang tải danh sách đề thi...</p>
         </div>
-      ) : tests.length === 0 ? (
+      ) : filteredTests.length === 0 ? (
         <div className="bg-white border-4 border-black p-10 text-center shadow-neo-lg">
           <AlertCircle className="w-12 h-12 mx-auto text-amber-500 mb-3" />
-          <h3 className="text-xl font-black">Chưa có đề thi nào trong danh mục!</h3>
+          <h3 className="text-xl font-black">Không tìm thấy đề thi phù hợp!</h3>
+          <p className="text-sm font-bold text-gray-600 mt-1">
+            Hãy thử tìm bằng từ khóa khác hoặc chuyển sang tab "Tất cả".
+          </p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-          {tests.map((t, idx) => {
+          {filteredTests.map((t) => {
+            const isCol2 = t._id.includes('collection-2') || t.code.includes('COL2');
+
             return (
               <div
                 key={t._id}
@@ -231,9 +392,15 @@ export const TestSelectScreen: React.FC<TestSelectScreenProps> = ({
               >
                 {/* Header Tag */}
                 <div className="flex items-start justify-between gap-2 mb-3">
-                  <span className="px-2.5 py-1 text-xs font-black uppercase border-2 border-black shadow-neo-sm bg-neoPink text-white rotate-[-1deg]">
-                    🔥 Đề Full 200 Câu Chuẩn
-                  </span>
+                  {isCol2 ? (
+                    <span className="px-2.5 py-1 text-xs font-black uppercase border-2 border-black shadow-neo-sm bg-purple-600 text-white rotate-[-1deg]">
+                      🚀 ETS Collection 2 (Mới Tải)
+                    </span>
+                  ) : (
+                    <span className="px-2.5 py-1 text-xs font-black uppercase border-2 border-black shadow-neo-sm bg-blue-600 text-white rotate-[-1deg]">
+                      📘 ETS Collection 1
+                    </span>
+                  )}
                   <span className="text-xs font-black bg-gray-100 border border-black px-2 py-0.5 font-mono">
                     {t.code}
                   </span>

@@ -7,5 +7,22 @@ service cloud.firestore {
         && request.auth.uid == userId
         && progressId == 'learning';
     }
+
+    match /leaderboard/{userId} {
+      allow read: if request.auth != null;
+      allow create, update: if request.auth != null
+        && request.auth.uid == userId
+        && request.resource.data.keys().hasOnly(['displayName', 'photoURL', 'rankTier', 'rankLp', 'rankPoints', 'updatedAt'])
+        && request.resource.data.displayName is string
+        && request.resource.data.displayName.size() <= 40
+        && (request.resource.data.photoURL == null || request.resource.data.photoURL is string)
+        && request.resource.data.rankTier in ['IRON', 'BRONZE', 'SILVER', 'GOLD', 'PLATINUM', 'DIAMOND', 'MASTER', 'GRANDMASTER', 'CHALLENGER']
+        && request.resource.data.rankLp is int
+        && request.resource.data.rankLp >= 0
+        && request.resource.data.rankLp <= 100
+        && request.resource.data.rankPoints is int
+        && request.resource.data.rankPoints >= 0;
+      allow delete: if request.auth != null && request.auth.uid == userId;
+    }
   }
 }

@@ -1,4 +1,4 @@
-export type RankTier = 'IRON' | 'BRONZE' | 'SILVER' | 'GOLD' | 'PLATINUM' | 'DIAMOND' | 'MASTER' | 'GRANDMASTER' | 'CHALLENGER';
+export type RankTier = 'BRONZE' | 'SILVER' | 'GOLD' | 'PLATINUM' | 'DIAMOND' | 'MASTER' | 'CHALLENGER';
 
 export interface RankTierInfo {
   tier: RankTier;
@@ -16,27 +16,23 @@ export interface RankTierInfo {
 }
 
 export const RANK_ORDER: RankTier[] = [
-  'IRON',
   'BRONZE',
   'SILVER',
   'GOLD',
   'PLATINUM',
   'DIAMOND',
   'MASTER',
-  'GRANDMASTER',
   'CHALLENGER'
 ];
 
 export const RANK_THRESHOLDS: Record<RankTier, number> = {
-  IRON: 0,
-  BRONZE: 100,
-  SILVER: 250,
-  GOLD: 500,
-  PLATINUM: 850,
-  DIAMOND: 1300,
-  MASTER: 1900,
-  GRANDMASTER: 2700,
-  CHALLENGER: 3600,
+  BRONZE: 0,
+  SILVER: 150,
+  GOLD: 400,
+  PLATINUM: 800,
+  DIAMOND: 1400,
+  MASTER: 2300,
+  CHALLENGER: 3500,
 };
 
 export interface RankStanding {
@@ -64,18 +60,6 @@ export function getPointsToNextRank(points: number): number | null {
 }
 
 export const RANK_TIERS_CONFIG: Record<RankTier, RankTierInfo> = {
-  IRON: {
-    tier: 'IRON',
-    nameVi: 'Sắt',
-    badge: 'S',
-    color: '#75808A',
-    bgLight: '#EEF1F3',
-    borderColor: '#59636C',
-    rankPointsThreshold: 0,
-    targetScore: 'Sắt: khởi điểm',
-    description: 'Bắt đầu hành trình luyện tập, xây nền tảng từ vựng và ngữ pháp.',
-    requiredParts: [1, 2, 5], questionCount: 10, timeMinutes: 7,
-  },
   BRONZE: {
     tier: 'BRONZE',
     nameVi: 'Đồng',
@@ -92,7 +76,7 @@ export const RANK_TIERS_CONFIG: Record<RankTier, RankTierInfo> = {
   },
   SILVER: {
     tier: 'SILVER',
-    nameVi: 'Bạc Đoàn',
+    nameVi: 'Bạc',
     badge: '🥈',
     color: '#64748B',
     bgLight: '#F1F5F9',
@@ -106,7 +90,7 @@ export const RANK_TIERS_CONFIG: Record<RankTier, RankTierInfo> = {
   },
   GOLD: {
     tier: 'GOLD',
-    nameVi: 'Vàng Đoàn',
+    nameVi: 'Vàng',
     badge: '🥇',
     color: '#CA8A04',
     bgLight: '#FEF9C3',
@@ -146,28 +130,16 @@ export const RANK_TIERS_CONFIG: Record<RankTier, RankTierInfo> = {
     questionCount: 22,
     timeMinutes: 18,
   },
-  GRANDMASTER: {
-    tier: 'GRANDMASTER',
-    nameVi: 'Tinh Anh',
-    badge: 'TA',
-    color: '#B74BFF',
-    bgLight: '#F7E8FF',
-    borderColor: '#7F2CAA',
-    rankPointsThreshold: 2700,
-    targetScore: 'Tinh anh: 2.700 điểm rank',
-    description: 'Luyện tập trình độ cao, duy trì độ chính xác qua nhiều phiên.',
-    requiredParts: [1, 2, 3, 4, 5, 6, 7], questionCount: 22, timeMinutes: 18,
-  },
   MASTER: {
     tier: 'MASTER',
-    nameVi: 'Cao thủ',
-    badge: '👑',
+    nameVi: 'Tinh Anh',
+    badge: 'TC',
     color: '#9333EA',
     bgLight: '#F3E8FF',
     borderColor: '#7E22CE',
-    rankPointsThreshold: 1900,
-    targetScore: 'Cao thủ: 1.900 điểm rank',
-    description: 'Đỉnh cao phản xạ TOEIC: Toàn diện 7 Part áp lực thời gian thực.',
+    rankPointsThreshold: 2300,
+    targetScore: 'Tinh anh: 2.300 điểm rank',
+    description: 'Đỉnh cao phản xạ TOEIC: toàn diện cả 7 Part.',
     requiredParts: [1, 2, 3, 4, 5, 6, 7],
     questionCount: 22,
     timeMinutes: 18,
@@ -179,9 +151,9 @@ export const RANK_TIERS_CONFIG: Record<RankTier, RankTierInfo> = {
     color: '#DC2626',
     bgLight: '#FEE2E2',
     borderColor: '#B91C1C',
-    rankPointsThreshold: 3600,
-    targetScore: 'Thách đấu: 3.600 điểm rank trở lên',
-    description: 'Bá chủ TOEIC: Bộ đề tối thượng chuẩn 100% ETS.',
+    rankPointsThreshold: 3500,
+    targetScore: 'Thách đấu: 3.500 điểm rank trở lên',
+    description: 'Thử thách cao nhất: duy trì độ chính xác trên toàn bộ 7 Part.',
     requiredParts: [1, 2, 3, 4, 5, 6, 7],
     questionCount: 22,
     timeMinutes: 18,

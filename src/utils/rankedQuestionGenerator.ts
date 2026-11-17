@@ -89,6 +89,8 @@ export async function generateRankedMatchQuestions(tier: RankTier): Promise<Rank
       shuffleArray(fallbackP5Pool).slice(0, 4).forEach(q => result.push(q));
     }
   } else if (tier === 'GOLD' || tier === 'PLATINUM') {
+    // Mid tiers get dialogue + text-completion sets.
+
     // 16 QUESTIONS: 2 Part 1, 3 Part 2, 3 Part 3, 4 Part 5, 4 Part 6
     // Part 1 (2 questions)
     p1Pool.slice(0, 2).forEach(q => result.push(mapListening(q)));
@@ -159,9 +161,9 @@ export async function generateRankedMatchQuestions(tier: RankTier): Promise<Rank
         });
       }
     }
-  } else {
-    // DIAMOND / MASTER / CHALLENGER: 22 QUESTIONS (Full 7 Parts!)
-    // 1 Part 1, 2 Part 2, 3 Part 3, 3 Part 4, 4 Part 5, 4 Part 6, 5 Part 7
+  } else if (tier === 'DIAMOND' || tier === 'MASTER' || tier === 'CHALLENGER') {
+    // Highest tiers cover all 7 Parts.
+
     // Part 1 (1 question)
     p1Pool.slice(0, 1).forEach(q => result.push(mapListening(q)));
 

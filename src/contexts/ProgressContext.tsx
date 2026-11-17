@@ -12,8 +12,8 @@ import {
 } from 'firebase/auth';
 import type { User } from 'firebase/auth';
 import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
-import { firebaseAuth, firebaseConfigured, firestore } from '../firebase';
-import { getRankTier } from '../types/ranked';
+import { firebaseAuth, firestore, firebaseConfigured } from '../firebase';
+import { getRankTier, RANK_THRESHOLDS } from '../types/ranked';
 import { RankTier, PromoSeries, MatchRecord, RANK_ORDER } from '../types/ranked';
 
 export interface LearningProgress {
@@ -34,6 +34,7 @@ export interface LearningProgress {
   rankWins: number;
   rankWinStreak: number;
   rankHistory: MatchRecord[];
+  rankCareerPoints: number;
 }
 
 export type SyncStatus = 'local' | 'syncing' | 'saved' | 'error';
@@ -55,6 +56,7 @@ interface ProgressContextValue {
   rankWins: number;
   rankWinStreak: number;
   rankHistory: MatchRecord[];
+  rankCareerPoints: number;
   signInWithEmail: (email: string, password: string) => Promise<boolean>;
   signInWithGoogle: () => Promise<boolean>;
   signInWithGoogleRedirect: () => Promise<boolean>;
@@ -100,6 +102,7 @@ const DEFAULT_PROGRESS: LearningProgress = {
   rankWins: 0,
   rankWinStreak: 0,
   rankHistory: [],
+  rankCareerPoints: 0,
 };
 
 const LEGACY_KEYS = {
@@ -119,6 +122,7 @@ const LEGACY_KEYS = {
   rankWins: 'ing_rank_wins',
   rankStreak: 'ing_rank_streak',
   rankHistory: 'ing_rank_history',
+  rankCareerPoints: 'ing_rank_career_points',
 };
 
 function getLocalDateString(d = new Date()): string {
@@ -168,6 +172,10 @@ function normalizeProgress(value: unknown): LearningProgress {
   const rankWins = Number.isFinite(Number(raw.rankWins)) ? Math.max(0, Number(raw.rankWins)) : 0;
   const rankWinStreak = Number.isFinite(Number(raw.rankWinStreak)) ? Math.max(0, Number(raw.rankWinStreak)) : 0;
   const rankHistory: MatchRecord[] = Array.isArray(raw.rankHistory) ? raw.rankHistory : [];
+  const rawCareerPoints = Number(raw.rankCareerPoints);
+  const rankCareerPoints = Number.isFinite(rawCareerPoints) && rawCareerPoints >= 0
+    ? rawCareerPoints
+    : Math.max(0, (RANK_ORDER.indexOf(rankTier) * 100) + rankLp);
 
   return {
     grammarProgress,
@@ -186,6 +194,7 @@ function normalizeProgress(value: unknown): LearningProgress {
     rankWins,
     rankWinStreak,
     rankHistory,
+    rankCareerPoints,
   };
 }
 
@@ -233,6 +242,7 @@ function mergeProgress(...items: LearningProgress[]): LearningProgress {
     result.rankMatchesPlayed = Math.max(result.rankMatchesPlayed, item.rankMatchesPlayed);
     result.rankWins = Math.max(result.rankWins, item.rankWins);
     result.rankWinStreak = Math.max(result.rankWinStreak, item.rankWinStreak);
+    result.rankCareerPoints = Math.max(result.rankCareerPoints ?? 0, item.rankCareerPoints ?? 0);
     if (item.rankHistory && item.rankHistory.length > 0) {
       const existingIds = new Set(result.rankHistory.map(h => h.id));
       const combined = [...result.rankHistory];
@@ -267,6 +277,7 @@ function readGuestProgress(): LearningProgress {
     const rankWins = localStorage.getItem(LEGACY_KEYS.rankWins);
     const rankStreak = localStorage.getItem(LEGACY_KEYS.rankStreak);
     const rankHistory = localStorage.getItem(LEGACY_KEYS.rankHistory);
+    const rankCareer = localStorage.getItem(LEGACY_KEYS.rankCareerPoints);
 
     return normalizeProgress({
       grammarProgress: grammar ? JSON.parse(grammar) : {},
@@ -285,6 +296,7 @@ function readGuestProgress(): LearningProgress {
       rankWins: rankWins ? Number.parseInt(rankWins, 10) : 0,
       rankWinStreak: rankStreak ? Number.parseInt(rankStreak, 10) : 0,
       rankHistory: rankHistory ? JSON.parse(rankHistory) : [],
+      rankCareerPoints: rankCareer ? Number.parseInt(rankCareer, 10) : 0,
     });
   } catch {
     return { ...DEFAULT_PROGRESS };
@@ -323,6 +335,7 @@ function writeLocalProgress(progress: LearningProgress, uid: string | null) {
     localStorage.setItem(LEGACY_KEYS.rankWins, String(progress.rankWins));
     localStorage.setItem(LEGACY_KEYS.rankStreak, String(progress.rankWinStreak));
     localStorage.setItem(LEGACY_KEYS.rankHistory, JSON.stringify(progress.rankHistory));
+    localStorage.setItem(LEGACY_KEYS.rankCareerPoints, String(progress.rankCareerPoints ?? 0));
   } catch (error) {
     console.error('Could not save learning progress locally:', error);
   }
@@ -804,6 +817,7 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     let finalLpChange = 0;
     let finalNewTier = match.tier;
     let finalNewLp = 0;
+    let finalCareerPoints = 0;
     let finalPromo: PromoSeries | null = null;
     let isPromoted = false;
     let isDemoted = false;
@@ -814,6 +828,14 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
       const curPromo = current.rankPromo ? { ...current.rankPromo } : null;
       const curStreak = match.isWin ? (current.rankWinStreak ?? 0) + 1 : 0;
       const tierIdx = RANK_ORDER.indexOf(curTier);
+      const startingCareer = Math.max(
+        Number(current.rankCareerPoints) || 0,
+        RANK_THRESHOLDS[curTier] + curLp,
+      );
+      const earnedCareerDelta = Math.max(0, Math.round(match.accuracy * 0.6));
+      finalCareerPoints = Math.max(0, startingCareer + earnedCareerDelta);
+      finalNewTier = getRankTier(finalCareerPoints);
+      finalNewLp = finalCareerPoints - RANK_THRESHOLDS[finalNewTier];
 
       if (curPromo && curPromo.active) {
         // In Bo3 Promo Series!
@@ -918,6 +940,7 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
         rankWins: (current.rankWins ?? 0) + (match.isWin ? 1 : 0),
         rankWinStreak: curStreak,
         rankHistory: updatedHistory,
+        rankCareerPoints: finalCareerPoints,
       };
     });
 
@@ -948,6 +971,7 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     rankWins: progress.rankWins ?? 0,
     rankWinStreak: progress.rankWinStreak ?? 0,
     rankHistory: progress.rankHistory || [],
+    rankCareerPoints: progress.rankCareerPoints ?? 0,
     signInWithEmail,
     signInWithGoogle,
     signInWithGoogleRedirect,

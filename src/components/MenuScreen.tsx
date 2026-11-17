@@ -7,7 +7,7 @@ import { useLearningProgress } from '../contexts/ProgressContext';
 import { RANK_TIERS_CONFIG } from '../types/ranked';
 
 interface MenuScreenProps {
-  onSelectMode: (mode: 'LEARN' | 'GRAMMAR' | 'EXAM' | 'RANKED') => void;
+  onSelectMode: (mode: 'LEARN' | 'GRAMMAR' | 'EXAM' | 'RANKED', chapter?: 1 | 2) => void;
   onBack: () => void;
   nickname: string;
   user?: User | null;
@@ -82,31 +82,67 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
 
         {/* 3 Buttons matching sketch 2 */}
         <div className="w-full flex flex-col gap-3 sm:gap-4 md:gap-5">
-          {/* Button 1: Học bài */}
-          <button
-            onClick={() => {
-              sounds.playClick();
-              onSelectMode('LEARN');
-            }}
-            className="w-full bg-white hover:bg-emerald-50 border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group min-h-[76px] sm:min-h-[96px] cursor-pointer"
-          >
-            <div className="flex items-center gap-3 sm:gap-4 md:gap-5 text-left min-w-0">
-              <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-neoGreen border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:rotate-6 transition-transform shrink-0">
-                <BookOpen className="w-5 h-5 sm:w-7 sm:h-7 md:w-8 md:h-8 text-black" />
+          {/* Button 1: Học bài (Gồm Chương 1 và Chương 2) */}
+          <div className="w-full bg-white border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg flex flex-col gap-3 group">
+            <div 
+              onClick={() => {
+                sounds.playClick();
+                onSelectMode('LEARN', 1);
+              }}
+              className="flex items-center justify-between cursor-pointer"
+            >
+              <div className="flex items-center gap-3 sm:gap-4 md:gap-5 text-left min-w-0">
+                <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-neoGreen border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:rotate-6 transition-transform shrink-0">
+                  <BookOpen className="w-5 h-5 sm:w-7 sm:h-7 md:w-8 md:h-8 text-black" />
+                </div>
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <h3 className="text-lg sm:text-2xl md:text-3xl font-black uppercase font-heading leading-tight">
+                      Học bài
+                    </h3>
+                    <span className="bg-neoYellow text-black text-[10px] sm:text-xs font-black px-2 py-0.5 border border-black shadow-neo-sm">
+                      2 Chương
+                    </span>
+                  </div>
+                  <p className="text-[11px] sm:text-sm md:text-base font-bold text-gray-600 mt-0.5 line-clamp-2">
+                    Từ vựng TOEIC trọng điểm + Flashcard + Phát âm chuẩn Mỹ
+                  </p>
+                </div>
               </div>
-              <div className="min-w-0">
-                <h3 className="text-lg sm:text-2xl md:text-3xl font-black uppercase font-heading leading-tight">
-                  Học bài
-                </h3>
-                <p className="text-[11px] sm:text-sm md:text-base font-bold text-gray-600 mt-0.5 line-clamp-2">
-                  Từ vựng TOEIC trọng điểm + Flashcard + Phát âm chuẩn Mỹ
-                </p>
-              </div>
+              <span className="text-lg sm:text-2xl md:text-3xl font-black font-heading group-hover:translate-x-1 transition-transform shrink-0 ml-2">
+                👉
+              </span>
             </div>
-            <span className="text-lg sm:text-2xl md:text-3xl font-black font-heading group-hover:translate-x-1 transition-transform shrink-0 ml-2">
-              👉
-            </span>
-          </button>
+
+            {/* Quick Chapter Selector Pills */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t-2 border-black/10">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  sounds.playClick();
+                  onSelectMode('LEARN', 1);
+                }}
+                className="flex items-center justify-between px-3 py-2 bg-yellow-50 hover:bg-yellow-100 border-2 border-black font-black text-xs shadow-neo-sm hover:-translate-y-0.5 active:scale-[0.98] transition-all cursor-pointer text-left"
+              >
+                <span>📘 <strong>Chương 1:</strong> 26 Ngày Cơ Bản</span>
+                <span className="text-[10px] bg-white px-1.5 py-0.5 border border-black">26 Màn</span>
+              </button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  sounds.playClick();
+                  onSelectMode('LEARN', 2);
+                }}
+                className="flex items-center justify-between px-3 py-2 bg-cyan-50 hover:bg-cyan-100 border-2 border-black font-black text-xs shadow-neo-sm hover:-translate-y-0.5 active:scale-[0.98] transition-all cursor-pointer text-left relative overflow-hidden"
+              >
+                <div className="flex items-center gap-1.5 min-w-0">
+                  <span className="bg-neoPink text-white text-[8px] font-black px-1 border border-black animate-pulse shrink-0">MỚI</span>
+                  <span className="truncate">🚀 <strong>Chương 2:</strong> ETS 2019 & New Economy</span>
+                </div>
+                <span className="text-[10px] bg-white px-1.5 py-0.5 border border-black shrink-0">13 Bộ</span>
+              </button>
+            </div>
+          </div>
 
           {/* Button 2: Ngữ pháp */}
           <button

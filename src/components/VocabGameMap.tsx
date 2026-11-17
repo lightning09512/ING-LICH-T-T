@@ -12,6 +12,7 @@ import {
 interface VocabGameMapProps {
   onBack: () => void;
   nickname: string;
+  initialChapter?: 1 | 2;
 }
 
 type VocabView = 'MAP' | 'STUDY' | 'QUIZ';
@@ -22,11 +23,17 @@ interface QuizQuestion {
   correctAnswer: string;
 }
 
-export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) => {
-  const [chapter, setChapter] = useState<1 | 2>(1);
+export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, initialChapter = 1 }) => {
+  const [chapter, setChapter] = useState<1 | 2>(initialChapter);
   const [view, setView] = useState<VocabView>('MAP');
   const [selectedDay, setSelectedDay] = useState<number>(1);
   const { progress, saveVocabularyProgress, recordStudyActivity, loseHeart } = useLearningProgress();
+
+  useEffect(() => {
+    if (initialChapter && (initialChapter === 1 || initialChapter === 2)) {
+      setChapter(initialChapter);
+    }
+  }, [initialChapter]);
 
   const isChap2 = chapter === 2;
   const maxDay = isChap2 ? 13 : 26;
@@ -249,7 +256,7 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
         </div>
 
         {/* Chapter Switcher Tabs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-4 sm:mb-6">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4 mb-4 sm:mb-6">
           <button
             onClick={() => {
               if (chapter !== 1) {
@@ -258,13 +265,14 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                 setSelectedDay(1);
               }
             }}
-            className={`w-full sm:w-auto px-4 py-2.5 sm:px-5 sm:py-3 border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo transition-all cursor-pointer ${
+            className={`w-full sm:w-auto px-4 py-2.5 sm:px-6 sm:py-3.5 border-3 sm:border-4 border-black font-black text-xs sm:text-sm uppercase transition-all cursor-pointer flex items-center justify-center gap-2 ${
               chapter === 1
                 ? 'bg-neoYellow -translate-y-0.5 sm:-translate-y-1 shadow-neo sm:shadow-neo-lg ring-2 ring-black text-black'
-                : 'bg-white hover:bg-gray-100 text-gray-700'
+                : 'bg-white hover:bg-yellow-50 text-gray-700 shadow-neo-sm'
             }`}
           >
-            📘 Chương 1: 26 Ngày Cơ Bản (Day 1 - 26)
+            <span>📘 Chương 1: 26 Ngày Cơ Bản</span>
+            <span className="text-[10px] bg-white px-1.5 py-0.5 border border-black font-black">26 Màn</span>
           </button>
 
           <button
@@ -275,16 +283,17 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                 setSelectedDay(1);
               }
             }}
-            className={`w-full sm:w-auto px-4 py-2.5 sm:px-5 sm:py-3 border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo transition-all cursor-pointer relative ${
+            className={`w-full sm:w-auto px-4 py-2.5 sm:px-6 sm:py-3.5 border-3 sm:border-4 border-black font-black text-xs sm:text-sm uppercase transition-all cursor-pointer relative flex items-center justify-center gap-2 ${
               chapter === 2
                 ? 'bg-neoCyan -translate-y-0.5 sm:-translate-y-1 shadow-neo sm:shadow-neo-lg ring-2 ring-black text-black'
-                : 'bg-white hover:bg-gray-100 text-gray-700'
+                : 'bg-white hover:bg-cyan-50 text-gray-700 shadow-neo-sm'
             }`}
           >
-            <span className="absolute -top-2.5 -right-1 sm:-top-3 sm:-right-2 bg-neoPink text-white text-[9px] sm:text-[10px] font-black px-1.5 sm:px-2 py-0.5 border border-black rotate-12 shadow-neo-sm">
-              MỚI 🔥
+            <span className="absolute -top-2.5 -right-1 sm:-top-3 sm:-right-2 bg-neoPink text-white text-[9px] sm:text-[10px] font-black px-1.5 sm:px-2 py-0.5 border border-black rotate-12 shadow-neo-sm animate-pulse">
+              MỚI 13 BỘ 🔥
             </span>
-            🚀 Chương 2: ETS 2019 & New Economy (13 Bài)
+            <span>🚀 Chương 2: ETS 2019 & New Economy</span>
+            <span className="text-[10px] bg-white px-1.5 py-0.5 border border-black font-black">13 Bộ</span>
           </button>
         </div>
 
@@ -345,9 +354,14 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname }) 
                     )}
                   </div>
                 ) : (
-                  <div className="flex flex-col items-center gap-1 text-gray-500">
+                  <div className="flex flex-col items-center gap-1 text-gray-500 w-full px-1 text-center">
                     <Lock className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" />
                     <span className="text-[10px] font-bold">Khóa</span>
+                    {isChap2 && lessonInfo && (
+                      <span className="text-[9px] font-bold text-gray-500 line-clamp-1 truncate w-full" title={lessonInfo.title}>
+                        {lessonInfo.title.replace(' ETS 2019', '')}
+                      </span>
+                    )}
                   </div>
                 )}
 
