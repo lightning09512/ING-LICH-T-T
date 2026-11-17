@@ -34,6 +34,14 @@ export const LOFI_TRACKS: LofiTrack[] = [
     emoji: '💜'
   },
   {
+    id: 'bts_deep_focus_lofi',
+    title: 'BTS Chill Study Music - Deep Focus',
+    tag: '1 Tiếng • Deep Focus & Relaxation Playlist 🌌 (Lofi & Chill)',
+    youtubeId: 'bvxM8AR6-tY',
+    durationText: '1 Giờ',
+    emoji: '🌌'
+  },
+  {
     id: 'bts_jungkook_chill',
     title: 'BTS Jungkook - Midnight Chill Mix',
     tag: '1 Tiếng • Still With You, Euphoria, Seven Lofi Piano',
