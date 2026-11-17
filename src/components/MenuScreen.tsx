@@ -1,11 +1,13 @@
 import React from 'react';
 import { sounds } from '../utils/soundEffects';
-import { BookOpen, GraduationCap, Target, Cloud, LogIn, ArrowLeft } from 'lucide-react';
+import { BookOpen, GraduationCap, Target, Cloud, LogIn, ArrowLeft, Trophy, Flame } from 'lucide-react';
 import type { User } from 'firebase/auth';
 import type { SyncStatus } from '../contexts/ProgressContext';
+import { useLearningProgress } from '../contexts/ProgressContext';
+import { RANK_TIERS_CONFIG } from '../types/ranked';
 
 interface MenuScreenProps {
-  onSelectMode: (mode: 'LEARN' | 'GRAMMAR' | 'EXAM') => void;
+  onSelectMode: (mode: 'LEARN' | 'GRAMMAR' | 'EXAM' | 'RANKED') => void;
   onBack: () => void;
   nickname: string;
   user?: User | null;
@@ -21,6 +23,8 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
   syncStatus,
   onOpenAccount
 }) => {
+  const { rankTier, rankLp, rankPromo } = useLearningProgress();
+  const currentTierConfig = RANK_TIERS_CONFIG[rankTier] || RANK_TIERS_CONFIG.BRONZE;
   return (
     <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100dvh-70px)] px-3 sm:px-4 py-4 sm:py-6 md:py-10">
       <div className="w-full max-w-xl md:max-w-2xl flex flex-col items-center gap-3.5 sm:gap-5 md:gap-6">
@@ -133,7 +137,37 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
             </span>
           </button>
 
-          {/* Button 3: Luyện đề (Study4 style) */}
+          {/* Button 3: Đấu Xếp Hạng (Ranked Mode) */}
+          <button
+            onClick={() => {
+              sounds.playClick();
+              onSelectMode('RANKED');
+            }}
+            className="w-full bg-[#FEF9C3] hover:bg-yellow-100 border-3 sm:border-4 border-black p-3.5 sm:p-5 md:p-6 shadow-neo sm:shadow-neo-lg hover:shadow-neo active:scale-[0.98] transition-all flex items-center justify-between group relative overflow-hidden min-h-[76px] sm:min-h-[96px] cursor-pointer"
+          >
+            <div className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[9px] sm:text-[11px] font-black px-2 py-0.5 border border-black uppercase rotate-3 sm:rotate-6 shadow-neo-sm z-10 flex items-center gap-1">
+              <Flame className="w-3 h-3 fill-white" />
+              <span>{rankPromo?.active ? 'Bo3 Thăng Hạng!' : `${currentTierConfig.nameVi} • ${rankLp} LP`}</span>
+            </div>
+            <div className="flex items-center gap-3 sm:gap-4 md:gap-5 text-left min-w-0">
+              <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-white border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:scale-110 transition-transform shrink-0 text-2xl sm:text-3xl">
+                <span>{currentTierConfig.badge}</span>
+              </div>
+              <div className="min-w-0 pr-12 sm:pr-0">
+                <h3 className="text-lg sm:text-2xl md:text-3xl font-black uppercase font-heading text-black leading-tight flex items-center gap-2">
+                  <span>Đấu Xếp Hạng</span>
+                </h3>
+                <p className="text-[11px] sm:text-sm md:text-base font-bold text-gray-700 mt-0.5 line-clamp-2">
+                  Leo rank Đồng ➔ Thách Đấu, tính điểm LP + Thăng hạng Bo3, phân tầng độ khó chuẩn ETS!
+                </p>
+              </div>
+            </div>
+            <span className="text-lg sm:text-2xl md:text-3xl font-black font-heading group-hover:translate-x-1 transition-transform shrink-0 ml-2">
+              🏆
+            </span>
+          </button>
+
+          {/* Button 4: Luyện đề (Study4 style) */}
           <button
             onClick={() => {
               sounds.playClick();

@@ -13,6 +13,8 @@ import {
 import type { User } from 'firebase/auth';
 import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
 import { firebaseAuth, firebaseConfigured, firestore } from '../firebase';
+import { getRankTier } from '../types/ranked';
+import { RankTier, PromoSeries, MatchRecord, RANK_ORDER } from '../types/ranked';
 
 export interface LearningProgress {
   grammarProgress: Record<string, number>;
@@ -24,6 +26,14 @@ export interface LearningProgress {
   lastStudyDate: string;
   hearts: number;
   lastHeartRefillTime: number;
+  // Ranked mode
+  rankTier: RankTier;
+  rankLp: number;
+  rankPromo: PromoSeries | null;
+  rankMatchesPlayed: number;
+  rankWins: number;
+  rankWinStreak: number;
+  rankHistory: MatchRecord[];
 }
 
 export type SyncStatus = 'local' | 'syncing' | 'saved' | 'error';
@@ -38,6 +48,13 @@ interface ProgressContextValue {
   streakDays: number;
   lastStudyDate: string;
   hearts: number;
+  rankTier: RankTier;
+  rankLp: number;
+  rankPromo: PromoSeries | null;
+  rankMatchesPlayed: number;
+  rankWins: number;
+  rankWinStreak: number;
+  rankHistory: MatchRecord[];
   signInWithEmail: (email: string, password: string) => Promise<boolean>;
   signInWithGoogle: () => Promise<boolean>;
   signInWithGoogleRedirect: () => Promise<boolean>;
@@ -50,6 +67,20 @@ interface ProgressContextValue {
   recordStudyActivity: () => void;
   loseHeart: () => boolean;
   refillHearts: () => void;
+  saveRankMatchResult: (match: {
+    tier: RankTier;
+    score: number;
+    total: number;
+    accuracy: number;
+    isWin: boolean;
+  }) => {
+    lpChange: number;
+    newTier: RankTier;
+    newLp: number;
+    promoSeries: PromoSeries | null;
+    isPromoted: boolean;
+    isDemoted: boolean;
+  };
 }
 
 const DEFAULT_PROGRESS: LearningProgress = {
@@ -62,6 +93,13 @@ const DEFAULT_PROGRESS: LearningProgress = {
   lastStudyDate: '',
   hearts: 3,
   lastHeartRefillTime: Date.now(),
+  rankTier: 'BRONZE',
+  rankLp: 0,
+  rankPromo: null,
+  rankMatchesPlayed: 0,
+  rankWins: 0,
+  rankWinStreak: 0,
+  rankHistory: [],
 };
 
 const LEGACY_KEYS = {
@@ -74,6 +112,13 @@ const LEGACY_KEYS = {
   lastStudyDate: 'ing_lich_last_study_date',
   hearts: 'ing_lich_hearts',
   lastHeartRefillTime: 'ing_lich_heart_refill_time',
+  rankTier: 'ing_rank_tier',
+  rankLp: 'ing_rank_lp',
+  rankPromo: 'ing_rank_promo',
+  rankMatches: 'ing_rank_matches',
+  rankWins: 'ing_rank_wins',
+  rankStreak: 'ing_rank_streak',
+  rankHistory: 'ing_rank_history',
 };
 
 function getLocalDateString(d = new Date()): string {
@@ -115,6 +160,15 @@ function normalizeProgress(value: unknown): LearningProgress {
   const rawRefill = Number(raw.lastHeartRefillTime);
   const lastHeartRefillTime = Number.isFinite(rawRefill) ? rawRefill : Date.now();
 
+  const rankTier: RankTier = raw.rankTier && RANK_ORDER.includes(raw.rankTier) ? raw.rankTier : 'BRONZE';
+  const rawLp = Number(raw.rankLp);
+  const rankLp = Number.isFinite(rawLp) ? Math.max(0, Math.min(100, rawLp)) : 0;
+  const rankPromo: PromoSeries | null = raw.rankPromo && typeof raw.rankPromo === 'object' && raw.rankPromo.active ? raw.rankPromo : null;
+  const rankMatchesPlayed = Number.isFinite(Number(raw.rankMatchesPlayed)) ? Math.max(0, Number(raw.rankMatchesPlayed)) : 0;
+  const rankWins = Number.isFinite(Number(raw.rankWins)) ? Math.max(0, Number(raw.rankWins)) : 0;
+  const rankWinStreak = Number.isFinite(Number(raw.rankWinStreak)) ? Math.max(0, Number(raw.rankWinStreak)) : 0;
+  const rankHistory: MatchRecord[] = Array.isArray(raw.rankHistory) ? raw.rankHistory : [];
+
   return {
     grammarProgress,
     vocabUnlockedDay: Number.isFinite(unlockedDay) ? Math.max(1, Math.min(26, unlockedDay)) : 1,
@@ -125,6 +179,13 @@ function normalizeProgress(value: unknown): LearningProgress {
     lastStudyDate,
     hearts,
     lastHeartRefillTime,
+    rankTier,
+    rankLp,
+    rankPromo,
+    rankMatchesPlayed,
+    rankWins,
+    rankWinStreak,
+    rankHistory,
   };
 }
 
@@ -158,6 +219,30 @@ function mergeProgress(...items: LearningProgress[]): LearningProgress {
     if (typeof item.lastHeartRefillTime === 'number') {
       result.lastHeartRefillTime = item.lastHeartRefillTime;
     }
+    // Merge rank: choose highest rank tier or higher LP
+    const currentTierIdx = RANK_ORDER.indexOf(result.rankTier);
+    const itemTierIdx = RANK_ORDER.indexOf(item.rankTier);
+    if (itemTierIdx > currentTierIdx) {
+      result.rankTier = item.rankTier;
+      result.rankLp = item.rankLp;
+      result.rankPromo = item.rankPromo;
+    } else if (itemTierIdx === currentTierIdx) {
+      result.rankLp = Math.max(result.rankLp, item.rankLp);
+      if (item.rankPromo) result.rankPromo = item.rankPromo;
+    }
+    result.rankMatchesPlayed = Math.max(result.rankMatchesPlayed, item.rankMatchesPlayed);
+    result.rankWins = Math.max(result.rankWins, item.rankWins);
+    result.rankWinStreak = Math.max(result.rankWinStreak, item.rankWinStreak);
+    if (item.rankHistory && item.rankHistory.length > 0) {
+      const existingIds = new Set(result.rankHistory.map(h => h.id));
+      const combined = [...result.rankHistory];
+      for (const h of item.rankHistory) {
+        if (!existingIds.has(h.id)) {
+          combined.push(h);
+        }
+      }
+      result.rankHistory = combined.sort((a, b) => b.timestamp - a.timestamp).slice(0, 20);
+    }
     return result;
   }, { ...DEFAULT_PROGRESS, grammarProgress: {}, vocabDayStars: {} });
 
@@ -175,6 +260,14 @@ function readGuestProgress(): LearningProgress {
     const lastDate = localStorage.getItem(LEGACY_KEYS.lastStudyDate);
     const hearts = localStorage.getItem(LEGACY_KEYS.hearts);
     const refill = localStorage.getItem(LEGACY_KEYS.lastHeartRefillTime);
+    const rankTier = localStorage.getItem(LEGACY_KEYS.rankTier) as RankTier | null;
+    const rankLp = localStorage.getItem(LEGACY_KEYS.rankLp);
+    const rankPromo = localStorage.getItem(LEGACY_KEYS.rankPromo);
+    const rankMatches = localStorage.getItem(LEGACY_KEYS.rankMatches);
+    const rankWins = localStorage.getItem(LEGACY_KEYS.rankWins);
+    const rankStreak = localStorage.getItem(LEGACY_KEYS.rankStreak);
+    const rankHistory = localStorage.getItem(LEGACY_KEYS.rankHistory);
+
     return normalizeProgress({
       grammarProgress: grammar ? JSON.parse(grammar) : {},
       vocabUnlockedDay: unlockedDay ? Number.parseInt(unlockedDay, 10) : 1,
@@ -185,6 +278,13 @@ function readGuestProgress(): LearningProgress {
       lastStudyDate: lastDate || '',
       hearts: hearts ? Number.parseInt(hearts, 10) : 3,
       lastHeartRefillTime: refill ? Number.parseInt(refill, 10) : Date.now(),
+      rankTier: rankTier || 'BRONZE',
+      rankLp: rankLp ? Number.parseInt(rankLp, 10) : 0,
+      rankPromo: rankPromo ? JSON.parse(rankPromo) : null,
+      rankMatchesPlayed: rankMatches ? Number.parseInt(rankMatches, 10) : 0,
+      rankWins: rankWins ? Number.parseInt(rankWins, 10) : 0,
+      rankWinStreak: rankStreak ? Number.parseInt(rankStreak, 10) : 0,
+      rankHistory: rankHistory ? JSON.parse(rankHistory) : [],
     });
   } catch {
     return { ...DEFAULT_PROGRESS };
@@ -216,6 +316,13 @@ function writeLocalProgress(progress: LearningProgress, uid: string | null) {
     localStorage.setItem(LEGACY_KEYS.lastStudyDate, progress.lastStudyDate);
     localStorage.setItem(LEGACY_KEYS.hearts, String(progress.hearts));
     localStorage.setItem(LEGACY_KEYS.lastHeartRefillTime, String(progress.lastHeartRefillTime));
+    localStorage.setItem(LEGACY_KEYS.rankTier, progress.rankTier);
+    localStorage.setItem(LEGACY_KEYS.rankLp, String(progress.rankLp));
+    localStorage.setItem(LEGACY_KEYS.rankPromo, JSON.stringify(progress.rankPromo));
+    localStorage.setItem(LEGACY_KEYS.rankMatches, String(progress.rankMatchesPlayed));
+    localStorage.setItem(LEGACY_KEYS.rankWins, String(progress.rankWins));
+    localStorage.setItem(LEGACY_KEYS.rankStreak, String(progress.rankWinStreak));
+    localStorage.setItem(LEGACY_KEYS.rankHistory, JSON.stringify(progress.rankHistory));
   } catch (error) {
     console.error('Could not save learning progress locally:', error);
   }
@@ -687,6 +794,143 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     return () => clearInterval(interval);
   }, [commitProgress]);
 
+  const saveRankMatchResult = useCallback((match: {
+    tier: RankTier;
+    score: number;
+    total: number;
+    accuracy: number;
+    isWin: boolean;
+  }) => {
+    let finalLpChange = 0;
+    let finalNewTier = match.tier;
+    let finalNewLp = 0;
+    let finalPromo: PromoSeries | null = null;
+    let isPromoted = false;
+    let isDemoted = false;
+
+    commitProgress(current => {
+      const curTier = current.rankTier || 'BRONZE';
+      const curLp = current.rankLp ?? 0;
+      const curPromo = current.rankPromo ? { ...current.rankPromo } : null;
+      const curStreak = match.isWin ? (current.rankWinStreak ?? 0) + 1 : 0;
+      const tierIdx = RANK_ORDER.indexOf(curTier);
+
+      if (curPromo && curPromo.active) {
+        // In Bo3 Promo Series!
+        if (match.isWin) {
+          curPromo.wins += 1;
+        } else {
+          curPromo.losses += 1;
+        }
+
+        if (curPromo.wins >= 2) {
+          // PROMOTION SUCCESS!
+          isPromoted = true;
+          finalNewTier = curPromo.targetTier;
+          finalNewLp = 0;
+          finalPromo = null;
+          finalLpChange = 0;
+        } else if (curPromo.losses >= 2) {
+          // PROMOTION FAILED
+          finalNewTier = curTier;
+          finalNewLp = 75; // reset to 75 LP
+          finalPromo = null;
+          finalLpChange = -25;
+        } else {
+          // Promo series ongoing
+          finalNewTier = curTier;
+          finalNewLp = 100;
+          finalPromo = curPromo;
+          finalLpChange = 0;
+        }
+      } else {
+        // Normal Match LP calculation
+        if (match.isWin) {
+          const streakBonus = Math.min((current.rankWinStreak ?? 0) * 2, 8);
+          let baseLp = 40 + streakBonus;
+          if (curTier === 'BRONZE') baseLp = 40 + streakBonus;
+          else if (curTier === 'SILVER') baseLp = 35 + streakBonus;
+          else if (curTier === 'GOLD') baseLp = 28 + streakBonus;
+          else if (curTier === 'PLATINUM') baseLp = 24 + streakBonus;
+          else if (curTier === 'DIAMOND') baseLp = 20 + streakBonus;
+          else baseLp = 18 + streakBonus;
+          finalLpChange = baseLp;
+
+          const nextLp = curLp + baseLp;
+          if (nextLp >= 100) {
+            if (tierIdx < RANK_ORDER.length - 1) {
+              // Enter Bo3 Promo Series!
+              finalNewTier = curTier;
+              finalNewLp = 100;
+              finalPromo = {
+                active: true,
+                wins: 0,
+                losses: 0,
+                targetTier: RANK_ORDER[tierIdx + 1]
+              };
+            } else {
+              finalNewTier = curTier;
+              finalNewLp = 100;
+              finalPromo = null;
+            }
+          } else {
+            finalNewTier = curTier;
+            finalNewLp = nextLp;
+            finalPromo = null;
+          }
+        } else {
+          // Loss Penalty
+          let lossPenalty = -5;
+          if (curTier === 'BRONZE') lossPenalty = -5;
+          else if (curTier === 'SILVER') lossPenalty = -8;
+          else if (curTier === 'GOLD') lossPenalty = -14;
+          else if (curTier === 'PLATINUM') lossPenalty = -16;
+          else if (curTier === 'DIAMOND') lossPenalty = -18;
+          else lossPenalty = -20;
+          finalLpChange = lossPenalty;
+
+          finalNewTier = curTier;
+          finalNewLp = Math.max(0, curLp + lossPenalty);
+          finalPromo = null;
+        }
+      }
+
+      const newRecord: MatchRecord = {
+        id: `match_${Date.now()}`,
+        timestamp: Date.now(),
+        tier: curTier,
+        score: match.score,
+        total: match.total,
+        accuracy: match.accuracy,
+        lpChange: finalLpChange,
+        isWin: match.isWin,
+        isPromoMatch: !!(current.rankPromo?.active)
+      };
+
+      const updatedHistory = [newRecord, ...(current.rankHistory || [])].slice(0, 20);
+
+      return {
+        ...current,
+        rankTier: finalNewTier,
+        rankLp: finalNewLp,
+        rankPromo: finalPromo,
+        rankMatchesPlayed: (current.rankMatchesPlayed ?? 0) + 1,
+        rankWins: (current.rankWins ?? 0) + (match.isWin ? 1 : 0),
+        rankWinStreak: curStreak,
+        rankHistory: updatedHistory,
+      };
+    });
+
+    return {
+      lpChange: finalLpChange,
+      newTier: finalNewTier,
+      newLp: finalNewLp,
+      promoSeries: finalPromo,
+      isPromoted,
+      isDemoted,
+    };
+  }, [commitProgress]);
+
   const value: ProgressContextValue = {
     user,
     progress,
@@ -697,6 +941,13 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     streakDays: progress.streakDays ?? 5,
     lastStudyDate: progress.lastStudyDate ?? '',
     hearts: progress.hearts ?? 3,
+    rankTier: progress.rankTier || 'BRONZE',
+    rankLp: progress.rankLp ?? 0,
+    rankPromo: progress.rankPromo || null,
+    rankMatchesPlayed: progress.rankMatchesPlayed ?? 0,
+    rankWins: progress.rankWins ?? 0,
+    rankWinStreak: progress.rankWinStreak ?? 0,
+    rankHistory: progress.rankHistory || [],
     signInWithEmail,
     signInWithGoogle,
     signInWithGoogleRedirect,
@@ -709,6 +960,7 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     recordStudyActivity,
     loseHeart,
     refillHearts,
+    saveRankMatchResult,
   };
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;

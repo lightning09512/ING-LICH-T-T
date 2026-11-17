@@ -100,6 +100,38 @@ const fallbackTests: TestSummary[] = [
     durationMinutes: 120,
     totalQuestions: 200,
     description: "Đề thi TOEIC Quốc tế 200 câu số 10 từ Collection 1 kèm Audio Listening MP3 chuẩn (46 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-2-test-1",
+    title: "TOEIC LR Collection 2 - Test 1 (Full 200 Questions)",
+    code: "S4-COL2-T1",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 1 từ Collection 2 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-2-test-2",
+    title: "TOEIC LR Collection 2 - Test 2 (Full 200 Questions)",
+    code: "S4-COL2-T2",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 2 từ Collection 2 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-2-test-3",
+    title: "TOEIC LR Collection 2 - Test 3 (Full 200 Questions)",
+    code: "S4-COL2-T3",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 3 từ Collection 2 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
+  },
+  {
+    _id: "toeic-lr-collection-2-test-4",
+    title: "TOEIC LR Collection 2 - Test 4 (Full 200 Questions)",
+    code: "S4-COL2-T4",
+    durationMinutes: 120,
+    totalQuestions: 200,
+    description: "Đề thi TOEIC Quốc tế 200 câu số 4 từ Collection 2 kèm Audio Listening MP3 chuẩn (45 phút), bài đọc Part 6 & 7 nguyên bản và bảng đáp án chính thức từ Study4."
   }
 ];
 

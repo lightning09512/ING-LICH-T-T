@@ -8,6 +8,7 @@ import { ReviewSurvivalScreen } from './components/ReviewSurvivalScreen';
 import { GrammarScreen } from './components/GrammarScreen';
 import { ToeicExamScreen } from './components/ToeicExamScreen';
 import { TestSelectScreen } from './components/TestSelectScreen';
+import { RankedExamScreen } from './components/RankedExamScreen';
 import { LofiPlayer } from './components/LofiPlayer';
 import { AccountModal } from './components/AccountModal';
 import { StreakModal } from './components/StreakModal';
@@ -16,7 +17,7 @@ import { initialVocabList, initialTest, VocabItem, ToeicTest } from './data/init
 import { sounds } from './utils/soundEffects';
 import { useLearningProgress } from './contexts/ProgressContext';
 
-type ScreenState = 'TITLE' | 'MENU' | 'LEARN' | 'GRAMMAR' | 'REVIEW' | 'SELECT_TEST' | 'EXAM';
+type ScreenState = 'TITLE' | 'MENU' | 'LEARN' | 'GRAMMAR' | 'REVIEW' | 'SELECT_TEST' | 'EXAM' | 'RANKED';
 
 export function App() {
   const {
@@ -243,6 +244,8 @@ export function App() {
             onSelectMode={(mode) => {
               if (mode === 'EXAM') {
                 setScreen('SELECT_TEST');
+              } else if (mode === 'RANKED') {
+                setScreen('RANKED');
               } else {
                 setScreen(mode);
               }
@@ -285,6 +288,13 @@ export function App() {
           <ToeicExamScreen
             test={currentTest}
             onBack={() => setScreen('SELECT_TEST')}
+            nickname={nickname}
+          />
+        )}
+
+        {screen === 'RANKED' && (
+          <RankedExamScreen
+            onBack={() => setScreen('MENU')}
             nickname={nickname}
           />
         )}
