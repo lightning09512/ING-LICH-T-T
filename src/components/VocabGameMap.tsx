@@ -548,21 +548,26 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
                 </p>
               </div>
             ) : (
-              /* Back: Vietnamese Definition + Illustration Image on BACK */
-              <div className="my-auto py-3 sm:py-4 text-center flex flex-col items-center gap-2 sm:gap-3">
+              /* Back: Vietnamese Definition + Illustration Image + Example Translation */
+              <div className="my-auto py-2 sm:py-3 text-center flex flex-col items-center gap-2 sm:gap-2.5 w-full">
                 <div className="flex items-center justify-center gap-2 flex-wrap">
-                  <span className="text-[11px] sm:text-xs font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 bg-neoPink text-white border-2 border-black uppercase">
+                  <span className="text-[11px] sm:text-xs font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 bg-neoPink text-white border-2 border-black uppercase shadow-neo-sm">
                     Ý NGHĨA TIẾNG VIỆT
                   </span>
+                  {currentWord.partOfSpeech && (
+                    <span className="text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:py-1 bg-gray-100 text-gray-700 border-2 border-black rounded shadow-neo-sm">
+                      {currentWord.partOfSpeech}
+                    </span>
+                  )}
                 </div>
 
-                <h3 className="text-xl sm:text-3xl md:text-4xl font-black text-emerald-700 font-heading">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-emerald-700 font-heading tracking-wide">
                   {currentWord.meaning}
                 </h3>
 
                 {/* Illustration Image on Back Side */}
                 {currentWord.imageUrl && (
-                  <div className="w-40 h-28 sm:w-64 sm:h-44 border-2 sm:border-3 border-black bg-white rounded-xl overflow-hidden shadow-neo flex items-center justify-center p-1.5 sm:p-2 my-1 hover:scale-105 transition-transform">
+                  <div className="w-36 h-24 sm:w-48 sm:h-32 border-2 sm:border-3 border-black bg-white rounded-xl overflow-hidden shadow-neo-sm flex items-center justify-center p-1 sm:p-1.5 my-0.5 hover:scale-105 transition-transform">
                     <img
                       src={currentWord.imageUrl}
                       alt={currentWord.word}
@@ -571,6 +576,48 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
                     />
                   </div>
                 )}
+
+                {/* Dịch nghĩa dòng câu ví dụ bên dưới khi lật ra mặt sau */}
+                {currentWord.exampleVi ? (
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    className="w-full max-w-lg bg-emerald-50 border-2 sm:border-3 border-black px-3.5 py-2 sm:px-5 sm:py-2.5 rounded-xl shadow-neo-sm text-left mt-1 sm:mt-2 transition-all cursor-default"
+                  >
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <span className="text-[10px] sm:text-xs font-black uppercase text-emerald-800 tracking-wider flex items-center gap-1">
+                        🇻🇳 Dịch câu ví dụ:
+                      </span>
+                      {currentWord.exampleEn && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            sounds.playClick();
+                            sounds.speakEnglish(currentWord.exampleEn!);
+                          }}
+                          className="p-1 sm:p-1.5 bg-white border border-black rounded shadow-neo-sm hover:bg-emerald-100 active:translate-x-0.5 active:translate-y-0.5 shrink-0 transition-all cursor-pointer"
+                          title="Nghe lại câu ví dụ tiếng Anh"
+                        >
+                          <Volume2 className="w-3.5 h-3.5 text-black" />
+                        </button>
+                      )}
+                    </div>
+                    <p className="font-bold text-xs sm:text-base text-gray-900 leading-snug">
+                      "{currentWord.exampleVi}"
+                    </p>
+                    {currentWord.exampleEn && (
+                      <p className="text-[11px] sm:text-xs text-gray-600 font-medium italic mt-1 border-t border-emerald-200/60 pt-1">
+                        🇬🇧 "{currentWord.exampleEn}"
+                      </p>
+                    )}
+                  </div>
+                ) : currentWord.exampleEn ? (
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    className="w-full max-w-lg bg-yellow-50 border-2 border-black px-3.5 py-2 rounded-xl shadow-neo-sm text-left mt-1 text-xs text-gray-700 font-bold"
+                  >
+                    🇬🇧 "{currentWord.exampleEn}"
+                  </div>
+                ) : null}
 
                 <p className="text-[11px] sm:text-xs text-gray-400 font-bold mt-1">
                   (Chạm để lật lại mặt tiếng Anh)
@@ -679,6 +726,11 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
                         {w.exampleEn && (
                           <p className="text-xs text-gray-700 font-medium italic mt-0.5">
                             "{w.exampleEn}"
+                          </p>
+                        )}
+                        {w.exampleVi && (
+                          <p className="text-xs text-pink-700 font-bold mt-0.5">
+                            "{w.exampleVi}"
                           </p>
                         )}
                       </div>
