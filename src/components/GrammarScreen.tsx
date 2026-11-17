@@ -8,6 +8,12 @@ import {
   getAllGrammarExercises,
   WordOrderStep
 } from '../data/grammarData';
+import { 
+  masterGrammarBank, 
+  getRandomGrammarTest, 
+  GrammarBankQuestion, 
+  getGrammarBankStats 
+} from '../data/grammarBank';
 import { sounds } from '../utils/soundEffects';
 import { useLearningProgress } from '../contexts/ProgressContext';
 import confetti from 'canvas-confetti';
@@ -24,18 +30,21 @@ import {
   Sparkles, 
   ChevronRight, 
   Zap, 
-  GraduationCap,
-  Check,
-  X,
-  Play,
-  Clock,
-  Layers,
-  Filter,
-  ArrowRight,
-  Info,
-  ChevronDown,
-  ChevronUp,
-  Flame
+  GraduationCap, 
+  Check, 
+  X, 
+  Play, 
+  Clock, 
+  Layers, 
+  Filter, 
+  ArrowRight, 
+  Info, 
+  ChevronDown, 
+  ChevronUp, 
+  Flame,
+  Target,
+  Award,
+  RotateCcw
 } from 'lucide-react';
 
 interface GrammarScreenProps {
@@ -44,11 +53,22 @@ interface GrammarScreenProps {
 }
 
 type MainTab = 'TOPICS' | 'TENSES' | 'WORD_ORDER';
-type GrammarViewMode = 'MAIN' | 'LESSON' | 'SURVIVAL';
+type GrammarViewMode = 'MAIN' | 'LESSON' | 'SURVIVAL' | 'TEST';
 
 export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }) => {
   const [viewMode, setViewMode] = useState<GrammarViewMode>('MAIN');
   const [activeMainTab, setActiveMainTab] = useState<MainTab>('TENSES'); // Default to Tenses to show full tenses immediately
+  
+  // Test Mode State (10 Random Questions from 345+ Master Bank)
+  const [testQuizzes, setTestQuizzes] = useState<GrammarBankQuestion[]>([]);
+  const [testIndex, setTestIndex] = useState(0);
+  const [testSelectedOption, setTestSelectedOption] = useState<'A' | 'B' | 'C' | 'D' | null>(null);
+  const [testIsAnswerChecked, setTestIsAnswerChecked] = useState(false);
+  const [testScore, setTestScore] = useState(0);
+  const [testFinished, setTestFinished] = useState(false);
+  const [testUserAnswers, setTestUserAnswers] = useState<('A' | 'B' | 'C' | 'D' | null)[]>([]);
+  const [testTopicFilter, setTestTopicFilter] = useState<string>('ALL');
+  const [testShowReview, setTestShowReview] = useState(false);
   
   // Topic state
   const [selectedTopic, setSelectedTopic] = useState<GrammarTopic>(grammarTopics[0]);
@@ -345,12 +365,89 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
     }));
   };
 
-  // Survival Mode logic
+  // ----------------------------------------------------
+  // RANDOM MASTER TEST MODE (10 Questions from 345+ Bank)
+  // ----------------------------------------------------
+  const handleStartRandomTest = (topicFilter = 'ALL') => {
+    sounds.playClick();
+    const questions = getRandomGrammarTest(10, topicFilter === 'ALL' ? undefined : topicFilter);
+    setTestQuizzes(questions);
+    setTestIndex(0);
+    setTestSelectedOption(null);
+    setTestIsAnswerChecked(false);
+    setTestScore(0);
+    setTestFinished(false);
+    setTestUserAnswers(new Array(questions.length).fill(null));
+    setTestTopicFilter(topicFilter);
+    setTestShowReview(false);
+    setViewMode('TEST');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSelectTestOption = (label: 'A' | 'B' | 'C' | 'D') => {
+    if (testIsAnswerChecked || testQuizzes.length === 0) return;
+    setTestSelectedOption(label);
+    setTestIsAnswerChecked(true);
+
+    const currentQ = testQuizzes[testIndex];
+    const isCorrect = label === currentQ.correctAnswer;
+    const updated = [...testUserAnswers];
+    updated[testIndex] = label;
+    setTestUserAnswers(updated);
+
+    if (isCorrect) {
+      sounds.playCorrect();
+      setTestScore(prev => prev + 1);
+      confetti({
+        particleCount: 45,
+        spread: 55,
+        origin: { y: 0.7 }
+      });
+    } else {
+      sounds.playWrong();
+    }
+  };
+
+  const handleNextTestQuestion = () => {
+    sounds.playClick();
+    if (testIndex + 1 < testQuizzes.length) {
+      setTestIndex(prev => prev + 1);
+      setTestSelectedOption(null);
+      setTestIsAnswerChecked(false);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      setTestFinished(true);
+      const finalScore = testScore + (testSelectedOption === testQuizzes[testIndex]?.correctAnswer ? 1 : 0);
+      recordStudyActivity();
+      if (finalScore >= 8) {
+        sounds.playVictory();
+        confetti({
+          particleCount: 160,
+          spread: 90,
+          origin: { y: 0.5 }
+        });
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const handleRestartTest = () => {
+    handleStartRandomTest(testTopicFilter);
+  };
+
+  // Survival Mode logic (Pulls 10 random questions from Master Bank)
   const handleStartSurvival = () => {
     sounds.playClick();
-    const all = getAllGrammarExercises();
-    const shuffled = [...all].sort(() => 0.5 - Math.random()).slice(0, 10);
-    setSurvivalQuizzes(shuffled);
+    const shuffled = getRandomGrammarTest(10);
+    setSurvivalQuizzes(shuffled.map((q, idx) => ({
+      id: idx + 1,
+      question: q.question,
+      options: q.options,
+      correctAnswer: q.correctAnswer,
+      explanation: q.explanation,
+      translation: q.translation,
+      topicTitle: q.topicTitle
+    })));
     setSurvivalIndex(0);
     setHearts(3);
     setScore(0);
@@ -474,14 +571,25 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
             <ArrowLeft className="w-4 h-4" /> Quay lại Menu
           </button>
 
-          {/* Quick Survival Quiz Trigger */}
-          <button
-            onClick={handleStartSurvival}
-            className="flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 bg-neoYellow hover:bg-amber-300 border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo-sm hover:shadow-neo active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer min-h-[40px]"
-          >
-            <Zap className="w-4 h-4 sm:w-5 sm:h-5 fill-black text-black shrink-0" />
-            <span>Thách Đấu Sinh Tồn 15s ⚡</span>
-          </button>
+          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+            {/* Quick Random 10-Question Master Test Trigger */}
+            <button
+              onClick={() => handleStartRandomTest('ALL')}
+              className="flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 bg-neoGreen hover:bg-emerald-400 border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo-sm hover:shadow-neo active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer min-h-[40px]"
+            >
+              <Target className="w-4 h-4 sm:w-5 sm:h-5 text-black shrink-0" />
+              <span>Làm Test 10 Câu Random (345+ Đề) 🎯</span>
+            </button>
+
+            {/* Quick Survival Quiz Trigger */}
+            <button
+              onClick={handleStartSurvival}
+              className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 bg-neoYellow hover:bg-amber-300 border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo-sm hover:shadow-neo active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer min-h-[40px]"
+            >
+              <Zap className="w-4 h-4 sm:w-5 sm:h-5 fill-black text-black shrink-0" />
+              <span>Sinh Tồn 15s ⚡</span>
+            </button>
+          </div>
         </div>
 
         {/* Hero Banner */}
@@ -510,10 +618,38 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                 <div className="text-[10px] sm:text-xs font-bold text-gray-600 uppercase">Sơ Đồ Từ</div>
               </div>
               <div className="bg-white border-2 sm:border-3 border-black p-2 sm:p-3 text-center shadow-neo-sm">
-                <div className="text-xl sm:text-2xl font-black text-emerald-600">50+</div>
-                <div className="text-[10px] sm:text-xs font-bold text-gray-600 uppercase">Part 5</div>
+                <div className="text-xl sm:text-2xl font-black text-emerald-600">345+</div>
+                <div className="text-[10px] sm:text-xs font-bold text-gray-600 uppercase">Ngân Hàng Đề</div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Master Test CTA Card */}
+        <div className="bg-white border-3 sm:border-4 border-black p-4 sm:p-5 shadow-neo mb-4 sm:mb-6">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div>
+              <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                <span className="px-2.5 py-0.5 bg-neoGreen border-2 border-black font-black text-[10px] uppercase shadow-neo-sm">
+                  🔥 Ngân Hàng 345+ Câu Chuẩn TOEIC ETS
+                </span>
+                <span className="text-xs font-bold text-gray-600">Mỗi lần bấm là 1 đề 10 câu ngẫu nhiên mới!</span>
+              </div>
+              <h2 className="text-lg sm:text-xl font-black uppercase text-black">
+                Luyện Thi Trắc Nghiệm Ngữ Pháp TOEIC (10 Câu Random)
+              </h2>
+              <p className="text-xs sm:text-sm font-semibold text-gray-700 mt-1">
+                Tất cả các câu đều có giải thích chi tiết, dịch nghĩa tiếng Việt & đáp án chuẩn. Đạt &ge; 80% để qua màn!
+              </p>
+            </div>
+
+            <button
+              onClick={() => handleStartRandomTest('ALL')}
+              className="w-full md:w-auto flex items-center justify-center gap-2 px-5 py-3 bg-neoYellow hover:bg-amber-300 border-3 border-black font-black text-sm uppercase shadow-neo hover:shadow-neo-lg active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer whitespace-nowrap"
+            >
+              <Play className="w-4 h-4 fill-black" />
+              <span>Bắt Đầu Test 10 Câu Random Ngay 🚀</span>
+            </button>
           </div>
         </div>
 
@@ -1684,6 +1820,282 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                     Học chuyên đề khác
                   </button>
                 </div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // ----------------------------------------------------
+  // RENDER: MASTER RANDOM TEST MODE (10 Questions from 345+ Bank)
+  // ----------------------------------------------------
+  if (viewMode === 'TEST') {
+    const currentQ = testQuizzes[testIndex];
+
+    return (
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 py-6 md:py-8">
+        {/* Navigation & Header */}
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+          <button
+            onClick={() => {
+              sounds.playClick();
+              setViewMode('MAIN');
+            }}
+            className="flex items-center gap-2 px-4 py-2 bg-white border-3 border-black font-black text-sm uppercase shadow-neo hover:bg-gray-100 active:translate-x-0.5 active:translate-y-0.5 cursor-pointer"
+          >
+            <ArrowLeft className="w-4 h-4" /> Về Ngữ Pháp
+          </button>
+
+          <div className="flex items-center gap-3">
+            <span className="hidden sm:inline-block px-3 py-1 bg-neoYellow border-2 border-black font-black text-xs uppercase shadow-neo-sm">
+              🎯 Ngân Hàng 345+ Câu Part 5
+            </span>
+            <button
+              onClick={handleRestartTest}
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-gray-100 border-2 border-black font-black text-xs uppercase shadow-neo-sm active:translate-x-0.5 active:translate-y-0.5 cursor-pointer"
+              title="Đổi bộ 10 câu ngẫu nhiên khác"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+              <span>Đổi Đề Mới</span>
+            </button>
+          </div>
+        </div>
+
+        {!testFinished && currentQ ? (
+          <div className="bg-white border-4 border-black p-6 md:p-8 shadow-neo-lg">
+            {/* Top Progress Bar */}
+            <div className="flex items-center justify-between text-xs sm:text-sm font-black mb-4">
+              <div className="flex items-center gap-2">
+                <span className="px-3 py-1 bg-black text-white uppercase">
+                  CÂU {testIndex + 1} / {testQuizzes.length}
+                </span>
+                <span className="hidden sm:inline px-2.5 py-1 bg-neoCyan border-2 border-black text-xs font-black uppercase">
+                  {currentQ.topicTitle}
+                </span>
+              </div>
+              <div className="px-3 py-1 bg-neoGreen border-2 border-black font-black text-black">
+                Điểm: {testScore} / {testIndex + (testIsAnswerChecked && testSelectedOption === currentQ.correctAnswer ? 1 : 0)}
+              </div>
+            </div>
+
+            {/* Visual Step Progress */}
+            <div className="w-full bg-gray-200 border-2 border-black h-3 mb-6 overflow-hidden">
+              <div
+                className="bg-neoYellow h-full transition-all duration-300"
+                style={{ width: `${((testIndex + 1) / testQuizzes.length) * 100}%` }}
+              />
+            </div>
+
+            {/* Question Text */}
+            <div className="mb-6">
+              <div className="sm:hidden mb-2">
+                <span className="inline-block px-2 py-0.5 bg-neoCyan border-2 border-black text-[11px] font-black uppercase">
+                  {currentQ.topicTitle}
+                </span>
+              </div>
+              <p className="text-lg md:text-xl font-black text-black leading-relaxed font-body">
+                {currentQ.question}
+              </p>
+            </div>
+
+            {/* Options ABCD */}
+            <div className="grid grid-cols-1 gap-3 mb-6">
+              {currentQ.options.map(opt => {
+                const isSelected = testSelectedOption === opt.label;
+                const isCorrect = opt.label === currentQ.correctAnswer;
+
+                let btnStyle = 'bg-white hover:bg-amber-100 hover:shadow-neo border-3 border-black';
+                if (testIsAnswerChecked) {
+                  if (isCorrect) {
+                    btnStyle = 'bg-neoGreen border-3 border-black text-black';
+                  } else if (isSelected) {
+                    btnStyle = 'bg-red-400 border-3 border-black text-white';
+                  } else {
+                    btnStyle = 'bg-gray-100 opacity-60 border-2 border-gray-400 cursor-not-allowed';
+                  }
+                }
+
+                return (
+                  <button
+                    key={opt.label}
+                    disabled={testIsAnswerChecked}
+                    onClick={() => handleSelectTestOption(opt.label)}
+                    className={`p-3.5 sm:p-4 text-left font-bold text-sm md:text-base flex items-center justify-between transition-all cursor-pointer ${btnStyle}`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="w-7 h-7 bg-black text-white flex items-center justify-center font-black text-xs shrink-0">
+                        {opt.label}
+                      </span>
+                      <span>{opt.text}</span>
+                    </div>
+                    {testIsAnswerChecked && isCorrect && (
+                      <span className="flex items-center gap-1 text-xs font-black bg-white text-emerald-800 px-2 py-0.5 border-2 border-black">
+                        <Check className="w-4 h-4 stroke-[3]" /> ĐÚNG
+                      </span>
+                    )}
+                    {testIsAnswerChecked && isSelected && !isCorrect && (
+                      <span className="flex items-center gap-1 text-xs font-black bg-white text-rose-800 px-2 py-0.5 border-2 border-black">
+                        <X className="w-4 h-4 stroke-[3]" /> SAI
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Explanation and Translation Box */}
+            {testIsAnswerChecked && (
+              <div className="bg-amber-50 border-3 border-black p-4 sm:p-5 shadow-neo-sm mb-6 animate-fadeIn">
+                <div className="flex items-center gap-2 font-black text-sm uppercase mb-2">
+                  {testSelectedOption === currentQ.correctAnswer ? (
+                    <span className="text-emerald-700 flex items-center gap-1.5">
+                      <CheckCircle2 className="w-5 h-5" /> Chính xác! Đáp án đúng là ({currentQ.correctAnswer})
+                    </span>
+                  ) : (
+                    <span className="text-rose-700 flex items-center gap-1.5">
+                      <AlertTriangle className="w-5 h-5" /> Chưa đúng rồi! Đáp án đúng là ({currentQ.correctAnswer})
+                    </span>
+                  )}
+                </div>
+
+                <div className="space-y-2.5 text-xs sm:text-sm">
+                  <div className="p-3 bg-white border-2 border-black">
+                    <span className="font-black text-neoDark uppercase text-[11px] block mb-1">
+                      💡 Giải thích ngữ pháp chi tiết:
+                    </span>
+                    <p className="font-bold text-gray-800 leading-relaxed">
+                      {currentQ.explanation}
+                    </p>
+                  </div>
+
+                  <div className="p-3 bg-yellow-100/60 border-2 border-black">
+                    <span className="font-black text-amber-900 uppercase text-[11px] block mb-1">
+                      📝 Dịch câu tiếng Việt:
+                    </span>
+                    <p className="font-medium text-gray-800 italic">
+                      "{currentQ.translation}"
+                    </p>
+                  </div>
+                </div>
+
+                {/* Next button */}
+                <div className="mt-4 flex justify-end">
+                  <button
+                    onClick={handleNextTestQuestion}
+                    className="flex items-center gap-2 px-6 py-3 bg-black hover:bg-gray-800 text-white font-black text-sm uppercase shadow-neo hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                  >
+                    <span>{testIndex + 1 < testQuizzes.length ? 'Câu tiếp theo' : 'Xem Kết Quả Bài Test'}</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        ) : (
+          /* Finished Test Screen */
+          <div className="bg-white border-4 border-black p-6 md:p-10 shadow-neo-lg text-center animate-fadeIn">
+            <div className="inline-block p-4 bg-neoYellow border-3 border-black shadow-neo-sm mb-4">
+              <Trophy className="w-14 h-14 text-black mx-auto" />
+            </div>
+
+            <h2 className="text-2xl sm:text-4xl font-black font-heading uppercase text-black mb-2">
+              Hoàn Thành Bài Test Ngữ Pháp!
+            </h2>
+
+            <div className="inline-block px-6 py-3 bg-neoGreen border-3 border-black font-black text-2xl sm:text-3xl shadow-neo my-4">
+              🎯 Kết Quả: {testScore} / {testQuizzes.length} Câu ({Math.round((testScore / Math.max(1, testQuizzes.length)) * 100)}%)
+            </div>
+
+            <p className="text-base sm:text-lg font-bold text-gray-800 max-w-lg mx-auto mb-6">
+              {testScore >= 8 ? (
+                <span className="text-emerald-700">
+                  🎉 Quá đỉnh Mập địch ơi! Đạt chuẩn ngữ pháp TOEIC rồi! Đi ăn lẩu thưởng thôi nào!
+                </span>
+              ) : (
+                <span className="text-rose-600">
+                  💪 Chưa đạt mốc 80% rồi Mập địch ơi! Bấm nút bên dưới để đổi đề 10 câu ngẫu nhiên mới và phục thù ngay nhé!
+                </span>
+              )}
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+              <button
+                onClick={handleRestartTest}
+                className="flex items-center gap-2 px-6 py-3.5 bg-neoYellow hover:bg-amber-300 border-3 border-black font-black text-sm uppercase shadow-neo hover:shadow-neo-lg active:translate-x-0.5 active:translate-y-0.5 cursor-pointer"
+              >
+                <RefreshCw className="w-4 h-4" />
+                <span>Làm 10 Câu Random Mới 🔄</span>
+              </button>
+
+              <button
+                onClick={() => setTestShowReview(!testShowReview)}
+                className="flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-gray-100 border-3 border-black font-black text-sm uppercase shadow-neo active:translate-x-0.5 active:translate-y-0.5 cursor-pointer"
+              >
+                <BookOpen className="w-4 h-4" />
+                <span>{testShowReview ? 'Thu Gọn Đáp Án' : 'Xem Lại 10 Câu Vừa Làm'}</span>
+              </button>
+
+              <button
+                onClick={() => {
+                  sounds.playClick();
+                  setViewMode('MAIN');
+                }}
+                className="px-6 py-3.5 bg-neoCyan hover:bg-cyan-300 border-3 border-black font-black text-sm uppercase shadow-neo active:translate-x-0.5 active:translate-y-0.5 cursor-pointer"
+              >
+                Về Trang Ngữ Pháp 🏠
+              </button>
+            </div>
+
+            {/* Review List Drawer */}
+            {testShowReview && (
+              <div className="text-left space-y-4 pt-6 border-t-3 border-dashed border-gray-300">
+                <h3 className="font-black text-lg uppercase text-black mb-3">
+                  📋 Chi Tiết Đáp Án 10 Câu:
+                </h3>
+                {testQuizzes.map((q, idx) => {
+                  const userAns = testUserAnswers[idx];
+                  const isCorrect = userAns === q.correctAnswer;
+
+                  return (
+                    <div
+                      key={q.uniqueId || idx}
+                      className={`p-4 border-3 border-black shadow-neo-sm ${
+                        isCorrect ? 'bg-emerald-50/60' : 'bg-rose-50/60'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between gap-2 mb-2">
+                        <span className="font-black text-xs uppercase px-2 py-0.5 bg-black text-white">
+                          Câu {idx + 1} • {q.topicTitle}
+                        </span>
+                        <span
+                          className={`font-black text-xs uppercase px-2 py-0.5 border-2 border-black ${
+                            isCorrect ? 'bg-neoGreen text-black' : 'bg-red-400 text-white'
+                          }`}
+                        >
+                          {isCorrect ? '✓ Đúng' : `✗ Bạn chọn: (${userAns || 'Chưa chọn'})`}
+                        </span>
+                      </div>
+                      <p className="font-bold text-sm text-black mb-2 font-body">
+                        {q.question}
+                      </p>
+                      <div className="text-xs space-y-1 text-gray-800">
+                        <p>
+                          <strong className="text-emerald-800">Đáp án chuẩn:</strong> ({q.correctAnswer}) -{' '}
+                          {q.options.find(o => o.label === q.correctAnswer)?.text}
+                        </p>
+                        <p className="text-gray-700">
+                          <strong>Giải thích:</strong> {q.explanation}
+                        </p>
+                        <p className="italic text-gray-600">
+                          <strong>Dịch:</strong> "{q.translation}"
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             )}
           </div>

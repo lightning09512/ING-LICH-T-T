@@ -16,3 +16,5 @@ scratch/
 # Dynamic runtime user submissions and profile
 server/data/submissions.json
 server/data/profile.json
+claude_desktop_doc.txt
+

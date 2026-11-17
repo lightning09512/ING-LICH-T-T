@@ -74,7 +74,7 @@ const baseTwelveTenses: Omit<TenseItem, 'exercises'>[] = [
     group: 'PRESENT',
     summaryBadge: 'Diễn tả thói quen, lịch trình, sự thật',
     isHighFrequency: true,
-    examBadge: '🔥 90% GẶP (MỆNH ĐỀ THỜI GIAN)',
+    examBadge: 'Tần suất cao: mệnh đề thời gian và lịch trình',
     formulaBlocks: [
       {
         typeLabel: 'Động từ thường (Action Verbs)',
@@ -193,7 +193,7 @@ const baseTwelveTenses: Omit<TenseItem, 'exercises'>[] = [
     group: 'PRESENT',
     summaryBadge: 'Kéo dài từ quá khứ đến nay, vừa mới xảy ra',
     isHighFrequency: true,
-    examBadge: '🔥 CHIẾM 40% CÂU THÌ (SINCE/FOR)',
+    examBadge: 'Tần suất cao: hiện tại hoàn thành',
     formulaBlocks: [
       {
         typeLabel: 'Công thức chung',
@@ -234,7 +234,7 @@ const baseTwelveTenses: Omit<TenseItem, 'exercises'>[] = [
         vi: 'Công ty khởi nghiệp đã đảm bảo được nguồn tài trợ đáng kể trong sáu tháng qua.'
       }
     ],
-    toeicTrap: 'Cụm "in/over/during the past/last + khoảng thời gian" (vd: in the last 3 years) là dấu hiệu 100% của thì Hiện tại hoàn thành, KHÔNG chia quá khứ đơn.'
+    toeicTrap: 'Khoảng thời gian vừa qua thường đi với Hiện tại hoàn thành khi vẫn kéo dài đến hiện tại; hãy đọc toàn bộ ngữ cảnh trước khi chọn thì.',
   },
 
   // 4. PRESENT PERFECT CONTINUOUS
@@ -429,7 +429,7 @@ const baseTwelveTenses: Omit<TenseItem, 'exercises'>[] = [
         vi: 'Trước lúc giám đốc đến địa điểm, bài thuyết trình chính đã kết thúc rồi.'
       }
     ],
-    toeicTrap: 'Công thức vàng TOEIC: "By the time + S + V2/ed, S + HAD + V3/ed". Nhìn thấy By the time đi với quá khứ đơn thì vế kia 99% chọn Had + V3/ed.'
+    toeicTrap: 'Công thức thường gặp: "By the time + S + V2/ed, S + had + V3/ed"; vẫn cần kiểm tra mốc thời gian và ngữ cảnh để xác định thứ tự hành động.',
   },
 
   // 8. PAST PERFECT CONTINUOUS
@@ -483,7 +483,7 @@ const baseTwelveTenses: Omit<TenseItem, 'exercises'>[] = [
     group: 'FUTURE',
     summaryBadge: 'Dự đoán, quyết định tức thì & Kế hoạch định trước',
     isHighFrequency: true,
-    examBadge: '🚨 BẪY PHỐI THÌ WILL VS HIỆN TẠI',
+    examBadge: 'Tần suất cao: tương lai và mệnh đề thời gian',
     formulaBlocks: [
       {
         typeLabel: 'Tương lai đơn (Will + V-inf)',
@@ -536,7 +536,7 @@ const baseTwelveTenses: Omit<TenseItem, 'exercises'>[] = [
         vi: 'Hội đồng quản trị sẽ công bố cổ tức hàng quý vào thứ Hai tới.'
       }
     ],
-    toeicTrap: 'BẪY LỚN NHẤT TOEIC: Mệnh đề trạng từ thời gian (bắt đầu bằng When, As soon as, Before, After, Once) TUYỆT ĐỐI KHÔNG DÙNG WILL. Mệnh đề phụ chia Hiện tại đơn, mệnh đề chính chia Tương lai đơn!'
+    toeicTrap: 'Sau when, as soon as, before, after và once trong mệnh đề thời gian tương lai thường dùng hiện tại đơn, còn mệnh đề chính dùng will; hãy kiểm tra đúng loại mệnh đề.',
   },
 
   // 10. FUTURE CONTINUOUS
@@ -779,7 +779,7 @@ const baseWordOrderRules: Omit<WordOrderRule, 'exercises'>[] = [
     patternFormula: 'Mạo từ / Sở hữu + TÍNH TỪ (Adj) + DANH TỪ (Noun)',
     badge: 'Quy Tắc Cơ Bản',
     isHighFrequency: true,
-    examBadge: '🔥 CƠ BẢN 100% RA THI',
+    examBadge: 'Tần suất cao: từ loại trong Part 5',
     visualSteps: [
       { token: 'a / the / my', label: 'Mạo từ / Sở hữu', color: 'gray', sampleWord: 'a / our' },
       { token: 'ADJECTIVE', label: 'Tính từ', color: 'blue', sampleWord: 'reliable / innovative', isKey: true },
@@ -919,7 +919,7 @@ const baseGrammarTopics: GrammarTopic[] = [
     title: 'Full 12 Thì Trong Tiếng Anh & Phối Thì TOEIC',
     category: 'Động từ & Thời gian',
     description: 'Trọn bộ 12 thì từ cơ bản đến nâng cao (Hiện tại, Quá khứ, Tương lai) và quy tắc mệnh đề trạng từ chỉ thời gian.',
-    badge: 'Full 12 Thì Chuẩn 100%',
+    badge: '12 thì trọng tâm TOEIC',
     isHighFrequency: true,
     examFrequencyBadge: '🔥 95% ĐỀ THI XUẤT HIỆN',
     difficulty: 'Cơ bản (450+)',
@@ -947,7 +947,7 @@ const baseGrammarTopics: GrammarTopic[] = [
           }
         ],
         traps: [
-          'Cụm "in / over / during the past / last + khoảng thời gian" (vd: in the past three months) 100% chia Hiện tại hoàn thành (have/has + V3/ed).'
+          'Cụm "in / over / during the past / last + khoảng thời gian" thường dùng Hiện tại hoàn thành nếu khoảng thời gian vẫn kéo dài đến hiện tại; không nên coi đây là dấu hiệu tuyệt đối.',
         ]
       },
       {
@@ -986,7 +986,7 @@ const baseGrammarTopics: GrammarTopic[] = [
           }
         ],
         traps: [
-          'Tuyệt đối KHÔNG dùng "will" trong mệnh đề phụ chỉ thời gian sau When, As soon as, Before, After, Once, By the time.'
+          'Sau when, as soon as, before, after và once trong mệnh đề thời gian tương lai thường dùng hiện tại đơn; mệnh đề chính có thể dùng will tùy ngữ cảnh.',
         ]
       }
     ],
@@ -1065,7 +1065,7 @@ const baseGrammarTopics: GrammarTopic[] = [
     description: 'Chuyên sâu vị trí Trạng từ trước Động từ (Adv + V), Tính từ trước Danh từ (Adj + N), Động từ nối (Linking Verb + Adj) và cấu trúc Make/Keep/Find + O + Adj.',
     badge: 'Chiếm 40% Part 5',
     isHighFrequency: true,
-    examFrequencyBadge: '🔥 CHIẾM 40% ĐỀ THI (12-14 CÂU)',
+    examFrequencyBadge: 'Tần suất cao trong Part 5',
     difficulty: 'Cơ bản (450+)',
     summary: 'Hiểu rõ trật tự từ loại giải quyết 10-15 câu Part 5 trong chớp mắt. Nắm vững sự khác biệt giữa cách thức bổ nghĩa của Trạng từ cho Động từ và Tính từ cho Danh từ.',
     sections: [
@@ -1501,7 +1501,7 @@ const baseGrammarTopics: GrammarTopic[] = [
       {
         title: '2. Tuyệt Kỹ Rút Gọn Mệnh Đề Quan Hệ',
         isHighFrequency: true,
-        examBadge: '🔥 100% CÓ TRONG ĐỀ THI',
+        examBadge: 'Tần suất cao: mệnh đề quan hệ',
         formula: '• Rút gọn thể CHỦ ĐỘNG: V-ING\n• Rút gọn thể BỊ ĐỘNG: V3/ED',
         notes: [
           'Khi hai mệnh đề cùng chủ ngữ hoặc rút gọn đại từ quan hệ:',

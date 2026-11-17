@@ -54,6 +54,20 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
   const activeAudioUrl = test.audioUrl || test.questions[0]?.audioUrl;
   const isListeningPart = activePart <= 4;
 
+  // Full-test audio should keep playing when switching Parts 1–4, but it
+  // must stop as soon as the user leaves Listening or submits the test.
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio || !isListeningPart || isSubmitted) {
+      if (audio && !isListeningPart) {
+        audio.pause();
+        setAudioPlaying(false);
+      }
+      return;
+    }
+    audio.playbackRate = audioSpeed;
+  }, [activePart, isListeningPart, isSubmitted, audioSpeed]);
+
   // Timer countdown
   useEffect(() => {
     if (!isTimerRunning || isSubmitted) return;
@@ -96,17 +110,19 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
   // Audio Controls
   const toggleAudio = () => {
     sounds.playClick();
-    if (!audioRef.current) return;
-    if (audioPlaying) {
-      audioRef.current.pause();
-      setAudioPlaying(false);
-    } else {
-      audioRef.current.play().then(() => {
-        setAudioPlaying(true);
-      }).catch(err => {
-        console.warn("Audio autoplay blocked:", err);
-      });
+    const audio = audioRef.current;
+    if (!audio || !isListeningPart || isSubmitted) return;
+
+    if (!audio.paused) {
+      audio.pause();
+      return;
     }
+
+    audio.playbackRate = audioSpeed;
+    audio.play().catch(err => {
+      setAudioPlaying(false);
+      console.warn('Audio playback failed:', err);
+    });
   };
 
   const seekAudio = (delta: number) => {
@@ -334,11 +350,18 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
             if (audioRef.current) setAudioCurrentTime(audioRef.current.currentTime);
           }}
           onLoadedMetadata={() => {
-            if (audioRef.current) setAudioDuration(audioRef.current.duration);
+            if (audioRef.current) {
+              audioRef.current.playbackRate = audioSpeed;
+              setAudioDuration(audioRef.current.duration);
+            }
           }}
           onPlay={() => setAudioPlaying(true)}
           onPause={() => setAudioPlaying(false)}
           onEnded={() => setAudioPlaying(false)}
+          onError={() => {
+            setAudioPlaying(false);
+            console.warn('Listening audio could not be loaded:', activeAudioUrl);
+          }}
         />
       )}
 
