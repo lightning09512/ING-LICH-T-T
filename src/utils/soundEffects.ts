@@ -1,4 +1,16 @@
-// Web Audio API sound effects and high-fidelity Natural Human American Female pronunciation engine.
+// Web Audio API sound effects and Zero-Delay Natural American Female (JennyNeural) pronunciation engine.
+import {
+  cleanSpeechText,
+  isSentenceText,
+  splitSpeechSegments,
+  MAX_CLIENT_TTS_CHARS,
+} from './speechText';
+
+const PERSISTENT_TTS_CACHE = 'ing-lich-tet-tts-v2';
+
+export interface SpeakOptions {
+  rate?: number;
+}
 
 class SoundEngine {
   private ctx: AudioContext | null = null;
@@ -6,11 +18,21 @@ class SoundEngine {
   private currentAudio: HTMLAudioElement | null = null;
   private activeSpeechResolve: (() => void) | null = null;
   private speechRequestId = 0;
+
+  // Tier 1: In-memory Blob URL cache (0ms synchronous playback)
   private blobUrlCache = new Map<string, string>();
   private inFlightFetches = new Map<string, Promise<string | null>>();
+  private maxCacheSize = 250;
+
+  // Background prefetch queue (bounded concurrency = 2 so UI/network never stalls)
+  private prefetchQueue: string[] = [];
+  private queuedKeys = new Set<string>();
+  private activePrefetchWorkers = 0;
+  private readonly maxPrefetchConcurrency = 2;
+  private readonly maxQueueLength = 60;
+
   private femaleVoice: SpeechSynthesisVoice | null = null;
   private watchdogTimeoutId: ReturnType<typeof setTimeout> | null = null;
-  private maxCacheSize = 150;
 
   constructor() {
     this.initFemaleVoices();
@@ -22,7 +44,7 @@ class SoundEngine {
     }
   }
 
-  // Pre-load and strictly lock to a pleasant, natural American female voice
+  // Pre-load and strictly lock fallback synthesis to a pleasant American female voice
   private initFemaleVoices() {
     if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
 
@@ -32,14 +54,14 @@ class SoundEngine {
         if (!voices || voices.length === 0) return;
 
         const MALE_NAMES = [
-          'david', 'mark', 'george', 'guy', 'stefan', 'richard', 'christopher', 
-          'paul', 'tom', 'alex', 'fred', 'daniel', 'james', 'brian', 'charles', 
-          'male', 'man', 'boy'
+          'david', 'mark', 'george', 'guy', 'stefan', 'richard', 'christopher',
+          'paul', 'tom', 'alex', 'fred', 'daniel', 'james', 'brian', 'charles',
+          'male', 'man', 'boy',
         ];
 
         const isMale = (name: string) => {
           const lower = name.toLowerCase();
-          return MALE_NAMES.some(m => lower.includes(m));
+          return MALE_NAMES.some((m) => lower.includes(m));
         };
 
         const PREFERRED_FEMALE = [
@@ -54,20 +76,18 @@ class SoundEngine {
           'moira',
           'tessa',
           'fiona',
-          'female'
+          'female',
         ];
 
-        // 1. Try to find standard high-quality natural female voices
-        let chosen = voices.find(v => {
+        let chosen = voices.find((v) => {
           if (!v.lang.startsWith('en')) return false;
           if (isMale(v.name)) return false;
           const lower = v.name.toLowerCase();
-          return PREFERRED_FEMALE.some(f => lower.includes(f));
+          return PREFERRED_FEMALE.some((f) => lower.includes(f));
         });
 
-        // 2. Try any English voice with 'female' or 'natural' in the name that is strictly not male
         if (!chosen) {
-          chosen = voices.find(v => {
+          chosen = voices.find((v) => {
             if (!v.lang.startsWith('en')) return false;
             if (isMale(v.name)) return false;
             const lower = v.name.toLowerCase();
@@ -75,16 +95,15 @@ class SoundEngine {
           });
         }
 
-        // 3. Fallback to any English voice that is strictly NOT in the male list
         if (!chosen) {
-          chosen = voices.find(v => v.lang.startsWith('en') && !isMale(v.name));
+          chosen = voices.find((v) => v.lang.startsWith('en') && !isMale(v.name));
         }
 
         if (chosen) {
           this.femaleVoice = chosen;
         }
       } catch {
-        // Voice selection error handling
+        // Ignore voice enumeration errors
       }
     };
 
@@ -109,6 +128,9 @@ class SoundEngine {
 
   public toggleSound(enabled?: boolean): boolean {
     this.soundEnabled = enabled !== undefined ? enabled : !this.soundEnabled;
+    if (!this.soundEnabled) {
+      this.stopSpeaking();
+    }
     return this.soundEnabled;
   }
 
@@ -116,41 +138,177 @@ class SoundEngine {
     return this.soundEnabled;
   }
 
-  // Pre-caches the pleasant female native voice in memory as Blob URL for instant 0ms playback
+  private buildTtsUrl(segment: string): string {
+    return `/api/tts?text=${encodeURIComponent(segment)}`;
+  }
+
+  private storeBlobInRam(cacheKey: string, blob: Blob): string | null {
+    if (typeof URL === 'undefined' || typeof URL.createObjectURL !== 'function') {
+      return null;
+    }
+    const existing = this.blobUrlCache.get(cacheKey);
+    if (existing) {
+      return existing;
+    }
+    const blobUrl = URL.createObjectURL(blob);
+    if (this.blobUrlCache.size >= this.maxCacheSize) {
+      const oldestKey = this.blobUrlCache.keys().next().value;
+      if (oldestKey) {
+        const oldUrl = this.blobUrlCache.get(oldestKey);
+        if (oldUrl) {
+          try { URL.revokeObjectURL(oldUrl); } catch {}
+        }
+        this.blobUrlCache.delete(oldestKey);
+      }
+    }
+    this.blobUrlCache.set(cacheKey, blobUrl);
+    return blobUrl;
+  }
+
+  private async readPersistentBlobUrl(cacheKey: string, url: string): Promise<string | null> {
+    const ram = this.blobUrlCache.get(cacheKey);
+    if (ram) return ram;
+    try {
+      const cacheStorage: CacheStorage | undefined =
+        typeof caches !== 'undefined'
+          ? caches
+          : typeof window !== 'undefined'
+            ? (window as any).caches
+            : undefined;
+      if (!cacheStorage || typeof cacheStorage.open !== 'function') return null;
+
+      const cache = await cacheStorage.open(PERSISTENT_TTS_CACHE);
+      const match = await cache.match(url);
+      if (!match || !match.ok) return null;
+      const blob = await match.blob();
+      if (!blob || blob.size === 0) return null;
+      return this.storeBlobInRam(cacheKey, blob);
+    } catch {
+      return null;
+    }
+  }
+
+  private async writePersistentCache(url: string, blob: Blob): Promise<void> {
+    try {
+      const cacheStorage: CacheStorage | undefined =
+        typeof caches !== 'undefined'
+          ? caches
+          : typeof window !== 'undefined'
+            ? (window as any).caches
+            : undefined;
+      if (!cacheStorage || typeof cacheStorage.open !== 'function') return;
+
+      const cache = await cacheStorage.open(PERSISTENT_TTS_CACHE);
+      await cache.put(
+        url,
+        new Response(blob, {
+          headers: { 'Content-Type': 'audio/mpeg' },
+        })
+      );
+    } catch {
+      // Gracefully ignore QuotaExceededError or private-mode restrictions
+    }
+  }
+
+  private fetchAndCacheSegment(segment: string): Promise<string | null> {
+    const cacheKey = segment.toLowerCase();
+    const ramHit = this.blobUrlCache.get(cacheKey);
+    if (ramHit) return Promise.resolve(ramHit);
+
+    const inFlight = this.inFlightFetches.get(cacheKey);
+    if (inFlight) return inFlight;
+
+    const url = this.buildTtsUrl(segment);
+    const promise = (async (): Promise<string | null> => {
+      try {
+        const diskHit = await this.readPersistentBlobUrl(cacheKey, url);
+        if (diskHit) return diskHit;
+
+        if (typeof fetch !== 'function') return null;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`TTS HTTP ${res.status}`);
+        const blob = await res.blob();
+        if (!blob || blob.size === 0) return null;
+
+        void this.writePersistentCache(url, blob);
+        return this.storeBlobInRam(cacheKey, blob);
+      } catch {
+        return null;
+      } finally {
+        this.inFlightFetches.delete(cacheKey);
+      }
+    })();
+
+    this.inFlightFetches.set(cacheKey, promise);
+    return promise;
+  }
+
+  private drainPrefetchQueue(): void {
+    while (
+      this.activePrefetchWorkers < this.maxPrefetchConcurrency &&
+      this.prefetchQueue.length > 0
+    ) {
+      const nextSegment = this.prefetchQueue.shift();
+      if (!nextSegment) break;
+      const key = nextSegment.toLowerCase();
+      this.queuedKeys.delete(key);
+
+      if (this.blobUrlCache.has(key) || this.inFlightFetches.has(key)) {
+        continue;
+      }
+
+      this.activePrefetchWorkers++;
+      this.fetchAndCacheSegment(nextSegment).finally(() => {
+        this.activePrefetchWorkers--;
+        this.drainPrefetchQueue();
+      });
+    }
+  }
+
+  /**
+   * Enqueues multiple words, sentences, or paragraphs for low-priority background pre-caching
+   * into both RAM Blob URLs and persistent browser CacheStorage.
+   */
+  public enqueuePrefetch(texts: (string | undefined | null)[]): void {
+    if (!this.soundEnabled || typeof window === 'undefined' || !Array.isArray(texts)) return;
+
+    for (const raw of texts) {
+      if (!raw) continue;
+      const clean = cleanSpeechText(raw);
+      if (!clean || clean.length > MAX_CLIENT_TTS_CHARS) continue;
+
+      const segments = splitSpeechSegments(clean);
+      for (const seg of segments) {
+        const key = seg.toLowerCase();
+        if (this.blobUrlCache.has(key) || this.inFlightFetches.has(key) || this.queuedKeys.has(key)) {
+          continue;
+        }
+        if (this.prefetchQueue.length >= this.maxQueueLength) {
+          const dropped = this.prefetchQueue.shift();
+          if (dropped) this.queuedKeys.delete(dropped.toLowerCase());
+        }
+        this.prefetchQueue.push(seg);
+        this.queuedKeys.add(key);
+      }
+    }
+
+    this.drainPrefetchQueue();
+  }
+
+  // Immediate high-priority prefetch for a single word/sentence (e.g. current card or pointer hover)
   public prefetchEnglish(text: string): void {
     if (!this.soundEnabled || !text || typeof window === 'undefined') return;
+    const clean = cleanSpeechText(text);
+    if (!clean || clean.length > MAX_CLIENT_TTS_CHARS) return;
 
-    const cleanText = this.cleanSpeechText(text);
-    if (!cleanText || cleanText.length > 500) return;
+    const segments = splitSpeechSegments(clean);
+    if (segments.length === 0) return;
 
-    const cacheKey = cleanText.toLowerCase();
-    if (this.blobUrlCache.has(cacheKey) || this.inFlightFetches.has(cacheKey)) return;
-
-    const fetchPromise = fetch(`/api/tts?text=${encodeURIComponent(cleanText)}`)
-      .then(async (res) => {
-        if (!res.ok) throw new Error(`TTS HTTP error: ${res.status}`);
-        const blob = await res.blob();
-        const blobUrl = URL.createObjectURL(blob);
-
-        if (this.blobUrlCache.size >= this.maxCacheSize) {
-          const oldestKey = this.blobUrlCache.keys().next().value;
-          if (oldestKey) {
-            const oldUrl = this.blobUrlCache.get(oldestKey);
-            if (oldUrl) URL.revokeObjectURL(oldUrl);
-            this.blobUrlCache.delete(oldestKey);
-          }
-        }
-
-        this.blobUrlCache.set(cacheKey, blobUrl);
-        this.inFlightFetches.delete(cacheKey);
-        return blobUrl;
-      })
-      .catch(() => {
-        this.inFlightFetches.delete(cacheKey);
-        return null;
-      });
-
-    this.inFlightFetches.set(cacheKey, fetchPromise);
+    // Kick off segment 1 immediately, queue any remaining segments
+    void this.fetchAndCacheSegment(segments[0]);
+    if (segments.length > 1) {
+      this.enqueuePrefetch(segments.slice(1));
+    }
   }
 
   // Button tap sound (punchy, crisp bubble pop)
@@ -164,7 +322,6 @@ class SoundEngine {
       const gain = ctx.createGain();
 
       osc.type = 'sine';
-      // Crisp bubble pop: 540Hz -> 320Hz
       osc.frequency.setValueAtTime(540, ctx.currentTime);
       osc.frequency.exponentialRampToValueAtTime(320, ctx.currentTime + 0.05);
 
@@ -176,9 +333,7 @@ class SoundEngine {
 
       osc.start(ctx.currentTime);
       osc.stop(ctx.currentTime + 0.05);
-    } catch {
-      // AudioContext failure handling
-    }
+    } catch {}
   }
 
   // Rewarding warm chime (vibrant marimba / glass bell C5-E5-G5)
@@ -188,7 +343,7 @@ class SoundEngine {
     if (!ctx) return;
 
     try {
-      const notes = [523.25, 659.25, 783.99]; // C5, E5, G5
+      const notes = [523.25, 659.25, 783.99];
       notes.forEach((freq, idx) => {
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
@@ -209,9 +364,7 @@ class SoundEngine {
         osc.start(startTime);
         osc.stop(startTime + duration);
       });
-    } catch {
-      // AudioContext failure handling
-    }
+    } catch {}
   }
 
   // Clear 2-tone reminder tap (D4 -> B3)
@@ -221,7 +374,7 @@ class SoundEngine {
     if (!ctx) return;
 
     try {
-      const notes = [293.66, 246.94]; // D4 -> B3
+      const notes = [293.66, 246.94];
       notes.forEach((freq, idx) => {
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
@@ -243,9 +396,7 @@ class SoundEngine {
         osc.start(startTime);
         osc.stop(startTime + duration);
       });
-    } catch {
-      // AudioContext failure handling
-    }
+    } catch {}
   }
 
   // Celebratory victory arpeggio
@@ -255,7 +406,7 @@ class SoundEngine {
     if (!ctx) return;
 
     try {
-      const notes = [523.25, 659.25, 783.99, 987.77, 1046.50]; // C5, E5, G5, B5, C6
+      const notes = [523.25, 659.25, 783.99, 987.77, 1046.5];
       notes.forEach((freq, idx) => {
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
@@ -276,9 +427,7 @@ class SoundEngine {
         osc.start(startTime);
         osc.stop(startTime + duration);
       });
-    } catch {
-      // AudioContext failure handling
-    }
+    } catch {}
   }
 
   public playLevelUp() {
@@ -289,13 +438,6 @@ class SoundEngine {
   private lolAcceptAudio: HTMLAudioElement | null = null;
   private lolDeclineAudio: HTMLAudioElement | null = null;
 
-  // ==========================================
-  // LEAGUE OF LEGENDS (HEXTECH) SOUND EFFECTS - OFFICIAL MP3s
-  // ==========================================
-
-  /**
-   * Khởi tạo và nạp sẵn âm thanh vào bộ nhớ để khi bấm là phát ngay lập tức (0ms độ trễ)
-   */
   public preloadLolSounds() {
     if (typeof window === 'undefined') return;
     try {
@@ -317,9 +459,6 @@ class SoundEngine {
     } catch {}
   }
 
-  /**
-   * 1. Âm thanh Tìm thấy trận (Match Found) - Chuẩn LMHT (0ms latency)
-   */
   public playLolMatchFound() {
     if (!this.soundEnabled) return;
     this.stopLolAudio();
@@ -336,9 +475,6 @@ class SoundEngine {
     }
   }
 
-  /**
-   * 2. Âm thanh Chấp nhận trận (Match Accept) - Chuẩn LMHT (0ms latency)
-   */
   public playLolAccept() {
     if (!this.soundEnabled) return;
     this.stopLolAudio();
@@ -355,9 +491,6 @@ class SoundEngine {
     }
   }
 
-  /**
-   * 3. Âm thanh Từ chối / Hủy trận (Match Decline) - Chuẩn LMHT (0ms latency)
-   */
   public playLolDecline() {
     if (!this.soundEnabled) return;
     this.stopLolAudio();
@@ -374,9 +507,6 @@ class SoundEngine {
     }
   }
 
-  /**
-   * Dừng âm thanh nền Match Found khi bấm Chấp nhận hoặc Hủy
-   */
   public stopLolAudio() {
     if (this.lolMatchFoundAudio) {
       try {
@@ -386,217 +516,266 @@ class SoundEngine {
     }
   }
 
-  private cleanSpeechText(text: string): string {
-    return text
-      .replace(/\/[^\/]+\//g, '')               // Strip IPA phonetic transcription like /əˈkɑː.mə.deɪt/
-      .replace(/\([^)]*\)/g, '')                 // Strip (v), (n), (adj) annotations
-      .replace(/\[[^\]]*\]/g, '')                // Strip [v], [n]
-      .replace(/•.*$/g, '')                      // Strip bullet comments
-      .replace(/^["'“”‘«»]+|["'“”’»«]+$/g, '')   // Strip enclosing quotes
-      .replace(/_{2,}/g, 'blank')                // Replace blanks like ___ with "blank"
-      .replace(/[\r\n\t]+/g, ' ')                // Normalize linebreaks
-      .replace(/\s+/g, ' ')                      // Collapse spaces
-      .trim();
-  }
-
   /**
-   * High-fidelity, natural American FEMALE pronunciation:
-   * 1. Primary: Microsoft Jenny Neural EdgeTTS (/api/tts)
-   * 2. Instant Play from in-memory Blob URL cache (0ms delay for 1st, 2nd, 100th replay)
-   * 3. Synchronous .play() call stack ensures 100% compliance with mobile/browser autoplay policies
-   * 4. Unified consistent pacing:
-   *    - Words: 0.96x (crisp, natural, clear articulation)
-   *    - Example sentences: 0.85x (relaxed, learner-friendly, comfortable pace)
-   * 5. Resilient fallback: Female Web SpeechSynthesis if network is unavailable
+   * Zero-Delay Natural American Female (JennyNeural) speech playback:
+   * - Stops any previous speech FIRST, then assigns a fresh requestId so ended/fallback callbacks stay valid.
+   * - Plays synchronously in the user click stack (0ms from RAM Blob URL, or immediate chunked HTTP stream on miss)
+   *   preserving iOS Safari / Android Chrome user-gesture activation even if a prefetch is currently inFlight.
+   * - Splits long paragraphs into natural sentence segments so sentence 1 speaks almost immediately
+   *   while sentences 2..N download in the background.
    */
-  public speakEnglish(text: string): Promise<void> {
+  public speakEnglish(text: string, options?: SpeakOptions): Promise<void> {
     return new Promise((resolve) => {
       if (!this.soundEnabled || !text || typeof window === 'undefined') {
         resolve();
         return;
       }
 
-      const cleanText = this.cleanSpeechText(text);
+      const cleanText = cleanSpeechText(text);
       if (!cleanText) {
         resolve();
         return;
       }
 
-      const requestId = ++this.speechRequestId;
-      this.stopSpeaking();
-      this.activeSpeechResolve = resolve;
-
-      const isSentence = cleanText.includes(' ') || cleanText.length > 25;
-      const playbackRate = isSentence ? 0.85 : 0.96;
-      const cacheKey = cleanText.toLowerCase();
-
-      // 1. Instant Play from in-memory Blob URL (0ms latency, 100% reliable repeated clicks)
-      const cachedBlobUrl = this.blobUrlCache.get(cacheKey);
-      if (cachedBlobUrl) {
-        this.playAudioSource(cachedBlobUrl, playbackRate, requestId, cleanText, isSentence, false);
+      const segments = splitSpeechSegments(cleanText);
+      if (segments.length === 0) {
+        resolve();
         return;
       }
 
-      // 2. If prefetch is in-flight, wait briefly for it
-      const inFlight = this.inFlightFetches.get(cacheKey);
-      if (inFlight) {
-        let hasTimedOut = false;
-        const inFlightTimeout = setTimeout(() => {
-          if (!hasTimedOut && requestId === this.speechRequestId) {
-            hasTimedOut = true;
-            const directUrl = `/api/tts?text=${encodeURIComponent(cleanText)}`;
-            this.playAudioSource(directUrl, playbackRate, requestId, cleanText, isSentence, true);
-          }
-        }, 800);
+      // Stop any active playback BEFORE allocating this request's ID!
+      this.stopSpeaking();
+      const requestId = ++this.speechRequestId;
+      this.activeSpeechResolve = resolve;
 
-        inFlight.then((blobUrl) => {
-          clearTimeout(inFlightTimeout);
-          if (hasTimedOut || requestId !== this.speechRequestId) return;
-          if (blobUrl) {
-            this.playAudioSource(blobUrl, playbackRate, requestId, cleanText, isSentence, false);
-          } else {
-            const directUrl = `/api/tts?text=${encodeURIComponent(cleanText)}`;
-            this.playAudioSource(directUrl, playbackRate, requestId, cleanText, isSentence, true);
+      const isSentence = isSentenceText(cleanText);
+      const playbackRate = options?.rate ?? (isSentence ? 0.86 : 0.96);
+
+      // Pre-warm segments 2..N in parallel while segment 1 begins immediately
+      if (segments.length > 1) {
+        this.enqueuePrefetch(segments.slice(1));
+      }
+
+      const firstSegment = segments[0];
+      const firstKey = firstSegment.toLowerCase();
+      const firstCachedBlob = this.blobUrlCache.get(firstKey);
+      const firstSrc = firstCachedBlob || this.buildTtsUrl(firstSegment);
+      const firstIsDirect = !firstCachedBlob;
+
+      if (firstIsDirect) {
+        // Populate RAM + persistent cache for instant 0ms replay on 2nd click
+        void this.fetchAndCacheSegment(firstSegment);
+      }
+
+      // Play segment 1 synchronously inside the click gesture call stack!
+      const firstPromise = this.playSegmentOnce(
+        firstSrc,
+        playbackRate,
+        requestId,
+        firstSegment,
+        isSentence,
+        firstIsDirect
+      );
+
+      if (segments.length === 1) {
+        firstPromise.then(() => {
+          if (requestId === this.speechRequestId) {
+            this.finishSpeech();
           }
         });
         return;
       }
 
-      // 3. Not in cache: Play directly via streaming Audio element in the user gesture stack
-      const directUrl = `/api/tts?text=${encodeURIComponent(cleanText)}`;
-      this.playAudioSource(directUrl, playbackRate, requestId, cleanText, isSentence, true);
+      // Play remaining segments 2..N sequentially unless stopped
+      void (async () => {
+        await firstPromise;
+        for (let i = 1; i < segments.length; i++) {
+          if (requestId !== this.speechRequestId) return;
+          const seg = segments[i];
+          const key = seg.toLowerCase();
+          let src = this.blobUrlCache.get(key) ?? null;
+          if (!src) {
+            src = await this.readPersistentBlobUrl(key, this.buildTtsUrl(seg));
+          }
+          if (!src && this.inFlightFetches.has(key)) {
+            src = await Promise.race([
+              this.inFlightFetches.get(key)!,
+              new Promise<null>((r) => setTimeout(() => r(null), 600)),
+            ]);
+          }
+          if (requestId !== this.speechRequestId) return;
 
-      // Proactively prefetch and cache as Blob for instant replay on 2nd and subsequent clicks
-      this.prefetchEnglish(cleanText);
+          const useSrc = src || this.buildTtsUrl(seg);
+          const isDirect = !src;
+          if (isDirect) void this.fetchAndCacheSegment(seg);
+
+          await this.playSegmentOnce(useSrc, playbackRate, requestId, seg, true, isDirect);
+        }
+        if (requestId === this.speechRequestId) {
+          this.finishSpeech();
+        }
+      })();
     });
   }
 
-  private playAudioSource(
+  private playSegmentOnce(
     src: string,
     playbackRate: number,
     requestId: number,
-    cleanText: string,
+    cleanSegment: string,
     isSentence: boolean,
     isDirectStream: boolean
-  ) {
-    let hasEndedOrFailed = false;
-
-    const cleanup = () => {
-      if (this.watchdogTimeoutId) {
-        clearTimeout(this.watchdogTimeoutId);
-        this.watchdogTimeoutId = null;
-      }
-    };
-
-    const triggerFallbackOnce = () => {
-      if (hasEndedOrFailed || requestId !== this.speechRequestId) return;
-      hasEndedOrFailed = true;
-      cleanup();
-      if (this.currentAudio) {
-        try {
-          this.currentAudio.pause();
-          this.currentAudio.currentTime = 0;
-        } catch {}
-        this.currentAudio = null;
-      }
-      this.fallbackSpeech(cleanText, requestId, isSentence);
-    };
-
-    try {
-      const audio = new Audio();
-      audio.preload = 'auto';
-      audio.volume = 1.0;
-      audio.playbackRate = playbackRate;
-      this.currentAudio = audio;
-
-      // Watchdog for direct streaming: if no sound starts within 2200ms, fallback to browser synthesis
-      if (isDirectStream) {
-        this.watchdogTimeoutId = setTimeout(triggerFallbackOnce, 2200);
+  ): Promise<void> {
+    return new Promise((resolveSegment) => {
+      if (requestId !== this.speechRequestId) {
+        resolveSegment();
+        return;
       }
 
-      audio.addEventListener('playing', () => {
-        cleanup();
-      }, { once: true });
+      let settled = false;
+      const cleanupWatchdog = () => {
+        if (this.watchdogTimeoutId) {
+          clearTimeout(this.watchdogTimeoutId);
+          this.watchdogTimeoutId = null;
+        }
+      };
 
-      audio.addEventListener('ended', () => {
-        if (hasEndedOrFailed || requestId !== this.speechRequestId) return;
-        hasEndedOrFailed = true;
-        cleanup();
-        if (this.currentAudio === audio) {
+      const finishSegment = () => {
+        if (settled) return;
+        settled = true;
+        cleanupWatchdog();
+        resolveSegment();
+      };
+
+      const triggerFallbackOnce = () => {
+        if (settled || requestId !== this.speechRequestId) {
+          finishSegment();
+          return;
+        }
+        settled = true;
+        cleanupWatchdog();
+        if (this.currentAudio) {
+          try {
+            this.currentAudio.pause();
+            this.currentAudio.currentTime = 0;
+          } catch {}
           this.currentAudio = null;
         }
-        this.finishSpeech();
-      }, { once: true });
+        this.speakWithFemaleSpeechSynthesis(cleanSegment, requestId, isSentence).then(resolveSegment);
+      };
 
-      audio.addEventListener('error', () => {
-        triggerFallbackOnce();
-      }, { once: true });
+      try {
+        const audio = new Audio();
+        audio.preload = 'auto';
+        audio.volume = 1.0;
+        if ('preservesPitch' in audio) {
+          (audio as any).preservesPitch = true;
+        }
+        audio.playbackRate = playbackRate;
+        this.currentAudio = audio;
 
-      audio.src = src;
-      const playPromise = audio.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          triggerFallbackOnce();
-        });
-      }
-    } catch {
-      triggerFallbackOnce();
-    }
-  }
-
-  // Fallback to browser's natural female voice if server is unreachable
-  private fallbackSpeech(cleanText: string, requestId: number, isSentence: boolean) {
-    if (requestId !== this.speechRequestId) return;
-    this.speakWithFemaleSpeechSynthesis(cleanText, requestId, isSentence);
-  }
-
-  private speakWithFemaleSpeechSynthesis(text: string, requestId: number, isSentence: boolean) {
-    if (requestId !== this.speechRequestId) return;
-    if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
-      this.finishSpeech();
-      return;
-    }
-
-    try {
-      if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
-        window.speechSynthesis.cancel();
-      }
-
-      setTimeout(() => {
-        if (requestId !== this.speechRequestId) return;
-
-        if (window.speechSynthesis.paused) {
-          window.speechSynthesis.resume();
+        if (isDirectStream) {
+          this.watchdogTimeoutId = setTimeout(triggerFallbackOnce, 2200);
         }
 
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'en-US';
-        // Sentences: 0.85; Words: 0.95 (unified with EdgeTTS speeds)
-        utterance.rate = isSentence ? 0.85 : 0.95;
-        utterance.pitch = 1.0;
-        utterance.volume = 1.0;
-        if (!this.femaleVoice) this.initFemaleVoices();
-        if (this.femaleVoice) utterance.voice = this.femaleVoice;
+        audio.addEventListener(
+          'playing',
+          () => {
+            cleanupWatchdog();
+            // Re-assert playbackRate once media pipeline starts (Safari resets rate on src assign)
+            try { audio.playbackRate = playbackRate; } catch {}
+          },
+          { once: true }
+        );
 
-        utterance.onend = () => {
-          if (requestId === this.speechRequestId) this.finishSpeech();
-        };
-        utterance.onerror = () => {
-          if (requestId === this.speechRequestId) this.finishSpeech();
-        };
+        audio.addEventListener(
+          'ended',
+          () => {
+            if (this.currentAudio === audio) {
+              this.currentAudio = null;
+            }
+            finishSegment();
+          },
+          { once: true }
+        );
 
-        window.speechSynthesis.speak(utterance);
+        audio.addEventListener(
+          'error',
+          () => {
+            triggerFallbackOnce();
+          },
+          { once: true }
+        );
 
-        // Chromium queue watchdog
+        audio.src = src;
+        audio.playbackRate = playbackRate;
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            triggerFallbackOnce();
+          });
+        }
+      } catch {
+        triggerFallbackOnce();
+      }
+    });
+  }
+
+  private speakWithFemaleSpeechSynthesis(
+    text: string,
+    requestId: number,
+    isSentence: boolean
+  ): Promise<void> {
+    return new Promise((resolveFallback) => {
+      if (requestId !== this.speechRequestId) {
+        resolveFallback();
+        return;
+      }
+      if (typeof window === 'undefined' || !('speechSynthesis' in window) || !window.speechSynthesis) {
+        resolveFallback();
+        return;
+      }
+
+      try {
+        if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
+          window.speechSynthesis.cancel();
+        }
+
         setTimeout(() => {
+          if (requestId !== this.speechRequestId) {
+            resolveFallback();
+            return;
+          }
+
           if (window.speechSynthesis.paused) {
             window.speechSynthesis.resume();
           }
-        }, 50);
-      }, 40);
-    } catch {
-      this.finishSpeech();
-    }
+
+          const utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = 'en-US';
+          utterance.rate = isSentence ? 0.86 : 0.95;
+          utterance.pitch = 1.0;
+          utterance.volume = 1.0;
+          if (!this.femaleVoice) this.initFemaleVoices();
+          if (this.femaleVoice) utterance.voice = this.femaleVoice;
+
+          utterance.onend = () => resolveFallback();
+          utterance.onerror = () => resolveFallback();
+
+          window.speechSynthesis.speak(utterance);
+
+          setTimeout(() => {
+            try {
+              if (window.speechSynthesis && window.speechSynthesis.paused) {
+                window.speechSynthesis.resume();
+              }
+            } catch {}
+          }, 50);
+        }, 35);
+      } catch {
+        resolveFallback();
+      }
+    });
   }
 
   public stopSpeaking() {
@@ -607,7 +786,7 @@ class SoundEngine {
       this.watchdogTimeoutId = null;
     }
 
-    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window && window.speechSynthesis) {
       try {
         window.speechSynthesis.cancel();
       } catch {}

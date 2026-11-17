@@ -66,6 +66,8 @@ export function App() {
   const [isHeartsModalOpen, setIsHeartsModalOpen] = useState(false);
   const [selectedSwSpeakingTestId, setSelectedSwSpeakingTestId] = useState<string>('study4-sp-01');
   const [selectedSwWritingTestId, setSelectedSwWritingTestId] = useState<string>('study4-wr-01');
+  const [swExamMode, setSwExamMode] = useState<'FULL' | 'PRACTICE'>('FULL');
+  const [swPartFilter, setSwPartFilter] = useState<number | null>(null);
 
 
   // Chỉ tự động vào MENU nếu người dùng vừa hoàn tất đăng nhập bằng Google Redirect
@@ -356,12 +358,16 @@ export function App() {
 
         {screen === 'SW_SELECT_TEST' && (
           <ToeicSwSelectScreen
-            onSelectSpeakingTest={(testId) => {
+            onSelectSpeakingTest={({ testId, mode, partFilter }) => {
               setSelectedSwSpeakingTestId(testId);
+              setSwExamMode(mode);
+              setSwPartFilter(partFilter ?? null);
               setScreen('SW_SPEAKING_EXAM');
             }}
-            onSelectWritingTest={(testId) => {
+            onSelectWritingTest={({ testId, mode, partFilter }) => {
               setSelectedSwWritingTestId(testId);
+              setSwExamMode(mode);
+              setSwPartFilter(partFilter ?? null);
               setScreen('SW_WRITING_EXAM');
             }}
             onBack={() => setScreen('MENU')}
@@ -372,6 +378,8 @@ export function App() {
         {screen === 'SW_SPEAKING_EXAM' && (
           <ToeicSpeakingExamScreen
             testId={selectedSwSpeakingTestId}
+            initialMode={swExamMode}
+            initialPartFilter={swPartFilter}
             onBack={() => setScreen('SW_SELECT_TEST')}
             nickname={nickname}
           />
@@ -380,6 +388,8 @@ export function App() {
         {screen === 'SW_WRITING_EXAM' && (
           <ToeicWritingExamScreen
             testId={selectedSwWritingTestId}
+            initialMode={swExamMode}
+            initialPartFilter={swPartFilter}
             onBack={() => setScreen('SW_SELECT_TEST')}
             nickname={nickname}
           />

@@ -1,11 +1,10 @@
 import React from 'react';
 import { sounds } from '../utils/soundEffects';
-import { BookOpen, GraduationCap, Target, Cloud, LogIn, ArrowLeft, Trophy, Flame, Mic, PenTool, Sparkles, ClipboardList } from 'lucide-react';
+import { BookOpen, GraduationCap, Target, Cloud, LogIn, ArrowLeft, Flame, Mic, PenTool, Sparkles } from 'lucide-react';
 import type { User } from 'firebase/auth';
 import type { SyncStatus } from '../contexts/ProgressContext';
 import { useLearningProgress } from '../contexts/ProgressContext';
 import { RANK_TIERS_CONFIG } from '../types/ranked';
-import { TOEIC_SW_TEST_COMBOS } from '../data/toeicSpeakingData';
 
 interface MenuScreenProps {
   onSelectMode: (
@@ -300,7 +299,7 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
           >
             <div className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 bg-purple-700 text-white text-[9px] sm:text-[11px] font-black px-2 py-0.5 border border-black uppercase rotate-2 sm:rotate-3 shadow-neo-sm z-10 flex items-center gap-1">
               <Target className="w-3 h-3 text-yellow-300" />
-              <span>Chuẩn Study4 • 5 Bộ Đề</span>
+              <span>Chuẩn Study4 • 20 Đề Gốc</span>
             </div>
             <div className="flex items-center gap-3 sm:gap-4 md:gap-5 text-left min-w-0">
               <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-purple-500 border-2 sm:border-3 border-black flex items-center justify-center shadow-neo-sm group-hover:scale-110 transition-transform shrink-0 text-white">
@@ -311,93 +310,14 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
                   <span>Luyện Đề Speaking & Writing</span>
                 </h3>
                 <p className="text-[11px] sm:text-sm md:text-base font-bold text-gray-700 mt-0.5 line-clamp-2">
-                  Trọn bộ 5 đề thi Study4 mô phỏng thi thật ETS: Làm đề Speaking (11 câu) & Writing (8 câu) kèm AI chấm điểm!
+                  Trọn bộ 20 đề gốc Study4 (10 Speaking • 10 Writing): MP3 gốc, tranh gốc, đồng hồ IIG & AI chấm điểm Band 200!
                 </p>
               </div>
             </div>
+            <span className="text-lg sm:text-2xl md:text-3xl font-black font-heading group-hover:translate-x-1 transition-transform shrink-0 ml-2">
+              🎯
+            </span>
           </button>
-        </div>
-
-        {/* ======================================================== */}
-        {/* BẢNG TÓM TẮT 5 BỘ ĐỀ SW STUDY4 (CHỌN NHANH)             */}
-        {/* ======================================================== */}
-        <div className="w-full bg-white border-3 sm:border-4 border-black p-4 sm:p-5 shadow-neo sm:shadow-neo-lg rounded-2xl flex flex-col gap-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b-3 border-black">
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="text-xl sm:text-2xl">📋</span>
-                <h3 className="font-heading font-black text-base sm:text-xl uppercase tracking-wide">
-                  Bảng Luyện Đề Thi TOEIC Speaking & Writing
-                </h3>
-              </div>
-              <p className="text-xs sm:text-sm font-bold text-gray-600 mt-0.5">
-                5 Bộ đề Study4 chuẩn ETS • Bấm để vào thẳng phòng thi Speaking (11 câu) hoặc Writing (8 câu)
-              </p>
-            </div>
-            <button
-              onClick={() => {
-                sounds.playClick();
-                onSelectMode('SW_EXAM');
-              }}
-              className="self-start sm:self-auto text-xs font-black bg-[#FFDE59] hover:bg-yellow-400 border-2 border-black px-3 py-1.5 rounded-lg shadow-neo-sm cursor-pointer transition-all"
-            >
-              Xem Toàn Bộ 5 Đề ➔
-            </button>
-          </div>
-
-          <div className="flex flex-col gap-3">
-            {TOEIC_SW_TEST_COMBOS.map((combo) => (
-              <div 
-                key={combo.id}
-                className="bg-[#FAFAFA] hover:bg-[#F0FDF4] p-3.5 sm:p-4 rounded-xl border-2 sm:border-3 border-black shadow-neo-sm hover:shadow-neo transition-all flex flex-col md:flex-row md:items-center justify-between gap-3"
-              >
-                <div className="flex flex-col gap-1 min-w-0">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="font-black text-xs px-2 py-0.5 rounded-md bg-black text-[#5CE1E6] font-mono">
-                      {combo.code}
-                    </span>
-                    <h4 className="font-black text-sm sm:text-base text-gray-900">
-                      {combo.name}
-                    </h4>
-                    <span className={`text-[10px] font-black px-2 py-0.5 rounded-full border border-black ${
-                      combo.difficulty === 'Nâng Cao' ? 'bg-rose-200 text-rose-900' : 'bg-emerald-200 text-emerald-900'
-                    }`}>
-                      {combo.badge} • {combo.difficulty}
-                    </span>
-                  </div>
-                  <p className="text-xs text-gray-600 font-bold line-clamp-2">
-                    {combo.description}
-                  </p>
-                </div>
-
-                <div className="flex items-center gap-2 shrink-0 pt-2 md:pt-0 border-t md:border-t-0 border-gray-200">
-                  <button
-                    onClick={() => {
-                      sounds.playClick();
-                      onSelectMode('SW_EXAM', undefined, combo.speakingTestId, 'SPEAKING');
-                    }}
-                    className="flex-1 md:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2.5 bg-[#E0F7FA] hover:bg-[#b2ebf2] border-2 border-black font-black text-xs uppercase shadow-neo-sm hover:translate-x-0.5 hover:translate-y-0.5 active:scale-95 transition-all cursor-pointer whitespace-nowrap"
-                    title="Luyện Nói 11 câu hỏi chuẩn ETS"
-                  >
-                    <span>🎙️ Luyện Nói</span>
-                    <span className="text-[10px] text-cyan-900 font-bold opacity-80">(11 Câu)</span>
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      sounds.playClick();
-                      onSelectMode('SW_EXAM', undefined, combo.writingTestId, 'WRITING');
-                    }}
-                    className="flex-1 md:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2.5 bg-[#FFF3E0] hover:bg-[#ffe0b2] border-2 border-black font-black text-xs uppercase shadow-neo-sm hover:translate-x-0.5 hover:translate-y-0.5 active:scale-95 transition-all cursor-pointer whitespace-nowrap"
-                    title="Luyện Viết 8 câu hỏi chuẩn ETS"
-                  >
-                    <span>✍️ Luyện Viết</span>
-                    <span className="text-[10px] text-amber-900 font-bold opacity-80">(8 Câu)</span>
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Back button */}

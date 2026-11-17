@@ -30,6 +30,98 @@ export interface AiEvaluationResult {
 }
 
 const GEMINI_STORAGE_KEY = 'gemini_api_key';
+const SW_HISTORY_STORAGE_KEY = 'toeic_sw_exam_history_v1';
+
+export interface SwExamHistoryRecord {
+  testId: string;
+  skill: 'SPEAKING' | 'WRITING';
+  estimatedBand: number; // 0 - 200
+  answeredCount: number;
+  totalQuestions: number;
+  updatedAt: string;
+}
+
+export function getSwExamHistory(): Record<string, SwExamHistoryRecord> {
+  if (typeof window === 'undefined') return {};
+  try {
+    const raw = localStorage.getItem(SW_HISTORY_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch {
+    return {};
+  }
+}
+
+export function saveSwExamHistory(record: SwExamHistoryRecord) {
+  if (typeof window === 'undefined') return;
+  try {
+    const prev = getSwExamHistory();
+    prev[record.testId] = record;
+    localStorage.setItem(SW_HISTORY_STORAGE_KEY, JSON.stringify(prev));
+  } catch {}
+}
+
+/**
+ * Kiểm tra thông minh từ khóa Part 1 Writing (hỗ trợ chia thì, số nhiều, V-ing, bất quy tắc phổ biến)
+ */
+export function checkKeywordUsed(text: string, keyword: string): boolean {
+  const lowerText = text.toLowerCase();
+  const kw = keyword.toLowerCase().trim();
+  if (!kw) return false;
+  if (lowerText.includes(kw)) return true;
+
+  const irregularMap: Record<string, string[]> = {
+    man: ['men'],
+    woman: ['women'],
+    child: ['children'],
+    children: ['child'],
+    eat: ['ate', 'eaten', 'eating', 'eats'],
+    sit: ['sat', 'sitting', 'sits'],
+    read: ['reading', 'reads'],
+    write: ['wrote', 'written', 'writing', 'writes'],
+    hang: ['hung', 'hanging', 'hangs'],
+    hold: ['held', 'holding', 'holds'],
+    meet: ['met', 'meeting', 'meets'],
+    pay: ['paid', 'paying', 'pays'],
+    hit: ['hitting', 'hits'],
+    fit: ['fitted', 'fitting', 'fits'],
+    cookies: ['cookie'],
+  };
+
+  const variants = new Set<string>([kw]);
+  if (irregularMap[kw]) {
+    irregularMap[kw].forEach(v => variants.add(v));
+  }
+  if (!kw.includes(' ')) {
+    variants.add(`${kw}s`);
+    variants.add(`${kw}es`);
+    variants.add(`${kw}ed`);
+    variants.add(`${kw}ing`);
+    if (kw.endsWith('e') && kw.length > 2) {
+      const stem = kw.slice(0, -1);
+      variants.add(`${stem}ing`);
+      variants.add(`${stem}ed`);
+      variants.add(`${kw}d`);
+    }
+    if (kw.endsWith('y') && kw.length > 2) {
+      const stem = kw.slice(0, -1);
+      variants.add(`${stem}ies`);
+      variants.add(`${stem}ied`);
+    }
+    if (kw.length >= 3) {
+      const last = kw[kw.length - 1];
+      variants.add(`${kw}${last}ing`);
+      variants.add(`${kw}${last}ed`);
+    }
+  }
+
+  for (const v of variants) {
+    const escaped = v.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    if (new RegExp(`\\b${escaped}\\b`, 'i').test(lowerText)) {
+      return true;
+    }
+  }
+  return false;
+}
 
 export function getStoredGeminiApiKey(): string {
   if (typeof window === 'undefined') return '';
@@ -81,6 +173,7 @@ export async function gradeSpeakingWithAi(params: {
   transcription: string;
   targetScript?: string;
   referenceModel?: string;
+  scheduleContext?: string;
 }): Promise<AiEvaluationResult> {
   const apiKey = getStoredGeminiApiKey();
 
@@ -179,6 +272,7 @@ async function callGeminiSpeakingApi(apiKey: string, params: {
   transcription: string;
   targetScript?: string;
   referenceModel?: string;
+  scheduleContext?: string;
 }): Promise<AiEvaluationResult> {
   const systemPrompt = `Bạn là giám khảo chấm thi TOEIC Speaking chuẩn ETS Hoa Kỳ.
 Hãy phân tích bản ghi âm/nội dung nói (Speech-to-Text) của thí sinh và đưa ra đánh giá phát âm, ngữ điệu, ngữ pháp và độ lưu loát bằng Tiếng Việt.
@@ -200,6 +294,7 @@ Trả về DUY NHẤT một chuỗi JSON hợp lệ (không markdown block) có 
 
   const userPrompt = `Phần thi: ${params.partType}
 Đề bài / Ngữ cảnh: ${params.prompt}
+${params.scheduleContext ? `Thông tin lịch trình / biểu bảng gốc của đề: ${params.scheduleContext}` : ''}
 ${params.targetScript ? `Đoạn văn cần đọc: ${params.targetScript}` : ''}
 Nội dung thí sinh đã nói (Speech Transcription):
 """
