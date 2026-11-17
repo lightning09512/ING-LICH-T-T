@@ -24,7 +24,7 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     part: 1,
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
-    imageUrl: 'https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-1/images/1_updated_resized.0834bc9a.jpg',
+    imageUrl: '/images/part1/p1_01.jpg',
     audioScript: '(A) A man is typing on a laptop computer. (B) A man is writing in a notebook. (C) A woman is handing a document to a colleague. (D) Some people are putting away their binders.',
     options: [
       { label: 'A', text: 'A man is typing on a laptop computer.', vietnamese: 'Một người đàn ông đang gõ bàn phím trên máy tính xách tay.' },
@@ -41,7 +41,7 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     part: 1,
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
-    imageUrl: 'https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-1/images/2_updated_resized.e9aa1914.jpg',
+    imageUrl: '/images/part1/p1_02.jpg',
     audioScript: '(A) She is adjusting a computer monitor. (B) She is drinking from a coffee cup. (C) She is looking through some file folders. (D) She is arranging books on a shelf.',
     options: [
       { label: 'A', text: 'She is adjusting a computer monitor.', vietnamese: 'Cô ấy đang điều chỉnh màn hình máy tính.' },
@@ -58,7 +58,7 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     part: 1,
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
-    imageUrl: 'https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-1/images/3_updated_resized.ee343fe7.jpg',
+    imageUrl: '/images/part1/p1_03.jpg',
     audioScript: '(A) Some boxes are stacked on a wooden pallet. (B) A forklift is unloading packages from a truck. (C) Workers are carrying crates into a storage room. (D) Merchandise is being displayed in store windows.',
     options: [
       { label: 'A', text: 'Some boxes are stacked on a wooden pallet.', vietnamese: 'Một số thùng các-tông được xếp chồng trên tấm pallet gỗ.' },
@@ -75,7 +75,7 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     part: 1,
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
-    imageUrl: 'https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-1/images/4_updated_resized.f95033c4.jpg',
+    imageUrl: '/images/part1/p1_04.jpg',
     audioScript: '(A) People are boarding an airplane. (B) Pedestrians are crossing a street at a crosswalk. (C) Vehicles are parked along the side of the road. (D) Bicycles are chained to an outdoor fence.',
     options: [
       { label: 'A', text: 'People are boarding an airplane.', vietnamese: 'Mọi người đang lên máy bay.' },
@@ -92,7 +92,7 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     part: 1,
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
-    imageUrl: 'https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-1/images/5_updated_resized.818be3df.jpg',
+    imageUrl: '/images/part1/p1_05.jpg',
     audioScript: '(A) Diners are seated at outdoor dining tables. (B) A waiter is clearing dishes from a counter. (C) Menus are being handed out to customers. (D) Food is being prepared in an open kitchen.',
     options: [
       { label: 'A', text: 'Diners are seated at outdoor dining tables.', vietnamese: 'Thực khách đang ngồi tại các bàn ăn ngoài trời.' },
@@ -109,7 +109,7 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     part: 1,
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
-    imageUrl: 'https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated/toeic-lr-collection-1-test-1/images/6_updated_resized.4897f25e.jpg',
+    imageUrl: '/images/part1/p1_06.jpg',
     audioScript: '(A) A bridge spans across a wide river. (B) Boats are tied up at a busy harbor. (C) Construction workers are repairing a pier. (D) Water is spraying from an ornamental fountain.',
     options: [
       { label: 'A', text: 'A bridge spans across a wide river.', vietnamese: 'Một cây cầu bắc ngang qua dòng sông rộng.' },
@@ -126,7 +126,7 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     part: 1,
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
-    imageUrl: 'https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/images/1_updated_resized.8293b7e6.jpg',
+    imageUrl: '/images/part1/p1_07.jpg',
     audioScript: '(A) A man is putting on a hard hat. (B) A technician is inspecting industrial machinery. (C) Safety equipment is being stored in a cabinet. (D) Tools are scattered across the floor.',
     options: [
       { label: 'A', text: 'A man is putting on a hard hat.', vietnamese: 'Người đàn ông đang đội mũ bảo hộ.' },
@@ -143,7 +143,7 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     part: 1,
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
-    imageUrl: 'https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/images/2_updated_resized.98af5568.jpg',
+    imageUrl: '/images/part1/p1_08.jpg',
     audioScript: '(A) A woman is standing at a reception desk. (B) A clerk is handing a receipt to a customer. (C) Some luggage is placed beside an escalator. (D) Passengers are waiting in an airport departure lounge.',
     options: [
       { label: 'A', text: 'A woman is standing at a reception desk.', vietnamese: 'Một phụ nữ đang đứng ở quầy lễ tân.' },
@@ -154,6 +154,74 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     correctAnswer: 'A',
     explanation: 'Người phụ nữ đang đứng tại quầy tiếp tân văn phòng (standing at a reception desk).',
     topic: 'Khách sạn / Lễ tân'
+  },
+  {
+    id: 'L-P1-09',
+    part: 1,
+    direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
+    questionText: 'Look at the photograph and choose the best statement describing the image.',
+    imageUrl: '/images/part1/p1_09.jpg',
+    audioScript: '(A) A train has pulled into a station. (B) Some people are waiting on a platform. (C) Luggage is being loaded onto a cart. (D) Passengers are boarding a subway.',
+    options: [
+      { label: 'A', text: 'A train has pulled into a station.', vietnamese: 'Một đoàn tàu vừa tiến vào nhà ga.' },
+      { label: 'B', text: 'Some people are waiting on a platform.', vietnamese: 'Một số người đang đứng chờ trên sân ga.' },
+      { label: 'C', text: 'Luggage is being loaded onto a cart.', vietnamese: 'Hành lý đang được chất lên xe đẩy.' },
+      { label: 'D', text: 'Passengers are boarding a subway.', vietnamese: 'Hành khách đang lên tàu điện ngầm.' }
+    ],
+    correctAnswer: 'B',
+    explanation: 'Hình ảnh chụp những người đứng trên sân ga chờ tàu hỏa (waiting on a platform). Đoàn tàu chưa vào bến.',
+    topic: 'Giao thông / Ga tàu'
+  },
+  {
+    id: 'L-P1-10',
+    part: 1,
+    direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
+    questionText: 'Look at the photograph and choose the best statement describing the image.',
+    imageUrl: '/images/part1/p1_10.jpg',
+    audioScript: '(A) A cashier is ringing up a sale. (B) Merchandise is being displayed on shelves. (C) A shopper is pushing a grocery cart. (D) A customer is paying for some groceries.',
+    options: [
+      { label: 'A', text: 'A cashier is ringing up a sale.', vietnamese: 'Thu ngân đang bấm máy thanh toán.' },
+      { label: 'B', text: 'Merchandise is being displayed on shelves.', vietnamese: 'Hàng hóa đang được trưng bày trên các kệ.' },
+      { label: 'C', text: 'A shopper is pushing a grocery cart.', vietnamese: 'Một người mua hàng đang đẩy xe đựng đồ.' },
+      { label: 'D', text: 'A customer is paying for some groceries.', vietnamese: 'Khách hàng đang trả tiền mua đồ tạp hóa.' }
+    ],
+    correctAnswer: 'D',
+    explanation: 'Vị khách đang thanh toán tiền hàng tại quầy thanh toán siêu thị (paying for some groceries).',
+    topic: 'Cửa hàng / Mua sắm'
+  },
+  {
+    id: 'L-P1-11',
+    part: 1,
+    direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
+    questionText: 'Look at the photograph and choose the best statement describing the image.',
+    imageUrl: '/images/part1/p1_11.jpg',
+    audioScript: '(A) An office desk is being moved into a room. (B) Filing cabinets have been left open. (C) A chair has been pushed under a table. (D) A potted plant sits in the corner of an office.',
+    options: [
+      { label: 'A', text: 'An office desk is being moved into a room.', vietnamese: 'Bàn làm việc đang được chuyển vào phòng.' },
+      { label: 'B', text: 'Filing cabinets have been left open.', vietnamese: 'Tủ đựng hồ sơ đang để mở.' },
+      { label: 'C', text: 'A chair has been pushed under a table.', vietnamese: 'Một chiếc ghế đã được đẩy vào dưới bàn.' },
+      { label: 'D', text: 'A potted plant sits in the corner of an office.', vietnamese: 'Một chậu cây cảnh đặt ở góc văn phòng.' }
+    ],
+    correctAnswer: 'D',
+    explanation: 'Góc phòng có chậu cây cảnh xanh tốt (a potted plant sits in the corner). Không có người di chuyển đồ đạc.',
+    topic: 'Nội thất / Văn phòng'
+  },
+  {
+    id: 'L-P1-12',
+    part: 1,
+    direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
+    questionText: 'Look at the photograph and choose the best statement describing the image.',
+    imageUrl: '/images/part1/p1_12.jpg',
+    audioScript: '(A) A lamppost has fallen onto the pavement. (B) Construction cones are blocking the walkway. (C) Trees are casting shadows across an outdoor patio. (D) A bicycle has been parked next to a bench.',
+    options: [
+      { label: 'A', text: 'A lamppost has fallen onto the pavement.', vietnamese: 'Cột đèn bị đổ xuống vỉa hè.' },
+      { label: 'B', text: 'Construction cones are blocking the walkway.', vietnamese: 'Cọc tiêu xây dựng đang chặn lối đi bộ.' },
+      { label: 'C', text: 'Trees are casting shadows across an outdoor patio.', vietnamese: 'Những cái cây đang đổ bóng xuống khoảng sân ngoài trời.' },
+      { label: 'D', text: 'A bicycle has been parked next to a bench.', vietnamese: 'Một chiếc xe đạp dựng cạnh ghế dài.' }
+    ],
+    correctAnswer: 'C',
+    explanation: 'Ảnh chụp ngoại cảnh khuôn viên với bóng cây râm mát đổ dài trên khoảng sân lát gạch (trees casting shadows).',
+    topic: 'Cảnh quan / Ngoài trời'
   },
 
   // ==========================================
