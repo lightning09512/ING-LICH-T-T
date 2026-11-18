@@ -122,13 +122,13 @@ export const ToeicSpeakingRevisionScreen: React.FC<ToeicSpeakingRevisionScreenPr
               Ôn Tập TOEIC Speaking
             </h1>
             <p className="text-[11px] font-bold text-gray-500">
-              Cẩm nang 16 bài học 5 Part • Mẹo phát âm, trọng âm, ngữ điệu & phản xạ chuẩn ETS
+              Cẩm nang 5 Part chuẩn ETS • Mẹo phát âm, trọng âm, ngữ điệu, lịch trình & phản biện 60s
             </p>
           </div>
         </div>
 
         <span className="text-[10px] sm:text-xs font-black bg-[#E0F7FA] text-cyan-900 border-2 border-black px-2.5 py-1 rounded-lg shadow-neo-sm">
-          Level 0 - 100+
+          Target Band 180+
         </span>
       </div>
 
@@ -141,7 +141,7 @@ export const ToeicSpeakingRevisionScreen: React.FC<ToeicSpeakingRevisionScreenPr
             <div className="flex items-center justify-between mb-2 pb-2 border-b-2 border-gray-100">
               <span className="font-black text-xs uppercase tracking-wider text-gray-600 flex items-center gap-1.5">
                 <BookOpen className="w-4 h-4 text-cyan-600" />
-                Lộ Trình 16 Bài Học:
+                Lộ Trình Chuyên Sâu 5 Part:
               </span>
               <span className="text-[10px] font-bold bg-cyan-100 text-cyan-900 px-2 py-0.5 rounded-full border border-black">
                 {filteredUnits.length} bài
@@ -238,7 +238,7 @@ export const ToeicSpeakingRevisionScreen: React.FC<ToeicSpeakingRevisionScreenPr
                 </span>
               </div>
               <span className="text-xs font-bold text-gray-600">
-                Unit {currentUnit.unitNumber} / 16
+                Unit {currentUnit.unitNumber} • Band 180+
               </span>
             </div>
 

@@ -200,25 +200,36 @@ export async function generateRankedMatchQuestions(tier: RankTier): Promise<Rank
       }
     }
 
-    // Part 7 (4 questions - 1 reading passage)
+    // Part 7 (1 coherent reading passage set - never slice across two unrelated passages!)
     if (fullTest && fullTest.questions) {
-      const p7Questions = fullTest.questions.filter((q: any) => q.part === 7);
-      if (p7Questions.length >= 4) {
-        const p7Start = Math.floor(Math.random() * (p7Questions.length - 4));
-        p7Questions.slice(p7Start, p7Start + 4).forEach((q: any) => {
-          result.push({
-            id: `R-P7-${q.id}`,
-            part: 7,
-            direction: q.direction || 'Part 7: Reading Comprehension.',
-            passageText: q.passage,
-            questionText: q.questionText,
-            options: q.options,
-            correctAnswer: q.correctAnswer,
-            explanation: q.explanation,
-            testOrigin: fullTest.code || 'Study4 TOEIC'
-          });
+      const p7Questions = fullTest.questions.filter((q: any) => q.part === 7 && q.passage);
+      const passageGroups = new Map<string, any[]>();
+      p7Questions.forEach((q: any) => {
+        const key = String(q.passage).trim();
+        if (!passageGroups.has(key)) passageGroups.set(key, []);
+        passageGroups.get(key)!.push(q);
+      });
+      const threeOrFourGroups = Array.from(passageGroups.values()).filter(
+        g => g.length >= 3 && g.length <= 5
+      );
+      const chosenGroup =
+        threeOrFourGroups.length > 0
+          ? threeOrFourGroups[Math.floor(Math.random() * threeOrFourGroups.length)].slice(0, 4)
+          : p7Questions.slice(0, 4);
+
+      chosenGroup.forEach((q: any) => {
+        result.push({
+          id: `R-P7-${q.id}`,
+          part: 7,
+          direction: q.direction || 'Part 7: Reading Comprehension.',
+          passageText: q.passage,
+          questionText: q.questionText,
+          options: q.options,
+          correctAnswer: q.correctAnswer,
+          explanation: q.explanation,
+          testOrigin: fullTest.code || 'Study4 TOEIC'
         });
-      }
+      });
     }
   }
 

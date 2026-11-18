@@ -89,13 +89,13 @@ export const ToeicWritingRevisionScreen: React.FC<ToeicWritingRevisionScreenProp
               Ôn Tập TOEIC Writing
             </h1>
             <p className="text-[11px] font-bold text-gray-500">
-              Cẩm nang 8 bài học 3 Part • Mẹo viết câu theo tranh, cấu trúc Email & dàn bài luận 300 từ
+              Cẩm nang 3 Part chuẩn ETS • Mẹo viết câu theo tranh, Email công sở & Essay 300+ từ C1
             </p>
           </div>
         </div>
 
         <span className="text-[10px] sm:text-xs font-black bg-[#FFF3E0] text-amber-900 border-2 border-black px-2.5 py-1 rounded-lg shadow-neo-sm">
-          Level 0 - 100+
+          Target Band 180+
         </span>
       </div>
 
@@ -108,7 +108,7 @@ export const ToeicWritingRevisionScreen: React.FC<ToeicWritingRevisionScreenProp
             <div className="flex items-center justify-between mb-2 pb-2 border-b-2 border-gray-100">
               <span className="font-black text-xs uppercase tracking-wider text-gray-600 flex items-center gap-1.5">
                 <BookOpen className="w-4 h-4 text-amber-600" />
-                Lộ Trình 8 Bài Học:
+                Lộ Trình Chuyên Sâu 3 Part:
               </span>
               <span className="text-[10px] font-bold bg-amber-100 text-amber-900 px-2 py-0.5 rounded-full border border-black">
                 {filteredUnits.length} bài
@@ -222,7 +222,7 @@ export const ToeicWritingRevisionScreen: React.FC<ToeicWritingRevisionScreenProp
                 </span>
               </div>
               <span className="text-xs font-bold text-gray-600">
-                Unit {currentUnit.unitNumber} / 8
+                Unit {currentUnit.unitNumber} • Band 180+
               </span>
             </div>
 

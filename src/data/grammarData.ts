@@ -1263,7 +1263,7 @@ const baseGrammarTopics: GrammarTopic[] = [
         formula: 'look forward to / be committed to / be used to + V-ING',
         notes: [
           'look forward to + V-ing: mong đợi làm gì',
-          'be committed to / dedicate to + V-ing: cam kết / cống hiến cho việc gì',
+          'be committed to / be dedicated to / be devoted to + V-ing: cam kết / cống hiến cho việc gì',
           'be accustomed to / be used to + V-ing: quen với việc gì',
           'prior to + V-ing: trước khi làm gì',
           'in addition to + V-ing: bên cạnh việc gì'

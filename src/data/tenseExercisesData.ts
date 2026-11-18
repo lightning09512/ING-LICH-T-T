@@ -611,13 +611,13 @@ export const tenseExercisesMap: { [tenseId: string]: GrammarExercise[] } = {
       id: 5,
       question: 'The leasing agreement stipulates that the tenant _______ not alter the building\'s structural layout.',
       options: [
-        { label: 'A', text: 'shall' },
+        { label: 'A', text: 'has' },
         { label: 'B', text: 'will' },
         { label: 'C', text: 'is' },
         { label: 'D', text: 'are' }
       ],
       correctAnswer: 'B',
-      explanation: 'Trong hợp đồng thương mại TOEIC, "will not + V-inf" chỉ nghĩa vụ hoặc cam kết thực thi trong tương lai. Chọn "will".',
+      explanation: 'Sau "will not" là động từ nguyên mẫu không "to" ("alter"). Các phương án "has", "is", "are" đều sai cấu trúc khi đứng trước "not alter". Chọn "will".',
       translation: 'Hợp đồng thuê quy định rằng bên thuê sẽ không thay đổi kết cấu kiến trúc của tòa nhà.'
     }
   ],

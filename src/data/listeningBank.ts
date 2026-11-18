@@ -438,14 +438,14 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'Where is the monthly sales meeting being held?',
     questionVi: 'Cuộc họp bán hàng hàng tháng được tổ chức ở đâu?',
-    audioScript: 'Where is the monthly sales meeting being held? (A) In conference room B on the third floor. (B) Yes, every Tuesday morning. (C) About fifty thousand dollars.',
+    audioScript: 'Where is the monthly sales meeting being held? (A) Yes, every Tuesday morning. (B) In conference room B on the third floor. (C) About fifty thousand dollars.',
     options: [
-      { label: 'A', text: 'In conference room B on the third floor.', vietnamese: 'Ở phòng hội thảo B trên tầng ba.' },
-      { label: 'B', text: 'Yes, every Tuesday morning.', vietnamese: 'Vâng, vào mỗi sáng thứ Ba.' },
+      { label: 'A', text: 'Yes, every Tuesday morning.', vietnamese: 'Vâng, vào mỗi sáng thứ Ba.' },
+      { label: 'B', text: 'In conference room B on the third floor.', vietnamese: 'Ở phòng hội thảo B trên tầng ba.' },
       { label: 'C', text: 'About fifty thousand dollars.', vietnamese: 'Khoảng năm mươi nghìn đô la.' }
     ],
-    correctAnswer: 'A',
-    explanation: 'Câu hỏi bắt đầu bằng "Where" (Ở đâu) chỉ địa điểm, phương án (A) chỉ rõ vị trí "In conference room B". Câu hỏi WH không trả lời bằng Yes/No như (B).',
+    correctAnswer: 'B',
+    explanation: 'Câu hỏi bắt đầu bằng "Where" (Ở đâu) chỉ địa điểm, phương án (B) chỉ rõ vị trí "In conference room B". Câu hỏi WH không trả lời bằng Yes/No như (A).',
     topic: 'Hỏi Địa Điểm (Where)'
   },
   {
@@ -454,14 +454,14 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'When will the new software update be installed?',
     questionVi: 'Khi nào bản cập nhật phần mềm mới sẽ được cài đặt?',
-    audioScript: 'When will the new software update be installed? (A) The IT department is doing it on Friday night. (B) No, I haven\'t seen the new monitor. (C) It cost more than expected.',
+    audioScript: 'When will the new software update be installed? (A) No, I haven\'t seen the new monitor. (B) It cost more than expected. (C) The IT department is doing it on Friday night.',
     options: [
-      { label: 'A', text: 'The IT department is doing it on Friday night.', vietnamese: 'Phòng IT sẽ thực hiện vào tối thứ Sáu.' },
-      { label: 'B', text: 'No, I haven\'t seen the new monitor.', vietnamese: 'Không, tôi chưa thấy màn hình mới.' },
-      { label: 'C', text: 'It cost more than expected.', vietnamese: 'Nó tốn kém hơn dự kiến.' }
+      { label: 'A', text: 'No, I haven\'t seen the new monitor.', vietnamese: 'Không, tôi chưa thấy màn hình mới.' },
+      { label: 'B', text: 'It cost more than expected.', vietnamese: 'Nó tốn kém hơn dự kiến.' },
+      { label: 'C', text: 'The IT department is doing it on Friday night.', vietnamese: 'Phòng IT sẽ thực hiện vào tối thứ Sáu.' }
     ],
-    correctAnswer: 'A',
-    explanation: 'Câu hỏi "When" (Khi nào) hỏi mốc thời gian. (A) đưa ra câu trả lời chính xác "on Friday night". (B) bẫy Yes/No; (C) trả lời về chi phí.',
+    correctAnswer: 'C',
+    explanation: 'Câu hỏi "When" (Khi nào) hỏi mốc thời gian. (C) đưa ra câu trả lời chính xác "on Friday night". (A) bẫy Yes/No; (B) trả lời về chi phí.',
     topic: 'Hỏi Thời Gian (When)'
   },
   {
@@ -486,14 +486,14 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'Why was the shipment to Vancouver delayed?',
     questionVi: 'Tại sao chuyến hàng gửi đến Vancouver lại bị hoãn?',
-    audioScript: 'Why was the shipment to Vancouver delayed? (A) Because of severe winter snowstorms. (B) Three hundred units in total. (C) Yes, it arrived this morning.',
+    audioScript: 'Why was the shipment to Vancouver delayed? (A) Three hundred units in total. (B) Because of severe winter snowstorms. (C) Yes, it arrived this morning.',
     options: [
-      { label: 'A', text: 'Because of severe winter snowstorms.', vietnamese: 'Bởi vì những cơn bão tuyết mùa đông nghiêm trọng.' },
-      { label: 'B', text: 'Three hundred units in total.', vietnamese: 'Tổng cộng ba trăm kiện hàng.' },
+      { label: 'A', text: 'Three hundred units in total.', vietnamese: 'Tổng cộng ba trăm kiện hàng.' },
+      { label: 'B', text: 'Because of severe winter snowstorms.', vietnamese: 'Bởi vì những cơn bão tuyết mùa đông nghiêm trọng.' },
       { label: 'C', text: 'Yes, it arrived this morning.', vietnamese: 'Vâng, nó đã đến sáng nay.' }
     ],
-    correctAnswer: 'A',
-    explanation: 'Câu hỏi "Why" (Tại sao) hỏi lý do, (A) bắt đầu bằng "Because of..." giải thích trực tiếp nguyên nhân bão tuyết.',
+    correctAnswer: 'B',
+    explanation: 'Câu hỏi "Why" (Tại sao) hỏi lý do, (B) bắt đầu bằng "Because of..." giải thích trực tiếp nguyên nhân bão tuyết.',
     topic: 'Hỏi Lý Do (Why)'
   },
   {
@@ -502,14 +502,14 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'Could you give me a hand unloading these boxes?',
     questionVi: 'Bạn có thể giúp tôi một tay dỡ những chiếc hộp này được không?',
-    audioScript: 'Could you give me a hand unloading these boxes? (A) Sure, let me put my jacket down first. (B) Two pairs of work gloves. (C) No, the box was completely empty.',
+    audioScript: 'Could you give me a hand unloading these boxes? (A) Two pairs of work gloves. (B) No, the box was completely empty. (C) Sure, let me put my jacket down first.',
     options: [
-      { label: 'A', text: 'Sure, let me put my jacket down first.', vietnamese: 'Chắc chắn rồi, để tôi cởi áo khoác xuống trước đã.' },
-      { label: 'B', text: 'Two pairs of work gloves.', vietnamese: 'Hai đôi găng tay làm việc.' },
-      { label: 'C', text: 'No, the box was completely empty.', vietnamese: 'Không, cái hộp hoàn toàn trống rỗng.' }
+      { label: 'A', text: 'Two pairs of work gloves.', vietnamese: 'Hai đôi găng tay làm việc.' },
+      { label: 'B', text: 'No, the box was completely empty.', vietnamese: 'Không, cái hộp hoàn toàn trống rỗng.' },
+      { label: 'C', text: 'Sure, let me put my jacket down first.', vietnamese: 'Chắc chắn rồi, để tôi cởi áo khoác xuống trước đã.' }
     ],
-    correctAnswer: 'A',
-    explanation: '"Give me a hand" là thành ngữ mang nghĩa "giúp một tay". (A) là lời nhận lời giúp đỡ lịch sự: "Sure, let me put my jacket down first".',
+    correctAnswer: 'C',
+    explanation: '"Give me a hand" là thành ngữ mang nghĩa "giúp một tay". (C) là lời nhận lời giúp đỡ lịch sự: "Sure, let me put my jacket down first".',
     topic: 'Lời Đề Nghị / Yêu Cầu (Could you)'
   },
   {
@@ -534,14 +534,14 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'Would you prefer to fly directly or take a connecting flight with a layover?',
     questionVi: 'Bạn thích bay thẳng hay bay chuyến quá cảnh?',
-    audioScript: 'Would you prefer to fly directly or take a connecting flight with a layover? (A) The non-stop flight would save us valuable time. (B) Yes, flying is much faster than the train. (C) Gate 14 is on the left.',
+    audioScript: 'Would you prefer to fly directly or take a connecting flight with a layover? (A) Yes, flying is much faster than the train. (B) The non-stop flight would save us valuable time. (C) Gate 14 is on the left.',
     options: [
-      { label: 'A', text: 'The non-stop flight would save us valuable time.', vietnamese: 'Chuyến bay thẳng sẽ giúp chúng ta tiết kiệm thời gian quý báu.' },
-      { label: 'B', text: 'Yes, flying is much faster than the train.', vietnamese: 'Vâng, bay nhanh hơn tàu hỏa nhiều.' },
+      { label: 'A', text: 'Yes, flying is much faster than the train.', vietnamese: 'Vâng, bay nhanh hơn tàu hỏa nhiều.' },
+      { label: 'B', text: 'The non-stop flight would save us valuable time.', vietnamese: 'Chuyến bay thẳng sẽ giúp chúng ta tiết kiệm thời gian quý báu.' },
       { label: 'C', text: 'Gate 14 is on the left.', vietnamese: 'Cổng 14 ở phía bên trái.' }
     ],
-    correctAnswer: 'A',
-    explanation: 'Câu hỏi lựa chọn "A or B" (fly directly or connecting). (A) chọn phương án bay thẳng (non-stop = direct flight). Câu hỏi lựa chọn không dùng Yes/No.',
+    correctAnswer: 'B',
+    explanation: 'Câu hỏi lựa chọn "A or B" (fly directly or connecting). (B) chọn phương án bay thẳng (non-stop = direct flight). Câu hỏi lựa chọn không dùng Yes/No.',
     topic: 'Câu Hỏi Lựa Chọn (Or)'
   },
   {
@@ -550,14 +550,14 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'The catering order for the banquet hasn\'t been confirmed yet, has it?',
     questionVi: 'Đơn đặt tiệc vẫn chưa được xác nhận, phải không?',
-    audioScript: 'The catering order for the banquet hasn\'t been confirmed yet, has it? (A) Actually, Sarah finalized it this morning. (B) Chicken and vegetarian pasta. (C) It was held at the Grand Hotel.',
+    audioScript: 'The catering order for the banquet hasn\'t been confirmed yet, has it? (A) Chicken and vegetarian pasta. (B) It was held at the Grand Hotel. (C) Actually, Sarah finalized it this morning.',
     options: [
-      { label: 'A', text: 'Actually, Sarah finalized it this morning.', vietnamese: 'Thực ra, Sarah đã chốt nó sáng nay rồi.' },
-      { label: 'B', text: 'Chicken and vegetarian pasta.', vietnamese: 'Gà và mì Ý chay.' },
-      { label: 'C', text: 'It was held at the Grand Hotel.', vietnamese: 'Nó đã được tổ chức ở khách sạn Grand.' }
+      { label: 'A', text: 'Chicken and vegetarian pasta.', vietnamese: 'Gà và mì Ý chay.' },
+      { label: 'B', text: 'It was held at the Grand Hotel.', vietnamese: 'Nó đã được tổ chức ở khách sạn Grand.' },
+      { label: 'C', text: 'Actually, Sarah finalized it this morning.', vietnamese: 'Thực ra, Sarah đã chốt nó sáng nay rồi.' }
     ],
-    correctAnswer: 'A',
-    explanation: 'Câu hỏi đuôi phủ định (Tag Question). (A) cung cấp thông tin cập nhật thực tế: "Actually, Sarah finalized it this morning".',
+    correctAnswer: 'C',
+    explanation: 'Câu hỏi đuôi phủ định (Tag Question). (C) cung cấp thông tin cập nhật thực tế: "Actually, Sarah finalized it this morning".',
     topic: 'Câu Hỏi Đuôi (Tag Question)'
   },
   {
@@ -582,14 +582,14 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'Who will be delivering the opening keynote speech at the conference?',
     questionVi: 'Ai sẽ là người đọc bài phát biểu khai mạc tại hội nghị?',
-    audioScript: 'Who will be delivering the opening keynote speech at the conference? (A) Dr. Tanaka from our Tokyo research branch. (B) It starts promptly at nine o\'clock. (C) No, I haven\'t registered yet.',
+    audioScript: 'Who will be delivering the opening keynote speech at the conference? (A) It starts promptly at nine o\'clock. (B) Dr. Tanaka from our Tokyo research branch. (C) No, I haven\'t registered yet.',
     options: [
-      { label: 'A', text: 'Dr. Tanaka from our Tokyo research branch.', vietnamese: 'Tiến sĩ Tanaka từ chi nhánh nghiên cứu Tokyo của chúng ta.' },
-      { label: 'B', text: 'It starts promptly at nine o\'clock.', vietnamese: 'Nó bắt đầu đúng 9 giờ sáng.' },
+      { label: 'A', text: 'It starts promptly at nine o\'clock.', vietnamese: 'Nó bắt đầu đúng 9 giờ sáng.' },
+      { label: 'B', text: 'Dr. Tanaka from our Tokyo research branch.', vietnamese: 'Tiến sĩ Tanaka từ chi nhánh nghiên cứu Tokyo của chúng ta.' },
       { label: 'C', text: 'No, I haven\'t registered yet.', vietnamese: 'Chưa, tôi chưa đăng ký.' }
     ],
-    correctAnswer: 'A',
-    explanation: 'Câu hỏi "Who" hỏi người diễn thuyết. (A) nêu đích danh "Dr. Tanaka from Tokyo". (B) trả lời giờ giấc; (C) trả lời câu hỏi Yes/No.',
+    correctAnswer: 'B',
+    explanation: 'Câu hỏi "Who" hỏi người diễn thuyết. (B) nêu đích danh "Dr. Tanaka from Tokyo". (A) trả lời giờ giấc; (C) trả lời câu hỏi Yes/No.',
     topic: 'Hỏi Người (Who)'
   },
   {
@@ -598,14 +598,14 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'Isn\'t the client supposed to sign the service contract today?',
     questionVi: 'Chẳng phải hôm nay khách hàng sẽ ký hợp đồng dịch vụ sao?',
-    audioScript: 'Isn\'t the client supposed to sign the service contract today? (A) Their legal team asked for a two-day extension. (B) Yes, the sign is outside the main entrance. (C) Five copies were printed.',
+    audioScript: 'Isn\'t the client supposed to sign the service contract today? (A) Yes, the sign is outside the main entrance. (B) Five copies were printed. (C) Their legal team asked for a two-day extension.',
     options: [
-      { label: 'A', text: 'Their legal team asked for a two-day extension.', vietnamese: 'Đội ngũ pháp lý của họ đã xin gia hạn thêm hai ngày.' },
-      { label: 'B', text: 'Yes, the sign is outside the main entrance.', vietnamese: 'Vâng, biển báo ở bên ngoài lối vào chính.' },
-      { label: 'C', text: 'Five copies were printed.', vietnamese: 'Năm bản sao đã được in.' }
+      { label: 'A', text: 'Yes, the sign is outside the main entrance.', vietnamese: 'Vâng, biển báo ở bên ngoài lối vào chính.' },
+      { label: 'B', text: 'Five copies were printed.', vietnamese: 'Năm bản sao đã được in.' },
+      { label: 'C', text: 'Their legal team asked for a two-day extension.', vietnamese: 'Đội ngũ pháp lý của họ đã xin gia hạn thêm hai ngày.' }
     ],
-    correctAnswer: 'A',
-    explanation: 'Câu hỏi phủ định "Isn\'t...". (A) là câu trả lời gián tiếp điển hình trong TOEIC: giải thích lý do hợp đồng chưa ký được vì đối tác xin gia hạn.',
+    correctAnswer: 'C',
+    explanation: 'Câu hỏi phủ định "Isn\'t...". (C) là câu trả lời gián tiếp điển hình trong TOEIC: giải thích lý do hợp đồng chưa ký được vì đối tác xin gia hạn.',
     topic: 'Câu Hỏi Phủ Định (Negative Question)'
   },
   {
@@ -630,14 +630,14 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'How much does the annual parking permit cost?',
     questionVi: 'Giấy phép đỗ xe hàng năm có giá bao nhiêu?',
-    audioScript: 'How much does the annual parking permit cost? (A) It is seventy-five dollars per year. (B) In the underground parking garage. (C) Yes, I have a valid driver\'s license.',
+    audioScript: 'How much does the annual parking permit cost? (A) In the underground parking garage. (B) It is seventy-five dollars per year. (C) Yes, I have a valid driver\'s license.',
     options: [
-      { label: 'A', text: 'It is seventy-five dollars per year.', vietnamese: 'Nó có giá bảy mươi lăm đô la mỗi năm.' },
-      { label: 'B', text: 'In the underground parking garage.', vietnamese: 'Ở trong hầm để xe ngầm.' },
+      { label: 'A', text: 'In the underground parking garage.', vietnamese: 'Ở trong hầm để xe ngầm.' },
+      { label: 'B', text: 'It is seventy-five dollars per year.', vietnamese: 'Nó có giá bảy mươi lăm đô la mỗi năm.' },
       { label: 'C', text: 'Yes, I have a valid driver\'s license.', vietnamese: 'Vâng, tôi có bằng lái xe hợp lệ.' }
     ],
-    correctAnswer: 'A',
-    explanation: 'Câu hỏi "How much" hỏi về số tiền. (A) nêu chính xác mức giá "seventy-five dollars".',
+    correctAnswer: 'B',
+    explanation: 'Câu hỏi "How much" hỏi về số tiền. (B) nêu chính xác mức giá "seventy-five dollars".',
     topic: 'Hỏi Giá Tiền (How much)'
   },
   {
@@ -646,13 +646,13 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'Would you mind reviewing this quarterly financial report before the board meeting?',
     questionVi: 'Bạn có phiền xem qua báo cáo tài chính quý này trước cuộc họp hội đồng quản trị không?',
-    audioScript: 'Would you mind reviewing this quarterly financial report before the board meeting? (A) Not at all, I will read through it after lunch. (B) The board room is on the fifth floor. (C) About twenty-five percent increase.',
+    audioScript: 'Would you mind reviewing this quarterly financial report before the board meeting? (A) The board room is on the fifth floor. (B) About twenty-five percent increase. (C) Not at all, I will read through it after lunch.',
     options: [
-      { label: 'A', text: 'Not at all, I will read through it after lunch.', vietnamese: 'Không phiền chút nào, tôi sẽ đọc kỹ sau bữa trưa.' },
-      { label: 'B', text: 'The board room is on the fifth floor.', vietnamese: 'Phòng hội đồng quản trị ở tầng năm.' },
-      { label: 'C', text: 'About twenty-five percent increase.', vietnamese: 'Tăng khoảng hai mươi lăm phần trăm.' }
+      { label: 'A', text: 'The board room is on the fifth floor.', vietnamese: 'Phòng hội đồng quản trị ở tầng năm.' },
+      { label: 'B', text: 'About twenty-five percent increase.', vietnamese: 'Tăng khoảng hai mươi lăm phần trăm.' },
+      { label: 'C', text: 'Not at all, I will read through it after lunch.', vietnamese: 'Không phiền chút nào, tôi sẽ đọc kỹ sau bữa trưa.' }
     ],
-    correctAnswer: 'A',
+    correctAnswer: 'C',
     explanation: '"Would you mind..." là lời nhờ vả lịch sự. Trả lời đồng ý bằng "Not at all" (Không phiền gì cả) kèm mốc thời gian thực hiện.',
     topic: 'Yêu Cầu Lịch Sự (Would you mind)'
   },
@@ -678,14 +678,14 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'Why hasn\'t the renovation of the customer lounge started yet?',
     questionVi: 'Tại sao việc cải tạo phòng chờ của khách hàng vẫn chưa được bắt đầu?',
-    audioScript: 'Why hasn\'t the renovation of the customer lounge started yet? (A) We are still waiting for municipal building permits. (B) New comfortable leather sofas. (C) It will take three weeks.',
+    audioScript: 'Why hasn\'t the renovation of the customer lounge started yet? (A) New comfortable leather sofas. (B) We are still waiting for municipal building permits. (C) It will take three weeks.',
     options: [
-      { label: 'A', text: 'We are still waiting for municipal building permits.', vietnamese: 'Chúng ta vẫn đang chờ giấy phép xây dựng của thành phố.' },
-      { label: 'B', text: 'New comfortable leather sofas.', vietnamese: 'Những chiếc ghế bọc da mới êm ái.' },
+      { label: 'A', text: 'New comfortable leather sofas.', vietnamese: 'Những chiếc ghế bọc da mới êm ái.' },
+      { label: 'B', text: 'We are still waiting for municipal building permits.', vietnamese: 'Chúng ta vẫn đang chờ giấy phép xây dựng của thành phố.' },
       { label: 'C', text: 'It will take three weeks.', vietnamese: 'Nó sẽ mất ba tuần.' }
     ],
-    correctAnswer: 'A',
-    explanation: 'Câu hỏi "Why" hỏi lý do chậm trễ. (A) giải thích nguyên nhân khách quan: chờ cấp phép từ chính quyền địa phương.',
+    correctAnswer: 'B',
+    explanation: 'Câu hỏi "Why" hỏi lý do chậm trễ. (B) giải thích nguyên nhân khách quan: chờ cấp phép từ chính quyền địa phương.',
     topic: 'Hỏi Lý Do (Why)'
   },
   {
@@ -694,14 +694,14 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'Do you want to take the company shuttle or should we share a taxi?',
     questionVi: 'Bạn muốn đi xe đưa đón công ty hay chúng ta đi chung một chuyến taxi?',
-    audioScript: 'Do you want to take the company shuttle or should we share a taxi? (A) Taking a taxi will get us to the airport much faster. (B) Yes, the shuttle has twenty seats. (C) At terminal number two.',
+    audioScript: 'Do you want to take the company shuttle or should we share a taxi? (A) Yes, the shuttle has twenty seats. (B) At terminal number two. (C) Taking a taxi will get us to the airport much faster.',
     options: [
-      { label: 'A', text: 'Taking a taxi will get us to the airport much faster.', vietnamese: 'Đi taxi sẽ đưa chúng ta đến sân bay nhanh hơn nhiều.' },
-      { label: 'B', text: 'Yes, the shuttle has twenty seats.', vietnamese: 'Vâng, xe đưa đón có hai mươi chỗ.' },
-      { label: 'C', text: 'At terminal number two.', vietnamese: 'Ở nhà ga số hai.' }
+      { label: 'A', text: 'Yes, the shuttle has twenty seats.', vietnamese: 'Vâng, xe đưa đón có hai mươi chỗ.' },
+      { label: 'B', text: 'At terminal number two.', vietnamese: 'Ở nhà ga số hai.' },
+      { label: 'C', text: 'Taking a taxi will get us to the airport much faster.', vietnamese: 'Đi taxi sẽ đưa chúng ta đến sân bay nhanh hơn nhiều.' }
     ],
-    correctAnswer: 'A',
-    explanation: 'Câu hỏi lựa chọn "A or B". (A) lựa chọn đi taxi và giải thích lý do nhanh hơn. Bẫy Yes/No ở câu (B).',
+    correctAnswer: 'C',
+    explanation: 'Câu hỏi lựa chọn "A or B". (C) lựa chọn đi taxi và giải thích lý do nhanh hơn. Bẫy Yes/No ở câu (A).',
     topic: 'Câu Hỏi Lựa Chọn (Or)'
   },
   {
@@ -726,14 +726,14 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'Which venue did the event planners choose for the annual gala dinner?',
     questionVi: 'Đơn vị tổ chức sự kiện đã chọn địa điểm nào cho dạ tiệc hàng năm?',
-    audioScript: 'Which venue did the event planners choose for the annual gala dinner? (A) The waterfront ballroom at the Grand Hotel. (B) Around two hundred guests. (C) On Saturday evening at seven.',
+    audioScript: 'Which venue did the event planners choose for the annual gala dinner? (A) Around two hundred guests. (B) The waterfront ballroom at the Grand Hotel. (C) On Saturday evening at seven.',
     options: [
-      { label: 'A', text: 'The waterfront ballroom at the Grand Hotel.', vietnamese: 'Phòng đại tiệc ven sông ở khách sạn Grand.' },
-      { label: 'B', text: 'Around two hundred guests.', vietnamese: 'Khoảng hai trăm khách mời.' },
+      { label: 'A', text: 'Around two hundred guests.', vietnamese: 'Khoảng hai trăm khách mời.' },
+      { label: 'B', text: 'The waterfront ballroom at the Grand Hotel.', vietnamese: 'Phòng đại tiệc ven sông ở khách sạn Grand.' },
       { label: 'C', text: 'On Saturday evening at seven.', vietnamese: 'Vào tối thứ Bảy lúc bảy giờ.' }
     ],
-    correctAnswer: 'A',
-    explanation: 'Câu hỏi "Which venue" hỏi địa điểm cụ thể. (A) nêu tên phòng đại tiệc của khách sạn Grand.',
+    correctAnswer: 'B',
+    explanation: 'Câu hỏi "Which venue" hỏi địa điểm cụ thể. (B) nêu tên phòng đại tiệc của khách sạn Grand.',
     topic: 'Hỏi Lựa Chọn Địa Điểm (Which)'
   },
   {
@@ -742,14 +742,14 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 2: Question - Response. Listen to a question or statement and three responses. Select the best response.',
     questionText: 'Have you received the tracking number for the international shipment?',
     questionVi: 'Bạn đã nhận được mã vận đơn theo dõi cho lô hàng quốc tế chưa?',
-    audioScript: 'Have you received the tracking number for the international shipment? (A) The supplier just emailed it five minutes ago. (B) Three heavy crates of machinery. (C) Yes, it operates worldwide.',
+    audioScript: 'Have you received the tracking number for the international shipment? (A) Three heavy crates of machinery. (B) Yes, it operates worldwide. (C) The supplier just emailed it five minutes ago.',
     options: [
-      { label: 'A', text: 'The supplier just emailed it five minutes ago.', vietnamese: 'Nhà cung cấp vừa gửi email cách đây năm phút.' },
-      { label: 'B', text: 'Three heavy crates of machinery.', vietnamese: 'Ba thùng máy móc hạng nặng.' },
-      { label: 'C', text: 'Yes, it operates worldwide.', vietnamese: 'Vâng, nó hoạt động trên toàn thế giới.' }
+      { label: 'A', text: 'Three heavy crates of machinery.', vietnamese: 'Ba thùng máy móc hạng nặng.' },
+      { label: 'B', text: 'Yes, it operates worldwide.', vietnamese: 'Vâng, nó hoạt động trên toàn thế giới.' },
+      { label: 'C', text: 'The supplier just emailed it five minutes ago.', vietnamese: 'Nhà cung cấp vừa gửi email cách đây năm phút.' }
     ],
-    correctAnswer: 'A',
-    explanation: 'Câu hỏi xác nhận việc nhận thông tin. (A) trả lời tình huống thực tế nhà cung ứng vừa gửi email.',
+    correctAnswer: 'C',
+    explanation: 'Câu hỏi xác nhận việc nhận thông tin. (C) trả lời tình huống thực tế nhà cung ứng vừa gửi email.',
     topic: 'Câu Hỏi Yes/No & Tình Huống Thực Tế'
   }
 ];

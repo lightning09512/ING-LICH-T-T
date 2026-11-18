@@ -335,24 +335,28 @@ export const TOEIC_REVISION_ROADMAP: RevisionUnit[] = [
     skill: "SPEAKING",
     unitNumber: 16,
     partNumber: 3,
-    partNameVi: "Part 3 & 4: Response to Questions",
-    questionCoverageVi: "Câu 5 - 10",
-    title: "Unit 16: Phản Xạ Trả Lời Part 3 & 4 (Response to Questions)",
+    partNameVi: "Part 3: Respond to Questions",
+    questionCoverageVi: "Câu 5 - 7",
+    title: "Unit 16: Phản Xạ Trả Lời Khảo Sát Part 3 (15s & 30s)",
     subtitle: "Nguyên tắc 'Trả lời trực tiếp + 2 câu mở rộng chi tiết (Reason + Example)'",
-    badge: "Part 3 & 4 • Phản Xạ",
-    overviewVi: "Part 3 kiểm tra phản xạ trả lời tức thì (15 giây cho Q5, Q6 và 30 giây cho Q7). Part 4 yêu cầu đọc lịch trình/bảng biểu và trả lời qua điện thoại.",
+    badge: "Part 3 • Phản Xạ Khảo Sát",
+    overviewVi: "Part 3 kiểm tra phản xạ trả lời tức thì qua điện thoại (15 giây cho Câu 5, 6 và 30 giây cho Câu 7) mà chỉ có đúng 3 giây chuẩn bị.",
     contentSections: [
       {
-        heading: "1. Nguyên Tắc 'Direct Answer + Expand' Cho Part 3",
-        bodyMarkdown: `- **Câu 1 - Trả lời trực tiếp:** Nêu câu trả lời thẳng vào trọng tâm câu hỏi, không ậm ừ kéo dài thời gian.
-- **Câu 2 - Nêu lý do (Because / Since):** Giải thích tại sao mình lại chọn hoặc làm như vậy.
-- **Câu 3 - Đưa ra ví dụ cá nhân (For instance):** Kể ngắn gọn 1 thói quen hoặc trải nghiệm thực tế.`
+        heading: "1. Nguyên Tắc 'Direct Answer + Expand' Cho Câu 5 & 6 (15 Giây)",
+        bodyMarkdown: `- **Câu 1 - Trả lời trực tiếp:** Nêu câu trả lời thẳng vào trọng tâm từ để hỏi (How often / Where / Who / What), tuyệt đối không ậm ừ kéo dài.
+- **Câu 2 - Nêu lý do ngắn (Because / Since):** Giải thích gọn gàng trong 1 câu vì sao bạn lại có thói quen/lựa chọn đó.`
       },
       {
-        heading: "2. Mẹo Xử Lý Part 4 (Lịch Trình Hội Thảo)",
-        bodyMarkdown: `- **Xem kỹ các mốc thời gian và địa điểm:** Phòng họp, tên diễn giả, chủ đề bài thuyết trình.
-- **Mở đầu lịch sự qua điện thoại:** Certainly! According to the schedule, the presentation will start at 10 AM in Room 204.
-- **Xử lý thông tin bị hủy hoặc thay đổi:** Look for cancellation asterisks (*) at the bottom of the table.`
+        heading: "2. Khung 3 Bước Ăn Trọn Điểm Câu 7 (30 Giây)",
+        bodyMarkdown: `- **Mở đầu (5s):** Khẳng định thẳng lựa chọn hoặc yếu tố quan trọng nhất.
+- **Luận điểm 1 + Lý do (12s):** First of all, it saves a considerable amount of time and money...
+- **Luận điểm 2 / Ví dụ thực tế (13s):** For instance, last month when I...`,
+        highlightBox: {
+          type: "tip",
+          title: "Bí Kíp Cứu Nguy Khi Bí Ý Trong 3 Giây",
+          text: "Luôn xoay quanh 3 lý do 'vạn năng' trong mọi chủ đề khảo sát TOEIC: (1) Convenient & time-saving (tiện lợi, tiết kiệm thời gian), (2) Affordable / cost-effective (giá hợp lý), (3) Relaxing & reduces stress (giúp thư giãn sau giờ làm)."
+        }
       }
     ],
     quickQuiz: [
@@ -366,6 +370,98 @@ export const TOEIC_REVISION_ROADMAP: RevisionUnit[] = [
         ],
         correctIndex: 0,
         explanationVi: "Trả lời đầy đủ câu trần thuật + nêu lý do và thói quen mở rộng giúp đạt điểm tối đa Part 3."
+      }
+    ]
+  },
+  {
+    id: "sp-unit-17",
+    skill: "SPEAKING",
+    unitNumber: 17,
+    partNumber: 4,
+    partNameVi: "Part 4: Respond Using Information",
+    questionCoverageVi: "Câu 8 - 10",
+    title: "Unit 17: Xử Lý Bảng Biểu, Đính Chính Bẫy Câu 9 & Tổng Hợp Câu 10",
+    subtitle: "Chiến thuật quét lịch trình trong 45s và công thức trả lời chuẩn xác 3 dạng câu cố định của ETS",
+    badge: "Part 4 • Lịch Trình & Bẫy *",
+    overviewVi: "Part 4 cung cấp 1 lịch trình sự kiện, chuyến bay hoặc bảng giá tour (45 giây đọc trước), sau đó bạn nghe 3 câu hỏi qua điện thoại: Câu 8 (15s tra cứu đơn), Câu 9 (15s bẫy thông tin sai), Câu 10 (30s tổng hợp nhiều mục).",
+    contentSections: [
+      {
+        heading: "1. Quy Tắc Quét Bảng Biểu Trong 45 Giây Chuẩn Bị",
+        bodyMarkdown: `- **Đọc Tiêu đề, Ngày giờ & Địa điểm đầu tiên:** 90% Câu 8 sẽ hỏi sự kiện diễn ra ở đâu, ngày nào, mấy giờ bắt đầu hoặc giá vé bao nhiêu.
+- **Khoanh vùng ngay dấu hoa thị (*) hoặc dòng Note cuối bảng:** Đây là ổ phục kích kinh điển của **Câu 9** (vé không hoàn tiền, trời mưa chuyển vào hội trường trong nhà, mua trước ngày 15/5 được giảm giá...).`
+      },
+      {
+        heading: "2. Ba Mẫu Câu Phản Xạ Bất Bại Cho Câu 8, 9, 10",
+        bodyMarkdown: `- **Câu 8 (Tra cứu thông tin cơ bản - 15s):** Sure! According to the schedule, [Sự kiện] will be held at [Địa điểm] on [Ngày], starting at [Giờ].
+- **Câu 9 (Đính chính thông tin sai của người hỏi - 15s):** Actually, I'm afraid that information is incorrect. According to the schedule, [Nêu lại sự thật đúng + điều kiện dấu *].
+- **Câu 10 (Liệt kê 2-3 hoạt động cùng tiêu chí - 30s):** Certainly! There are [two/three] sessions matching your request. First, from [Giờ] to [Giờ], there is [Hoạt động 1] led by [Tên]. Second, at [Giờ], you can attend [Hoạt động 2].`
+      }
+    ],
+    keyFormulas: [
+      {
+        name: "Mẫu câu đính chính lịch sự ở Câu 9",
+        structure: "Actually, that is not quite right. + [Thông tin đúng trên bảng] + [Chi tiết ghi chú *].",
+        exampleEn: "Actually, that is not quite right. All discounted flight tickets are strictly non-refundable.",
+        exampleVi: "Thực ra thông tin đó chưa chính xác ạ. Toàn bộ vé máy bay giảm giá đều không được hoàn tiền."
+      }
+    ],
+    quickQuiz: [
+      {
+        questionText: "Khi người gọi ở Câu 9 hỏi: 'I heard performances will be canceled if it rains, right?' trong khi cuối bảng ghi '*In case of rain, shows move to City Auditorium', bạn trả lời thế nào?",
+        options: [
+          "No, performances won't be canceled. In case of inclement weather, they will be moved indoors to the City Auditorium.",
+          "Yes, that is right.",
+          "I don't know about the weather.",
+          "Romeo and Juliet starts at 7 p.m."
+        ],
+        correctIndex: 0,
+        explanationVi: "Phủ định lịch sự giả định sai của người gọi và trích dẫn chính xác ghi chú dấu sao (*) ở cuối lịch trình để ăn trọn điểm."
+      }
+    ]
+  },
+  {
+    id: "sp-unit-18",
+    skill: "SPEAKING",
+    unitNumber: 18,
+    partNumber: 5,
+    partNameVi: "Part 5: Express an Opinion",
+    questionCoverageVi: "Câu 11 (60 giây)",
+    title: "Unit 18: Chiến Thuật OREO 60 Giây Chinh Phục Band 180+ Part 5",
+    subtitle: "Cách lập dàn ý trong 45s và duy trì bài nói 60s mạch lạc, giàu từ vựng học thuật C1",
+    badge: "Part 5 • Nghị Luận 60s",
+    overviewVi: "Câu 11 là câu hỏi quyết định mức điểm 160–200 của bài thi TOEIC Speaking (thang Rubric 0–5). Bạn có 45 giây chuẩn bị và 60 giây trình bày quan điểm cá nhân kèm lập luận và ví dụ.",
+    contentSections: [
+      {
+        heading: "1. Khung Cấu Trúc OREO Phân Bổ Chuẩn Từng Giây",
+        bodyMarkdown: `- **O - Opinion (0s -> 10s):** Khẳng định dứt khoát 1 phía ngay câu đầu, không đứng nước đôi (Personally, I strongly agree with the statement that... / Given the choice, I would definitely prefer to...).
+- **R - Reason 1 + Explanation (10s -> 30s):** First and foremost, [Luận điểm 1 về hiệu suất / thời gian / sức khỏe tinh thần]. This is because...
+- **E - Example + Reason 2 (30s -> 52s):** For example, in my previous workplace... Furthermore, from a financial perspective, [Luận điểm 2]...
+- **O - Outcome / Conclusion (52s -> 60s):** For all these reasons, I firmly believe that [Khẳng định lại quan điểm].`
+      },
+      {
+        heading: "2. Cụm Từ Nâng Band Điểm 180+ (C1 Spoken Discourse)",
+        bodyMarkdown: `- **boost overall productivity:** thúc đẩy năng suất làm việc tổng thể.
+- **strike a healthy work-life balance:** cân bằng lành mạnh giữa công việc và cuộc sống.
+- **foster stronger collaboration and trust:** nuôi dưỡng sự gắn kết và tin tưởng bền chặt hơn.
+- **broaden one's professional horizons:** mở rộng tầm nhìn nghề nghiệp.`,
+        highlightBox: {
+          type: "warning",
+          title: "Lỗi Chí Mạng Cần Tránh Ở Câu 11",
+          text: "Đừng cố gắng nghĩ câu quá phức tạp rồi im lặng quá 4 giây giữa bài! Nếu còn 8 giây cuối mà đã hết ý, hãy bình tĩnh tóm tắt lại câu kết luận (In short, considering both efficiency and long-term satisfaction...)."
+        }
+      }
+    ],
+    quickQuiz: [
+      {
+        questionText: "Đâu là câu mở đầu (10 giây đầu) hiệu quả nhất cho đề Part 5: 'Would you rather work at home or at the office?'",
+        options: [
+          "Personally, I strongly prefer working from home rather than commuting to an office every day for two main reasons.",
+          "Working at home has advantages, and working at the office also has many advantages, so it depends.",
+          "Well, let me think about this difficult question for a moment...",
+          "Yes, I work in an office."
+        ],
+        correctIndex: 0,
+        explanationVi: "Chọn dứt khoát 1 quan điểm ngay từ câu đầu và báo hiệu 'for two main reasons' giúp giám khảo thấy rõ bố cục mạch lạc chuẩn Band 180+."
       }
     ]
   },
@@ -570,6 +666,46 @@ export const TOEIC_REVISION_ROADMAP: RevisionUnit[] = [
         ],
         correctIndex: 0,
         explanationVi: "Mẫu câu 'I would appreciate it if you could...' là công thức trang trọng và lịch sự nhất trong thư tín thương mại."
+      }
+    ]
+  },
+  {
+    id: "wr-unit-09",
+    skill: "WRITING",
+    unitNumber: 9,
+    partNumber: 3,
+    partNameVi: "Part 3: Opinion Essay (Band 180+ C1)",
+    questionCoverageVi: "Câu 8 (300+ từ)",
+    title: "Unit 9: Kỹ Thuật Paraphrase & Bộ Từ Nối Học Thuật C1 Đạt 180–200 Điểm",
+    subtitle: "Cách viết lại đề bài không lặp từ, nâng cấp câu phức và sử dụng Collocation ăn điểm tuyệt đối 5/5",
+    badge: "Part 3 • Band 180+ C1",
+    overviewVi: "Để bứt phá từ mức 3/5 (130 điểm) lên 5/5 (180–200 điểm) ở bài luận Câu 8, giám khảo ETS đặc biệt chấm điểm khả năng Paraphrase đề bài ở Mở bài và sự đa dạng cấu trúc câu phức (Complex Sentences).",
+    contentSections: [
+      {
+        heading: "1. Bảng Paraphrase Đắt Giá Nhất Trong Essay TOEIC",
+        bodyMarkdown: `- **important / necessary:** indispensable, vital, paramount, play a pivotal role in (+ V-ing).
+- **good for employees / companies:** beneficial, advantageous, yield substantial rewards for both staff and organizations.
+- **many people think that:** It is widely argued that... / A growing number of professionals contend that...
+- **help someone do something:** enable / empower individuals to (+ V-inf), facilitate (+ Noun).`
+      },
+      {
+        heading: "2. Ba Cấu Trúc Câu Phức Kéo Điểm Ngữ Pháp Lên Mức 5/5",
+        bodyMarkdown: `- **Câu nhượng bộ mở đoạn (While / Although):** While working in an office fosters face-to-face spontaneous teamwork, remote arrangements offer unmatched flexibility.
+- **Mệnh đề phân từ chỉ hệ quả (, thereby + V-ing):** Flexible schedules eliminate exhausting daily commutes, thereby preserving employees' mental energy for creative tasks.
+- **Câu điều kiện giả định làm ví dụ:** Without clear performance incentives, ambitious employees might lose motivation over time.`
+      }
+    ],
+    quickQuiz: [
+      {
+        questionText: "Câu nào sử dụng cấu trúc nâng cao chuẩn C1 để thay thế cho câu đơn: 'Remote work saves commuting time. Therefore, it reduces stress.'?",
+        options: [
+          "Remote work eliminates lengthy daily commutes, thereby significantly reducing employee stress.",
+          "Remote work saves commuting time, it reduces stress.",
+          "Because remote work saves time, but it reduces stress.",
+          "Remote work saving time and reduce stress."
+        ],
+        correctIndex: 0,
+        explanationVi: "Cấu trúc ', thereby + V-ing' nối kết quả một cách học thuật, mượt mà và tránh hoàn toàn lỗi Comma Splice (nối 2 mệnh đề chỉ bằng dấu phẩy)."
       }
     ]
   }

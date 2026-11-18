@@ -791,16 +791,16 @@ export const extraPart5Questions: ExtraP5Exercise[] = [
   },
   {
     id: 1052,
-    question: "By the time the keynote speaker arrived, the conference hall _______ completely packed with attendees.",
+    question: "By the time the keynote speaker arrived, the event coordinators _______ distributing handouts to all attendees.",
     options: [
-      { label: 'A', text: 'is' },
-      { label: 'B', text: 'was' },
-      { label: 'C', text: 'had been' },
-      { label: 'D', text: 'has been' }
+      { label: 'A', text: 'finish' },
+      { label: 'B', text: 'are finishing' },
+      { label: 'C', text: 'had finished' },
+      { label: 'D', text: 'have finished' }
     ],
     correctAnswer: 'C',
-    explanation: "Cấu trúc 'By the time + S + V2/ed (quá khứ đơn), S + had + V3/ed (quá khứ hoàn thành)': hành động hội trường chật kín xảy ra trước khi diễn giả đến.",
-    translation: "Vào thời điểm diễn giả chính đến nơi, hội trường hội nghị đã chật kín người tham dự.",
+    explanation: "Cấu trúc 'By the time + S + V2/ed (quá khứ đơn), S + had + V3/ed (quá khứ hoàn thành)': hành động phát tài liệu hoàn tất trước thời điểm diễn giả đến trong quá khứ.",
+    translation: "Vào thời điểm diễn giả chính đến nơi, các điều phối viên sự kiện đã hoàn tất việc phát tài liệu cho toàn bộ người tham dự.",
     topicTitle: "Thì động từ (Tenses)",
     category: "PART5_GRAMMAR"
   },
