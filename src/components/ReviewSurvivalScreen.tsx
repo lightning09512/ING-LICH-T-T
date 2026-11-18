@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { VocabItem } from '../data/initialData';
 import { sounds } from '../utils/soundEffects';
 import confetti from 'canvas-confetti';
-import { Heart, Timer, ArrowLeft, RefreshCw, Trophy, AlertTriangle } from 'lucide-react';
+import { Heart, Timer, ArrowLeft, RefreshCw, Trophy, AlertTriangle, ArrowRight, XCircle } from 'lucide-react';
 import { useLearningProgress } from '../contexts/ProgressContext';
+import { DoodleCheck, DoodleTrophy, MascotSticker } from './DoodleIcons';
 
 interface ReviewSurvivalScreenProps {
   vocabList: VocabItem[];
@@ -219,16 +220,17 @@ export const ReviewSurvivalScreen: React.FC<ReviewSurvivalScreenProps> = ({
         </div>
       ) : gameWon ? (
         /* GAME WON MODAL */
-        <div className="bg-white border-3 sm:border-4 border-black p-4 sm:p-8 text-center shadow-neo sm:shadow-neo-lg flex flex-col items-center gap-4 sm:gap-6">
-          <Trophy className="w-16 h-16 sm:w-20 sm:h-20 text-yellow-500 fill-yellow-400 animate-bounce" />
+        <div className="bg-white border-3 sm:border-4 border-black p-4 sm:p-8 text-center shadow-neo sm:shadow-neo-lg flex flex-col items-center gap-4 sm:gap-5">
+          <MascotSticker src="/doodles/mascot-victory.png" alt="Mèo nâng cúp" size={104} className="w-24 h-24 sm:w-28 sm:h-28" />
           <h2 className="text-2xl sm:text-4xl font-black text-emerald-600 font-heading uppercase leading-tight">
             XUẤT SẮC QUÁ {nickname}!
           </h2>
           <p className="font-bold text-gray-700 text-sm sm:text-base max-w-md">
             Bạn đã sống sót qua toàn bộ câu hỏi và bảo toàn được mạng sống! Xứng danh Nóc nhà quyền lực!
           </p>
-          <div className="px-4 sm:px-6 py-2.5 sm:py-3 bg-neoYellow border-2 sm:border-3 border-black font-black text-base sm:text-xl shadow-neo-sm">
-            🏆 Tổng điểm: {score} Điểm
+          <div className="px-4 sm:px-6 py-2.5 sm:py-3 bg-neoYellow border-2 sm:border-3 border-black font-black text-base sm:text-xl shadow-neo-sm inline-flex items-center gap-2">
+            <DoodleTrophy size={22} />
+            <span>Tổng điểm: {score} Điểm</span>
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-4 mt-2 w-full sm:w-auto">
             <button
@@ -288,8 +290,8 @@ export const ReviewSurvivalScreen: React.FC<ReviewSurvivalScreenProps> = ({
                   className={`w-full p-4 text-left font-bold text-base shadow-neo-sm transition-all flex items-center justify-between ${btnClass}`}
                 >
                   <span>{opt}</span>
-                  {isAnswered && isCorrect && <span>✅</span>}
-                  {isAnswered && isSelected && !isCorrect && <span>❌</span>}
+                  {isAnswered && isCorrect && <DoodleCheck size={18} />}
+                  {isAnswered && isSelected && !isCorrect && <XCircle className="w-5 h-5 text-red-700 shrink-0" />}
                 </button>
               );
             })}
@@ -309,9 +311,19 @@ export const ReviewSurvivalScreen: React.FC<ReviewSurvivalScreenProps> = ({
           {isAnswered && hearts > 0 && (
             <button
               onClick={handleNextQuestion}
-              className="w-full py-4 bg-neoYellow border-3 border-black font-black text-lg uppercase shadow-neo hover:bg-yellow-300 active:translate-x-0.5 active:translate-y-0.5"
+              className="w-full py-4 bg-neoYellow border-3 border-black font-black text-lg uppercase shadow-neo hover:bg-yellow-300 active:translate-x-0.5 active:translate-y-0.5 flex items-center justify-center gap-2"
             >
-              {currentIndex + 1 < quizzes.length ? "Câu Tiếp Theo 👉" : "Xem Tổng Kết 🏆"}
+              {currentIndex + 1 < quizzes.length ? (
+                <>
+                  <span>Câu Tiếp Theo</span>
+                  <ArrowRight className="w-5 h-5" />
+                </>
+              ) : (
+                <>
+                  <DoodleTrophy size={22} />
+                  <span>Xem Tổng Kết</span>
+                </>
+              )}
             </button>
           )}
         </div>

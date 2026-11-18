@@ -5,9 +5,18 @@ import { useLearningProgress } from '../contexts/ProgressContext';
 import confetti from 'canvas-confetti';
 import { 
   ArrowLeft, Lock, Star, Volume2, RotateCcw, ArrowRight, 
-  CheckCircle2, AlertCircle, Trophy, Sparkles, BookOpen, List, Play,
+  CheckCircle2, AlertCircle, Trophy, BookOpen, List, Play,
   Maximize, Minimize
 } from 'lucide-react';
+import {
+  DoodleBoba,
+  DoodleBook,
+  DoodleBulb,
+  DoodleStar,
+  DoodleTrophy,
+  MascotSticker,
+  WashiTapeBadge,
+} from './DoodleIcons';
 
 interface VocabGameMapProps {
   onBack: () => void;
@@ -262,13 +271,13 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
             </button>
 
             {/* Stars counter */}
-            <div className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-4 py-1.5 sm:py-2 bg-neoYellow border-2 sm:border-3 border-black font-black text-xs sm:text-sm shadow-neo-sm min-h-[40px]">
-              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500 fill-amber-500 animate-spin" />
-              <span>{totalEarnedStars} / {maxDay * 3} ⭐</span>
+            <div className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-4 py-1.5 sm:py-2 bg-[#FFF099] border-2 sm:border-3 border-black font-black text-xs sm:text-sm shadow-neo-sm min-h-[40px]">
+              <DoodleStar size={18} />
+              <span>{totalEarnedStars} / {maxDay * 3} sao</span>
             </div>
 
             {/* Unlocked status */}
-            <div className="px-2.5 sm:px-4 py-1.5 sm:py-2 bg-neoGreen border-2 sm:border-3 border-black font-black shadow-neo-sm text-xs sm:text-sm min-h-[40px] flex items-center">
+            <div className="px-2.5 sm:px-4 py-1.5 sm:py-2 bg-[#C6F6DF] border-2 sm:border-3 border-black font-black shadow-neo-sm text-xs sm:text-sm min-h-[40px] flex items-center">
               Đã mở: {unlockedDay}/{maxDay} Màn
             </div>
           </div>
@@ -290,7 +299,8 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
                 : 'bg-white hover:bg-yellow-50 text-gray-700 shadow-neo-sm'
             }`}
           >
-            <span>📘 Chương 1: 26 Ngày Cơ Bản</span>
+            <DoodleBook size={18} />
+            <span>Chương 1: 26 Ngày Cơ Bản</span>
             <span className="text-[10px] bg-white px-1.5 py-0.5 border border-black font-black">26 Màn</span>
           </button>
 
@@ -308,19 +318,20 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
                 : 'bg-white hover:bg-cyan-50 text-gray-700 shadow-neo-sm'
             }`}
           >
-            <span className="absolute -top-2.5 -right-1 sm:-top-3 sm:-right-2 bg-neoPink text-white text-[9px] sm:text-[10px] font-black px-1.5 sm:px-2 py-0.5 border border-black rotate-12 shadow-neo-sm animate-pulse">
-              MỚI 13 BỘ 🔥
-            </span>
-            <span>🚀 Chương 2: ETS 2019 & New Economy</span>
+            <WashiTapeBadge tone="pink" rotate="right" className="absolute -top-3 -right-2 text-[9px] px-1.5 py-0">
+              13 Bộ ETS
+            </WashiTapeBadge>
+            <DoodleStar size={18} />
+            <span>Chương 2: ETS 2019 & New Economy</span>
             <span className="text-[10px] bg-white px-1.5 py-0.5 border border-black font-black">13 Bộ</span>
           </button>
         </div>
 
         {/* Title Banner */}
         <div className="text-center mb-5 sm:mb-8">
-          <span className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 bg-neoPink text-white border-2 border-black font-black text-[11px] sm:text-xs uppercase shadow-neo-sm rotate-[-2deg]">
-            {isChap2 ? 'BỘ TỪ VỰNG ETS 2019 & NEW ECONOMY' : 'BẢN ĐỒ 26 NGÀY TOEIC CĂN BẢN'}
-          </span>
+          <WashiTapeBadge tone="pink" rotate="left" className="uppercase">
+            {isChap2 ? 'Bộ từ vựng ETS 2019 & New Economy' : 'Bản đồ 26 ngày TOEIC căn bản'}
+          </WashiTapeBadge>
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-black mt-2 font-heading leading-tight">
             {isChap2 ? 'Từ Vựng Sát Đề Thi Thật (13 Bài)' : 'Vượt Màn Học Từ Vựng (Day 1 - 26)'}
           </h2>
@@ -402,8 +413,8 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
 
                 {/* Current Stage Indicator */}
                 {isCurrent && !isCompleted && (
-                  <div className="absolute -top-3 -right-2 px-2 py-0.5 bg-red-500 text-white text-[9px] font-black border border-black rounded-full uppercase animate-pulse">
-                    Mới!
+                  <div className="absolute -top-3 -right-2 px-2 py-0.5 bg-[#FFD6E5] text-[#4A1026] text-[9px] font-black border border-black uppercase shadow-neo-sm">
+                    Đang học
                   </div>
                 )}
               </div>
@@ -412,10 +423,13 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
         </div>
 
         {/* Bottom Hint */}
-        <div className="mt-6 text-center text-xs sm:text-sm font-bold text-gray-600 bg-amber-50 border-2 border-dashed border-black p-3">
-          {isChap2
-            ? `💡 Mẹo Chương 2: Mỗi bài test gồm 20 từ mới + 10 câu ôn tập ngẫu nhiên từ các bài trước để nhớ sâu từ vựng nha ${nickname}!`
-            : `💡 Mẹo: Mỗi bài test gồm 20 từ của bài hiện tại + 10 câu ngẫu nhiên từ các bài trước giúp ${nickname} không bao giờ bị quên từ cũ!`}
+        <div className="mt-6 text-xs sm:text-sm font-bold text-gray-700 bg-[#FFFBEB] border-2 border-dashed border-black p-3 flex items-center justify-center gap-2 text-center">
+          <DoodleBulb size={20} />
+          <span>
+            {isChap2
+              ? `Mẹo Chương 2: Mỗi bài test gồm 20 từ mới + 10 câu ôn tập ngẫu nhiên từ các bài trước để nhớ sâu từ vựng nha ${nickname}!`
+              : `Mẹo nhỏ: Mỗi bài test gồm 20 từ của bài hiện tại + 10 câu ngẫu nhiên từ các bài trước giúp ${nickname} không quên từ cũ!`}
+          </span>
         </div>
       </div>
     );
@@ -611,8 +625,9 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
                     }`}
                   >
                     <div className="flex items-center justify-between gap-2 mb-1">
-                      <span className="text-[10px] sm:text-xs font-black uppercase text-emerald-800 tracking-wider flex items-center gap-1">
-                        🇻🇳 Dịch câu ví dụ:
+                      <span className="text-[10px] sm:text-xs font-black uppercase text-emerald-800 tracking-wider flex items-center gap-1.5">
+                        <span className="px-1.5 py-0.5 bg-white border border-black rounded text-[9px]">VI</span>
+                        <span>Dịch câu ví dụ:</span>
                       </span>
                       {currentWord.exampleEn && (
                         <button
@@ -633,7 +648,8 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
                     </p>
                     {currentWord.exampleEn && (
                       <p className="text-[11px] sm:text-xs text-gray-600 font-medium italic mt-1 border-t border-emerald-200/60 pt-1">
-                        🇬🇧 "{currentWord.exampleEn}"
+                        <span className="not-italic font-black text-[9px] px-1 py-0.5 bg-white border border-black/40 rounded mr-1">EN</span>
+                        "{currentWord.exampleEn}"
                       </p>
                     )}
                   </div>
@@ -642,7 +658,10 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
                     onClick={(e) => e.stopPropagation()}
                     className="w-full max-w-lg bg-yellow-50 border-2 border-black px-3.5 py-2 rounded-xl shadow-neo-sm text-left mt-1 flex items-center justify-between gap-2"
                   >
-                    <span className="text-xs text-gray-700 font-bold flex-1">🇬🇧 "{currentWord.exampleEn}"</span>
+                    <span className="text-xs text-gray-700 font-bold flex-1">
+                      <span className="font-black text-[9px] px-1 py-0.5 bg-white border border-black/40 rounded mr-1">EN</span>
+                      "{currentWord.exampleEn}"
+                    </span>
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
@@ -709,7 +728,7 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
             >
               <Play className="w-5 h-5 sm:w-6 sm:h-6 fill-white group-hover:scale-125 transition-transform" />
               <span>Làm Bài Test Bài {selectedDay} Mở Màn</span>
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-300" />
+              <DoodleStar size={20} />
             </button>
             <p className="text-center text-[11px] sm:text-xs font-bold text-gray-500 mt-1.5 sm:mt-2">
               {selectedDay === 1
@@ -768,10 +787,11 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
                               sounds.playClick();
                               sounds.speakEnglish(w.exampleEn!);
                             }}
-                            className="text-xs text-gray-700 font-medium italic mt-0.5 cursor-pointer hover:text-indigo-600 transition-colors"
+                            className="text-xs text-gray-700 font-medium italic mt-0.5 cursor-pointer hover:text-indigo-600 transition-colors inline-flex items-center gap-1"
                             title="Nhấn để nghe câu ví dụ"
                           >
-                            "{w.exampleEn}" 🔊
+                            <span>"{w.exampleEn}"</span>
+                            <Volume2 className="w-3 h-3 shrink-0" />
                           </p>
                         )}
                         {w.exampleVi && (
@@ -857,6 +877,13 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
                   <Star className="w-6 h-6 sm:w-8 sm:h-8 fill-current" />
                 </div>
 
+                <MascotSticker
+                  src="/doodles/mascot-victory.png"
+                  alt="Mèo nâng cúp qua màn"
+                  size={96}
+                  className="w-24 h-24 mx-auto -mb-1"
+                />
+
                 <h2 className="text-2xl sm:text-4xl font-black text-emerald-600 font-heading uppercase">
                   QUA MÀN THÀNH CÔNG!
                 </h2>
@@ -878,9 +905,10 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
                         setView('MAP');
                       }
                     }}
-                    className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 bg-neoGreen border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo hover:bg-emerald-300 active:scale-95"
+                    className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 bg-neoGreen border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo hover:bg-emerald-300 active:scale-95 flex items-center justify-center gap-1.5"
                   >
-                    Học Tiếp Bài {selectedDay + 1} 👉
+                    <span>Học Tiếp Bài {selectedDay + 1}</span>
+                    <ArrowRight className="w-4 h-4" />
                   </button>
 
                   <button
@@ -893,24 +921,26 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
               </>
             ) : (
               <>
-                <h2 className="text-2xl sm:text-4xl font-black text-red-600 font-heading uppercase">
-                  TRƯỢT RỒI MẬP ĐỊCH ƠI!
+                <h2 className="text-2xl sm:text-4xl font-black text-rose-600 font-heading uppercase">
+                  CHƯA ĐẠT MỐC QUA MÀN!
                 </h2>
 
                 <p className="font-bold text-gray-700 text-sm sm:text-base max-w-md">
-                  Chỉ đúng được <strong>{correctCount}/{totalQ} câu ({percent}%)</strong> thôi! Phải đạt tối thiểu <strong>80%</strong> mới được mở khóa Bài tiếp theo!
+                  Mới đúng <strong>{correctCount}/{totalQ} câu ({percent}%)</strong> thôi! Cần đạt tối thiểu <strong>80%</strong> để mở khóa bài tiếp theo nha.
                 </p>
 
-                <div className="p-3 bg-red-100 border-2 border-black font-bold text-xs text-red-800">
-                  ⚠️ Phạt: Mau vào ôn lại flashcard rồi thi lại ngay, không được lười biếng!
+                <div className="p-3 bg-[#FFF5F7] border-2 border-dashed border-black font-bold text-xs text-rose-900 flex items-center justify-center gap-2">
+                  <DoodleBoba size={20} />
+                  <span>Ôn lại flashcard một vòng rồi thi lại giữ trà sữa nhé!</span>
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-4 mt-2 w-full sm:w-auto">
                   <button
                     onClick={startQuiz}
-                    className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 bg-neoYellow border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo hover:bg-yellow-300 active:scale-95"
+                    className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 bg-neoYellow border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo hover:bg-yellow-300 active:scale-95 flex items-center justify-center gap-1.5"
                   >
-                    Thi Lại Ngay ⚡
+                    <RotateCcw className="w-4 h-4" />
+                    <span>Thi Lại Ngay</span>
                   </button>
 
                   <button
@@ -995,9 +1025,10 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
                 <button
                   disabled={answeredCount < totalQ}
                   onClick={handleFinishQuiz}
-                  className="px-6 py-2.5 bg-neoPink text-white border-2 border-black font-black text-xs uppercase disabled:opacity-40 hover:bg-pink-600 shadow-neo-sm"
+                  className="px-6 py-2.5 bg-neoPink text-white border-2 border-black font-black text-xs uppercase disabled:opacity-40 hover:bg-pink-600 shadow-neo-sm inline-flex items-center gap-1.5"
                 >
-                  Nộp Bài Chấm Điểm 🏆
+                  <DoodleTrophy size={16} />
+                  <span>Nộp Bài Chấm Điểm</span>
                 </button>
               )}
             </div>

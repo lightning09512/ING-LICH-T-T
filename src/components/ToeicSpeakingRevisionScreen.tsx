@@ -13,10 +13,17 @@ import {
   Lightbulb, 
   Award, 
   RefreshCw, 
-  Sparkles,
   HelpCircle,
   Volume2
 } from 'lucide-react';
+import {
+  DoodleBulb,
+  DoodleCheck,
+  DoodleMic,
+  DoodlePin,
+  DoodleStar,
+  DoodleTarget,
+} from './DoodleIcons';
 import confetti from 'canvas-confetti';
 
 interface ToeicSpeakingRevisionScreenProps {
@@ -96,8 +103,8 @@ export const ToeicSpeakingRevisionScreen: React.FC<ToeicSpeakingRevisionScreenPr
           <ArrowLeft className="w-4 h-4" /> Quay lại Menu
         </button>
 
-        <div className="flex items-center gap-2">
-          <span className="text-xl sm:text-2xl">🎙️</span>
+        <div className="flex items-center gap-2.5">
+          <DoodleMic size={26} />
           <div className="text-left hidden sm:block">
             <h1 className="font-heading font-black text-sm sm:text-lg uppercase leading-tight">
               Ôn Tập TOEIC Speaking
@@ -206,11 +213,13 @@ export const ToeicSpeakingRevisionScreen: React.FC<ToeicSpeakingRevisionScreenPr
           <div className="bg-white p-6 rounded-2xl border-4 border-black shadow-neo flex flex-col gap-3">
             <div className="bg-[#FFFDE7] p-3 rounded-xl border-2 border-black flex items-center justify-between flex-wrap gap-2">
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="px-3 py-1 bg-black text-[#5CE1E6] font-black text-xs uppercase rounded-lg border border-black shadow-neo-sm font-mono">
-                  🎯 PART {currentUnit.partNumber}: {currentUnit.partNameVi}
+                <span className="px-3 py-1 bg-black text-[#5CE1E6] font-black text-xs uppercase rounded-lg border border-black shadow-neo-sm font-mono inline-flex items-center gap-1.5">
+                  <DoodleTarget size={14} />
+                  <span>PART {currentUnit.partNumber}: {currentUnit.partNameVi}</span>
                 </span>
-                <span className="px-2.5 py-1 bg-white text-black font-black text-xs rounded-lg border-2 border-black">
-                  📌 Phạm vi: {currentUnit.questionCoverageVi}
+                <span className="px-2.5 py-1 bg-white text-black font-black text-xs rounded-lg border-2 border-black inline-flex items-center gap-1">
+                  <DoodlePin size={13} />
+                  <span>Phạm vi: {currentUnit.questionCoverageVi}</span>
                 </span>
                 <span className="px-2 py-0.5 bg-yellow-200 text-yellow-950 font-bold text-xs rounded-md border border-black/40">
                   {currentUnit.badge}
@@ -228,8 +237,11 @@ export const ToeicSpeakingRevisionScreen: React.FC<ToeicSpeakingRevisionScreenPr
               {currentUnit.subtitle}
             </p>
 
-            <div className="bg-cyan-50 p-4 rounded-xl border-2 border-cyan-800/20 text-xs sm:text-sm text-cyan-950 leading-relaxed font-medium">
-              💡 <span className="font-bold">Mục tiêu bài học:</span> {currentUnit.overviewVi}
+            <div className="bg-cyan-50 p-4 rounded-xl border-2 border-cyan-800/20 text-xs sm:text-sm text-cyan-950 leading-relaxed font-medium flex items-start gap-2">
+              <DoodleBulb size={18} className="mt-0.5" />
+              <div>
+                <span className="font-bold">Mục tiêu bài học:</span> {currentUnit.overviewVi}
+              </div>
             </div>
           </div>
 
@@ -269,7 +281,7 @@ export const ToeicSpeakingRevisionScreen: React.FC<ToeicSpeakingRevisionScreenPr
             {currentUnit.keyFormulas && currentUnit.keyFormulas.length > 0 && (
               <div className="mt-2 pt-4 border-t-2 border-gray-200">
                 <h3 className="text-sm font-black uppercase text-purple-950 mb-3 flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-purple-600" />
+                  <DoodleStar size={18} />
                   Công Thức Vàng Cần Thuộc Lòng
                 </h3>
                 <div className="grid grid-cols-1 gap-2.5">
@@ -303,7 +315,7 @@ export const ToeicSpeakingRevisionScreen: React.FC<ToeicSpeakingRevisionScreenPr
             {currentUnit.quickQuiz && currentUnit.quickQuiz.length > 0 && (
               <div className="mt-4 pt-4 border-t-3 border-black">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-lg">🎯</span>
+                  <DoodleTarget size={20} />
                   <h3 className="font-black text-sm uppercase tracking-wide text-black font-heading">
                     Mini Quiz: Kiểm Tra Kiến Thức Sau Bài Học
                   </h3>
@@ -373,8 +385,18 @@ export const ToeicSpeakingRevisionScreen: React.FC<ToeicSpeakingRevisionScreenPr
                               ? 'bg-emerald-50 border-emerald-300 text-emerald-950' 
                               : 'bg-rose-50 border-rose-300 text-rose-950'
                           }`}>
-                            <div className="font-black mb-1">
-                              {isCorrect ? '🎉 Tuyệt vời! Bạn trả lời chính xác.' : '❌ Chưa chính xác!'}
+                            <div className="font-black mb-1 flex items-center gap-1.5">
+                              {isCorrect ? (
+                                <>
+                                  <DoodleCheck size={15} />
+                                  <span>Tuyệt vời! Bạn trả lời chính xác.</span>
+                                </>
+                              ) : (
+                                <>
+                                  <XCircle className="w-4 h-4 text-rose-700 shrink-0" />
+                                  <span>Chưa chính xác!</span>
+                                </>
+                              )}
                             </div>
                             <p>{quiz.explanationVi}</p>
                           </div>

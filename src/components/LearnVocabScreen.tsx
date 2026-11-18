@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { VocabItem } from '../data/initialData';
 import { sounds } from '../utils/soundEffects';
-import { Volume2, RotateCcw, ArrowLeft, ArrowRight, CheckCircle2, Bookmark, Sparkles } from 'lucide-react';
+import { Volume2, RotateCcw, ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { DoodleCheck } from './DoodleIcons';
 
 interface LearnVocabScreenProps {
   vocabList: VocabItem[];
@@ -117,8 +118,9 @@ export const LearnVocabScreen: React.FC<LearnVocabScreenProps> = ({
         </button>
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <div className="px-3 sm:px-4 py-1.5 bg-neoGreen border-2 sm:border-3 border-black font-black text-xs sm:text-sm shadow-neo-sm min-h-[40px] flex items-center">
-            ✅ Đã thuộc: {learnedIds.length}/{vocabList.length} từ
+          <div className="px-3 sm:px-4 py-1.5 bg-[#C6F6DF] border-2 sm:border-3 border-black font-black text-xs sm:text-sm shadow-neo-sm min-h-[40px] flex items-center gap-1.5">
+            <DoodleCheck size={16} />
+            <span>Đã thuộc: {learnedIds.length}/{vocabList.length} từ</span>
           </div>
         </div>
       </div>
@@ -217,10 +219,12 @@ export const LearnVocabScreen: React.FC<LearnVocabScreenProps> = ({
               >
                 <div className="flex-1">
                   <p className="font-bold text-gray-800 text-sm sm:text-base">
-                    🇬🇧 "{currentWord.exampleEn}"
+                    <span className="font-black text-[10px] px-1.5 py-0.5 bg-white border border-black rounded mr-1.5">EN</span>
+                    "{currentWord.exampleEn}"
                   </p>
-                  <p className="font-bold text-pink-700 text-sm sm:text-base mt-1">
-                    🇻🇳 "{currentWord.exampleVi}"
+                  <p className="font-bold text-pink-700 text-sm sm:text-base mt-1.5">
+                    <span className="font-black text-[10px] px-1.5 py-0.5 bg-white border border-black rounded mr-1.5 text-black">VI</span>
+                    "{currentWord.exampleVi}"
                   </p>
                 </div>
                 {currentWord.exampleEn && (

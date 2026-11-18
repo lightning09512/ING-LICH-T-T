@@ -26,6 +26,15 @@ import {
   RotateCcw,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import {
+  DoodlePencil,
+  DoodlePin,
+  DoodleBook,
+  DoodleBulb,
+  DoodleTrophy,
+  DoodleStar,
+  MascotSticker,
+} from './DoodleIcons';
 
 interface ToeicWritingExamScreenProps {
   testId: string;
@@ -302,8 +311,8 @@ export const ToeicWritingExamScreen: React.FC<ToeicWritingExamScreenProps> = ({
           <ArrowLeft className="w-4 h-4" /> Danh Sách Đề Study4
         </button>
 
-        <div className="flex items-center gap-2">
-          <span className="text-xl sm:text-2xl">✍️</span>
+        <div className="flex items-center gap-2.5">
+          <DoodlePencil size={26} />
           <div>
             <h1 className="font-heading font-black text-sm sm:text-lg uppercase leading-tight">
               {currentTestMeta.name}{' '}
@@ -332,7 +341,7 @@ export const ToeicWritingExamScreen: React.FC<ToeicWritingExamScreenProps> = ({
       {fullTestSummaryBand !== null && (
         <div className="w-full mb-4 bg-gradient-to-r from-amber-200 via-yellow-200 to-emerald-200 border-3 border-black p-4 rounded-2xl shadow-neo flex items-center justify-between flex-wrap gap-3">
           <div className="flex items-center gap-3">
-            <Trophy className="w-8 h-8 text-amber-700 shrink-0" />
+            <MascotSticker src="/doodles/mascot-victory.png" alt="Tổng kết Writing" size={56} className="shrink-0" />
             <div>
               <div className="text-xs font-black uppercase text-gray-800">
                 Tổng Kết Đề Thi {currentTestMeta.name}
@@ -541,7 +550,7 @@ export const ToeicWritingExamScreen: React.FC<ToeicWritingExamScreenProps> = ({
             </div>
 
             <div className="bg-amber-50 p-3.5 rounded-xl border-2 border-amber-800/20 text-xs sm:text-sm text-amber-950 font-bold leading-relaxed">
-              👉 {currentQuestion.directionsVi}
+              → {currentQuestion.directionsVi}
             </div>
 
             {/* PART 1: Authentic Study4 Image + Realtime Keyword Checker Pills */}
@@ -616,8 +625,9 @@ export const ToeicWritingExamScreen: React.FC<ToeicWritingExamScreenProps> = ({
                   {currentQuestion.emailContext.body}
                 </div>
                 <div className="p-3 bg-cyan-50 rounded-xl border-2 border-cyan-500 text-xs sm:text-sm text-cyan-950 font-bold">
-                  <div className="uppercase font-black text-[11px] text-cyan-900 mb-1">
-                    📌 Directions Gốc Từ Đề Thi Study4:
+                  <div className="uppercase font-black text-[11px] text-cyan-900 mb-1 flex items-center gap-1.5">
+                    <DoodlePin size={14} />
+                    <span>Directions Gốc Từ Đề Thi Study4:</span>
                   </div>
                   {currentQuestion.emailContext.directions || currentQuestion.promptText}
                 </div>
@@ -628,8 +638,9 @@ export const ToeicWritingExamScreen: React.FC<ToeicWritingExamScreenProps> = ({
             {currentQuestion.part === 3 && (
               <div className="p-4 bg-orange-50 rounded-xl border-2 border-black flex flex-col gap-2">
                 <div className="flex items-center justify-between flex-wrap gap-2">
-                  <span className="font-black text-xs uppercase text-orange-950">
-                    📝 Đề Bài Luận Gốc Study4 (Mục tiêu ≥ 300 Từ • 30 Phút):
+                  <span className="font-black text-xs uppercase text-orange-950 flex items-center gap-1.5">
+                    <DoodlePencil size={15} />
+                    <span>Đề Bài Luận Gốc Study4 (Mục tiêu ≥ 300 Từ • 30 Phút):</span>
                   </span>
                 </div>
                 <p className="text-sm sm:text-base text-gray-900 leading-relaxed font-bold">
@@ -685,9 +696,10 @@ export const ToeicWritingExamScreen: React.FC<ToeicWritingExamScreenProps> = ({
                       sounds.playClick();
                       setShowTemplate(!showTemplate);
                     }}
-                    className="px-3 py-1.5 bg-yellow-100 hover:bg-yellow-200 border-2 border-black font-black text-xs rounded-lg shadow-neo-sm cursor-pointer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-yellow-100 hover:bg-yellow-200 border-2 border-black font-black text-xs rounded-lg shadow-neo-sm cursor-pointer"
                   >
-                    {showTemplate ? 'Ẩn Khung Dàn Ý' : '💡 Khung Dàn Ý'}
+                    <DoodleBulb size={15} />
+                    <span>{showTemplate ? 'Ẩn Khung Dàn Ý' : 'Khung Dàn Ý'}</span>
                   </button>
                 )}
 
@@ -696,9 +708,10 @@ export const ToeicWritingExamScreen: React.FC<ToeicWritingExamScreenProps> = ({
                     sounds.playClick();
                     setShowModelAnswer(!showModelAnswer);
                   }}
-                  className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 border-2 border-black font-black text-xs rounded-lg shadow-neo-sm cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 hover:bg-gray-200 border-2 border-black font-black text-xs rounded-lg shadow-neo-sm cursor-pointer"
                 >
-                  {showModelAnswer ? 'Ẩn Bài Mẫu' : '📖 Bài Mẫu Band 200'}
+                  <DoodleBook size={15} />
+                  <span>{showModelAnswer ? 'Ẩn Bài Mẫu' : 'Bài Mẫu Band 200'}</span>
                 </button>
               </div>
 
@@ -712,7 +725,7 @@ export const ToeicWritingExamScreen: React.FC<ToeicWritingExamScreenProps> = ({
                       : 'bg-[#FF9800] hover:bg-[#fb8c00] text-black'
                   }`}
                 >
-                  <Sparkles className={`w-4 h-4 ${isGrading ? 'animate-spin' : ''}`} />
+                  <DoodleStar size={17} className={isGrading ? 'animate-spin' : ''} />
                   {isGrading ? 'AI Đang Sửa Bài...' : 'Chấm & Sửa Câu Này'}
                 </button>
 
@@ -768,23 +781,26 @@ export const ToeicWritingExamScreen: React.FC<ToeicWritingExamScreenProps> = ({
                 </div>
               </div>
 
-              <div className="bg-pink-50 p-4 rounded-xl border-2 border-pink-300 text-xs sm:text-sm text-pink-950 font-bold">
-                💬 "{currentEvaluation.coachComment}"
+              <div className="bg-pink-50 p-4 rounded-xl border-2 border-pink-300 text-xs sm:text-sm text-pink-950 font-bold flex items-start gap-2">
+                <DoodleBulb size={18} className="mt-0.5 shrink-0" />
+                <span>"{currentEvaluation.coachComment}"</span>
               </div>
 
               {/* Side-by-Side: Your Submission vs Reference Model */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div className="p-3.5 rounded-xl border-2 border-black bg-gray-50">
-                  <div className="font-black text-xs uppercase text-gray-700 mb-1.5">
-                    ✍️ Bài Viết Của Bạn:
+                  <div className="font-black text-xs uppercase text-gray-700 mb-1.5 flex items-center gap-1.5">
+                    <DoodlePencil size={15} />
+                    <span>Bài Viết Của Bạn:</span>
                   </div>
                   <div className="text-xs text-gray-900 whitespace-pre-line leading-relaxed">
                     {currentDraft}
                   </div>
                 </div>
                 <div className="p-3.5 rounded-xl border-2 border-emerald-500 bg-emerald-50/70">
-                  <div className="font-black text-xs uppercase text-emerald-900 mb-1.5">
-                    🏆 Bài Mẫu Chuẩn ETS / AI Đề Xuất:
+                  <div className="font-black text-xs uppercase text-emerald-900 mb-1.5 flex items-center gap-1.5">
+                    <DoodleTrophy size={15} />
+                    <span>Bài Mẫu Chuẩn ETS / AI Đề Xuất:</span>
                   </div>
                   <div className="text-xs text-emerald-950 whitespace-pre-line leading-relaxed">
                     {currentEvaluation.modelAnswer || currentQuestion.modelAnswer}
@@ -806,7 +822,7 @@ export const ToeicWritingExamScreen: React.FC<ToeicWritingExamScreenProps> = ({
                           key={cIdx}
                           className="bg-white p-2.5 rounded-lg border border-rose-200 text-xs"
                         >
-                          <div className="text-rose-700 line-through">❌ {corr.original}</div>
+                          <div className="text-rose-700 line-through">✗ {corr.original}</div>
                           <div className="text-emerald-700 font-bold mt-0.5">
                             ➔ {corr.corrected}
                           </div>
@@ -820,8 +836,9 @@ export const ToeicWritingExamScreen: React.FC<ToeicWritingExamScreenProps> = ({
               {/* Vocab Upgrades C1 */}
               {currentEvaluation.vocabUpgrades && currentEvaluation.vocabUpgrades.length > 0 && (
                 <div className="p-4 bg-purple-50 rounded-xl border-2 border-purple-300">
-                  <div className="font-black text-xs text-purple-950 uppercase mb-2">
-                    🚀 Nâng Cấp Từ Vựng Thương Mại Band C1:
+                  <div className="font-black text-xs text-purple-950 uppercase mb-2 flex items-center gap-1.5">
+                    <DoodleStar size={16} />
+                    <span>Nâng Cấp Từ Vựng Thương Mại Band C1:</span>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {currentEvaluation.vocabUpgrades.map((up, uIdx) => (

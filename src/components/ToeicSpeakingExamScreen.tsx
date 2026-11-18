@@ -32,6 +32,14 @@ import {
   Zap,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import {
+  DoodleMic,
+  DoodlePin,
+  DoodleBook,
+  DoodleBulb,
+  DoodleStar,
+  MascotSticker,
+} from './DoodleIcons';
 
 interface ToeicSpeakingExamScreenProps {
   testId: string;
@@ -479,8 +487,8 @@ export const ToeicSpeakingExamScreen: React.FC<ToeicSpeakingExamScreenProps> = (
           <ArrowLeft className="w-4 h-4" /> Danh Sách Đề Study4
         </button>
 
-        <div className="flex items-center gap-2">
-          <span className="text-xl sm:text-2xl">🎙️</span>
+        <div className="flex items-center gap-2.5">
+          <DoodleMic size={26} />
           <div>
             <h1 className="font-heading font-black text-sm sm:text-lg uppercase leading-tight">
               {currentTestMeta.name}{' '}
@@ -525,7 +533,7 @@ export const ToeicSpeakingExamScreen: React.FC<ToeicSpeakingExamScreenProps> = (
       {fullTestSummaryBand !== null && (
         <div className="w-full mb-4 bg-gradient-to-r from-cyan-200 via-emerald-200 to-yellow-200 border-3 border-black p-4 rounded-2xl shadow-neo flex items-center justify-between flex-wrap gap-3">
           <div className="flex items-center gap-3">
-            <Trophy className="w-8 h-8 text-amber-600 shrink-0" />
+            <MascotSticker src="/doodles/mascot-victory.png" alt="Tổng kết Speaking" size={56} className="shrink-0" />
             <div>
               <div className="text-xs font-black uppercase text-gray-800">
                 Tổng Kết Đề Thi {currentTestMeta.name}
@@ -727,14 +735,15 @@ export const ToeicSpeakingExamScreen: React.FC<ToeicSpeakingExamScreenProps> = (
             </div>
 
             <div className="bg-cyan-50 p-3 rounded-xl border-2 border-cyan-800/20 text-xs sm:text-sm text-cyan-950 font-bold">
-              👉 {currentQuestion.directionsVi}
+              → {currentQuestion.directionsVi}
             </div>
 
             {/* Shared Context for Part 3 & Part 4 */}
             {currentQuestion.contextText && (
               <div className="p-3.5 bg-purple-50 rounded-xl border-2 border-purple-300 text-xs sm:text-sm text-purple-950 font-medium leading-relaxed">
-                <div className="font-black text-[11px] uppercase text-purple-900 mb-1">
-                  📌 Ngữ cảnh tình huống (Study4 Context):
+                <div className="font-black text-[11px] uppercase text-purple-900 mb-1 flex items-center gap-1.5">
+                  <DoodlePin size={14} />
+                  <span>Ngữ cảnh tình huống (Study4 Context):</span>
                 </div>
                 {currentQuestion.contextText}
               </div>
@@ -767,8 +776,9 @@ export const ToeicSpeakingExamScreen: React.FC<ToeicSpeakingExamScreenProps> = (
             {/* Part 4 Schedule Image (Tests 2-10) */}
             {currentQuestion.infoImageUrl && (
               <div className="flex flex-col items-center justify-center p-3 bg-gray-50 rounded-xl border-2 border-black overflow-hidden">
-                <div className="text-[11px] font-black uppercase text-gray-600 mb-2 self-start">
-                  📋 Bảng thông tin / lịch trình gốc từ Study4:
+                <div className="text-[11px] font-black uppercase text-gray-600 mb-2 self-start flex items-center gap-1.5">
+                  <DoodleBook size={15} />
+                  <span>Bảng thông tin / lịch trình gốc từ Study4:</span>
                 </div>
                 <img
                   src={currentQuestion.infoImageUrl}
@@ -875,9 +885,10 @@ export const ToeicSpeakingExamScreen: React.FC<ToeicSpeakingExamScreenProps> = (
                   sounds.playClick();
                   setShowModelAnswer(!showModelAnswer);
                 }}
-                className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 border-2 border-black rounded-lg text-xs font-black shadow-neo-sm cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 hover:bg-gray-200 border-2 border-black rounded-lg text-xs font-black shadow-neo-sm cursor-pointer"
               >
-                {showModelAnswer ? 'Ẩn Đáp Án Mẫu Tham Khảo' : '📖 Xem Đáp Án Mẫu Band 200'}
+                <DoodleBook size={15} />
+                <span>{showModelAnswer ? 'Ẩn Đáp Án Mẫu Tham Khảo' : 'Xem Đáp Án Mẫu Band 200'}</span>
               </button>
 
               <button
@@ -956,8 +967,9 @@ export const ToeicSpeakingExamScreen: React.FC<ToeicSpeakingExamScreenProps> = (
 
             {currentAttempt.recordedAudioUrl && (
               <div className="p-3 bg-cyan-50 rounded-xl border-2 border-cyan-800/30 flex items-center justify-between gap-3 flex-wrap">
-                <span className="text-xs font-black text-cyan-950">
-                  🎧 Bản thu âm Câu {currentQuestion.questionNumber} của bạn:
+                <span className="text-xs font-black text-cyan-950 flex items-center gap-1.5">
+                  <Headphones className="w-4 h-4 text-cyan-800 shrink-0" />
+                  <span>Bản thu âm Câu {currentQuestion.questionNumber} của bạn:</span>
                 </span>
                 <audio src={currentAttempt.recordedAudioUrl} controls className="h-8 max-w-full" />
               </div>
@@ -992,7 +1004,7 @@ export const ToeicSpeakingExamScreen: React.FC<ToeicSpeakingExamScreenProps> = (
                       : 'bg-[#5CE1E6] hover:bg-[#48cbd0] text-black'
                   }`}
                 >
-                  <Sparkles className={`w-4 h-4 ${isGrading ? 'animate-spin' : ''}`} />
+                  <DoodleStar size={17} className={isGrading ? 'animate-spin' : ''} />
                   {isGrading ? 'AI Đang Chấm...' : 'Chấm Câu Này Bằng AI'}
                 </button>
 
@@ -1030,8 +1042,9 @@ export const ToeicSpeakingExamScreen: React.FC<ToeicSpeakingExamScreenProps> = (
                 </div>
               </div>
 
-              <div className="bg-pink-50 p-4 rounded-xl border-2 border-pink-300 text-xs sm:text-sm text-pink-950 font-bold">
-                💬 "{currentAttempt.evaluation.coachComment}"
+              <div className="bg-pink-50 p-4 rounded-xl border-2 border-pink-300 text-xs sm:text-sm text-pink-950 font-bold flex items-start gap-2">
+                <DoodleBulb size={18} className="mt-0.5 shrink-0" />
+                <span>"{currentAttempt.evaluation.coachComment}"</span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

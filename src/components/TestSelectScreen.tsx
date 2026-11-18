@@ -1,9 +1,16 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { sounds } from '../utils/soundEffects';
 import { 
-  ArrowLeft, Clock, Target, Volume2, Award, Sparkles, 
-  BookOpen, ChevronRight, CheckCircle2, AlertCircle, Search, Trophy, Flame
+  ArrowLeft, Clock, Target, Volume2, Award, 
+  BookOpen, ChevronRight, CheckCircle2, AlertCircle, Search, Trophy, LoaderCircle
 } from 'lucide-react';
+import {
+  DoodleBook,
+  DoodleFire,
+  DoodleStar,
+  DoodleTrophy,
+  WashiTapeBadge,
+} from './DoodleIcons';
 
 interface TestSummary {
   _id: string;
@@ -347,19 +354,21 @@ export const TestSelectScreen: React.FC<TestSelectScreenProps> = ({
             <ArrowLeft className="w-4 h-4" /> Quay lại Menu
           </button>
           <h1 className="text-2xl sm:text-4xl md:text-5xl font-black font-heading text-black flex flex-wrap items-center gap-2 sm:gap-3">
-            <span>📚 Kho Đề Thi TOEIC</span>
-            <span className="text-sm sm:text-base font-bold bg-neoYellow border-2 border-black px-2.5 sm:px-3 py-0.5 sm:py-1 shadow-neo-sm rotate-2">
+            <DoodleBook size={34} />
+            <span>Kho Đề Thi TOEIC</span>
+            <span className="text-sm sm:text-base font-bold bg-[#FFF099] border-2 border-black px-2.5 sm:px-3 py-0.5 sm:py-1 shadow-neo-sm rotate-2">
               {tests.length} đề thi
             </span>
           </h1>
           <p className="text-xs sm:text-sm md:text-base font-bold text-gray-700 mt-1">
-            Chọn đề thi để thử thách bản thân nào {nickname}! Đầy đủ Audio Listening + Đáp án chi tiết.
+            Chọn đề thi để luyện sức bền nào {nickname}! Đầy đủ Audio Listening & đáp án giải thích chi tiết.
           </p>
         </div>
 
-        <div className="self-start sm:self-auto shrink-0 bg-neoPink text-white px-3 py-1.5 border-2 border-black font-black text-xs uppercase shadow-neo-sm">
-          🔥 Chuẩn Quốc Tế 200 Câu
-        </div>
+        <WashiTapeBadge tone="pink" rotate="right" className="self-start sm:self-auto shrink-0 uppercase py-1.5 px-3">
+          <DoodleStar size={14} />
+          <span>Chuẩn 200 Câu ETS</span>
+        </WashiTapeBadge>
       </div>
 
       {/* Quick Ranked Practice Banner */}
@@ -369,24 +378,24 @@ export const TestSelectScreen: React.FC<TestSelectScreenProps> = ({
             sounds.playClick();
             onGoToRanked();
           }}
-          className="w-full bg-[#FEF9C3] hover:bg-yellow-100 border-4 border-black p-4 sm:p-5 shadow-neo hover:shadow-neo-lg transition-all cursor-pointer mb-6 flex flex-col sm:flex-row items-center justify-between gap-4"
+          className="w-full bg-[#FFFBEB] hover:bg-yellow-100/80 border-4 border-black p-4 sm:p-5 shadow-neo hover:shadow-neo-lg transition-all cursor-pointer mb-6 flex flex-col sm:flex-row items-center justify-between gap-4"
         >
           <div className="flex items-center gap-3 sm:gap-4">
-            <div className="w-12 h-12 bg-white border-3 border-black flex items-center justify-center text-3xl shadow-neo-sm shrink-0">
-              🏆
+            <div className="w-12 h-12 bg-white border-3 border-black flex items-center justify-center shadow-neo-sm shrink-0">
+              <DoodleTrophy size={30} />
             </div>
             <div>
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="bg-red-500 text-white text-[10px] font-black px-2 py-0.5 border border-black uppercase flex items-center gap-1">
-                  <Flame className="w-3 h-3 fill-white" />
-                  MỚI • LEO RANK
-                </span>
+                <WashiTapeBadge tone="peach" className="text-[10px]">
+                  <DoodleFire size={13} />
+                  <span>Leo Rank Nhanh</span>
+                </WashiTapeBadge>
                 <h3 className="font-heading font-black text-lg sm:text-xl text-black">
                   Đấu Xếp Hạng TOEIC (7 - 18 phút)
                 </h3>
               </div>
               <p className="text-xs sm:text-sm font-bold text-gray-700 mt-0.5">
-                Không có đủ 120 phút làm full đề? Hãy chơi Leo Rank: 10 - 22 câu, tích điểm LP, lên rank Thách Đấu!
+                Chưa rảnh 120 phút làm full đề? Thử ngay Leo Rank 10 - 22 câu, tích điểm LP lên bậc Thách Đấu!
               </p>
             </div>
           </div>
@@ -406,44 +415,48 @@ export const TestSelectScreen: React.FC<TestSelectScreenProps> = ({
               sounds.playClick();
               setSelectedTab('ALL');
             }}
-            className={`px-3.5 py-2 border-2 border-black font-black text-xs sm:text-sm shadow-neo-sm whitespace-nowrap cursor-pointer transition-all ${
+            className={`px-3.5 py-2 border-2 border-black font-black text-xs sm:text-sm shadow-neo-sm whitespace-nowrap cursor-pointer transition-all inline-flex items-center gap-1.5 ${
               selectedTab === 'ALL' ? 'bg-black text-white' : 'bg-white text-black hover:bg-gray-100'
             }`}
           >
-            🌟 Tất cả ({tests.length})
+            <DoodleStar size={15} />
+            <span>Tất cả ({tests.length})</span>
           </button>
           <button
             onClick={() => {
               sounds.playClick();
               setSelectedTab('COL1');
             }}
-            className={`px-3.5 py-2 border-2 border-black font-black text-xs sm:text-sm shadow-neo-sm whitespace-nowrap cursor-pointer transition-all ${
+            className={`px-3.5 py-2 border-2 border-black font-black text-xs sm:text-sm shadow-neo-sm whitespace-nowrap cursor-pointer transition-all inline-flex items-center gap-1.5 ${
               selectedTab === 'COL1' ? 'bg-blue-600 text-white' : 'bg-white text-black hover:bg-blue-50'
             }`}
           >
-            📘 Collection 1 ({col1Count})
+            <DoodleBook size={15} />
+            <span>Collection 1 ({col1Count})</span>
           </button>
           <button
             onClick={() => {
               sounds.playClick();
               setSelectedTab('COL2');
             }}
-            className={`px-3.5 py-2 border-2 border-black font-black text-xs sm:text-sm shadow-neo-sm whitespace-nowrap cursor-pointer transition-all ${
+            className={`px-3.5 py-2 border-2 border-black font-black text-xs sm:text-sm shadow-neo-sm whitespace-nowrap cursor-pointer transition-all inline-flex items-center gap-1.5 ${
               selectedTab === 'COL2' ? 'bg-purple-600 text-white' : 'bg-white text-black hover:bg-purple-50'
             }`}
           >
-            🚀 Collection 2 ({col2Count})
+            <DoodleBook size={15} />
+            <span>Collection 2 ({col2Count})</span>
           </button>
           <button
             onClick={() => {
               sounds.playClick();
               setSelectedTab('COL3');
             }}
-            className={`px-3.5 py-2 border-2 border-black font-black text-xs sm:text-sm shadow-neo-sm whitespace-nowrap cursor-pointer transition-all ${
+            className={`px-3.5 py-2 border-2 border-black font-black text-xs sm:text-sm shadow-neo-sm whitespace-nowrap cursor-pointer transition-all inline-flex items-center gap-1.5 ${
               selectedTab === 'COL3' ? 'bg-emerald-600 text-white' : 'bg-white text-black hover:bg-emerald-50'
             }`}
           >
-            🔥 Collection 3 - Mới Nhất ({col3Count})
+            <DoodleFire size={15} />
+            <span>Collection 3 ({col3Count})</span>
           </button>
         </div>
 
@@ -463,7 +476,7 @@ export const TestSelectScreen: React.FC<TestSelectScreenProps> = ({
       {/* Tests Grid */}
       {loading ? (
         <div className="bg-white border-4 border-black p-12 text-center shadow-neo-lg">
-          <div className="inline-block animate-spin text-4xl mb-3">🌀</div>
+          <LoaderCircle className="w-10 h-10 mx-auto animate-spin text-black mb-3" />
           <p className="text-xl font-black font-heading">Đang tải danh sách đề thi...</p>
         </div>
       ) : filteredTests.length === 0 ? (
@@ -487,13 +500,15 @@ export const TestSelectScreen: React.FC<TestSelectScreenProps> = ({
                 {/* Header Tag */}
                 <div className="flex items-start justify-between gap-2 mb-3">
                   {isCol2 ? (
-                    <span className="px-2.5 py-1 text-xs font-black uppercase border-2 border-black shadow-neo-sm bg-purple-600 text-white rotate-[-1deg]">
-                      🚀 ETS Collection 2 (Mới Tải)
-                    </span>
+                    <WashiTapeBadge tone="lavender" rotate="left" className="uppercase">
+                      <DoodleBook size={14} />
+                      <span>ETS Collection 2</span>
+                    </WashiTapeBadge>
                   ) : (
-                    <span className="px-2.5 py-1 text-xs font-black uppercase border-2 border-black shadow-neo-sm bg-blue-600 text-white rotate-[-1deg]">
-                      📘 ETS Collection 1
-                    </span>
+                    <WashiTapeBadge tone="sky" rotate="left" className="uppercase">
+                      <DoodleBook size={14} />
+                      <span>ETS Collection 1</span>
+                    </WashiTapeBadge>
                   )}
                   <span className="text-xs font-black bg-gray-100 border border-black px-2 py-0.5 font-mono">
                     {t.code}

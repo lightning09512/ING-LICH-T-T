@@ -2,8 +2,14 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { 
   Trophy, ArrowLeft, Volume2, Clock, CheckCircle2, XCircle, 
   Sparkles, AlertTriangle, ChevronRight, RotateCcw, Award, Shield, 
-  HelpCircle, Play, Pause, ChevronLeft, Target, Flame, FileText
+  HelpCircle, Play, Pause, ChevronLeft, Target, Flame, FileText, Image as ImageIcon, Headphones
 } from 'lucide-react';
+import {
+  DoodleBrokenHeart,
+  DoodleBulb,
+  DoodleTrophy,
+  MascotSticker,
+} from './DoodleIcons';
 import { useLearningProgress } from '../contexts/ProgressContext';
 import { RankTier, RANK_TIERS_CONFIG, RankedQuestion, PromoSeries } from '../types/ranked';
 import { generateRankedMatchQuestions } from '../utils/rankedQuestionGenerator';
@@ -96,7 +102,7 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
 
   const handleDeclineMatch = () => {
     setShowMatchFoundModal(false);
-    setDeclineToast("Bạn đã từ chối trận đấu hoặc quá giờ! Hãy chuẩn bị tâm lý rồi bấm tìm trận lại nhé Mập địch! ⚔️");
+    setDeclineToast("Bạn đã từ chối trận đấu hoặc quá giờ! Chuẩn bị sẵn sàng rồi bấm tìm trận lại nhé!");
     setTimeout(() => setDeclineToast(null), 6000);
   };
 
@@ -353,8 +359,8 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
 
         {/* Thông báo từ chối trận nếu có */}
         {declineToast && (
-          <div className="mb-4 p-3 bg-rose-100 border-3 border-black font-black text-xs sm:text-sm text-rose-800 shadow-neo-sm animate-bounce flex items-center gap-2">
-            <span>⚠️</span>
+          <div className="mb-4 p-3 bg-rose-100 border-3 border-black font-black text-xs sm:text-sm text-rose-800 shadow-neo-sm flex items-center gap-2">
+            <AlertTriangle className="w-4 h-4 shrink-0" />
             <span>{declineToast}</span>
           </div>
         )}
@@ -463,7 +469,8 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
                       />
                     </div>
                     <span className="text-[11px] font-bold text-gray-500 mt-1.5 flex items-center gap-1">
-                      📷 Quan sát bức tranh và nghe 4 phương án mô tả để chọn đáp án đúng
+                      <ImageIcon className="w-3.5 h-3.5 shrink-0" />
+                      <span>Quan sát bức tranh và nghe 4 phương án mô tả để chọn đáp án đúng</span>
                     </span>
                   </div>
                 )}
@@ -651,14 +658,34 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
               KẾT QUẢ TRẬN ĐẤU XẾP HẠNG
             </div>
             
-            <h1 className={`text-4xl sm:text-5xl font-black mb-2 tracking-tight ${
+            {isWin && (
+              <MascotSticker
+                src="/doodles/mascot-victory.png"
+                alt="Mèo nâng cúp chiến thắng"
+                size={96}
+                className="w-24 h-24 mx-auto mb-1"
+              />
+            )}
+
+            <h1 className={`text-3xl sm:text-5xl font-black mb-2 tracking-tight flex items-center justify-center gap-2 ${
               isWin ? 'text-emerald-700' : 'text-rose-700'
             }`}>
-              {isPromoted 
-                ? '🎉 THĂNG HẠNG THÀNH CÔNG!' 
-                : isWin 
-                ? '🏆 CHIẾN THẮNG (VICTORY)!' 
-                : '💔 THẤT BẠI (DEFEAT)'}
+              {isPromoted ? (
+                <>
+                  <DoodleTrophy size={34} />
+                  <span>THĂNG HẠNG THÀNH CÔNG!</span>
+                </>
+              ) : isWin ? (
+                <>
+                  <DoodleTrophy size={32} />
+                  <span>CHIẾN THẮNG (VICTORY)!</span>
+                </>
+              ) : (
+                <>
+                  <DoodleBrokenHeart size={30} />
+                  <span>THẤT BẠI (DEFEAT)</span>
+                </>
+              )}
             </h1>
 
             <p className="text-sm font-bold text-gray-700 mb-4">
@@ -837,8 +864,9 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
                       {/* Part 2 Spoken Prompt */}
                       {q.part === 2 && q.spokenPrompt && (
                         <div className="mb-3 bg-indigo-50 border-2 border-indigo-300 p-3">
-                          <div className="text-[11px] font-black uppercase text-indigo-700 mb-0.5">
-                            🎧 Câu hỏi đã phát âm thanh:
+                          <div className="text-[11px] font-black uppercase text-indigo-700 mb-0.5 flex items-center gap-1.5">
+                            <Headphones className="w-3.5 h-3.5 shrink-0" />
+                            <span>Câu hỏi đã phát âm thanh:</span>
                           </div>
                           <p className="text-sm font-bold text-black">
                             "{q.spokenPrompt}"
@@ -908,7 +936,10 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
 
                       {/* Explanation */}
                       <div className="bg-amber-50 border-2 border-amber-300 p-3 text-xs sm:text-sm font-medium text-amber-950 leading-relaxed">
-                        <strong className="font-black text-amber-900 block mb-0.5">💡 Giải thích chi tiết:</strong>
+                        <strong className="font-black text-amber-900 mb-0.5 flex items-center gap-1.5">
+                          <DoodleBulb size={16} />
+                          <span>Giải thích chi tiết:</span>
+                        </strong>
                         {q.explanation}
                       </div>
                     </div>

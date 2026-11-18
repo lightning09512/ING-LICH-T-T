@@ -46,6 +46,21 @@ import {
   Award,
   RotateCcw
 } from 'lucide-react';
+import {
+  DoodleBulb,
+  DoodlePin,
+  DoodlePencil,
+  DoodleStar,
+  DoodleFire,
+  DoodleTarget,
+  DoodleTrophy,
+  DoodleHeart,
+  DoodleBrokenHeart,
+  DoodleCheck,
+  DoodleBook,
+  MascotSticker,
+  WashiTapeBadge
+} from './DoodleIcons';
 
 interface GrammarScreenProps {
   onBack: () => void;
@@ -577,8 +592,8 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
               onClick={() => handleStartRandomTest('ALL')}
               className="flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 bg-neoGreen hover:bg-emerald-400 border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo-sm hover:shadow-neo active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer min-h-[40px]"
             >
-              <Target className="w-4 h-4 sm:w-5 sm:h-5 text-black shrink-0" />
-              <span>Làm Test 10 Câu Random (345+ Đề) 🎯</span>
+              <DoodleTarget size={18} />
+              <span>Làm Test 10 Câu Random (345+ Đề)</span>
             </button>
 
             {/* Quick Survival Quiz Trigger */}
@@ -586,8 +601,8 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
               onClick={handleStartSurvival}
               className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 bg-neoYellow hover:bg-amber-300 border-2 sm:border-3 border-black font-black text-xs sm:text-sm uppercase shadow-neo-sm hover:shadow-neo active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer min-h-[40px]"
             >
-              <Zap className="w-4 h-4 sm:w-5 sm:h-5 fill-black text-black shrink-0" />
-              <span>Sinh Tồn 15s ⚡</span>
+              <DoodleFire size={18} />
+              <span>Sinh Tồn 15s</span>
             </button>
           </div>
         </div>
@@ -596,9 +611,11 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
         <div className="bg-neoYellow border-3 sm:border-4 border-black p-4 sm:p-6 md:p-8 shadow-neo sm:shadow-neo-lg mb-4 sm:mb-6 relative overflow-hidden">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 relative z-10">
             <div>
-              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 bg-white border-2 border-black font-black text-[11px] sm:text-xs uppercase mb-2 sm:mb-3 shadow-neo-sm rotate-[-1deg]">
-                <GraduationCap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600" />
-                <span>Bí Kíp Độc Quyền Dành Cho {nickname}</span>
+              <div className="mb-2 sm:mb-3">
+                <WashiTapeBadge tone="pink" rotate="left">
+                  <DoodleStar size={14} />
+                  <span>Bí Kíp Độc Quyền Dành Cho {nickname}</span>
+                </WashiTapeBadge>
               </div>
               <h1 className="text-2xl sm:text-3xl md:text-5xl font-black font-heading uppercase text-black leading-tight">
                 Ngữ Pháp TOEIC Trực Quan
@@ -630,9 +647,10 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-                <span className="px-2.5 py-0.5 bg-neoGreen border-2 border-black font-black text-[10px] uppercase shadow-neo-sm">
-                  🔥 Ngân Hàng 345+ Câu Chuẩn TOEIC ETS
-                </span>
+                <WashiTapeBadge tone="mint">
+                  <DoodleFire size={13} />
+                  <span>Ngân Hàng 345+ Câu Chuẩn TOEIC ETS</span>
+                </WashiTapeBadge>
                 <span className="text-xs font-bold text-gray-600">Mỗi lần bấm là 1 đề 10 câu ngẫu nhiên mới!</span>
               </div>
               <h2 className="text-lg sm:text-xl font-black uppercase text-black">
@@ -648,7 +666,7 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
               className="w-full md:w-auto flex items-center justify-center gap-2 px-5 py-3 bg-neoYellow hover:bg-amber-300 border-3 border-black font-black text-sm uppercase shadow-neo hover:shadow-neo-lg active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer whitespace-nowrap"
             >
               <Play className="w-4 h-4 fill-black" />
-              <span>Bắt Đầu Test 10 Câu Random Ngay 🚀</span>
+              <span>Bắt Đầu Test 10 Câu Random Ngay</span>
             </button>
           </div>
         </div>
@@ -660,9 +678,9 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
             className="flex items-center justify-between cursor-pointer select-none"
           >
             <div className="flex items-center gap-2">
-              <Info className="w-5 h-5 text-neoDark" />
+              <DoodleBulb size={20} />
               <h3 className="font-black text-sm md:text-base uppercase">
-                💡 Bảng Chú Thích Ký Hiệu Công Thức (Đọc là hiểu ngay!)
+                Bảng Chú Thích Ký Hiệu Công Thức (Đọc là hiểu ngay!)
               </h3>
             </div>
             <button className="text-xs font-black flex items-center gap-1 text-gray-600">
@@ -792,7 +810,7 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
               {/* Tense list selector: Horizontal scroll on mobile/tablet, vertical sidebar on desktop */}
               <div className="lg:col-span-4 flex flex-col gap-1.5">
                 <div className="lg:hidden flex items-center justify-between text-[11px] font-black text-gray-600 px-1">
-                  <span>⚡ Chọn thì (Vuốt ngang):</span>
+                  <span>Chọn thì (Vuốt ngang):</span>
                   <span>{filteredTenses.length} thì</span>
                 </div>
                 <div className="flex lg:flex-col overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 gap-2 sm:gap-2.5 scrollbar-none">
@@ -812,8 +830,8 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                             {t.group} • #{idx + 1}
                           </span>
                           {t.isHighFrequency && (
-                            <span className="px-1.5 py-0.5 bg-red-600 text-white font-black text-[9px] sm:text-[10px] uppercase border border-black shadow-neo-sm">
-                              🔥 RA THI
+                            <span className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-[#FFE2C2] text-[#4A2104] font-black text-[9px] sm:text-[10px] uppercase border border-black shadow-neo-sm">
+                              <DoodleFire size={11} /> RA THI
                             </span>
                           )}
                         </div>
@@ -832,11 +850,13 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
 
               {/* Tense Detail View */}
               <div className="relative lg:col-span-8 bg-white border-3 sm:border-4 border-black p-4 sm:p-6 md:p-8 shadow-neo sm:shadow-neo-lg flex flex-col gap-4 sm:gap-6">
-                {/* Corner Indicator */}
+                {/* Single Washi Tape Corner Indicator (no duplicate inline badge) */}
                 {selectedTense.isHighFrequency && (
-                  <div className="absolute -top-3.5 -right-2.5 sm:-right-3 z-10 bg-red-600 text-white font-black text-xs uppercase px-3 py-1 border-2 border-black shadow-neo-sm rotate-2 flex items-center gap-1.5">
-                    <Flame className="w-3.5 h-3.5 text-yellow-300" />
-                    <span>{selectedTense.examBadge || 'TRỌNG ĐIỂM RA THI TOEIC'}</span>
+                  <div className="absolute -top-3.5 -right-2 sm:-right-3 z-10">
+                    <WashiTapeBadge tone="peach" rotate="right">
+                      <DoodleFire size={13} />
+                      <span>{selectedTense.examBadge || 'TRỌNG ĐIỂM RA THI TOEIC'}</span>
+                    </WashiTapeBadge>
                   </div>
                 )}
 
@@ -845,18 +865,13 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                     <span className="inline-block px-3 py-1 bg-neoYellow border-2 border-black font-black text-xs uppercase">
                       {selectedTense.group} TENSE
                     </span>
-                    {selectedTense.isHighFrequency && (
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-red-600 text-white border-2 border-black font-black text-xs uppercase shadow-neo-sm">
-                        <Flame className="w-3.5 h-3.5 text-yellow-300" />
-                        {selectedTense.examBadge || 'TRỌNG ĐIỂM RA THI 90%+'}
-                      </span>
-                    )}
                   </div>
                   <h2 className="text-2xl md:text-3xl font-black font-heading uppercase text-black">
                     {selectedTense.nameVi} ({selectedTense.nameEn})
                   </h2>
-                  <p className="text-sm font-bold text-gray-600 mt-1">
-                    📌 {selectedTense.summaryBadge}
+                  <p className="text-sm font-bold text-gray-600 mt-1 flex items-center gap-1.5">
+                    <DoodlePin size={15} />
+                    <span>{selectedTense.summaryBadge}</span>
                   </p>
                 </div>
 
@@ -897,8 +912,8 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
 
                 {/* VISUAL COLOR-CODED FORMULA CARDS */}
                 <div className="space-y-4">
-                  <div className="text-xs font-black uppercase text-gray-500 flex items-center gap-1.5">
-                    <Sparkles className="w-4 h-4 text-amber-500" /> Bảng Công Thức Trực Quan Dễ Nhớ:
+                  <div className="text-xs font-black uppercase text-gray-600 flex items-center gap-1.5">
+                    <DoodleStar size={16} /> Bảng Công Thức Trực Quan Dễ Nhớ:
                   </div>
 
                   {selectedTense.formulaBlocks.map((block, bIdx) => (
@@ -920,7 +935,7 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                           </div>
                           <div className="mt-2 text-xs font-bold text-gray-700 border-t border-emerald-200 pt-1.5">
                             <span className="text-emerald-800 font-black">Ví dụ: </span>"{block.exampleAffirmative.en}"
-                            <span className="block text-gray-500 text-[11px] mt-0.5">👉 {block.exampleAffirmative.vi}</span>
+                            <span className="block text-gray-500 text-[11px] mt-0.5">→ {block.exampleAffirmative.vi}</span>
                           </div>
                         </div>
 
@@ -936,7 +951,7 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                           </div>
                           <div className="mt-2 text-xs font-bold text-gray-700 border-t border-rose-200 pt-1.5">
                             <span className="text-rose-800 font-black">Ví dụ: </span>"{block.exampleNegative.en}"
-                            <span className="block text-gray-500 text-[11px] mt-0.5">👉 {block.exampleNegative.vi}</span>
+                            <span className="block text-gray-500 text-[11px] mt-0.5">→ {block.exampleNegative.vi}</span>
                           </div>
                         </div>
 
@@ -952,7 +967,7 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                           </div>
                           <div className="mt-2 text-xs font-bold text-gray-700 border-t border-sky-200 pt-1.5">
                             <span className="text-sky-800 font-black">Ví dụ: </span>"{block.exampleQuestion.en}"
-                            <span className="block text-gray-500 text-[11px] mt-0.5">👉 {block.exampleQuestion.vi}</span>
+                            <span className="block text-gray-500 text-[11px] mt-0.5">→ {block.exampleQuestion.vi}</span>
                           </div>
                         </div>
                       </div>
@@ -1025,7 +1040,7 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                       return (
                         <div>
                           <div className="text-xs font-black uppercase text-amber-800 mb-2 flex items-center gap-1.5">
-                            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                            <DoodlePencil size={15} />
                             Bài Tập Thực Chiến: {selectedTense.nameVi} ({selectedTense.nameEn})
                           </div>
                           <h3 className="text-base md:text-xl font-black font-heading leading-relaxed text-black bg-white p-4 border-3 border-black shadow-neo-sm mb-5">
@@ -1075,13 +1090,13 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                           {tenseIsAnswerChecked && (
                             <div className="p-4 bg-white border-3 border-black shadow-neo-sm space-y-3 mb-5">
                               <div className="text-xs font-black uppercase text-amber-900 flex items-center gap-1.5">
-                                <Sparkles className="w-4 h-4 text-amber-600" /> Giải thích chi tiết:
+                                <DoodleBulb size={16} /> Giải thích chi tiết:
                               </div>
                               <p className="text-sm font-bold text-gray-800 leading-relaxed">
                                 {currentTenseEx.explanation}
                               </p>
                               <div className="border-t border-dashed border-gray-300 pt-2 text-xs md:text-sm font-bold text-gray-600 italic">
-                                👉 Dịch nghĩa: "{currentTenseEx.translation}"
+                                → Dịch nghĩa: "{currentTenseEx.translation}"
                               </div>
 
                               <div className="pt-2 flex justify-end">
@@ -1106,9 +1121,12 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                 ) : (
                   /* Tense Quiz Result Screen */
                   <div className="bg-white border-4 border-black p-6 md:p-8 shadow-neo text-center">
-                    <div className="w-16 h-16 bg-neoYellow border-3 border-black mx-auto flex items-center justify-center shadow-neo mb-4">
-                      <Trophy className="w-8 h-8 text-black" />
-                    </div>
+                    <MascotSticker
+                      src="/doodles/mascot-victory.png"
+                      alt="Hoàn thành bài luyện tập thì"
+                      size={88}
+                      className="mx-auto mb-3 drop-shadow-sm"
+                    />
                     <h3 className="text-2xl font-black font-heading uppercase text-black mb-1">
                       Hoàn Thành Bài Luyện Tập Thì!
                     </h3>
@@ -1159,11 +1177,13 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
             <div className="grid grid-cols-1 gap-6">
               {wordOrderRules.map((rule, idx) => (
                 <div key={rule.id} className="relative bg-white border-4 border-black p-6 shadow-neo flex flex-col gap-4">
-                  {/* High Frequency Exam Corner Badge */}
+                  {/* Single Washi Tape Corner Badge (no duplicate inline badge) */}
                   {rule.isHighFrequency && (
-                    <div className="absolute -top-3.5 -right-2.5 sm:-right-3 z-10 bg-red-600 text-white font-black text-xs uppercase px-3 py-1 border-2 border-black shadow-neo-sm rotate-2 flex items-center gap-1.5">
-                      <Flame className="w-3.5 h-3.5 text-yellow-300" />
-                      <span>{rule.examBadge || 'HAY RA THI NHẤT'}</span>
+                    <div className="absolute -top-3.5 -right-2 sm:-right-3 z-10">
+                      <WashiTapeBadge tone="peach" rotate="right">
+                        <DoodleFire size={13} />
+                        <span>{rule.examBadge || 'HAY RA THI NHẤT'}</span>
+                      </WashiTapeBadge>
                     </div>
                   )}
 
@@ -1172,11 +1192,6 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                       <span className="text-xs font-black uppercase px-2.5 py-1 bg-neoYellow border-2 border-black shadow-neo-sm">
                         {rule.badge}
                       </span>
-                      {rule.isHighFrequency && (
-                        <span className="text-xs font-black uppercase px-2 py-0.5 bg-red-100 text-red-700 border border-red-500">
-                          🔥 Hay ra thi
-                        </span>
-                      )}
                       <span className="text-xs font-mono font-bold text-gray-500">Quy tắc #{idx + 1}</span>
                     </div>
                   </div>
@@ -1187,8 +1202,8 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
 
                   {/* VISUAL FLOW DIAGRAM (MŨI TÊN KẾT NỐI KHỐI) */}
                   <div className="bg-gray-50 border-3 border-black p-4 shadow-neo-sm">
-                    <div className="text-xs font-black uppercase text-gray-500 mb-3 flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5 text-neoDark" /> Sơ đồ vị trí các thành phần:
+                    <div className="text-xs font-black uppercase text-gray-600 mb-3 flex items-center gap-1.5">
+                      <DoodlePin size={15} /> Sơ đồ vị trí các thành phần:
                     </div>
 
                     <div className="flex flex-wrap items-center gap-2 sm:gap-3">
@@ -1225,7 +1240,7 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                     {rule.examples.map((ex, i) => (
                       <div key={i} className="text-xs md:text-sm font-bold mb-2 last:mb-0">
                         <p className="italic text-black">"{ex.en}"</p>
-                        <p className="text-gray-600 mt-0.5">👉 {ex.vi}</p>
+                        <p className="text-gray-600 mt-0.5">→ {ex.vi}</p>
                         {ex.note && <p className="text-emerald-700 font-mono text-xs mt-0.5">[{ex.note}]</p>}
                       </div>
                     ))}
@@ -1233,11 +1248,17 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
                     <div className="text-xs font-bold text-rose-900 bg-rose-50 border-2 border-rose-400 p-2.5">
-                      <span className="font-black text-rose-700 uppercase block mb-1">⚠️ Lưu ý bẫy sai:</span>
+                      <span className="font-black text-rose-700 uppercase flex items-center gap-1 mb-1">
+                        <AlertTriangle className="w-3.5 h-3.5 text-rose-600 shrink-0" />
+                        <span>Lưu ý bẫy sai:</span>
+                      </span>
                       {rule.commonMistakes}
                     </div>
                     <div className="text-xs font-bold text-emerald-900 bg-emerald-50 border-2 border-emerald-400 p-2.5">
-                      <span className="font-black text-emerald-700 uppercase block mb-1">💡 Mẹo ETS Part 5:</span>
+                      <span className="font-black text-emerald-700 uppercase flex items-center gap-1 mb-1">
+                        <DoodleBulb size={15} />
+                        <span>Mẹo ETS Part 5:</span>
+                      </span>
                       {rule.etsTip}
                     </div>
                   </div>
@@ -1281,8 +1302,9 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                       if (qState.isFinished) {
                         return (
                           <div className="mt-4 bg-white border-2 border-black p-4 text-center">
-                            <div className="font-black text-base uppercase text-black mb-1">
-                              🎉 Hoàn thành luyện tập quy tắc!
+                            <div className="font-black text-base uppercase text-black mb-1 flex items-center justify-center gap-1.5">
+                              <DoodleCheck size={18} />
+                              <span>Hoàn thành luyện tập quy tắc!</span>
                             </div>
                             <p className="text-xs font-bold text-gray-600 mb-3">
                               Đúng {qState.correctCount} / {rule.exercises.length} câu ({Math.round((qState.correctCount / rule.exercises.length) * 100)}%)
@@ -1347,11 +1369,12 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
 
                           {qState.isChecked && (
                             <div className="p-3 bg-amber-50/70 border-2 border-black space-y-2">
-                              <p className="text-xs font-bold text-gray-800">
-                                💡 <span className="font-black text-black">Giải thích:</span> {currentEx.explanation}
+                              <p className="text-xs font-bold text-gray-800 flex items-start gap-1.5">
+                                <DoodleBulb size={15} className="mt-0.5" />
+                                <span><span className="font-black text-black">Giải thích:</span> {currentEx.explanation}</span>
                               </p>
                               <p className="text-xs font-bold text-gray-600 italic">
-                                👉 Dịch nghĩa: "{currentEx.translation}"
+                                → Dịch nghĩa: "{currentEx.translation}"
                               </p>
                               <div className="pt-1 flex justify-end">
                                 <button
@@ -1423,11 +1446,13 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                     onClick={() => handleOpenTopic(topic)}
                     className="relative bg-white border-4 border-black p-5 md:p-6 shadow-neo hover:shadow-neo-lg hover:-translate-y-1 transition-all cursor-pointer flex flex-col justify-between group"
                   >
-                    {/* High Frequency Exam Corner Badge */}
+                    {/* Single Washi Tape Corner Badge (no duplicate inline badge) */}
                     {topic.isHighFrequency && (
-                      <div className="absolute -top-3.5 -right-2.5 sm:-right-3 z-10 bg-red-600 text-white font-black text-xs uppercase px-3 py-1 border-2 border-black shadow-neo-sm rotate-2 flex items-center gap-1.5 group-hover:rotate-0 transition-transform">
-                        <Flame className="w-3.5 h-3.5 text-yellow-300" />
-                        <span>{topic.examFrequencyBadge || 'TRỌNG ĐIỂM RA THI'}</span>
+                      <div className="absolute -top-3.5 -right-2 sm:-right-3 z-10 group-hover:rotate-0 transition-transform">
+                        <WashiTapeBadge tone="peach" rotate="right">
+                          <DoodleFire size={13} />
+                          <span>{topic.examFrequencyBadge || 'TRỌNG ĐIỂM RA THI'}</span>
+                        </WashiTapeBadge>
                       </div>
                     )}
 
@@ -1437,11 +1462,6 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                           <span className="px-2.5 py-1 bg-neoYellow border-2 border-black font-black text-xs uppercase shadow-neo-sm">
                             {topic.badge}
                           </span>
-                          {topic.isHighFrequency && (
-                            <span className="px-2 py-0.5 bg-red-100 text-red-700 border border-red-500 font-black text-[11px] uppercase">
-                              🔥 Hay ra thi
-                            </span>
-                          )}
                         </div>
                         <span className="text-xs font-bold px-2 py-0.5 border border-black bg-gray-100">
                           {topic.difficulty}
@@ -1516,11 +1536,13 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
 
         {/* Title Header */}
         <div className="relative bg-white border-4 border-black p-5 md:p-6 shadow-neo-lg mb-6">
-          {/* High Frequency Exam Corner Badge */}
+          {/* Single Washi Tape Corner Badge (no duplicate inline badge) */}
           {selectedTopic.isHighFrequency && (
-            <div className="absolute -top-3.5 -right-2.5 sm:-right-3 z-10 bg-red-600 text-white font-black text-xs sm:text-sm uppercase px-3 py-1 border-2 border-black shadow-neo-sm rotate-2 flex items-center gap-1.5">
-              <Flame className="w-4 h-4 text-yellow-300" />
-              <span>{selectedTopic.examFrequencyBadge || 'TRỌNG ĐIỂM RA THI TOEIC'}</span>
+            <div className="absolute -top-3.5 -right-2 sm:-right-3 z-10">
+              <WashiTapeBadge tone="peach" rotate="right">
+                <DoodleFire size={13} />
+                <span>{selectedTopic.examFrequencyBadge || 'TRỌNG ĐIỂM RA THI TOEIC'}</span>
+              </WashiTapeBadge>
             </div>
           )}
 
@@ -1529,11 +1551,6 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
               <span className="text-xs font-black uppercase text-gray-500 tracking-wider">
                 {selectedTopic.category} • {selectedTopic.difficulty}
               </span>
-              {selectedTopic.isHighFrequency && (
-                <span className="px-2 py-0.5 bg-red-100 text-red-700 border border-red-500 font-black text-xs uppercase shadow-neo-sm">
-                  🔥 Trọng điểm Part 5 & 6
-                </span>
-              )}
             </div>
             <h2 className="text-2xl md:text-4xl font-black font-heading uppercase text-black">
               {selectedTopic.title}
@@ -1584,9 +1601,11 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
               <div key={idx} className="relative bg-white border-4 border-black p-5 md:p-6 shadow-neo">
                 {/* Section High Frequency Corner Badge */}
                 {sec.isHighFrequency && (
-                  <div className="absolute -top-3 -right-2 z-10 bg-red-600 text-white font-black text-xs uppercase px-2.5 py-0.5 border-2 border-black shadow-neo-sm rotate-2 flex items-center gap-1">
-                    <Flame className="w-3.5 h-3.5 text-yellow-300" />
-                    <span>{sec.examBadge || 'TRỌNG ĐIỂM RA THI'}</span>
+                  <div className="absolute -top-3 -right-2 z-10">
+                    <WashiTapeBadge tone="peach" rotate="right">
+                      <DoodleFire size={12} />
+                      <span>{sec.examBadge || 'TRỌNG ĐIỂM RA THI'}</span>
+                    </WashiTapeBadge>
                   </div>
                 )}
 
@@ -1597,7 +1616,7 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                 {sec.formula && (
                   <div className="bg-amber-100 border-3 border-black p-4 mb-4 shadow-neo-sm">
                     <div className="text-xs font-black uppercase text-amber-900 mb-2.5 flex items-center gap-1.5">
-                      <Sparkles className="w-4 h-4 text-amber-700" /> CÔNG THỨC CẦN NHỚ:
+                      <DoodlePencil size={16} /> CÔNG THỨC CẦN NHỚ:
                     </div>
                     <div className="flex flex-col gap-2">
                       {sec.formula
@@ -1636,7 +1655,7 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                       {sec.examples.map((ex, eIdx) => (
                         <div key={eIdx} className="text-sm font-bold border-l-4 border-black pl-3 py-1">
                           <p className="text-black italic">"{ex.en}"</p>
-                          <p className="text-gray-600 text-xs mt-0.5">👉 {ex.vi}</p>
+                          <p className="text-gray-600 text-xs mt-0.5">→ {ex.vi}</p>
                         </div>
                       ))}
                     </div>
@@ -1788,7 +1807,12 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
             ) : (
               /* Topic Quiz Result Box */
               <div className="bg-white border-4 border-black p-8 text-center shadow-neo-lg flex flex-col items-center gap-5">
-                <Trophy className="w-16 h-16 text-yellow-500 fill-yellow-400 animate-bounce" />
+                <MascotSticker
+                  src="/doodles/mascot-victory.png"
+                  alt="Hoàn thành chuyên đề"
+                  size={96}
+                  className="drop-shadow-sm"
+                />
                 <h3 className="text-3xl md:text-4xl font-black font-heading uppercase text-black">
                   Hoàn Thành Chuyên Đề!
                 </h3>
@@ -1798,8 +1822,9 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                     : `Cố gắng thêm chút nữa nhé ${nickname}! Đọc lại phần bẫy ETS và làm lại bài test này nhé!`}
                 </p>
 
-                <div className="px-6 py-3 bg-neoYellow border-3 border-black font-black text-2xl shadow-neo-sm">
-                  🎯 Đúng: {correctCount} / {selectedTopic.exercises.length} câu
+                <div className="px-6 py-3 bg-neoYellow border-3 border-black font-black text-2xl shadow-neo-sm inline-flex items-center gap-2">
+                  <DoodleTarget size={24} />
+                  <span>Đúng: {correctCount} / {selectedTopic.exercises.length} câu</span>
                 </div>
 
                 <div className="flex flex-wrap items-center justify-center gap-3 mt-4">
@@ -1849,8 +1874,9 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
           </button>
 
           <div className="flex items-center gap-3">
-            <span className="hidden sm:inline-block px-3 py-1 bg-neoYellow border-2 border-black font-black text-xs uppercase shadow-neo-sm">
-              🎯 Ngân Hàng 345+ Câu Part 5
+            <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 bg-neoYellow border-2 border-black font-black text-xs uppercase shadow-neo-sm">
+              <DoodleTarget size={15} />
+              <span>Ngân Hàng 345+ Câu Part 5</span>
             </span>
             <button
               onClick={handleRestartTest}
@@ -1962,8 +1988,9 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
 
                 <div className="space-y-2.5 text-xs sm:text-sm">
                   <div className="p-3 bg-white border-2 border-black">
-                    <span className="font-black text-neoDark uppercase text-[11px] block mb-1">
-                      💡 Giải thích ngữ pháp chi tiết:
+                    <span className="font-black text-neoDark uppercase text-[11px] flex items-center gap-1.5 mb-1">
+                      <DoodleBulb size={15} />
+                      <span>Giải thích ngữ pháp chi tiết:</span>
                     </span>
                     <p className="font-bold text-gray-800 leading-relaxed">
                       {currentQ.explanation}
@@ -1971,8 +1998,9 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                   </div>
 
                   <div className="p-3 bg-yellow-100/60 border-2 border-black">
-                    <span className="font-black text-amber-900 uppercase text-[11px] block mb-1">
-                      📝 Dịch câu tiếng Việt:
+                    <span className="font-black text-amber-900 uppercase text-[11px] flex items-center gap-1.5 mb-1">
+                      <DoodlePencil size={15} />
+                      <span>Dịch câu tiếng Việt:</span>
                     </span>
                     <p className="font-medium text-gray-800 italic">
                       "{currentQ.translation}"
@@ -1996,26 +2024,31 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
         ) : (
           /* Finished Test Screen */
           <div className="bg-white border-4 border-black p-6 md:p-10 shadow-neo-lg text-center animate-fadeIn">
-            <div className="inline-block p-4 bg-neoYellow border-3 border-black shadow-neo-sm mb-4">
-              <Trophy className="w-14 h-14 text-black mx-auto" />
-            </div>
+            <MascotSticker
+              src="/doodles/mascot-victory.png"
+              alt="Hoàn thành bài test ngữ pháp"
+              size={96}
+              className="mx-auto mb-3 drop-shadow-sm"
+            />
 
             <h2 className="text-2xl sm:text-4xl font-black font-heading uppercase text-black mb-2">
               Hoàn Thành Bài Test Ngữ Pháp!
             </h2>
 
-            <div className="inline-block px-6 py-3 bg-neoGreen border-3 border-black font-black text-2xl sm:text-3xl shadow-neo my-4">
-              🎯 Kết Quả: {testScore} / {testQuizzes.length} Câu ({Math.round((testScore / Math.max(1, testQuizzes.length)) * 100)}%)
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-neoGreen border-3 border-black font-black text-2xl sm:text-3xl shadow-neo my-4">
+              <DoodleTarget size={26} />
+              <span>Kết Quả: {testScore} / {testQuizzes.length} Câu ({Math.round((testScore / Math.max(1, testQuizzes.length)) * 100)}%)</span>
             </div>
 
             <p className="text-base sm:text-lg font-bold text-gray-800 max-w-lg mx-auto mb-6">
               {testScore >= 8 ? (
-                <span className="text-emerald-700">
-                  🎉 Quá đỉnh Mập địch ơi! Đạt chuẩn ngữ pháp TOEIC rồi! Đi ăn lẩu thưởng thôi nào!
+                <span className="text-emerald-700 inline-flex items-center justify-center gap-1.5 flex-wrap">
+                  <DoodleStar size={20} />
+                  <span>Quá đỉnh Mập địch ơi! Đạt chuẩn ngữ pháp TOEIC rồi! Đi ăn lẩu thưởng thôi nào!</span>
                 </span>
               ) : (
                 <span className="text-rose-600">
-                  💪 Chưa đạt mốc 80% rồi Mập địch ơi! Bấm nút bên dưới để đổi đề 10 câu ngẫu nhiên mới và phục thù ngay nhé!
+                  Chưa đạt mốc 80% rồi Mập địch ơi! Bấm nút bên dưới để đổi đề 10 câu ngẫu nhiên mới và phục thù ngay nhé!
                 </span>
               )}
             </p>
@@ -2027,7 +2060,7 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                 className="flex items-center gap-2 px-6 py-3.5 bg-neoYellow hover:bg-amber-300 border-3 border-black font-black text-sm uppercase shadow-neo hover:shadow-neo-lg active:translate-x-0.5 active:translate-y-0.5 cursor-pointer"
               >
                 <RefreshCw className="w-4 h-4" />
-                <span>Làm 10 Câu Random Mới 🔄</span>
+                <span>Làm 10 Câu Random Mới</span>
               </button>
 
               <button
@@ -2045,15 +2078,16 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
                 }}
                 className="px-6 py-3.5 bg-neoCyan hover:bg-cyan-300 border-3 border-black font-black text-sm uppercase shadow-neo active:translate-x-0.5 active:translate-y-0.5 cursor-pointer"
               >
-                Về Trang Ngữ Pháp 🏠
+                Về Trang Ngữ Pháp
               </button>
             </div>
 
             {/* Review List Drawer */}
             {testShowReview && (
               <div className="text-left space-y-4 pt-6 border-t-3 border-dashed border-gray-300">
-                <h3 className="font-black text-lg uppercase text-black mb-3">
-                  📋 Chi Tiết Đáp Án 10 Câu:
+                <h3 className="font-black text-lg uppercase text-black mb-3 flex items-center gap-2">
+                  <DoodleBook size={22} />
+                  <span>Chi Tiết Đáp Án 10 Câu:</span>
                 </h3>
                 {testQuizzes.map((q, idx) => {
                   const userAns = testUserAnswers[idx];
@@ -2127,19 +2161,18 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1 bg-white px-3 py-1.5 border-3 border-black shadow-neo-sm">
             {[1, 2, 3].map(h => (
-              <Heart
+              <DoodleHeart
                 key={h}
-                className={`w-6 h-6 transition-all duration-300 ${
-                  h <= hearts
-                    ? 'text-red-500 fill-red-500 scale-100'
-                    : 'text-gray-300 fill-gray-200 scale-90'
-                }`}
+                size={22}
+                muted={h > hearts}
+                className={`transition-all duration-300 ${h <= hearts ? 'scale-100' : 'scale-90'}`}
               />
             ))}
           </div>
 
-          <div className="bg-neoYellow px-3 py-1.5 border-3 border-black font-black text-sm shadow-neo-sm">
-            🏆 {score} đ
+          <div className="bg-neoYellow px-3 py-1.5 border-3 border-black font-black text-sm shadow-neo-sm flex items-center gap-1.5">
+            <DoodleTrophy size={18} />
+            <span>{score} đ</span>
           </div>
         </div>
       </div>
@@ -2147,8 +2180,8 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
       {survivalGameOver ? (
         /* GAME OVER MODAL */
         <div className="bg-white border-4 border-black p-8 text-center shadow-neo-lg flex flex-col items-center gap-6">
-          <div className="w-20 h-20 bg-red-100 border-3 border-black flex items-center justify-center text-4xl shadow-neo-sm animate-bounce">
-            💀
+          <div className="w-20 h-20 bg-rose-100 border-3 border-black flex items-center justify-center shadow-neo-sm">
+            <DoodleBrokenHeart size={44} />
           </div>
           <h2 className="text-4xl font-black text-red-600 font-heading uppercase">
             GAME OVER {nickname}!
@@ -2177,15 +2210,21 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
       ) : survivalGameWon ? (
         /* GAME WON MODAL */
         <div className="bg-white border-4 border-black p-8 text-center shadow-neo-lg flex flex-col items-center gap-6">
-          <Trophy className="w-20 h-20 text-yellow-500 fill-yellow-400 animate-bounce" />
+          <MascotSticker
+            src="/doodles/mascot-victory.png"
+            alt="Chiến thắng sinh tồn ngữ pháp"
+            size={96}
+            className="drop-shadow-sm"
+          />
           <h2 className="text-4xl font-black text-emerald-600 font-heading uppercase">
             XUẤT SẮC QUÁ {nickname}!
           </h2>
           <p className="font-bold text-gray-700 text-base max-w-md">
             Bạn đã sống sót qua 10 câu ngữ pháp Part 5 hiểm hóc nhất! Bẫy ETS giờ chỉ là chuyện nhỏ!
           </p>
-          <div className="px-6 py-3 bg-neoYellow border-3 border-black font-black text-xl shadow-neo-sm">
-            🏆 Tổng điểm: {score} Điểm
+          <div className="px-6 py-3 bg-neoYellow border-3 border-black font-black text-xl shadow-neo-sm inline-flex items-center gap-2">
+            <DoodleTrophy size={22} />
+            <span>Tổng điểm: {score} Điểm</span>
           </div>
           <div className="flex items-center gap-4 mt-2">
             <button
@@ -2269,9 +2308,15 @@ export const GrammarScreen: React.FC<GrammarScreenProps> = ({ onBack, nickname }
             <div className="mt-4 pt-4 border-t-2 border-black flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-sm font-bold text-gray-800">
                 {roastMessage ? (
-                  <span className="text-red-600 font-black">😈 {roastMessage}</span>
+                  <span className="text-red-600 font-black inline-flex items-center gap-1.5">
+                    <DoodleBrokenHeart size={18} />
+                    <span>{roastMessage}</span>
+                  </span>
                 ) : (
-                  <span className="text-emerald-700 font-black">✨ Quá đỉnh! +{100 + timeLeft * 10} điểm!</span>
+                  <span className="text-emerald-700 font-black inline-flex items-center gap-1.5">
+                    <DoodleStar size={18} />
+                    <span>Quá đỉnh! +{100 + timeLeft * 10} điểm!</span>
+                  </span>
                 )}
               </div>
 

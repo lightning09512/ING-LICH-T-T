@@ -5,10 +5,19 @@ import confetti from 'canvas-confetti';
 import { 
   Play, Pause, RotateCcw, FastForward, Flag, CheckCircle, 
   HelpCircle, Clock, Volume2, ArrowLeft, Send, Sparkles, BookOpen,
-  ChevronLeft, ChevronRight, CheckCircle2, AlertCircle, Trophy
+  ChevronLeft, ChevronRight, CheckCircle2, AlertCircle, Trophy, Maximize2
 } from 'lucide-react';
 import { useLearningProgress } from '../contexts/ProgressContext';
 import { calculateToeicScore } from '../utils/toeicScoring';
+import {
+  DoodlePin,
+  DoodleBook,
+  DoodleTrophy,
+  DoodleBulb,
+  DoodleHeart,
+  MascotSticker,
+  WashiTapeBadge
+} from './DoodleIcons';
 
 interface ToeicExamScreenProps {
   test: ToeicTest;
@@ -554,7 +563,8 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
               {/* Group Title Banner */}
               <div className="bg-gray-100 border-2 border-black p-3 flex items-center justify-between">
                 <span className="font-heading font-black text-sm sm:text-base uppercase text-black flex items-center gap-2">
-                  📌 {group.title}
+                  <DoodlePin size={16} />
+                  <span>{group.title}</span>
                 </span>
                 <span className="text-xs font-black bg-white border border-black px-2 py-0.5">
                   {group.questions.length} câu
@@ -565,7 +575,7 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
               {group.imageUrl && (
                 <div className="border-3 border-black p-2 bg-gray-50 flex flex-col items-center shadow-neo-sm">
                   <span className="text-xs font-black text-gray-500 uppercase mb-1">
-                    📊 Biểu đồ / Hình ảnh liên quan cho nhóm câu hỏi này:
+                    Biểu đồ / Hình ảnh liên quan cho nhóm câu hỏi này:
                   </span>
                   <img
                     src={group.imageUrl}
@@ -581,14 +591,16 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
                 <div className="bg-amber-50/90 border-3 border-black p-3.5 sm:p-6 text-sm sm:text-base font-serif leading-relaxed whitespace-pre-line shadow-neo-sm max-h-[360px] sm:max-h-[500px] overflow-y-auto">
                   <div className="flex items-center justify-between border-b-2 border-pink-300 pb-1.5 mb-2.5">
                     <div className="font-sans font-black text-xs uppercase text-pink-700 flex items-center gap-1.5">
-                      📖 Đọc văn bản sau để trả lời các câu hỏi:
+                      <DoodleBook size={16} />
+                      <span>Đọc văn bản sau để trả lời các câu hỏi:</span>
                     </div>
                     <button
                       onClick={() => setActivePassageModal({ title: group.title, passage: group.passage || '' })}
-                      className="px-2.5 py-1 bg-neoYellow border border-black font-sans font-black text-xs uppercase shadow-neo-sm hover:bg-yellow-300 active:scale-95 cursor-pointer flex items-center gap-1 shrink-0"
+                      className="px-2.5 py-1 bg-neoYellow border border-black font-sans font-black text-xs uppercase shadow-neo-sm hover:bg-yellow-300 active:scale-95 cursor-pointer flex items-center gap-1.5 shrink-0"
                       title="Mở toàn màn hình bài đọc"
                     >
-                      <span>Toàn màn hình 🔍</span>
+                      <Maximize2 className="w-3.5 h-3.5" />
+                      <span>Toàn màn hình</span>
                     </button>
                   </div>
                   {group.passage}
@@ -628,10 +640,11 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
                           {group.passage && (
                             <button
                               onClick={() => setActivePassageModal({ title: group.title, passage: group.passage || '' })}
-                              className="flex items-center gap-1 px-2.5 py-1 bg-pink-100 hover:bg-pink-200 border-2 border-black text-xs font-black text-pink-800 shadow-neo-sm min-h-[36px] active:scale-95 cursor-pointer"
+                              className="flex items-center gap-1.5 px-2.5 py-1 bg-pink-100 hover:bg-pink-200 border-2 border-black text-xs font-black text-pink-800 shadow-neo-sm min-h-[36px] active:scale-95 cursor-pointer"
                               title="Xem đoạn văn bài đọc mà không cần cuộn lên"
                             >
-                              <span>📖 Xem bài đọc</span>
+                              <DoodleBook size={15} />
+                              <span>Xem bài đọc</span>
                             </button>
                           )}
 
@@ -879,9 +892,10 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
             ) : (
               <button
                 onClick={() => setShowResultModal(true)}
-                className="w-full py-3.5 bg-neoYellow border-3 border-black font-heading font-black text-sm uppercase shadow-neo hover:bg-yellow-300 cursor-pointer mt-1"
+                className="w-full py-3.5 bg-neoYellow border-3 border-black font-heading font-black text-sm uppercase shadow-neo hover:bg-yellow-300 cursor-pointer mt-1 flex items-center justify-center gap-2"
               >
-                🏆 Xem Bảng Điểm & Xếp Hạng
+                <DoodleTrophy size={18} />
+                <span>Xem Bảng Điểm & Xếp Hạng</span>
               </button>
             )}
 
@@ -1029,9 +1043,10 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
                   setShowMobilePalette(false);
                   setShowResultModal(true);
                 }}
-                className="w-full py-3.5 bg-neoYellow border-3 border-black font-heading font-black uppercase text-sm shadow-neo active:scale-95 cursor-pointer min-h-[48px]"
+                className="w-full py-3.5 bg-neoYellow border-3 border-black font-heading font-black uppercase text-sm shadow-neo active:scale-95 cursor-pointer min-h-[48px] flex items-center justify-center gap-2"
               >
-                🏆 Xem Bảng Điểm & Xếp Hạng
+                <DoodleTrophy size={18} />
+                <span>Xem Bảng Điểm & Xếp Hạng</span>
               </button>
             )}
           </div>
@@ -1044,7 +1059,8 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
           <div className="w-full max-w-3xl bg-amber-50 border-4 border-black p-4 sm:p-6 shadow-neo-lg flex flex-col gap-3 max-h-[85vh] rounded-t-2xl sm:rounded-none">
             <div className="flex items-center justify-between pb-2 border-b-2 border-black">
               <h3 className="font-heading font-black text-sm sm:text-base md:text-lg uppercase text-black flex items-center gap-2 truncate">
-                📖 {activePassageModal.title}
+                <DoodleBook size={18} />
+                <span className="truncate">{activePassageModal.title}</span>
               </h3>
               <button
                 onClick={() => setActivePassageModal(null)}
@@ -1071,14 +1087,17 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="w-full max-w-xl bg-white border-4 border-black p-6 sm:p-8 shadow-neo-lg flex flex-col items-center text-center gap-6 animate-bounceSlow relative">
             
-            <div className="w-20 h-20 bg-amber-100 border-3 border-black rounded-2xl flex items-center justify-center shadow-neo-sm">
-              <Trophy className="w-12 h-12 text-amber-600 animate-bounce" />
-            </div>
+            <MascotSticker
+              src="/doodles/mascot-victory.png"
+              alt="Hoàn thành bài thi TOEIC"
+              size={96}
+              className="drop-shadow-sm"
+            />
 
             <div>
-              <span className="px-3 py-1 bg-neoYellow border-2 border-black font-black text-xs uppercase shadow-neo-sm">
+              <WashiTapeBadge tone="yellow">
                 KẾT QUẢ TOEIC CỦA {nickname.toUpperCase()}
-              </span>
+              </WashiTapeBadge>
               <h2 className="text-3xl sm:text-4xl font-black font-heading uppercase text-black mt-2">
                 {rankBadge}
               </h2>
@@ -1105,8 +1124,8 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
 
             {/* Official ETS Standard Certificate Level */}
             <div className="w-full bg-white border-3 border-black p-3 shadow-neo-sm flex flex-wrap items-center justify-between gap-2 text-left">
-              <div className="flex items-center gap-2">
-                <span className="text-xl">🎖️</span>
+              <div className="flex items-center gap-2.5">
+                <DoodleTrophy size={24} />
                 <div>
                   <span className="text-xs font-black text-black uppercase block">
                     Chuẩn Quy Đổi ETS: Trình Độ CEFR {toeicResult.cefrLevel}
@@ -1123,15 +1142,16 @@ export const ToeicExamScreen: React.FC<ToeicExamScreenProps> = ({
 
             {/* Roast Feedback & Professional Evaluation */}
             <div className="bg-yellow-50 border-3 border-black p-4 w-full shadow-neo-sm text-left">
-              <strong className="text-xs font-black text-pink-600 uppercase block">
-                💌 Lời nhắn từ Trollface & Bạn trai:
+              <strong className="text-xs font-black text-pink-700 uppercase flex items-center gap-1.5">
+                <DoodleHeart size={15} />
+                <span>Lời nhắn từ Trollface & Bạn trai:</span>
               </strong>
               <p className="font-bold text-gray-800 text-sm mt-1">
                 "{roastComment}"
               </p>
-              <div className="mt-2.5 pt-2 border-t border-dashed border-gray-300 text-xs text-gray-700 font-bold leading-relaxed">
-                <span className="text-black font-black">💡 Đánh giá học thuật: </span>
-                {toeicResult.evaluationVi}
+              <div className="mt-2.5 pt-2 border-t border-dashed border-gray-300 text-xs text-gray-700 font-bold leading-relaxed flex items-start gap-1.5">
+                <DoodleBulb size={15} className="mt-0.5 shrink-0" />
+                <span><span className="text-black font-black">Đánh giá học thuật: </span>{toeicResult.evaluationVi}</span>
               </div>
             </div>
 

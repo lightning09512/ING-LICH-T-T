@@ -14,13 +14,19 @@ import {
   Mic,
   PenTool,
   Clock,
-  Sparkles,
   CheckCircle2,
   Search,
   Layers,
   Play,
   SlidersHorizontal,
 } from 'lucide-react';
+import {
+  DoodleMic,
+  DoodlePencil,
+  DoodleStar,
+  DoodleTarget,
+  WashiTapeBadge,
+} from './DoodleIcons';
 
 export interface SwLaunchOptions {
   testId: string;
@@ -116,47 +122,49 @@ export const ToeicSwSelectScreen: React.FC<ToeicSwSelectScreenProps> = ({
           <ArrowLeft className="w-4 h-4" /> Quay lại Menu
         </button>
 
-        <div className="flex items-center gap-2">
-          <span className="text-xl sm:text-2xl">🎯</span>
+        <div className="flex items-center gap-2.5">
+          <DoodleTarget size={26} />
           <div className="text-left hidden sm:block">
             <h1 className="font-heading font-black text-sm sm:text-lg uppercase leading-tight">
-              Thư Viện Đề Thi TOEIC Speaking & Writing (Study4)
+              Thư Viện Đề Thi TOEIC Speaking & Writing
             </h1>
             <p className="text-[11px] font-bold text-gray-500">
-              100% Đề gốc trích xuất nguyên bản từ study4.com/tests/toeic-sw/ • Tích hợp AI chấm điểm Band 200
+              20 đề gốc chuẩn ETS • Đầy đủ audio, tranh đề thi & chấm điểm chi tiết
             </p>
           </div>
         </div>
 
-        <span className="text-[10px] sm:text-xs font-black bg-[#FFDE59] text-black border-2 border-black px-2.5 py-1 rounded-lg shadow-neo-sm">
-          20 Đề Gốc Study4
-        </span>
+        <WashiTapeBadge tone="yellow" className="rounded-lg">
+          20 Đề Gốc
+        </WashiTapeBadge>
       </div>
 
       {/* Hero & Filter Controls */}
-      <div className="w-full bg-[#F3E8FF] border-3 sm:border-4 border-black p-4 sm:p-6 shadow-neo rounded-2xl mb-6">
+      <div className="w-full bg-[#F5F3FF] border-3 sm:border-4 border-black p-4 sm:p-6 shadow-neo rounded-2xl mb-6">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="space-y-1.5">
-            <div className="inline-flex items-center gap-1.5 px-3 py-0.5 bg-black text-[#FFDE59] rounded-full text-xs font-black uppercase font-mono">
-              <Sparkles className="w-3.5 h-3.5 fill-yellow-300 text-yellow-300" />
-              Authentic Study4 Exam Bank • Zero Synthetic Data
-            </div>
+            <WashiTapeBadge tone="yellow" className="rounded-full">
+              <DoodleStar size={14} />
+              <span>Bộ Đề Thực Chiến • Study4</span>
+            </WashiTapeBadge>
             <h2 className="text-xl sm:text-3xl font-black uppercase font-heading text-gray-900 leading-tight">
               Kho 20 Bộ Đề TOEIC S&W Chuẩn Quốc Tế
             </h2>
             <p className="text-xs sm:text-sm font-bold text-gray-700 max-w-2xl leading-relaxed">
               Chào {nickname}! Gồm trọn bộ <strong>10 đề TOEIC SW Speaking (#5895–#5904)</strong> và{' '}
-              <strong>10 đề TOEIC SW Writing (#5909–#5918)</strong> với đầy đủ MP3 câu hỏi gốc, tranh gốc, lịch trình & từ khóa thật từ Study4.
+              <strong>10 đề TOEIC SW Writing (#5909–#5918)</strong> với đầy đủ MP3 câu hỏi gốc, tranh gốc, lịch trình & từ khóa thật.
             </p>
           </div>
 
           <div className="flex sm:flex-col items-center gap-2 shrink-0">
-            <div className="px-3 py-1.5 bg-[#E0F7FA] rounded-xl border-2 border-black font-black text-xs shadow-neo-sm flex items-center gap-1.5">
-              <span>🎙️ Speaking:</span>
+            <div className="px-3 py-1.5 bg-[#ECFEFF] rounded-xl border-2 border-black font-black text-xs shadow-neo-sm flex items-center gap-1.5">
+              <DoodleMic size={16} />
+              <span>Speaking:</span>
               <span className="text-cyan-950">10 Đề (110 Câu)</span>
             </div>
-            <div className="px-3 py-1.5 bg-[#FFF3E0] rounded-xl border-2 border-black font-black text-xs shadow-neo-sm flex items-center gap-1.5">
-              <span>✍️ Writing:</span>
+            <div className="px-3 py-1.5 bg-[#FFF7ED] rounded-xl border-2 border-black font-black text-xs shadow-neo-sm flex items-center gap-1.5">
+              <DoodlePencil size={16} />
+              <span>Writing:</span>
               <span className="text-amber-950">10 Đề (80 Câu)</span>
             </div>
           </div>
@@ -170,13 +178,14 @@ export const ToeicSwSelectScreen: React.FC<ToeicSwSelectScreenProps> = ({
                 sounds.playClick();
                 setSkillTab('ALL');
               }}
-              className={`px-3.5 py-2 rounded-xl border-2 border-black text-xs font-black uppercase transition-all cursor-pointer ${
+              className={`px-3.5 py-2 rounded-xl border-2 border-black text-xs font-black uppercase transition-all cursor-pointer inline-flex items-center gap-1.5 ${
                 skillTab === 'ALL'
                   ? 'bg-black text-[#FFDE59] shadow-neo-sm'
                   : 'bg-white hover:bg-gray-100 text-gray-800'
               }`}
             >
-              🔥 Tất Cả Bộ Đề (20)
+              <DoodleStar size={14} />
+              <span>Tất Cả Bộ Đề (20)</span>
             </button>
             <button
               onClick={() => {
