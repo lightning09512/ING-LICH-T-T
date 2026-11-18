@@ -51,40 +51,40 @@ export const FloatingTrollfaces: React.FC = () => {
     window.addEventListener('touchmove', onTouchMove, { passive: true });
     window.addEventListener('touchend', onTouchEnd, { passive: true });
 
-    // Abundant, lively trollface background with varied sizes and gentle floating buoyancy
-    const particleCount = Math.min(48, Math.max(22, Math.floor(window.innerWidth / 38)));
+    // Balanced, subtle floating trollface watermark background (clean, uncluttered & gentle)
+    const particleCount = Math.min(18, Math.max(10, Math.floor(window.innerWidth / 75)));
     const particles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
-      const sizeTier = i % 4;
+      const sizeTier = i % 3;
       let size: number;
       let opacity: number;
 
       if (sizeTier === 0) {
         // Small watermark trollface
-        size = Math.floor(Math.random() * 12) + 28; // 28px - 40px
-        opacity = 0.08 + Math.random() * 0.06; // 0.08 - 0.14
-      } else if (sizeTier === 1 || sizeTier === 2) {
+        size = Math.floor(Math.random() * 10) + 28; // 28px - 38px
+        opacity = 0.05 + Math.random() * 0.04; // 0.05 - 0.09
+      } else if (sizeTier === 1) {
         // Medium midground trollface
-        size = Math.floor(Math.random() * 18) + 42; // 42px - 60px
-        opacity = 0.12 + Math.random() * 0.08; // 0.12 - 0.20
+        size = Math.floor(Math.random() * 12) + 38; // 38px - 50px
+        opacity = 0.07 + Math.random() * 0.05; // 0.07 - 0.12
       } else {
-        // Large bold trollface drifting along margins
-        size = Math.floor(Math.random() * 24) + 64; // 64px - 88px
-        opacity = 0.14 + Math.random() * 0.08; // 0.14 - 0.22
+        // Soft drifting accent trollface
+        size = Math.floor(Math.random() * 14) + 48; // 48px - 62px
+        opacity = 0.08 + Math.random() * 0.05; // 0.08 - 0.13
       }
 
       particles.push({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
-        vx: (Math.random() - 0.5) * 0.45,
-        vy: (Math.random() - 0.5) * 0.4,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.3,
         size,
-        rotation: (Math.random() - 0.5) * 0.6,
-        vRot: (Math.random() - 0.5) * 0.006,
+        rotation: (Math.random() - 0.5) * 0.5,
+        vRot: (Math.random() - 0.5) * 0.004,
         opacity,
         floatOffset: Math.random() * Math.PI * 2,
-        floatSpeed: 0.015 + Math.random() * 0.02
+        floatSpeed: 0.012 + Math.random() * 0.018
       });
     }
 
@@ -111,12 +111,12 @@ export const FloatingTrollfaces: React.FC = () => {
         const dx = p.x - mouseRef.current.x;
         const dy = p.y - mouseRef.current.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        const repelRadius = Math.max(120, p.size * 1.6);
+        const repelRadius = Math.max(100, p.size * 1.5);
         if (dist < repelRadius && dist > 0) {
           const force = (repelRadius - dist) / repelRadius;
-          p.x += (dx / dist) * force * 2.2;
-          p.y += (dy / dist) * force * 2.2;
-          p.rotation += (dx >= 0 ? 0.025 : -0.025) * force;
+          p.x += (dx / dist) * force * 1.6;
+          p.y += (dy / dist) * force * 1.6;
+          p.rotation += (dx >= 0 ? 0.018 : -0.018) * force;
         }
 
         // Draw trollface meme
