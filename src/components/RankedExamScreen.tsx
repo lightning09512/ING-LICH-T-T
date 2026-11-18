@@ -463,10 +463,10 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
                         loading="eager"
                         onError={(e) => {
                           const target = e.currentTarget;
-                          const fallbackNum = ((currentIndex % 24) + 1).toString().padStart(2, '0');
-                          const fallbackSrc = `/images/part1/p1_${fallbackNum}.jpg`;
-                          if (target.src !== fallbackSrc && !target.src.endsWith(fallbackSrc)) {
-                            target.src = fallbackSrc;
+                          const qNum = currentQ.id.replace(/^[^\d]*/, '').padStart(2, '0');
+                          const canonicalSrc = `/images/part1/p1_${qNum}.jpg`;
+                          if (!target.src.endsWith(canonicalSrc)) {
+                            target.src = canonicalSrc;
                           }
                         }}
                       />
@@ -847,8 +847,11 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
                             className="w-full h-auto object-contain max-h-56 mx-auto" 
                             onError={(e) => {
                               const target = e.currentTarget;
-                              const fallbackNum = ((idx % 24) + 1).toString().padStart(2, '0');
-                              target.src = `/images/part1/p1_${fallbackNum}.jpg`;
+                              const qNum = q.id.replace(/^[^\d]*/, '').padStart(2, '0');
+                              const canonicalSrc = `/images/part1/p1_${qNum}.jpg`;
+                              if (!target.src.endsWith(canonicalSrc)) {
+                                target.src = canonicalSrc;
+                              }
                             }}
                           />
                         </div>

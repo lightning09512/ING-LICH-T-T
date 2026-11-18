@@ -26,16 +26,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_01.jpg',
-    audioScript: '(A) A man is typing on a laptop computer. (B) A man is writing in a notebook. (C) A woman is handing a document to a colleague. (D) Some people are putting away their binders.',
+    audioScript: '(A) Some people are waiting in line. (B) Some people are sitting on chairs. (C) Some people are pulling their suitcases. (D) Some people are standing outside.',
     options: [
-      { label: 'A', text: 'A man is typing on a laptop computer.', vietnamese: 'Một người đàn ông đang gõ bàn phím trên máy tính xách tay.' },
-      { label: 'B', text: 'A man is writing in a notebook.', vietnamese: 'Một người đàn ông đang viết vào cuốn sổ tay.' },
-      { label: 'C', text: 'A woman is handing a document to a colleague.', vietnamese: 'Một phụ nữ đang đưa tài liệu cho đồng nghiệp.' },
-      { label: 'D', text: 'Some people are putting away their binders.', vietnamese: 'Vài người đang cất bìa tài liệu đi.' }
+      { label: 'A', text: 'Some people are waiting in line.', vietnamese: 'Vài người đang xếp hàng chờ.' },
+      { label: 'B', text: 'Some people are sitting on chairs.', vietnamese: 'Vài người đang ngồi trên ghế.' },
+      { label: 'C', text: 'Some people are pulling their suitcases.', vietnamese: 'Vài người đang kéo vali của họ.' },
+      { label: 'D', text: 'Some people are standing outside.', vietnamese: 'Vài người đang đứng ở bên ngoài.' }
     ],
     correctAnswer: 'A',
-    explanation: 'Quan sát ảnh: Người đàn ông ở bàn làm việc đang đặt tay lên phím của laptop để gõ máy. (B), (C), (D) sai hành động.',
-    topic: 'Văn phòng / Máy tính'
+    explanation: 'Quan sát ảnh: Các hành khách đang đứng xếp hàng trật tự tại quầy thủ tục sân bay (waiting in line). (B) sai vì không có ai đang ngồi. (C) sai vì vali đang được đặt yên bên cạnh người đứng chờ, không ai kéo đi. (D) sai vì mọi người đang ở trong nhà ga sân bay.',
+    topic: 'Sân bay / Xếp hàng'
   },
   {
     id: 'L-P1-02',
@@ -43,16 +43,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_02.jpg',
-    audioScript: '(A) She is adjusting a computer monitor. (B) She is drinking from a coffee cup. (C) She is looking through some file folders. (D) She is arranging books on a shelf.',
+    audioScript: '(A) Some bicycles are lying on the ground. (B) Some benches are being repaired in a park. (C) Some people are riding bicycles on a path. (D) Some bicycles are parked in a rack.',
     options: [
-      { label: 'A', text: 'She is adjusting a computer monitor.', vietnamese: 'Cô ấy đang điều chỉnh màn hình máy tính.' },
-      { label: 'B', text: 'She is drinking from a coffee cup.', vietnamese: 'Cô ấy đang uống nước từ tách cà phê.' },
-      { label: 'C', text: 'She is looking through some file folders.', vietnamese: 'Cô ấy đang tìm kiếm trong các tập hồ sơ tài liệu.' },
-      { label: 'D', text: 'She is arranging books on a shelf.', vietnamese: 'Cô ấy đang sắp xếp sách lên giá sách.' }
+      { label: 'A', text: 'Some bicycles are lying on the ground.', vietnamese: 'Một số chiếc xe đạp đang nằm trên mặt đất.' },
+      { label: 'B', text: 'Some benches are being repaired in a park.', vietnamese: 'Một số ghế dài đang được sửa chữa trong công viên.' },
+      { label: 'C', text: 'Some people are riding bicycles on a path.', vietnamese: 'Vài người đang đạp xe trên con đường nhỏ.' },
+      { label: 'D', text: 'Some bicycles are parked in a rack.', vietnamese: 'Một số chiếc xe đạp đang đỗ trong giá để xe.' }
     ],
     correctAnswer: 'D',
-    explanation: 'Hình ảnh cho thấy người phụ nữ đang đứng trước giá sách và xếp lại các quyển sách (arranging books on a shelf).',
-    topic: 'Thư viện / Sắp xếp'
+    explanation: 'Quan sát ảnh: Dãy xe đạp được khóa và đỗ ngay ngắn trong giá để xe ngoài trời (parked in a rack). (A) sai vì xe dựng đứng trong giá, không nằm rạp trên đất. (B) sai vì không có ghế dài nào đang được sửa chữa. (C) sai vì không có ai đang đạp xe.',
+    topic: 'Công viên / Phương tiện'
   },
   {
     id: 'L-P1-03',
@@ -60,16 +60,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_03.jpg',
-    audioScript: '(A) Some boxes are stacked on a wooden pallet. (B) A forklift is unloading packages from a truck. (C) Workers are carrying crates into a storage room. (D) Merchandise is being displayed in store windows.',
+    audioScript: '(A) A man is stacking some finished baskets. (B) A customer is examining a large basket. (C) Some baskets are being carried away. (D) A man is weaving a round basket.',
     options: [
-      { label: 'A', text: 'Some boxes are stacked on a wooden pallet.', vietnamese: 'Một số thùng các-tông được xếp chồng trên tấm pallet gỗ.' },
-      { label: 'B', text: 'A forklift is unloading packages from a truck.', vietnamese: 'Xe nâng đang dỡ các kiện hàng khỏi xe tải.' },
-      { label: 'C', text: 'Workers are carrying crates into a storage room.', vietnamese: 'Công nhân đang khiêng các thùng vào kho lưu trữ.' },
-      { label: 'D', text: 'Merchandise is being displayed in store windows.', vietnamese: 'Hàng hóa đang được trưng bày ở cửa sổ cửa hàng.' }
+      { label: 'A', text: 'A man is stacking some finished baskets.', vietnamese: 'Một người đàn ông đang xếp chồng các chiếc giỏ đã hoàn thành.' },
+      { label: 'B', text: 'A customer is examining a large basket.', vietnamese: 'Một khách hàng đang xem xét một chiếc giỏ lớn.' },
+      { label: 'C', text: 'Some baskets are being carried away.', vietnamese: 'Một số chiếc giỏ đang được mang đi.' },
+      { label: 'D', text: 'A man is weaving a round basket.', vietnamese: 'Một người đàn ông đang đan một chiếc giỏ tròn.' }
     ],
-    correctAnswer: 'A',
-    explanation: 'Ảnh tĩnh chụp kho hàng cho thấy nhiều thùng hàng được xếp chồng gọn gàng trên tấm pallet gỗ (stacked on a wooden pallet). Không có người điều khiển xe nâng.',
-    topic: 'Kho hàng / Hàng hóa'
+    correctAnswer: 'D',
+    explanation: 'Quan sát ảnh: Người thợ thủ công đang ngồi trên ghế đẩu dùng nan mây đan một chiếc giỏ tròn (weaving a round basket). (A) sai vì giỏ đã xếp sẵn thành chồng bên cạnh, anh ấy không xếp chúng. (B) sai vì không có khách mua hàng. (C) sai vì không có ai đang mang giỏ đi.',
+    topic: 'Nghề thủ công / Đan lát'
   },
   {
     id: 'L-P1-04',
@@ -77,16 +77,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_04.jpg',
-    audioScript: '(A) People are boarding an airplane. (B) Pedestrians are crossing a street at a crosswalk. (C) Vehicles are parked along the side of the road. (D) Bicycles are chained to an outdoor fence.',
+    audioScript: '(A) He\'s cutting up some vegetables. (B) He\'s wiping down the counter. (C) He\'s wearing a hat. (D) He\'s holding a mug.',
     options: [
-      { label: 'A', text: 'People are boarding an airplane.', vietnamese: 'Mọi người đang lên máy bay.' },
-      { label: 'B', text: 'Pedestrians are crossing a street at a crosswalk.', vietnamese: 'Người đi bộ đang qua đường tại vạch sang đường.' },
-      { label: 'C', text: 'Vehicles are parked along the side of the road.', vietnamese: 'Các phương tiện giao thông đang đỗ dọc bên lề đường.' },
-      { label: 'D', text: 'Bicycles are chained to an outdoor fence.', vietnamese: 'Những chiếc xe đạp đang được xích vào hàng rào ngoài trời.' }
+      { label: 'A', text: 'He\'s cutting up some vegetables.', vietnamese: 'Anh ấy đang thái một số loại rau củ.' },
+      { label: 'B', text: 'He\'s wiping down the counter.', vietnamese: 'Anh ấy đang lau chùi mặt quầy.' },
+      { label: 'C', text: 'He\'s wearing a hat.', vietnamese: 'Anh ấy đang đội một chiếc mũ.' },
+      { label: 'D', text: 'He\'s holding a mug.', vietnamese: 'Anh ấy đang cầm một chiếc cốc.' }
     ],
-    correctAnswer: 'B',
-    explanation: 'Hình ảnh cho thấy nhóm người đi bộ (pedestrians) đang bước qua đường trên vạch kẻ đường dành cho người đi bộ (crosswalk).',
-    topic: 'Đường phố / Giao thông'
+    correctAnswer: 'A',
+    explanation: 'Quan sát ảnh: Người đầu bếp trong bếp đang dùng dao thái hành và rau củ trên thớt (cutting up some vegetables). (B) sai vì anh ấy không lau quầy. (C) sai vì anh ấy không đội mũ. (D) sai vì chiếc cốc sứ đặt trên quầy, tay anh ấy đang cầm dao thái thức ăn.',
+    topic: 'Nhà bếp / Ẩm thực'
   },
   {
     id: 'L-P1-05',
@@ -94,16 +94,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_05.jpg',
-    audioScript: '(A) Diners are seated at outdoor dining tables. (B) A waiter is clearing dishes from a counter. (C) Menus are being handed out to customers. (D) Food is being prepared in an open kitchen.',
+    audioScript: '(A) Brochures have been spread out on the carpet. (B) The man is arranging cushions on a sofa. (C) A suitcase has been placed on the floor. (D) The man is posting a notice on the board.',
     options: [
-      { label: 'A', text: 'Diners are seated at outdoor dining tables.', vietnamese: 'Thực khách đang ngồi tại các bàn ăn ngoài trời.' },
-      { label: 'B', text: 'A waiter is clearing dishes from a counter.', vietnamese: 'Bồi bàn đang dọn dẹp bát đĩa khỏi quầy.' },
-      { label: 'C', text: 'Menus are being handed out to customers.', vietnamese: 'Thực đơn đang được phát cho khách hàng.' },
-      { label: 'D', text: 'Food is being prepared in an open kitchen.', vietnamese: 'Món ăn đang được chuẩn bị trong bếp mở.' }
+      { label: 'A', text: 'Brochures have been spread out on the carpet.', vietnamese: 'Tờ rơi quảng cáo đã được rải ra trên thảm.' },
+      { label: 'B', text: 'The man is arranging cushions on a sofa.', vietnamese: 'Người đàn ông đang sắp xếp gối đệm trên ghế sofa.' },
+      { label: 'C', text: 'A suitcase has been placed on the floor.', vietnamese: 'Một chiếc vali đã được đặt trên sàn nhà.' },
+      { label: 'D', text: 'The man is posting a notice on the board.', vietnamese: 'Người đàn ông đang dán một thông báo lên bảng.' }
     ],
-    correctAnswer: 'A',
-    explanation: 'Bức ảnh chụp góc quán cà phê/nhà hàng ngoài trời với thực khách đang ngồi thưởng thức bữa ăn tại bàn (seated at outdoor dining tables).',
-    topic: 'Nhà hàng / Ẩm thực'
+    correctAnswer: 'C',
+    explanation: 'Quan sát ảnh: Chiếc vali kéo du lịch được đặt đứng trên sàn nhà cạnh người đàn ông (a suitcase has been placed on the floor). (A) sai vì tờ rơi được cắm trên giá sách, không rải trên thảm. (B) sai vì người đàn ông đang đứng đọc tài liệu, không chạm vào sofa. (D) sai vì bảng thông báo phía sau trống trơn, anh ấy không dán giấy.',
+    topic: 'Khách sạn / Du lịch'
   },
   {
     id: 'L-P1-06',
@@ -111,16 +111,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_06.jpg',
-    audioScript: '(A) A bridge spans across a wide river. (B) Boats are tied up at a busy harbor. (C) Construction workers are repairing a pier. (D) Water is spraying from an ornamental fountain.',
+    audioScript: '(A) A worker is wrapping a pallet. (B) Some crates are being stacked outdoors. (C) A man is sweeping the warehouse floor. (D) A worker is driving a forklift.',
     options: [
-      { label: 'A', text: 'A bridge spans across a wide river.', vietnamese: 'Một cây cầu bắc ngang qua dòng sông rộng.' },
-      { label: 'B', text: 'Boats are tied up at a busy harbor.', vietnamese: 'Những chiếc thuyền được cột dây tại bến cảng nhộn nhịp.' },
-      { label: 'C', text: 'Construction workers are repairing a pier.', vietnamese: 'Công nhân xây dựng đang sửa chữa một cây cầu tàu.' },
-      { label: 'D', text: 'Water is spraying from an ornamental fountain.', vietnamese: 'Nước đang phun lên từ một đài phun nước trang trí.' }
+      { label: 'A', text: 'A worker is wrapping a pallet.', vietnamese: 'Một công nhân đang quấn màng bọc một tấm pallet hàng.' },
+      { label: 'B', text: 'Some crates are being stacked outdoors.', vietnamese: 'Một số thùng gỗ đang được xếp chồng ngoài trời.' },
+      { label: 'C', text: 'A man is sweeping the warehouse floor.', vietnamese: 'Một người đàn ông đang quét sàn nhà kho.' },
+      { label: 'D', text: 'A worker is driving a forklift.', vietnamese: 'Một công nhân đang lái xe nâng hàng.' }
     ],
     correctAnswer: 'A',
-    explanation: 'Khung cảnh toàn cảnh cây cầu lớn bắc ngang qua mặt nước (a bridge spans across a river).',
-    topic: 'Cảnh quan / Công trình'
+    explanation: 'Quan sát ảnh: Nam công nhân kho đang dùng cuộn màng co nilon quấn chặt các thùng hàng trên kệ pallet gỗ (wrapping a pallet). (B) sai vì khung cảnh diễn ra trong nhà kho, không phải ngoài trời. (C) sai vì không có ai đang quét sàn. (D) sai vì xe nâng ở phía sau đang tắt máy đỗ yên, không có người lái.',
+    topic: 'Nhà kho / Logistics'
   },
   {
     id: 'L-P1-07',
@@ -128,16 +128,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_07.jpg',
-    audioScript: '(A) A man is putting on a hard hat. (B) A technician is inspecting industrial machinery. (C) Safety equipment is being stored in a cabinet. (D) Tools are scattered across the floor.',
+    audioScript: '(A) Two people are pushing a cart along a path. (B) A bench is being moved into a park. (C) Some workers are planting flowers in a garden. (D) People are gathered around a water fountain.',
     options: [
-      { label: 'A', text: 'A man is putting on a hard hat.', vietnamese: 'Người đàn ông đang đội mũ bảo hộ.' },
-      { label: 'B', text: 'A technician is inspecting industrial machinery.', vietnamese: 'Kỹ thuật viên đang kiểm tra máy móc công nghiệp.' },
-      { label: 'C', text: 'Safety equipment is being stored in a cabinet.', vietnamese: 'Thiết bị an toàn đang được cất trong tủ.' },
-      { label: 'D', text: 'Tools are scattered across the floor.', vietnamese: 'Dụng cụ vương vãi khắp sàn nhà.' }
+      { label: 'A', text: 'Two people are pushing a cart along a path.', vietnamese: 'Hai người đang đẩy một chiếc xe chở hàng dọc theo lối đi.' },
+      { label: 'B', text: 'A bench is being moved into a park.', vietnamese: 'Một chiếc ghế dài đang được chuyển vào công viên.' },
+      { label: 'C', text: 'Some workers are planting flowers in a garden.', vietnamese: 'Vài công nhân đang trồng hoa trong vườn.' },
+      { label: 'D', text: 'People are gathered around a water fountain.', vietnamese: 'Mọi người đang tụ tập quanh đài phun nước.' }
     ],
-    correctAnswer: 'B',
-    explanation: 'Kỹ thuật viên đang chăm chú kiểm tra thiết bị sản xuất trong nhà máy (inspecting industrial machinery).',
-    topic: 'Kỹ thuật / Sản xuất'
+    correctAnswer: 'A',
+    explanation: 'Quan sát ảnh: Hai người đàn ông và phụ nữ đang cùng nhau đẩy chiếc xe rùa chở đầy các bao tải dọc theo con đường nhựa trong công viên (pushing a cart along a path). (B) sai vì ghế băng đặt cố định bên vệ đường. (C) sai vì không ai đang trồng hoa. (D) đài phun nước ở phía xa và không có nhóm người nào vây quanh.',
+    topic: 'Công viên / Lao động ngoài trời'
   },
   {
     id: 'L-P1-08',
@@ -145,16 +145,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_08.jpg',
-    audioScript: '(A) A woman is standing at a reception desk. (B) A clerk is handing a receipt to a customer. (C) Some luggage is placed beside an escalator. (D) Passengers are waiting in an airport departure lounge.',
+    audioScript: '(A) She is writing in a notebook at a desk. (B) She is talking on a telephone. (C) She is turning on a computer monitor. (D) She is arranging folders on a bookshelf.',
     options: [
-      { label: 'A', text: 'A woman is standing at a reception desk.', vietnamese: 'Một phụ nữ đang đứng ở quầy lễ tân.' },
-      { label: 'B', text: 'A clerk is handing a receipt to a customer.', vietnamese: 'Nhân viên đang trao hóa đơn cho khách hàng.' },
-      { label: 'C', text: 'Some luggage is placed beside an escalator.', vietnamese: 'Một số hành lý được đặt cạnh thang cuốn.' },
-      { label: 'D', text: 'Passengers are waiting in an airport departure lounge.', vietnamese: 'Hành khách đang chờ ở phòng chờ sân bay.' }
+      { label: 'A', text: 'She is writing in a notebook at a desk.', vietnamese: 'Cô ấy đang viết vào một cuốn sổ tay tại bàn làm việc.' },
+      { label: 'B', text: 'She is talking on a telephone.', vietnamese: 'Cô ấy đang nói chuyện điện thoại.' },
+      { label: 'C', text: 'She is turning on a computer monitor.', vietnamese: 'Cô ấy đang bật màn hình máy tính.' },
+      { label: 'D', text: 'She is arranging folders on a bookshelf.', vietnamese: 'Cô ấy đang sắp xếp các tập hồ sơ trên giá sách.' }
     ],
     correctAnswer: 'A',
-    explanation: 'Người phụ nữ đang đứng tại quầy tiếp tân văn phòng (standing at a reception desk).',
-    topic: 'Khách sạn / Lễ tân'
+    explanation: 'Quan sát ảnh: Người phụ nữ ngồi tại bàn làm việc, tay cầm bút đang viết vào cuốn sổ tay (writing in a notebook at a desk). (B) sai vì không có điện thoại. (C) sai vì tay cô ấy đang viết, không thao tác bật màn hình. (D) sai vì các tập tài liệu nằm trên kệ phía sau, cô ấy không sắp xếp chúng.',
+    topic: 'Văn phòng / Viết tài liệu'
   },
   {
     id: 'L-P1-09',
@@ -162,16 +162,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_09.jpg',
-    audioScript: '(A) A train has pulled into a station. (B) Some people are waiting on a platform. (C) Luggage is being loaded onto a cart. (D) Passengers are boarding a subway.',
+    audioScript: '(A) A woman is pouring liquid from a pitcher. (B) Dishes are being washed in a sink. (C) Cups are being packed into a box. (D) Some coworkers are sitting at a cafeteria table.',
     options: [
-      { label: 'A', text: 'A train has pulled into a station.', vietnamese: 'Một đoàn tàu vừa tiến vào nhà ga.' },
-      { label: 'B', text: 'Some people are waiting on a platform.', vietnamese: 'Một số người đang đứng chờ trên sân ga.' },
-      { label: 'C', text: 'Luggage is being loaded onto a cart.', vietnamese: 'Hành lý đang được chất lên xe đẩy.' },
-      { label: 'D', text: 'Passengers are boarding a subway.', vietnamese: 'Hành khách đang lên tàu điện ngầm.' }
+      { label: 'A', text: 'A woman is pouring liquid from a pitcher.', vietnamese: 'Một phụ nữ đang rót chất lỏng từ một chiếc bình.' },
+      { label: 'B', text: 'Dishes are being washed in a sink.', vietnamese: 'Bát đĩa đang được rửa trong bồn rửa.' },
+      { label: 'C', text: 'Cups are being packed into a box.', vietnamese: 'Những chiếc cốc đang được đóng vào thùng.' },
+      { label: 'D', text: 'Some coworkers are sitting at a cafeteria table.', vietnamese: 'Một vài đồng nghiệp đang ngồi tại bàn ăn.' }
     ],
-    correctAnswer: 'B',
-    explanation: 'Hình ảnh chụp những người đứng trên sân ga chờ tàu hỏa (waiting on a platform). Đoàn tàu chưa vào bến.',
-    topic: 'Giao thông / Ga tàu'
+    correctAnswer: 'A',
+    explanation: 'Quan sát ảnh: Trong phòng giải lao văn phòng, một nữ nhân viên đang cầm bình thủy tinh rót nước vào cốc sứ (pouring liquid from a pitcher). (B) sai vì không có ai rửa bát. (C) sai vì các cốc đặt trên khay phục vụ, không đóng hộp. (D) sai vì cả hai người đều đang đứng nói chuyện, không ngồi.',
+    topic: 'Văn phòng / Nghỉ giải lao'
   },
   {
     id: 'L-P1-10',
@@ -179,16 +179,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_10.jpg',
-    audioScript: '(A) A cashier is ringing up a sale. (B) Merchandise is being displayed on shelves. (C) A shopper is pushing a grocery cart. (D) A customer is paying for some groceries.',
+    audioScript: '(A) Chairs are being unfolded for an event. (B) Some furniture is being moved across a room. (C) A cart is being loaded with heavy boxes. (D) Workers are repairing a window frame.',
     options: [
-      { label: 'A', text: 'A cashier is ringing up a sale.', vietnamese: 'Thu ngân đang bấm máy thanh toán.' },
-      { label: 'B', text: 'Merchandise is being displayed on shelves.', vietnamese: 'Hàng hóa đang được trưng bày trên các kệ.' },
-      { label: 'C', text: 'A shopper is pushing a grocery cart.', vietnamese: 'Một người mua hàng đang đẩy xe đựng đồ.' },
-      { label: 'D', text: 'A customer is paying for some groceries.', vietnamese: 'Khách hàng đang trả tiền mua đồ tạp hóa.' }
+      { label: 'A', text: 'Chairs are being unfolded for an event.', vietnamese: 'Những chiếc ghế đang được mở ra cho một sự kiện.' },
+      { label: 'B', text: 'Some furniture is being moved across a room.', vietnamese: 'Một số đồ nội thất đang được di chuyển qua căn phòng.' },
+      { label: 'C', text: 'A cart is being loaded with heavy boxes.', vietnamese: 'Một chiếc xe đẩy đang được chất các thùng hàng nặng.' },
+      { label: 'D', text: 'Workers are repairing a window frame.', vietnamese: 'Các công nhân đang sửa chữa khung cửa sổ.' }
     ],
-    correctAnswer: 'D',
-    explanation: 'Vị khách đang thanh toán tiền hàng tại quầy thanh toán siêu thị (paying for some groceries).',
-    topic: 'Cửa hàng / Mua sắm'
+    correctAnswer: 'B',
+    explanation: 'Quan sát ảnh: Hai người đàn ông mỗi người cầm một đầu chiếc bàn gỗ dài và đang cùng nhau khiêng nó di chuyển qua phòng (furniture is being moved across a room). (A) sai vì ghế đang xếp chồng dựa vào tường. (C) xe đẩy để trống bên cạnh, không ai chất đồ. (D) khung cửa sổ kính không có ai sửa.',
+    topic: 'Nội thất / Chuyển đồ'
   },
   {
     id: 'L-P1-11',
@@ -196,16 +196,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_11.jpg',
-    audioScript: '(A) An office desk is being moved into a room. (B) Filing cabinets have been left open. (C) A chair has been pushed under a table. (D) A potted plant sits in the corner of an office.',
+    audioScript: '(A) A woman is purchasing souvenirs at a market. (B) Some people are swimming in an outdoor fountain. (C) A man is taking a photograph in a public square. (D) Bicycles are being loaded onto a truck.',
     options: [
-      { label: 'A', text: 'An office desk is being moved into a room.', vietnamese: 'Bàn làm việc đang được chuyển vào phòng.' },
-      { label: 'B', text: 'Filing cabinets have been left open.', vietnamese: 'Tủ đựng hồ sơ đang để mở.' },
-      { label: 'C', text: 'A chair has been pushed under a table.', vietnamese: 'Một chiếc ghế đã được đẩy vào dưới bàn.' },
-      { label: 'D', text: 'A potted plant sits in the corner of an office.', vietnamese: 'Một chậu cây cảnh đặt ở góc văn phòng.' }
+      { label: 'A', text: 'A woman is purchasing souvenirs at a market.', vietnamese: 'Một phụ nữ đang mua đồ lưu niệm tại chợ.' },
+      { label: 'B', text: 'Some people are swimming in an outdoor fountain.', vietnamese: 'Vài người đang bơi trong đài phun nước ngoài trời.' },
+      { label: 'C', text: 'A man is taking a photograph in a public square.', vietnamese: 'Một người đàn ông đang chụp ảnh ở quảng trường công cộng.' },
+      { label: 'D', text: 'Bicycles are being loaded onto a truck.', vietnamese: 'Xe đạp đang được bốc lên một chiếc xe tải.' }
     ],
-    correctAnswer: 'D',
-    explanation: 'Góc phòng có chậu cây cảnh xanh tốt (a potted plant sits in the corner). Không có người di chuyển đồ đạc.',
-    topic: 'Nội thất / Văn phòng'
+    correctAnswer: 'C',
+    explanation: 'Quan sát ảnh: Người đàn ông đang giơ máy ảnh chụp hình người phụ nữ đứng tạo dáng trước đài kỷ niệm bằng đá tại quảng trường (taking a photograph in a public square). (A) sai vì người phụ nữ đang đứng chụp ảnh, không mua sắm ở quầy hàng. (B) không có ai bơi trong đài phun nước. (D) xe đạp đang đỗ thành hàng, không có xe tải.',
+    topic: 'Đô thị / Du lịch'
   },
   {
     id: 'L-P1-12',
@@ -213,16 +213,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_12.jpg',
-    audioScript: '(A) A lamppost has fallen onto the pavement. (B) Construction cones are blocking the walkway. (C) Trees are casting shadows across an outdoor patio. (D) A bicycle has been parked next to a bench.',
+    audioScript: '(A) Food is being served on an outdoor patio. (B) Outdoor chairs are arranged around a patio table. (C) A garden fountain is being cleaned by a worker. (D) Potted plants are being carried indoors.',
     options: [
-      { label: 'A', text: 'A lamppost has fallen onto the pavement.', vietnamese: 'Cột đèn bị đổ xuống vỉa hè.' },
-      { label: 'B', text: 'Construction cones are blocking the walkway.', vietnamese: 'Cọc tiêu xây dựng đang chặn lối đi bộ.' },
-      { label: 'C', text: 'Trees are casting shadows across an outdoor patio.', vietnamese: 'Những cái cây đang đổ bóng xuống khoảng sân ngoài trời.' },
-      { label: 'D', text: 'A bicycle has been parked next to a bench.', vietnamese: 'Một chiếc xe đạp dựng cạnh ghế dài.' }
+      { label: 'A', text: 'Food is being served on an outdoor patio.', vietnamese: 'Thức ăn đang được phục vụ trên sân hiên ngoài trời.' },
+      { label: 'B', text: 'Outdoor chairs are arranged around a patio table.', vietnamese: 'Những chiếc ghế ngoài trời được sắp xếp quanh chiếc bàn sân hiên.' },
+      { label: 'C', text: 'A garden fountain is being cleaned by a worker.', vietnamese: 'Một đài phun nước sân vườn đang được công nhân dọn dẹp.' },
+      { label: 'D', text: 'Potted plants are being carried indoors.', vietnamese: 'Các chậu cây cảnh đang được mang vào trong nhà.' }
     ],
-    correctAnswer: 'C',
-    explanation: 'Ảnh chụp ngoại cảnh khuôn viên với bóng cây râm mát đổ dài trên khoảng sân lát gạch (trees casting shadows).',
-    topic: 'Cảnh quan / Ngoài trời'
+    correctAnswer: 'B',
+    explanation: 'Quan sát ảnh: Khoảng sân hiên gạch lát có một bộ bàn ghế gỗ ngoài trời gồm 4 chiếc ghế kê quanh bàn (chairs are arranged around a patio table). (A) sai vì mặt bàn trống trơn không có đồ ăn. (C) đài phun nước ở góc sân không có người lau dọn. (D) các chậu cây đặt dọc bờ tường, không ai mang đi.',
+    topic: 'Sân hiên / Ngoại cảnh'
   },
   {
     id: 'L-P1-13',
@@ -230,16 +230,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_13.jpg',
-    audioScript: '(A) Some dishes are drying on a rack. (B) A chef is slicing vegetables on a cutting board. (C) Pots and pans are hanging from a ceiling rack. (D) A sink is being filled with water.',
+    audioScript: '(A) Some notebooks are stacked on a desk. (B) A drawer is being opened. (C) A lamp is covered with folders. (D) Some pens are scattered across a desk.',
     options: [
-      { label: 'A', text: 'Some dishes are drying on a rack.', vietnamese: 'Vài chiếc đĩa đang ráo nước trên giá phơi.' },
-      { label: 'B', text: 'A chef is slicing vegetables on a cutting board.', vietnamese: 'Một đầu bếp đang thái rau củ trên thớt.' },
-      { label: 'C', text: 'Pots and pans are hanging from a ceiling rack.', vietnamese: 'Xoong nồi đang được treo trên giá móc trần nhà.' },
-      { label: 'D', text: 'A sink is being filled with water.', vietnamese: 'Bồn rửa đang được xả đầy nước.' }
+      { label: 'A', text: 'Some notebooks are stacked on a desk.', vietnamese: 'Một số cuốn sổ tay được xếp chồng trên bàn.' },
+      { label: 'B', text: 'A drawer is being opened.', vietnamese: 'Một ngăn kéo đang được kéo mở ra.' },
+      { label: 'C', text: 'A lamp is covered with folders.', vietnamese: 'Một chiếc đèn đang bị che bởi các tập hồ sơ.' },
+      { label: 'D', text: 'Some pens are scattered across a desk.', vietnamese: 'Vài chiếc bút đang bị vương vãi khắp mặt bàn.' }
     ],
-    correctAnswer: 'C',
-    explanation: 'Quan sát gian bếp: Dãy xoong nồi đang được treo từ giá trần (pots and pans are hanging from a ceiling rack).',
-    topic: 'Nhà bếp / Dụng cụ'
+    correctAnswer: 'A',
+    explanation: 'Quan sát ảnh: Chồng sổ tay gồm 3 cuốn được đặt ngay ngắn trên mặt bàn (some notebooks are stacked on a desk). (B) sai vì ngăn kéo tủ bàn đang đóng kín. (C) sai vì đèn bàn đứng thẳng cạnh giá sách, không bị che. (D) sai vì bút được cắm cẩn thận trong hộp đựng bút, không bị vương vãi.',
+    topic: 'Bàn làm việc / Đồ dùng'
   },
   {
     id: 'L-P1-14',
@@ -247,16 +247,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_14.jpg',
-    audioScript: '(A) Passengers are waiting in a train carriage. (B) Some commuters are walking up a flight of stairs. (C) A train conductor is checking tickets. (D) People are standing on an outdoor balcony.',
+    audioScript: '(A) Shopping carts are being pushed through a store. (B) Boxes are being stacked near an entrance. (C) Groceries have been placed in a cart. (D) Some shopping carts are lined up near an entrance.',
     options: [
-      { label: 'A', text: 'Passengers are waiting in a train carriage.', vietnamese: 'Hành khách đang chờ trong toa tàu.' },
-      { label: 'B', text: 'Some commuters are walking up a flight of stairs.', vietnamese: 'Một số người đi làm đang bước lên cầu thang bộ.' },
-      { label: 'C', text: 'A train conductor is checking tickets.', vietnamese: 'Nhân viên soát vé đang kiểm tra vé tàu.' },
-      { label: 'D', text: 'People are standing on an outdoor balcony.', vietnamese: 'Mọi người đang đứng trên ban công ngoài trời.' }
+      { label: 'A', text: 'Shopping carts are being pushed through a store.', vietnamese: 'Xe đẩy hàng đang được đẩy qua một cửa hàng.' },
+      { label: 'B', text: 'Boxes are being stacked near an entrance.', vietnamese: 'Các hộp hàng đang được xếp chồng gần lối ra vào.' },
+      { label: 'C', text: 'Groceries have been placed in a cart.', vietnamese: 'Hàng tạp hóa đã được đặt trong xe đẩy.' },
+      { label: 'D', text: 'Some shopping carts are lined up near an entrance.', vietnamese: 'Một số xe đẩy hàng được xếp thành hàng gần lối ra vào.' }
     ],
-    correctAnswer: 'B',
-    explanation: 'Hình ảnh cho thấy người đi bộ đang đi lên các bậc cầu thang (walking up a flight of stairs).',
-    topic: 'Giao thông / Di chuyển'
+    correctAnswer: 'D',
+    explanation: 'Quan sát ảnh: Dãy xe đẩy hàng kim loại được xếp lồng vào nhau gọn gàng bên trong khung chắn kim loại ngay cửa ra vào siêu thị (shopping carts are lined up near an entrance). (A) sai vì không có ai đang đẩy xe. (B) không có thùng hộp nào. (C) các xe đẩy đều trống rỗng.',
+    topic: 'Siêu thị / Mua sắm'
   },
   {
     id: 'L-P1-15',
@@ -264,16 +264,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_15.jpg',
-    audioScript: '(A) A painter is working on a canvas. (B) Framed artwork is hanging on a gallery wall. (C) Visitors are admiring sculptures in a museum. (D) An artist is cleaning paintbrushes.',
+    audioScript: '(A) One of the men is holding a broom. (B) One of the men is climbing a ladder. (C) The men are carrying a board. (D) The men are painting a wall.',
     options: [
-      { label: 'A', text: 'A painter is working on a canvas.', vietnamese: 'Họa sĩ đang vẽ tranh trên vải bạt.' },
-      { label: 'B', text: 'Framed artwork is hanging on a gallery wall.', vietnamese: 'Các bức tranh có khung đang treo trên tường phòng tranh.' },
-      { label: 'C', text: 'Visitors are admiring sculptures in a museum.', vietnamese: 'Khách tham quan đang chiêm ngưỡng các bức tượng.' },
-      { label: 'D', text: 'An artist is cleaning paintbrushes.', vietnamese: 'Nghệ sĩ đang rửa cọ vẽ.' }
+      { label: 'A', text: 'One of the men is holding a broom.', vietnamese: 'Một trong những người đàn ông đang cầm một chiếc chổi.' },
+      { label: 'B', text: 'One of the men is climbing a ladder.', vietnamese: 'Một trong những người đàn ông đang trèo lên thang.' },
+      { label: 'C', text: 'The men are carrying a board.', vietnamese: 'Những người đàn ông đang cùng khiêng một tấm ván.' },
+      { label: 'D', text: 'The men are painting a wall.', vietnamese: 'Những người đàn ông đang sơn một bức tường.' }
     ],
-    correctAnswer: 'D',
-    explanation: 'Họa sĩ đang dọn dẹp và làm sạch cọ vẽ bên bồn rửa (cleaning paintbrushes).',
-    topic: 'Nghệ thuật / Hội họa'
+    correctAnswer: 'C',
+    explanation: 'Quan sát ảnh: Hai người đàn ông đang cùng nhau bước đi và khiêng một tấm ván gỗ lớn màu trắng (the men are carrying a board). (A) cây chổi dựng vào tường phía sau, không ai cầm. (B) thang nhôm đặt cạnh góc, không ai trèo. (D) bức tường đã sơn xong, không có ai đang sơn.',
+    topic: 'Xưởng mộc / Xây dựng'
   },
   {
     id: 'L-P1-16',
@@ -281,16 +281,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_16.jpg',
-    audioScript: '(A) Some clothing is being folded on a table. (B) Garments are hanging on a retail clothing rack. (C) A customer is trying on a winter jacket. (D) A salesperson is adjusting a store mannequin.',
+    audioScript: '(A) He\'s watering a plant. (B) He\'s opening a door. (C) He\'s pushing a chair. (D) He\'s vacuuming a carpet.',
     options: [
-      { label: 'A', text: 'Some clothing is being folded on a table.', vietnamese: 'Quần áo đang được gấp trên bàn.' },
-      { label: 'B', text: 'Garments are hanging on a retail clothing rack.', vietnamese: 'Quần áo đang được treo trên giá treo đồ.' },
-      { label: 'C', text: 'A customer is trying on a winter jacket.', vietnamese: 'Khách hàng đang mặc thử áo khoác mùa đông.' },
-      { label: 'D', text: 'A salesperson is adjusting a store mannequin.', vietnamese: 'Nhân viên bán hàng đang chỉnh sửa ma-nơ-canh.' }
+      { label: 'A', text: 'He\'s watering a plant.', vietnamese: 'Anh ấy đang tưới nước cho cây cảnh.' },
+      { label: 'B', text: 'He\'s opening a door.', vietnamese: 'Anh ấy đang mở một cánh cửa.' },
+      { label: 'C', text: 'He\'s pushing a chair.', vietnamese: 'Anh ấy đang đẩy một chiếc ghế.' },
+      { label: 'D', text: 'He\'s vacuuming a carpet.', vietnamese: 'Anh ấy đang hút bụi một tấm thảm.' }
     ],
-    correctAnswer: 'B',
-    explanation: 'Các trang phục được treo ngay ngắn trên giá treo đồ (garments are hanging on a clothing rack).',
-    topic: 'Thời trang / Cửa hàng'
+    correctAnswer: 'D',
+    explanation: 'Quan sát ảnh: Người đàn ông đang cúi người dùng cần hút của máy hút bụi để làm sạch tấm thảm sàn nhà (vacuuming a carpet). (A) sai vì chậu cây cảnh đặt sau lưng, không ai tưới. (B) cánh cửa phòng màu trắng đang đóng kín. (C) chiếc ghế bành đặt yên một chỗ.',
+    topic: 'Gia đình / Dọn dẹp'
   },
   {
     id: 'L-P1-17',
@@ -298,16 +298,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_17.jpg',
-    audioScript: '(A) A road is being paved with asphalt. (B) Construction vehicles are parked near a building site. (C) Workers are digging a trench along a street. (D) Traffic cones are marking a detour route.',
+    audioScript: '(A) She\'s stacking some folders on a desk. (B) She\'s refilling a printer with paper. (C) Some folders have been dropped on the floor. (D) A printer is positioned on a cabinet.',
     options: [
-      { label: 'A', text: 'A road is being paved with asphalt.', vietnamese: 'Con đường đang được rải nhựa đường.' },
-      { label: 'B', text: 'Construction vehicles are parked near a building site.', vietnamese: 'Các xe thi công công trình đang đỗ gần công trường xây dựng.' },
-      { label: 'C', text: 'Workers are digging a trench along a street.', vietnamese: 'Công nhân đang đào rãnh dọc theo con phố.' },
-      { label: 'D', text: 'Traffic cones are marking a detour route.', vietnamese: 'Cọc tiêu giao thông đang đánh dấu đường vòng.' }
+      { label: 'A', text: 'She\'s stacking some folders on a desk.', vietnamese: 'Cô ấy đang xếp chồng các tập hồ sơ trên bàn.' },
+      { label: 'B', text: 'She\'s refilling a printer with paper.', vietnamese: 'Cô ấy đang nạp thêm giấy vào máy in.' },
+      { label: 'C', text: 'Some folders have been dropped on the floor.', vietnamese: 'Một số tập hồ sơ đã bị rơi xuống sàn nhà.' },
+      { label: 'D', text: 'A printer is positioned on a cabinet.', vietnamese: 'Một chiếc máy in được đặt trên một chiếc tủ tài liệu.' }
     ],
-    correctAnswer: 'B',
-    explanation: 'Các phương tiện xe máy công trình hạng nặng đang đỗ cạnh khu vực thi công (construction vehicles are parked).',
-    topic: 'Xây dựng / Công trường'
+    correctAnswer: 'D',
+    explanation: 'Quan sát ảnh: Trên nóc chiếc tủ ngăn kéo đựng hồ sơ có đặt chiếc máy in văn phòng (a printer is positioned on a cabinet). (A) sai vì cô ấy đang rút hồ sơ từ ngăn kéo tủ, không xếp lên bàn. (B) sai vì máy in để yên, không ai nạp giấy. (C) sàn nhà hoàn toàn sạch sẽ, không có tài liệu rơi.',
+    topic: 'Văn phòng / Thiết bị'
   },
   {
     id: 'L-P1-18',
@@ -315,16 +315,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_18.jpg',
-    audioScript: '(A) A musician is playing an acoustic guitar. (B) An audience is cheering at a music concert. (C) Microphones are being set up on a stage. (D) Sound equipment has been arranged on the floor.',
+    audioScript: '(A) A cabinet has been left open. (B) Mugs have been placed on a counter. (C) The coffee machine is being cleaned. (D) Napkins have been stacked on a chair.',
     options: [
-      { label: 'A', text: 'A musician is playing an acoustic guitar.', vietnamese: 'Một nhạc sĩ đang chơi đàn guitar mộc.' },
-      { label: 'B', text: 'An audience is cheering at a music concert.', vietnamese: 'Khán giả đang reo hò tại một buổi hòa nhạc.' },
-      { label: 'C', text: 'Microphones are being set up on a stage.', vietnamese: 'Microphone đang được lắp đặt trên sân khấu.' },
-      { label: 'D', text: 'Sound equipment has been arranged on the floor.', vietnamese: 'Thiết bị âm thanh đã được sắp xếp trên sàn.' }
+      { label: 'A', text: 'A cabinet has been left open.', vietnamese: 'Một cánh tủ đã bị để mở.' },
+      { label: 'B', text: 'Mugs have been placed on a counter.', vietnamese: 'Những chiếc cốc sứ đã được đặt trên quầy.' },
+      { label: 'C', text: 'The coffee machine is being cleaned.', vietnamese: 'Chiếc máy pha cà phê đang được vệ sinh.' },
+      { label: 'D', text: 'Napkins have been stacked on a chair.', vietnamese: 'Khăn giấy ăn đã được xếp chồng trên một chiếc ghế.' }
     ],
-    correctAnswer: 'D',
-    explanation: 'Hệ thống thiết bị âm thanh, dây cáp và loa đài được bố trí cẩn thận trên mặt sàn sân khấu (sound equipment has been arranged).',
-    topic: 'Sự kiện / Âm thanh'
+    correctAnswer: 'B',
+    explanation: 'Quan sát ảnh: Trên mặt quầy bếp bên cạnh máy pha cà phê có khay đựng các cốc sứ trắng (mugs have been placed on a counter). (A) sai vì các cánh tủ bên dưới đều đóng. (C) sai vì máy pha cà phê để yên không có người lau dọn. (D) sai vì khăn giấy đặt trên quầy, chiếc ghế kê dưới bàn hoàn toàn để trống.',
+    topic: 'Phòng nghỉ / Quầy cà phê'
   },
   {
     id: 'L-P1-19',
@@ -332,16 +332,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_19.jpg',
-    audioScript: '(A) A group of colleagues is gathered around a conference table. (B) A presenter is pointing at a projection screen. (C) Handouts are being distributed to meeting attendees. (D) Office chairs are stacked in a storage room.',
+    audioScript: '(A) Some boxes are being loaded onto a delivery truck. (B) A man is pushing a utility cart in a storage room. (C) A woman is assembling metal shelving. (D) Filing cabinets are being unloaded from a vehicle.',
     options: [
-      { label: 'A', text: 'A group of colleagues is gathered around a conference table.', vietnamese: 'Một nhóm đồng nghiệp đang ngồi quây quần quanh bàn họp.' },
-      { label: 'B', text: 'A presenter is pointing at a projection screen.', vietnamese: 'Người thuyết trình đang chỉ vào màn hình máy chiếu.' },
-      { label: 'C', text: 'Handouts are being distributed to meeting attendees.', vietnamese: 'Tài liệu phát tay đang được phát cho người dự họp.' },
-      { label: 'D', text: 'Office chairs are stacked in a storage room.', vietnamese: 'Ghế văn phòng đang được xếp chồng trong kho.' }
+      { label: 'A', text: 'Some boxes are being loaded onto a delivery truck.', vietnamese: 'Vài chiếc hộp đang được bốc lên xe tải giao hàng.' },
+      { label: 'B', text: 'A man is pushing a utility cart in a storage room.', vietnamese: 'Một người đàn ông đang đẩy chiếc xe chở hàng trong phòng kho.' },
+      { label: 'C', text: 'A woman is assembling metal shelving.', vietnamese: 'Một phụ nữ đang lắp ráp kệ kim loại.' },
+      { label: 'D', text: 'Filing cabinets are being unloaded from a vehicle.', vietnamese: 'Tủ đựng tài liệu đang được dỡ xuống khỏi xe.' }
     ],
     correctAnswer: 'B',
-    explanation: 'Người thuyết trình đang đứng cạnh màn hình chiếu và chỉ tay vào biểu đồ (pointing at a projection screen).',
-    topic: 'Họp hành / Thuyết trình'
+    explanation: 'Quan sát ảnh: Trong phòng kho/lưu trữ tài liệu, người đàn ông đang đẩy chiếc xe chở các thùng các-tông (pushing a utility cart in a storage room). (A) sai vì không có xe tải nào. (C) người phụ nữ đang với lấy đồ trên giá sách, không lắp kệ. (D) dãy tủ hồ sơ đặt cố định dọc bờ tường.',
+    topic: 'Kho lưu trữ / Phân loại'
   },
   {
     id: 'L-P1-20',
@@ -349,16 +349,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_20.jpg',
-    audioScript: '(A) A delivery person is handing a parcel to a resident. (B) Cardboard boxes are loaded onto a hand truck. (C) A warehouse door has been pulled shut. (D) Packages are scattered on an office floor.',
+    audioScript: '(A) Some armchairs are facing a window. (B) A curtain is being drawn across a window. (C) A seating area is illuminated by lamps. (D) Some magazines have been left on a table.',
     options: [
-      { label: 'A', text: 'A delivery person is handing a parcel to a resident.', vietnamese: 'Người giao hàng đang đưa bưu kiện cho cư dân.' },
-      { label: 'B', text: 'Cardboard boxes are loaded onto a hand truck.', vietnamese: 'Các thùng các-tông được chất lên xe đẩy hàng bằng tay.' },
-      { label: 'C', text: 'A warehouse door has been pulled shut.', vietnamese: 'Cửa nhà kho đã được kéo đóng lại.' },
-      { label: 'D', text: 'Packages are scattered on an office floor.', vietnamese: 'Các gói bưu kiện vương vãi trên sàn văn phòng.' }
+      { label: 'A', text: 'Some armchairs are facing a window.', vietnamese: 'Một số ghế bành đang hướng mặt về phía cửa sổ.' },
+      { label: 'B', text: 'A curtain is being drawn across a window.', vietnamese: 'Một tấm rèm cửa đang được kéo qua cửa sổ.' },
+      { label: 'C', text: 'A seating area is illuminated by lamps.', vietnamese: 'Khu vực chỗ ngồi đang được thắp sáng bởi những chiếc đèn.' },
+      { label: 'D', text: 'Some magazines have been left on a table.', vietnamese: 'Một số tờ tạp chí đã được để lại trên một chiếc bàn.' }
     ],
     correctAnswer: 'D',
-    explanation: 'Trong văn phòng, nhiều kiện hàng và phong bì bưu điện trải đều trên sàn nhà chuẩn bị phân loại.',
-    topic: 'Văn phòng / Bưu phẩm'
+    explanation: 'Quan sát ảnh: Bốn cuốn tạp chí được xếp xòe ra ngay ngắn trên mặt bàn cà phê trước ghế sofa (some magazines have been left on a table). (A) sai vì đây là ghế sofa dài hướng về phía trước, không có ghế bành quay vào cửa sổ. (B) không có người nào đang kéo rèm. (C) đèn sàn không bật sáng.',
+    topic: 'Phòng khách / Bày trí'
   },
   {
     id: 'L-P1-21',
@@ -366,16 +366,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_21.jpg',
-    audioScript: '(A) Bicycles are parked in an outdoor rack. (B) Pedestrians are jogging on a park footpath. (C) Boats are cruising down a scenic canal. (D) Park benches are lined along a tree-lined walkway.',
+    audioScript: '(A) A fence is being constructed across a field. (B) A man is moving a wheelbarrow along a dirt road. (C) Crops are being harvested with heavy machinery. (D) Horses are running through a pasture.',
     options: [
-      { label: 'A', text: 'Bicycles are parked in an outdoor rack.', vietnamese: 'Xe đạp đang đỗ trong giá để xe ngoài trời.' },
-      { label: 'B', text: 'Pedestrians are jogging on a park footpath.', vietnamese: 'Người đi bộ đang chạy bộ trên đường dạo công viên.' },
-      { label: 'C', text: 'Boats are cruising down a scenic canal.', vietnamese: 'Thuyền bè đang dạo trên kênh nước danh lam.' },
-      { label: 'D', text: 'Park benches are lined along a tree-lined walkway.', vietnamese: 'Ghế đá công viên xếp dọc con đường rợp bóng cây.' }
+      { label: 'A', text: 'A fence is being constructed across a field.', vietnamese: 'Một hàng rào đang được xây dựng băng qua cánh đồng.' },
+      { label: 'B', text: 'A man is moving a wheelbarrow along a dirt road.', vietnamese: 'Một người đàn ông đang đẩy xe rùa dọc theo con đường đất.' },
+      { label: 'C', text: 'Crops are being harvested with heavy machinery.', vietnamese: 'Mùa màng đang được thu hoạch bằng máy móc hạng nặng.' },
+      { label: 'D', text: 'Horses are running through a pasture.', vietnamese: 'Đàn ngựa đang chạy qua bãi cỏ chăn thả.' }
     ],
     correctAnswer: 'B',
-    explanation: 'Những người chạy bộ thể dục buổi sáng trên lối đi trong công viên (pedestrians are jogging on a footpath).',
-    topic: 'Công viên / Thể thao'
+    explanation: 'Quan sát ảnh: Người nông dân đang đẩy chiếc xe cút kít chở bao tải nặng dọc theo con đường đất cạnh hàng rào gỗ vùng đồi cỏ (moving a wheelbarrow along a dirt road). (A) hàng rào đã có sẵn, không ai đang xây dựng. (C) không có máy móc thu hoạch. (D) không có con ngựa nào.',
+    topic: 'Nông thôn / Vận chuyển'
   },
   {
     id: 'L-P1-22',
@@ -383,16 +383,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_22.jpg',
-    audioScript: '(A) A cashier is scanning groceries at a register. (B) Fresh produce is neatly displayed in wooden crates. (C) Customers are waiting in line at a deli counter. (D) Empty shopping carts are stored outside an entrance.',
+    audioScript: '(A) Audience members are leaving a presentation room. (B) A presenter is pointing at a projection screen. (C) Handouts are being passed out to seminar attendees. (D) A whiteboard is being erased by an instructor.',
     options: [
-      { label: 'A', text: 'A cashier is scanning groceries at a register.', vietnamese: 'Thu ngân đang quét mã vạch hàng hóa tại quầy tính tiền.' },
-      { label: 'B', text: 'Fresh produce is neatly displayed in wooden crates.', vietnamese: 'Rau củ quả tươi được trưng bày ngăn nắp trong thùng gỗ.' },
-      { label: 'C', text: 'Customers are waiting in line at a deli counter.', vietnamese: 'Khách hàng đang xếp hàng chờ ở quầy thực phẩm.' },
-      { label: 'D', text: 'Empty shopping carts are stored outside an entrance.', vietnamese: 'Xe đẩy hàng trống được cất bên ngoài lối vào.' }
+      { label: 'A', text: 'Audience members are leaving a presentation room.', vietnamese: 'Các khán giả đang rời khỏi phòng thuyết trình.' },
+      { label: 'B', text: 'A presenter is pointing at a projection screen.', vietnamese: 'Người thuyết trình đang chỉ tay vào màn hình máy chiếu.' },
+      { label: 'C', text: 'Handouts are being passed out to seminar attendees.', vietnamese: 'Tài liệu phát tay đang được phát cho những người tham dự.' },
+      { label: 'D', text: 'A whiteboard is being erased by an instructor.', vietnamese: 'Một tấm bảng trắng đang được giảng viên xóa sạch.' }
     ],
     correctAnswer: 'B',
-    explanation: 'Các thùng gỗ đựng rau củ tươi được bài trí đẹp mắt ở khu chợ nông sản (fresh produce is neatly displayed in wooden crates).',
-    topic: 'Chợ / Thực phẩm'
+    explanation: 'Quan sát ảnh: Diễn giả đang đứng trên bục giơ tay chỉ vào sơ đồ quy trình "Project Timeline Overview" trên màn hình máy chiếu (pointing at a projection screen). (A) người tham dự vẫn đang ngồi ngay ngắn trên ghế lắng nghe. (C) tài liệu đã để sẵn trên bàn. (D) bảng trắng phía sau không ai lau.',
+    topic: 'Thuyết trình / Hội thảo'
   },
   {
     id: 'L-P1-23',
@@ -400,16 +400,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_23.jpg',
-    audioScript: '(A) A woman is typing on a keyboard while wearing headphones. (B) A technician is replacing a desktop computer component. (C) Documents are being scanned through a copying machine. (D) Office workers are having lunch together.',
+    audioScript: '(A) Office workers are sitting at a conference table. (B) Two people are lifting a wooden desk together. (C) Office chairs are being assembled with hand tools. (D) Documents are being shredded in a machine.',
     options: [
-      { label: 'A', text: 'A woman is typing on a keyboard while wearing headphones.', vietnamese: 'Một phụ nữ đang gõ bàn phím trong khi đeo tai nghe.' },
-      { label: 'B', text: 'A technician is replacing a desktop computer component.', vietnamese: 'Kỹ thuật viên đang thay thế linh kiện máy tính bàn.' },
-      { label: 'C', text: 'Documents are being scanned through a copying machine.', vietnamese: 'Tài liệu đang được quét qua máy sao chép.' },
-      { label: 'D', text: 'Office workers are having lunch together.', vietnamese: 'Nhân viên văn phòng đang ăn trưa cùng nhau.' }
+      { label: 'A', text: 'Office workers are sitting at a conference table.', vietnamese: 'Các nhân viên văn phòng đang ngồi quanh bàn họp.' },
+      { label: 'B', text: 'Two people are lifting a wooden desk together.', vietnamese: 'Hai người đang cùng nhau nhấc một chiếc bàn gỗ lên.' },
+      { label: 'C', text: 'Office chairs are being assembled with hand tools.', vietnamese: 'Ghế văn phòng đang được lắp ráp bằng dụng cụ cầm tay.' },
+      { label: 'D', text: 'Documents are being shredded in a machine.', vietnamese: 'Tài liệu đang được cắt vụn trong máy hủy giấy.' }
     ],
     correctAnswer: 'B',
-    explanation: 'Kỹ thuật viên công nghệ đang thao tác tháo lắp, kiểm tra phần cứng của máy tính để bàn (replacing a desktop computer component).',
-    topic: 'Kỹ thuật / Công nghệ'
+    explanation: 'Quan sát ảnh: Một người nam và một người nữ trong trang phục công sở đang khom người nhấc chiếc bàn làm việc bằng gỗ lên để di chuyển (two people are lifting a wooden desk together). (A) họ đang đứng nâng bàn, không ngồi. (C) ghế văn phòng xếp bên cạnh, không có ai lắp ráp. (D) không có máy hủy tài liệu.',
+    topic: 'Văn phòng / Chuyển đồ nội thất'
   },
   {
     id: 'L-P1-24',
@@ -417,16 +417,16 @@ export const LISTENING_BANK: ListeningQuestion[] = [
     direction: 'Part 1: Photographs. Listen to four statements about the photograph and select the statement that best describes what you see.',
     questionText: 'Look at the photograph and choose the best statement describing the image.',
     imageUrl: '/images/part1/p1_24.jpg',
-    audioScript: '(A) Airplanes are parked at boarding gates. (B) Travelers are carrying their luggage across a terminal. (C) An airport announcement board displays departure times. (D) Ground crew members are loading cargo into an aircraft.',
+    audioScript: '(A) Meeting participants are shaking hands. (B) A colleague is writing notes on a whiteboard. (C) People are exiting a corporate boardroom. (D) A group of colleagues is examining documents on a table.',
     options: [
-      { label: 'A', text: 'Airplanes are parked at boarding gates.', vietnamese: 'Máy bay đang đậu tại các cửa lên máy bay.' },
-      { label: 'B', text: 'Travelers are carrying their luggage across a terminal.', vietnamese: 'Hành khách đang kéo vali hành lý qua sảnh nhà ga.' },
-      { label: 'C', text: 'An airport announcement board displays departure times.', vietnamese: 'Bảng thông báo sân bay hiển thị giờ khởi hành các chuyến bay.' },
-      { label: 'D', text: 'Ground crew members are loading cargo into an aircraft.', vietnamese: 'Nhân viên mặt đất đang bốc dỡ hàng hóa vào khoang máy bay.' }
+      { label: 'A', text: 'Meeting participants are shaking hands.', vietnamese: 'Những người tham gia cuộc họp đang bắt tay nhau.' },
+      { label: 'B', text: 'A colleague is writing notes on a whiteboard.', vietnamese: 'Một đồng nghiệp đang ghi chú lên tấm bảng trắng.' },
+      { label: 'C', text: 'People are exiting a corporate boardroom.', vietnamese: 'Mọi người đang rời khỏi phòng họp của công ty.' },
+      { label: 'D', text: 'A group of colleagues is examining documents on a table.', vietnamese: 'Một nhóm đồng nghiệp đang cùng xem xét các tài liệu trên bàn.' }
     ],
     correctAnswer: 'D',
-    explanation: 'Đội ngũ phục vụ mặt đất đang vận chuyển kiện hàng vào hầm hàng máy bay trên đường băng (loading cargo into an aircraft).',
-    topic: 'Hàng không / Vận chuyển'
+    explanation: 'Quan sát ảnh: Nhóm 5 nhân viên công sở đang đứng quây quanh chiếc bàn họp dài, cúi người chăm chú nhìn vào các tờ tài liệu trải trên bàn (examining documents on a table). (A) không ai bắt tay nhau. (B) bảng trắng ở tường phía sau để trống, không ai viết. (C) mọi người đang họp, không ai ra về.',
+    topic: 'Họp bàn / Thảo luận dự án'
   },
 
   // ==========================================
