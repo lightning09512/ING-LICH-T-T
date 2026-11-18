@@ -1,10 +1,16 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import handler from '../api/tts';
-import { MAX_TTS_TEXT_LENGTH } from '../server/src/services/tts';
+import handler, { sanitizeTtsRate } from '../api/tts';
+import { MAX_TTS_TEXT_LENGTH, sanitizeSpeechRate } from '../server/src/services/tts';
 
-test('MAX_TTS_TEXT_LENGTH is raised to 1500', () => {
+test('MAX_TTS_TEXT_LENGTH is raised to 1500 and rate parameters are strictly allowlisted against SSML injection', () => {
   assert.equal(MAX_TTS_TEXT_LENGTH, 1500);
+  assert.equal(sanitizeTtsRate('-14%'), '-14%');
+  assert.equal(sanitizeTtsRate('+8%'), '+8%');
+  assert.equal(sanitizeTtsRate('"+0%"><voice name="evil">'), '+0%');
+  assert.equal(sanitizeTtsRate('0.86'), '+0%');
+  assert.equal(sanitizeSpeechRate('-12%'), '-12%');
+  assert.equal(sanitizeSpeechRate('"><prosody>'), '+0%');
 });
 
 test('api/tts rejects empty text and text > 1500 chars with 400', async () => {

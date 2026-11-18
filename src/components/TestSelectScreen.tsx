@@ -491,6 +491,7 @@ export const TestSelectScreen: React.FC<TestSelectScreenProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
           {filteredTests.map((t) => {
             const isCol2 = t._id.includes('collection-2') || t.code.includes('COL2');
+            const isCol3 = t._id.includes('collection-3') || t.code.includes('COL3');
 
             return (
               <div
@@ -499,7 +500,12 @@ export const TestSelectScreen: React.FC<TestSelectScreenProps> = ({
               >
                 {/* Header Tag */}
                 <div className="flex items-start justify-between gap-2 mb-3">
-                  {isCol2 ? (
+                  {isCol3 ? (
+                    <WashiTapeBadge tone="mint" rotate="left" className="uppercase">
+                      <DoodleFire size={14} />
+                      <span>ETS Collection 3</span>
+                    </WashiTapeBadge>
+                  ) : isCol2 ? (
                     <WashiTapeBadge tone="lavender" rotate="left" className="uppercase">
                       <DoodleBook size={14} />
                       <span>ETS Collection 2</span>

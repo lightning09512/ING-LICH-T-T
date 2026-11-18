@@ -53,3 +53,11 @@ test('AI-slop emoji density across all core, study, and exam screens is dramatic
     `Expected <= 10 emojis across 17 screens, found ${totalEmojis}: ${breakdown.join(', ')}`
   );
 });
+
+test('TestSelectScreen labels Collection 3 accurately and ToeicSwSelectScreen hides data-level part emojis', () => {
+  const testSelect = fs.readFileSync('src/components/TestSelectScreen.tsx', 'utf8');
+  assert.ok(testSelect.includes('ETS Collection 3'), 'TestSelectScreen must label Collection 3 cards as ETS Collection 3');
+
+  const swSelect = fs.readFileSync('src/components/ToeicSwSelectScreen.tsx', 'utf8');
+  assert.equal(swSelect.includes('{p.icon}'), false, 'ToeicSwSelectScreen should not render raw OS emoji {p.icon} in part selector');
+});

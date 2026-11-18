@@ -8,6 +8,14 @@ const MAX_TTS_LENGTH = 1500;
 const CACHE_LIMIT = 300;
 const audioCache = new Map<string, Buffer>();
 
+export function sanitizeTtsRate(raw?: unknown): string {
+  if (typeof raw !== 'string') return '+0%';
+  const trimmed = raw.trim();
+  if (/^[+-]\d{1,3}%$/.test(trimmed)) return trimmed;
+  if (/^\d{1,3}%$/.test(trimmed)) return `+${trimmed}`;
+  return '+0%';
+}
+
 function storeInCache(cacheKey: string, audio: Buffer) {
   if (audioCache.has(cacheKey)) {
     audioCache.delete(cacheKey);
@@ -64,7 +72,7 @@ export default async function handler(req: any, res?: any) {
       return res.status(400).json({ error: `Text required (max ${MAX_TTS_LENGTH} chars)` });
     }
 
-    const rate = (req.query?.rate as string) || '+0%';
+    const rate = sanitizeTtsRate(req.query?.rate ?? req.body?.rate);
     const cacheKey = `${text}__${rate}`;
     const cached = audioCache.get(cacheKey);
 
@@ -137,7 +145,7 @@ export default async function handler(req: any, res?: any) {
     return new Response(JSON.stringify({ error: `Text required (max ${MAX_TTS_LENGTH} chars)` }), { status: 400 });
   }
 
-  const rate = rateParam || '+0%';
+  const rate = sanitizeTtsRate(rateParam);
   const cacheKey = `${text}__${rate}`;
   const cached = audioCache.get(cacheKey);
   const responseHeaders = {

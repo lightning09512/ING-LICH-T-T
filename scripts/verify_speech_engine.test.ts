@@ -10,6 +10,19 @@ test('cleanSpeechText strips IPA, POS tags, bullets, enclosing quotes, and repla
     cleanSpeechText('Please call the front desk (extension 402) before noon.'),
     'Please call the front desk (extension 402) before noon.'
   );
+  // Speaking Revision Unit 1 & Unit 2 regression checks:
+  assert.equal(
+    cleanSpeechText('Passengers for Flight 302 / should proceed to Gate 15 / immediately.'),
+    'Passengers for Flight 302, should proceed to Gate 15, immediately.'
+  );
+  assert.equal(
+    cleanSpeechText('We sell computers (↗), printers (↗), and office supplies (↘).'),
+    'We sell computers, printers, and office supplies.'
+  );
+  assert.equal(
+    cleanSpeechText('Submit by 05/12/2026 for his/her approval.'),
+    'Submit by 05/12/2026 for his/her approval.'
+  );
 });
 
 test('splitSpeechSegments preserves abbreviations and decimals without mid-sentence splits', () => {
@@ -61,8 +74,11 @@ test('sounds.enqueuePrefetch exists and safely handles missing window/caches in 
     addEventListener(evt: string, cb: () => void) {
       (this.listeners[evt] ||= []).push(cb);
     }
+    removeEventListener(evt: string, cb: () => void) {
+      this.listeners[evt] = (this.listeners[evt] || []).filter((fn) => fn !== cb);
+    }
     emit(evt: string) {
-      for (const cb of this.listeners[evt] || []) cb();
+      for (const cb of [...(this.listeners[evt] || [])]) cb();
     }
     pause() {}
     play() {
@@ -110,6 +126,30 @@ test('sounds.enqueuePrefetch exists and safely handles missing window/caches in 
     fakeAudios[fakeAudios.length - 1]?.emit('ended');
     await p2;
     assert.equal(naturalResolved, true, 'speakEnglish must resolve naturally on audio ended');
+
+    // Verify multi-segment playback reuses the SAME gesture-blessed Audio element across segments 1..N (iOS Safari requirement)
+    const countBeforeMulti = fakeAudios.length;
+    const longTwoSeg =
+      'First sentence is spoken right inside the user tap gesture with natural prosody, warm intonation, and clear articulation for learners. ' +
+      'Second sentence continues after the await boundary and must reuse the exact same blessed HTMLAudioElement instance on iOS Safari without creating another element.';
+    assert.equal(splitSpeechSegments(longTwoSeg).length, 2, 'Paragraph must split into 2 segments');
+    const pMulti = sounds.speakEnglish(longTwoSeg);
+    assert.equal(fakeAudios.length - countBeforeMulti, 1, 'Segment 1 creates/uses 1 blessed Audio instance');
+    const blessedAudio = fakeAudios[fakeAudios.length - 1];
+    const firstAssignedSrc = blessedAudio.src;
+    blessedAudio.emit('playing');
+    blessedAudio.emit('ended');
+    // Allow async continuation for segment 2 to run
+    await new Promise((r) => setTimeout(r, 30));
+    assert.equal(
+      fakeAudios.length - countBeforeMulti,
+      1,
+      'Segment 2 must reuse the exact same Audio element rather than instantiating new Audio() after await'
+    );
+    assert.notEqual(blessedAudio.src, firstAssignedSrc, 'Segment 2 updates src on the blessed Audio element');
+    blessedAudio.emit('playing');
+    blessedAudio.emit('ended');
+    await pMulti;
   } finally {
     (globalThis as any).window = prevWindow;
     (globalThis as any).Audio = prevAudio;

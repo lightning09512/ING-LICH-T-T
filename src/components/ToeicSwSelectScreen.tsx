@@ -326,7 +326,7 @@ export const ToeicSwSelectScreen: React.FC<ToeicSwSelectScreenProps> = ({
                           chosenPart === p.id ? 'bg-black text-[#FFDE59]' : 'bg-white text-gray-700 hover:bg-gray-100'
                         }`}
                       >
-                        {p.icon} Part {p.id}
+                        Part {p.id}
                       </button>
                     ))}
                   </div>

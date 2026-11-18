@@ -15,13 +15,19 @@ const DOT_PLACEHOLDER = '\uE000';
 export function cleanSpeechText(raw: string): string {
   if (!raw) return '';
   const cleaned = raw
-    .replace(/\/[^/\r\n]{1,60}\//g, ' ')        // Strip IPA phonetic transcriptions like /əˈkɑː.mə.deɪt/
+    // Strip intonation arrow markers like (↗), (↘) in Speaking Revision lessons
+    .replace(/\(\s*[↗↘↑↓]+\s*\)|[↗↘↑↓]/g, ' ')
+    // Strip IPA phonetic transcriptions like /əˈkɑː.mə.deɪt/ without touching pause slashes (" / "), dates ("05/12/2026"), or "his/her"
+    .replace(/(^|\s)\/(?!\s)[^/\r\n]{1,50}(?<!\s)\/(?=\s|[.,!?;:)]|$)/g, ' ')
+    // Convert Speaking Revision pause-chunking slashes ("Flight 302 / should proceed") into natural comma pauses
+    .replace(/\s+\/\s+/g, ', ')
     .replace(POS_PARENS_RE, ' ')                 // Strip grammatical POS annotations like (v), (adj), (n/v)
     .replace(POS_BRACKETS_RE, ' ')               // Strip [v], [n], [C], [U]
     .replace(/•.*$/gm, ' ')                      // Strip trailing bullet notes
     .replace(/^[\s"'“”‘’«»]+|[\s"'“”‘’«»]+$/g, '') // Strip enclosing quotes
     .replace(/_{2,}/g, 'blank')                  // Replace fill-in-the-blank ___ with spoken "blank"
     .replace(/[\r\n\t]+/g, ' ')                  // Normalize linebreaks
+    .replace(/\s+([,.;:!?])/g, '$1')             // Tighten spaces left before punctuation after stripping markers
     .replace(/\s+/g, ' ')                        // Collapse consecutive spaces
     .trim();
 

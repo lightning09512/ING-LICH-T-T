@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import { MAX_TTS_TEXT_LENGTH, streamSpeech, synthesizeSpeech } from '../services/tts.js';
+import { MAX_TTS_TEXT_LENGTH, sanitizeSpeechRate, streamSpeech, synthesizeSpeech } from '../services/tts.js';
 
 const MAX_REQUESTS_PER_MINUTE = 120;
 const requestCounts = new Map<string, { count: number; windowStartedAt: number }>();
@@ -37,10 +37,11 @@ export function createTtsRouter(): Router {
       return res.status(429).json({ success: false, message: 'Too many speech requests. Try again shortly.' });
     }
 
+    const rate = sanitizeSpeechRate(req.query.rate);
     res.set('Content-Type', 'audio/mpeg').set('Cache-Control', 'private, max-age=86400');
 
     try {
-      for await (const chunk of streamSpeech(text)) {
+      for await (const chunk of streamSpeech(text, rate)) {
         res.write(chunk);
       }
       res.end();
@@ -65,8 +66,9 @@ export function createTtsRouter(): Router {
       return res.status(429).json({ success: false, message: 'Too many speech requests. Try again shortly.' });
     }
 
+    const rate = sanitizeSpeechRate(req.body?.rate ?? req.query.rate);
     try {
-      const audio = await synthesizeSpeech(text);
+      const audio = await synthesizeSpeech(text, rate);
       res.set('Content-Type', 'audio/mpeg').set('Cache-Control', 'private, max-age=86400').send(audio);
     } catch (error) {
       console.error('[TTS] Neural speech synthesis failed:', error instanceof Error ? error.message : 'unknown error');

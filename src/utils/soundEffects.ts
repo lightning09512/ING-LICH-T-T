@@ -567,8 +567,18 @@ class SoundEngine {
         void this.fetchAndCacheSegment(firstSegment);
       }
 
+      // Create ONE Audio element synchronously inside the user click stack so iOS Safari
+      // blesses this media element for Segment 1 AND all subsequent segments 2..N after await!
+      const blessedAudio = new Audio();
+      blessedAudio.preload = 'auto';
+      blessedAudio.volume = 1.0;
+      if ('preservesPitch' in blessedAudio) {
+        (blessedAudio as any).preservesPitch = true;
+      }
+
       // Play segment 1 synchronously inside the click gesture call stack!
       const firstPromise = this.playSegmentOnce(
+        blessedAudio,
         firstSrc,
         playbackRate,
         requestId,
@@ -586,7 +596,7 @@ class SoundEngine {
         return;
       }
 
-      // Play remaining segments 2..N sequentially unless stopped
+      // Play remaining segments 2..N sequentially on the SAME blessedAudio element unless stopped
       void (async () => {
         await firstPromise;
         for (let i = 1; i < segments.length; i++) {
@@ -597,19 +607,13 @@ class SoundEngine {
           if (!src) {
             src = await this.readPersistentBlobUrl(key, this.buildTtsUrl(seg));
           }
-          if (!src && this.inFlightFetches.has(key)) {
-            src = await Promise.race([
-              this.inFlightFetches.get(key)!,
-              new Promise<null>((r) => setTimeout(() => r(null), 600)),
-            ]);
-          }
           if (requestId !== this.speechRequestId) return;
 
           const useSrc = src || this.buildTtsUrl(seg);
           const isDirect = !src;
           if (isDirect) void this.fetchAndCacheSegment(seg);
 
-          await this.playSegmentOnce(useSrc, playbackRate, requestId, seg, true, isDirect);
+          await this.playSegmentOnce(blessedAudio, useSrc, playbackRate, requestId, seg, true, isDirect);
         }
         if (requestId === this.speechRequestId) {
           this.finishSpeech();
@@ -619,6 +623,7 @@ class SoundEngine {
   }
 
   private playSegmentOnce(
+    audio: HTMLAudioElement,
     src: string,
     playbackRate: number,
     requestId: number,
@@ -640,10 +645,36 @@ class SoundEngine {
         }
       };
 
+      const onPlaying = () => {
+        cleanupWatchdog();
+        // Re-assert playbackRate once media pipeline starts (Safari resets rate on src assign)
+        try { audio.playbackRate = playbackRate; } catch {}
+      };
+
+      const onEnded = () => {
+        if (this.currentAudio === audio) {
+          this.currentAudio = null;
+        }
+        finishSegment();
+      };
+
+      const onError = () => {
+        triggerFallbackOnce();
+      };
+
+      const detachListeners = () => {
+        if (typeof audio.removeEventListener === 'function') {
+          audio.removeEventListener('playing', onPlaying);
+          audio.removeEventListener('ended', onEnded);
+          audio.removeEventListener('error', onError);
+        }
+      };
+
       const finishSegment = () => {
         if (settled) return;
         settled = true;
         cleanupWatchdog();
+        detachListeners();
         resolveSegment();
       };
 
@@ -654,6 +685,7 @@ class SoundEngine {
         }
         settled = true;
         cleanupWatchdog();
+        detachListeners();
         if (this.currentAudio) {
           try {
             this.currentAudio.pause();
@@ -665,47 +697,16 @@ class SoundEngine {
       };
 
       try {
-        const audio = new Audio();
-        audio.preload = 'auto';
-        audio.volume = 1.0;
-        if ('preservesPitch' in audio) {
-          (audio as any).preservesPitch = true;
-        }
-        audio.playbackRate = playbackRate;
         this.currentAudio = audio;
 
         if (isDirectStream) {
-          this.watchdogTimeoutId = setTimeout(triggerFallbackOnce, 2200);
+          // Allow 4500ms for cold Vercel serverless wake-up + EdgeTTS WebSocket handshake
+          this.watchdogTimeoutId = setTimeout(triggerFallbackOnce, 4500);
         }
 
-        audio.addEventListener(
-          'playing',
-          () => {
-            cleanupWatchdog();
-            // Re-assert playbackRate once media pipeline starts (Safari resets rate on src assign)
-            try { audio.playbackRate = playbackRate; } catch {}
-          },
-          { once: true }
-        );
-
-        audio.addEventListener(
-          'ended',
-          () => {
-            if (this.currentAudio === audio) {
-              this.currentAudio = null;
-            }
-            finishSegment();
-          },
-          { once: true }
-        );
-
-        audio.addEventListener(
-          'error',
-          () => {
-            triggerFallbackOnce();
-          },
-          { once: true }
-        );
+        audio.addEventListener('playing', onPlaying);
+        audio.addEventListener('ended', onEnded);
+        audio.addEventListener('error', onError);
 
         audio.src = src;
         audio.playbackRate = playbackRate;

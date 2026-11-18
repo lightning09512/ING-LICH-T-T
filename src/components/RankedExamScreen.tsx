@@ -129,7 +129,7 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
     };
   }, [phase]);
 
-  // Stop speaking when question changes & proactively prefetch current + upcoming listening scripts
+  // Stop speaking when question changes or component unmounts & proactively prefetch listening scripts
   useEffect(() => {
     sounds.stopSpeaking();
     setIsPlayingAudio(false);
@@ -140,6 +140,9 @@ export const RankedExamScreen: React.FC<RankedExamScreenProps> = ({ onBack, nick
         questions[currentIndex + 2]?.audioScript,
       ]);
     }
+    return () => {
+      sounds.stopSpeaking();
+    };
   }, [phase, currentIndex, questions]);
 
   const currentQ = questions[currentIndex];

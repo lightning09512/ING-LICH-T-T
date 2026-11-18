@@ -35,5 +35,19 @@ test('Speaking, Ranked, and Vocab screens all invoke sounds.enqueuePrefetch for 
       src.includes('enqueuePrefetch'),
       `${file} must call sounds.enqueuePrefetch to pre-warm TTS segments`
     );
+    assert.ok(
+      src.includes('stopSpeaking'),
+      `${file} must call sounds.stopSpeaking() on unmount/stop so speech never bleeds across screens`
+    );
   }
+
+  const spExam = fs.readFileSync(path.resolve('src/components/ToeicSpeakingExamScreen.tsx'), 'utf8');
+  assert.ok(
+    /startRecording\s*=\s*async\s*\(\)\s*=>\s*\{[\s\S]{0,160}stopModelTts\(\)/.test(spExam),
+    'ToeicSpeakingExamScreen startRecording must call stopModelTts() so Jenny TTS never speaks into the active microphone'
+  );
+  assert.ok(
+    /playModelTts\s*=\s*\([^)]*\)\s*=>\s*\{[\s\S]{0,240}promptAudioRef\.current\.pause\(\)/.test(spExam),
+    'ToeicSpeakingExamScreen playModelTts must pause promptAudioRef so model TTS and Study4 MP3 never talk over each other'
+  );
 });

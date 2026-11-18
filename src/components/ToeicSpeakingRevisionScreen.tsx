@@ -14,7 +14,8 @@ import {
   Award, 
   RefreshCw, 
   HelpCircle,
-  Volume2
+  Volume2,
+  VolumeX
 } from 'lucide-react';
 import {
   DoodleBulb,
@@ -40,7 +41,8 @@ export const ToeicSpeakingRevisionScreen: React.FC<ToeicSpeakingRevisionScreenPr
   const [selectedUnitId, setSelectedUnitId] = useState<string>(speakingUnits[0]?.id || 'sp-unit-01');
   const [quizAnswers, setQuizAnswers] = useState<{ [quizIdx: number]: number }>({});
   const [quizSubmitted, setQuizSubmitted] = useState<{ [quizIdx: number]: boolean }>({});
-  const [isSpeakingExample, setIsSpeakingExample] = useState(false);
+  const [speakingText, setSpeakingText] = useState<string | null>(null);
+  const speakSeqRef = React.useRef(0);
 
   const filteredUnits = selectedPartFilter === 'ALL'
     ? speakingUnits
@@ -49,8 +51,9 @@ export const ToeicSpeakingRevisionScreen: React.FC<ToeicSpeakingRevisionScreenPr
   const currentUnit: RevisionUnit = speakingUnits.find(u => u.id === selectedUnitId) || speakingUnits[0];
 
   React.useEffect(() => {
+    ++speakSeqRef.current;
     sounds.stopSpeaking();
-    setIsSpeakingExample(false);
+    setSpeakingText(null);
     if (currentUnit?.keyFormulas?.length) {
       sounds.enqueuePrefetch(currentUnit.keyFormulas.map(f => f.exampleEn));
     }
@@ -62,9 +65,18 @@ export const ToeicSpeakingRevisionScreen: React.FC<ToeicSpeakingRevisionScreenPr
   const handleSpeakText = (text: string) => {
     if (!text) return;
     sounds.playClick();
-    setIsSpeakingExample(true);
+    if (speakingText === text) {
+      ++speakSeqRef.current;
+      sounds.stopSpeaking();
+      setSpeakingText(null);
+      return;
+    }
+    const seq = ++speakSeqRef.current;
+    setSpeakingText(text);
     sounds.speakEnglish(text).finally(() => {
-      setIsSpeakingExample(false);
+      if (speakSeqRef.current === seq) {
+        setSpeakingText(null);
+      }
     });
   };
 
@@ -299,9 +311,13 @@ export const ToeicSpeakingRevisionScreen: React.FC<ToeicSpeakingRevisionScreenPr
                           onPointerEnter={() => sounds.prefetchEnglish(f.exampleEn)}
                           onClick={() => handleSpeakText(f.exampleEn)}
                           className="p-1 rounded bg-white hover:bg-purple-100 border border-purple-300 cursor-pointer shrink-0"
-                          title="Phát âm mẫu"
+                          title={speakingText === f.exampleEn ? 'Dừng đọc' : 'Phát âm mẫu'}
                         >
-                          <Volume2 className="w-3.5 h-3.5 text-purple-700" />
+                          {speakingText === f.exampleEn ? (
+                            <VolumeX className="w-3.5 h-3.5 text-rose-600" />
+                          ) : (
+                            <Volume2 className="w-3.5 h-3.5 text-purple-700" />
+                          )}
                         </button>
                       </div>
                       <div className="text-[11px] text-gray-500 mt-0.5">➔ {f.exampleVi}</div>

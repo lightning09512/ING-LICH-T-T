@@ -267,6 +267,7 @@ export const ToeicSpeakingExamScreen: React.FC<ToeicSpeakingExamScreenProps> = (
   }, []);
 
   const startIigAutoFlowForCurrentQuestion = () => {
+    stopModelTts();
     sounds.playClick();
     setPrepSeconds(currentQuestion.prepTimeSeconds);
     setSpeakSeconds(currentQuestion.speakTimeSeconds);
@@ -287,6 +288,11 @@ export const ToeicSpeakingExamScreen: React.FC<ToeicSpeakingExamScreenProps> = (
   };
 
   const startRecording = async () => {
+    stopModelTts();
+    if (promptAudioRef.current && !promptAudioRef.current.paused) {
+      promptAudioRef.current.pause();
+      setIsPlayingPromptAudio(false);
+    }
     try {
       const qid = currentQuestion.id;
       setRecognitionError(null);
@@ -342,6 +348,10 @@ export const ToeicSpeakingExamScreen: React.FC<ToeicSpeakingExamScreenProps> = (
 
   const playModelTts = (text: string) => {
     if (!text) return;
+    if (promptAudioRef.current && !promptAudioRef.current.paused) {
+      promptAudioRef.current.pause();
+      setIsPlayingPromptAudio(false);
+    }
     sounds.playClick();
     setIsSpeakingModelTts(true);
     sounds.speakEnglish(text).finally(() => {
@@ -849,7 +859,10 @@ export const ToeicSpeakingExamScreen: React.FC<ToeicSpeakingExamScreenProps> = (
                   key={currentQuestion.id}
                   controls
                   src={currentQuestion.audioUrl}
-                  onPlay={() => setIsPlayingPromptAudio(true)}
+                  onPlay={() => {
+                    stopModelTts();
+                    setIsPlayingPromptAudio(true);
+                  }}
                   onEnded={() => {
                     setIsPlayingPromptAudio(false);
                     if (autoFlowEnabled) {

@@ -72,7 +72,10 @@ export const VocabGameMap: React.FC<VocabGameMapProps> = ({ onBack, nickname, in
       setIsFullscreen(!!document.fullscreenElement);
     };
     document.addEventListener('fullscreenchange', handleFsChange);
-    return () => document.removeEventListener('fullscreenchange', handleFsChange);
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFsChange);
+      sounds.stopSpeaking();
+    };
   }, []);
 
   const toggleFullscreen = () => {

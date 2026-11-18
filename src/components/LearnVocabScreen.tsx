@@ -41,6 +41,9 @@ export const LearnVocabScreen: React.FC<LearnVocabScreenProps> = ({
       }
     }
     sounds.enqueuePrefetch(upcoming);
+    return () => {
+      sounds.stopSpeaking();
+    };
   }, [currentIndex, currentWord, filteredList]);
 
   const handleTouchStart = (e: React.TouchEvent) => {

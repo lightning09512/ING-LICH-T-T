@@ -5,8 +5,16 @@ export const MAX_TTS_TEXT_LENGTH = 1500;
 const CACHE_LIMIT = 250;
 const audioCache = new Map<string, Buffer>();
 
+export function sanitizeSpeechRate(raw?: unknown): string {
+  if (typeof raw !== 'string') return '+0%';
+  const trimmed = raw.trim();
+  if (/^[+-]\d{1,3}%$/.test(trimmed)) return trimmed;
+  if (/^\d{1,3}%$/.test(trimmed)) return `+${trimmed}`;
+  return '+0%';
+}
+
 export async function* streamSpeech(text: string, rate?: string): AsyncGenerator<Buffer> {
-  const targetRate = rate || '+0%';
+  const targetRate = sanitizeSpeechRate(rate);
   const cacheKey = `${text}__${targetRate}`;
   const cachedAudio = audioCache.get(cacheKey);
   if (cachedAudio) {
@@ -42,8 +50,8 @@ export async function* streamSpeech(text: string, rate?: string): AsyncGenerator
   audioCache.set(cacheKey, audio);
 }
 
-export async function synthesizeSpeech(text: string): Promise<Buffer> {
+export async function synthesizeSpeech(text: string, rate?: string): Promise<Buffer> {
   const chunks: Buffer[] = [];
-  for await (const chunk of streamSpeech(text)) chunks.push(chunk);
+  for await (const chunk of streamSpeech(text, rate)) chunks.push(chunk);
   return Buffer.concat(chunks);
 }
