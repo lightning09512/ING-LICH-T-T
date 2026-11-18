@@ -67,7 +67,7 @@ export const HeartsModal: React.FC<HeartsModalProps> = ({
             src="/doodles/mascot-hearts.png"
             alt="Ly trà sữa ôm trái tim"
             size={92}
-            className="w-22 h-22 mb-1 animate-wiggle"
+            className="w-[92px] h-[92px] mb-1 animate-wiggle"
           />
 
           <div className="flex items-center justify-center gap-2.5 py-2">
