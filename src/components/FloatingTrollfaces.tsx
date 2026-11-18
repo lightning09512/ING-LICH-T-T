@@ -9,6 +9,8 @@ interface Particle {
   rotation: number;
   vRot: number;
   opacity: number;
+  floatOffset: number;
+  floatSpeed: number;
 }
 
 export const FloatingTrollfaces: React.FC = () => {
@@ -49,20 +51,40 @@ export const FloatingTrollfaces: React.FC = () => {
     window.addEventListener('touchmove', onTouchMove, { passive: true });
     window.addEventListener('touchend', onTouchEnd, { passive: true });
 
-    // Gentle subtle background doodles so foreground hand-drawn stickers remain clean
-    const particleCount = Math.min(14, Math.max(8, Math.floor(window.innerWidth / 95)));
+    // Abundant, lively trollface background with varied sizes and gentle floating buoyancy
+    const particleCount = Math.min(48, Math.max(22, Math.floor(window.innerWidth / 38)));
     const particles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
+      const sizeTier = i % 4;
+      let size: number;
+      let opacity: number;
+
+      if (sizeTier === 0) {
+        // Small watermark trollface
+        size = Math.floor(Math.random() * 12) + 28; // 28px - 40px
+        opacity = 0.08 + Math.random() * 0.06; // 0.08 - 0.14
+      } else if (sizeTier === 1 || sizeTier === 2) {
+        // Medium midground trollface
+        size = Math.floor(Math.random() * 18) + 42; // 42px - 60px
+        opacity = 0.12 + Math.random() * 0.08; // 0.12 - 0.20
+      } else {
+        // Large bold trollface drifting along margins
+        size = Math.floor(Math.random() * 24) + 64; // 64px - 88px
+        opacity = 0.14 + Math.random() * 0.08; // 0.14 - 0.22
+      }
+
       particles.push({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: (Math.random() - 0.5) * 0.35,
-        size: Math.floor(Math.random() * 24) + 32, // 32px - 56px
-        rotation: (Math.random() - 0.5) * 0.5,
-        vRot: (Math.random() - 0.5) * 0.005,
-        opacity: 0.06 + Math.random() * 0.08 // 0.06 - 0.14 subtle stationery watermark
+        vx: (Math.random() - 0.5) * 0.45,
+        vy: (Math.random() - 0.5) * 0.4,
+        size,
+        rotation: (Math.random() - 0.5) * 0.6,
+        vRot: (Math.random() - 0.5) * 0.006,
+        opacity,
+        floatOffset: Math.random() * Math.PI * 2,
+        floatSpeed: 0.015 + Math.random() * 0.02
       });
     }
 
@@ -70,30 +92,34 @@ export const FloatingTrollfaces: React.FC = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((p) => {
-        // Move particle gently
+        // Buoyant organic drift
+        p.floatOffset += p.floatSpeed;
+        const floatWave = Math.sin(p.floatOffset) * 0.25;
+
         p.x += p.vx;
-        p.y += p.vy;
+        p.y += p.vy + floatWave;
         p.rotation += p.vRot;
 
-        // Bounce off edges
+        // Wrap around viewport edges smoothly
         if (p.x < -p.size) p.x = canvas.width + p.size;
         else if (p.x > canvas.width + p.size) p.x = -p.size;
 
         if (p.y < -p.size) p.y = canvas.height + p.size;
         else if (p.y > canvas.height + p.size) p.y = -p.size;
 
-        // Mouse repelling interaction (soft & gentle)
+        // Interactive mouse & touch evasion
         const dx = p.x - mouseRef.current.x;
         const dy = p.y - mouseRef.current.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 100 && dist > 0) {
-          const force = (100 - dist) / 100;
-          p.x += (dx / dist) * force * 1.2;
-          p.y += (dy / dist) * force * 1.2;
-          p.rotation += 0.01;
+        const repelRadius = Math.max(120, p.size * 1.6);
+        if (dist < repelRadius && dist > 0) {
+          const force = (repelRadius - dist) / repelRadius;
+          p.x += (dx / dist) * force * 2.2;
+          p.y += (dy / dist) * force * 2.2;
+          p.rotation += (dx >= 0 ? 0.025 : -0.025) * force;
         }
 
-        // Draw trollface
+        // Draw trollface meme
         if (img.complete && img.naturalWidth > 0) {
           ctx.save();
           ctx.globalAlpha = p.opacity;
