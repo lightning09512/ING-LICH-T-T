@@ -360,15 +360,20 @@ function readGuestProgress(): LearningProgress {
     const rankHistory = localStorage.getItem(LEGACY_KEYS.rankHistory);
     const rankCareer = localStorage.getItem(LEGACY_KEYS.rankCareerPoints);
 
-    return normalizeProgress({
+    // Tự động thắp sáng chuỗi lửa (Streak) ngay khi truy cập web
+    const today = getLocalDateString();
+    const guestDates = Array.from(new Set([...parsedStudyDates, today]));
+    const guestStreak = calculateConsecutiveStreak(guestDates, today);
+
+    const initial = normalizeProgress({
       grammarProgress: grammar ? JSON.parse(grammar) : {},
       vocabUnlockedDay: unlockedDay ? Number.parseInt(unlockedDay, 10) : 1,
       vocabDayStars: dayStars ? JSON.parse(dayStars) : {},
       vocabChapter2UnlockedDay: chapter2Unlocked ? Number.parseInt(chapter2Unlocked, 10) : 1,
       vocabChapter2DayStars: chapter2Stars ? JSON.parse(chapter2Stars) : {},
-      streakDays: streak ? Number.parseInt(streak, 10) : 0,
-      lastStudyDate: lastDate || '',
-      studyDates: parsedStudyDates,
+      streakDays: guestStreak,
+      lastStudyDate: today,
+      studyDates: guestDates,
       hearts: hearts ? Number.parseInt(hearts, 10) : 3,
       lastHeartRefillTime: refill ? Number.parseInt(refill, 10) : Date.now(),
       rankTier: rankTier || 'BRONZE',
@@ -380,15 +385,34 @@ function readGuestProgress(): LearningProgress {
       rankHistory: rankHistory ? JSON.parse(rankHistory) : [],
       rankCareerPoints: rankCareer ? Number.parseInt(rankCareer, 10) : 0,
     });
+
+    writeLocalProgress(initial, null);
+    return initial;
   } catch {
-    return { ...DEFAULT_PROGRESS };
+    const today = getLocalDateString();
+    return {
+      ...DEFAULT_PROGRESS,
+      lastStudyDate: today,
+      studyDates: [today],
+      streakDays: 1,
+    };
   }
 }
 
 function readUserCache(uid: string): LearningProgress | null {
   try {
     const saved = localStorage.getItem(`ing_progress_${uid}`);
-    return saved ? normalizeProgress(JSON.parse(saved)) : null;
+    if (!saved) return null;
+    const today = getLocalDateString();
+    const parsed = normalizeProgress(JSON.parse(saved));
+    const dates = Array.from(new Set([...(parsed.studyDates || []), today]));
+    const streak = calculateConsecutiveStreak(dates, today);
+    return {
+      ...parsed,
+      lastStudyDate: today,
+      studyDates: dates,
+      streakDays: streak,
+    };
   } catch {
     return null;
   }
@@ -565,12 +589,22 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
             : DEFAULT_PROGRESS;
           const merged = mergeProgress(remoteProgress, latestCache, guestProgressRef.current);
 
-          await setDoc(progressDoc, { ...merged, updatedAt: serverTimestamp() }, { merge: true });
+          const today = getLocalDateString();
+          const autoUpdatedDates = Array.from(new Set([...(merged.studyDates || []), today]));
+          const autoStreak = calculateConsecutiveStreak(autoUpdatedDates, today);
+          const finalMerged: LearningProgress = {
+            ...merged,
+            lastStudyDate: today,
+            studyDates: autoUpdatedDates,
+            streakDays: autoStreak,
+          };
+
+          await setDoc(progressDoc, { ...finalMerged, updatedAt: serverTimestamp() }, { merge: true });
           if (requestId !== authRequestRef.current) return;
 
-          progressRef.current = merged;
-          setProgress(merged);
-          writeLocalProgress(merged, nextUser.uid);
+          progressRef.current = finalMerged;
+          setProgress(finalMerged);
+          writeLocalProgress(finalMerged, nextUser.uid);
           clearGuestProgress();
           guestProgressRef.current = { ...DEFAULT_PROGRESS };
           setSyncStatus('saved');
@@ -831,35 +865,51 @@ export const ProgressProvider: React.FC<React.PropsWithChildren> = ({ children }
     });
   }, [commitProgress]);
 
-  // Proactively check and expire streak if user missed a day or if cached streak was inaccurate
+  // Tự động thắp sáng và duy trì ngọn lửa chuỗi học tập (Streak) ngay khi truy cập web
   useEffect(() => {
-    const checkAndExpireStreak = () => {
+    const checkAndRecordDailyStreak = () => {
+      const today = getLocalDateString();
       commitProgress(current => {
-        const accurateStreak = calculateConsecutiveStreak(current.studyDates, current.lastStudyDate);
-        if (current.streakDays !== accurateStreak) {
-          return {
-            ...current,
-            streakDays: accurateStreak,
-          };
+        const dates = current.studyDates || [];
+        const isAlreadyRecordedToday = dates.includes(today) && current.lastStudyDate === today;
+
+        if (isAlreadyRecordedToday) {
+          const accurateStreak = calculateConsecutiveStreak(dates, today);
+          if (current.streakDays !== accurateStreak) {
+            return {
+              ...current,
+              streakDays: accurateStreak,
+            };
+          }
+          return current;
         }
-        return current;
+
+        const updatedDates = Array.from(new Set([...dates, today]));
+        const nextStreak = calculateConsecutiveStreak(updatedDates, today);
+
+        return {
+          ...current,
+          streakDays: nextStreak,
+          lastStudyDate: today,
+          studyDates: updatedDates,
+        };
       });
     };
 
-    checkAndExpireStreak();
+    checkAndRecordDailyStreak();
 
     const onVisibilityChange = () => {
       if (document.visibilityState === 'visible') {
-        checkAndExpireStreak();
+        checkAndRecordDailyStreak();
       }
     };
 
     document.addEventListener('visibilitychange', onVisibilityChange);
-    window.addEventListener('focus', checkAndExpireStreak);
+    window.addEventListener('focus', checkAndRecordDailyStreak);
 
     return () => {
       document.removeEventListener('visibilitychange', onVisibilityChange);
-      window.removeEventListener('focus', checkAndExpireStreak);
+      window.removeEventListener('focus', checkAndRecordDailyStreak);
     };
   }, [commitProgress]);
 

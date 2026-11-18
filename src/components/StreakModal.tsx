@@ -113,17 +113,17 @@ export const StreakModal: React.FC<StreakModalProps> = ({
           <p className="text-xs sm:text-sm font-bold text-gray-700 mt-1 max-w-xs">
             {streakDays === 0 ? (
               <span className="text-rose-600 font-bold block">
-                Đốm lửa nhỏ đang ngủ vì lỡ nghỉ 1 ngày. Học 1 bài ngay để thắp sáng chuỗi mới nha!
+                Đốm lửa nhỏ đang ngủ. Chỉ cần vào web mỗi ngày là thắp sáng chuỗi mới nha!
               </span>
             ) : isStudiedToday ? (
               <span className="text-emerald-700 font-black flex items-center justify-center gap-1.5">
                 <DoodleCheck size={16} />
-                <span>Hôm nay đã học bài, đốm lửa vẫn ấm áp!</span>
+                <span>Hôm nay bạn đã vào web điểm danh, đốm lửa vẫn rực cháy!</span>
               </span>
             ) : (
               <span className="text-amber-800 font-bold flex items-center justify-center gap-1.5">
                 <Clock className="w-4 h-4 shrink-0" />
-                <span>Hôm nay chưa học bài nào. Học 1 bài để giữ chuỗi {streakDays} ngày nhé!</span>
+                <span>Hôm nay chưa vào web. Vào web mỗi ngày để giữ chuỗi {streakDays} ngày nhé!</span>
               </span>
             )}
           </p>
